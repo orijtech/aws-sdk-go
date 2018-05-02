@@ -15,6 +15,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/client/metadata"
 	"github.com/aws/aws-sdk-go/internal/sdkio"
+
+	"go.opencensus.io/trace"
 )
 
 const (
@@ -454,14 +456,22 @@ func (r *Request) GetBody() io.ReadSeeker {
 //
 // Send will not close the request.Request's body.
 func (r *Request) Send() error {
+	ctx, span := trace.StartSpan(r.Context(), "aws/request.(*Request).Send/"+r.Operation.Name)
+	r.context = ctx
+
 	defer func() {
 		// Regardless of success or failure of the request trigger the Complete
-		// request handlers.
+		// request handlers as well as end the tracing span.
 		r.Handlers.Complete.Run(r)
+		span.End()
 	}()
 
 	for {
 		if aws.BoolValue(r.Retryable) {
+			span.Annotate([]trace.Attribute{
+				trace.Int64Attribute("attempt", int64(r.RetryCount)),
+				trace.StringAttribute("name", r.ClientInfo.ServiceName+"/"+r.Operation.Name),
+			}, "Retrying request")
 			if r.Config.LogLevel.Matches(aws.LogDebugWithRequestRetries) {
 				r.Config.Logger.Log(fmt.Sprintf("DEBUG: Retrying Request %s/%s, attempt %d",
 					r.ClientInfo.ServiceName, r.Operation.Name, r.RetryCount))
@@ -480,20 +490,23 @@ func (r *Request) Send() error {
 			}
 		}
 
+		span.Annotate(nil, "Signing request")
 		r.Sign()
-		if r.Error != nil {
-			return r.Error
+		if err := r.Error; err != nil {
+			span.SetStatus(trace.Status{Code: int32(trace.StatusCodeInternal), Message: err.Error()})
+			return err
 		}
+		span.Annotate(nil, "Successfully signed request")
 
 		r.Retryable = nil
 
+		span.Annotate(nil, "Now sending request")
 		r.Handlers.Send.Run(r)
-		if r.Error != nil {
+		if err := r.Error; err != nil {
 			if !shouldRetryCancel(r) {
-				return r.Error
+				return err
 			}
 
-			err := r.Error
 			r.Handlers.Retry.Run(r)
 			r.Handlers.AfterRetry.Run(r)
 			if r.Error != nil {
@@ -503,11 +516,13 @@ func (r *Request) Send() error {
 			debugLogReqError(r, "Send Request", true, err)
 			continue
 		}
+		span.Annotate(nil, "Successfully sent request")
+		span.Annotate(nil, "Now unmarshaling metadata")
 		r.Handlers.UnmarshalMeta.Run(r)
+		span.Annotate(nil, "Now validating response")
 		r.Handlers.ValidateResponse.Run(r)
-		if r.Error != nil {
+		if err := r.Error; err != nil {
 			r.Handlers.UnmarshalError.Run(r)
-			err := r.Error
 
 			r.Handlers.Retry.Run(r)
 			r.Handlers.AfterRetry.Run(r)
@@ -519,19 +534,23 @@ func (r *Request) Send() error {
 			continue
 		}
 
+		span.Annotate(nil, "Successfully validated response")
+		span.Annotate(nil, "Now unmarshaling response")
 		r.Handlers.Unmarshal.Run(r)
-		if r.Error != nil {
-			err := r.Error
+		span.Annotate(nil, "Finished unmarshaling response")
+		if err := r.Error; err != nil {
 			r.Handlers.Retry.Run(r)
 			r.Handlers.AfterRetry.Run(r)
 			if r.Error != nil {
 				debugLogReqError(r, "Unmarshal Response", false, err)
+				span.SetStatus(trace.Status{Code: int32(trace.StatusCodeInternal), Message: r.Error.Error()})
 				return r.Error
 			}
 			debugLogReqError(r, "Unmarshal Response", true, err)
 			continue
 		}
 
+		span.Annotate(nil, "Successfully unmarshaled response")
 		break
 	}
 

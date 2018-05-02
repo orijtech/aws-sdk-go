@@ -18,6 +18,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws/defaults"
 	"github.com/aws/aws-sdk-go/aws/endpoints"
 	"github.com/aws/aws-sdk-go/aws/request"
+
+	"go.opencensus.io/plugin/ochttp"
 )
 
 // A Session provides a central location to create service clients from and
@@ -378,7 +380,7 @@ func loadCustomCABundle(s *Session, bundle io.Reader) error {
 	}
 	t.TLSClientConfig.RootCAs = p
 
-	s.Config.HTTPClient.Transport = t
+	s.Config.HTTPClient.Transport = &ochttp.Transport{Base: t}
 
 	return nil
 }

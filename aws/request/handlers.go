@@ -3,6 +3,8 @@ package request
 import (
 	"fmt"
 	"strings"
+
+	"go.opencensus.io/trace"
 )
 
 // A Handlers provides a collection of request handlers for various
@@ -192,7 +194,9 @@ func (l *HandlerList) SetFrontNamed(n NamedHandler) {
 // Run executes all handlers in the list with a given request object.
 func (l *HandlerList) Run(r *Request) {
 	for i, h := range l.list {
+		_, span := trace.StartSpan(r.Context(), "aws/request.(*HandlerList).Run+"+h.Name)
 		h.Fn(r)
+		span.End()
 		item := HandlerListRunItem{
 			Index: i, Handler: h, Request: r,
 		}

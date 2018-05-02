@@ -14,6 +14,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/request"
+
+	"go.opencensus.io/plugin/ochttp"
 )
 
 // Interface for matching types which also have a Len method.
@@ -117,7 +119,15 @@ var SendHandler = request.NamedHandler{
 }
 
 func sendFollowRedirects(r *request.Request) (*http.Response, error) {
-	return r.Config.HTTPClient.Do(r.HTTPRequest)
+	hc := r.Config.HTTPClient
+	if hc == nil {
+		hc = &http.Client{}
+	}
+	var rt http.RoundTripper = hc.Transport
+	if _, ok := hc.Transport.(*ochttp.Transport); !ok {
+		rt = &ochttp.Transport{Base: hc.Transport}
+	}
+	return rt.RoundTrip(r.HTTPRequest)
 }
 
 func sendWithoutFollowRedirects(r *request.Request) (*http.Response, error) {
@@ -126,7 +136,7 @@ func sendWithoutFollowRedirects(r *request.Request) (*http.Response, error) {
 		transport = http.DefaultTransport
 	}
 
-	return transport.RoundTrip(r.HTTPRequest)
+	return (&ochttp.Transport{Base: transport}).RoundTrip(r.HTTPRequest)
 }
 
 func handleSendError(r *request.Request, err error) {

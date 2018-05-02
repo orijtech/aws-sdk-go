@@ -172,6 +172,9 @@ func (c *{{ .API.StructName }}) {{ .ExportedName }}(` +
 func (c *{{ .API.StructName }}) {{ .ExportedName }}WithContext(` +
 	`ctx aws.Context, input {{ .InputRef.GoType }}, opts ...request.Option) ` +
 	`({{ .OutputRef.GoType }}, error) {
+        {{ if .API.EnableTracing }}ctx, span := trace.StartSpan(ctx,"aws/{{ .API.PackageName }}.(*{{ .API.StructName }}).{{ .ExportedName }}")
+        defer  span.End()
+        {{end}}
 	req, out := c.{{ .ExportedName }}Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

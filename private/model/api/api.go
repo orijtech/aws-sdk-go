@@ -157,6 +157,8 @@ func (a *API) NiceName() string {
 	return a.Metadata.ServiceFullName
 }
 
+func (a *API) EnableTracing() bool { return true }
+
 // ProtocolPackage returns the package name of the protocol this API uses.
 func (a *API) ProtocolPackage() string {
 	switch a.Metadata.Protocol {
@@ -301,6 +303,9 @@ func (a *API) APIGoCode() string {
 	if a.OperationHasOutputPlaceholder() {
 		a.imports["github.com/aws/aws-sdk-go/private/protocol/"+a.ProtocolPackage()] = true
 		a.imports["github.com/aws/aws-sdk-go/private/protocol"] = true
+	}
+	if a.EnableTracing() {
+		a.imports["go.opencensus.io/trace"] = true
 	}
 
 	for _, op := range a.Operations {
