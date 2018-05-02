@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opInvokeEndpoint = "InvokeEndpoint"
@@ -98,6 +99,9 @@ func (c *SageMakerRuntime) InvokeEndpoint(input *InvokeEndpointInput) (*InvokeEn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMakerRuntime) InvokeEndpointWithContext(ctx aws.Context, input *InvokeEndpointInput, opts ...request.Option) (*InvokeEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemakerruntime.(*SageMakerRuntime).InvokeEndpoint")
+	defer span.End()
+
 	req, out := c.InvokeEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

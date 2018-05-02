@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opGetResources = "GetResources"
@@ -106,6 +107,9 @@ func (c *ResourceGroupsTaggingAPI) GetResources(input *GetResourcesInput) (*GetR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroupsTaggingAPI) GetResourcesWithContext(ctx aws.Context, input *GetResourcesInput, opts ...request.Option) (*GetResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroupstaggingapi.(*ResourceGroupsTaggingAPI).GetResources")
+	defer span.End()
+
 	req, out := c.GetResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -253,6 +257,9 @@ func (c *ResourceGroupsTaggingAPI) GetTagKeys(input *GetTagKeysInput) (*GetTagKe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroupsTaggingAPI) GetTagKeysWithContext(ctx aws.Context, input *GetTagKeysInput, opts ...request.Option) (*GetTagKeysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroupstaggingapi.(*ResourceGroupsTaggingAPI).GetTagKeys")
+	defer span.End()
+
 	req, out := c.GetTagKeysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -401,6 +408,9 @@ func (c *ResourceGroupsTaggingAPI) GetTagValues(input *GetTagValuesInput) (*GetT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroupsTaggingAPI) GetTagValuesWithContext(ctx aws.Context, input *GetTagValuesInput, opts ...request.Option) (*GetTagValuesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroupstaggingapi.(*ResourceGroupsTaggingAPI).GetTagValues")
+	defer span.End()
+
 	req, out := c.GetTagValuesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -554,6 +564,9 @@ func (c *ResourceGroupsTaggingAPI) TagResources(input *TagResourcesInput) (*TagR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroupsTaggingAPI) TagResourcesWithContext(ctx aws.Context, input *TagResourcesInput, opts ...request.Option) (*TagResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroupstaggingapi.(*ResourceGroupsTaggingAPI).TagResources")
+	defer span.End()
+
 	req, out := c.TagResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -652,6 +665,9 @@ func (c *ResourceGroupsTaggingAPI) UntagResources(input *UntagResourcesInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroupsTaggingAPI) UntagResourcesWithContext(ctx aws.Context, input *UntagResourcesInput, opts ...request.Option) (*UntagResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroupstaggingapi.(*ResourceGroupsTaggingAPI).UntagResources")
+	defer span.End()
+
 	req, out := c.UntagResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

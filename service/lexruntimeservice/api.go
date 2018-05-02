@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/aws/signer/v4"
+	"go.opencensus.io/trace"
 )
 
 const opPostContent = "PostContent"
@@ -183,6 +184,9 @@ func (c *LexRuntimeService) PostContent(input *PostContentInput) (*PostContentOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexRuntimeService) PostContentWithContext(ctx aws.Context, input *PostContentInput, opts ...request.Option) (*PostContentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexruntimeservice.(*LexRuntimeService).PostContent")
+	defer span.End()
+
 	req, out := c.PostContentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -343,6 +347,9 @@ func (c *LexRuntimeService) PostText(input *PostTextInput) (*PostTextOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexRuntimeService) PostTextWithContext(ctx aws.Context, input *PostTextInput, opts ...request.Option) (*PostTextOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexruntimeservice.(*LexRuntimeService).PostText")
+	defer span.End()
+
 	req, out := c.PostTextRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

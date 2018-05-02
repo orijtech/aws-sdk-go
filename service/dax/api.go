@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateCluster = "CreateCluster"
@@ -122,6 +123,9 @@ func (c *DAX) CreateCluster(input *CreateClusterInput) (*CreateClusterOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) CreateClusterWithContext(ctx aws.Context, input *CreateClusterInput, opts ...request.Option) (*CreateClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).CreateCluster")
+	defer span.End()
+
 	req, out := c.CreateClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -214,6 +218,9 @@ func (c *DAX) CreateParameterGroup(input *CreateParameterGroupInput) (*CreatePar
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) CreateParameterGroupWithContext(ctx aws.Context, input *CreateParameterGroupInput, opts ...request.Option) (*CreateParameterGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).CreateParameterGroup")
+	defer span.End()
+
 	req, out := c.CreateParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -304,6 +311,9 @@ func (c *DAX) CreateSubnetGroup(input *CreateSubnetGroupInput) (*CreateSubnetGro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) CreateSubnetGroupWithContext(ctx aws.Context, input *CreateSubnetGroupInput, opts ...request.Option) (*CreateSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).CreateSubnetGroup")
+	defer span.End()
+
 	req, out := c.CreateSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -398,6 +408,9 @@ func (c *DAX) DecreaseReplicationFactor(input *DecreaseReplicationFactorInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) DecreaseReplicationFactorWithContext(ctx aws.Context, input *DecreaseReplicationFactorInput, opts ...request.Option) (*DecreaseReplicationFactorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).DecreaseReplicationFactor")
+	defer span.End()
+
 	req, out := c.DecreaseReplicationFactorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -489,6 +502,9 @@ func (c *DAX) DeleteCluster(input *DeleteClusterInput) (*DeleteClusterOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) DeleteClusterWithContext(ctx aws.Context, input *DeleteClusterInput, opts ...request.Option) (*DeleteClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).DeleteCluster")
+	defer span.End()
+
 	req, out := c.DeleteClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -578,6 +594,9 @@ func (c *DAX) DeleteParameterGroup(input *DeleteParameterGroupInput) (*DeletePar
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) DeleteParameterGroupWithContext(ctx aws.Context, input *DeleteParameterGroupInput, opts ...request.Option) (*DeleteParameterGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).DeleteParameterGroup")
+	defer span.End()
+
 	req, out := c.DeleteParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -662,6 +681,9 @@ func (c *DAX) DeleteSubnetGroup(input *DeleteSubnetGroupInput) (*DeleteSubnetGro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) DeleteSubnetGroupWithContext(ctx aws.Context, input *DeleteSubnetGroupInput, opts ...request.Option) (*DeleteSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).DeleteSubnetGroup")
+	defer span.End()
+
 	req, out := c.DeleteSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -763,6 +785,9 @@ func (c *DAX) DescribeClusters(input *DescribeClustersInput) (*DescribeClustersO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) DescribeClustersWithContext(ctx aws.Context, input *DescribeClustersInput, opts ...request.Option) (*DescribeClustersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).DescribeClusters")
+	defer span.End()
+
 	req, out := c.DescribeClustersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -845,6 +870,9 @@ func (c *DAX) DescribeDefaultParameters(input *DescribeDefaultParametersInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) DescribeDefaultParametersWithContext(ctx aws.Context, input *DescribeDefaultParametersInput, opts ...request.Option) (*DescribeDefaultParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).DescribeDefaultParameters")
+	defer span.End()
+
 	req, out := c.DescribeDefaultParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -932,6 +960,9 @@ func (c *DAX) DescribeEvents(input *DescribeEventsInput) (*DescribeEventsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) DescribeEventsWithContext(ctx aws.Context, input *DescribeEventsInput, opts ...request.Option) (*DescribeEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).DescribeEvents")
+	defer span.End()
+
 	req, out := c.DescribeEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1018,6 +1049,9 @@ func (c *DAX) DescribeParameterGroups(input *DescribeParameterGroupsInput) (*Des
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) DescribeParameterGroupsWithContext(ctx aws.Context, input *DescribeParameterGroupsInput, opts ...request.Option) (*DescribeParameterGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).DescribeParameterGroups")
+	defer span.End()
+
 	req, out := c.DescribeParameterGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1103,6 +1137,9 @@ func (c *DAX) DescribeParameters(input *DescribeParametersInput) (*DescribeParam
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) DescribeParametersWithContext(ctx aws.Context, input *DescribeParametersInput, opts ...request.Option) (*DescribeParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).DescribeParameters")
+	defer span.End()
+
 	req, out := c.DescribeParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1183,6 +1220,9 @@ func (c *DAX) DescribeSubnetGroups(input *DescribeSubnetGroupsInput) (*DescribeS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) DescribeSubnetGroupsWithContext(ctx aws.Context, input *DescribeSubnetGroupsInput, opts ...request.Option) (*DescribeSubnetGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).DescribeSubnetGroups")
+	defer span.End()
+
 	req, out := c.DescribeSubnetGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1284,6 +1324,9 @@ func (c *DAX) IncreaseReplicationFactor(input *IncreaseReplicationFactorInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) IncreaseReplicationFactorWithContext(ctx aws.Context, input *IncreaseReplicationFactorInput, opts ...request.Option) (*IncreaseReplicationFactorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).IncreaseReplicationFactor")
+	defer span.End()
+
 	req, out := c.IncreaseReplicationFactorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1376,6 +1419,9 @@ func (c *DAX) ListTags(input *ListTagsInput) (*ListTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) ListTagsWithContext(ctx aws.Context, input *ListTagsInput, opts ...request.Option) (*ListTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).ListTags")
+	defer span.End()
+
 	req, out := c.ListTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1468,6 +1514,9 @@ func (c *DAX) RebootNode(input *RebootNodeInput) (*RebootNodeOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) RebootNodeWithContext(ctx aws.Context, input *RebootNodeInput, opts ...request.Option) (*RebootNodeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).RebootNode")
+	defer span.End()
+
 	req, out := c.RebootNodeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1563,6 +1612,9 @@ func (c *DAX) TagResource(input *TagResourceInput) (*TagResourceOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).TagResource")
+	defer span.End()
+
 	req, out := c.TagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1658,6 +1710,9 @@ func (c *DAX) UntagResource(input *UntagResourceInput) (*UntagResourceOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).UntagResource")
+	defer span.End()
+
 	req, out := c.UntagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1754,6 +1809,9 @@ func (c *DAX) UpdateCluster(input *UpdateClusterInput) (*UpdateClusterOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) UpdateClusterWithContext(ctx aws.Context, input *UpdateClusterInput, opts ...request.Option) (*UpdateClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).UpdateCluster")
+	defer span.End()
+
 	req, out := c.UpdateClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1843,6 +1901,9 @@ func (c *DAX) UpdateParameterGroup(input *UpdateParameterGroupInput) (*UpdatePar
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) UpdateParameterGroupWithContext(ctx aws.Context, input *UpdateParameterGroupInput, opts ...request.Option) (*UpdateParameterGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).UpdateParameterGroup")
+	defer span.End()
+
 	req, out := c.UpdateParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1932,6 +1993,9 @@ func (c *DAX) UpdateSubnetGroup(input *UpdateSubnetGroupInput) (*UpdateSubnetGro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DAX) UpdateSubnetGroupWithContext(ctx aws.Context, input *UpdateSubnetGroupInput, opts ...request.Option) (*UpdateSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dax.(*DAX).UpdateSubnetGroup")
+	defer span.End()
+
 	req, out := c.UpdateSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

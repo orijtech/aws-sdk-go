@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opDescribeJobExecution = "DescribeJobExecution"
@@ -98,6 +99,9 @@ func (c *IoTJobsDataPlane) DescribeJobExecution(input *DescribeJobExecutionInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoTJobsDataPlane) DescribeJobExecutionWithContext(ctx aws.Context, input *DescribeJobExecutionInput, opts ...request.Option) (*DescribeJobExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iotjobsdataplane.(*IoTJobsDataPlane).DescribeJobExecution")
+	defer span.End()
+
 	req, out := c.DescribeJobExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -191,6 +195,9 @@ func (c *IoTJobsDataPlane) GetPendingJobExecutions(input *GetPendingJobExecution
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoTJobsDataPlane) GetPendingJobExecutionsWithContext(ctx aws.Context, input *GetPendingJobExecutionsInput, opts ...request.Option) (*GetPendingJobExecutionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iotjobsdataplane.(*IoTJobsDataPlane).GetPendingJobExecutions")
+	defer span.End()
+
 	req, out := c.GetPendingJobExecutionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -285,6 +292,9 @@ func (c *IoTJobsDataPlane) StartNextPendingJobExecution(input *StartNextPendingJ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoTJobsDataPlane) StartNextPendingJobExecutionWithContext(ctx aws.Context, input *StartNextPendingJobExecutionInput, opts ...request.Option) (*StartNextPendingJobExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iotjobsdataplane.(*IoTJobsDataPlane).StartNextPendingJobExecution")
+	defer span.End()
+
 	req, out := c.StartNextPendingJobExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -384,6 +394,9 @@ func (c *IoTJobsDataPlane) UpdateJobExecution(input *UpdateJobExecutionInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoTJobsDataPlane) UpdateJobExecutionWithContext(ctx aws.Context, input *UpdateJobExecutionInput, opts ...request.Option) (*UpdateJobExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iotjobsdataplane.(*IoTJobsDataPlane).UpdateJobExecution")
+	defer span.End()
+
 	req, out := c.UpdateJobExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

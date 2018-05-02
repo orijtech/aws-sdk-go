@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAcceptInvitation = "AcceptInvitation"
@@ -84,6 +85,9 @@ func (c *GuardDuty) AcceptInvitation(input *AcceptInvitationInput) (*AcceptInvit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) AcceptInvitationWithContext(ctx aws.Context, input *AcceptInvitationInput, opts ...request.Option) (*AcceptInvitationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).AcceptInvitation")
+	defer span.End()
+
 	req, out := c.AcceptInvitationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -166,6 +170,9 @@ func (c *GuardDuty) ArchiveFindings(input *ArchiveFindingsInput) (*ArchiveFindin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) ArchiveFindingsWithContext(ctx aws.Context, input *ArchiveFindingsInput, opts ...request.Option) (*ArchiveFindingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).ArchiveFindings")
+	defer span.End()
+
 	req, out := c.ArchiveFindingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -250,6 +257,9 @@ func (c *GuardDuty) CreateDetector(input *CreateDetectorInput) (*CreateDetectorO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) CreateDetectorWithContext(ctx aws.Context, input *CreateDetectorInput, opts ...request.Option) (*CreateDetectorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).CreateDetector")
+	defer span.End()
+
 	req, out := c.CreateDetectorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -333,6 +343,9 @@ func (c *GuardDuty) CreateIPSet(input *CreateIPSetInput) (*CreateIPSetOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) CreateIPSetWithContext(ctx aws.Context, input *CreateIPSetInput, opts ...request.Option) (*CreateIPSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).CreateIPSet")
+	defer span.End()
+
 	req, out := c.CreateIPSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -417,6 +430,9 @@ func (c *GuardDuty) CreateMembers(input *CreateMembersInput) (*CreateMembersOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) CreateMembersWithContext(ctx aws.Context, input *CreateMembersInput, opts ...request.Option) (*CreateMembersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).CreateMembers")
+	defer span.End()
+
 	req, out := c.CreateMembersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -501,6 +517,9 @@ func (c *GuardDuty) CreateSampleFindings(input *CreateSampleFindingsInput) (*Cre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) CreateSampleFindingsWithContext(ctx aws.Context, input *CreateSampleFindingsInput, opts ...request.Option) (*CreateSampleFindingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).CreateSampleFindings")
+	defer span.End()
+
 	req, out := c.CreateSampleFindingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -584,6 +603,9 @@ func (c *GuardDuty) CreateThreatIntelSet(input *CreateThreatIntelSetInput) (*Cre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) CreateThreatIntelSetWithContext(ctx aws.Context, input *CreateThreatIntelSetInput, opts ...request.Option) (*CreateThreatIntelSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).CreateThreatIntelSet")
+	defer span.End()
+
 	req, out := c.CreateThreatIntelSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -667,6 +689,9 @@ func (c *GuardDuty) DeclineInvitations(input *DeclineInvitationsInput) (*Decline
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) DeclineInvitationsWithContext(ctx aws.Context, input *DeclineInvitationsInput, opts ...request.Option) (*DeclineInvitationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).DeclineInvitations")
+	defer span.End()
+
 	req, out := c.DeclineInvitationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -749,6 +774,9 @@ func (c *GuardDuty) DeleteDetector(input *DeleteDetectorInput) (*DeleteDetectorO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) DeleteDetectorWithContext(ctx aws.Context, input *DeleteDetectorInput, opts ...request.Option) (*DeleteDetectorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).DeleteDetector")
+	defer span.End()
+
 	req, out := c.DeleteDetectorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -831,6 +859,9 @@ func (c *GuardDuty) DeleteIPSet(input *DeleteIPSetInput) (*DeleteIPSetOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) DeleteIPSetWithContext(ctx aws.Context, input *DeleteIPSetInput, opts ...request.Option) (*DeleteIPSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).DeleteIPSet")
+	defer span.End()
+
 	req, out := c.DeleteIPSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -914,6 +945,9 @@ func (c *GuardDuty) DeleteInvitations(input *DeleteInvitationsInput) (*DeleteInv
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) DeleteInvitationsWithContext(ctx aws.Context, input *DeleteInvitationsInput, opts ...request.Option) (*DeleteInvitationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).DeleteInvitations")
+	defer span.End()
+
 	req, out := c.DeleteInvitationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -997,6 +1031,9 @@ func (c *GuardDuty) DeleteMembers(input *DeleteMembersInput) (*DeleteMembersOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) DeleteMembersWithContext(ctx aws.Context, input *DeleteMembersInput, opts ...request.Option) (*DeleteMembersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).DeleteMembers")
+	defer span.End()
+
 	req, out := c.DeleteMembersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1079,6 +1116,9 @@ func (c *GuardDuty) DeleteThreatIntelSet(input *DeleteThreatIntelSetInput) (*Del
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) DeleteThreatIntelSetWithContext(ctx aws.Context, input *DeleteThreatIntelSetInput, opts ...request.Option) (*DeleteThreatIntelSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).DeleteThreatIntelSet")
+	defer span.End()
+
 	req, out := c.DeleteThreatIntelSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1161,6 +1201,9 @@ func (c *GuardDuty) DisassociateFromMasterAccount(input *DisassociateFromMasterA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) DisassociateFromMasterAccountWithContext(ctx aws.Context, input *DisassociateFromMasterAccountInput, opts ...request.Option) (*DisassociateFromMasterAccountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).DisassociateFromMasterAccount")
+	defer span.End()
+
 	req, out := c.DisassociateFromMasterAccountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1244,6 +1287,9 @@ func (c *GuardDuty) DisassociateMembers(input *DisassociateMembersInput) (*Disas
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) DisassociateMembersWithContext(ctx aws.Context, input *DisassociateMembersInput, opts ...request.Option) (*DisassociateMembersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).DisassociateMembers")
+	defer span.End()
+
 	req, out := c.DisassociateMembersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1326,6 +1372,9 @@ func (c *GuardDuty) GetDetector(input *GetDetectorInput) (*GetDetectorOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) GetDetectorWithContext(ctx aws.Context, input *GetDetectorInput, opts ...request.Option) (*GetDetectorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).GetDetector")
+	defer span.End()
+
 	req, out := c.GetDetectorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1408,6 +1457,9 @@ func (c *GuardDuty) GetFindings(input *GetFindingsInput) (*GetFindingsOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) GetFindingsWithContext(ctx aws.Context, input *GetFindingsInput, opts ...request.Option) (*GetFindingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).GetFindings")
+	defer span.End()
+
 	req, out := c.GetFindingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1490,6 +1542,9 @@ func (c *GuardDuty) GetFindingsStatistics(input *GetFindingsStatisticsInput) (*G
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) GetFindingsStatisticsWithContext(ctx aws.Context, input *GetFindingsStatisticsInput, opts ...request.Option) (*GetFindingsStatisticsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).GetFindingsStatistics")
+	defer span.End()
+
 	req, out := c.GetFindingsStatisticsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1572,6 +1627,9 @@ func (c *GuardDuty) GetIPSet(input *GetIPSetInput) (*GetIPSetOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) GetIPSetWithContext(ctx aws.Context, input *GetIPSetInput, opts ...request.Option) (*GetIPSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).GetIPSet")
+	defer span.End()
+
 	req, out := c.GetIPSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1655,6 +1713,9 @@ func (c *GuardDuty) GetInvitationsCount(input *GetInvitationsCountInput) (*GetIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) GetInvitationsCountWithContext(ctx aws.Context, input *GetInvitationsCountInput, opts ...request.Option) (*GetInvitationsCountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).GetInvitationsCount")
+	defer span.End()
+
 	req, out := c.GetInvitationsCountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1738,6 +1799,9 @@ func (c *GuardDuty) GetMasterAccount(input *GetMasterAccountInput) (*GetMasterAc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) GetMasterAccountWithContext(ctx aws.Context, input *GetMasterAccountInput, opts ...request.Option) (*GetMasterAccountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).GetMasterAccount")
+	defer span.End()
+
 	req, out := c.GetMasterAccountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1821,6 +1885,9 @@ func (c *GuardDuty) GetMembers(input *GetMembersInput) (*GetMembersOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) GetMembersWithContext(ctx aws.Context, input *GetMembersInput, opts ...request.Option) (*GetMembersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).GetMembers")
+	defer span.End()
+
 	req, out := c.GetMembersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1903,6 +1970,9 @@ func (c *GuardDuty) GetThreatIntelSet(input *GetThreatIntelSetInput) (*GetThreat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) GetThreatIntelSetWithContext(ctx aws.Context, input *GetThreatIntelSetInput, opts ...request.Option) (*GetThreatIntelSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).GetThreatIntelSet")
+	defer span.End()
+
 	req, out := c.GetThreatIntelSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1988,6 +2058,9 @@ func (c *GuardDuty) InviteMembers(input *InviteMembersInput) (*InviteMembersOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) InviteMembersWithContext(ctx aws.Context, input *InviteMembersInput, opts ...request.Option) (*InviteMembersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).InviteMembers")
+	defer span.End()
+
 	req, out := c.InviteMembersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2076,6 +2149,9 @@ func (c *GuardDuty) ListDetectors(input *ListDetectorsInput) (*ListDetectorsOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) ListDetectorsWithContext(ctx aws.Context, input *ListDetectorsInput, opts ...request.Option) (*ListDetectorsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).ListDetectors")
+	defer span.End()
+
 	req, out := c.ListDetectorsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2214,6 +2290,9 @@ func (c *GuardDuty) ListFindings(input *ListFindingsInput) (*ListFindingsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) ListFindingsWithContext(ctx aws.Context, input *ListFindingsInput, opts ...request.Option) (*ListFindingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).ListFindings")
+	defer span.End()
+
 	req, out := c.ListFindingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2352,6 +2431,9 @@ func (c *GuardDuty) ListIPSets(input *ListIPSetsInput) (*ListIPSetsOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) ListIPSetsWithContext(ctx aws.Context, input *ListIPSetsInput, opts ...request.Option) (*ListIPSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).ListIPSets")
+	defer span.End()
+
 	req, out := c.ListIPSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2491,6 +2573,9 @@ func (c *GuardDuty) ListInvitations(input *ListInvitationsInput) (*ListInvitatio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) ListInvitationsWithContext(ctx aws.Context, input *ListInvitationsInput, opts ...request.Option) (*ListInvitationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).ListInvitations")
+	defer span.End()
+
 	req, out := c.ListInvitationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2630,6 +2715,9 @@ func (c *GuardDuty) ListMembers(input *ListMembersInput) (*ListMembersOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) ListMembersWithContext(ctx aws.Context, input *ListMembersInput, opts ...request.Option) (*ListMembersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).ListMembers")
+	defer span.End()
+
 	req, out := c.ListMembersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2769,6 +2857,9 @@ func (c *GuardDuty) ListThreatIntelSets(input *ListThreatIntelSetsInput) (*ListT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) ListThreatIntelSetsWithContext(ctx aws.Context, input *ListThreatIntelSetsInput, opts ...request.Option) (*ListThreatIntelSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).ListThreatIntelSets")
+	defer span.End()
+
 	req, out := c.ListThreatIntelSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2903,6 +2994,9 @@ func (c *GuardDuty) StartMonitoringMembers(input *StartMonitoringMembersInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) StartMonitoringMembersWithContext(ctx aws.Context, input *StartMonitoringMembersInput, opts ...request.Option) (*StartMonitoringMembersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).StartMonitoringMembers")
+	defer span.End()
+
 	req, out := c.StartMonitoringMembersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2988,6 +3082,9 @@ func (c *GuardDuty) StopMonitoringMembers(input *StopMonitoringMembersInput) (*S
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) StopMonitoringMembersWithContext(ctx aws.Context, input *StopMonitoringMembersInput, opts ...request.Option) (*StopMonitoringMembersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).StopMonitoringMembers")
+	defer span.End()
+
 	req, out := c.StopMonitoringMembersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3070,6 +3167,9 @@ func (c *GuardDuty) UnarchiveFindings(input *UnarchiveFindingsInput) (*Unarchive
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) UnarchiveFindingsWithContext(ctx aws.Context, input *UnarchiveFindingsInput, opts ...request.Option) (*UnarchiveFindingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).UnarchiveFindings")
+	defer span.End()
+
 	req, out := c.UnarchiveFindingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3152,6 +3252,9 @@ func (c *GuardDuty) UpdateDetector(input *UpdateDetectorInput) (*UpdateDetectorO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) UpdateDetectorWithContext(ctx aws.Context, input *UpdateDetectorInput, opts ...request.Option) (*UpdateDetectorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).UpdateDetector")
+	defer span.End()
+
 	req, out := c.UpdateDetectorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3234,6 +3337,9 @@ func (c *GuardDuty) UpdateFindingsFeedback(input *UpdateFindingsFeedbackInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) UpdateFindingsFeedbackWithContext(ctx aws.Context, input *UpdateFindingsFeedbackInput, opts ...request.Option) (*UpdateFindingsFeedbackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).UpdateFindingsFeedback")
+	defer span.End()
+
 	req, out := c.UpdateFindingsFeedbackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3316,6 +3422,9 @@ func (c *GuardDuty) UpdateIPSet(input *UpdateIPSetInput) (*UpdateIPSetOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) UpdateIPSetWithContext(ctx aws.Context, input *UpdateIPSetInput, opts ...request.Option) (*UpdateIPSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).UpdateIPSet")
+	defer span.End()
+
 	req, out := c.UpdateIPSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3398,6 +3507,9 @@ func (c *GuardDuty) UpdateThreatIntelSet(input *UpdateThreatIntelSetInput) (*Upd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GuardDuty) UpdateThreatIntelSetWithContext(ctx aws.Context, input *UpdateThreatIntelSetInput, opts ...request.Option) (*UpdateThreatIntelSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/guardduty.(*GuardDuty).UpdateThreatIntelSet")
+	defer span.End()
+
 	req, out := c.UpdateThreatIntelSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

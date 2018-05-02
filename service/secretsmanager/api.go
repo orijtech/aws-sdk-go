@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opCancelRotateSecret = "CancelRotateSecret"
@@ -139,6 +140,9 @@ func (c *SecretsManager) CancelRotateSecret(input *CancelRotateSecretInput) (*Ca
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) CancelRotateSecretWithContext(ctx aws.Context, input *CancelRotateSecretInput, opts ...request.Option) (*CancelRotateSecretOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).CancelRotateSecret")
+	defer span.End()
+
 	req, out := c.CancelRotateSecretRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -315,6 +319,9 @@ func (c *SecretsManager) CreateSecret(input *CreateSecretInput) (*CreateSecretOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) CreateSecretWithContext(ctx aws.Context, input *CreateSecretInput, opts ...request.Option) (*CreateSecretOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).CreateSecret")
+	defer span.End()
+
 	req, out := c.CreateSecretRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -441,6 +448,9 @@ func (c *SecretsManager) DeleteSecret(input *DeleteSecretInput) (*DeleteSecretOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) DeleteSecretWithContext(ctx aws.Context, input *DeleteSecretInput, opts ...request.Option) (*DeleteSecretOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).DeleteSecret")
+	defer span.End()
+
 	req, out := c.DeleteSecretRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -541,6 +551,9 @@ func (c *SecretsManager) DescribeSecret(input *DescribeSecretInput) (*DescribeSe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) DescribeSecretWithContext(ctx aws.Context, input *DescribeSecretInput, opts ...request.Option) (*DescribeSecretOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).DescribeSecret")
+	defer span.End()
+
 	req, out := c.DescribeSecretRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -638,6 +651,9 @@ func (c *SecretsManager) GetRandomPassword(input *GetRandomPasswordInput) (*GetR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) GetRandomPasswordWithContext(ctx aws.Context, input *GetRandomPasswordInput, opts ...request.Option) (*GetRandomPasswordOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).GetRandomPassword")
+	defer span.End()
+
 	req, out := c.GetRandomPasswordRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -751,6 +767,9 @@ func (c *SecretsManager) GetSecretValue(input *GetSecretValueInput) (*GetSecretV
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) GetSecretValueWithContext(ctx aws.Context, input *GetSecretValueInput, opts ...request.Option) (*GetSecretValueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).GetSecretValue")
+	defer span.End()
+
 	req, out := c.GetSecretValueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -861,6 +880,9 @@ func (c *SecretsManager) ListSecretVersionIds(input *ListSecretVersionIdsInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) ListSecretVersionIdsWithContext(ctx aws.Context, input *ListSecretVersionIdsInput, opts ...request.Option) (*ListSecretVersionIdsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).ListSecretVersionIds")
+	defer span.End()
+
 	req, out := c.ListSecretVersionIdsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1022,6 +1044,9 @@ func (c *SecretsManager) ListSecrets(input *ListSecretsInput) (*ListSecretsOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) ListSecretsWithContext(ctx aws.Context, input *ListSecretsInput, opts ...request.Option) (*ListSecretsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).ListSecrets")
+	defer span.End()
+
 	req, out := c.ListSecretsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1247,6 +1272,9 @@ func (c *SecretsManager) PutSecretValue(input *PutSecretValueInput) (*PutSecretV
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) PutSecretValueWithContext(ctx aws.Context, input *PutSecretValueInput, opts ...request.Option) (*PutSecretValueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).PutSecretValue")
+	defer span.End()
+
 	req, out := c.PutSecretValueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1349,6 +1377,9 @@ func (c *SecretsManager) RestoreSecret(input *RestoreSecretInput) (*RestoreSecre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) RestoreSecretWithContext(ctx aws.Context, input *RestoreSecretInput, opts ...request.Option) (*RestoreSecretOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).RestoreSecret")
+	defer span.End()
+
 	req, out := c.RestoreSecretRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1488,6 +1519,9 @@ func (c *SecretsManager) RotateSecret(input *RotateSecretInput) (*RotateSecretOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) RotateSecretWithContext(ctx aws.Context, input *RotateSecretInput, opts ...request.Option) (*RotateSecretOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).RotateSecret")
+	defer span.End()
+
 	req, out := c.RotateSecretRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1617,6 +1651,9 @@ func (c *SecretsManager) TagResource(input *TagResourceInput) (*TagResourceOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).TagResource")
+	defer span.End()
+
 	req, out := c.TagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1725,6 +1762,9 @@ func (c *SecretsManager) UntagResource(input *UntagResourceInput) (*UntagResourc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).UntagResource")
+	defer span.End()
+
 	req, out := c.UntagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1896,6 +1936,9 @@ func (c *SecretsManager) UpdateSecret(input *UpdateSecretInput) (*UpdateSecretOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) UpdateSecretWithContext(ctx aws.Context, input *UpdateSecretInput, opts ...request.Option) (*UpdateSecretOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).UpdateSecret")
+	defer span.End()
+
 	req, out := c.UpdateSecretRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2023,6 +2066,9 @@ func (c *SecretsManager) UpdateSecretVersionStage(input *UpdateSecretVersionStag
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SecretsManager) UpdateSecretVersionStageWithContext(ctx aws.Context, input *UpdateSecretVersionStageInput, opts ...request.Option) (*UpdateSecretVersionStageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/secretsmanager.(*SecretsManager).UpdateSecretVersionStage")
+	defer span.End()
+
 	req, out := c.UpdateSecretVersionStageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

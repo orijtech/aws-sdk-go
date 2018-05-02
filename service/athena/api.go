@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opBatchGetNamedQuery = "BatchGetNamedQuery"
@@ -94,6 +95,9 @@ func (c *Athena) BatchGetNamedQuery(input *BatchGetNamedQueryInput) (*BatchGetNa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Athena) BatchGetNamedQueryWithContext(ctx aws.Context, input *BatchGetNamedQueryInput, opts ...request.Option) (*BatchGetNamedQueryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/athena.(*Athena).BatchGetNamedQuery")
+	defer span.End()
+
 	req, out := c.BatchGetNamedQueryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -182,6 +186,9 @@ func (c *Athena) BatchGetQueryExecution(input *BatchGetQueryExecutionInput) (*Ba
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Athena) BatchGetQueryExecutionWithContext(ctx aws.Context, input *BatchGetQueryExecutionInput, opts ...request.Option) (*BatchGetQueryExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/athena.(*Athena).BatchGetQueryExecution")
+	defer span.End()
+
 	req, out := c.BatchGetQueryExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -270,6 +277,9 @@ func (c *Athena) CreateNamedQuery(input *CreateNamedQueryInput) (*CreateNamedQue
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Athena) CreateNamedQueryWithContext(ctx aws.Context, input *CreateNamedQueryInput, opts ...request.Option) (*CreateNamedQueryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/athena.(*Athena).CreateNamedQuery")
+	defer span.End()
+
 	req, out := c.CreateNamedQueryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -358,6 +368,9 @@ func (c *Athena) DeleteNamedQuery(input *DeleteNamedQueryInput) (*DeleteNamedQue
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Athena) DeleteNamedQueryWithContext(ctx aws.Context, input *DeleteNamedQueryInput, opts ...request.Option) (*DeleteNamedQueryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/athena.(*Athena).DeleteNamedQuery")
+	defer span.End()
+
 	req, out := c.DeleteNamedQueryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -442,6 +455,9 @@ func (c *Athena) GetNamedQuery(input *GetNamedQueryInput) (*GetNamedQueryOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Athena) GetNamedQueryWithContext(ctx aws.Context, input *GetNamedQueryInput, opts ...request.Option) (*GetNamedQueryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/athena.(*Athena).GetNamedQuery")
+	defer span.End()
+
 	req, out := c.GetNamedQueryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -527,6 +543,9 @@ func (c *Athena) GetQueryExecution(input *GetQueryExecutionInput) (*GetQueryExec
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Athena) GetQueryExecutionWithContext(ctx aws.Context, input *GetQueryExecutionInput, opts ...request.Option) (*GetQueryExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/athena.(*Athena).GetQueryExecution")
+	defer span.End()
+
 	req, out := c.GetQueryExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -619,6 +638,9 @@ func (c *Athena) GetQueryResults(input *GetQueryResultsInput) (*GetQueryResultsO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Athena) GetQueryResultsWithContext(ctx aws.Context, input *GetQueryResultsInput, opts ...request.Option) (*GetQueryResultsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/athena.(*Athena).GetQueryResults")
+	defer span.End()
+
 	req, out := c.GetQueryResultsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -763,6 +785,9 @@ func (c *Athena) ListNamedQueries(input *ListNamedQueriesInput) (*ListNamedQueri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Athena) ListNamedQueriesWithContext(ctx aws.Context, input *ListNamedQueriesInput, opts ...request.Option) (*ListNamedQueriesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/athena.(*Athena).ListNamedQueries")
+	defer span.End()
+
 	req, out := c.ListNamedQueriesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -907,6 +932,9 @@ func (c *Athena) ListQueryExecutions(input *ListQueryExecutionsInput) (*ListQuer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Athena) ListQueryExecutionsWithContext(ctx aws.Context, input *ListQueryExecutionsInput, opts ...request.Option) (*ListQueryExecutionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/athena.(*Athena).ListQueryExecutions")
+	defer span.End()
+
 	req, out := c.ListQueryExecutionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1048,6 +1076,9 @@ func (c *Athena) StartQueryExecution(input *StartQueryExecutionInput) (*StartQue
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Athena) StartQueryExecutionWithContext(ctx aws.Context, input *StartQueryExecutionInput, opts ...request.Option) (*StartQueryExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/athena.(*Athena).StartQueryExecution")
+	defer span.End()
+
 	req, out := c.StartQueryExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1136,6 +1167,9 @@ func (c *Athena) StopQueryExecution(input *StopQueryExecutionInput) (*StopQueryE
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Athena) StopQueryExecutionWithContext(ctx aws.Context, input *StopQueryExecutionInput, opts ...request.Option) (*StopQueryExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/athena.(*Athena).StopQueryExecution")
+	defer span.End()
+
 	req, out := c.StopQueryExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

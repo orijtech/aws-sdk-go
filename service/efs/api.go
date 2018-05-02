@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
+	"go.opencensus.io/trace"
 )
 
 const opCreateFileSystem = "CreateFileSystem"
@@ -143,6 +144,9 @@ func (c *EFS) CreateFileSystem(input *CreateFileSystemInput) (*FileSystemDescrip
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EFS) CreateFileSystemWithContext(ctx aws.Context, input *CreateFileSystemInput, opts ...request.Option) (*FileSystemDescription, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/efs.(*EFS).CreateFileSystem")
+	defer span.End()
+
 	req, out := c.CreateFileSystemRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -359,6 +363,9 @@ func (c *EFS) CreateMountTarget(input *CreateMountTargetInput) (*MountTargetDesc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EFS) CreateMountTargetWithContext(ctx aws.Context, input *CreateMountTargetInput, opts ...request.Option) (*MountTargetDescription, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/efs.(*EFS).CreateMountTarget")
+	defer span.End()
+
 	req, out := c.CreateMountTargetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -454,6 +461,9 @@ func (c *EFS) CreateTags(input *CreateTagsInput) (*CreateTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EFS) CreateTagsWithContext(ctx aws.Context, input *CreateTagsInput, opts ...request.Option) (*CreateTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/efs.(*EFS).CreateTags")
+	defer span.End()
+
 	req, out := c.CreateTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -561,6 +571,9 @@ func (c *EFS) DeleteFileSystem(input *DeleteFileSystemInput) (*DeleteFileSystemO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EFS) DeleteFileSystemWithContext(ctx aws.Context, input *DeleteFileSystemInput, opts ...request.Option) (*DeleteFileSystemOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/efs.(*EFS).DeleteFileSystem")
+	defer span.End()
+
 	req, out := c.DeleteFileSystemRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -678,6 +691,9 @@ func (c *EFS) DeleteMountTarget(input *DeleteMountTargetInput) (*DeleteMountTarg
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EFS) DeleteMountTargetWithContext(ctx aws.Context, input *DeleteMountTargetInput, opts ...request.Option) (*DeleteMountTargetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/efs.(*EFS).DeleteMountTarget")
+	defer span.End()
+
 	req, out := c.DeleteMountTargetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -774,6 +790,9 @@ func (c *EFS) DeleteTags(input *DeleteTagsInput) (*DeleteTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EFS) DeleteTagsWithContext(ctx aws.Context, input *DeleteTagsInput, opts ...request.Option) (*DeleteTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/efs.(*EFS).DeleteTags")
+	defer span.End()
+
 	req, out := c.DeleteTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -886,6 +905,9 @@ func (c *EFS) DescribeFileSystems(input *DescribeFileSystemsInput) (*DescribeFil
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EFS) DescribeFileSystemsWithContext(ctx aws.Context, input *DescribeFileSystemsInput, opts ...request.Option) (*DescribeFileSystemsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/efs.(*EFS).DescribeFileSystems")
+	defer span.End()
+
 	req, out := c.DescribeFileSystemsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -986,6 +1008,9 @@ func (c *EFS) DescribeMountTargetSecurityGroups(input *DescribeMountTargetSecuri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EFS) DescribeMountTargetSecurityGroupsWithContext(ctx aws.Context, input *DescribeMountTargetSecurityGroupsInput, opts ...request.Option) (*DescribeMountTargetSecurityGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/efs.(*EFS).DescribeMountTargetSecurityGroups")
+	defer span.End()
+
 	req, out := c.DescribeMountTargetSecurityGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1083,6 +1108,9 @@ func (c *EFS) DescribeMountTargets(input *DescribeMountTargetsInput) (*DescribeM
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EFS) DescribeMountTargetsWithContext(ctx aws.Context, input *DescribeMountTargetsInput, opts ...request.Option) (*DescribeMountTargetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/efs.(*EFS).DescribeMountTargets")
+	defer span.End()
+
 	req, out := c.DescribeMountTargetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1175,6 +1203,9 @@ func (c *EFS) DescribeTags(input *DescribeTagsInput) (*DescribeTagsOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EFS) DescribeTagsWithContext(ctx aws.Context, input *DescribeTagsInput, opts ...request.Option) (*DescribeTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/efs.(*EFS).DescribeTags")
+	defer span.End()
+
 	req, out := c.DescribeTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1290,6 +1321,9 @@ func (c *EFS) ModifyMountTargetSecurityGroups(input *ModifyMountTargetSecurityGr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EFS) ModifyMountTargetSecurityGroupsWithContext(ctx aws.Context, input *ModifyMountTargetSecurityGroupsInput, opts ...request.Option) (*ModifyMountTargetSecurityGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/efs.(*EFS).ModifyMountTargetSecurityGroups")
+	defer span.End()
+
 	req, out := c.ModifyMountTargetSecurityGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

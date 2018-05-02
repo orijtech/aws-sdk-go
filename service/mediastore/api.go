@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateContainer = "CreateContainer"
@@ -90,6 +91,9 @@ func (c *MediaStore) CreateContainer(input *CreateContainerInput) (*CreateContai
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStore) CreateContainerWithContext(ctx aws.Context, input *CreateContainerInput, opts ...request.Option) (*CreateContainerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastore.(*MediaStore).CreateContainer")
+	defer span.End()
+
 	req, out := c.CreateContainerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -177,6 +181,9 @@ func (c *MediaStore) DeleteContainer(input *DeleteContainerInput) (*DeleteContai
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStore) DeleteContainerWithContext(ctx aws.Context, input *DeleteContainerInput, opts ...request.Option) (*DeleteContainerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastore.(*MediaStore).DeleteContainer")
+	defer span.End()
+
 	req, out := c.DeleteContainerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -265,6 +272,9 @@ func (c *MediaStore) DeleteContainerPolicy(input *DeleteContainerPolicyInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStore) DeleteContainerPolicyWithContext(ctx aws.Context, input *DeleteContainerPolicyInput, opts ...request.Option) (*DeleteContainerPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastore.(*MediaStore).DeleteContainerPolicy")
+	defer span.End()
+
 	req, out := c.DeleteContainerPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -358,6 +368,9 @@ func (c *MediaStore) DeleteCorsPolicy(input *DeleteCorsPolicyInput) (*DeleteCors
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStore) DeleteCorsPolicyWithContext(ctx aws.Context, input *DeleteCorsPolicyInput, opts ...request.Option) (*DeleteCorsPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastore.(*MediaStore).DeleteCorsPolicy")
+	defer span.End()
+
 	req, out := c.DeleteCorsPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -445,6 +458,9 @@ func (c *MediaStore) DescribeContainer(input *DescribeContainerInput) (*Describe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStore) DescribeContainerWithContext(ctx aws.Context, input *DescribeContainerInput, opts ...request.Option) (*DescribeContainerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastore.(*MediaStore).DescribeContainer")
+	defer span.End()
+
 	req, out := c.DescribeContainerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -535,6 +551,9 @@ func (c *MediaStore) GetContainerPolicy(input *GetContainerPolicyInput) (*GetCon
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStore) GetContainerPolicyWithContext(ctx aws.Context, input *GetContainerPolicyInput, opts ...request.Option) (*GetContainerPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastore.(*MediaStore).GetContainerPolicy")
+	defer span.End()
+
 	req, out := c.GetContainerPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -628,6 +647,9 @@ func (c *MediaStore) GetCorsPolicy(input *GetCorsPolicyInput) (*GetCorsPolicyOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStore) GetCorsPolicyWithContext(ctx aws.Context, input *GetCorsPolicyInput, opts ...request.Option) (*GetCorsPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastore.(*MediaStore).GetCorsPolicy")
+	defer span.End()
+
 	req, out := c.GetCorsPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -716,6 +738,9 @@ func (c *MediaStore) ListContainers(input *ListContainersInput) (*ListContainers
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStore) ListContainersWithContext(ctx aws.Context, input *ListContainersInput, opts ...request.Option) (*ListContainersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastore.(*MediaStore).ListContainers")
+	defer span.End()
+
 	req, out := c.ListContainersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -808,6 +833,9 @@ func (c *MediaStore) PutContainerPolicy(input *PutContainerPolicyInput) (*PutCon
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStore) PutContainerPolicyWithContext(ctx aws.Context, input *PutContainerPolicyInput, opts ...request.Option) (*PutContainerPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastore.(*MediaStore).PutContainerPolicy")
+	defer span.End()
+
 	req, out := c.PutContainerPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -903,6 +931,9 @@ func (c *MediaStore) PutCorsPolicy(input *PutCorsPolicyInput) (*PutCorsPolicyOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStore) PutCorsPolicyWithContext(ctx aws.Context, input *PutCorsPolicyInput, opts ...request.Option) (*PutCorsPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastore.(*MediaStore).PutCorsPolicy")
+	defer span.End()
+
 	req, out := c.PutCorsPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opAddAttributesToFindings = "AddAttributesToFindings"
@@ -98,6 +99,9 @@ func (c *Inspector) AddAttributesToFindings(input *AddAttributesToFindingsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) AddAttributesToFindingsWithContext(ctx aws.Context, input *AddAttributesToFindingsInput, opts ...request.Option) (*AddAttributesToFindingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).AddAttributesToFindings")
+	defer span.End()
+
 	req, out := c.AddAttributesToFindingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -198,6 +202,9 @@ func (c *Inspector) CreateAssessmentTarget(input *CreateAssessmentTargetInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) CreateAssessmentTargetWithContext(ctx aws.Context, input *CreateAssessmentTargetInput, opts ...request.Option) (*CreateAssessmentTargetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).CreateAssessmentTarget")
+	defer span.End()
+
 	req, out := c.CreateAssessmentTargetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -296,6 +303,9 @@ func (c *Inspector) CreateAssessmentTemplate(input *CreateAssessmentTemplateInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) CreateAssessmentTemplateWithContext(ctx aws.Context, input *CreateAssessmentTemplateInput, opts ...request.Option) (*CreateAssessmentTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).CreateAssessmentTemplate")
+	defer span.End()
+
 	req, out := c.CreateAssessmentTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -389,6 +399,9 @@ func (c *Inspector) CreateResourceGroup(input *CreateResourceGroupInput) (*Creat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) CreateResourceGroupWithContext(ctx aws.Context, input *CreateResourceGroupInput, opts ...request.Option) (*CreateResourceGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).CreateResourceGroup")
+	defer span.End()
+
 	req, out := c.CreateResourceGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -486,6 +499,9 @@ func (c *Inspector) DeleteAssessmentRun(input *DeleteAssessmentRunInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) DeleteAssessmentRunWithContext(ctx aws.Context, input *DeleteAssessmentRunInput, opts ...request.Option) (*DeleteAssessmentRunOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).DeleteAssessmentRun")
+	defer span.End()
+
 	req, out := c.DeleteAssessmentRunRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -583,6 +599,9 @@ func (c *Inspector) DeleteAssessmentTarget(input *DeleteAssessmentTargetInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) DeleteAssessmentTargetWithContext(ctx aws.Context, input *DeleteAssessmentTargetInput, opts ...request.Option) (*DeleteAssessmentTargetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).DeleteAssessmentTarget")
+	defer span.End()
+
 	req, out := c.DeleteAssessmentTargetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -680,6 +699,9 @@ func (c *Inspector) DeleteAssessmentTemplate(input *DeleteAssessmentTemplateInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) DeleteAssessmentTemplateWithContext(ctx aws.Context, input *DeleteAssessmentTemplateInput, opts ...request.Option) (*DeleteAssessmentTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).DeleteAssessmentTemplate")
+	defer span.End()
+
 	req, out := c.DeleteAssessmentTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -764,6 +786,9 @@ func (c *Inspector) DescribeAssessmentRuns(input *DescribeAssessmentRunsInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) DescribeAssessmentRunsWithContext(ctx aws.Context, input *DescribeAssessmentRunsInput, opts ...request.Option) (*DescribeAssessmentRunsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).DescribeAssessmentRuns")
+	defer span.End()
+
 	req, out := c.DescribeAssessmentRunsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -848,6 +873,9 @@ func (c *Inspector) DescribeAssessmentTargets(input *DescribeAssessmentTargetsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) DescribeAssessmentTargetsWithContext(ctx aws.Context, input *DescribeAssessmentTargetsInput, opts ...request.Option) (*DescribeAssessmentTargetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).DescribeAssessmentTargets")
+	defer span.End()
+
 	req, out := c.DescribeAssessmentTargetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -932,6 +960,9 @@ func (c *Inspector) DescribeAssessmentTemplates(input *DescribeAssessmentTemplat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) DescribeAssessmentTemplatesWithContext(ctx aws.Context, input *DescribeAssessmentTemplatesInput, opts ...request.Option) (*DescribeAssessmentTemplatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).DescribeAssessmentTemplates")
+	defer span.End()
+
 	req, out := c.DescribeAssessmentTemplatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1011,6 +1042,9 @@ func (c *Inspector) DescribeCrossAccountAccessRole(input *DescribeCrossAccountAc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) DescribeCrossAccountAccessRoleWithContext(ctx aws.Context, input *DescribeCrossAccountAccessRoleInput, opts ...request.Option) (*DescribeCrossAccountAccessRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).DescribeCrossAccountAccessRole")
+	defer span.End()
+
 	req, out := c.DescribeCrossAccountAccessRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1094,6 +1128,9 @@ func (c *Inspector) DescribeFindings(input *DescribeFindingsInput) (*DescribeFin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) DescribeFindingsWithContext(ctx aws.Context, input *DescribeFindingsInput, opts ...request.Option) (*DescribeFindingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).DescribeFindings")
+	defer span.End()
+
 	req, out := c.DescribeFindingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1178,6 +1215,9 @@ func (c *Inspector) DescribeResourceGroups(input *DescribeResourceGroupsInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) DescribeResourceGroupsWithContext(ctx aws.Context, input *DescribeResourceGroupsInput, opts ...request.Option) (*DescribeResourceGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).DescribeResourceGroups")
+	defer span.End()
+
 	req, out := c.DescribeResourceGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1262,6 +1302,9 @@ func (c *Inspector) DescribeRulesPackages(input *DescribeRulesPackagesInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) DescribeRulesPackagesWithContext(ctx aws.Context, input *DescribeRulesPackagesInput, opts ...request.Option) (*DescribeRulesPackagesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).DescribeRulesPackages")
+	defer span.End()
+
 	req, out := c.DescribeRulesPackagesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1364,6 +1407,9 @@ func (c *Inspector) GetAssessmentReport(input *GetAssessmentReportInput) (*GetAs
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) GetAssessmentReportWithContext(ctx aws.Context, input *GetAssessmentReportInput, opts ...request.Option) (*GetAssessmentReportOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).GetAssessmentReport")
+	defer span.End()
+
 	req, out := c.GetAssessmentReportRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1455,6 +1501,9 @@ func (c *Inspector) GetTelemetryMetadata(input *GetTelemetryMetadataInput) (*Get
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) GetTelemetryMetadataWithContext(ctx aws.Context, input *GetTelemetryMetadataInput, opts ...request.Option) (*GetTelemetryMetadataOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).GetTelemetryMetadata")
+	defer span.End()
+
 	req, out := c.GetTelemetryMetadataRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1552,6 +1601,9 @@ func (c *Inspector) ListAssessmentRunAgents(input *ListAssessmentRunAgentsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) ListAssessmentRunAgentsWithContext(ctx aws.Context, input *ListAssessmentRunAgentsInput, opts ...request.Option) (*ListAssessmentRunAgentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).ListAssessmentRunAgents")
+	defer span.End()
+
 	req, out := c.ListAssessmentRunAgentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1699,6 +1751,9 @@ func (c *Inspector) ListAssessmentRuns(input *ListAssessmentRunsInput) (*ListAss
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) ListAssessmentRunsWithContext(ctx aws.Context, input *ListAssessmentRunsInput, opts ...request.Option) (*ListAssessmentRunsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).ListAssessmentRuns")
+	defer span.End()
+
 	req, out := c.ListAssessmentRunsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1843,6 +1898,9 @@ func (c *Inspector) ListAssessmentTargets(input *ListAssessmentTargetsInput) (*L
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) ListAssessmentTargetsWithContext(ctx aws.Context, input *ListAssessmentTargetsInput, opts ...request.Option) (*ListAssessmentTargetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).ListAssessmentTargets")
+	defer span.End()
+
 	req, out := c.ListAssessmentTargetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1990,6 +2048,9 @@ func (c *Inspector) ListAssessmentTemplates(input *ListAssessmentTemplatesInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) ListAssessmentTemplatesWithContext(ctx aws.Context, input *ListAssessmentTemplatesInput, opts ...request.Option) (*ListAssessmentTemplatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).ListAssessmentTemplates")
+	defer span.End()
+
 	req, out := c.ListAssessmentTemplatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2138,6 +2199,9 @@ func (c *Inspector) ListEventSubscriptions(input *ListEventSubscriptionsInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) ListEventSubscriptionsWithContext(ctx aws.Context, input *ListEventSubscriptionsInput, opts ...request.Option) (*ListEventSubscriptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).ListEventSubscriptions")
+	defer span.End()
+
 	req, out := c.ListEventSubscriptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2285,6 +2349,9 @@ func (c *Inspector) ListFindings(input *ListFindingsInput) (*ListFindingsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) ListFindingsWithContext(ctx aws.Context, input *ListFindingsInput, opts ...request.Option) (*ListFindingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).ListFindings")
+	defer span.End()
+
 	req, out := c.ListFindingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2427,6 +2494,9 @@ func (c *Inspector) ListRulesPackages(input *ListRulesPackagesInput) (*ListRules
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) ListRulesPackagesWithContext(ctx aws.Context, input *ListRulesPackagesInput, opts ...request.Option) (*ListRulesPackagesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).ListRulesPackages")
+	defer span.End()
+
 	req, out := c.ListRulesPackagesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2567,6 +2637,9 @@ func (c *Inspector) ListTagsForResource(input *ListTagsForResourceInput) (*ListT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*ListTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).ListTagsForResource")
+	defer span.End()
+
 	req, out := c.ListTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2668,6 +2741,9 @@ func (c *Inspector) PreviewAgents(input *PreviewAgentsInput) (*PreviewAgentsOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) PreviewAgentsWithContext(ctx aws.Context, input *PreviewAgentsInput, opts ...request.Option) (*PreviewAgentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).PreviewAgents")
+	defer span.End()
+
 	req, out := c.PreviewAgentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2811,6 +2887,9 @@ func (c *Inspector) RegisterCrossAccountAccessRole(input *RegisterCrossAccountAc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) RegisterCrossAccountAccessRoleWithContext(ctx aws.Context, input *RegisterCrossAccountAccessRoleInput, opts ...request.Option) (*RegisterCrossAccountAccessRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).RegisterCrossAccountAccessRole")
+	defer span.End()
+
 	req, out := c.RegisterCrossAccountAccessRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2903,6 +2982,9 @@ func (c *Inspector) RemoveAttributesFromFindings(input *RemoveAttributesFromFind
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) RemoveAttributesFromFindingsWithContext(ctx aws.Context, input *RemoveAttributesFromFindingsInput, opts ...request.Option) (*RemoveAttributesFromFindingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).RemoveAttributesFromFindings")
+	defer span.End()
+
 	req, out := c.RemoveAttributesFromFindingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2996,6 +3078,9 @@ func (c *Inspector) SetTagsForResource(input *SetTagsForResourceInput) (*SetTags
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) SetTagsForResourceWithContext(ctx aws.Context, input *SetTagsForResourceInput, opts ...request.Option) (*SetTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).SetTagsForResource")
+	defer span.End()
+
 	req, out := c.SetTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3100,6 +3185,9 @@ func (c *Inspector) StartAssessmentRun(input *StartAssessmentRunInput) (*StartAs
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) StartAssessmentRunWithContext(ctx aws.Context, input *StartAssessmentRunInput, opts ...request.Option) (*StartAssessmentRunOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).StartAssessmentRun")
+	defer span.End()
+
 	req, out := c.StartAssessmentRunRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3192,6 +3280,9 @@ func (c *Inspector) StopAssessmentRun(input *StopAssessmentRunInput) (*StopAsses
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) StopAssessmentRunWithContext(ctx aws.Context, input *StopAssessmentRunInput, opts ...request.Option) (*StopAssessmentRunOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).StopAssessmentRun")
+	defer span.End()
+
 	req, out := c.StopAssessmentRunRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3289,6 +3380,9 @@ func (c *Inspector) SubscribeToEvent(input *SubscribeToEventInput) (*SubscribeTo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) SubscribeToEventWithContext(ctx aws.Context, input *SubscribeToEventInput, opts ...request.Option) (*SubscribeToEventOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).SubscribeToEvent")
+	defer span.End()
+
 	req, out := c.SubscribeToEventRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3382,6 +3476,9 @@ func (c *Inspector) UnsubscribeFromEvent(input *UnsubscribeFromEventInput) (*Uns
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) UnsubscribeFromEventWithContext(ctx aws.Context, input *UnsubscribeFromEventInput, opts ...request.Option) (*UnsubscribeFromEventOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).UnsubscribeFromEvent")
+	defer span.End()
+
 	req, out := c.UnsubscribeFromEventRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3475,6 +3572,9 @@ func (c *Inspector) UpdateAssessmentTarget(input *UpdateAssessmentTargetInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Inspector) UpdateAssessmentTargetWithContext(ctx aws.Context, input *UpdateAssessmentTargetInput, opts ...request.Option) (*UpdateAssessmentTargetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/inspector.(*Inspector).UpdateAssessmentTarget")
+	defer span.End()
+
 	req, out := c.UpdateAssessmentTargetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

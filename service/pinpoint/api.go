@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateApp = "CreateApp"
@@ -90,6 +91,9 @@ func (c *Pinpoint) CreateApp(input *CreateAppInput) (*CreateAppOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) CreateAppWithContext(ctx aws.Context, input *CreateAppInput, opts ...request.Option) (*CreateAppOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).CreateApp")
+	defer span.End()
+
 	req, out := c.CreateAppRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -178,6 +182,9 @@ func (c *Pinpoint) CreateCampaign(input *CreateCampaignInput) (*CreateCampaignOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) CreateCampaignWithContext(ctx aws.Context, input *CreateCampaignInput, opts ...request.Option) (*CreateCampaignOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).CreateCampaign")
+	defer span.End()
+
 	req, out := c.CreateCampaignRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -266,6 +273,9 @@ func (c *Pinpoint) CreateExportJob(input *CreateExportJobInput) (*CreateExportJo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) CreateExportJobWithContext(ctx aws.Context, input *CreateExportJobInput, opts ...request.Option) (*CreateExportJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).CreateExportJob")
+	defer span.End()
+
 	req, out := c.CreateExportJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -354,6 +364,9 @@ func (c *Pinpoint) CreateImportJob(input *CreateImportJobInput) (*CreateImportJo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) CreateImportJobWithContext(ctx aws.Context, input *CreateImportJobInput, opts ...request.Option) (*CreateImportJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).CreateImportJob")
+	defer span.End()
+
 	req, out := c.CreateImportJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -442,6 +455,9 @@ func (c *Pinpoint) CreateSegment(input *CreateSegmentInput) (*CreateSegmentOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) CreateSegmentWithContext(ctx aws.Context, input *CreateSegmentInput, opts ...request.Option) (*CreateSegmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).CreateSegment")
+	defer span.End()
+
 	req, out := c.CreateSegmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -530,6 +546,9 @@ func (c *Pinpoint) DeleteAdmChannel(input *DeleteAdmChannelInput) (*DeleteAdmCha
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) DeleteAdmChannelWithContext(ctx aws.Context, input *DeleteAdmChannelInput, opts ...request.Option) (*DeleteAdmChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).DeleteAdmChannel")
+	defer span.End()
+
 	req, out := c.DeleteAdmChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -618,6 +637,9 @@ func (c *Pinpoint) DeleteApnsChannel(input *DeleteApnsChannelInput) (*DeleteApns
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) DeleteApnsChannelWithContext(ctx aws.Context, input *DeleteApnsChannelInput, opts ...request.Option) (*DeleteApnsChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).DeleteApnsChannel")
+	defer span.End()
+
 	req, out := c.DeleteApnsChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -706,6 +728,9 @@ func (c *Pinpoint) DeleteApnsSandboxChannel(input *DeleteApnsSandboxChannelInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) DeleteApnsSandboxChannelWithContext(ctx aws.Context, input *DeleteApnsSandboxChannelInput, opts ...request.Option) (*DeleteApnsSandboxChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).DeleteApnsSandboxChannel")
+	defer span.End()
+
 	req, out := c.DeleteApnsSandboxChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -794,6 +819,9 @@ func (c *Pinpoint) DeleteApnsVoipChannel(input *DeleteApnsVoipChannelInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) DeleteApnsVoipChannelWithContext(ctx aws.Context, input *DeleteApnsVoipChannelInput, opts ...request.Option) (*DeleteApnsVoipChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).DeleteApnsVoipChannel")
+	defer span.End()
+
 	req, out := c.DeleteApnsVoipChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -882,6 +910,9 @@ func (c *Pinpoint) DeleteApnsVoipSandboxChannel(input *DeleteApnsVoipSandboxChan
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) DeleteApnsVoipSandboxChannelWithContext(ctx aws.Context, input *DeleteApnsVoipSandboxChannelInput, opts ...request.Option) (*DeleteApnsVoipSandboxChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).DeleteApnsVoipSandboxChannel")
+	defer span.End()
+
 	req, out := c.DeleteApnsVoipSandboxChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -970,6 +1001,9 @@ func (c *Pinpoint) DeleteApp(input *DeleteAppInput) (*DeleteAppOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) DeleteAppWithContext(ctx aws.Context, input *DeleteAppInput, opts ...request.Option) (*DeleteAppOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).DeleteApp")
+	defer span.End()
+
 	req, out := c.DeleteAppRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1058,6 +1092,9 @@ func (c *Pinpoint) DeleteBaiduChannel(input *DeleteBaiduChannelInput) (*DeleteBa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) DeleteBaiduChannelWithContext(ctx aws.Context, input *DeleteBaiduChannelInput, opts ...request.Option) (*DeleteBaiduChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).DeleteBaiduChannel")
+	defer span.End()
+
 	req, out := c.DeleteBaiduChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1146,6 +1183,9 @@ func (c *Pinpoint) DeleteCampaign(input *DeleteCampaignInput) (*DeleteCampaignOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) DeleteCampaignWithContext(ctx aws.Context, input *DeleteCampaignInput, opts ...request.Option) (*DeleteCampaignOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).DeleteCampaign")
+	defer span.End()
+
 	req, out := c.DeleteCampaignRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1234,6 +1274,9 @@ func (c *Pinpoint) DeleteEmailChannel(input *DeleteEmailChannelInput) (*DeleteEm
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) DeleteEmailChannelWithContext(ctx aws.Context, input *DeleteEmailChannelInput, opts ...request.Option) (*DeleteEmailChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).DeleteEmailChannel")
+	defer span.End()
+
 	req, out := c.DeleteEmailChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1322,6 +1365,9 @@ func (c *Pinpoint) DeleteEndpoint(input *DeleteEndpointInput) (*DeleteEndpointOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) DeleteEndpointWithContext(ctx aws.Context, input *DeleteEndpointInput, opts ...request.Option) (*DeleteEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).DeleteEndpoint")
+	defer span.End()
+
 	req, out := c.DeleteEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1410,6 +1456,9 @@ func (c *Pinpoint) DeleteEventStream(input *DeleteEventStreamInput) (*DeleteEven
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) DeleteEventStreamWithContext(ctx aws.Context, input *DeleteEventStreamInput, opts ...request.Option) (*DeleteEventStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).DeleteEventStream")
+	defer span.End()
+
 	req, out := c.DeleteEventStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1498,6 +1547,9 @@ func (c *Pinpoint) DeleteGcmChannel(input *DeleteGcmChannelInput) (*DeleteGcmCha
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) DeleteGcmChannelWithContext(ctx aws.Context, input *DeleteGcmChannelInput, opts ...request.Option) (*DeleteGcmChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).DeleteGcmChannel")
+	defer span.End()
+
 	req, out := c.DeleteGcmChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1586,6 +1638,9 @@ func (c *Pinpoint) DeleteSegment(input *DeleteSegmentInput) (*DeleteSegmentOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) DeleteSegmentWithContext(ctx aws.Context, input *DeleteSegmentInput, opts ...request.Option) (*DeleteSegmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).DeleteSegment")
+	defer span.End()
+
 	req, out := c.DeleteSegmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1674,6 +1729,9 @@ func (c *Pinpoint) DeleteSmsChannel(input *DeleteSmsChannelInput) (*DeleteSmsCha
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) DeleteSmsChannelWithContext(ctx aws.Context, input *DeleteSmsChannelInput, opts ...request.Option) (*DeleteSmsChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).DeleteSmsChannel")
+	defer span.End()
+
 	req, out := c.DeleteSmsChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1762,6 +1820,9 @@ func (c *Pinpoint) GetAdmChannel(input *GetAdmChannelInput) (*GetAdmChannelOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetAdmChannelWithContext(ctx aws.Context, input *GetAdmChannelInput, opts ...request.Option) (*GetAdmChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetAdmChannel")
+	defer span.End()
+
 	req, out := c.GetAdmChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1850,6 +1911,9 @@ func (c *Pinpoint) GetApnsChannel(input *GetApnsChannelInput) (*GetApnsChannelOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetApnsChannelWithContext(ctx aws.Context, input *GetApnsChannelInput, opts ...request.Option) (*GetApnsChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetApnsChannel")
+	defer span.End()
+
 	req, out := c.GetApnsChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1938,6 +2002,9 @@ func (c *Pinpoint) GetApnsSandboxChannel(input *GetApnsSandboxChannelInput) (*Ge
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetApnsSandboxChannelWithContext(ctx aws.Context, input *GetApnsSandboxChannelInput, opts ...request.Option) (*GetApnsSandboxChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetApnsSandboxChannel")
+	defer span.End()
+
 	req, out := c.GetApnsSandboxChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2026,6 +2093,9 @@ func (c *Pinpoint) GetApnsVoipChannel(input *GetApnsVoipChannelInput) (*GetApnsV
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetApnsVoipChannelWithContext(ctx aws.Context, input *GetApnsVoipChannelInput, opts ...request.Option) (*GetApnsVoipChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetApnsVoipChannel")
+	defer span.End()
+
 	req, out := c.GetApnsVoipChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2114,6 +2184,9 @@ func (c *Pinpoint) GetApnsVoipSandboxChannel(input *GetApnsVoipSandboxChannelInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetApnsVoipSandboxChannelWithContext(ctx aws.Context, input *GetApnsVoipSandboxChannelInput, opts ...request.Option) (*GetApnsVoipSandboxChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetApnsVoipSandboxChannel")
+	defer span.End()
+
 	req, out := c.GetApnsVoipSandboxChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2202,6 +2275,9 @@ func (c *Pinpoint) GetApp(input *GetAppInput) (*GetAppOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetAppWithContext(ctx aws.Context, input *GetAppInput, opts ...request.Option) (*GetAppOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetApp")
+	defer span.End()
+
 	req, out := c.GetAppRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2290,6 +2366,9 @@ func (c *Pinpoint) GetApplicationSettings(input *GetApplicationSettingsInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetApplicationSettingsWithContext(ctx aws.Context, input *GetApplicationSettingsInput, opts ...request.Option) (*GetApplicationSettingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetApplicationSettings")
+	defer span.End()
+
 	req, out := c.GetApplicationSettingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2378,6 +2457,9 @@ func (c *Pinpoint) GetApps(input *GetAppsInput) (*GetAppsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetAppsWithContext(ctx aws.Context, input *GetAppsInput, opts ...request.Option) (*GetAppsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetApps")
+	defer span.End()
+
 	req, out := c.GetAppsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2466,6 +2548,9 @@ func (c *Pinpoint) GetBaiduChannel(input *GetBaiduChannelInput) (*GetBaiduChanne
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetBaiduChannelWithContext(ctx aws.Context, input *GetBaiduChannelInput, opts ...request.Option) (*GetBaiduChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetBaiduChannel")
+	defer span.End()
+
 	req, out := c.GetBaiduChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2554,6 +2639,9 @@ func (c *Pinpoint) GetCampaign(input *GetCampaignInput) (*GetCampaignOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetCampaignWithContext(ctx aws.Context, input *GetCampaignInput, opts ...request.Option) (*GetCampaignOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetCampaign")
+	defer span.End()
+
 	req, out := c.GetCampaignRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2642,6 +2730,9 @@ func (c *Pinpoint) GetCampaignActivities(input *GetCampaignActivitiesInput) (*Ge
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetCampaignActivitiesWithContext(ctx aws.Context, input *GetCampaignActivitiesInput, opts ...request.Option) (*GetCampaignActivitiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetCampaignActivities")
+	defer span.End()
+
 	req, out := c.GetCampaignActivitiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2730,6 +2821,9 @@ func (c *Pinpoint) GetCampaignVersion(input *GetCampaignVersionInput) (*GetCampa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetCampaignVersionWithContext(ctx aws.Context, input *GetCampaignVersionInput, opts ...request.Option) (*GetCampaignVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetCampaignVersion")
+	defer span.End()
+
 	req, out := c.GetCampaignVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2818,6 +2912,9 @@ func (c *Pinpoint) GetCampaignVersions(input *GetCampaignVersionsInput) (*GetCam
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetCampaignVersionsWithContext(ctx aws.Context, input *GetCampaignVersionsInput, opts ...request.Option) (*GetCampaignVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetCampaignVersions")
+	defer span.End()
+
 	req, out := c.GetCampaignVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2906,6 +3003,9 @@ func (c *Pinpoint) GetCampaigns(input *GetCampaignsInput) (*GetCampaignsOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetCampaignsWithContext(ctx aws.Context, input *GetCampaignsInput, opts ...request.Option) (*GetCampaignsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetCampaigns")
+	defer span.End()
+
 	req, out := c.GetCampaignsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2994,6 +3094,9 @@ func (c *Pinpoint) GetEmailChannel(input *GetEmailChannelInput) (*GetEmailChanne
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetEmailChannelWithContext(ctx aws.Context, input *GetEmailChannelInput, opts ...request.Option) (*GetEmailChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetEmailChannel")
+	defer span.End()
+
 	req, out := c.GetEmailChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3082,6 +3185,9 @@ func (c *Pinpoint) GetEndpoint(input *GetEndpointInput) (*GetEndpointOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetEndpointWithContext(ctx aws.Context, input *GetEndpointInput, opts ...request.Option) (*GetEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetEndpoint")
+	defer span.End()
+
 	req, out := c.GetEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3170,6 +3276,9 @@ func (c *Pinpoint) GetEventStream(input *GetEventStreamInput) (*GetEventStreamOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetEventStreamWithContext(ctx aws.Context, input *GetEventStreamInput, opts ...request.Option) (*GetEventStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetEventStream")
+	defer span.End()
+
 	req, out := c.GetEventStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3258,6 +3367,9 @@ func (c *Pinpoint) GetExportJob(input *GetExportJobInput) (*GetExportJobOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetExportJobWithContext(ctx aws.Context, input *GetExportJobInput, opts ...request.Option) (*GetExportJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetExportJob")
+	defer span.End()
+
 	req, out := c.GetExportJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3346,6 +3458,9 @@ func (c *Pinpoint) GetExportJobs(input *GetExportJobsInput) (*GetExportJobsOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetExportJobsWithContext(ctx aws.Context, input *GetExportJobsInput, opts ...request.Option) (*GetExportJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetExportJobs")
+	defer span.End()
+
 	req, out := c.GetExportJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3434,6 +3549,9 @@ func (c *Pinpoint) GetGcmChannel(input *GetGcmChannelInput) (*GetGcmChannelOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetGcmChannelWithContext(ctx aws.Context, input *GetGcmChannelInput, opts ...request.Option) (*GetGcmChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetGcmChannel")
+	defer span.End()
+
 	req, out := c.GetGcmChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3522,6 +3640,9 @@ func (c *Pinpoint) GetImportJob(input *GetImportJobInput) (*GetImportJobOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetImportJobWithContext(ctx aws.Context, input *GetImportJobInput, opts ...request.Option) (*GetImportJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetImportJob")
+	defer span.End()
+
 	req, out := c.GetImportJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3610,6 +3731,9 @@ func (c *Pinpoint) GetImportJobs(input *GetImportJobsInput) (*GetImportJobsOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetImportJobsWithContext(ctx aws.Context, input *GetImportJobsInput, opts ...request.Option) (*GetImportJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetImportJobs")
+	defer span.End()
+
 	req, out := c.GetImportJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3698,6 +3822,9 @@ func (c *Pinpoint) GetSegment(input *GetSegmentInput) (*GetSegmentOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetSegmentWithContext(ctx aws.Context, input *GetSegmentInput, opts ...request.Option) (*GetSegmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetSegment")
+	defer span.End()
+
 	req, out := c.GetSegmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3786,6 +3913,9 @@ func (c *Pinpoint) GetSegmentExportJobs(input *GetSegmentExportJobsInput) (*GetS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetSegmentExportJobsWithContext(ctx aws.Context, input *GetSegmentExportJobsInput, opts ...request.Option) (*GetSegmentExportJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetSegmentExportJobs")
+	defer span.End()
+
 	req, out := c.GetSegmentExportJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3874,6 +4004,9 @@ func (c *Pinpoint) GetSegmentImportJobs(input *GetSegmentImportJobsInput) (*GetS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetSegmentImportJobsWithContext(ctx aws.Context, input *GetSegmentImportJobsInput, opts ...request.Option) (*GetSegmentImportJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetSegmentImportJobs")
+	defer span.End()
+
 	req, out := c.GetSegmentImportJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3962,6 +4095,9 @@ func (c *Pinpoint) GetSegmentVersion(input *GetSegmentVersionInput) (*GetSegment
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetSegmentVersionWithContext(ctx aws.Context, input *GetSegmentVersionInput, opts ...request.Option) (*GetSegmentVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetSegmentVersion")
+	defer span.End()
+
 	req, out := c.GetSegmentVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4050,6 +4186,9 @@ func (c *Pinpoint) GetSegmentVersions(input *GetSegmentVersionsInput) (*GetSegme
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetSegmentVersionsWithContext(ctx aws.Context, input *GetSegmentVersionsInput, opts ...request.Option) (*GetSegmentVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetSegmentVersions")
+	defer span.End()
+
 	req, out := c.GetSegmentVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4138,6 +4277,9 @@ func (c *Pinpoint) GetSegments(input *GetSegmentsInput) (*GetSegmentsOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetSegmentsWithContext(ctx aws.Context, input *GetSegmentsInput, opts ...request.Option) (*GetSegmentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetSegments")
+	defer span.End()
+
 	req, out := c.GetSegmentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4226,6 +4368,9 @@ func (c *Pinpoint) GetSmsChannel(input *GetSmsChannelInput) (*GetSmsChannelOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) GetSmsChannelWithContext(ctx aws.Context, input *GetSmsChannelInput, opts ...request.Option) (*GetSmsChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).GetSmsChannel")
+	defer span.End()
+
 	req, out := c.GetSmsChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4314,6 +4459,9 @@ func (c *Pinpoint) PutEventStream(input *PutEventStreamInput) (*PutEventStreamOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) PutEventStreamWithContext(ctx aws.Context, input *PutEventStreamInput, opts ...request.Option) (*PutEventStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).PutEventStream")
+	defer span.End()
+
 	req, out := c.PutEventStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4402,6 +4550,9 @@ func (c *Pinpoint) SendMessages(input *SendMessagesInput) (*SendMessagesOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) SendMessagesWithContext(ctx aws.Context, input *SendMessagesInput, opts ...request.Option) (*SendMessagesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).SendMessages")
+	defer span.End()
+
 	req, out := c.SendMessagesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4490,6 +4641,9 @@ func (c *Pinpoint) SendUsersMessages(input *SendUsersMessagesInput) (*SendUsersM
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) SendUsersMessagesWithContext(ctx aws.Context, input *SendUsersMessagesInput, opts ...request.Option) (*SendUsersMessagesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).SendUsersMessages")
+	defer span.End()
+
 	req, out := c.SendUsersMessagesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4578,6 +4732,9 @@ func (c *Pinpoint) UpdateAdmChannel(input *UpdateAdmChannelInput) (*UpdateAdmCha
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) UpdateAdmChannelWithContext(ctx aws.Context, input *UpdateAdmChannelInput, opts ...request.Option) (*UpdateAdmChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).UpdateAdmChannel")
+	defer span.End()
+
 	req, out := c.UpdateAdmChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4666,6 +4823,9 @@ func (c *Pinpoint) UpdateApnsChannel(input *UpdateApnsChannelInput) (*UpdateApns
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) UpdateApnsChannelWithContext(ctx aws.Context, input *UpdateApnsChannelInput, opts ...request.Option) (*UpdateApnsChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).UpdateApnsChannel")
+	defer span.End()
+
 	req, out := c.UpdateApnsChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4754,6 +4914,9 @@ func (c *Pinpoint) UpdateApnsSandboxChannel(input *UpdateApnsSandboxChannelInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) UpdateApnsSandboxChannelWithContext(ctx aws.Context, input *UpdateApnsSandboxChannelInput, opts ...request.Option) (*UpdateApnsSandboxChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).UpdateApnsSandboxChannel")
+	defer span.End()
+
 	req, out := c.UpdateApnsSandboxChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4842,6 +5005,9 @@ func (c *Pinpoint) UpdateApnsVoipChannel(input *UpdateApnsVoipChannelInput) (*Up
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) UpdateApnsVoipChannelWithContext(ctx aws.Context, input *UpdateApnsVoipChannelInput, opts ...request.Option) (*UpdateApnsVoipChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).UpdateApnsVoipChannel")
+	defer span.End()
+
 	req, out := c.UpdateApnsVoipChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4930,6 +5096,9 @@ func (c *Pinpoint) UpdateApnsVoipSandboxChannel(input *UpdateApnsVoipSandboxChan
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) UpdateApnsVoipSandboxChannelWithContext(ctx aws.Context, input *UpdateApnsVoipSandboxChannelInput, opts ...request.Option) (*UpdateApnsVoipSandboxChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).UpdateApnsVoipSandboxChannel")
+	defer span.End()
+
 	req, out := c.UpdateApnsVoipSandboxChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5018,6 +5187,9 @@ func (c *Pinpoint) UpdateApplicationSettings(input *UpdateApplicationSettingsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) UpdateApplicationSettingsWithContext(ctx aws.Context, input *UpdateApplicationSettingsInput, opts ...request.Option) (*UpdateApplicationSettingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).UpdateApplicationSettings")
+	defer span.End()
+
 	req, out := c.UpdateApplicationSettingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5106,6 +5278,9 @@ func (c *Pinpoint) UpdateBaiduChannel(input *UpdateBaiduChannelInput) (*UpdateBa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) UpdateBaiduChannelWithContext(ctx aws.Context, input *UpdateBaiduChannelInput, opts ...request.Option) (*UpdateBaiduChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).UpdateBaiduChannel")
+	defer span.End()
+
 	req, out := c.UpdateBaiduChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5194,6 +5369,9 @@ func (c *Pinpoint) UpdateCampaign(input *UpdateCampaignInput) (*UpdateCampaignOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) UpdateCampaignWithContext(ctx aws.Context, input *UpdateCampaignInput, opts ...request.Option) (*UpdateCampaignOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).UpdateCampaign")
+	defer span.End()
+
 	req, out := c.UpdateCampaignRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5282,6 +5460,9 @@ func (c *Pinpoint) UpdateEmailChannel(input *UpdateEmailChannelInput) (*UpdateEm
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) UpdateEmailChannelWithContext(ctx aws.Context, input *UpdateEmailChannelInput, opts ...request.Option) (*UpdateEmailChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).UpdateEmailChannel")
+	defer span.End()
+
 	req, out := c.UpdateEmailChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5370,6 +5551,9 @@ func (c *Pinpoint) UpdateEndpoint(input *UpdateEndpointInput) (*UpdateEndpointOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) UpdateEndpointWithContext(ctx aws.Context, input *UpdateEndpointInput, opts ...request.Option) (*UpdateEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).UpdateEndpoint")
+	defer span.End()
+
 	req, out := c.UpdateEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5458,6 +5642,9 @@ func (c *Pinpoint) UpdateEndpointsBatch(input *UpdateEndpointsBatchInput) (*Upda
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) UpdateEndpointsBatchWithContext(ctx aws.Context, input *UpdateEndpointsBatchInput, opts ...request.Option) (*UpdateEndpointsBatchOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).UpdateEndpointsBatch")
+	defer span.End()
+
 	req, out := c.UpdateEndpointsBatchRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5546,6 +5733,9 @@ func (c *Pinpoint) UpdateGcmChannel(input *UpdateGcmChannelInput) (*UpdateGcmCha
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) UpdateGcmChannelWithContext(ctx aws.Context, input *UpdateGcmChannelInput, opts ...request.Option) (*UpdateGcmChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).UpdateGcmChannel")
+	defer span.End()
+
 	req, out := c.UpdateGcmChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5634,6 +5824,9 @@ func (c *Pinpoint) UpdateSegment(input *UpdateSegmentInput) (*UpdateSegmentOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) UpdateSegmentWithContext(ctx aws.Context, input *UpdateSegmentInput, opts ...request.Option) (*UpdateSegmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).UpdateSegment")
+	defer span.End()
+
 	req, out := c.UpdateSegmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5722,6 +5915,9 @@ func (c *Pinpoint) UpdateSmsChannel(input *UpdateSmsChannelInput) (*UpdateSmsCha
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pinpoint) UpdateSmsChannelWithContext(ctx aws.Context, input *UpdateSmsChannelInput, opts ...request.Option) (*UpdateSmsChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pinpoint.(*Pinpoint).UpdateSmsChannel")
+	defer span.End()
+
 	req, out := c.UpdateSmsChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

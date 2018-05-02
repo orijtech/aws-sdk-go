@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opAcceptHandshake = "AcceptHandshake"
@@ -250,6 +251,9 @@ func (c *Organizations) AcceptHandshake(input *AcceptHandshakeInput) (*AcceptHan
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) AcceptHandshakeWithContext(ctx aws.Context, input *AcceptHandshakeInput, opts ...request.Option) (*AcceptHandshakeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).AcceptHandshake")
+	defer span.End()
+
 	req, out := c.AcceptHandshakeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -549,6 +553,9 @@ func (c *Organizations) AttachPolicy(input *AttachPolicyInput) (*AttachPolicyOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) AttachPolicyWithContext(ctx aws.Context, input *AttachPolicyInput, opts ...request.Option) (*AttachPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).AttachPolicy")
+	defer span.End()
+
 	req, out := c.AttachPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -723,6 +730,9 @@ func (c *Organizations) CancelHandshake(input *CancelHandshakeInput) (*CancelHan
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) CancelHandshakeWithContext(ctx aws.Context, input *CancelHandshakeInput, opts ...request.Option) (*CancelHandshakeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).CancelHandshake")
+	defer span.End()
+
 	req, out := c.CancelHandshakeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1018,6 +1028,9 @@ func (c *Organizations) CreateAccount(input *CreateAccountInput) (*CreateAccount
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) CreateAccountWithContext(ctx aws.Context, input *CreateAccountInput, opts ...request.Option) (*CreateAccountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).CreateAccount")
+	defer span.End()
+
 	req, out := c.CreateAccountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1279,6 +1292,9 @@ func (c *Organizations) CreateOrganization(input *CreateOrganizationInput) (*Cre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) CreateOrganizationWithContext(ctx aws.Context, input *CreateOrganizationInput, opts ...request.Option) (*CreateOrganizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).CreateOrganization")
+	defer span.End()
+
 	req, out := c.CreateOrganizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1538,6 +1554,9 @@ func (c *Organizations) CreateOrganizationalUnit(input *CreateOrganizationalUnit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) CreateOrganizationalUnitWithContext(ctx aws.Context, input *CreateOrganizationalUnitInput, opts ...request.Option) (*CreateOrganizationalUnitOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).CreateOrganizationalUnit")
+	defer span.End()
+
 	req, out := c.CreateOrganizationalUnitRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1803,6 +1822,9 @@ func (c *Organizations) CreatePolicy(input *CreatePolicyInput) (*CreatePolicyOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) CreatePolicyWithContext(ctx aws.Context, input *CreatePolicyInput, opts ...request.Option) (*CreatePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).CreatePolicy")
+	defer span.End()
+
 	req, out := c.CreatePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1978,6 +2000,9 @@ func (c *Organizations) DeclineHandshake(input *DeclineHandshakeInput) (*Decline
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) DeclineHandshakeWithContext(ctx aws.Context, input *DeclineHandshakeInput, opts ...request.Option) (*DeclineHandshakeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).DeclineHandshake")
+	defer span.End()
+
 	req, out := c.DeclineHandshakeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2145,6 +2170,9 @@ func (c *Organizations) DeleteOrganization(input *DeleteOrganizationInput) (*Del
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) DeleteOrganizationWithContext(ctx aws.Context, input *DeleteOrganizationInput, opts ...request.Option) (*DeleteOrganizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).DeleteOrganization")
+	defer span.End()
+
 	req, out := c.DeleteOrganizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2317,6 +2345,9 @@ func (c *Organizations) DeleteOrganizationalUnit(input *DeleteOrganizationalUnit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) DeleteOrganizationalUnitWithContext(ctx aws.Context, input *DeleteOrganizationalUnitInput, opts ...request.Option) (*DeleteOrganizationalUnitOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).DeleteOrganizationalUnit")
+	defer span.End()
+
 	req, out := c.DeleteOrganizationalUnitRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2487,6 +2518,9 @@ func (c *Organizations) DeletePolicy(input *DeletePolicyInput) (*DeletePolicyOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) DeletePolicyWithContext(ctx aws.Context, input *DeletePolicyInput, opts ...request.Option) (*DeletePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).DeletePolicy")
+	defer span.End()
+
 	req, out := c.DeletePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2648,6 +2682,9 @@ func (c *Organizations) DescribeAccount(input *DescribeAccountInput) (*DescribeA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) DescribeAccountWithContext(ctx aws.Context, input *DescribeAccountInput, opts ...request.Option) (*DescribeAccountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).DescribeAccount")
+	defer span.End()
+
 	req, out := c.DescribeAccountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2808,6 +2845,9 @@ func (c *Organizations) DescribeCreateAccountStatus(input *DescribeCreateAccount
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) DescribeCreateAccountStatusWithContext(ctx aws.Context, input *DescribeCreateAccountStatusInput, opts ...request.Option) (*DescribeCreateAccountStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).DescribeCreateAccountStatus")
+	defer span.End()
+
 	req, out := c.DescribeCreateAccountStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2973,6 +3013,9 @@ func (c *Organizations) DescribeHandshake(input *DescribeHandshakeInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) DescribeHandshakeWithContext(ctx aws.Context, input *DescribeHandshakeInput, opts ...request.Option) (*DescribeHandshakeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).DescribeHandshake")
+	defer span.End()
+
 	req, out := c.DescribeHandshakeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3079,6 +3122,9 @@ func (c *Organizations) DescribeOrganization(input *DescribeOrganizationInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) DescribeOrganizationWithContext(ctx aws.Context, input *DescribeOrganizationInput, opts ...request.Option) (*DescribeOrganizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).DescribeOrganization")
+	defer span.End()
+
 	req, out := c.DescribeOrganizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3239,6 +3285,9 @@ func (c *Organizations) DescribeOrganizationalUnit(input *DescribeOrganizational
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) DescribeOrganizationalUnitWithContext(ctx aws.Context, input *DescribeOrganizationalUnitInput, opts ...request.Option) (*DescribeOrganizationalUnitOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).DescribeOrganizationalUnit")
+	defer span.End()
+
 	req, out := c.DescribeOrganizationalUnitRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3398,6 +3447,9 @@ func (c *Organizations) DescribePolicy(input *DescribePolicyInput) (*DescribePol
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) DescribePolicyWithContext(ctx aws.Context, input *DescribePolicyInput, opts ...request.Option) (*DescribePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).DescribePolicy")
+	defer span.End()
+
 	req, out := c.DescribePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3666,6 +3718,9 @@ func (c *Organizations) DetachPolicy(input *DetachPolicyInput) (*DetachPolicyOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) DetachPolicyWithContext(ctx aws.Context, input *DetachPolicyInput, opts ...request.Option) (*DetachPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).DetachPolicy")
+	defer span.End()
+
 	req, out := c.DetachPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3933,6 +3988,9 @@ func (c *Organizations) DisableAWSServiceAccess(input *DisableAWSServiceAccessIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) DisableAWSServiceAccessWithContext(ctx aws.Context, input *DisableAWSServiceAccessInput, opts ...request.Option) (*DisableAWSServiceAccessOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).DisableAWSServiceAccess")
+	defer span.End()
+
 	req, out := c.DisableAWSServiceAccessRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4197,6 +4255,9 @@ func (c *Organizations) DisablePolicyType(input *DisablePolicyTypeInput) (*Disab
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) DisablePolicyTypeWithContext(ctx aws.Context, input *DisablePolicyTypeInput, opts ...request.Option) (*DisablePolicyTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).DisablePolicyType")
+	defer span.End()
+
 	req, out := c.DisablePolicyTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4461,6 +4522,9 @@ func (c *Organizations) EnableAWSServiceAccess(input *EnableAWSServiceAccessInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) EnableAWSServiceAccessWithContext(ctx aws.Context, input *EnableAWSServiceAccessInput, opts ...request.Option) (*EnableAWSServiceAccessOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).EnableAWSServiceAccess")
+	defer span.End()
+
 	req, out := c.EnableAWSServiceAccessRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4691,6 +4755,9 @@ func (c *Organizations) EnableAllFeatures(input *EnableAllFeaturesInput) (*Enabl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) EnableAllFeaturesWithContext(ctx aws.Context, input *EnableAllFeaturesInput, opts ...request.Option) (*EnableAllFeaturesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).EnableAllFeatures")
+	defer span.End()
+
 	req, out := c.EnableAllFeaturesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4957,6 +5024,9 @@ func (c *Organizations) EnablePolicyType(input *EnablePolicyTypeInput) (*EnableP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) EnablePolicyTypeWithContext(ctx aws.Context, input *EnablePolicyTypeInput, opts ...request.Option) (*EnablePolicyTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).EnablePolicyType")
+	defer span.End()
+
 	req, out := c.EnablePolicyTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5184,6 +5254,9 @@ func (c *Organizations) InviteAccountToOrganization(input *InviteAccountToOrgani
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) InviteAccountToOrganizationWithContext(ctx aws.Context, input *InviteAccountToOrganizationInput, opts ...request.Option) (*InviteAccountToOrganizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).InviteAccountToOrganization")
+	defer span.End()
+
 	req, out := c.InviteAccountToOrganizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5467,6 +5540,9 @@ func (c *Organizations) LeaveOrganization(input *LeaveOrganizationInput) (*Leave
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) LeaveOrganizationWithContext(ctx aws.Context, input *LeaveOrganizationInput, opts ...request.Option) (*LeaveOrganizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).LeaveOrganization")
+	defer span.End()
+
 	req, out := c.LeaveOrganizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5722,6 +5798,9 @@ func (c *Organizations) ListAWSServiceAccessForOrganization(input *ListAWSServic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) ListAWSServiceAccessForOrganizationWithContext(ctx aws.Context, input *ListAWSServiceAccessForOrganizationInput, opts ...request.Option) (*ListAWSServiceAccessForOrganizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).ListAWSServiceAccessForOrganization")
+	defer span.End()
+
 	req, out := c.ListAWSServiceAccessForOrganizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5940,6 +6019,9 @@ func (c *Organizations) ListAccounts(input *ListAccountsInput) (*ListAccountsOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) ListAccountsWithContext(ctx aws.Context, input *ListAccountsInput, opts ...request.Option) (*ListAccountsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).ListAccounts")
+	defer span.End()
+
 	req, out := c.ListAccountsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6166,6 +6248,9 @@ func (c *Organizations) ListAccountsForParent(input *ListAccountsForParentInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) ListAccountsForParentWithContext(ctx aws.Context, input *ListAccountsForParentInput, opts ...request.Option) (*ListAccountsForParentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).ListAccountsForParent")
+	defer span.End()
+
 	req, out := c.ListAccountsForParentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6389,6 +6474,9 @@ func (c *Organizations) ListChildren(input *ListChildrenInput) (*ListChildrenOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) ListChildrenWithContext(ctx aws.Context, input *ListChildrenInput, opts ...request.Option) (*ListChildrenOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).ListChildren")
+	defer span.End()
+
 	req, out := c.ListChildrenRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6607,6 +6695,9 @@ func (c *Organizations) ListCreateAccountStatus(input *ListCreateAccountStatusIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) ListCreateAccountStatusWithContext(ctx aws.Context, input *ListCreateAccountStatusInput, opts ...request.Option) (*ListCreateAccountStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).ListCreateAccountStatus")
+	defer span.End()
+
 	req, out := c.ListCreateAccountStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6829,6 +6920,9 @@ func (c *Organizations) ListHandshakesForAccount(input *ListHandshakesForAccount
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) ListHandshakesForAccountWithContext(ctx aws.Context, input *ListHandshakesForAccountInput, opts ...request.Option) (*ListHandshakesForAccountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).ListHandshakesForAccount")
+	defer span.End()
+
 	req, out := c.ListHandshakesForAccountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7057,6 +7151,9 @@ func (c *Organizations) ListHandshakesForOrganization(input *ListHandshakesForOr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) ListHandshakesForOrganizationWithContext(ctx aws.Context, input *ListHandshakesForOrganizationInput, opts ...request.Option) (*ListHandshakesForOrganizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).ListHandshakesForOrganization")
+	defer span.End()
+
 	req, out := c.ListHandshakesForOrganizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7278,6 +7375,9 @@ func (c *Organizations) ListOrganizationalUnitsForParent(input *ListOrganization
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) ListOrganizationalUnitsForParentWithContext(ctx aws.Context, input *ListOrganizationalUnitsForParentInput, opts ...request.Option) (*ListOrganizationalUnitsForParentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).ListOrganizationalUnitsForParent")
+	defer span.End()
+
 	req, out := c.ListOrganizationalUnitsForParentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7503,6 +7603,9 @@ func (c *Organizations) ListParents(input *ListParentsInput) (*ListParentsOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) ListParentsWithContext(ctx aws.Context, input *ListParentsInput, opts ...request.Option) (*ListParentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).ListParents")
+	defer span.End()
+
 	req, out := c.ListParentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7720,6 +7823,9 @@ func (c *Organizations) ListPolicies(input *ListPoliciesInput) (*ListPoliciesOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) ListPoliciesWithContext(ctx aws.Context, input *ListPoliciesInput, opts ...request.Option) (*ListPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).ListPolicies")
+	defer span.End()
+
 	req, out := c.ListPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7942,6 +8048,9 @@ func (c *Organizations) ListPoliciesForTarget(input *ListPoliciesForTargetInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) ListPoliciesForTargetWithContext(ctx aws.Context, input *ListPoliciesForTargetInput, opts ...request.Option) (*ListPoliciesForTargetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).ListPoliciesForTarget")
+	defer span.End()
+
 	req, out := c.ListPoliciesForTargetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8165,6 +8274,9 @@ func (c *Organizations) ListRoots(input *ListRootsInput) (*ListRootsOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) ListRootsWithContext(ctx aws.Context, input *ListRootsInput, opts ...request.Option) (*ListRootsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).ListRoots")
+	defer span.End()
+
 	req, out := c.ListRootsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8385,6 +8497,9 @@ func (c *Organizations) ListTargetsForPolicy(input *ListTargetsForPolicyInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) ListTargetsForPolicyWithContext(ctx aws.Context, input *ListTargetsForPolicyInput, opts ...request.Option) (*ListTargetsForPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).ListTargetsForPolicy")
+	defer span.End()
+
 	req, out := c.ListTargetsForPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8613,6 +8728,9 @@ func (c *Organizations) MoveAccount(input *MoveAccountInput) (*MoveAccountOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) MoveAccountWithContext(ctx aws.Context, input *MoveAccountInput, opts ...request.Option) (*MoveAccountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).MoveAccount")
+	defer span.End()
+
 	req, out := c.MoveAccountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8897,6 +9015,9 @@ func (c *Organizations) RemoveAccountFromOrganization(input *RemoveAccountFromOr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) RemoveAccountFromOrganizationWithContext(ctx aws.Context, input *RemoveAccountFromOrganizationInput, opts ...request.Option) (*RemoveAccountFromOrganizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).RemoveAccountFromOrganization")
+	defer span.End()
+
 	req, out := c.RemoveAccountFromOrganizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9066,6 +9187,9 @@ func (c *Organizations) UpdateOrganizationalUnit(input *UpdateOrganizationalUnit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) UpdateOrganizationalUnitWithContext(ctx aws.Context, input *UpdateOrganizationalUnitInput, opts ...request.Option) (*UpdateOrganizationalUnitOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).UpdateOrganizationalUnit")
+	defer span.End()
+
 	req, out := c.UpdateOrganizationalUnitRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9325,6 +9449,9 @@ func (c *Organizations) UpdatePolicy(input *UpdatePolicyInput) (*UpdatePolicyOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Organizations) UpdatePolicyWithContext(ctx aws.Context, input *UpdatePolicyInput, opts ...request.Option) (*UpdatePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/organizations.(*Organizations).UpdatePolicy")
+	defer span.End()
+
 	req, out := c.UpdatePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

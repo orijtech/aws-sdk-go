@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateActivity = "CreateActivity"
@@ -92,6 +93,9 @@ func (c *SFN) CreateActivity(input *CreateActivityInput) (*CreateActivityOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) CreateActivityWithContext(ctx aws.Context, input *CreateActivityInput, opts ...request.Option) (*CreateActivityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).CreateActivity")
+	defer span.End()
+
 	req, out := c.CreateActivityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -191,6 +195,9 @@ func (c *SFN) CreateStateMachine(input *CreateStateMachineInput) (*CreateStateMa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) CreateStateMachineWithContext(ctx aws.Context, input *CreateStateMachineInput, opts ...request.Option) (*CreateStateMachineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).CreateStateMachine")
+	defer span.End()
+
 	req, out := c.CreateStateMachineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -270,6 +277,9 @@ func (c *SFN) DeleteActivity(input *DeleteActivityInput) (*DeleteActivityOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) DeleteActivityWithContext(ctx aws.Context, input *DeleteActivityInput, opts ...request.Option) (*DeleteActivityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).DeleteActivity")
+	defer span.End()
+
 	req, out := c.DeleteActivityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -354,6 +364,9 @@ func (c *SFN) DeleteStateMachine(input *DeleteStateMachineInput) (*DeleteStateMa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) DeleteStateMachineWithContext(ctx aws.Context, input *DeleteStateMachineInput, opts ...request.Option) (*DeleteStateMachineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).DeleteStateMachine")
+	defer span.End()
+
 	req, out := c.DeleteStateMachineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -436,6 +449,9 @@ func (c *SFN) DescribeActivity(input *DescribeActivityInput) (*DescribeActivityO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) DescribeActivityWithContext(ctx aws.Context, input *DescribeActivityInput, opts ...request.Option) (*DescribeActivityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).DescribeActivity")
+	defer span.End()
+
 	req, out := c.DescribeActivityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -518,6 +534,9 @@ func (c *SFN) DescribeExecution(input *DescribeExecutionInput) (*DescribeExecuti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) DescribeExecutionWithContext(ctx aws.Context, input *DescribeExecutionInput, opts ...request.Option) (*DescribeExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).DescribeExecution")
+	defer span.End()
+
 	req, out := c.DescribeExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -600,6 +619,9 @@ func (c *SFN) DescribeStateMachine(input *DescribeStateMachineInput) (*DescribeS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) DescribeStateMachineWithContext(ctx aws.Context, input *DescribeStateMachineInput, opts ...request.Option) (*DescribeStateMachineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).DescribeStateMachine")
+	defer span.End()
+
 	req, out := c.DescribeStateMachineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -682,6 +704,9 @@ func (c *SFN) DescribeStateMachineForExecution(input *DescribeStateMachineForExe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) DescribeStateMachineForExecutionWithContext(ctx aws.Context, input *DescribeStateMachineForExecutionInput, opts ...request.Option) (*DescribeStateMachineForExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).DescribeStateMachineForExecution")
+	defer span.End()
+
 	req, out := c.DescribeStateMachineForExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -777,6 +802,9 @@ func (c *SFN) GetActivityTask(input *GetActivityTaskInput) (*GetActivityTaskOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) GetActivityTaskWithContext(ctx aws.Context, input *GetActivityTaskInput, opts ...request.Option) (*GetActivityTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).GetActivityTask")
+	defer span.End()
+
 	req, out := c.GetActivityTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -874,6 +902,9 @@ func (c *SFN) GetExecutionHistory(input *GetExecutionHistoryInput) (*GetExecutio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) GetExecutionHistoryWithContext(ctx aws.Context, input *GetExecutionHistoryInput, opts ...request.Option) (*GetExecutionHistoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).GetExecutionHistory")
+	defer span.End()
+
 	req, out := c.GetExecutionHistoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1013,6 +1044,9 @@ func (c *SFN) ListActivities(input *ListActivitiesInput) (*ListActivitiesOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) ListActivitiesWithContext(ctx aws.Context, input *ListActivitiesInput, opts ...request.Option) (*ListActivitiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).ListActivities")
+	defer span.End()
+
 	req, out := c.ListActivitiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1158,6 +1192,9 @@ func (c *SFN) ListExecutions(input *ListExecutionsInput) (*ListExecutionsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) ListExecutionsWithContext(ctx aws.Context, input *ListExecutionsInput, opts ...request.Option) (*ListExecutionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).ListExecutions")
+	defer span.End()
+
 	req, out := c.ListExecutionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1297,6 +1334,9 @@ func (c *SFN) ListStateMachines(input *ListStateMachinesInput) (*ListStateMachin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) ListStateMachinesWithContext(ctx aws.Context, input *ListStateMachinesInput, opts ...request.Option) (*ListStateMachinesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).ListStateMachines")
+	defer span.End()
+
 	req, out := c.ListStateMachinesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1430,6 +1470,9 @@ func (c *SFN) SendTaskFailure(input *SendTaskFailureInput) (*SendTaskFailureOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) SendTaskFailureWithContext(ctx aws.Context, input *SendTaskFailureInput, opts ...request.Option) (*SendTaskFailureOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).SendTaskFailure")
+	defer span.End()
+
 	req, out := c.SendTaskFailureRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1525,6 +1568,9 @@ func (c *SFN) SendTaskHeartbeat(input *SendTaskHeartbeatInput) (*SendTaskHeartbe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) SendTaskHeartbeatWithContext(ctx aws.Context, input *SendTaskHeartbeatInput, opts ...request.Option) (*SendTaskHeartbeatOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).SendTaskHeartbeat")
+	defer span.End()
+
 	req, out := c.SendTaskHeartbeatRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1612,6 +1658,9 @@ func (c *SFN) SendTaskSuccess(input *SendTaskSuccessInput) (*SendTaskSuccessOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) SendTaskSuccessWithContext(ctx aws.Context, input *SendTaskSuccessInput, opts ...request.Option) (*SendTaskSuccessOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).SendTaskSuccess")
+	defer span.End()
+
 	req, out := c.SendTaskSuccessRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1712,6 +1761,9 @@ func (c *SFN) StartExecution(input *StartExecutionInput) (*StartExecutionOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) StartExecutionWithContext(ctx aws.Context, input *StartExecutionInput, opts ...request.Option) (*StartExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).StartExecution")
+	defer span.End()
+
 	req, out := c.StartExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1794,6 +1846,9 @@ func (c *SFN) StopExecution(input *StopExecutionInput) (*StopExecutionOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) StopExecutionWithContext(ctx aws.Context, input *StopExecutionInput, opts ...request.Option) (*StopExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).StopExecution")
+	defer span.End()
+
 	req, out := c.StopExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1893,6 +1948,9 @@ func (c *SFN) UpdateStateMachine(input *UpdateStateMachineInput) (*UpdateStateMa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SFN) UpdateStateMachineWithContext(ctx aws.Context, input *UpdateStateMachineInput, opts ...request.Option) (*UpdateStateMachineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sfn.(*SFN).UpdateStateMachine")
+	defer span.End()
+
 	req, out := c.UpdateStateMachineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

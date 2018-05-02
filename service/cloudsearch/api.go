@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opBuildSuggesters = "BuildSuggesters"
@@ -90,6 +91,9 @@ func (c *CloudSearch) BuildSuggesters(input *BuildSuggestersInput) (*BuildSugges
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) BuildSuggestersWithContext(ctx aws.Context, input *BuildSuggestersInput, opts ...request.Option) (*BuildSuggestersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).BuildSuggesters")
+	defer span.End()
+
 	req, out := c.BuildSuggestersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -175,6 +179,9 @@ func (c *CloudSearch) CreateDomain(input *CreateDomainInput) (*CreateDomainOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) CreateDomainWithContext(ctx aws.Context, input *CreateDomainInput, opts ...request.Option) (*CreateDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).CreateDomain")
+	defer span.End()
+
 	req, out := c.CreateDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -268,6 +275,9 @@ func (c *CloudSearch) DefineAnalysisScheme(input *DefineAnalysisSchemeInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DefineAnalysisSchemeWithContext(ctx aws.Context, input *DefineAnalysisSchemeInput, opts ...request.Option) (*DefineAnalysisSchemeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DefineAnalysisScheme")
+	defer span.End()
+
 	req, out := c.DefineAnalysisSchemeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -361,6 +371,9 @@ func (c *CloudSearch) DefineExpression(input *DefineExpressionInput) (*DefineExp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DefineExpressionWithContext(ctx aws.Context, input *DefineExpressionInput, opts ...request.Option) (*DefineExpressionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DefineExpression")
+	defer span.End()
+
 	req, out := c.DefineExpressionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -458,6 +471,9 @@ func (c *CloudSearch) DefineIndexField(input *DefineIndexFieldInput) (*DefineInd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DefineIndexFieldWithContext(ctx aws.Context, input *DefineIndexFieldInput, opts ...request.Option) (*DefineIndexFieldOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DefineIndexField")
+	defer span.End()
+
 	req, out := c.DefineIndexFieldRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -553,6 +569,9 @@ func (c *CloudSearch) DefineSuggester(input *DefineSuggesterInput) (*DefineSugge
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DefineSuggesterWithContext(ctx aws.Context, input *DefineSuggesterInput, opts ...request.Option) (*DefineSuggesterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DefineSuggester")
+	defer span.End()
+
 	req, out := c.DefineSuggesterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -642,6 +661,9 @@ func (c *CloudSearch) DeleteAnalysisScheme(input *DeleteAnalysisSchemeInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DeleteAnalysisSchemeWithContext(ctx aws.Context, input *DeleteAnalysisSchemeInput, opts ...request.Option) (*DeleteAnalysisSchemeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DeleteAnalysisScheme")
+	defer span.End()
+
 	req, out := c.DeleteAnalysisSchemeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -725,6 +747,9 @@ func (c *CloudSearch) DeleteDomain(input *DeleteDomainInput) (*DeleteDomainOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DeleteDomainWithContext(ctx aws.Context, input *DeleteDomainInput, opts ...request.Option) (*DeleteDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DeleteDomain")
+	defer span.End()
+
 	req, out := c.DeleteDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -814,6 +839,9 @@ func (c *CloudSearch) DeleteExpression(input *DeleteExpressionInput) (*DeleteExp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DeleteExpressionWithContext(ctx aws.Context, input *DeleteExpressionInput, opts ...request.Option) (*DeleteExpressionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DeleteExpression")
+	defer span.End()
+
 	req, out := c.DeleteExpressionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -903,6 +931,9 @@ func (c *CloudSearch) DeleteIndexField(input *DeleteIndexFieldInput) (*DeleteInd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DeleteIndexFieldWithContext(ctx aws.Context, input *DeleteIndexFieldInput, opts ...request.Option) (*DeleteIndexFieldOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DeleteIndexField")
+	defer span.End()
+
 	req, out := c.DeleteIndexFieldRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -992,6 +1023,9 @@ func (c *CloudSearch) DeleteSuggester(input *DeleteSuggesterInput) (*DeleteSugge
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DeleteSuggesterWithContext(ctx aws.Context, input *DeleteSuggesterInput, opts ...request.Option) (*DeleteSuggesterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DeleteSuggester")
+	defer span.End()
+
 	req, out := c.DeleteSuggesterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1082,6 +1116,9 @@ func (c *CloudSearch) DescribeAnalysisSchemes(input *DescribeAnalysisSchemesInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DescribeAnalysisSchemesWithContext(ctx aws.Context, input *DescribeAnalysisSchemesInput, opts ...request.Option) (*DescribeAnalysisSchemesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DescribeAnalysisSchemes")
+	defer span.End()
+
 	req, out := c.DescribeAnalysisSchemesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1179,6 +1216,9 @@ func (c *CloudSearch) DescribeAvailabilityOptions(input *DescribeAvailabilityOpt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DescribeAvailabilityOptionsWithContext(ctx aws.Context, input *DescribeAvailabilityOptionsInput, opts ...request.Option) (*DescribeAvailabilityOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DescribeAvailabilityOptions")
+	defer span.End()
+
 	req, out := c.DescribeAvailabilityOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1264,6 +1304,9 @@ func (c *CloudSearch) DescribeDomains(input *DescribeDomainsInput) (*DescribeDom
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DescribeDomainsWithContext(ctx aws.Context, input *DescribeDomainsInput, opts ...request.Option) (*DescribeDomainsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DescribeDomains")
+	defer span.End()
+
 	req, out := c.DescribeDomainsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1353,6 +1396,9 @@ func (c *CloudSearch) DescribeExpressions(input *DescribeExpressionsInput) (*Des
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DescribeExpressionsWithContext(ctx aws.Context, input *DescribeExpressionsInput, opts ...request.Option) (*DescribeExpressionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DescribeExpressions")
+	defer span.End()
+
 	req, out := c.DescribeExpressionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1442,6 +1488,9 @@ func (c *CloudSearch) DescribeIndexFields(input *DescribeIndexFieldsInput) (*Des
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DescribeIndexFieldsWithContext(ctx aws.Context, input *DescribeIndexFieldsInput, opts ...request.Option) (*DescribeIndexFieldsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DescribeIndexFields")
+	defer span.End()
+
 	req, out := c.DescribeIndexFieldsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1529,6 +1578,9 @@ func (c *CloudSearch) DescribeScalingParameters(input *DescribeScalingParameters
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DescribeScalingParametersWithContext(ctx aws.Context, input *DescribeScalingParametersInput, opts ...request.Option) (*DescribeScalingParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DescribeScalingParameters")
+	defer span.End()
+
 	req, out := c.DescribeScalingParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1618,6 +1670,9 @@ func (c *CloudSearch) DescribeServiceAccessPolicies(input *DescribeServiceAccess
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DescribeServiceAccessPoliciesWithContext(ctx aws.Context, input *DescribeServiceAccessPoliciesInput, opts ...request.Option) (*DescribeServiceAccessPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DescribeServiceAccessPolicies")
+	defer span.End()
+
 	req, out := c.DescribeServiceAccessPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1708,6 +1763,9 @@ func (c *CloudSearch) DescribeSuggesters(input *DescribeSuggestersInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) DescribeSuggestersWithContext(ctx aws.Context, input *DescribeSuggestersInput, opts ...request.Option) (*DescribeSuggestersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).DescribeSuggesters")
+	defer span.End()
+
 	req, out := c.DescribeSuggestersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1794,6 +1852,9 @@ func (c *CloudSearch) IndexDocuments(input *IndexDocumentsInput) (*IndexDocument
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) IndexDocumentsWithContext(ctx aws.Context, input *IndexDocumentsInput, opts ...request.Option) (*IndexDocumentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).IndexDocuments")
+	defer span.End()
+
 	req, out := c.IndexDocumentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1870,6 +1931,9 @@ func (c *CloudSearch) ListDomainNames(input *ListDomainNamesInput) (*ListDomainN
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) ListDomainNamesWithContext(ctx aws.Context, input *ListDomainNamesInput, opts ...request.Option) (*ListDomainNamesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).ListDomainNames")
+	defer span.End()
+
 	req, out := c.ListDomainNamesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1968,6 +2032,9 @@ func (c *CloudSearch) UpdateAvailabilityOptions(input *UpdateAvailabilityOptions
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) UpdateAvailabilityOptionsWithContext(ctx aws.Context, input *UpdateAvailabilityOptionsInput, opts ...request.Option) (*UpdateAvailabilityOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).UpdateAvailabilityOptions")
+	defer span.End()
+
 	req, out := c.UpdateAvailabilityOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2065,6 +2132,9 @@ func (c *CloudSearch) UpdateScalingParameters(input *UpdateScalingParametersInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) UpdateScalingParametersWithContext(ctx aws.Context, input *UpdateScalingParametersInput, opts ...request.Option) (*UpdateScalingParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).UpdateScalingParameters")
+	defer span.End()
+
 	req, out := c.UpdateScalingParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2157,6 +2227,9 @@ func (c *CloudSearch) UpdateServiceAccessPolicies(input *UpdateServiceAccessPoli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearch) UpdateServiceAccessPoliciesWithContext(ctx aws.Context, input *UpdateServiceAccessPoliciesInput, opts ...request.Option) (*UpdateServiceAccessPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearch.(*CloudSearch).UpdateServiceAccessPolicies")
+	defer span.End()
+
 	req, out := c.UpdateServiceAccessPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

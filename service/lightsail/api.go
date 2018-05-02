@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAllocateStaticIp = "AllocateStaticIp"
@@ -108,6 +109,9 @@ func (c *Lightsail) AllocateStaticIp(input *AllocateStaticIpInput) (*AllocateSta
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) AllocateStaticIpWithContext(ctx aws.Context, input *AllocateStaticIpInput, opts ...request.Option) (*AllocateStaticIpOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).AllocateStaticIp")
+	defer span.End()
+
 	req, out := c.AllocateStaticIpRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -213,6 +217,9 @@ func (c *Lightsail) AttachDisk(input *AttachDiskInput) (*AttachDiskOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) AttachDiskWithContext(ctx aws.Context, input *AttachDiskInput, opts ...request.Option) (*AttachDiskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).AttachDisk")
+	defer span.End()
+
 	req, out := c.AttachDiskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -320,6 +327,9 @@ func (c *Lightsail) AttachInstancesToLoadBalancer(input *AttachInstancesToLoadBa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) AttachInstancesToLoadBalancerWithContext(ctx aws.Context, input *AttachInstancesToLoadBalancerInput, opts ...request.Option) (*AttachInstancesToLoadBalancerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).AttachInstancesToLoadBalancer")
+	defer span.End()
+
 	req, out := c.AttachInstancesToLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -431,6 +441,9 @@ func (c *Lightsail) AttachLoadBalancerTlsCertificate(input *AttachLoadBalancerTl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) AttachLoadBalancerTlsCertificateWithContext(ctx aws.Context, input *AttachLoadBalancerTlsCertificateInput, opts ...request.Option) (*AttachLoadBalancerTlsCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).AttachLoadBalancerTlsCertificate")
+	defer span.End()
+
 	req, out := c.AttachLoadBalancerTlsCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -535,6 +548,9 @@ func (c *Lightsail) AttachStaticIp(input *AttachStaticIpInput) (*AttachStaticIpO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) AttachStaticIpWithContext(ctx aws.Context, input *AttachStaticIpInput, opts ...request.Option) (*AttachStaticIpOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).AttachStaticIp")
+	defer span.End()
+
 	req, out := c.AttachStaticIpRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -639,6 +655,9 @@ func (c *Lightsail) CloseInstancePublicPorts(input *CloseInstancePublicPortsInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) CloseInstancePublicPortsWithContext(ctx aws.Context, input *CloseInstancePublicPortsInput, opts ...request.Option) (*CloseInstancePublicPortsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).CloseInstancePublicPorts")
+	defer span.End()
+
 	req, out := c.CloseInstancePublicPortsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -746,6 +765,9 @@ func (c *Lightsail) CreateDisk(input *CreateDiskInput) (*CreateDiskOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) CreateDiskWithContext(ctx aws.Context, input *CreateDiskInput, opts ...request.Option) (*CreateDiskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).CreateDisk")
+	defer span.End()
+
 	req, out := c.CreateDiskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -853,6 +875,9 @@ func (c *Lightsail) CreateDiskFromSnapshot(input *CreateDiskFromSnapshotInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) CreateDiskFromSnapshotWithContext(ctx aws.Context, input *CreateDiskFromSnapshotInput, opts ...request.Option) (*CreateDiskFromSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).CreateDiskFromSnapshot")
+	defer span.End()
+
 	req, out := c.CreateDiskFromSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -970,6 +995,9 @@ func (c *Lightsail) CreateDiskSnapshot(input *CreateDiskSnapshotInput) (*CreateD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) CreateDiskSnapshotWithContext(ctx aws.Context, input *CreateDiskSnapshotInput, opts ...request.Option) (*CreateDiskSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).CreateDiskSnapshot")
+	defer span.End()
+
 	req, out := c.CreateDiskSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1074,6 +1102,9 @@ func (c *Lightsail) CreateDomain(input *CreateDomainInput) (*CreateDomainOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) CreateDomainWithContext(ctx aws.Context, input *CreateDomainInput, opts ...request.Option) (*CreateDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).CreateDomain")
+	defer span.End()
+
 	req, out := c.CreateDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1179,6 +1210,9 @@ func (c *Lightsail) CreateDomainEntry(input *CreateDomainEntryInput) (*CreateDom
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) CreateDomainEntryWithContext(ctx aws.Context, input *CreateDomainEntryInput, opts ...request.Option) (*CreateDomainEntryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).CreateDomainEntry")
+	defer span.End()
+
 	req, out := c.CreateDomainEntryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1284,6 +1318,9 @@ func (c *Lightsail) CreateInstanceSnapshot(input *CreateInstanceSnapshotInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) CreateInstanceSnapshotWithContext(ctx aws.Context, input *CreateInstanceSnapshotInput, opts ...request.Option) (*CreateInstanceSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).CreateInstanceSnapshot")
+	defer span.End()
+
 	req, out := c.CreateInstanceSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1388,6 +1425,9 @@ func (c *Lightsail) CreateInstances(input *CreateInstancesInput) (*CreateInstanc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) CreateInstancesWithContext(ctx aws.Context, input *CreateInstancesInput, opts ...request.Option) (*CreateInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).CreateInstances")
+	defer span.End()
+
 	req, out := c.CreateInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1493,6 +1533,9 @@ func (c *Lightsail) CreateInstancesFromSnapshot(input *CreateInstancesFromSnapsh
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) CreateInstancesFromSnapshotWithContext(ctx aws.Context, input *CreateInstancesFromSnapshotInput, opts ...request.Option) (*CreateInstancesFromSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).CreateInstancesFromSnapshot")
+	defer span.End()
+
 	req, out := c.CreateInstancesFromSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1597,6 +1640,9 @@ func (c *Lightsail) CreateKeyPair(input *CreateKeyPairInput) (*CreateKeyPairOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) CreateKeyPairWithContext(ctx aws.Context, input *CreateKeyPairInput, opts ...request.Option) (*CreateKeyPairOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).CreateKeyPair")
+	defer span.End()
+
 	req, out := c.CreateKeyPairRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1708,6 +1754,9 @@ func (c *Lightsail) CreateLoadBalancer(input *CreateLoadBalancerInput) (*CreateL
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) CreateLoadBalancerWithContext(ctx aws.Context, input *CreateLoadBalancerInput, opts ...request.Option) (*CreateLoadBalancerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).CreateLoadBalancer")
+	defer span.End()
+
 	req, out := c.CreateLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1814,6 +1863,9 @@ func (c *Lightsail) CreateLoadBalancerTlsCertificate(input *CreateLoadBalancerTl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) CreateLoadBalancerTlsCertificateWithContext(ctx aws.Context, input *CreateLoadBalancerTlsCertificateInput, opts ...request.Option) (*CreateLoadBalancerTlsCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).CreateLoadBalancerTlsCertificate")
+	defer span.End()
+
 	req, out := c.CreateLoadBalancerTlsCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1921,6 +1973,9 @@ func (c *Lightsail) DeleteDisk(input *DeleteDiskInput) (*DeleteDiskOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) DeleteDiskWithContext(ctx aws.Context, input *DeleteDiskInput, opts ...request.Option) (*DeleteDiskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).DeleteDisk")
+	defer span.End()
+
 	req, out := c.DeleteDiskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2032,6 +2087,9 @@ func (c *Lightsail) DeleteDiskSnapshot(input *DeleteDiskSnapshotInput) (*DeleteD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) DeleteDiskSnapshotWithContext(ctx aws.Context, input *DeleteDiskSnapshotInput, opts ...request.Option) (*DeleteDiskSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).DeleteDiskSnapshot")
+	defer span.End()
+
 	req, out := c.DeleteDiskSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2136,6 +2194,9 @@ func (c *Lightsail) DeleteDomain(input *DeleteDomainInput) (*DeleteDomainOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) DeleteDomainWithContext(ctx aws.Context, input *DeleteDomainInput, opts ...request.Option) (*DeleteDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).DeleteDomain")
+	defer span.End()
+
 	req, out := c.DeleteDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2240,6 +2301,9 @@ func (c *Lightsail) DeleteDomainEntry(input *DeleteDomainEntryInput) (*DeleteDom
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) DeleteDomainEntryWithContext(ctx aws.Context, input *DeleteDomainEntryInput, opts ...request.Option) (*DeleteDomainEntryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).DeleteDomainEntry")
+	defer span.End()
+
 	req, out := c.DeleteDomainEntryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2344,6 +2408,9 @@ func (c *Lightsail) DeleteInstance(input *DeleteInstanceInput) (*DeleteInstanceO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) DeleteInstanceWithContext(ctx aws.Context, input *DeleteInstanceInput, opts ...request.Option) (*DeleteInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).DeleteInstance")
+	defer span.End()
+
 	req, out := c.DeleteInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2448,6 +2515,9 @@ func (c *Lightsail) DeleteInstanceSnapshot(input *DeleteInstanceSnapshotInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) DeleteInstanceSnapshotWithContext(ctx aws.Context, input *DeleteInstanceSnapshotInput, opts ...request.Option) (*DeleteInstanceSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).DeleteInstanceSnapshot")
+	defer span.End()
+
 	req, out := c.DeleteInstanceSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2552,6 +2622,9 @@ func (c *Lightsail) DeleteKeyPair(input *DeleteKeyPairInput) (*DeleteKeyPairOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) DeleteKeyPairWithContext(ctx aws.Context, input *DeleteKeyPairInput, opts ...request.Option) (*DeleteKeyPairOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).DeleteKeyPair")
+	defer span.End()
+
 	req, out := c.DeleteKeyPairRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2658,6 +2731,9 @@ func (c *Lightsail) DeleteLoadBalancer(input *DeleteLoadBalancerInput) (*DeleteL
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) DeleteLoadBalancerWithContext(ctx aws.Context, input *DeleteLoadBalancerInput, opts ...request.Option) (*DeleteLoadBalancerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).DeleteLoadBalancer")
+	defer span.End()
+
 	req, out := c.DeleteLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2762,6 +2838,9 @@ func (c *Lightsail) DeleteLoadBalancerTlsCertificate(input *DeleteLoadBalancerTl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) DeleteLoadBalancerTlsCertificateWithContext(ctx aws.Context, input *DeleteLoadBalancerTlsCertificateInput, opts ...request.Option) (*DeleteLoadBalancerTlsCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).DeleteLoadBalancerTlsCertificate")
+	defer span.End()
+
 	req, out := c.DeleteLoadBalancerTlsCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2868,6 +2947,9 @@ func (c *Lightsail) DetachDisk(input *DetachDiskInput) (*DetachDiskOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) DetachDiskWithContext(ctx aws.Context, input *DetachDiskInput, opts ...request.Option) (*DetachDiskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).DetachDisk")
+	defer span.End()
+
 	req, out := c.DetachDiskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2975,6 +3057,9 @@ func (c *Lightsail) DetachInstancesFromLoadBalancer(input *DetachInstancesFromLo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) DetachInstancesFromLoadBalancerWithContext(ctx aws.Context, input *DetachInstancesFromLoadBalancerInput, opts ...request.Option) (*DetachInstancesFromLoadBalancerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).DetachInstancesFromLoadBalancer")
+	defer span.End()
+
 	req, out := c.DetachInstancesFromLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3079,6 +3164,9 @@ func (c *Lightsail) DetachStaticIp(input *DetachStaticIpInput) (*DetachStaticIpO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) DetachStaticIpWithContext(ctx aws.Context, input *DetachStaticIpInput, opts ...request.Option) (*DetachStaticIpOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).DetachStaticIp")
+	defer span.End()
+
 	req, out := c.DetachStaticIpRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3183,6 +3271,9 @@ func (c *Lightsail) DownloadDefaultKeyPair(input *DownloadDefaultKeyPairInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) DownloadDefaultKeyPairWithContext(ctx aws.Context, input *DownloadDefaultKeyPairInput, opts ...request.Option) (*DownloadDefaultKeyPairOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).DownloadDefaultKeyPair")
+	defer span.End()
+
 	req, out := c.DownloadDefaultKeyPairRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3287,6 +3378,9 @@ func (c *Lightsail) GetActiveNames(input *GetActiveNamesInput) (*GetActiveNamesO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetActiveNamesWithContext(ctx aws.Context, input *GetActiveNamesInput, opts ...request.Option) (*GetActiveNamesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetActiveNames")
+	defer span.End()
+
 	req, out := c.GetActiveNamesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3394,6 +3488,9 @@ func (c *Lightsail) GetBlueprints(input *GetBlueprintsInput) (*GetBlueprintsOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetBlueprintsWithContext(ctx aws.Context, input *GetBlueprintsInput, opts ...request.Option) (*GetBlueprintsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetBlueprints")
+	defer span.End()
+
 	req, out := c.GetBlueprintsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3499,6 +3596,9 @@ func (c *Lightsail) GetBundles(input *GetBundlesInput) (*GetBundlesOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetBundlesWithContext(ctx aws.Context, input *GetBundlesInput, opts ...request.Option) (*GetBundlesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetBundles")
+	defer span.End()
+
 	req, out := c.GetBundlesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3603,6 +3703,9 @@ func (c *Lightsail) GetDisk(input *GetDiskInput) (*GetDiskOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetDiskWithContext(ctx aws.Context, input *GetDiskInput, opts ...request.Option) (*GetDiskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetDisk")
+	defer span.End()
+
 	req, out := c.GetDiskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3707,6 +3810,9 @@ func (c *Lightsail) GetDiskSnapshot(input *GetDiskSnapshotInput) (*GetDiskSnapsh
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetDiskSnapshotWithContext(ctx aws.Context, input *GetDiskSnapshotInput, opts ...request.Option) (*GetDiskSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetDiskSnapshot")
+	defer span.End()
+
 	req, out := c.GetDiskSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3816,6 +3922,9 @@ func (c *Lightsail) GetDiskSnapshots(input *GetDiskSnapshotsInput) (*GetDiskSnap
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetDiskSnapshotsWithContext(ctx aws.Context, input *GetDiskSnapshotsInput, opts ...request.Option) (*GetDiskSnapshotsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetDiskSnapshots")
+	defer span.End()
+
 	req, out := c.GetDiskSnapshotsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3925,6 +4034,9 @@ func (c *Lightsail) GetDisks(input *GetDisksInput) (*GetDisksOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetDisksWithContext(ctx aws.Context, input *GetDisksInput, opts ...request.Option) (*GetDisksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetDisks")
+	defer span.End()
+
 	req, out := c.GetDisksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4029,6 +4141,9 @@ func (c *Lightsail) GetDomain(input *GetDomainInput) (*GetDomainOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetDomainWithContext(ctx aws.Context, input *GetDomainInput, opts ...request.Option) (*GetDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetDomain")
+	defer span.End()
+
 	req, out := c.GetDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4133,6 +4248,9 @@ func (c *Lightsail) GetDomains(input *GetDomainsInput) (*GetDomainsOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetDomainsWithContext(ctx aws.Context, input *GetDomainsInput, opts ...request.Option) (*GetDomainsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetDomains")
+	defer span.End()
+
 	req, out := c.GetDomainsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4238,6 +4356,9 @@ func (c *Lightsail) GetInstance(input *GetInstanceInput) (*GetInstanceOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetInstanceWithContext(ctx aws.Context, input *GetInstanceInput, opts ...request.Option) (*GetInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetInstance")
+	defer span.End()
+
 	req, out := c.GetInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4343,6 +4464,9 @@ func (c *Lightsail) GetInstanceAccessDetails(input *GetInstanceAccessDetailsInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetInstanceAccessDetailsWithContext(ctx aws.Context, input *GetInstanceAccessDetailsInput, opts ...request.Option) (*GetInstanceAccessDetailsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetInstanceAccessDetails")
+	defer span.End()
+
 	req, out := c.GetInstanceAccessDetailsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4448,6 +4572,9 @@ func (c *Lightsail) GetInstanceMetricData(input *GetInstanceMetricDataInput) (*G
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetInstanceMetricDataWithContext(ctx aws.Context, input *GetInstanceMetricDataInput, opts ...request.Option) (*GetInstanceMetricDataOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetInstanceMetricData")
+	defer span.End()
+
 	req, out := c.GetInstanceMetricDataRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4552,6 +4679,9 @@ func (c *Lightsail) GetInstancePortStates(input *GetInstancePortStatesInput) (*G
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetInstancePortStatesWithContext(ctx aws.Context, input *GetInstancePortStatesInput, opts ...request.Option) (*GetInstancePortStatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetInstancePortStates")
+	defer span.End()
+
 	req, out := c.GetInstancePortStatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4656,6 +4786,9 @@ func (c *Lightsail) GetInstanceSnapshot(input *GetInstanceSnapshotInput) (*GetIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetInstanceSnapshotWithContext(ctx aws.Context, input *GetInstanceSnapshotInput, opts ...request.Option) (*GetInstanceSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetInstanceSnapshot")
+	defer span.End()
+
 	req, out := c.GetInstanceSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4760,6 +4893,9 @@ func (c *Lightsail) GetInstanceSnapshots(input *GetInstanceSnapshotsInput) (*Get
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetInstanceSnapshotsWithContext(ctx aws.Context, input *GetInstanceSnapshotsInput, opts ...request.Option) (*GetInstanceSnapshotsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetInstanceSnapshots")
+	defer span.End()
+
 	req, out := c.GetInstanceSnapshotsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4864,6 +5000,9 @@ func (c *Lightsail) GetInstanceState(input *GetInstanceStateInput) (*GetInstance
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetInstanceStateWithContext(ctx aws.Context, input *GetInstanceStateInput, opts ...request.Option) (*GetInstanceStateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetInstanceState")
+	defer span.End()
+
 	req, out := c.GetInstanceStateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4969,6 +5108,9 @@ func (c *Lightsail) GetInstances(input *GetInstancesInput) (*GetInstancesOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetInstancesWithContext(ctx aws.Context, input *GetInstancesInput, opts ...request.Option) (*GetInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetInstances")
+	defer span.End()
+
 	req, out := c.GetInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5073,6 +5215,9 @@ func (c *Lightsail) GetKeyPair(input *GetKeyPairInput) (*GetKeyPairOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetKeyPairWithContext(ctx aws.Context, input *GetKeyPairInput, opts ...request.Option) (*GetKeyPairOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetKeyPair")
+	defer span.End()
+
 	req, out := c.GetKeyPairRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5177,6 +5322,9 @@ func (c *Lightsail) GetKeyPairs(input *GetKeyPairsInput) (*GetKeyPairsOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetKeyPairsWithContext(ctx aws.Context, input *GetKeyPairsInput, opts ...request.Option) (*GetKeyPairsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetKeyPairs")
+	defer span.End()
+
 	req, out := c.GetKeyPairsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5281,6 +5429,9 @@ func (c *Lightsail) GetLoadBalancer(input *GetLoadBalancerInput) (*GetLoadBalanc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetLoadBalancerWithContext(ctx aws.Context, input *GetLoadBalancerInput, opts ...request.Option) (*GetLoadBalancerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetLoadBalancer")
+	defer span.End()
+
 	req, out := c.GetLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5385,6 +5536,9 @@ func (c *Lightsail) GetLoadBalancerMetricData(input *GetLoadBalancerMetricDataIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetLoadBalancerMetricDataWithContext(ctx aws.Context, input *GetLoadBalancerMetricDataInput, opts ...request.Option) (*GetLoadBalancerMetricDataOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetLoadBalancerMetricData")
+	defer span.End()
+
 	req, out := c.GetLoadBalancerMetricDataRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5495,6 +5649,9 @@ func (c *Lightsail) GetLoadBalancerTlsCertificates(input *GetLoadBalancerTlsCert
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetLoadBalancerTlsCertificatesWithContext(ctx aws.Context, input *GetLoadBalancerTlsCertificatesInput, opts ...request.Option) (*GetLoadBalancerTlsCertificatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetLoadBalancerTlsCertificates")
+	defer span.End()
+
 	req, out := c.GetLoadBalancerTlsCertificatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5603,6 +5760,9 @@ func (c *Lightsail) GetLoadBalancers(input *GetLoadBalancersInput) (*GetLoadBala
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetLoadBalancersWithContext(ctx aws.Context, input *GetLoadBalancersInput, opts ...request.Option) (*GetLoadBalancersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetLoadBalancers")
+	defer span.End()
+
 	req, out := c.GetLoadBalancersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5709,6 +5869,9 @@ func (c *Lightsail) GetOperation(input *GetOperationInput) (*GetOperationOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetOperationWithContext(ctx aws.Context, input *GetOperationInput, opts ...request.Option) (*GetOperationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetOperation")
+	defer span.End()
+
 	req, out := c.GetOperationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5817,6 +5980,9 @@ func (c *Lightsail) GetOperations(input *GetOperationsInput) (*GetOperationsOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetOperationsWithContext(ctx aws.Context, input *GetOperationsInput, opts ...request.Option) (*GetOperationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetOperations")
+	defer span.End()
+
 	req, out := c.GetOperationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5921,6 +6087,9 @@ func (c *Lightsail) GetOperationsForResource(input *GetOperationsForResourceInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetOperationsForResourceWithContext(ctx aws.Context, input *GetOperationsForResourceInput, opts ...request.Option) (*GetOperationsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetOperationsForResource")
+	defer span.End()
+
 	req, out := c.GetOperationsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6026,6 +6195,9 @@ func (c *Lightsail) GetRegions(input *GetRegionsInput) (*GetRegionsOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetRegionsWithContext(ctx aws.Context, input *GetRegionsInput, opts ...request.Option) (*GetRegionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetRegions")
+	defer span.End()
+
 	req, out := c.GetRegionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6130,6 +6302,9 @@ func (c *Lightsail) GetStaticIp(input *GetStaticIpInput) (*GetStaticIpOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetStaticIpWithContext(ctx aws.Context, input *GetStaticIpInput, opts ...request.Option) (*GetStaticIpOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetStaticIp")
+	defer span.End()
+
 	req, out := c.GetStaticIpRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6234,6 +6409,9 @@ func (c *Lightsail) GetStaticIps(input *GetStaticIpsInput) (*GetStaticIpsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) GetStaticIpsWithContext(ctx aws.Context, input *GetStaticIpsInput, opts ...request.Option) (*GetStaticIpsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).GetStaticIps")
+	defer span.End()
+
 	req, out := c.GetStaticIpsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6338,6 +6516,9 @@ func (c *Lightsail) ImportKeyPair(input *ImportKeyPairInput) (*ImportKeyPairOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) ImportKeyPairWithContext(ctx aws.Context, input *ImportKeyPairInput, opts ...request.Option) (*ImportKeyPairOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).ImportKeyPair")
+	defer span.End()
+
 	req, out := c.ImportKeyPairRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6442,6 +6623,9 @@ func (c *Lightsail) IsVpcPeered(input *IsVpcPeeredInput) (*IsVpcPeeredOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) IsVpcPeeredWithContext(ctx aws.Context, input *IsVpcPeeredInput, opts ...request.Option) (*IsVpcPeeredOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).IsVpcPeered")
+	defer span.End()
+
 	req, out := c.IsVpcPeeredRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6546,6 +6730,9 @@ func (c *Lightsail) OpenInstancePublicPorts(input *OpenInstancePublicPortsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) OpenInstancePublicPortsWithContext(ctx aws.Context, input *OpenInstancePublicPortsInput, opts ...request.Option) (*OpenInstancePublicPortsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).OpenInstancePublicPorts")
+	defer span.End()
+
 	req, out := c.OpenInstancePublicPortsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6650,6 +6837,9 @@ func (c *Lightsail) PeerVpc(input *PeerVpcInput) (*PeerVpcOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) PeerVpcWithContext(ctx aws.Context, input *PeerVpcInput, opts ...request.Option) (*PeerVpcOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).PeerVpc")
+	defer span.End()
+
 	req, out := c.PeerVpcRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6755,6 +6945,9 @@ func (c *Lightsail) PutInstancePublicPorts(input *PutInstancePublicPortsInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) PutInstancePublicPortsWithContext(ctx aws.Context, input *PutInstancePublicPortsInput, opts ...request.Option) (*PutInstancePublicPortsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).PutInstancePublicPorts")
+	defer span.End()
+
 	req, out := c.PutInstancePublicPortsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6862,6 +7055,9 @@ func (c *Lightsail) RebootInstance(input *RebootInstanceInput) (*RebootInstanceO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) RebootInstanceWithContext(ctx aws.Context, input *RebootInstanceInput, opts ...request.Option) (*RebootInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).RebootInstance")
+	defer span.End()
+
 	req, out := c.RebootInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6966,6 +7162,9 @@ func (c *Lightsail) ReleaseStaticIp(input *ReleaseStaticIpInput) (*ReleaseStatic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) ReleaseStaticIpWithContext(ctx aws.Context, input *ReleaseStaticIpInput, opts ...request.Option) (*ReleaseStaticIpOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).ReleaseStaticIp")
+	defer span.End()
+
 	req, out := c.ReleaseStaticIpRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7071,6 +7270,9 @@ func (c *Lightsail) StartInstance(input *StartInstanceInput) (*StartInstanceOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) StartInstanceWithContext(ctx aws.Context, input *StartInstanceInput, opts ...request.Option) (*StartInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).StartInstance")
+	defer span.End()
+
 	req, out := c.StartInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7175,6 +7377,9 @@ func (c *Lightsail) StopInstance(input *StopInstanceInput) (*StopInstanceOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) StopInstanceWithContext(ctx aws.Context, input *StopInstanceInput, opts ...request.Option) (*StopInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).StopInstance")
+	defer span.End()
+
 	req, out := c.StopInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7279,6 +7484,9 @@ func (c *Lightsail) UnpeerVpc(input *UnpeerVpcInput) (*UnpeerVpcOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) UnpeerVpcWithContext(ctx aws.Context, input *UnpeerVpcInput, opts ...request.Option) (*UnpeerVpcOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).UnpeerVpc")
+	defer span.End()
+
 	req, out := c.UnpeerVpcRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7383,6 +7591,9 @@ func (c *Lightsail) UpdateDomainEntry(input *UpdateDomainEntryInput) (*UpdateDom
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) UpdateDomainEntryWithContext(ctx aws.Context, input *UpdateDomainEntryInput, opts ...request.Option) (*UpdateDomainEntryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).UpdateDomainEntry")
+	defer span.End()
+
 	req, out := c.UpdateDomainEntryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7488,6 +7699,9 @@ func (c *Lightsail) UpdateLoadBalancerAttribute(input *UpdateLoadBalancerAttribu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lightsail) UpdateLoadBalancerAttributeWithContext(ctx aws.Context, input *UpdateLoadBalancerAttributeInput, opts ...request.Option) (*UpdateLoadBalancerAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lightsail.(*Lightsail).UpdateLoadBalancerAttribute")
+	defer span.End()
+
 	req, out := c.UpdateLoadBalancerAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

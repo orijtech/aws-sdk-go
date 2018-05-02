@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateEnvironmentEC2 = "CreateEnvironmentEC2"
@@ -103,6 +104,9 @@ func (c *Cloud9) CreateEnvironmentEC2(input *CreateEnvironmentEC2Input) (*Create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Cloud9) CreateEnvironmentEC2WithContext(ctx aws.Context, input *CreateEnvironmentEC2Input, opts ...request.Option) (*CreateEnvironmentEC2Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloud9.(*Cloud9).CreateEnvironmentEC2")
+	defer span.End()
+
 	req, out := c.CreateEnvironmentEC2Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -200,6 +204,9 @@ func (c *Cloud9) CreateEnvironmentMembership(input *CreateEnvironmentMembershipI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Cloud9) CreateEnvironmentMembershipWithContext(ctx aws.Context, input *CreateEnvironmentMembershipInput, opts ...request.Option) (*CreateEnvironmentMembershipOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloud9.(*Cloud9).CreateEnvironmentMembership")
+	defer span.End()
+
 	req, out := c.CreateEnvironmentMembershipRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -298,6 +305,9 @@ func (c *Cloud9) DeleteEnvironment(input *DeleteEnvironmentInput) (*DeleteEnviro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Cloud9) DeleteEnvironmentWithContext(ctx aws.Context, input *DeleteEnvironmentInput, opts ...request.Option) (*DeleteEnvironmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloud9.(*Cloud9).DeleteEnvironment")
+	defer span.End()
+
 	req, out := c.DeleteEnvironmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -395,6 +405,9 @@ func (c *Cloud9) DeleteEnvironmentMembership(input *DeleteEnvironmentMembershipI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Cloud9) DeleteEnvironmentMembershipWithContext(ctx aws.Context, input *DeleteEnvironmentMembershipInput, opts ...request.Option) (*DeleteEnvironmentMembershipOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloud9.(*Cloud9).DeleteEnvironmentMembership")
+	defer span.End()
+
 	req, out := c.DeleteEnvironmentMembershipRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -499,6 +512,9 @@ func (c *Cloud9) DescribeEnvironmentMemberships(input *DescribeEnvironmentMember
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Cloud9) DescribeEnvironmentMembershipsWithContext(ctx aws.Context, input *DescribeEnvironmentMembershipsInput, opts ...request.Option) (*DescribeEnvironmentMembershipsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloud9.(*Cloud9).DescribeEnvironmentMemberships")
+	defer span.End()
+
 	req, out := c.DescribeEnvironmentMembershipsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -646,6 +662,9 @@ func (c *Cloud9) DescribeEnvironmentStatus(input *DescribeEnvironmentStatusInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Cloud9) DescribeEnvironmentStatusWithContext(ctx aws.Context, input *DescribeEnvironmentStatusInput, opts ...request.Option) (*DescribeEnvironmentStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloud9.(*Cloud9).DescribeEnvironmentStatus")
+	defer span.End()
+
 	req, out := c.DescribeEnvironmentStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -743,6 +762,9 @@ func (c *Cloud9) DescribeEnvironments(input *DescribeEnvironmentsInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Cloud9) DescribeEnvironmentsWithContext(ctx aws.Context, input *DescribeEnvironmentsInput, opts ...request.Option) (*DescribeEnvironmentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloud9.(*Cloud9).DescribeEnvironments")
+	defer span.End()
+
 	req, out := c.DescribeEnvironmentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -846,6 +868,9 @@ func (c *Cloud9) ListEnvironments(input *ListEnvironmentsInput) (*ListEnvironmen
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Cloud9) ListEnvironmentsWithContext(ctx aws.Context, input *ListEnvironmentsInput, opts ...request.Option) (*ListEnvironmentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloud9.(*Cloud9).ListEnvironments")
+	defer span.End()
+
 	req, out := c.ListEnvironmentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -993,6 +1018,9 @@ func (c *Cloud9) UpdateEnvironment(input *UpdateEnvironmentInput) (*UpdateEnviro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Cloud9) UpdateEnvironmentWithContext(ctx aws.Context, input *UpdateEnvironmentInput, opts ...request.Option) (*UpdateEnvironmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloud9.(*Cloud9).UpdateEnvironment")
+	defer span.End()
+
 	req, out := c.UpdateEnvironmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1091,6 +1119,9 @@ func (c *Cloud9) UpdateEnvironmentMembership(input *UpdateEnvironmentMembershipI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Cloud9) UpdateEnvironmentMembershipWithContext(ctx aws.Context, input *UpdateEnvironmentMembershipInput, opts ...request.Option) (*UpdateEnvironmentMembershipOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloud9.(*Cloud9).UpdateEnvironmentMembership")
+	defer span.End()
+
 	req, out := c.UpdateEnvironmentMembershipRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

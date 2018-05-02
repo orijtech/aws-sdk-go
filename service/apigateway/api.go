@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
+	"go.opencensus.io/trace"
 )
 
 const opCreateApiKey = "CreateApiKey"
@@ -102,6 +103,9 @@ func (c *APIGateway) CreateApiKey(input *CreateApiKeyInput) (*ApiKey, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateApiKeyWithContext(ctx aws.Context, input *CreateApiKeyInput, opts ...request.Option) (*ApiKey, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateApiKey")
+	defer span.End()
+
 	req, out := c.CreateApiKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -194,6 +198,9 @@ func (c *APIGateway) CreateAuthorizer(input *CreateAuthorizerInput) (*Authorizer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateAuthorizerWithContext(ctx aws.Context, input *CreateAuthorizerInput, opts ...request.Option) (*Authorizer, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateAuthorizer")
+	defer span.End()
+
 	req, out := c.CreateAuthorizerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -285,6 +292,9 @@ func (c *APIGateway) CreateBasePathMapping(input *CreateBasePathMappingInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateBasePathMappingWithContext(ctx aws.Context, input *CreateBasePathMappingInput, opts ...request.Option) (*BasePathMapping, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateBasePathMapping")
+	defer span.End()
+
 	req, out := c.CreateBasePathMappingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -384,6 +394,9 @@ func (c *APIGateway) CreateDeployment(input *CreateDeploymentInput) (*Deployment
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateDeploymentWithContext(ctx aws.Context, input *CreateDeploymentInput, opts ...request.Option) (*Deployment, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateDeployment")
+	defer span.End()
+
 	req, out := c.CreateDeploymentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -476,6 +489,9 @@ func (c *APIGateway) CreateDocumentationPart(input *CreateDocumentationPartInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateDocumentationPartWithContext(ctx aws.Context, input *CreateDocumentationPartInput, opts ...request.Option) (*DocumentationPart, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateDocumentationPart")
+	defer span.End()
+
 	req, out := c.CreateDocumentationPartRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -568,6 +584,9 @@ func (c *APIGateway) CreateDocumentationVersion(input *CreateDocumentationVersio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateDocumentationVersionWithContext(ctx aws.Context, input *CreateDocumentationVersionInput, opts ...request.Option) (*DocumentationVersion, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateDocumentationVersion")
+	defer span.End()
+
 	req, out := c.CreateDocumentationVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -656,6 +675,9 @@ func (c *APIGateway) CreateDomainName(input *CreateDomainNameInput) (*DomainName
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateDomainNameWithContext(ctx aws.Context, input *CreateDomainNameInput, opts ...request.Option) (*DomainName, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateDomainName")
+	defer span.End()
+
 	req, out := c.CreateDomainNameRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -750,6 +772,9 @@ func (c *APIGateway) CreateModel(input *CreateModelInput) (*Model, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateModelWithContext(ctx aws.Context, input *CreateModelInput, opts ...request.Option) (*Model, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateModel")
+	defer span.End()
+
 	req, out := c.CreateModelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -840,6 +865,9 @@ func (c *APIGateway) CreateRequestValidator(input *CreateRequestValidatorInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateRequestValidatorWithContext(ctx aws.Context, input *CreateRequestValidatorInput, opts ...request.Option) (*UpdateRequestValidatorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateRequestValidator")
+	defer span.End()
+
 	req, out := c.CreateRequestValidatorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -934,6 +962,9 @@ func (c *APIGateway) CreateResource(input *CreateResourceInput) (*Resource, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateResourceWithContext(ctx aws.Context, input *CreateResourceInput, opts ...request.Option) (*Resource, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateResource")
+	defer span.End()
+
 	req, out := c.CreateResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1021,6 +1052,9 @@ func (c *APIGateway) CreateRestApi(input *CreateRestApiInput) (*RestApi, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateRestApiWithContext(ctx aws.Context, input *CreateRestApiInput, opts ...request.Option) (*RestApi, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateRestApi")
+	defer span.End()
+
 	req, out := c.CreateRestApiRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1116,6 +1150,9 @@ func (c *APIGateway) CreateStage(input *CreateStageInput) (*Stage, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateStageWithContext(ctx aws.Context, input *CreateStageInput, opts ...request.Option) (*Stage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateStage")
+	defer span.End()
+
 	req, out := c.CreateStageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1211,6 +1248,9 @@ func (c *APIGateway) CreateUsagePlan(input *CreateUsagePlanInput) (*UsagePlan, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateUsagePlanWithContext(ctx aws.Context, input *CreateUsagePlanInput, opts ...request.Option) (*UsagePlan, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateUsagePlan")
+	defer span.End()
+
 	req, out := c.CreateUsagePlanRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1302,6 +1342,9 @@ func (c *APIGateway) CreateUsagePlanKey(input *CreateUsagePlanKeyInput) (*UsageP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateUsagePlanKeyWithContext(ctx aws.Context, input *CreateUsagePlanKeyInput, opts ...request.Option) (*UsagePlanKey, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateUsagePlanKey")
+	defer span.End()
+
 	req, out := c.CreateUsagePlanKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1389,6 +1432,9 @@ func (c *APIGateway) CreateVpcLink(input *CreateVpcLinkInput) (*UpdateVpcLinkOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) CreateVpcLinkWithContext(ctx aws.Context, input *CreateVpcLinkInput, opts ...request.Option) (*UpdateVpcLinkOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).CreateVpcLink")
+	defer span.End()
+
 	req, out := c.CreateVpcLinkRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1474,6 +1520,9 @@ func (c *APIGateway) DeleteApiKey(input *DeleteApiKeyInput) (*DeleteApiKeyOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteApiKeyWithContext(ctx aws.Context, input *DeleteApiKeyInput, opts ...request.Option) (*DeleteApiKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteApiKey")
+	defer span.End()
+
 	req, out := c.DeleteApiKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1569,6 +1618,9 @@ func (c *APIGateway) DeleteAuthorizer(input *DeleteAuthorizerInput) (*DeleteAuth
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteAuthorizerWithContext(ctx aws.Context, input *DeleteAuthorizerInput, opts ...request.Option) (*DeleteAuthorizerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteAuthorizer")
+	defer span.End()
+
 	req, out := c.DeleteAuthorizerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1662,6 +1714,9 @@ func (c *APIGateway) DeleteBasePathMapping(input *DeleteBasePathMappingInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteBasePathMappingWithContext(ctx aws.Context, input *DeleteBasePathMappingInput, opts ...request.Option) (*DeleteBasePathMappingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteBasePathMapping")
+	defer span.End()
+
 	req, out := c.DeleteBasePathMappingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1751,6 +1806,9 @@ func (c *APIGateway) DeleteClientCertificate(input *DeleteClientCertificateInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteClientCertificateWithContext(ctx aws.Context, input *DeleteClientCertificateInput, opts ...request.Option) (*DeleteClientCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteClientCertificate")
+	defer span.End()
+
 	req, out := c.DeleteClientCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1841,6 +1899,9 @@ func (c *APIGateway) DeleteDeployment(input *DeleteDeploymentInput) (*DeleteDepl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteDeploymentWithContext(ctx aws.Context, input *DeleteDeploymentInput, opts ...request.Option) (*DeleteDeploymentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteDeployment")
+	defer span.End()
+
 	req, out := c.DeleteDeploymentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1932,6 +1993,9 @@ func (c *APIGateway) DeleteDocumentationPart(input *DeleteDocumentationPartInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteDocumentationPartWithContext(ctx aws.Context, input *DeleteDocumentationPartInput, opts ...request.Option) (*DeleteDocumentationPartOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteDocumentationPart")
+	defer span.End()
+
 	req, out := c.DeleteDocumentationPartRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2023,6 +2087,9 @@ func (c *APIGateway) DeleteDocumentationVersion(input *DeleteDocumentationVersio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteDocumentationVersionWithContext(ctx aws.Context, input *DeleteDocumentationVersionInput, opts ...request.Option) (*DeleteDocumentationVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteDocumentationVersion")
+	defer span.End()
+
 	req, out := c.DeleteDocumentationVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2108,6 +2175,9 @@ func (c *APIGateway) DeleteDomainName(input *DeleteDomainNameInput) (*DeleteDoma
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteDomainNameWithContext(ctx aws.Context, input *DeleteDomainNameInput, opts ...request.Option) (*DeleteDomainNameOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteDomainName")
+	defer span.End()
+
 	req, out := c.DeleteDomainNameRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2202,6 +2272,9 @@ func (c *APIGateway) DeleteGatewayResponse(input *DeleteGatewayResponseInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteGatewayResponseWithContext(ctx aws.Context, input *DeleteGatewayResponseInput, opts ...request.Option) (*DeleteGatewayResponseOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteGatewayResponse")
+	defer span.End()
+
 	req, out := c.DeleteGatewayResponseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2291,6 +2364,9 @@ func (c *APIGateway) DeleteIntegration(input *DeleteIntegrationInput) (*DeleteIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteIntegrationWithContext(ctx aws.Context, input *DeleteIntegrationInput, opts ...request.Option) (*DeleteIntegrationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteIntegration")
+	defer span.End()
+
 	req, out := c.DeleteIntegrationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2384,6 +2460,9 @@ func (c *APIGateway) DeleteIntegrationResponse(input *DeleteIntegrationResponseI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteIntegrationResponseWithContext(ctx aws.Context, input *DeleteIntegrationResponseInput, opts ...request.Option) (*DeleteIntegrationResponseOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteIntegrationResponse")
+	defer span.End()
+
 	req, out := c.DeleteIntegrationResponseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2473,6 +2552,9 @@ func (c *APIGateway) DeleteMethod(input *DeleteMethodInput) (*DeleteMethodOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteMethodWithContext(ctx aws.Context, input *DeleteMethodInput, opts ...request.Option) (*DeleteMethodOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteMethod")
+	defer span.End()
+
 	req, out := c.DeleteMethodRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2566,6 +2648,9 @@ func (c *APIGateway) DeleteMethodResponse(input *DeleteMethodResponseInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteMethodResponseWithContext(ctx aws.Context, input *DeleteMethodResponseInput, opts ...request.Option) (*DeleteMethodResponseOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteMethodResponse")
+	defer span.End()
+
 	req, out := c.DeleteMethodResponseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2659,6 +2744,9 @@ func (c *APIGateway) DeleteModel(input *DeleteModelInput) (*DeleteModelOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteModelWithContext(ctx aws.Context, input *DeleteModelInput, opts ...request.Option) (*DeleteModelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteModel")
+	defer span.End()
+
 	req, out := c.DeleteModelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2752,6 +2840,9 @@ func (c *APIGateway) DeleteRequestValidator(input *DeleteRequestValidatorInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteRequestValidatorWithContext(ctx aws.Context, input *DeleteRequestValidatorInput, opts ...request.Option) (*DeleteRequestValidatorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteRequestValidator")
+	defer span.End()
+
 	req, out := c.DeleteRequestValidatorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2845,6 +2936,9 @@ func (c *APIGateway) DeleteResource(input *DeleteResourceInput) (*DeleteResource
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteResourceWithContext(ctx aws.Context, input *DeleteResourceInput, opts ...request.Option) (*DeleteResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteResource")
+	defer span.End()
+
 	req, out := c.DeleteResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2934,6 +3028,9 @@ func (c *APIGateway) DeleteRestApi(input *DeleteRestApiInput) (*DeleteRestApiOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteRestApiWithContext(ctx aws.Context, input *DeleteRestApiInput, opts ...request.Option) (*DeleteRestApiOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteRestApi")
+	defer span.End()
+
 	req, out := c.DeleteRestApiRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3023,6 +3120,9 @@ func (c *APIGateway) DeleteStage(input *DeleteStageInput) (*DeleteStageOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteStageWithContext(ctx aws.Context, input *DeleteStageInput, opts ...request.Option) (*DeleteStageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteStage")
+	defer span.End()
+
 	req, out := c.DeleteStageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3112,6 +3212,9 @@ func (c *APIGateway) DeleteUsagePlan(input *DeleteUsagePlanInput) (*DeleteUsageP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteUsagePlanWithContext(ctx aws.Context, input *DeleteUsagePlanInput, opts ...request.Option) (*DeleteUsagePlanOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteUsagePlan")
+	defer span.End()
+
 	req, out := c.DeleteUsagePlanRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3206,6 +3309,9 @@ func (c *APIGateway) DeleteUsagePlanKey(input *DeleteUsagePlanKeyInput) (*Delete
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteUsagePlanKeyWithContext(ctx aws.Context, input *DeleteUsagePlanKeyInput, opts ...request.Option) (*DeleteUsagePlanKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteUsagePlanKey")
+	defer span.End()
+
 	req, out := c.DeleteUsagePlanKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3295,6 +3401,9 @@ func (c *APIGateway) DeleteVpcLink(input *DeleteVpcLinkInput) (*DeleteVpcLinkOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) DeleteVpcLinkWithContext(ctx aws.Context, input *DeleteVpcLinkInput, opts ...request.Option) (*DeleteVpcLinkOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).DeleteVpcLink")
+	defer span.End()
+
 	req, out := c.DeleteVpcLinkRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3384,6 +3493,9 @@ func (c *APIGateway) FlushStageAuthorizersCache(input *FlushStageAuthorizersCach
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) FlushStageAuthorizersCacheWithContext(ctx aws.Context, input *FlushStageAuthorizersCacheInput, opts ...request.Option) (*FlushStageAuthorizersCacheOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).FlushStageAuthorizersCache")
+	defer span.End()
+
 	req, out := c.FlushStageAuthorizersCacheRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3473,6 +3585,9 @@ func (c *APIGateway) FlushStageCache(input *FlushStageCacheInput) (*FlushStageCa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) FlushStageCacheWithContext(ctx aws.Context, input *FlushStageCacheInput, opts ...request.Option) (*FlushStageCacheOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).FlushStageCache")
+	defer span.End()
+
 	req, out := c.FlushStageCacheRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3556,6 +3671,9 @@ func (c *APIGateway) GenerateClientCertificate(input *GenerateClientCertificateI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GenerateClientCertificateWithContext(ctx aws.Context, input *GenerateClientCertificateInput, opts ...request.Option) (*ClientCertificate, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GenerateClientCertificate")
+	defer span.End()
+
 	req, out := c.GenerateClientCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3639,6 +3757,9 @@ func (c *APIGateway) GetAccount(input *GetAccountInput) (*Account, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetAccountWithContext(ctx aws.Context, input *GetAccountInput, opts ...request.Option) (*Account, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetAccount")
+	defer span.End()
+
 	req, out := c.GetAccountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3722,6 +3843,9 @@ func (c *APIGateway) GetApiKey(input *GetApiKeyInput) (*ApiKey, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetApiKeyWithContext(ctx aws.Context, input *GetApiKeyInput, opts ...request.Option) (*ApiKey, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetApiKey")
+	defer span.End()
+
 	req, out := c.GetApiKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3812,6 +3936,9 @@ func (c *APIGateway) GetApiKeys(input *GetApiKeysInput) (*GetApiKeysOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetApiKeysWithContext(ctx aws.Context, input *GetApiKeysInput, opts ...request.Option) (*GetApiKeysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetApiKeys")
+	defer span.End()
+
 	req, out := c.GetApiKeysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3947,6 +4074,9 @@ func (c *APIGateway) GetAuthorizer(input *GetAuthorizerInput) (*Authorizer, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetAuthorizerWithContext(ctx aws.Context, input *GetAuthorizerInput, opts ...request.Option) (*Authorizer, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetAuthorizer")
+	defer span.End()
+
 	req, out := c.GetAuthorizerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4036,6 +4166,9 @@ func (c *APIGateway) GetAuthorizers(input *GetAuthorizersInput) (*GetAuthorizers
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetAuthorizersWithContext(ctx aws.Context, input *GetAuthorizersInput, opts ...request.Option) (*GetAuthorizersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetAuthorizers")
+	defer span.End()
+
 	req, out := c.GetAuthorizersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4119,6 +4252,9 @@ func (c *APIGateway) GetBasePathMapping(input *GetBasePathMappingInput) (*BasePa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetBasePathMappingWithContext(ctx aws.Context, input *GetBasePathMappingInput, opts ...request.Option) (*BasePathMapping, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetBasePathMapping")
+	defer span.End()
+
 	req, out := c.GetBasePathMappingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4208,6 +4344,9 @@ func (c *APIGateway) GetBasePathMappings(input *GetBasePathMappingsInput) (*GetB
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetBasePathMappingsWithContext(ctx aws.Context, input *GetBasePathMappingsInput, opts ...request.Option) (*GetBasePathMappingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetBasePathMappings")
+	defer span.End()
+
 	req, out := c.GetBasePathMappingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4341,6 +4480,9 @@ func (c *APIGateway) GetClientCertificate(input *GetClientCertificateInput) (*Cl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetClientCertificateWithContext(ctx aws.Context, input *GetClientCertificateInput, opts ...request.Option) (*ClientCertificate, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetClientCertificate")
+	defer span.End()
+
 	req, out := c.GetClientCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4431,6 +4573,9 @@ func (c *APIGateway) GetClientCertificates(input *GetClientCertificatesInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetClientCertificatesWithContext(ctx aws.Context, input *GetClientCertificatesInput, opts ...request.Option) (*GetClientCertificatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetClientCertificates")
+	defer span.End()
+
 	req, out := c.GetClientCertificatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4568,6 +4713,9 @@ func (c *APIGateway) GetDeployment(input *GetDeploymentInput) (*Deployment, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetDeploymentWithContext(ctx aws.Context, input *GetDeploymentInput, opts ...request.Option) (*Deployment, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetDeployment")
+	defer span.End()
+
 	req, out := c.GetDeploymentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4662,6 +4810,9 @@ func (c *APIGateway) GetDeployments(input *GetDeploymentsInput) (*GetDeployments
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetDeploymentsWithContext(ctx aws.Context, input *GetDeploymentsInput, opts ...request.Option) (*GetDeploymentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetDeployments")
+	defer span.End()
+
 	req, out := c.GetDeploymentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4793,6 +4944,9 @@ func (c *APIGateway) GetDocumentationPart(input *GetDocumentationPartInput) (*Do
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetDocumentationPartWithContext(ctx aws.Context, input *GetDocumentationPartInput, opts ...request.Option) (*DocumentationPart, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetDocumentationPart")
+	defer span.End()
+
 	req, out := c.GetDocumentationPartRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4878,6 +5032,9 @@ func (c *APIGateway) GetDocumentationParts(input *GetDocumentationPartsInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetDocumentationPartsWithContext(ctx aws.Context, input *GetDocumentationPartsInput, opts ...request.Option) (*GetDocumentationPartsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetDocumentationParts")
+	defer span.End()
+
 	req, out := c.GetDocumentationPartsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4959,6 +5116,9 @@ func (c *APIGateway) GetDocumentationVersion(input *GetDocumentationVersionInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetDocumentationVersionWithContext(ctx aws.Context, input *GetDocumentationVersionInput, opts ...request.Option) (*DocumentationVersion, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetDocumentationVersion")
+	defer span.End()
+
 	req, out := c.GetDocumentationVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5044,6 +5204,9 @@ func (c *APIGateway) GetDocumentationVersions(input *GetDocumentationVersionsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetDocumentationVersionsWithContext(ctx aws.Context, input *GetDocumentationVersionsInput, opts ...request.Option) (*GetDocumentationVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetDocumentationVersions")
+	defer span.End()
+
 	req, out := c.GetDocumentationVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5132,6 +5295,9 @@ func (c *APIGateway) GetDomainName(input *GetDomainNameInput) (*DomainName, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetDomainNameWithContext(ctx aws.Context, input *GetDomainNameInput, opts ...request.Option) (*DomainName, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetDomainName")
+	defer span.End()
+
 	req, out := c.GetDomainNameRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5222,6 +5388,9 @@ func (c *APIGateway) GetDomainNames(input *GetDomainNamesInput) (*GetDomainNames
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetDomainNamesWithContext(ctx aws.Context, input *GetDomainNamesInput, opts ...request.Option) (*GetDomainNamesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetDomainNames")
+	defer span.End()
+
 	req, out := c.GetDomainNamesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5363,6 +5532,9 @@ func (c *APIGateway) GetExport(input *GetExportInput) (*GetExportOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetExportWithContext(ctx aws.Context, input *GetExportInput, opts ...request.Option) (*GetExportOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetExport")
+	defer span.End()
+
 	req, out := c.GetExportRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5446,6 +5618,9 @@ func (c *APIGateway) GetGatewayResponse(input *GetGatewayResponseInput) (*Update
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetGatewayResponseWithContext(ctx aws.Context, input *GetGatewayResponseInput, opts ...request.Option) (*UpdateGatewayResponseOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetGatewayResponse")
+	defer span.End()
+
 	req, out := c.GetGatewayResponseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5536,6 +5711,9 @@ func (c *APIGateway) GetGatewayResponses(input *GetGatewayResponsesInput) (*GetG
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetGatewayResponsesWithContext(ctx aws.Context, input *GetGatewayResponsesInput, opts ...request.Option) (*GetGatewayResponsesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetGatewayResponses")
+	defer span.End()
+
 	req, out := c.GetGatewayResponsesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5619,6 +5797,9 @@ func (c *APIGateway) GetIntegration(input *GetIntegrationInput) (*Integration, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetIntegrationWithContext(ctx aws.Context, input *GetIntegrationInput, opts ...request.Option) (*Integration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetIntegration")
+	defer span.End()
+
 	req, out := c.GetIntegrationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5702,6 +5883,9 @@ func (c *APIGateway) GetIntegrationResponse(input *GetIntegrationResponseInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetIntegrationResponseWithContext(ctx aws.Context, input *GetIntegrationResponseInput, opts ...request.Option) (*IntegrationResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetIntegrationResponse")
+	defer span.End()
+
 	req, out := c.GetIntegrationResponseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5785,6 +5969,9 @@ func (c *APIGateway) GetMethod(input *GetMethodInput) (*Method, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetMethodWithContext(ctx aws.Context, input *GetMethodInput, opts ...request.Option) (*Method, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetMethod")
+	defer span.End()
+
 	req, out := c.GetMethodRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5868,6 +6055,9 @@ func (c *APIGateway) GetMethodResponse(input *GetMethodResponseInput) (*MethodRe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetMethodResponseWithContext(ctx aws.Context, input *GetMethodResponseInput, opts ...request.Option) (*MethodResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetMethodResponse")
+	defer span.End()
+
 	req, out := c.GetMethodResponseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5951,6 +6141,9 @@ func (c *APIGateway) GetModel(input *GetModelInput) (*Model, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetModelWithContext(ctx aws.Context, input *GetModelInput, opts ...request.Option) (*Model, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetModel")
+	defer span.End()
+
 	req, out := c.GetModelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6039,6 +6232,9 @@ func (c *APIGateway) GetModelTemplate(input *GetModelTemplateInput) (*GetModelTe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetModelTemplateWithContext(ctx aws.Context, input *GetModelTemplateInput, opts ...request.Option) (*GetModelTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetModelTemplate")
+	defer span.End()
+
 	req, out := c.GetModelTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6132,6 +6328,9 @@ func (c *APIGateway) GetModels(input *GetModelsInput) (*GetModelsOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetModelsWithContext(ctx aws.Context, input *GetModelsInput, opts ...request.Option) (*GetModelsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetModels")
+	defer span.End()
+
 	req, out := c.GetModelsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6265,6 +6464,9 @@ func (c *APIGateway) GetRequestValidator(input *GetRequestValidatorInput) (*Upda
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetRequestValidatorWithContext(ctx aws.Context, input *GetRequestValidatorInput, opts ...request.Option) (*UpdateRequestValidatorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetRequestValidator")
+	defer span.End()
+
 	req, out := c.GetRequestValidatorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6352,6 +6554,9 @@ func (c *APIGateway) GetRequestValidators(input *GetRequestValidatorsInput) (*Ge
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetRequestValidatorsWithContext(ctx aws.Context, input *GetRequestValidatorsInput, opts ...request.Option) (*GetRequestValidatorsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetRequestValidators")
+	defer span.End()
+
 	req, out := c.GetRequestValidatorsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6435,6 +6640,9 @@ func (c *APIGateway) GetResource(input *GetResourceInput) (*Resource, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetResourceWithContext(ctx aws.Context, input *GetResourceInput, opts ...request.Option) (*Resource, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetResource")
+	defer span.End()
+
 	req, out := c.GetResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6528,6 +6736,9 @@ func (c *APIGateway) GetResources(input *GetResourcesInput) (*GetResourcesOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetResourcesWithContext(ctx aws.Context, input *GetResourcesInput, opts ...request.Option) (*GetResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetResources")
+	defer span.End()
+
 	req, out := c.GetResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6661,6 +6872,9 @@ func (c *APIGateway) GetRestApi(input *GetRestApiInput) (*RestApi, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetRestApiWithContext(ctx aws.Context, input *GetRestApiInput, opts ...request.Option) (*RestApi, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetRestApi")
+	defer span.End()
+
 	req, out := c.GetRestApiRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6751,6 +6965,9 @@ func (c *APIGateway) GetRestApis(input *GetRestApisInput) (*GetRestApisOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetRestApisWithContext(ctx aws.Context, input *GetRestApisInput, opts ...request.Option) (*GetRestApisOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetRestApis")
+	defer span.End()
+
 	req, out := c.GetRestApisRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6892,6 +7109,9 @@ func (c *APIGateway) GetSdk(input *GetSdkInput) (*GetSdkOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetSdkWithContext(ctx aws.Context, input *GetSdkInput, opts ...request.Option) (*GetSdkOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetSdk")
+	defer span.End()
+
 	req, out := c.GetSdkRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6973,6 +7193,9 @@ func (c *APIGateway) GetSdkType(input *GetSdkTypeInput) (*SdkType, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetSdkTypeWithContext(ctx aws.Context, input *GetSdkTypeInput, opts ...request.Option) (*SdkType, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetSdkType")
+	defer span.End()
+
 	req, out := c.GetSdkTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7051,6 +7274,9 @@ func (c *APIGateway) GetSdkTypes(input *GetSdkTypesInput) (*GetSdkTypesOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetSdkTypesWithContext(ctx aws.Context, input *GetSdkTypesInput, opts ...request.Option) (*GetSdkTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetSdkTypes")
+	defer span.End()
+
 	req, out := c.GetSdkTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7134,6 +7360,9 @@ func (c *APIGateway) GetStage(input *GetStageInput) (*Stage, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetStageWithContext(ctx aws.Context, input *GetStageInput, opts ...request.Option) (*Stage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetStage")
+	defer span.End()
+
 	req, out := c.GetStageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7217,6 +7446,9 @@ func (c *APIGateway) GetStages(input *GetStagesInput) (*GetStagesOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetStagesWithContext(ctx aws.Context, input *GetStagesInput, opts ...request.Option) (*GetStagesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetStages")
+	defer span.End()
+
 	req, out := c.GetStagesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7307,6 +7539,9 @@ func (c *APIGateway) GetTags(input *GetTagsInput) (*GetTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetTagsWithContext(ctx aws.Context, input *GetTagsInput, opts ...request.Option) (*GetTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetTags")
+	defer span.End()
+
 	req, out := c.GetTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7400,6 +7635,9 @@ func (c *APIGateway) GetUsage(input *GetUsageInput) (*Usage, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetUsageWithContext(ctx aws.Context, input *GetUsageInput, opts ...request.Option) (*Usage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetUsage")
+	defer span.End()
+
 	req, out := c.GetUsageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7537,6 +7775,9 @@ func (c *APIGateway) GetUsagePlan(input *GetUsagePlanInput) (*UsagePlan, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetUsagePlanWithContext(ctx aws.Context, input *GetUsagePlanInput, opts ...request.Option) (*UsagePlan, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetUsagePlan")
+	defer span.End()
+
 	req, out := c.GetUsagePlanRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7624,6 +7865,9 @@ func (c *APIGateway) GetUsagePlanKey(input *GetUsagePlanKeyInput) (*UsagePlanKey
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetUsagePlanKeyWithContext(ctx aws.Context, input *GetUsagePlanKeyInput, opts ...request.Option) (*UsagePlanKey, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetUsagePlanKey")
+	defer span.End()
+
 	req, out := c.GetUsagePlanKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7718,6 +7962,9 @@ func (c *APIGateway) GetUsagePlanKeys(input *GetUsagePlanKeysInput) (*GetUsagePl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetUsagePlanKeysWithContext(ctx aws.Context, input *GetUsagePlanKeysInput, opts ...request.Option) (*GetUsagePlanKeysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetUsagePlanKeys")
+	defer span.End()
+
 	req, out := c.GetUsagePlanKeysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7865,6 +8112,9 @@ func (c *APIGateway) GetUsagePlans(input *GetUsagePlansInput) (*GetUsagePlansOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetUsagePlansWithContext(ctx aws.Context, input *GetUsagePlansInput, opts ...request.Option) (*GetUsagePlansOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetUsagePlans")
+	defer span.End()
+
 	req, out := c.GetUsagePlansRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7998,6 +8248,9 @@ func (c *APIGateway) GetVpcLink(input *GetVpcLinkInput) (*UpdateVpcLinkOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetVpcLinkWithContext(ctx aws.Context, input *GetVpcLinkInput, opts ...request.Option) (*UpdateVpcLinkOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetVpcLink")
+	defer span.End()
+
 	req, out := c.GetVpcLinkRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8088,6 +8341,9 @@ func (c *APIGateway) GetVpcLinks(input *GetVpcLinksInput) (*GetVpcLinksOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) GetVpcLinksWithContext(ctx aws.Context, input *GetVpcLinksInput, opts ...request.Option) (*GetVpcLinksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).GetVpcLinks")
+	defer span.End()
+
 	req, out := c.GetVpcLinksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8232,6 +8488,9 @@ func (c *APIGateway) ImportApiKeys(input *ImportApiKeysInput) (*ImportApiKeysOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) ImportApiKeysWithContext(ctx aws.Context, input *ImportApiKeysInput, opts ...request.Option) (*ImportApiKeysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).ImportApiKeys")
+	defer span.End()
+
 	req, out := c.ImportApiKeysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8320,6 +8579,9 @@ func (c *APIGateway) ImportDocumentationParts(input *ImportDocumentationPartsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) ImportDocumentationPartsWithContext(ctx aws.Context, input *ImportDocumentationPartsInput, opts ...request.Option) (*ImportDocumentationPartsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).ImportDocumentationParts")
+	defer span.End()
+
 	req, out := c.ImportDocumentationPartsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8412,6 +8674,9 @@ func (c *APIGateway) ImportRestApi(input *ImportRestApiInput) (*RestApi, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) ImportRestApiWithContext(ctx aws.Context, input *ImportRestApiInput, opts ...request.Option) (*RestApi, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).ImportRestApi")
+	defer span.End()
+
 	req, out := c.ImportRestApiRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8503,6 +8768,9 @@ func (c *APIGateway) PutGatewayResponse(input *PutGatewayResponseInput) (*Update
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) PutGatewayResponseWithContext(ctx aws.Context, input *PutGatewayResponseInput, opts ...request.Option) (*UpdateGatewayResponseOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).PutGatewayResponse")
+	defer span.End()
+
 	req, out := c.PutGatewayResponseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8594,6 +8862,9 @@ func (c *APIGateway) PutIntegration(input *PutIntegrationInput) (*Integration, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) PutIntegrationWithContext(ctx aws.Context, input *PutIntegrationInput, opts ...request.Option) (*Integration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).PutIntegration")
+	defer span.End()
+
 	req, out := c.PutIntegrationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8688,6 +8959,9 @@ func (c *APIGateway) PutIntegrationResponse(input *PutIntegrationResponseInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) PutIntegrationResponseWithContext(ctx aws.Context, input *PutIntegrationResponseInput, opts ...request.Option) (*IntegrationResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).PutIntegrationResponse")
+	defer span.End()
+
 	req, out := c.PutIntegrationResponseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8782,6 +9056,9 @@ func (c *APIGateway) PutMethod(input *PutMethodInput) (*Method, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) PutMethodWithContext(ctx aws.Context, input *PutMethodInput, opts ...request.Option) (*Method, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).PutMethod")
+	defer span.End()
+
 	req, out := c.PutMethodRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8876,6 +9153,9 @@ func (c *APIGateway) PutMethodResponse(input *PutMethodResponseInput) (*MethodRe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) PutMethodResponseWithContext(ctx aws.Context, input *PutMethodResponseInput, opts ...request.Option) (*MethodResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).PutMethodResponse")
+	defer span.End()
+
 	req, out := c.PutMethodResponseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8973,6 +9253,9 @@ func (c *APIGateway) PutRestApi(input *PutRestApiInput) (*RestApi, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) PutRestApiWithContext(ctx aws.Context, input *PutRestApiInput, opts ...request.Option) (*RestApi, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).PutRestApi")
+	defer span.End()
+
 	req, out := c.PutRestApiRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9069,6 +9352,9 @@ func (c *APIGateway) TagResource(input *TagResourceInput) (*TagResourceOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).TagResource")
+	defer span.End()
+
 	req, out := c.TagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9159,6 +9445,9 @@ func (c *APIGateway) TestInvokeAuthorizer(input *TestInvokeAuthorizerInput) (*Te
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) TestInvokeAuthorizerWithContext(ctx aws.Context, input *TestInvokeAuthorizerInput, opts ...request.Option) (*TestInvokeAuthorizerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).TestInvokeAuthorizer")
+	defer span.End()
+
 	req, out := c.TestInvokeAuthorizerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9247,6 +9536,9 @@ func (c *APIGateway) TestInvokeMethod(input *TestInvokeMethodInput) (*TestInvoke
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) TestInvokeMethodWithContext(ctx aws.Context, input *TestInvokeMethodInput, opts ...request.Option) (*TestInvokeMethodOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).TestInvokeMethod")
+	defer span.End()
+
 	req, out := c.TestInvokeMethodRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9340,6 +9632,9 @@ func (c *APIGateway) UntagResource(input *UntagResourceInput) (*UntagResourceOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UntagResource")
+	defer span.End()
+
 	req, out := c.UntagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9427,6 +9722,9 @@ func (c *APIGateway) UpdateAccount(input *UpdateAccountInput) (*Account, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateAccountWithContext(ctx aws.Context, input *UpdateAccountInput, opts ...request.Option) (*Account, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateAccount")
+	defer span.End()
+
 	req, out := c.UpdateAccountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9518,6 +9816,9 @@ func (c *APIGateway) UpdateApiKey(input *UpdateApiKeyInput) (*ApiKey, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateApiKeyWithContext(ctx aws.Context, input *UpdateApiKeyInput, opts ...request.Option) (*ApiKey, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateApiKey")
+	defer span.End()
+
 	req, out := c.UpdateApiKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9607,6 +9908,9 @@ func (c *APIGateway) UpdateAuthorizer(input *UpdateAuthorizerInput) (*Authorizer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateAuthorizerWithContext(ctx aws.Context, input *UpdateAuthorizerInput, opts ...request.Option) (*Authorizer, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateAuthorizer")
+	defer span.End()
+
 	req, out := c.UpdateAuthorizerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9698,6 +10002,9 @@ func (c *APIGateway) UpdateBasePathMapping(input *UpdateBasePathMappingInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateBasePathMappingWithContext(ctx aws.Context, input *UpdateBasePathMappingInput, opts ...request.Option) (*BasePathMapping, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateBasePathMapping")
+	defer span.End()
+
 	req, out := c.UpdateBasePathMappingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9785,6 +10092,9 @@ func (c *APIGateway) UpdateClientCertificate(input *UpdateClientCertificateInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateClientCertificateWithContext(ctx aws.Context, input *UpdateClientCertificateInput, opts ...request.Option) (*ClientCertificate, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateClientCertificate")
+	defer span.End()
+
 	req, out := c.UpdateClientCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9876,6 +10186,9 @@ func (c *APIGateway) UpdateDeployment(input *UpdateDeploymentInput) (*Deployment
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateDeploymentWithContext(ctx aws.Context, input *UpdateDeploymentInput, opts ...request.Option) (*Deployment, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateDeployment")
+	defer span.End()
+
 	req, out := c.UpdateDeploymentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9968,6 +10281,9 @@ func (c *APIGateway) UpdateDocumentationPart(input *UpdateDocumentationPartInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateDocumentationPartWithContext(ctx aws.Context, input *UpdateDocumentationPartInput, opts ...request.Option) (*DocumentationPart, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateDocumentationPart")
+	defer span.End()
+
 	req, out := c.UpdateDocumentationPartRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10057,6 +10373,9 @@ func (c *APIGateway) UpdateDocumentationVersion(input *UpdateDocumentationVersio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateDocumentationVersionWithContext(ctx aws.Context, input *UpdateDocumentationVersionInput, opts ...request.Option) (*DocumentationVersion, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateDocumentationVersion")
+	defer span.End()
+
 	req, out := c.UpdateDocumentationVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10148,6 +10467,9 @@ func (c *APIGateway) UpdateDomainName(input *UpdateDomainNameInput) (*DomainName
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateDomainNameWithContext(ctx aws.Context, input *UpdateDomainNameInput, opts ...request.Option) (*DomainName, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateDomainName")
+	defer span.End()
+
 	req, out := c.UpdateDomainNameRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10235,6 +10557,9 @@ func (c *APIGateway) UpdateGatewayResponse(input *UpdateGatewayResponseInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateGatewayResponseWithContext(ctx aws.Context, input *UpdateGatewayResponseInput, opts ...request.Option) (*UpdateGatewayResponseOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateGatewayResponse")
+	defer span.End()
+
 	req, out := c.UpdateGatewayResponseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10326,6 +10651,9 @@ func (c *APIGateway) UpdateIntegration(input *UpdateIntegrationInput) (*Integrat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateIntegrationWithContext(ctx aws.Context, input *UpdateIntegrationInput, opts ...request.Option) (*Integration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateIntegration")
+	defer span.End()
+
 	req, out := c.UpdateIntegrationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10417,6 +10745,9 @@ func (c *APIGateway) UpdateIntegrationResponse(input *UpdateIntegrationResponseI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateIntegrationResponseWithContext(ctx aws.Context, input *UpdateIntegrationResponseInput, opts ...request.Option) (*IntegrationResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateIntegrationResponse")
+	defer span.End()
+
 	req, out := c.UpdateIntegrationResponseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10508,6 +10839,9 @@ func (c *APIGateway) UpdateMethod(input *UpdateMethodInput) (*Method, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateMethodWithContext(ctx aws.Context, input *UpdateMethodInput, opts ...request.Option) (*Method, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateMethod")
+	defer span.End()
+
 	req, out := c.UpdateMethodRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10602,6 +10936,9 @@ func (c *APIGateway) UpdateMethodResponse(input *UpdateMethodResponseInput) (*Me
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateMethodResponseWithContext(ctx aws.Context, input *UpdateMethodResponseInput, opts ...request.Option) (*MethodResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateMethodResponse")
+	defer span.End()
+
 	req, out := c.UpdateMethodResponseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10693,6 +11030,9 @@ func (c *APIGateway) UpdateModel(input *UpdateModelInput) (*Model, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateModelWithContext(ctx aws.Context, input *UpdateModelInput, opts ...request.Option) (*Model, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateModel")
+	defer span.End()
+
 	req, out := c.UpdateModelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10780,6 +11120,9 @@ func (c *APIGateway) UpdateRequestValidator(input *UpdateRequestValidatorInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateRequestValidatorWithContext(ctx aws.Context, input *UpdateRequestValidatorInput, opts ...request.Option) (*UpdateRequestValidatorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateRequestValidator")
+	defer span.End()
+
 	req, out := c.UpdateRequestValidatorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10871,6 +11214,9 @@ func (c *APIGateway) UpdateResource(input *UpdateResourceInput) (*Resource, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateResourceWithContext(ctx aws.Context, input *UpdateResourceInput, opts ...request.Option) (*Resource, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateResource")
+	defer span.End()
+
 	req, out := c.UpdateResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10962,6 +11308,9 @@ func (c *APIGateway) UpdateRestApi(input *UpdateRestApiInput) (*RestApi, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateRestApiWithContext(ctx aws.Context, input *UpdateRestApiInput, opts ...request.Option) (*RestApi, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateRestApi")
+	defer span.End()
+
 	req, out := c.UpdateRestApiRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11053,6 +11402,9 @@ func (c *APIGateway) UpdateStage(input *UpdateStageInput) (*Stage, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateStageWithContext(ctx aws.Context, input *UpdateStageInput, opts ...request.Option) (*Stage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateStage")
+	defer span.End()
+
 	req, out := c.UpdateStageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11141,6 +11493,9 @@ func (c *APIGateway) UpdateUsage(input *UpdateUsageInput) (*Usage, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateUsageWithContext(ctx aws.Context, input *UpdateUsageInput, opts ...request.Option) (*Usage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateUsage")
+	defer span.End()
+
 	req, out := c.UpdateUsageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11232,6 +11587,9 @@ func (c *APIGateway) UpdateUsagePlan(input *UpdateUsagePlanInput) (*UsagePlan, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateUsagePlanWithContext(ctx aws.Context, input *UpdateUsagePlanInput, opts ...request.Option) (*UsagePlan, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateUsagePlan")
+	defer span.End()
+
 	req, out := c.UpdateUsagePlanRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11323,6 +11681,9 @@ func (c *APIGateway) UpdateVpcLink(input *UpdateVpcLinkInput) (*UpdateVpcLinkOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *APIGateway) UpdateVpcLinkWithContext(ctx aws.Context, input *UpdateVpcLinkInput, opts ...request.Option) (*UpdateVpcLinkOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/apigateway.(*APIGateway).UpdateVpcLink")
+	defer span.End()
+
 	req, out := c.UpdateVpcLinkRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opDescribeServices = "DescribeServices"
@@ -107,6 +108,9 @@ func (c *Pricing) DescribeServices(input *DescribeServicesInput) (*DescribeServi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pricing) DescribeServicesWithContext(ctx aws.Context, input *DescribeServicesInput, opts ...request.Option) (*DescribeServicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pricing.(*Pricing).DescribeServices")
+	defer span.End()
+
 	req, out := c.DescribeServicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -258,6 +262,9 @@ func (c *Pricing) GetAttributeValues(input *GetAttributeValuesInput) (*GetAttrib
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pricing) GetAttributeValuesWithContext(ctx aws.Context, input *GetAttributeValuesInput, opts ...request.Option) (*GetAttributeValuesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pricing.(*Pricing).GetAttributeValues")
+	defer span.End()
+
 	req, out := c.GetAttributeValuesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -406,6 +413,9 @@ func (c *Pricing) GetProducts(input *GetProductsInput) (*GetProductsOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Pricing) GetProductsWithContext(ctx aws.Context, input *GetProductsInput, opts ...request.Option) (*GetProductsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/pricing.(*Pricing).GetProducts")
+	defer span.End()
+
 	req, out := c.GetProductsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

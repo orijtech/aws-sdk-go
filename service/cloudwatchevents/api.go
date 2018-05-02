@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opDeleteRule = "DeleteRule"
@@ -97,6 +98,9 @@ func (c *CloudWatchEvents) DeleteRule(input *DeleteRuleInput) (*DeleteRuleOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) DeleteRuleWithContext(ctx aws.Context, input *DeleteRuleInput, opts ...request.Option) (*DeleteRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).DeleteRule")
+	defer span.End()
+
 	req, out := c.DeleteRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -181,6 +185,9 @@ func (c *CloudWatchEvents) DescribeEventBus(input *DescribeEventBusInput) (*Desc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) DescribeEventBusWithContext(ctx aws.Context, input *DescribeEventBusInput, opts ...request.Option) (*DescribeEventBusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).DescribeEventBus")
+	defer span.End()
+
 	req, out := c.DescribeEventBusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -263,6 +270,9 @@ func (c *CloudWatchEvents) DescribeRule(input *DescribeRuleInput) (*DescribeRule
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) DescribeRuleWithContext(ctx aws.Context, input *DescribeRuleInput, opts ...request.Option) (*DescribeRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).DescribeRule")
+	defer span.End()
+
 	req, out := c.DescribeRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -354,6 +364,9 @@ func (c *CloudWatchEvents) DisableRule(input *DisableRuleInput) (*DisableRuleOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) DisableRuleWithContext(ctx aws.Context, input *DisableRuleInput, opts ...request.Option) (*DisableRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).DisableRule")
+	defer span.End()
+
 	req, out := c.DisableRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -445,6 +458,9 @@ func (c *CloudWatchEvents) EnableRule(input *EnableRuleInput) (*EnableRuleOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) EnableRuleWithContext(ctx aws.Context, input *EnableRuleInput, opts ...request.Option) (*EnableRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).EnableRule")
+	defer span.End()
+
 	req, out := c.EnableRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -525,6 +541,9 @@ func (c *CloudWatchEvents) ListRuleNamesByTarget(input *ListRuleNamesByTargetInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) ListRuleNamesByTargetWithContext(ctx aws.Context, input *ListRuleNamesByTargetInput, opts ...request.Option) (*ListRuleNamesByTargetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).ListRuleNamesByTarget")
+	defer span.End()
+
 	req, out := c.ListRuleNamesByTargetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -605,6 +624,9 @@ func (c *CloudWatchEvents) ListRules(input *ListRulesInput) (*ListRulesOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) ListRulesWithContext(ctx aws.Context, input *ListRulesInput, opts ...request.Option) (*ListRulesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).ListRules")
+	defer span.End()
+
 	req, out := c.ListRulesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -687,6 +709,9 @@ func (c *CloudWatchEvents) ListTargetsByRule(input *ListTargetsByRuleInput) (*Li
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) ListTargetsByRuleWithContext(ctx aws.Context, input *ListTargetsByRuleInput, opts ...request.Option) (*ListTargetsByRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).ListTargetsByRule")
+	defer span.End()
+
 	req, out := c.ListTargetsByRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -767,6 +792,9 @@ func (c *CloudWatchEvents) PutEvents(input *PutEventsInput) (*PutEventsOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) PutEventsWithContext(ctx aws.Context, input *PutEventsInput, opts ...request.Option) (*PutEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).PutEvents")
+	defer span.End()
+
 	req, out := c.PutEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -868,6 +896,9 @@ func (c *CloudWatchEvents) PutPermission(input *PutPermissionInput) (*PutPermiss
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) PutPermissionWithContext(ctx aws.Context, input *PutPermissionInput, opts ...request.Option) (*PutPermissionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).PutPermission")
+	defer span.End()
+
 	req, out := c.PutPermissionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -977,6 +1008,9 @@ func (c *CloudWatchEvents) PutRule(input *PutRuleInput) (*PutRuleOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) PutRuleWithContext(ctx aws.Context, input *PutRuleInput, opts ...request.Option) (*PutRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).PutRule")
+	defer span.End()
+
 	req, out := c.PutRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1154,6 +1188,9 @@ func (c *CloudWatchEvents) PutTargets(input *PutTargetsInput) (*PutTargetsOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) PutTargetsWithContext(ctx aws.Context, input *PutTargetsInput, opts ...request.Option) (*PutTargetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).PutTargets")
+	defer span.End()
+
 	req, out := c.PutTargetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1244,6 +1281,9 @@ func (c *CloudWatchEvents) RemovePermission(input *RemovePermissionInput) (*Remo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) RemovePermissionWithContext(ctx aws.Context, input *RemovePermissionInput, opts ...request.Option) (*RemovePermissionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).RemovePermission")
+	defer span.End()
+
 	req, out := c.RemovePermissionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1339,6 +1379,9 @@ func (c *CloudWatchEvents) RemoveTargets(input *RemoveTargetsInput) (*RemoveTarg
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) RemoveTargetsWithContext(ctx aws.Context, input *RemoveTargetsInput, opts ...request.Option) (*RemoveTargetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).RemoveTargets")
+	defer span.End()
+
 	req, out := c.RemoveTargetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1426,6 +1469,9 @@ func (c *CloudWatchEvents) TestEventPattern(input *TestEventPatternInput) (*Test
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchEvents) TestEventPatternWithContext(ctx aws.Context, input *TestEventPatternInput, opts ...request.Option) (*TestEventPatternOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchevents.(*CloudWatchEvents).TestEventPattern")
+	defer span.End()
+
 	req, out := c.TestEventPatternRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

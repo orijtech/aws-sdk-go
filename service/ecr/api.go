@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opBatchCheckLayerAvailability = "BatchCheckLayerAvailability"
@@ -96,6 +97,9 @@ func (c *ECR) BatchCheckLayerAvailability(input *BatchCheckLayerAvailabilityInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) BatchCheckLayerAvailabilityWithContext(ctx aws.Context, input *BatchCheckLayerAvailabilityInput, opts ...request.Option) (*BatchCheckLayerAvailabilityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).BatchCheckLayerAvailability")
+	defer span.End()
+
 	req, out := c.BatchCheckLayerAvailabilityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -191,6 +195,9 @@ func (c *ECR) BatchDeleteImage(input *BatchDeleteImageInput) (*BatchDeleteImageO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) BatchDeleteImageWithContext(ctx aws.Context, input *BatchDeleteImageInput, opts ...request.Option) (*BatchDeleteImageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).BatchDeleteImage")
+	defer span.End()
+
 	req, out := c.BatchDeleteImageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -279,6 +286,9 @@ func (c *ECR) BatchGetImage(input *BatchGetImageInput) (*BatchGetImageOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) BatchGetImageWithContext(ctx aws.Context, input *BatchGetImageInput, opts ...request.Option) (*BatchGetImageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).BatchGetImage")
+	defer span.End()
+
 	req, out := c.BatchGetImageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -389,6 +399,9 @@ func (c *ECR) CompleteLayerUpload(input *CompleteLayerUploadInput) (*CompleteLay
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) CompleteLayerUploadWithContext(ctx aws.Context, input *CompleteLayerUploadInput, opts ...request.Option) (*CompleteLayerUploadOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).CompleteLayerUpload")
+	defer span.End()
+
 	req, out := c.CompleteLayerUploadRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -481,6 +494,9 @@ func (c *ECR) CreateRepository(input *CreateRepositoryInput) (*CreateRepositoryO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) CreateRepositoryWithContext(ctx aws.Context, input *CreateRepositoryInput, opts ...request.Option) (*CreateRepositoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).CreateRepository")
+	defer span.End()
+
 	req, out := c.CreateRepositoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -571,6 +587,9 @@ func (c *ECR) DeleteLifecyclePolicy(input *DeleteLifecyclePolicyInput) (*DeleteL
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) DeleteLifecyclePolicyWithContext(ctx aws.Context, input *DeleteLifecyclePolicyInput, opts ...request.Option) (*DeleteLifecyclePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).DeleteLifecyclePolicy")
+	defer span.End()
+
 	req, out := c.DeleteLifecyclePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -663,6 +682,9 @@ func (c *ECR) DeleteRepository(input *DeleteRepositoryInput) (*DeleteRepositoryO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) DeleteRepositoryWithContext(ctx aws.Context, input *DeleteRepositoryInput, opts ...request.Option) (*DeleteRepositoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).DeleteRepository")
+	defer span.End()
+
 	req, out := c.DeleteRepositoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -754,6 +776,9 @@ func (c *ECR) DeleteRepositoryPolicy(input *DeleteRepositoryPolicyInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) DeleteRepositoryPolicyWithContext(ctx aws.Context, input *DeleteRepositoryPolicyInput, opts ...request.Option) (*DeleteRepositoryPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).DeleteRepositoryPolicy")
+	defer span.End()
+
 	req, out := c.DeleteRepositoryPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -856,6 +881,9 @@ func (c *ECR) DescribeImages(input *DescribeImagesInput) (*DescribeImagesOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) DescribeImagesWithContext(ctx aws.Context, input *DescribeImagesInput, opts ...request.Option) (*DescribeImagesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).DescribeImages")
+	defer span.End()
+
 	req, out := c.DescribeImagesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -999,6 +1027,9 @@ func (c *ECR) DescribeRepositories(input *DescribeRepositoriesInput) (*DescribeR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) DescribeRepositoriesWithContext(ctx aws.Context, input *DescribeRepositoriesInput, opts ...request.Option) (*DescribeRepositoriesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).DescribeRepositories")
+	defer span.End()
+
 	req, out := c.DescribeRepositoriesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1139,6 +1170,9 @@ func (c *ECR) GetAuthorizationToken(input *GetAuthorizationTokenInput) (*GetAuth
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) GetAuthorizationTokenWithContext(ctx aws.Context, input *GetAuthorizationTokenInput, opts ...request.Option) (*GetAuthorizationTokenOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).GetAuthorizationToken")
+	defer span.End()
+
 	req, out := c.GetAuthorizationTokenRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1239,6 +1273,9 @@ func (c *ECR) GetDownloadUrlForLayer(input *GetDownloadUrlForLayerInput) (*GetDo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) GetDownloadUrlForLayerWithContext(ctx aws.Context, input *GetDownloadUrlForLayerInput, opts ...request.Option) (*GetDownloadUrlForLayerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).GetDownloadUrlForLayer")
+	defer span.End()
+
 	req, out := c.GetDownloadUrlForLayerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1329,6 +1366,9 @@ func (c *ECR) GetLifecyclePolicy(input *GetLifecyclePolicyInput) (*GetLifecycleP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) GetLifecyclePolicyWithContext(ctx aws.Context, input *GetLifecyclePolicyInput, opts ...request.Option) (*GetLifecyclePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).GetLifecyclePolicy")
+	defer span.End()
+
 	req, out := c.GetLifecyclePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1419,6 +1459,9 @@ func (c *ECR) GetLifecyclePolicyPreview(input *GetLifecyclePolicyPreviewInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) GetLifecyclePolicyPreviewWithContext(ctx aws.Context, input *GetLifecyclePolicyPreviewInput, opts ...request.Option) (*GetLifecyclePolicyPreviewOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).GetLifecyclePolicyPreview")
+	defer span.End()
+
 	req, out := c.GetLifecyclePolicyPreviewRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1510,6 +1553,9 @@ func (c *ECR) GetRepositoryPolicy(input *GetRepositoryPolicyInput) (*GetReposito
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) GetRepositoryPolicyWithContext(ctx aws.Context, input *GetRepositoryPolicyInput, opts ...request.Option) (*GetRepositoryPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).GetRepositoryPolicy")
+	defer span.End()
+
 	req, out := c.GetRepositoryPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1601,6 +1647,9 @@ func (c *ECR) InitiateLayerUpload(input *InitiateLayerUploadInput) (*InitiateLay
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) InitiateLayerUploadWithContext(ctx aws.Context, input *InitiateLayerUploadInput, opts ...request.Option) (*InitiateLayerUploadOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).InitiateLayerUpload")
+	defer span.End()
+
 	req, out := c.InitiateLayerUploadRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1700,6 +1749,9 @@ func (c *ECR) ListImages(input *ListImagesInput) (*ListImagesOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) ListImagesWithContext(ctx aws.Context, input *ListImagesInput, opts ...request.Option) (*ListImagesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).ListImages")
+	defer span.End()
+
 	req, out := c.ListImagesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1855,6 +1907,9 @@ func (c *ECR) PutImage(input *PutImageInput) (*PutImageOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) PutImageWithContext(ctx aws.Context, input *PutImageInput, opts ...request.Option) (*PutImageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).PutImage")
+	defer span.End()
+
 	req, out := c.PutImageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1943,6 +1998,9 @@ func (c *ECR) PutLifecyclePolicy(input *PutLifecyclePolicyInput) (*PutLifecycleP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) PutLifecyclePolicyWithContext(ctx aws.Context, input *PutLifecyclePolicyInput, opts ...request.Option) (*PutLifecyclePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).PutLifecyclePolicy")
+	defer span.End()
+
 	req, out := c.PutLifecyclePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2030,6 +2088,9 @@ func (c *ECR) SetRepositoryPolicy(input *SetRepositoryPolicyInput) (*SetReposito
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) SetRepositoryPolicyWithContext(ctx aws.Context, input *SetRepositoryPolicyInput, opts ...request.Option) (*SetRepositoryPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).SetRepositoryPolicy")
+	defer span.End()
+
 	req, out := c.SetRepositoryPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2125,6 +2186,9 @@ func (c *ECR) StartLifecyclePolicyPreview(input *StartLifecyclePolicyPreviewInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) StartLifecyclePolicyPreviewWithContext(ctx aws.Context, input *StartLifecyclePolicyPreviewInput, opts ...request.Option) (*StartLifecyclePolicyPreviewOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).StartLifecyclePolicyPreview")
+	defer span.End()
+
 	req, out := c.StartLifecyclePolicyPreviewRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2230,6 +2294,9 @@ func (c *ECR) UploadLayerPart(input *UploadLayerPartInput) (*UploadLayerPartOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECR) UploadLayerPartWithContext(ctx aws.Context, input *UploadLayerPartInput, opts ...request.Option) (*UploadLayerPartOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecr.(*ECR).UploadLayerPart")
+	defer span.End()
+
 	req, out := c.UploadLayerPartRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAddApplicationCloudWatchLoggingOption = "AddApplicationCloudWatchLoggingOption"
@@ -97,6 +98,9 @@ func (c *KinesisAnalytics) AddApplicationCloudWatchLoggingOption(input *AddAppli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) AddApplicationCloudWatchLoggingOptionWithContext(ctx aws.Context, input *AddApplicationCloudWatchLoggingOptionInput, opts ...request.Option) (*AddApplicationCloudWatchLoggingOptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).AddApplicationCloudWatchLoggingOption")
+	defer span.End()
+
 	req, out := c.AddApplicationCloudWatchLoggingOptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -203,6 +207,9 @@ func (c *KinesisAnalytics) AddApplicationInput(input *AddApplicationInputInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) AddApplicationInputWithContext(ctx aws.Context, input *AddApplicationInputInput, opts ...request.Option) (*AddApplicationInputOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).AddApplicationInput")
+	defer span.End()
+
 	req, out := c.AddApplicationInputRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -295,6 +302,9 @@ func (c *KinesisAnalytics) AddApplicationInputProcessingConfiguration(input *Add
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) AddApplicationInputProcessingConfigurationWithContext(ctx aws.Context, input *AddApplicationInputProcessingConfigurationInput, opts ...request.Option) (*AddApplicationInputProcessingConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).AddApplicationInputProcessingConfiguration")
+	defer span.End()
+
 	req, out := c.AddApplicationInputProcessingConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -407,6 +417,9 @@ func (c *KinesisAnalytics) AddApplicationOutput(input *AddApplicationOutputInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) AddApplicationOutputWithContext(ctx aws.Context, input *AddApplicationOutputInput, opts ...request.Option) (*AddApplicationOutputOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).AddApplicationOutput")
+	defer span.End()
+
 	req, out := c.AddApplicationOutputRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -511,6 +524,9 @@ func (c *KinesisAnalytics) AddApplicationReferenceDataSource(input *AddApplicati
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) AddApplicationReferenceDataSourceWithContext(ctx aws.Context, input *AddApplicationReferenceDataSourceInput, opts ...request.Option) (*AddApplicationReferenceDataSourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).AddApplicationReferenceDataSource")
+	defer span.End()
+
 	req, out := c.AddApplicationReferenceDataSourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -624,6 +640,9 @@ func (c *KinesisAnalytics) CreateApplication(input *CreateApplicationInput) (*Cr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) CreateApplicationWithContext(ctx aws.Context, input *CreateApplicationInput, opts ...request.Option) (*CreateApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).CreateApplication")
+	defer span.End()
+
 	req, out := c.CreateApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -716,6 +735,9 @@ func (c *KinesisAnalytics) DeleteApplication(input *DeleteApplicationInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) DeleteApplicationWithContext(ctx aws.Context, input *DeleteApplicationInput, opts ...request.Option) (*DeleteApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).DeleteApplication")
+	defer span.End()
+
 	req, out := c.DeleteApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -808,6 +830,9 @@ func (c *KinesisAnalytics) DeleteApplicationCloudWatchLoggingOption(input *Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) DeleteApplicationCloudWatchLoggingOptionWithContext(ctx aws.Context, input *DeleteApplicationCloudWatchLoggingOptionInput, opts ...request.Option) (*DeleteApplicationCloudWatchLoggingOptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).DeleteApplicationCloudWatchLoggingOption")
+	defer span.End()
+
 	req, out := c.DeleteApplicationCloudWatchLoggingOptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -898,6 +923,9 @@ func (c *KinesisAnalytics) DeleteApplicationInputProcessingConfiguration(input *
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) DeleteApplicationInputProcessingConfigurationWithContext(ctx aws.Context, input *DeleteApplicationInputProcessingConfigurationInput, opts ...request.Option) (*DeleteApplicationInputProcessingConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).DeleteApplicationInputProcessingConfiguration")
+	defer span.End()
+
 	req, out := c.DeleteApplicationInputProcessingConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -993,6 +1021,9 @@ func (c *KinesisAnalytics) DeleteApplicationOutput(input *DeleteApplicationOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) DeleteApplicationOutputWithContext(ctx aws.Context, input *DeleteApplicationOutputInput, opts ...request.Option) (*DeleteApplicationOutputOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).DeleteApplicationOutput")
+	defer span.End()
+
 	req, out := c.DeleteApplicationOutputRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1091,6 +1122,9 @@ func (c *KinesisAnalytics) DeleteApplicationReferenceDataSource(input *DeleteApp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) DeleteApplicationReferenceDataSourceWithContext(ctx aws.Context, input *DeleteApplicationReferenceDataSourceInput, opts ...request.Option) (*DeleteApplicationReferenceDataSourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).DeleteApplicationReferenceDataSource")
+	defer span.End()
+
 	req, out := c.DeleteApplicationReferenceDataSourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1177,6 +1211,9 @@ func (c *KinesisAnalytics) DescribeApplication(input *DescribeApplicationInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) DescribeApplicationWithContext(ctx aws.Context, input *DescribeApplicationInput, opts ...request.Option) (*DescribeApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).DescribeApplication")
+	defer span.End()
+
 	req, out := c.DescribeApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1282,6 +1319,9 @@ func (c *KinesisAnalytics) DiscoverInputSchema(input *DiscoverInputSchemaInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) DiscoverInputSchemaWithContext(ctx aws.Context, input *DiscoverInputSchemaInput, opts ...request.Option) (*DiscoverInputSchemaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).DiscoverInputSchema")
+	defer span.End()
+
 	req, out := c.DiscoverInputSchemaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1366,6 +1406,9 @@ func (c *KinesisAnalytics) ListApplications(input *ListApplicationsInput) (*List
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) ListApplicationsWithContext(ctx aws.Context, input *ListApplicationsInput, opts ...request.Option) (*ListApplicationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).ListApplications")
+	defer span.End()
+
 	req, out := c.ListApplicationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1468,6 +1511,9 @@ func (c *KinesisAnalytics) StartApplication(input *StartApplicationInput) (*Star
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) StartApplicationWithContext(ctx aws.Context, input *StartApplicationInput, opts ...request.Option) (*StartApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).StartApplication")
+	defer span.End()
+
 	req, out := c.StartApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1557,6 +1603,9 @@ func (c *KinesisAnalytics) StopApplication(input *StopApplicationInput) (*StopAp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) StopApplicationWithContext(ctx aws.Context, input *StopApplicationInput, opts ...request.Option) (*StopApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).StopApplication")
+	defer span.End()
+
 	req, out := c.StopApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1658,6 +1707,9 @@ func (c *KinesisAnalytics) UpdateApplication(input *UpdateApplicationInput) (*Up
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisAnalytics) UpdateApplicationWithContext(ctx aws.Context, input *UpdateApplicationInput, opts ...request.Option) (*UpdateApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisanalytics.(*KinesisAnalytics).UpdateApplication")
+	defer span.End()
+
 	req, out := c.UpdateApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

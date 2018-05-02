@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
+	"go.opencensus.io/trace"
 )
 
 const opAbortMultipartUpload = "AbortMultipartUpload"
@@ -114,6 +115,9 @@ func (c *Glacier) AbortMultipartUpload(input *AbortMultipartUploadInput) (*Abort
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) AbortMultipartUploadWithContext(ctx aws.Context, input *AbortMultipartUploadInput, opts ...request.Option) (*AbortMultipartUploadOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).AbortMultipartUpload")
+	defer span.End()
+
 	req, out := c.AbortMultipartUploadRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -217,6 +221,9 @@ func (c *Glacier) AbortVaultLock(input *AbortVaultLockInput) (*AbortVaultLockOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) AbortVaultLockWithContext(ctx aws.Context, input *AbortVaultLockInput, opts ...request.Option) (*AbortVaultLockOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).AbortVaultLock")
+	defer span.End()
+
 	req, out := c.AbortVaultLockRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -313,6 +320,9 @@ func (c *Glacier) AddTagsToVault(input *AddTagsToVaultInput) (*AddTagsToVaultOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) AddTagsToVaultWithContext(ctx aws.Context, input *AddTagsToVaultInput, opts ...request.Option) (*AddTagsToVaultOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).AddTagsToVault")
+	defer span.End()
+
 	req, out := c.AddTagsToVaultRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -442,6 +452,9 @@ func (c *Glacier) CompleteMultipartUpload(input *CompleteMultipartUploadInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) CompleteMultipartUploadWithContext(ctx aws.Context, input *CompleteMultipartUploadInput, opts ...request.Option) (*ArchiveCreationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).CompleteMultipartUpload")
+	defer span.End()
+
 	req, out := c.CompleteMultipartUploadRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -544,6 +557,9 @@ func (c *Glacier) CompleteVaultLock(input *CompleteVaultLockInput) (*CompleteVau
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) CompleteVaultLockWithContext(ctx aws.Context, input *CompleteVaultLockInput, opts ...request.Option) (*CompleteVaultLockOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).CompleteVaultLock")
+	defer span.End()
+
 	req, out := c.CompleteVaultLockRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -652,6 +668,9 @@ func (c *Glacier) CreateVault(input *CreateVaultInput) (*CreateVaultOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) CreateVaultWithContext(ctx aws.Context, input *CreateVaultInput, opts ...request.Option) (*CreateVaultOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).CreateVault")
+	defer span.End()
+
 	req, out := c.CreateVaultRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -764,6 +783,9 @@ func (c *Glacier) DeleteArchive(input *DeleteArchiveInput) (*DeleteArchiveOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) DeleteArchiveWithContext(ctx aws.Context, input *DeleteArchiveInput, opts ...request.Option) (*DeleteArchiveOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).DeleteArchive")
+	defer span.End()
+
 	req, out := c.DeleteArchiveRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -874,6 +896,9 @@ func (c *Glacier) DeleteVault(input *DeleteVaultInput) (*DeleteVaultOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) DeleteVaultWithContext(ctx aws.Context, input *DeleteVaultInput, opts ...request.Option) (*DeleteVaultOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).DeleteVault")
+	defer span.End()
+
 	req, out := c.DeleteVaultRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -971,6 +996,9 @@ func (c *Glacier) DeleteVaultAccessPolicy(input *DeleteVaultAccessPolicyInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) DeleteVaultAccessPolicyWithContext(ctx aws.Context, input *DeleteVaultAccessPolicyInput, opts ...request.Option) (*DeleteVaultAccessPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).DeleteVaultAccessPolicy")
+	defer span.End()
+
 	req, out := c.DeleteVaultAccessPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1073,6 +1101,9 @@ func (c *Glacier) DeleteVaultNotifications(input *DeleteVaultNotificationsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) DeleteVaultNotificationsWithContext(ctx aws.Context, input *DeleteVaultNotificationsInput, opts ...request.Option) (*DeleteVaultNotificationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).DeleteVaultNotifications")
+	defer span.End()
+
 	req, out := c.DeleteVaultNotificationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1180,6 +1211,9 @@ func (c *Glacier) DescribeJob(input *DescribeJobInput) (*JobDescription, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) DescribeJobWithContext(ctx aws.Context, input *DescribeJobInput, opts ...request.Option) (*JobDescription, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).DescribeJob")
+	defer span.End()
+
 	req, out := c.DescribeJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1285,6 +1319,9 @@ func (c *Glacier) DescribeVault(input *DescribeVaultInput) (*DescribeVaultOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) DescribeVaultWithContext(ctx aws.Context, input *DescribeVaultInput, opts ...request.Option) (*DescribeVaultOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).DescribeVault")
+	defer span.End()
+
 	req, out := c.DescribeVaultRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1369,6 +1406,9 @@ func (c *Glacier) GetDataRetrievalPolicy(input *GetDataRetrievalPolicyInput) (*G
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) GetDataRetrievalPolicyWithContext(ctx aws.Context, input *GetDataRetrievalPolicyInput, opts ...request.Option) (*GetDataRetrievalPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).GetDataRetrievalPolicy")
+	defer span.End()
+
 	req, out := c.GetDataRetrievalPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1498,6 +1538,9 @@ func (c *Glacier) GetJobOutput(input *GetJobOutputInput) (*GetJobOutputOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) GetJobOutputWithContext(ctx aws.Context, input *GetJobOutputInput, opts ...request.Option) (*GetJobOutputOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).GetJobOutput")
+	defer span.End()
+
 	req, out := c.GetJobOutputRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1589,6 +1632,9 @@ func (c *Glacier) GetVaultAccessPolicy(input *GetVaultAccessPolicyInput) (*GetVa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) GetVaultAccessPolicyWithContext(ctx aws.Context, input *GetVaultAccessPolicyInput, opts ...request.Option) (*GetVaultAccessPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).GetVaultAccessPolicy")
+	defer span.End()
+
 	req, out := c.GetVaultAccessPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1694,6 +1740,9 @@ func (c *Glacier) GetVaultLock(input *GetVaultLockInput) (*GetVaultLockOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) GetVaultLockWithContext(ctx aws.Context, input *GetVaultLockInput, opts ...request.Option) (*GetVaultLockOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).GetVaultLock")
+	defer span.End()
+
 	req, out := c.GetVaultLockRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1798,6 +1847,9 @@ func (c *Glacier) GetVaultNotifications(input *GetVaultNotificationsInput) (*Get
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) GetVaultNotificationsWithContext(ctx aws.Context, input *GetVaultNotificationsInput, opts ...request.Option) (*GetVaultNotificationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).GetVaultNotifications")
+	defer span.End()
+
 	req, out := c.GetVaultNotificationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1896,6 +1948,9 @@ func (c *Glacier) InitiateJob(input *InitiateJobInput) (*InitiateJobOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) InitiateJobWithContext(ctx aws.Context, input *InitiateJobInput, opts ...request.Option) (*InitiateJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).InitiateJob")
+	defer span.End()
+
 	req, out := c.InitiateJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2016,6 +2071,9 @@ func (c *Glacier) InitiateMultipartUpload(input *InitiateMultipartUploadInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) InitiateMultipartUploadWithContext(ctx aws.Context, input *InitiateMultipartUploadInput, opts ...request.Option) (*InitiateMultipartUploadOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).InitiateMultipartUpload")
+	defer span.End()
+
 	req, out := c.InitiateMultipartUploadRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2130,6 +2188,9 @@ func (c *Glacier) InitiateVaultLock(input *InitiateVaultLockInput) (*InitiateVau
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) InitiateVaultLockWithContext(ctx aws.Context, input *InitiateVaultLockInput, opts ...request.Option) (*InitiateVaultLockOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).InitiateVaultLock")
+	defer span.End()
+
 	req, out := c.InitiateVaultLockRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2257,6 +2318,9 @@ func (c *Glacier) ListJobs(input *ListJobsInput) (*ListJobsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) ListJobsWithContext(ctx aws.Context, input *ListJobsInput, opts ...request.Option) (*ListJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).ListJobs")
+	defer span.End()
+
 	req, out := c.ListJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2428,6 +2492,9 @@ func (c *Glacier) ListMultipartUploads(input *ListMultipartUploadsInput) (*ListM
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) ListMultipartUploadsWithContext(ctx aws.Context, input *ListMultipartUploadsInput, opts ...request.Option) (*ListMultipartUploadsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).ListMultipartUploads")
+	defer span.End()
+
 	req, out := c.ListMultipartUploadsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2593,6 +2660,9 @@ func (c *Glacier) ListParts(input *ListPartsInput) (*ListPartsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) ListPartsWithContext(ctx aws.Context, input *ListPartsInput, opts ...request.Option) (*ListPartsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).ListParts")
+	defer span.End()
+
 	req, out := c.ListPartsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2726,6 +2796,9 @@ func (c *Glacier) ListProvisionedCapacity(input *ListProvisionedCapacityInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) ListProvisionedCapacityWithContext(ctx aws.Context, input *ListProvisionedCapacityInput, opts ...request.Option) (*ListProvisionedCapacityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).ListProvisionedCapacity")
+	defer span.End()
+
 	req, out := c.ListProvisionedCapacityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2814,6 +2887,9 @@ func (c *Glacier) ListTagsForVault(input *ListTagsForVaultInput) (*ListTagsForVa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) ListTagsForVaultWithContext(ctx aws.Context, input *ListTagsForVaultInput, opts ...request.Option) (*ListTagsForVaultOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).ListTagsForVault")
+	defer span.End()
+
 	req, out := c.ListTagsForVaultRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2926,6 +3002,9 @@ func (c *Glacier) ListVaults(input *ListVaultsInput) (*ListVaultsOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) ListVaultsWithContext(ctx aws.Context, input *ListVaultsInput, opts ...request.Option) (*ListVaultsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).ListVaults")
+	defer span.End()
+
 	req, out := c.ListVaultsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3061,6 +3140,9 @@ func (c *Glacier) PurchaseProvisionedCapacity(input *PurchaseProvisionedCapacity
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) PurchaseProvisionedCapacityWithContext(ctx aws.Context, input *PurchaseProvisionedCapacityInput, opts ...request.Option) (*PurchaseProvisionedCapacityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).PurchaseProvisionedCapacity")
+	defer span.End()
+
 	req, out := c.PurchaseProvisionedCapacityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3153,6 +3235,9 @@ func (c *Glacier) RemoveTagsFromVault(input *RemoveTagsFromVaultInput) (*RemoveT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) RemoveTagsFromVaultWithContext(ctx aws.Context, input *RemoveTagsFromVaultInput, opts ...request.Option) (*RemoveTagsFromVaultOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).RemoveTagsFromVault")
+	defer span.End()
+
 	req, out := c.RemoveTagsFromVaultRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3243,6 +3328,9 @@ func (c *Glacier) SetDataRetrievalPolicy(input *SetDataRetrievalPolicyInput) (*S
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) SetDataRetrievalPolicyWithContext(ctx aws.Context, input *SetDataRetrievalPolicyInput, opts ...request.Option) (*SetDataRetrievalPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).SetDataRetrievalPolicy")
+	defer span.End()
+
 	req, out := c.SetDataRetrievalPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3337,6 +3425,9 @@ func (c *Glacier) SetVaultAccessPolicy(input *SetVaultAccessPolicyInput) (*SetVa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) SetVaultAccessPolicyWithContext(ctx aws.Context, input *SetVaultAccessPolicyInput, opts ...request.Option) (*SetVaultAccessPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).SetVaultAccessPolicy")
+	defer span.End()
+
 	req, out := c.SetVaultAccessPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3456,6 +3547,9 @@ func (c *Glacier) SetVaultNotifications(input *SetVaultNotificationsInput) (*Set
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) SetVaultNotificationsWithContext(ctx aws.Context, input *SetVaultNotificationsInput, opts ...request.Option) (*SetVaultNotificationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).SetVaultNotifications")
+	defer span.End()
+
 	req, out := c.SetVaultNotificationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3581,6 +3675,9 @@ func (c *Glacier) UploadArchive(input *UploadArchiveInput) (*ArchiveCreationOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) UploadArchiveWithContext(ctx aws.Context, input *UploadArchiveInput, opts ...request.Option) (*ArchiveCreationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).UploadArchive")
+	defer span.End()
+
 	req, out := c.UploadArchiveRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3716,6 +3813,9 @@ func (c *Glacier) UploadMultipartPart(input *UploadMultipartPartInput) (*UploadM
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glacier) UploadMultipartPartWithContext(ctx aws.Context, input *UploadMultipartPartInput, opts ...request.Option) (*UploadMultipartPartOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glacier.(*Glacier).UploadMultipartPart")
+	defer span.End()
+
 	req, out := c.UploadMultipartPartRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

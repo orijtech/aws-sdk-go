@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateTags = "CreateTags"
@@ -90,6 +91,9 @@ func (c *WorkSpaces) CreateTags(input *CreateTagsInput) (*CreateTagsOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkSpaces) CreateTagsWithContext(ctx aws.Context, input *CreateTagsInput, opts ...request.Option) (*CreateTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workspaces.(*WorkSpaces).CreateTags")
+	defer span.End()
+
 	req, out := c.CreateTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -174,6 +178,9 @@ func (c *WorkSpaces) CreateWorkspaces(input *CreateWorkspacesInput) (*CreateWork
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkSpaces) CreateWorkspacesWithContext(ctx aws.Context, input *CreateWorkspacesInput, opts ...request.Option) (*CreateWorkspacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workspaces.(*WorkSpaces).CreateWorkspaces")
+	defer span.End()
+
 	req, out := c.CreateWorkspacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -256,6 +263,9 @@ func (c *WorkSpaces) DeleteTags(input *DeleteTagsInput) (*DeleteTagsOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkSpaces) DeleteTagsWithContext(ctx aws.Context, input *DeleteTagsInput, opts ...request.Option) (*DeleteTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workspaces.(*WorkSpaces).DeleteTags")
+	defer span.End()
+
 	req, out := c.DeleteTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -335,6 +345,9 @@ func (c *WorkSpaces) DescribeTags(input *DescribeTagsInput) (*DescribeTagsOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkSpaces) DescribeTagsWithContext(ctx aws.Context, input *DescribeTagsInput, opts ...request.Option) (*DescribeTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workspaces.(*WorkSpaces).DescribeTags")
+	defer span.End()
+
 	req, out := c.DescribeTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -422,6 +435,9 @@ func (c *WorkSpaces) DescribeWorkspaceBundles(input *DescribeWorkspaceBundlesInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkSpaces) DescribeWorkspaceBundlesWithContext(ctx aws.Context, input *DescribeWorkspaceBundlesInput, opts ...request.Option) (*DescribeWorkspaceBundlesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workspaces.(*WorkSpaces).DescribeWorkspaceBundles")
+	defer span.End()
+
 	req, out := c.DescribeWorkspaceBundlesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -558,6 +574,9 @@ func (c *WorkSpaces) DescribeWorkspaceDirectories(input *DescribeWorkspaceDirect
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkSpaces) DescribeWorkspaceDirectoriesWithContext(ctx aws.Context, input *DescribeWorkspaceDirectoriesInput, opts ...request.Option) (*DescribeWorkspaceDirectoriesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workspaces.(*WorkSpaces).DescribeWorkspaceDirectories")
+	defer span.End()
+
 	req, out := c.DescribeWorkspaceDirectoriesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -699,6 +718,9 @@ func (c *WorkSpaces) DescribeWorkspaces(input *DescribeWorkspacesInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkSpaces) DescribeWorkspacesWithContext(ctx aws.Context, input *DescribeWorkspacesInput, opts ...request.Option) (*DescribeWorkspacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workspaces.(*WorkSpaces).DescribeWorkspaces")
+	defer span.End()
+
 	req, out := c.DescribeWorkspacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -828,6 +850,9 @@ func (c *WorkSpaces) DescribeWorkspacesConnectionStatus(input *DescribeWorkspace
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkSpaces) DescribeWorkspacesConnectionStatusWithContext(ctx aws.Context, input *DescribeWorkspacesConnectionStatusInput, opts ...request.Option) (*DescribeWorkspacesConnectionStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workspaces.(*WorkSpaces).DescribeWorkspacesConnectionStatus")
+	defer span.End()
+
 	req, out := c.DescribeWorkspacesConnectionStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -927,6 +952,9 @@ func (c *WorkSpaces) ModifyWorkspaceProperties(input *ModifyWorkspacePropertiesI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkSpaces) ModifyWorkspacePropertiesWithContext(ctx aws.Context, input *ModifyWorkspacePropertiesInput, opts ...request.Option) (*ModifyWorkspacePropertiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workspaces.(*WorkSpaces).ModifyWorkspaceProperties")
+	defer span.End()
+
 	req, out := c.ModifyWorkspacePropertiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1006,6 +1034,9 @@ func (c *WorkSpaces) RebootWorkspaces(input *RebootWorkspacesInput) (*RebootWork
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkSpaces) RebootWorkspacesWithContext(ctx aws.Context, input *RebootWorkspacesInput, opts ...request.Option) (*RebootWorkspacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workspaces.(*WorkSpaces).RebootWorkspaces")
+	defer span.End()
+
 	req, out := c.RebootWorkspacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1088,6 +1119,9 @@ func (c *WorkSpaces) RebuildWorkspaces(input *RebuildWorkspacesInput) (*RebuildW
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkSpaces) RebuildWorkspacesWithContext(ctx aws.Context, input *RebuildWorkspacesInput, opts ...request.Option) (*RebuildWorkspacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workspaces.(*WorkSpaces).RebuildWorkspaces")
+	defer span.End()
+
 	req, out := c.RebuildWorkspacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1165,6 +1199,9 @@ func (c *WorkSpaces) StartWorkspaces(input *StartWorkspacesInput) (*StartWorkspa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkSpaces) StartWorkspacesWithContext(ctx aws.Context, input *StartWorkspacesInput, opts ...request.Option) (*StartWorkspacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workspaces.(*WorkSpaces).StartWorkspaces")
+	defer span.End()
+
 	req, out := c.StartWorkspacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1242,6 +1279,9 @@ func (c *WorkSpaces) StopWorkspaces(input *StopWorkspacesInput) (*StopWorkspaces
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkSpaces) StopWorkspacesWithContext(ctx aws.Context, input *StopWorkspacesInput, opts ...request.Option) (*StopWorkspacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workspaces.(*WorkSpaces).StopWorkspaces")
+	defer span.End()
+
 	req, out := c.StopWorkspacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1325,6 +1365,9 @@ func (c *WorkSpaces) TerminateWorkspaces(input *TerminateWorkspacesInput) (*Term
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkSpaces) TerminateWorkspacesWithContext(ctx aws.Context, input *TerminateWorkspacesInput, opts ...request.Option) (*TerminateWorkspacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workspaces.(*WorkSpaces).TerminateWorkspaces")
+	defer span.End()
+
 	req, out := c.TerminateWorkspacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

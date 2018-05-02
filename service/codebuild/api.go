@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opBatchDeleteBuilds = "BatchDeleteBuilds"
@@ -84,6 +85,9 @@ func (c *CodeBuild) BatchDeleteBuilds(input *BatchDeleteBuildsInput) (*BatchDele
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) BatchDeleteBuildsWithContext(ctx aws.Context, input *BatchDeleteBuildsInput, opts ...request.Option) (*BatchDeleteBuildsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).BatchDeleteBuilds")
+	defer span.End()
+
 	req, out := c.BatchDeleteBuildsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -163,6 +167,9 @@ func (c *CodeBuild) BatchGetBuilds(input *BatchGetBuildsInput) (*BatchGetBuildsO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) BatchGetBuildsWithContext(ctx aws.Context, input *BatchGetBuildsInput, opts ...request.Option) (*BatchGetBuildsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).BatchGetBuilds")
+	defer span.End()
+
 	req, out := c.BatchGetBuildsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -242,6 +249,9 @@ func (c *CodeBuild) BatchGetProjects(input *BatchGetProjectsInput) (*BatchGetPro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) BatchGetProjectsWithContext(ctx aws.Context, input *BatchGetProjectsInput, opts ...request.Option) (*BatchGetProjectsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).BatchGetProjects")
+	defer span.End()
+
 	req, out := c.BatchGetProjectsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -328,6 +338,9 @@ func (c *CodeBuild) CreateProject(input *CreateProjectInput) (*CreateProjectOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) CreateProjectWithContext(ctx aws.Context, input *CreateProjectInput, opts ...request.Option) (*CreateProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).CreateProject")
+	defer span.End()
+
 	req, out := c.CreateProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -428,6 +441,9 @@ func (c *CodeBuild) CreateWebhook(input *CreateWebhookInput) (*CreateWebhookOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) CreateWebhookWithContext(ctx aws.Context, input *CreateWebhookInput, opts ...request.Option) (*CreateWebhookOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).CreateWebhook")
+	defer span.End()
+
 	req, out := c.CreateWebhookRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -507,6 +523,9 @@ func (c *CodeBuild) DeleteProject(input *DeleteProjectInput) (*DeleteProjectOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) DeleteProjectWithContext(ctx aws.Context, input *DeleteProjectInput, opts ...request.Option) (*DeleteProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).DeleteProject")
+	defer span.End()
+
 	req, out := c.DeleteProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -594,6 +613,9 @@ func (c *CodeBuild) DeleteWebhook(input *DeleteWebhookInput) (*DeleteWebhookOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) DeleteWebhookWithContext(ctx aws.Context, input *DeleteWebhookInput, opts ...request.Option) (*DeleteWebhookOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).DeleteWebhook")
+	defer span.End()
+
 	req, out := c.DeleteWebhookRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -676,6 +698,9 @@ func (c *CodeBuild) InvalidateProjectCache(input *InvalidateProjectCacheInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) InvalidateProjectCacheWithContext(ctx aws.Context, input *InvalidateProjectCacheInput, opts ...request.Option) (*InvalidateProjectCacheOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).InvalidateProjectCache")
+	defer span.End()
+
 	req, out := c.InvalidateProjectCacheRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -755,6 +780,9 @@ func (c *CodeBuild) ListBuilds(input *ListBuildsInput) (*ListBuildsOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) ListBuildsWithContext(ctx aws.Context, input *ListBuildsInput, opts ...request.Option) (*ListBuildsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).ListBuilds")
+	defer span.End()
+
 	req, out := c.ListBuildsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -838,6 +866,9 @@ func (c *CodeBuild) ListBuildsForProject(input *ListBuildsForProjectInput) (*Lis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) ListBuildsForProjectWithContext(ctx aws.Context, input *ListBuildsForProjectInput, opts ...request.Option) (*ListBuildsForProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).ListBuildsForProject")
+	defer span.End()
+
 	req, out := c.ListBuildsForProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -912,6 +943,9 @@ func (c *CodeBuild) ListCuratedEnvironmentImages(input *ListCuratedEnvironmentIm
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) ListCuratedEnvironmentImagesWithContext(ctx aws.Context, input *ListCuratedEnvironmentImagesInput, opts ...request.Option) (*ListCuratedEnvironmentImagesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).ListCuratedEnvironmentImages")
+	defer span.End()
+
 	req, out := c.ListCuratedEnvironmentImagesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -992,6 +1026,9 @@ func (c *CodeBuild) ListProjects(input *ListProjectsInput) (*ListProjectsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) ListProjectsWithContext(ctx aws.Context, input *ListProjectsInput, opts ...request.Option) (*ListProjectsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).ListProjects")
+	defer span.End()
+
 	req, out := c.ListProjectsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1077,6 +1114,9 @@ func (c *CodeBuild) StartBuild(input *StartBuildInput) (*StartBuildOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) StartBuildWithContext(ctx aws.Context, input *StartBuildInput, opts ...request.Option) (*StartBuildOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).StartBuild")
+	defer span.End()
+
 	req, out := c.StartBuildRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1159,6 +1199,9 @@ func (c *CodeBuild) StopBuild(input *StopBuildInput) (*StopBuildOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) StopBuildWithContext(ctx aws.Context, input *StopBuildInput, opts ...request.Option) (*StopBuildOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).StopBuild")
+	defer span.End()
+
 	req, out := c.StopBuildRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1241,6 +1284,9 @@ func (c *CodeBuild) UpdateProject(input *UpdateProjectInput) (*UpdateProjectOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) UpdateProjectWithContext(ctx aws.Context, input *UpdateProjectInput, opts ...request.Option) (*UpdateProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).UpdateProject")
+	defer span.End()
+
 	req, out := c.UpdateProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1326,6 +1372,9 @@ func (c *CodeBuild) UpdateWebhook(input *UpdateWebhookInput) (*UpdateWebhookOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeBuild) UpdateWebhookWithContext(ctx aws.Context, input *UpdateWebhookInput, opts ...request.Option) (*UpdateWebhookOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codebuild.(*CodeBuild).UpdateWebhook")
+	defer span.End()
+
 	req, out := c.UpdateWebhookRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

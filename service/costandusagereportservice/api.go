@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opDeleteReportDefinition = "DeleteReportDefinition"
@@ -86,6 +87,9 @@ func (c *CostandUsageReportService) DeleteReportDefinition(input *DeleteReportDe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CostandUsageReportService) DeleteReportDefinitionWithContext(ctx aws.Context, input *DeleteReportDefinitionInput, opts ...request.Option) (*DeleteReportDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/costandusagereportservice.(*CostandUsageReportService).DeleteReportDefinition")
+	defer span.End()
+
 	req, out := c.DeleteReportDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -171,6 +175,9 @@ func (c *CostandUsageReportService) DescribeReportDefinitions(input *DescribeRep
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CostandUsageReportService) DescribeReportDefinitionsWithContext(ctx aws.Context, input *DescribeReportDefinitionsInput, opts ...request.Option) (*DescribeReportDefinitionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/costandusagereportservice.(*CostandUsageReportService).DescribeReportDefinitions")
+	defer span.End()
+
 	req, out := c.DescribeReportDefinitionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -313,6 +320,9 @@ func (c *CostandUsageReportService) PutReportDefinition(input *PutReportDefiniti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CostandUsageReportService) PutReportDefinitionWithContext(ctx aws.Context, input *PutReportDefinitionInput, opts ...request.Option) (*PutReportDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/costandusagereportservice.(*CostandUsageReportService).PutReportDefinition")
+	defer span.End()
+
 	req, out := c.PutReportDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

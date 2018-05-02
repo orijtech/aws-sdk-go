@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
+	"go.opencensus.io/trace"
 )
 
 const opAddTags = "AddTags"
@@ -100,6 +101,9 @@ func (c *ElasticsearchService) AddTags(input *AddTagsInput) (*AddTagsOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticsearchService) AddTagsWithContext(ctx aws.Context, input *AddTagsInput, opts ...request.Option) (*AddTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticsearchservice.(*ElasticsearchService).AddTags")
+	defer span.End()
+
 	req, out := c.AddTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -203,6 +207,9 @@ func (c *ElasticsearchService) CreateElasticsearchDomain(input *CreateElasticsea
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticsearchService) CreateElasticsearchDomainWithContext(ctx aws.Context, input *CreateElasticsearchDomainInput, opts ...request.Option) (*CreateElasticsearchDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticsearchservice.(*ElasticsearchService).CreateElasticsearchDomain")
+	defer span.End()
+
 	req, out := c.CreateElasticsearchDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -293,6 +300,9 @@ func (c *ElasticsearchService) DeleteElasticsearchDomain(input *DeleteElasticsea
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticsearchService) DeleteElasticsearchDomainWithContext(ctx aws.Context, input *DeleteElasticsearchDomainInput, opts ...request.Option) (*DeleteElasticsearchDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticsearchservice.(*ElasticsearchService).DeleteElasticsearchDomain")
+	defer span.End()
+
 	req, out := c.DeleteElasticsearchDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -384,6 +394,9 @@ func (c *ElasticsearchService) DeleteElasticsearchServiceRole(input *DeleteElast
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticsearchService) DeleteElasticsearchServiceRoleWithContext(ctx aws.Context, input *DeleteElasticsearchServiceRoleInput, opts ...request.Option) (*DeleteElasticsearchServiceRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticsearchservice.(*ElasticsearchService).DeleteElasticsearchServiceRole")
+	defer span.End()
+
 	req, out := c.DeleteElasticsearchServiceRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -474,6 +487,9 @@ func (c *ElasticsearchService) DescribeElasticsearchDomain(input *DescribeElasti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticsearchService) DescribeElasticsearchDomainWithContext(ctx aws.Context, input *DescribeElasticsearchDomainInput, opts ...request.Option) (*DescribeElasticsearchDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticsearchservice.(*ElasticsearchService).DescribeElasticsearchDomain")
+	defer span.End()
+
 	req, out := c.DescribeElasticsearchDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -565,6 +581,9 @@ func (c *ElasticsearchService) DescribeElasticsearchDomainConfig(input *Describe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticsearchService) DescribeElasticsearchDomainConfigWithContext(ctx aws.Context, input *DescribeElasticsearchDomainConfigInput, opts ...request.Option) (*DescribeElasticsearchDomainConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticsearchservice.(*ElasticsearchService).DescribeElasticsearchDomainConfig")
+	defer span.End()
+
 	req, out := c.DescribeElasticsearchDomainConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -651,6 +670,9 @@ func (c *ElasticsearchService) DescribeElasticsearchDomains(input *DescribeElast
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticsearchService) DescribeElasticsearchDomainsWithContext(ctx aws.Context, input *DescribeElasticsearchDomainsInput, opts ...request.Option) (*DescribeElasticsearchDomainsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticsearchservice.(*ElasticsearchService).DescribeElasticsearchDomains")
+	defer span.End()
+
 	req, out := c.DescribeElasticsearchDomainsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -750,6 +772,9 @@ func (c *ElasticsearchService) DescribeElasticsearchInstanceTypeLimits(input *De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticsearchService) DescribeElasticsearchInstanceTypeLimitsWithContext(ctx aws.Context, input *DescribeElasticsearchInstanceTypeLimitsInput, opts ...request.Option) (*DescribeElasticsearchInstanceTypeLimitsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticsearchservice.(*ElasticsearchService).DescribeElasticsearchInstanceTypeLimits")
+	defer span.End()
+
 	req, out := c.DescribeElasticsearchInstanceTypeLimitsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -831,6 +856,9 @@ func (c *ElasticsearchService) ListDomainNames(input *ListDomainNamesInput) (*Li
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticsearchService) ListDomainNamesWithContext(ctx aws.Context, input *ListDomainNamesInput, opts ...request.Option) (*ListDomainNamesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticsearchservice.(*ElasticsearchService).ListDomainNames")
+	defer span.End()
+
 	req, out := c.ListDomainNamesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -926,6 +954,9 @@ func (c *ElasticsearchService) ListElasticsearchInstanceTypes(input *ListElastic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticsearchService) ListElasticsearchInstanceTypesWithContext(ctx aws.Context, input *ListElasticsearchInstanceTypesInput, opts ...request.Option) (*ListElasticsearchInstanceTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticsearchservice.(*ElasticsearchService).ListElasticsearchInstanceTypes")
+	defer span.End()
+
 	req, out := c.ListElasticsearchInstanceTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1071,6 +1102,9 @@ func (c *ElasticsearchService) ListElasticsearchVersions(input *ListElasticsearc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticsearchService) ListElasticsearchVersionsWithContext(ctx aws.Context, input *ListElasticsearchVersionsInput, opts ...request.Option) (*ListElasticsearchVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticsearchservice.(*ElasticsearchService).ListElasticsearchVersions")
+	defer span.End()
+
 	req, out := c.ListElasticsearchVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1210,6 +1244,9 @@ func (c *ElasticsearchService) ListTags(input *ListTagsInput) (*ListTagsOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticsearchService) ListTagsWithContext(ctx aws.Context, input *ListTagsInput, opts ...request.Option) (*ListTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticsearchservice.(*ElasticsearchService).ListTags")
+	defer span.End()
+
 	req, out := c.ListTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1297,6 +1334,9 @@ func (c *ElasticsearchService) RemoveTags(input *RemoveTagsInput) (*RemoveTagsOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticsearchService) RemoveTagsWithContext(ctx aws.Context, input *RemoveTagsInput, opts ...request.Option) (*RemoveTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticsearchservice.(*ElasticsearchService).RemoveTags")
+	defer span.End()
+
 	req, out := c.RemoveTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1395,6 +1435,9 @@ func (c *ElasticsearchService) UpdateElasticsearchDomainConfig(input *UpdateElas
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticsearchService) UpdateElasticsearchDomainConfigWithContext(ctx aws.Context, input *UpdateElasticsearchDomainConfigInput, opts ...request.Option) (*UpdateElasticsearchDomainConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticsearchservice.(*ElasticsearchService).UpdateElasticsearchDomainConfig")
+	defer span.End()
+
 	req, out := c.UpdateElasticsearchDomainConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

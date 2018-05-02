@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAddTagsToResource = "AddTagsToResource"
@@ -87,6 +88,9 @@ func (c *DatabaseMigrationService) AddTagsToResource(input *AddTagsToResourceInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) AddTagsToResourceWithContext(ctx aws.Context, input *AddTagsToResourceInput, opts ...request.Option) (*AddTagsToResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).AddTagsToResource")
+	defer span.End()
+
 	req, out := c.AddTagsToResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -182,6 +186,9 @@ func (c *DatabaseMigrationService) CreateEndpoint(input *CreateEndpointInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) CreateEndpointWithContext(ctx aws.Context, input *CreateEndpointInput, opts ...request.Option) (*CreateEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).CreateEndpoint")
+	defer span.End()
+
 	req, out := c.CreateEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -289,6 +296,9 @@ func (c *DatabaseMigrationService) CreateEventSubscription(input *CreateEventSub
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) CreateEventSubscriptionWithContext(ctx aws.Context, input *CreateEventSubscriptionInput, opts ...request.Option) (*CreateEventSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).CreateEventSubscription")
+	defer span.End()
+
 	req, out := c.CreateEventSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -397,6 +407,9 @@ func (c *DatabaseMigrationService) CreateReplicationInstance(input *CreateReplic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) CreateReplicationInstanceWithContext(ctx aws.Context, input *CreateReplicationInstanceInput, opts ...request.Option) (*CreateReplicationInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).CreateReplicationInstance")
+	defer span.End()
+
 	req, out := c.CreateReplicationInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -492,6 +505,9 @@ func (c *DatabaseMigrationService) CreateReplicationSubnetGroup(input *CreateRep
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) CreateReplicationSubnetGroupWithContext(ctx aws.Context, input *CreateReplicationSubnetGroupInput, opts ...request.Option) (*CreateReplicationSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).CreateReplicationSubnetGroup")
+	defer span.End()
+
 	req, out := c.CreateReplicationSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -587,6 +603,9 @@ func (c *DatabaseMigrationService) CreateReplicationTask(input *CreateReplicatio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) CreateReplicationTaskWithContext(ctx aws.Context, input *CreateReplicationTaskInput, opts ...request.Option) (*CreateReplicationTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).CreateReplicationTask")
+	defer span.End()
+
 	req, out := c.CreateReplicationTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -670,6 +689,9 @@ func (c *DatabaseMigrationService) DeleteCertificate(input *DeleteCertificateInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DeleteCertificateWithContext(ctx aws.Context, input *DeleteCertificateInput, opts ...request.Option) (*DeleteCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DeleteCertificate")
+	defer span.End()
+
 	req, out := c.DeleteCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -756,6 +778,9 @@ func (c *DatabaseMigrationService) DeleteEndpoint(input *DeleteEndpointInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DeleteEndpointWithContext(ctx aws.Context, input *DeleteEndpointInput, opts ...request.Option) (*DeleteEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DeleteEndpoint")
+	defer span.End()
+
 	req, out := c.DeleteEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -839,6 +864,9 @@ func (c *DatabaseMigrationService) DeleteEventSubscription(input *DeleteEventSub
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DeleteEventSubscriptionWithContext(ctx aws.Context, input *DeleteEventSubscriptionInput, opts ...request.Option) (*DeleteEventSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DeleteEventSubscription")
+	defer span.End()
+
 	req, out := c.DeleteEventSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -925,6 +953,9 @@ func (c *DatabaseMigrationService) DeleteReplicationInstance(input *DeleteReplic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DeleteReplicationInstanceWithContext(ctx aws.Context, input *DeleteReplicationInstanceInput, opts ...request.Option) (*DeleteReplicationInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DeleteReplicationInstance")
+	defer span.End()
+
 	req, out := c.DeleteReplicationInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1008,6 +1039,9 @@ func (c *DatabaseMigrationService) DeleteReplicationSubnetGroup(input *DeleteRep
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DeleteReplicationSubnetGroupWithContext(ctx aws.Context, input *DeleteReplicationSubnetGroupInput, opts ...request.Option) (*DeleteReplicationSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DeleteReplicationSubnetGroup")
+	defer span.End()
+
 	req, out := c.DeleteReplicationSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1091,6 +1125,9 @@ func (c *DatabaseMigrationService) DeleteReplicationTask(input *DeleteReplicatio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DeleteReplicationTaskWithContext(ctx aws.Context, input *DeleteReplicationTaskInput, opts ...request.Option) (*DeleteReplicationTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DeleteReplicationTask")
+	defer span.End()
+
 	req, out := c.DeleteReplicationTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1170,6 +1207,9 @@ func (c *DatabaseMigrationService) DescribeAccountAttributes(input *DescribeAcco
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeAccountAttributesWithContext(ctx aws.Context, input *DescribeAccountAttributesInput, opts ...request.Option) (*DescribeAccountAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeAccountAttributes")
+	defer span.End()
+
 	req, out := c.DescribeAccountAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1255,6 +1295,9 @@ func (c *DatabaseMigrationService) DescribeCertificates(input *DescribeCertifica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeCertificatesWithContext(ctx aws.Context, input *DescribeCertificatesInput, opts ...request.Option) (*DescribeCertificatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeCertificates")
+	defer span.End()
+
 	req, out := c.DescribeCertificatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1391,6 +1434,9 @@ func (c *DatabaseMigrationService) DescribeConnections(input *DescribeConnection
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeConnectionsWithContext(ctx aws.Context, input *DescribeConnectionsInput, opts ...request.Option) (*DescribeConnectionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeConnections")
+	defer span.End()
+
 	req, out := c.DescribeConnectionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1521,6 +1567,9 @@ func (c *DatabaseMigrationService) DescribeEndpointTypes(input *DescribeEndpoint
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeEndpointTypesWithContext(ctx aws.Context, input *DescribeEndpointTypesInput, opts ...request.Option) (*DescribeEndpointTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeEndpointTypes")
+	defer span.End()
+
 	req, out := c.DescribeEndpointTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1656,6 +1705,9 @@ func (c *DatabaseMigrationService) DescribeEndpoints(input *DescribeEndpointsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeEndpointsWithContext(ctx aws.Context, input *DescribeEndpointsInput, opts ...request.Option) (*DescribeEndpointsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeEndpoints")
+	defer span.End()
+
 	req, out := c.DescribeEndpointsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1783,6 +1835,9 @@ func (c *DatabaseMigrationService) DescribeEventCategories(input *DescribeEventC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeEventCategoriesWithContext(ctx aws.Context, input *DescribeEventCategoriesInput, opts ...request.Option) (*DescribeEventCategoriesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeEventCategories")
+	defer span.End()
+
 	req, out := c.DescribeEventCategoriesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1873,6 +1928,9 @@ func (c *DatabaseMigrationService) DescribeEventSubscriptions(input *DescribeEve
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeEventSubscriptionsWithContext(ctx aws.Context, input *DescribeEventSubscriptionsInput, opts ...request.Option) (*DescribeEventSubscriptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeEventSubscriptions")
+	defer span.End()
+
 	req, out := c.DescribeEventSubscriptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2005,6 +2063,9 @@ func (c *DatabaseMigrationService) DescribeEvents(input *DescribeEventsInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeEventsWithContext(ctx aws.Context, input *DescribeEventsInput, opts ...request.Option) (*DescribeEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeEvents")
+	defer span.End()
+
 	req, out := c.DescribeEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2136,6 +2197,9 @@ func (c *DatabaseMigrationService) DescribeOrderableReplicationInstances(input *
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeOrderableReplicationInstancesWithContext(ctx aws.Context, input *DescribeOrderableReplicationInstancesInput, opts ...request.Option) (*DescribeOrderableReplicationInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeOrderableReplicationInstances")
+	defer span.End()
+
 	req, out := c.DescribeOrderableReplicationInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2269,6 +2333,9 @@ func (c *DatabaseMigrationService) DescribeRefreshSchemasStatus(input *DescribeR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeRefreshSchemasStatusWithContext(ctx aws.Context, input *DescribeRefreshSchemasStatusInput, opts ...request.Option) (*DescribeRefreshSchemasStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeRefreshSchemasStatus")
+	defer span.End()
+
 	req, out := c.DescribeRefreshSchemasStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2358,6 +2425,9 @@ func (c *DatabaseMigrationService) DescribeReplicationInstanceTaskLogs(input *De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeReplicationInstanceTaskLogsWithContext(ctx aws.Context, input *DescribeReplicationInstanceTaskLogsInput, opts ...request.Option) (*DescribeReplicationInstanceTaskLogsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeReplicationInstanceTaskLogs")
+	defer span.End()
+
 	req, out := c.DescribeReplicationInstanceTaskLogsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2494,6 +2564,9 @@ func (c *DatabaseMigrationService) DescribeReplicationInstances(input *DescribeR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeReplicationInstancesWithContext(ctx aws.Context, input *DescribeReplicationInstancesInput, opts ...request.Option) (*DescribeReplicationInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeReplicationInstances")
+	defer span.End()
+
 	req, out := c.DescribeReplicationInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2629,6 +2702,9 @@ func (c *DatabaseMigrationService) DescribeReplicationSubnetGroups(input *Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeReplicationSubnetGroupsWithContext(ctx aws.Context, input *DescribeReplicationSubnetGroupsInput, opts ...request.Option) (*DescribeReplicationSubnetGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeReplicationSubnetGroups")
+	defer span.End()
+
 	req, out := c.DescribeReplicationSubnetGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2765,6 +2841,9 @@ func (c *DatabaseMigrationService) DescribeReplicationTaskAssessmentResults(inpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeReplicationTaskAssessmentResultsWithContext(ctx aws.Context, input *DescribeReplicationTaskAssessmentResultsInput, opts ...request.Option) (*DescribeReplicationTaskAssessmentResultsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeReplicationTaskAssessmentResults")
+	defer span.End()
+
 	req, out := c.DescribeReplicationTaskAssessmentResultsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2901,6 +2980,9 @@ func (c *DatabaseMigrationService) DescribeReplicationTasks(input *DescribeRepli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeReplicationTasksWithContext(ctx aws.Context, input *DescribeReplicationTasksInput, opts ...request.Option) (*DescribeReplicationTasksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeReplicationTasks")
+	defer span.End()
+
 	req, out := c.DescribeReplicationTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3040,6 +3122,9 @@ func (c *DatabaseMigrationService) DescribeSchemas(input *DescribeSchemasInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeSchemasWithContext(ctx aws.Context, input *DescribeSchemasInput, opts ...request.Option) (*DescribeSchemasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeSchemas")
+	defer span.End()
+
 	req, out := c.DescribeSchemasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3184,6 +3269,9 @@ func (c *DatabaseMigrationService) DescribeTableStatistics(input *DescribeTableS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) DescribeTableStatisticsWithContext(ctx aws.Context, input *DescribeTableStatisticsInput, opts ...request.Option) (*DescribeTableStatisticsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).DescribeTableStatistics")
+	defer span.End()
+
 	req, out := c.DescribeTableStatisticsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3319,6 +3407,9 @@ func (c *DatabaseMigrationService) ImportCertificate(input *ImportCertificateInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) ImportCertificateWithContext(ctx aws.Context, input *ImportCertificateInput, opts ...request.Option) (*ImportCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).ImportCertificate")
+	defer span.End()
+
 	req, out := c.ImportCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3398,6 +3489,9 @@ func (c *DatabaseMigrationService) ListTagsForResource(input *ListTagsForResourc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*ListTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).ListTagsForResource")
+	defer span.End()
+
 	req, out := c.ListTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3490,6 +3584,9 @@ func (c *DatabaseMigrationService) ModifyEndpoint(input *ModifyEndpointInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) ModifyEndpointWithContext(ctx aws.Context, input *ModifyEndpointInput, opts ...request.Option) (*ModifyEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).ModifyEndpoint")
+	defer span.End()
+
 	req, out := c.ModifyEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3578,6 +3675,9 @@ func (c *DatabaseMigrationService) ModifyEventSubscription(input *ModifyEventSub
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) ModifyEventSubscriptionWithContext(ctx aws.Context, input *ModifyEventSubscriptionInput, opts ...request.Option) (*ModifyEventSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).ModifyEventSubscription")
+	defer span.End()
+
 	req, out := c.ModifyEventSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3677,6 +3777,9 @@ func (c *DatabaseMigrationService) ModifyReplicationInstance(input *ModifyReplic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) ModifyReplicationInstanceWithContext(ctx aws.Context, input *ModifyReplicationInstanceInput, opts ...request.Option) (*ModifyReplicationInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).ModifyReplicationInstance")
+	defer span.End()
+
 	req, out := c.ModifyReplicationInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3772,6 +3875,9 @@ func (c *DatabaseMigrationService) ModifyReplicationSubnetGroup(input *ModifyRep
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) ModifyReplicationSubnetGroupWithContext(ctx aws.Context, input *ModifyReplicationSubnetGroupInput, opts ...request.Option) (*ModifyReplicationSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).ModifyReplicationSubnetGroup")
+	defer span.End()
+
 	req, out := c.ModifyReplicationSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3867,6 +3973,9 @@ func (c *DatabaseMigrationService) ModifyReplicationTask(input *ModifyReplicatio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) ModifyReplicationTaskWithContext(ctx aws.Context, input *ModifyReplicationTaskInput, opts ...request.Option) (*ModifyReplicationTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).ModifyReplicationTask")
+	defer span.End()
+
 	req, out := c.ModifyReplicationTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3951,6 +4060,9 @@ func (c *DatabaseMigrationService) RebootReplicationInstance(input *RebootReplic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) RebootReplicationInstanceWithContext(ctx aws.Context, input *RebootReplicationInstanceInput, opts ...request.Option) (*RebootReplicationInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).RebootReplicationInstance")
+	defer span.End()
+
 	req, out := c.RebootReplicationInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4042,6 +4154,9 @@ func (c *DatabaseMigrationService) RefreshSchemas(input *RefreshSchemasInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) RefreshSchemasWithContext(ctx aws.Context, input *RefreshSchemasInput, opts ...request.Option) (*RefreshSchemasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).RefreshSchemas")
+	defer span.End()
+
 	req, out := c.RefreshSchemasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4125,6 +4240,9 @@ func (c *DatabaseMigrationService) ReloadTables(input *ReloadTablesInput) (*Relo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) ReloadTablesWithContext(ctx aws.Context, input *ReloadTablesInput, opts ...request.Option) (*ReloadTablesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).ReloadTables")
+	defer span.End()
+
 	req, out := c.ReloadTablesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4204,6 +4322,9 @@ func (c *DatabaseMigrationService) RemoveTagsFromResource(input *RemoveTagsFromR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) RemoveTagsFromResourceWithContext(ctx aws.Context, input *RemoveTagsFromResourceInput, opts ...request.Option) (*RemoveTagsFromResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).RemoveTagsFromResource")
+	defer span.End()
+
 	req, out := c.RemoveTagsFromResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4293,6 +4414,9 @@ func (c *DatabaseMigrationService) StartReplicationTask(input *StartReplicationT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) StartReplicationTaskWithContext(ctx aws.Context, input *StartReplicationTaskInput, opts ...request.Option) (*StartReplicationTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).StartReplicationTask")
+	defer span.End()
+
 	req, out := c.StartReplicationTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4377,6 +4501,9 @@ func (c *DatabaseMigrationService) StartReplicationTaskAssessment(input *StartRe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) StartReplicationTaskAssessmentWithContext(ctx aws.Context, input *StartReplicationTaskAssessmentInput, opts ...request.Option) (*StartReplicationTaskAssessmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).StartReplicationTaskAssessment")
+	defer span.End()
+
 	req, out := c.StartReplicationTaskAssessmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4460,6 +4587,9 @@ func (c *DatabaseMigrationService) StopReplicationTask(input *StopReplicationTas
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) StopReplicationTaskWithContext(ctx aws.Context, input *StopReplicationTaskInput, opts ...request.Option) (*StopReplicationTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).StopReplicationTask")
+	defer span.End()
+
 	req, out := c.StopReplicationTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4549,6 +4679,9 @@ func (c *DatabaseMigrationService) TestConnection(input *TestConnectionInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DatabaseMigrationService) TestConnectionWithContext(ctx aws.Context, input *TestConnectionInput, opts ...request.Option) (*TestConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/databasemigrationservice.(*DatabaseMigrationService).TestConnection")
+	defer span.End()
+
 	req, out := c.TestConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

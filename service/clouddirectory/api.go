@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
+	"go.opencensus.io/trace"
 )
 
 const opAddFacetToObject = "AddFacetToObject"
@@ -122,6 +123,9 @@ func (c *CloudDirectory) AddFacetToObject(input *AddFacetToObjectInput) (*AddFac
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) AddFacetToObjectWithContext(ctx aws.Context, input *AddFacetToObjectInput, opts ...request.Option) (*AddFacetToObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).AddFacetToObject")
+	defer span.End()
+
 	req, out := c.AddFacetToObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -235,6 +239,9 @@ func (c *CloudDirectory) ApplySchema(input *ApplySchemaInput) (*ApplySchemaOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ApplySchemaWithContext(ctx aws.Context, input *ApplySchemaInput, opts ...request.Option) (*ApplySchemaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ApplySchema")
+	defer span.End()
+
 	req, out := c.ApplySchemaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -367,6 +374,9 @@ func (c *CloudDirectory) AttachObject(input *AttachObjectInput) (*AttachObjectOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) AttachObjectWithContext(ctx aws.Context, input *AttachObjectInput, opts ...request.Option) (*AttachObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).AttachObject")
+	defer span.End()
+
 	req, out := c.AttachObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -481,6 +491,9 @@ func (c *CloudDirectory) AttachPolicy(input *AttachPolicyInput) (*AttachPolicyOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) AttachPolicyWithContext(ctx aws.Context, input *AttachPolicyInput, opts ...request.Option) (*AttachPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).AttachPolicy")
+	defer span.End()
+
 	req, out := c.AttachPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -607,6 +620,9 @@ func (c *CloudDirectory) AttachToIndex(input *AttachToIndexInput) (*AttachToInde
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) AttachToIndexWithContext(ctx aws.Context, input *AttachToIndexInput, opts ...request.Option) (*AttachToIndexOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).AttachToIndex")
+	defer span.End()
+
 	req, out := c.AttachToIndexRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -731,6 +747,9 @@ func (c *CloudDirectory) AttachTypedLink(input *AttachTypedLinkInput) (*AttachTy
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) AttachTypedLinkWithContext(ctx aws.Context, input *AttachTypedLinkInput, opts ...request.Option) (*AttachTypedLinkOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).AttachTypedLink")
+	defer span.End()
+
 	req, out := c.AttachTypedLinkRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -838,6 +857,9 @@ func (c *CloudDirectory) BatchRead(input *BatchReadInput) (*BatchReadOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) BatchReadWithContext(ctx aws.Context, input *BatchReadInput, opts ...request.Option) (*BatchReadOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).BatchRead")
+	defer span.End()
+
 	req, out := c.BatchReadRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -949,6 +971,9 @@ func (c *CloudDirectory) BatchWrite(input *BatchWriteInput) (*BatchWriteOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) BatchWriteWithContext(ctx aws.Context, input *BatchWriteInput, opts ...request.Option) (*BatchWriteOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).BatchWrite")
+	defer span.End()
+
 	req, out := c.BatchWriteRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1061,6 +1086,9 @@ func (c *CloudDirectory) CreateDirectory(input *CreateDirectoryInput) (*CreateDi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) CreateDirectoryWithContext(ctx aws.Context, input *CreateDirectoryInput, opts ...request.Option) (*CreateDirectoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).CreateDirectory")
+	defer span.End()
+
 	req, out := c.CreateDirectoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1179,6 +1207,9 @@ func (c *CloudDirectory) CreateFacet(input *CreateFacetInput) (*CreateFacetOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) CreateFacetWithContext(ctx aws.Context, input *CreateFacetInput, opts ...request.Option) (*CreateFacetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).CreateFacet")
+	defer span.End()
+
 	req, out := c.CreateFacetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1301,6 +1332,9 @@ func (c *CloudDirectory) CreateIndex(input *CreateIndexInput) (*CreateIndexOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) CreateIndexWithContext(ctx aws.Context, input *CreateIndexInput, opts ...request.Option) (*CreateIndexOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).CreateIndex")
+	defer span.End()
+
 	req, out := c.CreateIndexRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1425,6 +1459,9 @@ func (c *CloudDirectory) CreateObject(input *CreateObjectInput) (*CreateObjectOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) CreateObjectWithContext(ctx aws.Context, input *CreateObjectInput, opts ...request.Option) (*CreateObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).CreateObject")
+	defer span.End()
+
 	req, out := c.CreateObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1548,6 +1585,9 @@ func (c *CloudDirectory) CreateSchema(input *CreateSchemaInput) (*CreateSchemaOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) CreateSchemaWithContext(ctx aws.Context, input *CreateSchemaInput, opts ...request.Option) (*CreateSchemaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).CreateSchema")
+	defer span.End()
+
 	req, out := c.CreateSchemaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1665,6 +1705,9 @@ func (c *CloudDirectory) CreateTypedLinkFacet(input *CreateTypedLinkFacetInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) CreateTypedLinkFacetWithContext(ctx aws.Context, input *CreateTypedLinkFacetInput, opts ...request.Option) (*CreateTypedLinkFacetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).CreateTypedLinkFacet")
+	defer span.End()
+
 	req, out := c.CreateTypedLinkFacetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1780,6 +1823,9 @@ func (c *CloudDirectory) DeleteDirectory(input *DeleteDirectoryInput) (*DeleteDi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) DeleteDirectoryWithContext(ctx aws.Context, input *DeleteDirectoryInput, opts ...request.Option) (*DeleteDirectoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).DeleteDirectory")
+	defer span.End()
+
 	req, out := c.DeleteDirectoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1895,6 +1941,9 @@ func (c *CloudDirectory) DeleteFacet(input *DeleteFacetInput) (*DeleteFacetOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) DeleteFacetWithContext(ctx aws.Context, input *DeleteFacetInput, opts ...request.Option) (*DeleteFacetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).DeleteFacet")
+	defer span.End()
+
 	req, out := c.DeleteFacetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2010,6 +2059,9 @@ func (c *CloudDirectory) DeleteObject(input *DeleteObjectInput) (*DeleteObjectOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) DeleteObjectWithContext(ctx aws.Context, input *DeleteObjectInput, opts ...request.Option) (*DeleteObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).DeleteObject")
+	defer span.End()
+
 	req, out := c.DeleteObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2122,6 +2174,9 @@ func (c *CloudDirectory) DeleteSchema(input *DeleteSchemaInput) (*DeleteSchemaOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) DeleteSchemaWithContext(ctx aws.Context, input *DeleteSchemaInput, opts ...request.Option) (*DeleteSchemaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).DeleteSchema")
+	defer span.End()
+
 	req, out := c.DeleteSchemaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2232,6 +2287,9 @@ func (c *CloudDirectory) DeleteTypedLinkFacet(input *DeleteTypedLinkFacetInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) DeleteTypedLinkFacetWithContext(ctx aws.Context, input *DeleteTypedLinkFacetInput, opts ...request.Option) (*DeleteTypedLinkFacetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).DeleteTypedLinkFacet")
+	defer span.End()
+
 	req, out := c.DeleteTypedLinkFacetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2348,6 +2406,9 @@ func (c *CloudDirectory) DetachFromIndex(input *DetachFromIndexInput) (*DetachFr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) DetachFromIndexWithContext(ctx aws.Context, input *DetachFromIndexInput, opts ...request.Option) (*DetachFromIndexOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).DetachFromIndex")
+	defer span.End()
+
 	req, out := c.DetachFromIndexRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2463,6 +2524,9 @@ func (c *CloudDirectory) DetachObject(input *DetachObjectInput) (*DetachObjectOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) DetachObjectWithContext(ctx aws.Context, input *DetachObjectInput, opts ...request.Option) (*DetachObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).DetachObject")
+	defer span.End()
+
 	req, out := c.DetachObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2576,6 +2640,9 @@ func (c *CloudDirectory) DetachPolicy(input *DetachPolicyInput) (*DetachPolicyOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) DetachPolicyWithContext(ctx aws.Context, input *DetachPolicyInput, opts ...request.Option) (*DetachPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).DetachPolicy")
+	defer span.End()
+
 	req, out := c.DetachPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2693,6 +2760,9 @@ func (c *CloudDirectory) DetachTypedLink(input *DetachTypedLinkInput) (*DetachTy
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) DetachTypedLinkWithContext(ctx aws.Context, input *DetachTypedLinkInput, opts ...request.Option) (*DetachTypedLinkOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).DetachTypedLink")
+	defer span.End()
+
 	req, out := c.DetachTypedLinkRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2806,6 +2876,9 @@ func (c *CloudDirectory) DisableDirectory(input *DisableDirectoryInput) (*Disabl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) DisableDirectoryWithContext(ctx aws.Context, input *DisableDirectoryInput, opts ...request.Option) (*DisableDirectoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).DisableDirectory")
+	defer span.End()
+
 	req, out := c.DisableDirectoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2918,6 +2991,9 @@ func (c *CloudDirectory) EnableDirectory(input *EnableDirectoryInput) (*EnableDi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) EnableDirectoryWithContext(ctx aws.Context, input *EnableDirectoryInput, opts ...request.Option) (*EnableDirectoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).EnableDirectory")
+	defer span.End()
+
 	req, out := c.EnableDirectoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3026,6 +3102,9 @@ func (c *CloudDirectory) GetAppliedSchemaVersion(input *GetAppliedSchemaVersionI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) GetAppliedSchemaVersionWithContext(ctx aws.Context, input *GetAppliedSchemaVersionInput, opts ...request.Option) (*GetAppliedSchemaVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).GetAppliedSchemaVersion")
+	defer span.End()
+
 	req, out := c.GetAppliedSchemaVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3130,6 +3209,9 @@ func (c *CloudDirectory) GetDirectory(input *GetDirectoryInput) (*GetDirectoryOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) GetDirectoryWithContext(ctx aws.Context, input *GetDirectoryInput, opts ...request.Option) (*GetDirectoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).GetDirectory")
+	defer span.End()
+
 	req, out := c.GetDirectoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3242,6 +3324,9 @@ func (c *CloudDirectory) GetFacet(input *GetFacetInput) (*GetFacetOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) GetFacetWithContext(ctx aws.Context, input *GetFacetInput, opts ...request.Option) (*GetFacetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).GetFacet")
+	defer span.End()
+
 	req, out := c.GetFacetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3356,6 +3441,9 @@ func (c *CloudDirectory) GetObjectAttributes(input *GetObjectAttributesInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) GetObjectAttributesWithContext(ctx aws.Context, input *GetObjectAttributesInput, opts ...request.Option) (*GetObjectAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).GetObjectAttributes")
+	defer span.End()
+
 	req, out := c.GetObjectAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3466,6 +3554,9 @@ func (c *CloudDirectory) GetObjectInformation(input *GetObjectInformationInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) GetObjectInformationWithContext(ctx aws.Context, input *GetObjectInformationInput, opts ...request.Option) (*GetObjectInformationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).GetObjectInformation")
+	defer span.End()
+
 	req, out := c.GetObjectInformationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3578,6 +3669,9 @@ func (c *CloudDirectory) GetSchemaAsJson(input *GetSchemaAsJsonInput) (*GetSchem
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) GetSchemaAsJsonWithContext(ctx aws.Context, input *GetSchemaAsJsonInput, opts ...request.Option) (*GetSchemaAsJsonOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).GetSchemaAsJson")
+	defer span.End()
+
 	req, out := c.GetSchemaAsJsonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3692,6 +3786,9 @@ func (c *CloudDirectory) GetTypedLinkFacetInformation(input *GetTypedLinkFacetIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) GetTypedLinkFacetInformationWithContext(ctx aws.Context, input *GetTypedLinkFacetInformationInput, opts ...request.Option) (*GetTypedLinkFacetInformationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).GetTypedLinkFacetInformation")
+	defer span.End()
+
 	req, out := c.GetTypedLinkFacetInformationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3809,6 +3906,9 @@ func (c *CloudDirectory) ListAppliedSchemaArns(input *ListAppliedSchemaArnsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListAppliedSchemaArnsWithContext(ctx aws.Context, input *ListAppliedSchemaArnsInput, opts ...request.Option) (*ListAppliedSchemaArnsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListAppliedSchemaArns")
+	defer span.End()
+
 	req, out := c.ListAppliedSchemaArnsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3975,6 +4075,9 @@ func (c *CloudDirectory) ListAttachedIndices(input *ListAttachedIndicesInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListAttachedIndicesWithContext(ctx aws.Context, input *ListAttachedIndicesInput, opts ...request.Option) (*ListAttachedIndicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListAttachedIndices")
+	defer span.End()
+
 	req, out := c.ListAttachedIndicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4141,6 +4244,9 @@ func (c *CloudDirectory) ListDevelopmentSchemaArns(input *ListDevelopmentSchemaA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListDevelopmentSchemaArnsWithContext(ctx aws.Context, input *ListDevelopmentSchemaArnsInput, opts ...request.Option) (*ListDevelopmentSchemaArnsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListDevelopmentSchemaArns")
+	defer span.End()
+
 	req, out := c.ListDevelopmentSchemaArnsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4304,6 +4410,9 @@ func (c *CloudDirectory) ListDirectories(input *ListDirectoriesInput) (*ListDire
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListDirectoriesWithContext(ctx aws.Context, input *ListDirectoriesInput, opts ...request.Option) (*ListDirectoriesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListDirectories")
+	defer span.End()
+
 	req, out := c.ListDirectoriesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4473,6 +4582,9 @@ func (c *CloudDirectory) ListFacetAttributes(input *ListFacetAttributesInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListFacetAttributesWithContext(ctx aws.Context, input *ListFacetAttributesInput, opts ...request.Option) (*ListFacetAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListFacetAttributes")
+	defer span.End()
+
 	req, out := c.ListFacetAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4639,6 +4751,9 @@ func (c *CloudDirectory) ListFacetNames(input *ListFacetNamesInput) (*ListFacetN
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListFacetNamesWithContext(ctx aws.Context, input *ListFacetNamesInput, opts ...request.Option) (*ListFacetNamesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListFacetNames")
+	defer span.End()
+
 	req, out := c.ListFacetNamesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4808,6 +4923,9 @@ func (c *CloudDirectory) ListIncomingTypedLinks(input *ListIncomingTypedLinksInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListIncomingTypedLinksWithContext(ctx aws.Context, input *ListIncomingTypedLinksInput, opts ...request.Option) (*ListIncomingTypedLinksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListIncomingTypedLinks")
+	defer span.End()
+
 	req, out := c.ListIncomingTypedLinksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4934,6 +5052,9 @@ func (c *CloudDirectory) ListIndex(input *ListIndexInput) (*ListIndexOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListIndexWithContext(ctx aws.Context, input *ListIndexInput, opts ...request.Option) (*ListIndexOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListIndex")
+	defer span.End()
+
 	req, out := c.ListIndexRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5107,6 +5228,9 @@ func (c *CloudDirectory) ListObjectAttributes(input *ListObjectAttributesInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListObjectAttributesWithContext(ctx aws.Context, input *ListObjectAttributesInput, opts ...request.Option) (*ListObjectAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListObjectAttributes")
+	defer span.End()
+
 	req, out := c.ListObjectAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5281,6 +5405,9 @@ func (c *CloudDirectory) ListObjectChildren(input *ListObjectChildrenInput) (*Li
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListObjectChildrenWithContext(ctx aws.Context, input *ListObjectChildrenInput, opts ...request.Option) (*ListObjectChildrenOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListObjectChildren")
+	defer span.End()
+
 	req, out := c.ListObjectChildrenRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5460,6 +5587,9 @@ func (c *CloudDirectory) ListObjectParentPaths(input *ListObjectParentPathsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListObjectParentPathsWithContext(ctx aws.Context, input *ListObjectParentPathsInput, opts ...request.Option) (*ListObjectParentPathsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListObjectParentPaths")
+	defer span.End()
+
 	req, out := c.ListObjectParentPathsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5633,6 +5763,9 @@ func (c *CloudDirectory) ListObjectParents(input *ListObjectParentsInput) (*List
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListObjectParentsWithContext(ctx aws.Context, input *ListObjectParentsInput, opts ...request.Option) (*ListObjectParentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListObjectParents")
+	defer span.End()
+
 	req, out := c.ListObjectParentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5802,6 +5935,9 @@ func (c *CloudDirectory) ListObjectPolicies(input *ListObjectPoliciesInput) (*Li
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListObjectPoliciesWithContext(ctx aws.Context, input *ListObjectPoliciesInput, opts ...request.Option) (*ListObjectPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListObjectPolicies")
+	defer span.End()
+
 	req, out := c.ListObjectPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5971,6 +6107,9 @@ func (c *CloudDirectory) ListOutgoingTypedLinks(input *ListOutgoingTypedLinksInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListOutgoingTypedLinksWithContext(ctx aws.Context, input *ListOutgoingTypedLinksInput, opts ...request.Option) (*ListOutgoingTypedLinksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListOutgoingTypedLinks")
+	defer span.End()
+
 	req, out := c.ListOutgoingTypedLinksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6093,6 +6232,9 @@ func (c *CloudDirectory) ListPolicyAttachments(input *ListPolicyAttachmentsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListPolicyAttachmentsWithContext(ctx aws.Context, input *ListPolicyAttachmentsInput, opts ...request.Option) (*ListPolicyAttachmentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListPolicyAttachments")
+	defer span.End()
+
 	req, out := c.ListPolicyAttachmentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6261,6 +6403,9 @@ func (c *CloudDirectory) ListPublishedSchemaArns(input *ListPublishedSchemaArnsI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListPublishedSchemaArnsWithContext(ctx aws.Context, input *ListPublishedSchemaArnsInput, opts ...request.Option) (*ListPublishedSchemaArnsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListPublishedSchemaArns")
+	defer span.End()
+
 	req, out := c.ListPublishedSchemaArnsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6431,6 +6576,9 @@ func (c *CloudDirectory) ListTagsForResource(input *ListTagsForResourceInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*ListTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListTagsForResource")
+	defer span.End()
+
 	req, out := c.ListTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6601,6 +6749,9 @@ func (c *CloudDirectory) ListTypedLinkFacetAttributes(input *ListTypedLinkFacetA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListTypedLinkFacetAttributesWithContext(ctx aws.Context, input *ListTypedLinkFacetAttributesInput, opts ...request.Option) (*ListTypedLinkFacetAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListTypedLinkFacetAttributes")
+	defer span.End()
+
 	req, out := c.ListTypedLinkFacetAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6768,6 +6919,9 @@ func (c *CloudDirectory) ListTypedLinkFacetNames(input *ListTypedLinkFacetNamesI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) ListTypedLinkFacetNamesWithContext(ctx aws.Context, input *ListTypedLinkFacetNamesInput, opts ...request.Option) (*ListTypedLinkFacetNamesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).ListTypedLinkFacetNames")
+	defer span.End()
+
 	req, out := c.ListTypedLinkFacetNamesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6943,6 +7097,9 @@ func (c *CloudDirectory) LookupPolicy(input *LookupPolicyInput) (*LookupPolicyOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) LookupPolicyWithContext(ctx aws.Context, input *LookupPolicyInput, opts ...request.Option) (*LookupPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).LookupPolicy")
+	defer span.End()
+
 	req, out := c.LookupPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7104,6 +7261,9 @@ func (c *CloudDirectory) PublishSchema(input *PublishSchemaInput) (*PublishSchem
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) PublishSchemaWithContext(ctx aws.Context, input *PublishSchemaInput, opts ...request.Option) (*PublishSchemaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).PublishSchema")
+	defer span.End()
+
 	req, out := c.PublishSchemaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7216,6 +7376,9 @@ func (c *CloudDirectory) PutSchemaFromJson(input *PutSchemaFromJsonInput) (*PutS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) PutSchemaFromJsonWithContext(ctx aws.Context, input *PutSchemaFromJsonInput, opts ...request.Option) (*PutSchemaFromJsonOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).PutSchemaFromJson")
+	defer span.End()
+
 	req, out := c.PutSchemaFromJsonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7330,6 +7493,9 @@ func (c *CloudDirectory) RemoveFacetFromObject(input *RemoveFacetFromObjectInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) RemoveFacetFromObjectWithContext(ctx aws.Context, input *RemoveFacetFromObjectInput, opts ...request.Option) (*RemoveFacetFromObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).RemoveFacetFromObject")
+	defer span.End()
+
 	req, out := c.RemoveFacetFromObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7442,6 +7608,9 @@ func (c *CloudDirectory) TagResource(input *TagResourceInput) (*TagResourceOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).TagResource")
+	defer span.End()
+
 	req, out := c.TagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7554,6 +7723,9 @@ func (c *CloudDirectory) UntagResource(input *UntagResourceInput) (*UntagResourc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).UntagResource")
+	defer span.End()
+
 	req, out := c.UntagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7676,6 +7848,9 @@ func (c *CloudDirectory) UpdateFacet(input *UpdateFacetInput) (*UpdateFacetOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) UpdateFacetWithContext(ctx aws.Context, input *UpdateFacetInput, opts ...request.Option) (*UpdateFacetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).UpdateFacet")
+	defer span.End()
+
 	req, out := c.UpdateFacetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7790,6 +7965,9 @@ func (c *CloudDirectory) UpdateObjectAttributes(input *UpdateObjectAttributesInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) UpdateObjectAttributesWithContext(ctx aws.Context, input *UpdateObjectAttributesInput, opts ...request.Option) (*UpdateObjectAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).UpdateObjectAttributes")
+	defer span.End()
+
 	req, out := c.UpdateObjectAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7898,6 +8076,9 @@ func (c *CloudDirectory) UpdateSchema(input *UpdateSchemaInput) (*UpdateSchemaOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) UpdateSchemaWithContext(ctx aws.Context, input *UpdateSchemaInput, opts ...request.Option) (*UpdateSchemaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).UpdateSchema")
+	defer span.End()
+
 	req, out := c.UpdateSchemaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8018,6 +8199,9 @@ func (c *CloudDirectory) UpdateTypedLinkFacet(input *UpdateTypedLinkFacetInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) UpdateTypedLinkFacetWithContext(ctx aws.Context, input *UpdateTypedLinkFacetInput, opts ...request.Option) (*UpdateTypedLinkFacetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).UpdateTypedLinkFacet")
+	defer span.End()
+
 	req, out := c.UpdateTypedLinkFacetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8136,6 +8320,9 @@ func (c *CloudDirectory) UpgradeAppliedSchema(input *UpgradeAppliedSchemaInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) UpgradeAppliedSchemaWithContext(ctx aws.Context, input *UpgradeAppliedSchemaInput, opts ...request.Option) (*UpgradeAppliedSchemaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).UpgradeAppliedSchema")
+	defer span.End()
+
 	req, out := c.UpgradeAppliedSchemaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8254,6 +8441,9 @@ func (c *CloudDirectory) UpgradePublishedSchema(input *UpgradePublishedSchemaInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudDirectory) UpgradePublishedSchemaWithContext(ctx aws.Context, input *UpgradePublishedSchemaInput, opts ...request.Option) (*UpgradePublishedSchemaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/clouddirectory.(*CloudDirectory).UpgradePublishedSchema")
+	defer span.End()
+
 	req, out := c.UpgradePublishedSchemaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

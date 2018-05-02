@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAssociateVPCWithHostedZone = "AssociateVPCWithHostedZone"
@@ -136,6 +137,9 @@ func (c *Route53) AssociateVPCWithHostedZone(input *AssociateVPCWithHostedZoneIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) AssociateVPCWithHostedZoneWithContext(ctx aws.Context, input *AssociateVPCWithHostedZoneInput, opts ...request.Option) (*AssociateVPCWithHostedZoneOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).AssociateVPCWithHostedZone")
+	defer span.End()
+
 	req, out := c.AssociateVPCWithHostedZoneRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -311,6 +315,9 @@ func (c *Route53) ChangeResourceRecordSets(input *ChangeResourceRecordSetsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ChangeResourceRecordSetsWithContext(ctx aws.Context, input *ChangeResourceRecordSetsInput, opts ...request.Option) (*ChangeResourceRecordSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ChangeResourceRecordSets")
+	defer span.End()
+
 	req, out := c.ChangeResourceRecordSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -411,6 +418,9 @@ func (c *Route53) ChangeTagsForResource(input *ChangeTagsForResourceInput) (*Cha
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ChangeTagsForResourceWithContext(ctx aws.Context, input *ChangeTagsForResourceInput, opts ...request.Option) (*ChangeTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ChangeTagsForResource")
+	defer span.End()
+
 	req, out := c.ChangeTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -547,6 +557,9 @@ func (c *Route53) CreateHealthCheck(input *CreateHealthCheckInput) (*CreateHealt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) CreateHealthCheckWithContext(ctx aws.Context, input *CreateHealthCheckInput, opts ...request.Option) (*CreateHealthCheckOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).CreateHealthCheck")
+	defer span.End()
+
 	req, out := c.CreateHealthCheckRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -721,6 +734,9 @@ func (c *Route53) CreateHostedZone(input *CreateHostedZoneInput) (*CreateHostedZ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) CreateHostedZoneWithContext(ctx aws.Context, input *CreateHostedZoneInput, opts ...request.Option) (*CreateHostedZoneOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).CreateHostedZone")
+	defer span.End()
+
 	req, out := c.CreateHostedZoneRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -922,6 +938,9 @@ func (c *Route53) CreateQueryLoggingConfig(input *CreateQueryLoggingConfigInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) CreateQueryLoggingConfigWithContext(ctx aws.Context, input *CreateQueryLoggingConfigInput, opts ...request.Option) (*CreateQueryLoggingConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).CreateQueryLoggingConfig")
+	defer span.End()
+
 	req, out := c.CreateQueryLoggingConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1074,6 +1093,9 @@ func (c *Route53) CreateReusableDelegationSet(input *CreateReusableDelegationSet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) CreateReusableDelegationSetWithContext(ctx aws.Context, input *CreateReusableDelegationSetInput, opts ...request.Option) (*CreateReusableDelegationSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).CreateReusableDelegationSet")
+	defer span.End()
+
 	req, out := c.CreateReusableDelegationSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1174,6 +1196,9 @@ func (c *Route53) CreateTrafficPolicy(input *CreateTrafficPolicyInput) (*CreateT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) CreateTrafficPolicyWithContext(ctx aws.Context, input *CreateTrafficPolicyInput, opts ...request.Option) (*CreateTrafficPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).CreateTrafficPolicy")
+	defer span.End()
+
 	req, out := c.CreateTrafficPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1279,6 +1304,9 @@ func (c *Route53) CreateTrafficPolicyInstance(input *CreateTrafficPolicyInstance
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) CreateTrafficPolicyInstanceWithContext(ctx aws.Context, input *CreateTrafficPolicyInstanceInput, opts ...request.Option) (*CreateTrafficPolicyInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).CreateTrafficPolicyInstance")
+	defer span.End()
+
 	req, out := c.CreateTrafficPolicyInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1386,6 +1414,9 @@ func (c *Route53) CreateTrafficPolicyVersion(input *CreateTrafficPolicyVersionIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) CreateTrafficPolicyVersionWithContext(ctx aws.Context, input *CreateTrafficPolicyVersionInput, opts ...request.Option) (*CreateTrafficPolicyVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).CreateTrafficPolicyVersion")
+	defer span.End()
+
 	req, out := c.CreateTrafficPolicyVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1492,6 +1523,9 @@ func (c *Route53) CreateVPCAssociationAuthorization(input *CreateVPCAssociationA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) CreateVPCAssociationAuthorizationWithContext(ctx aws.Context, input *CreateVPCAssociationAuthorizationInput, opts ...request.Option) (*CreateVPCAssociationAuthorizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).CreateVPCAssociationAuthorization")
+	defer span.End()
+
 	req, out := c.CreateVPCAssociationAuthorizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1586,6 +1620,9 @@ func (c *Route53) DeleteHealthCheck(input *DeleteHealthCheckInput) (*DeleteHealt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) DeleteHealthCheckWithContext(ctx aws.Context, input *DeleteHealthCheckInput, opts ...request.Option) (*DeleteHealthCheckOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).DeleteHealthCheck")
+	defer span.End()
+
 	req, out := c.DeleteHealthCheckRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1710,6 +1747,9 @@ func (c *Route53) DeleteHostedZone(input *DeleteHostedZoneInput) (*DeleteHostedZ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) DeleteHostedZoneWithContext(ctx aws.Context, input *DeleteHostedZoneInput, opts ...request.Option) (*DeleteHostedZoneOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).DeleteHostedZone")
+	defer span.End()
+
 	req, out := c.DeleteHostedZoneRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1800,6 +1840,9 @@ func (c *Route53) DeleteQueryLoggingConfig(input *DeleteQueryLoggingConfigInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) DeleteQueryLoggingConfigWithContext(ctx aws.Context, input *DeleteQueryLoggingConfigInput, opts ...request.Option) (*DeleteQueryLoggingConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).DeleteQueryLoggingConfig")
+	defer span.End()
+
 	req, out := c.DeleteQueryLoggingConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1896,6 +1939,9 @@ func (c *Route53) DeleteReusableDelegationSet(input *DeleteReusableDelegationSet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) DeleteReusableDelegationSetWithContext(ctx aws.Context, input *DeleteReusableDelegationSetInput, opts ...request.Option) (*DeleteReusableDelegationSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).DeleteReusableDelegationSet")
+	defer span.End()
+
 	req, out := c.DeleteReusableDelegationSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1986,6 +2032,9 @@ func (c *Route53) DeleteTrafficPolicy(input *DeleteTrafficPolicyInput) (*DeleteT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) DeleteTrafficPolicyWithContext(ctx aws.Context, input *DeleteTrafficPolicyInput, opts ...request.Option) (*DeleteTrafficPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).DeleteTrafficPolicy")
+	defer span.End()
+
 	req, out := c.DeleteTrafficPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2079,6 +2128,9 @@ func (c *Route53) DeleteTrafficPolicyInstance(input *DeleteTrafficPolicyInstance
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) DeleteTrafficPolicyInstanceWithContext(ctx aws.Context, input *DeleteTrafficPolicyInstanceInput, opts ...request.Option) (*DeleteTrafficPolicyInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).DeleteTrafficPolicyInstance")
+	defer span.End()
+
 	req, out := c.DeleteTrafficPolicyInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2182,6 +2234,9 @@ func (c *Route53) DeleteVPCAssociationAuthorization(input *DeleteVPCAssociationA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) DeleteVPCAssociationAuthorizationWithContext(ctx aws.Context, input *DeleteVPCAssociationAuthorizationInput, opts ...request.Option) (*DeleteVPCAssociationAuthorizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).DeleteVPCAssociationAuthorization")
+	defer span.End()
+
 	req, out := c.DeleteVPCAssociationAuthorizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2282,6 +2337,9 @@ func (c *Route53) DisassociateVPCFromHostedZone(input *DisassociateVPCFromHosted
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) DisassociateVPCFromHostedZoneWithContext(ctx aws.Context, input *DisassociateVPCFromHostedZoneInput, opts ...request.Option) (*DisassociateVPCFromHostedZoneOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).DisassociateVPCFromHostedZone")
+	defer span.End()
+
 	req, out := c.DisassociateVPCFromHostedZoneRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2366,6 +2424,9 @@ func (c *Route53) GetAccountLimit(input *GetAccountLimitInput) (*GetAccountLimit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetAccountLimitWithContext(ctx aws.Context, input *GetAccountLimitInput, opts ...request.Option) (*GetAccountLimitOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetAccountLimit")
+	defer span.End()
+
 	req, out := c.GetAccountLimitRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2456,6 +2517,9 @@ func (c *Route53) GetChange(input *GetChangeInput) (*GetChangeOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetChangeWithContext(ctx aws.Context, input *GetChangeInput, opts ...request.Option) (*GetChangeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetChange")
+	defer span.End()
+
 	req, out := c.GetChangeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2533,6 +2597,9 @@ func (c *Route53) GetCheckerIpRanges(input *GetCheckerIpRangesInput) (*GetChecke
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetCheckerIpRangesWithContext(ctx aws.Context, input *GetCheckerIpRangesInput, opts ...request.Option) (*GetCheckerIpRangesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetCheckerIpRanges")
+	defer span.End()
+
 	req, out := c.GetCheckerIpRangesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2632,6 +2699,9 @@ func (c *Route53) GetGeoLocation(input *GetGeoLocationInput) (*GetGeoLocationOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetGeoLocationWithContext(ctx aws.Context, input *GetGeoLocationInput, opts ...request.Option) (*GetGeoLocationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetGeoLocation")
+	defer span.End()
+
 	req, out := c.GetGeoLocationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2719,6 +2789,9 @@ func (c *Route53) GetHealthCheck(input *GetHealthCheckInput) (*GetHealthCheckOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetHealthCheckWithContext(ctx aws.Context, input *GetHealthCheckInput, opts ...request.Option) (*GetHealthCheckOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetHealthCheck")
+	defer span.End()
+
 	req, out := c.GetHealthCheckRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2794,6 +2867,9 @@ func (c *Route53) GetHealthCheckCount(input *GetHealthCheckCountInput) (*GetHeal
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetHealthCheckCountWithContext(ctx aws.Context, input *GetHealthCheckCountInput, opts ...request.Option) (*GetHealthCheckCountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetHealthCheckCount")
+	defer span.End()
+
 	req, out := c.GetHealthCheckCountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2877,6 +2953,9 @@ func (c *Route53) GetHealthCheckLastFailureReason(input *GetHealthCheckLastFailu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetHealthCheckLastFailureReasonWithContext(ctx aws.Context, input *GetHealthCheckLastFailureReasonInput, opts ...request.Option) (*GetHealthCheckLastFailureReasonOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetHealthCheckLastFailureReason")
+	defer span.End()
+
 	req, out := c.GetHealthCheckLastFailureReasonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2960,6 +3039,9 @@ func (c *Route53) GetHealthCheckStatus(input *GetHealthCheckStatusInput) (*GetHe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetHealthCheckStatusWithContext(ctx aws.Context, input *GetHealthCheckStatusInput, opts ...request.Option) (*GetHealthCheckStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetHealthCheckStatus")
+	defer span.End()
+
 	req, out := c.GetHealthCheckStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3043,6 +3125,9 @@ func (c *Route53) GetHostedZone(input *GetHostedZoneInput) (*GetHostedZoneOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetHostedZoneWithContext(ctx aws.Context, input *GetHostedZoneInput, opts ...request.Option) (*GetHostedZoneOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetHostedZone")
+	defer span.End()
+
 	req, out := c.GetHostedZoneRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3123,6 +3208,9 @@ func (c *Route53) GetHostedZoneCount(input *GetHostedZoneCountInput) (*GetHosted
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetHostedZoneCountWithContext(ctx aws.Context, input *GetHostedZoneCountInput, opts ...request.Option) (*GetHostedZoneCountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetHostedZoneCount")
+	defer span.End()
+
 	req, out := c.GetHostedZoneCountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3213,6 +3301,9 @@ func (c *Route53) GetHostedZoneLimit(input *GetHostedZoneLimitInput) (*GetHosted
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetHostedZoneLimitWithContext(ctx aws.Context, input *GetHostedZoneLimitInput, opts ...request.Option) (*GetHostedZoneLimitOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetHostedZoneLimit")
+	defer span.End()
+
 	req, out := c.GetHostedZoneLimitRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3298,6 +3389,9 @@ func (c *Route53) GetQueryLoggingConfig(input *GetQueryLoggingConfigInput) (*Get
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetQueryLoggingConfigWithContext(ctx aws.Context, input *GetQueryLoggingConfigInput, opts ...request.Option) (*GetQueryLoggingConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetQueryLoggingConfig")
+	defer span.End()
+
 	req, out := c.GetQueryLoggingConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3384,6 +3478,9 @@ func (c *Route53) GetReusableDelegationSet(input *GetReusableDelegationSetInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetReusableDelegationSetWithContext(ctx aws.Context, input *GetReusableDelegationSetInput, opts ...request.Option) (*GetReusableDelegationSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetReusableDelegationSet")
+	defer span.End()
+
 	req, out := c.GetReusableDelegationSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3471,6 +3568,9 @@ func (c *Route53) GetReusableDelegationSetLimit(input *GetReusableDelegationSetL
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetReusableDelegationSetLimitWithContext(ctx aws.Context, input *GetReusableDelegationSetLimitInput, opts ...request.Option) (*GetReusableDelegationSetLimitOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetReusableDelegationSetLimit")
+	defer span.End()
+
 	req, out := c.GetReusableDelegationSetLimitRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3553,6 +3653,9 @@ func (c *Route53) GetTrafficPolicy(input *GetTrafficPolicyInput) (*GetTrafficPol
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetTrafficPolicyWithContext(ctx aws.Context, input *GetTrafficPolicyInput, opts ...request.Option) (*GetTrafficPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetTrafficPolicy")
+	defer span.End()
+
 	req, out := c.GetTrafficPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3643,6 +3746,9 @@ func (c *Route53) GetTrafficPolicyInstance(input *GetTrafficPolicyInstanceInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetTrafficPolicyInstanceWithContext(ctx aws.Context, input *GetTrafficPolicyInstanceInput, opts ...request.Option) (*GetTrafficPolicyInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetTrafficPolicyInstance")
+	defer span.End()
+
 	req, out := c.GetTrafficPolicyInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3718,6 +3824,9 @@ func (c *Route53) GetTrafficPolicyInstanceCount(input *GetTrafficPolicyInstanceC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) GetTrafficPolicyInstanceCountWithContext(ctx aws.Context, input *GetTrafficPolicyInstanceCountInput, opts ...request.Option) (*GetTrafficPolicyInstanceCountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).GetTrafficPolicyInstanceCount")
+	defer span.End()
+
 	req, out := c.GetTrafficPolicyInstanceCountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3802,6 +3911,9 @@ func (c *Route53) ListGeoLocations(input *ListGeoLocationsInput) (*ListGeoLocati
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListGeoLocationsWithContext(ctx aws.Context, input *ListGeoLocationsInput, opts ...request.Option) (*ListGeoLocationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListGeoLocations")
+	defer span.End()
+
 	req, out := c.ListGeoLocationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3892,6 +4004,9 @@ func (c *Route53) ListHealthChecks(input *ListHealthChecksInput) (*ListHealthChe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListHealthChecksWithContext(ctx aws.Context, input *ListHealthChecksInput, opts ...request.Option) (*ListHealthChecksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListHealthChecks")
+	defer span.End()
+
 	req, out := c.ListHealthChecksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4039,6 +4154,9 @@ func (c *Route53) ListHostedZones(input *ListHostedZonesInput) (*ListHostedZones
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListHostedZonesWithContext(ctx aws.Context, input *ListHostedZonesInput, opts ...request.Option) (*ListHostedZonesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListHostedZones")
+	defer span.End()
+
 	req, out := c.ListHostedZonesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4220,6 +4338,9 @@ func (c *Route53) ListHostedZonesByName(input *ListHostedZonesByNameInput) (*Lis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListHostedZonesByNameWithContext(ctx aws.Context, input *ListHostedZonesByNameInput, opts ...request.Option) (*ListHostedZonesByNameOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListHostedZonesByName")
+	defer span.End()
+
 	req, out := c.ListHostedZonesByNameRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4313,6 +4434,9 @@ func (c *Route53) ListQueryLoggingConfigs(input *ListQueryLoggingConfigsInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListQueryLoggingConfigsWithContext(ctx aws.Context, input *ListQueryLoggingConfigsInput, opts ...request.Option) (*ListQueryLoggingConfigsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListQueryLoggingConfigs")
+	defer span.End()
+
 	req, out := c.ListQueryLoggingConfigsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4439,6 +4563,9 @@ func (c *Route53) ListResourceRecordSets(input *ListResourceRecordSetsInput) (*L
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListResourceRecordSetsWithContext(ctx aws.Context, input *ListResourceRecordSetsInput, opts ...request.Option) (*ListResourceRecordSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListResourceRecordSets")
+	defer span.End()
+
 	req, out := c.ListResourceRecordSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4569,6 +4696,9 @@ func (c *Route53) ListReusableDelegationSets(input *ListReusableDelegationSetsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListReusableDelegationSetsWithContext(ctx aws.Context, input *ListReusableDelegationSetsInput, opts ...request.Option) (*ListReusableDelegationSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListReusableDelegationSets")
+	defer span.End()
+
 	req, out := c.ListReusableDelegationSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4669,6 +4799,9 @@ func (c *Route53) ListTagsForResource(input *ListTagsForResourceInput) (*ListTag
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*ListTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListTagsForResource")
+	defer span.End()
+
 	req, out := c.ListTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4769,6 +4902,9 @@ func (c *Route53) ListTagsForResources(input *ListTagsForResourcesInput) (*ListT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListTagsForResourcesWithContext(ctx aws.Context, input *ListTagsForResourcesInput, opts ...request.Option) (*ListTagsForResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListTagsForResources")
+	defer span.End()
+
 	req, out := c.ListTagsForResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4850,6 +4986,9 @@ func (c *Route53) ListTrafficPolicies(input *ListTrafficPoliciesInput) (*ListTra
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListTrafficPoliciesWithContext(ctx aws.Context, input *ListTrafficPoliciesInput, opts ...request.Option) (*ListTrafficPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListTrafficPolicies")
+	defer span.End()
+
 	req, out := c.ListTrafficPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4942,6 +5081,9 @@ func (c *Route53) ListTrafficPolicyInstances(input *ListTrafficPolicyInstancesIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListTrafficPolicyInstancesWithContext(ctx aws.Context, input *ListTrafficPolicyInstancesInput, opts ...request.Option) (*ListTrafficPolicyInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListTrafficPolicyInstances")
+	defer span.End()
+
 	req, out := c.ListTrafficPolicyInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5037,6 +5179,9 @@ func (c *Route53) ListTrafficPolicyInstancesByHostedZone(input *ListTrafficPolic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListTrafficPolicyInstancesByHostedZoneWithContext(ctx aws.Context, input *ListTrafficPolicyInstancesByHostedZoneInput, opts ...request.Option) (*ListTrafficPolicyInstancesByHostedZoneOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListTrafficPolicyInstancesByHostedZone")
+	defer span.End()
+
 	req, out := c.ListTrafficPolicyInstancesByHostedZoneRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5132,6 +5277,9 @@ func (c *Route53) ListTrafficPolicyInstancesByPolicy(input *ListTrafficPolicyIns
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListTrafficPolicyInstancesByPolicyWithContext(ctx aws.Context, input *ListTrafficPolicyInstancesByPolicyInput, opts ...request.Option) (*ListTrafficPolicyInstancesByPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListTrafficPolicyInstancesByPolicy")
+	defer span.End()
+
 	req, out := c.ListTrafficPolicyInstancesByPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5216,6 +5364,9 @@ func (c *Route53) ListTrafficPolicyVersions(input *ListTrafficPolicyVersionsInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListTrafficPolicyVersionsWithContext(ctx aws.Context, input *ListTrafficPolicyVersionsInput, opts ...request.Option) (*ListTrafficPolicyVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListTrafficPolicyVersions")
+	defer span.End()
+
 	req, out := c.ListTrafficPolicyVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5307,6 +5458,9 @@ func (c *Route53) ListVPCAssociationAuthorizations(input *ListVPCAssociationAuth
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) ListVPCAssociationAuthorizationsWithContext(ctx aws.Context, input *ListVPCAssociationAuthorizationsInput, opts ...request.Option) (*ListVPCAssociationAuthorizationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).ListVPCAssociationAuthorizations")
+	defer span.End()
+
 	req, out := c.ListVPCAssociationAuthorizationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5391,6 +5545,9 @@ func (c *Route53) TestDNSAnswer(input *TestDNSAnswerInput) (*TestDNSAnswerOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) TestDNSAnswerWithContext(ctx aws.Context, input *TestDNSAnswerInput, opts ...request.Option) (*TestDNSAnswerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).TestDNSAnswer")
+	defer span.End()
+
 	req, out := c.TestDNSAnswerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5482,6 +5639,9 @@ func (c *Route53) UpdateHealthCheck(input *UpdateHealthCheckInput) (*UpdateHealt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) UpdateHealthCheckWithContext(ctx aws.Context, input *UpdateHealthCheckInput, opts ...request.Option) (*UpdateHealthCheckOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).UpdateHealthCheck")
+	defer span.End()
+
 	req, out := c.UpdateHealthCheckRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5564,6 +5724,9 @@ func (c *Route53) UpdateHostedZoneComment(input *UpdateHostedZoneCommentInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) UpdateHostedZoneCommentWithContext(ctx aws.Context, input *UpdateHostedZoneCommentInput, opts ...request.Option) (*UpdateHostedZoneCommentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).UpdateHostedZoneComment")
+	defer span.End()
+
 	req, out := c.UpdateHostedZoneCommentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5650,6 +5813,9 @@ func (c *Route53) UpdateTrafficPolicyComment(input *UpdateTrafficPolicyCommentIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) UpdateTrafficPolicyCommentWithContext(ctx aws.Context, input *UpdateTrafficPolicyCommentInput, opts ...request.Option) (*UpdateTrafficPolicyCommentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).UpdateTrafficPolicyComment")
+	defer span.End()
+
 	req, out := c.UpdateTrafficPolicyCommentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5765,6 +5931,9 @@ func (c *Route53) UpdateTrafficPolicyInstance(input *UpdateTrafficPolicyInstance
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53) UpdateTrafficPolicyInstanceWithContext(ctx aws.Context, input *UpdateTrafficPolicyInstanceInput, opts ...request.Option) (*UpdateTrafficPolicyInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53.(*Route53).UpdateTrafficPolicyInstance")
+	defer span.End()
+
 	req, out := c.UpdateTrafficPolicyInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

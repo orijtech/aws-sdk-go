@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
+	"go.opencensus.io/trace"
 )
 
 const opDeleteThingShadow = "DeleteThingShadow"
@@ -104,6 +105,9 @@ func (c *IoTDataPlane) DeleteThingShadow(input *DeleteThingShadowInput) (*Delete
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoTDataPlane) DeleteThingShadowWithContext(ctx aws.Context, input *DeleteThingShadowInput, opts ...request.Option) (*DeleteThingShadowOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iotdataplane.(*IoTDataPlane).DeleteThingShadow")
+	defer span.End()
+
 	req, out := c.DeleteThingShadowRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -204,6 +208,9 @@ func (c *IoTDataPlane) GetThingShadow(input *GetThingShadowInput) (*GetThingShad
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoTDataPlane) GetThingShadowWithContext(ctx aws.Context, input *GetThingShadowInput, opts ...request.Option) (*GetThingShadowOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iotdataplane.(*IoTDataPlane).GetThingShadow")
+	defer span.End()
+
 	req, out := c.GetThingShadowRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -294,6 +301,9 @@ func (c *IoTDataPlane) Publish(input *PublishInput) (*PublishOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoTDataPlane) PublishWithContext(ctx aws.Context, input *PublishInput, opts ...request.Option) (*PublishOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iotdataplane.(*IoTDataPlane).Publish")
+	defer span.End()
+
 	req, out := c.PublishRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -397,6 +407,9 @@ func (c *IoTDataPlane) UpdateThingShadow(input *UpdateThingShadowInput) (*Update
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoTDataPlane) UpdateThingShadowWithContext(ctx aws.Context, input *UpdateThingShadowInput, opts ...request.Option) (*UpdateThingShadowOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iotdataplane.(*IoTDataPlane).UpdateThingShadow")
+	defer span.End()
+
 	req, out := c.UpdateThingShadowRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opAddTags = "AddTags"
@@ -88,6 +89,9 @@ func (c *SageMaker) AddTags(input *AddTagsInput) (*AddTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) AddTagsWithContext(ctx aws.Context, input *AddTagsInput, opts ...request.Option) (*AddTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).AddTags")
+	defer span.End()
+
 	req, out := c.AddTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -187,6 +191,9 @@ func (c *SageMaker) CreateEndpoint(input *CreateEndpointInput) (*CreateEndpointO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) CreateEndpointWithContext(ctx aws.Context, input *CreateEndpointInput, opts ...request.Option) (*CreateEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).CreateEndpoint")
+	defer span.End()
+
 	req, out := c.CreateEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -285,6 +292,9 @@ func (c *SageMaker) CreateEndpointConfig(input *CreateEndpointConfigInput) (*Cre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) CreateEndpointConfigWithContext(ctx aws.Context, input *CreateEndpointConfigInput, opts ...request.Option) (*CreateEndpointConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).CreateEndpointConfig")
+	defer span.End()
+
 	req, out := c.CreateEndpointConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -386,6 +396,9 @@ func (c *SageMaker) CreateModel(input *CreateModelInput) (*CreateModelOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) CreateModelWithContext(ctx aws.Context, input *CreateModelInput, opts ...request.Option) (*CreateModelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).CreateModel")
+	defer span.End()
+
 	req, out := c.CreateModelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -502,6 +515,9 @@ func (c *SageMaker) CreateNotebookInstance(input *CreateNotebookInstanceInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) CreateNotebookInstanceWithContext(ctx aws.Context, input *CreateNotebookInstanceInput, opts ...request.Option) (*CreateNotebookInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).CreateNotebookInstance")
+	defer span.End()
+
 	req, out := c.CreateNotebookInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -598,6 +614,9 @@ func (c *SageMaker) CreateNotebookInstanceLifecycleConfig(input *CreateNotebookI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) CreateNotebookInstanceLifecycleConfigWithContext(ctx aws.Context, input *CreateNotebookInstanceLifecycleConfigInput, opts ...request.Option) (*CreateNotebookInstanceLifecycleConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).CreateNotebookInstanceLifecycleConfig")
+	defer span.End()
+
 	req, out := c.CreateNotebookInstanceLifecycleConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -676,6 +695,9 @@ func (c *SageMaker) CreatePresignedNotebookInstanceUrl(input *CreatePresignedNot
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) CreatePresignedNotebookInstanceUrlWithContext(ctx aws.Context, input *CreatePresignedNotebookInstanceUrlInput, opts ...request.Option) (*CreatePresignedNotebookInstanceUrlOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).CreatePresignedNotebookInstanceUrl")
+	defer span.End()
+
 	req, out := c.CreatePresignedNotebookInstanceUrlRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -794,6 +816,9 @@ func (c *SageMaker) CreateTrainingJob(input *CreateTrainingJobInput) (*CreateTra
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) CreateTrainingJobWithContext(ctx aws.Context, input *CreateTrainingJobInput, opts ...request.Option) (*CreateTrainingJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).CreateTrainingJob")
+	defer span.End()
+
 	req, out := c.CreateTrainingJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -871,6 +896,9 @@ func (c *SageMaker) DeleteEndpoint(input *DeleteEndpointInput) (*DeleteEndpointO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) DeleteEndpointWithContext(ctx aws.Context, input *DeleteEndpointInput, opts ...request.Option) (*DeleteEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).DeleteEndpoint")
+	defer span.End()
+
 	req, out := c.DeleteEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -949,6 +977,9 @@ func (c *SageMaker) DeleteEndpointConfig(input *DeleteEndpointConfigInput) (*Del
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) DeleteEndpointConfigWithContext(ctx aws.Context, input *DeleteEndpointConfigInput, opts ...request.Option) (*DeleteEndpointConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).DeleteEndpointConfig")
+	defer span.End()
+
 	req, out := c.DeleteEndpointConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1028,6 +1059,9 @@ func (c *SageMaker) DeleteModel(input *DeleteModelInput) (*DeleteModelOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) DeleteModelWithContext(ctx aws.Context, input *DeleteModelInput, opts ...request.Option) (*DeleteModelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).DeleteModel")
+	defer span.End()
+
 	req, out := c.DeleteModelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1109,6 +1143,9 @@ func (c *SageMaker) DeleteNotebookInstance(input *DeleteNotebookInstanceInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) DeleteNotebookInstanceWithContext(ctx aws.Context, input *DeleteNotebookInstanceInput, opts ...request.Option) (*DeleteNotebookInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).DeleteNotebookInstance")
+	defer span.End()
+
 	req, out := c.DeleteNotebookInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1185,6 +1222,9 @@ func (c *SageMaker) DeleteNotebookInstanceLifecycleConfig(input *DeleteNotebookI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) DeleteNotebookInstanceLifecycleConfigWithContext(ctx aws.Context, input *DeleteNotebookInstanceLifecycleConfigInput, opts ...request.Option) (*DeleteNotebookInstanceLifecycleConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).DeleteNotebookInstanceLifecycleConfig")
+	defer span.End()
+
 	req, out := c.DeleteNotebookInstanceLifecycleConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1261,6 +1301,9 @@ func (c *SageMaker) DeleteTags(input *DeleteTagsInput) (*DeleteTagsOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) DeleteTagsWithContext(ctx aws.Context, input *DeleteTagsInput, opts ...request.Option) (*DeleteTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).DeleteTags")
+	defer span.End()
+
 	req, out := c.DeleteTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1335,6 +1378,9 @@ func (c *SageMaker) DescribeEndpoint(input *DescribeEndpointInput) (*DescribeEnd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) DescribeEndpointWithContext(ctx aws.Context, input *DescribeEndpointInput, opts ...request.Option) (*DescribeEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).DescribeEndpoint")
+	defer span.End()
+
 	req, out := c.DescribeEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1410,6 +1456,9 @@ func (c *SageMaker) DescribeEndpointConfig(input *DescribeEndpointConfigInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) DescribeEndpointConfigWithContext(ctx aws.Context, input *DescribeEndpointConfigInput, opts ...request.Option) (*DescribeEndpointConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).DescribeEndpointConfig")
+	defer span.End()
+
 	req, out := c.DescribeEndpointConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1484,6 +1533,9 @@ func (c *SageMaker) DescribeModel(input *DescribeModelInput) (*DescribeModelOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) DescribeModelWithContext(ctx aws.Context, input *DescribeModelInput, opts ...request.Option) (*DescribeModelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).DescribeModel")
+	defer span.End()
+
 	req, out := c.DescribeModelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1558,6 +1610,9 @@ func (c *SageMaker) DescribeNotebookInstance(input *DescribeNotebookInstanceInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) DescribeNotebookInstanceWithContext(ctx aws.Context, input *DescribeNotebookInstanceInput, opts ...request.Option) (*DescribeNotebookInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).DescribeNotebookInstance")
+	defer span.End()
+
 	req, out := c.DescribeNotebookInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1634,6 +1689,9 @@ func (c *SageMaker) DescribeNotebookInstanceLifecycleConfig(input *DescribeNoteb
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) DescribeNotebookInstanceLifecycleConfigWithContext(ctx aws.Context, input *DescribeNotebookInstanceLifecycleConfigInput, opts ...request.Option) (*DescribeNotebookInstanceLifecycleConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).DescribeNotebookInstanceLifecycleConfig")
+	defer span.End()
+
 	req, out := c.DescribeNotebookInstanceLifecycleConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1713,6 +1771,9 @@ func (c *SageMaker) DescribeTrainingJob(input *DescribeTrainingJobInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) DescribeTrainingJobWithContext(ctx aws.Context, input *DescribeTrainingJobInput, opts ...request.Option) (*DescribeTrainingJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).DescribeTrainingJob")
+	defer span.End()
+
 	req, out := c.DescribeTrainingJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1793,6 +1854,9 @@ func (c *SageMaker) ListEndpointConfigs(input *ListEndpointConfigsInput) (*ListE
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) ListEndpointConfigsWithContext(ctx aws.Context, input *ListEndpointConfigsInput, opts ...request.Option) (*ListEndpointConfigsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).ListEndpointConfigs")
+	defer span.End()
+
 	req, out := c.ListEndpointConfigsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1923,6 +1987,9 @@ func (c *SageMaker) ListEndpoints(input *ListEndpointsInput) (*ListEndpointsOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) ListEndpointsWithContext(ctx aws.Context, input *ListEndpointsInput, opts ...request.Option) (*ListEndpointsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).ListEndpoints")
+	defer span.End()
+
 	req, out := c.ListEndpointsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2054,6 +2121,9 @@ func (c *SageMaker) ListModels(input *ListModelsInput) (*ListModelsOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) ListModelsWithContext(ctx aws.Context, input *ListModelsInput, opts ...request.Option) (*ListModelsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).ListModels")
+	defer span.End()
+
 	req, out := c.ListModelsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2184,6 +2254,9 @@ func (c *SageMaker) ListNotebookInstanceLifecycleConfigs(input *ListNotebookInst
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) ListNotebookInstanceLifecycleConfigsWithContext(ctx aws.Context, input *ListNotebookInstanceLifecycleConfigsInput, opts ...request.Option) (*ListNotebookInstanceLifecycleConfigsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).ListNotebookInstanceLifecycleConfigs")
+	defer span.End()
+
 	req, out := c.ListNotebookInstanceLifecycleConfigsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2315,6 +2388,9 @@ func (c *SageMaker) ListNotebookInstances(input *ListNotebookInstancesInput) (*L
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) ListNotebookInstancesWithContext(ctx aws.Context, input *ListNotebookInstancesInput, opts ...request.Option) (*ListNotebookInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).ListNotebookInstances")
+	defer span.End()
+
 	req, out := c.ListNotebookInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2445,6 +2521,9 @@ func (c *SageMaker) ListTags(input *ListTagsInput) (*ListTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) ListTagsWithContext(ctx aws.Context, input *ListTagsInput, opts ...request.Option) (*ListTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).ListTags")
+	defer span.End()
+
 	req, out := c.ListTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2575,6 +2654,9 @@ func (c *SageMaker) ListTrainingJobs(input *ListTrainingJobsInput) (*ListTrainin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) ListTrainingJobsWithContext(ctx aws.Context, input *ListTrainingJobsInput, opts ...request.Option) (*ListTrainingJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).ListTrainingJobs")
+	defer span.End()
+
 	req, out := c.ListTrainingJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2711,6 +2793,9 @@ func (c *SageMaker) StartNotebookInstance(input *StartNotebookInstanceInput) (*S
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) StartNotebookInstanceWithContext(ctx aws.Context, input *StartNotebookInstanceInput, opts ...request.Option) (*StartNotebookInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).StartNotebookInstance")
+	defer span.End()
+
 	req, out := c.StartNotebookInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2794,6 +2879,9 @@ func (c *SageMaker) StopNotebookInstance(input *StopNotebookInstanceInput) (*Sto
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) StopNotebookInstanceWithContext(ctx aws.Context, input *StopNotebookInstanceInput, opts ...request.Option) (*StopNotebookInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).StopNotebookInstance")
+	defer span.End()
+
 	req, out := c.StopNotebookInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2887,6 +2975,9 @@ func (c *SageMaker) StopTrainingJob(input *StopTrainingJobInput) (*StopTrainingJ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) StopTrainingJobWithContext(ctx aws.Context, input *StopTrainingJobInput, opts ...request.Option) (*StopTrainingJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).StopTrainingJob")
+	defer span.End()
+
 	req, out := c.StopTrainingJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2974,6 +3065,9 @@ func (c *SageMaker) UpdateEndpoint(input *UpdateEndpointInput) (*UpdateEndpointO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) UpdateEndpointWithContext(ctx aws.Context, input *UpdateEndpointInput, opts ...request.Option) (*UpdateEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).UpdateEndpoint")
+	defer span.End()
+
 	req, out := c.UpdateEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3059,6 +3153,9 @@ func (c *SageMaker) UpdateEndpointWeightsAndCapacities(input *UpdateEndpointWeig
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) UpdateEndpointWeightsAndCapacitiesWithContext(ctx aws.Context, input *UpdateEndpointWeightsAndCapacitiesInput, opts ...request.Option) (*UpdateEndpointWeightsAndCapacitiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).UpdateEndpointWeightsAndCapacities")
+	defer span.End()
+
 	req, out := c.UpdateEndpointWeightsAndCapacitiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3142,6 +3239,9 @@ func (c *SageMaker) UpdateNotebookInstance(input *UpdateNotebookInstanceInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) UpdateNotebookInstanceWithContext(ctx aws.Context, input *UpdateNotebookInstanceInput, opts ...request.Option) (*UpdateNotebookInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).UpdateNotebookInstance")
+	defer span.End()
+
 	req, out := c.UpdateNotebookInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3222,6 +3322,9 @@ func (c *SageMaker) UpdateNotebookInstanceLifecycleConfig(input *UpdateNotebookI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SageMaker) UpdateNotebookInstanceLifecycleConfigWithContext(ctx aws.Context, input *UpdateNotebookInstanceLifecycleConfigInput, opts ...request.Option) (*UpdateNotebookInstanceLifecycleConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sagemaker.(*SageMaker).UpdateNotebookInstanceLifecycleConfig")
+	defer span.End()
+
 	req, out := c.UpdateNotebookInstanceLifecycleConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

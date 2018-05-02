@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/query"
+	"go.opencensus.io/trace"
 )
 
 const opAddClientIDToOpenIDConnectProvider = "AddClientIDToOpenIDConnectProvider"
@@ -105,6 +106,9 @@ func (c *IAM) AddClientIDToOpenIDConnectProvider(input *AddClientIDToOpenIDConne
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) AddClientIDToOpenIDConnectProviderWithContext(ctx aws.Context, input *AddClientIDToOpenIDConnectProviderInput, opts ...request.Option) (*AddClientIDToOpenIDConnectProviderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).AddClientIDToOpenIDConnectProvider")
+	defer span.End()
+
 	req, out := c.AddClientIDToOpenIDConnectProviderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -219,6 +223,9 @@ func (c *IAM) AddRoleToInstanceProfile(input *AddRoleToInstanceProfileInput) (*A
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) AddRoleToInstanceProfileWithContext(ctx aws.Context, input *AddRoleToInstanceProfileInput, opts ...request.Option) (*AddRoleToInstanceProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).AddRoleToInstanceProfile")
+	defer span.End()
+
 	req, out := c.AddRoleToInstanceProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -309,6 +316,9 @@ func (c *IAM) AddUserToGroup(input *AddUserToGroupInput) (*AddUserToGroupOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) AddUserToGroupWithContext(ctx aws.Context, input *AddUserToGroupInput, opts ...request.Option) (*AddUserToGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).AddUserToGroup")
+	defer span.End()
+
 	req, out := c.AddUserToGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -414,6 +424,9 @@ func (c *IAM) AttachGroupPolicy(input *AttachGroupPolicyInput) (*AttachGroupPoli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) AttachGroupPolicyWithContext(ctx aws.Context, input *AttachGroupPolicyInput, opts ...request.Option) (*AttachGroupPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).AttachGroupPolicy")
+	defer span.End()
+
 	req, out := c.AttachGroupPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -529,6 +542,9 @@ func (c *IAM) AttachRolePolicy(input *AttachRolePolicyInput) (*AttachRolePolicyO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) AttachRolePolicyWithContext(ctx aws.Context, input *AttachRolePolicyInput, opts ...request.Option) (*AttachRolePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).AttachRolePolicy")
+	defer span.End()
+
 	req, out := c.AttachRolePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -634,6 +650,9 @@ func (c *IAM) AttachUserPolicy(input *AttachUserPolicyInput) (*AttachUserPolicyO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) AttachUserPolicyWithContext(ctx aws.Context, input *AttachUserPolicyInput, opts ...request.Option) (*AttachUserPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).AttachUserPolicy")
+	defer span.End()
+
 	req, out := c.AttachUserPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -743,6 +762,9 @@ func (c *IAM) ChangePassword(input *ChangePasswordInput) (*ChangePasswordOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ChangePasswordWithContext(ctx aws.Context, input *ChangePasswordInput, opts ...request.Option) (*ChangePasswordOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ChangePassword")
+	defer span.End()
+
 	req, out := c.ChangePasswordRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -848,6 +870,9 @@ func (c *IAM) CreateAccessKey(input *CreateAccessKeyInput) (*CreateAccessKeyOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) CreateAccessKeyWithContext(ctx aws.Context, input *CreateAccessKeyInput, opts ...request.Option) (*CreateAccessKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).CreateAccessKey")
+	defer span.End()
+
 	req, out := c.CreateAccessKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -940,6 +965,9 @@ func (c *IAM) CreateAccountAlias(input *CreateAccountAliasInput) (*CreateAccount
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) CreateAccountAliasWithContext(ctx aws.Context, input *CreateAccountAliasInput, opts ...request.Option) (*CreateAccountAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).CreateAccountAlias")
+	defer span.End()
+
 	req, out := c.CreateAccountAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1036,6 +1064,9 @@ func (c *IAM) CreateGroup(input *CreateGroupInput) (*CreateGroupOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) CreateGroupWithContext(ctx aws.Context, input *CreateGroupInput, opts ...request.Option) (*CreateGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).CreateGroup")
+	defer span.End()
+
 	req, out := c.CreateGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1129,6 +1160,9 @@ func (c *IAM) CreateInstanceProfile(input *CreateInstanceProfileInput) (*CreateI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) CreateInstanceProfileWithContext(ctx aws.Context, input *CreateInstanceProfileInput, opts ...request.Option) (*CreateInstanceProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).CreateInstanceProfile")
+	defer span.End()
+
 	req, out := c.CreateInstanceProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1228,6 +1262,9 @@ func (c *IAM) CreateLoginProfile(input *CreateLoginProfileInput) (*CreateLoginPr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) CreateLoginProfileWithContext(ctx aws.Context, input *CreateLoginProfileInput, opts ...request.Option) (*CreateLoginProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).CreateLoginProfile")
+	defer span.End()
+
 	req, out := c.CreateLoginProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1341,6 +1378,9 @@ func (c *IAM) CreateOpenIDConnectProvider(input *CreateOpenIDConnectProviderInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) CreateOpenIDConnectProviderWithContext(ctx aws.Context, input *CreateOpenIDConnectProviderInput, opts ...request.Option) (*CreateOpenIDConnectProviderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).CreateOpenIDConnectProvider")
+	defer span.End()
+
 	req, out := c.CreateOpenIDConnectProviderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1446,6 +1486,9 @@ func (c *IAM) CreatePolicy(input *CreatePolicyInput) (*CreatePolicyOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) CreatePolicyWithContext(ctx aws.Context, input *CreatePolicyInput, opts ...request.Option) (*CreatePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).CreatePolicy")
+	defer span.End()
+
 	req, out := c.CreatePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1553,6 +1596,9 @@ func (c *IAM) CreatePolicyVersion(input *CreatePolicyVersionInput) (*CreatePolic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) CreatePolicyVersionWithContext(ctx aws.Context, input *CreatePolicyVersionInput, opts ...request.Option) (*CreatePolicyVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).CreatePolicyVersion")
+	defer span.End()
+
 	req, out := c.CreatePolicyVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1653,6 +1699,9 @@ func (c *IAM) CreateRole(input *CreateRoleInput) (*CreateRoleOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) CreateRoleWithContext(ctx aws.Context, input *CreateRoleInput, opts ...request.Option) (*CreateRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).CreateRole")
+	defer span.End()
+
 	req, out := c.CreateRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1766,6 +1815,9 @@ func (c *IAM) CreateSAMLProvider(input *CreateSAMLProviderInput) (*CreateSAMLPro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) CreateSAMLProviderWithContext(ctx aws.Context, input *CreateSAMLProviderInput, opts ...request.Option) (*CreateSAMLProviderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).CreateSAMLProvider")
+	defer span.End()
+
 	req, out := c.CreateSAMLProviderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1871,6 +1923,9 @@ func (c *IAM) CreateServiceLinkedRole(input *CreateServiceLinkedRoleInput) (*Cre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) CreateServiceLinkedRoleWithContext(ctx aws.Context, input *CreateServiceLinkedRoleInput, opts ...request.Option) (*CreateServiceLinkedRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).CreateServiceLinkedRole")
+	defer span.End()
+
 	req, out := c.CreateServiceLinkedRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1971,6 +2026,9 @@ func (c *IAM) CreateServiceSpecificCredential(input *CreateServiceSpecificCreden
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) CreateServiceSpecificCredentialWithContext(ctx aws.Context, input *CreateServiceSpecificCredentialInput, opts ...request.Option) (*CreateServiceSpecificCredentialOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).CreateServiceSpecificCredential")
+	defer span.End()
+
 	req, out := c.CreateServiceSpecificCredentialRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2067,6 +2125,9 @@ func (c *IAM) CreateUser(input *CreateUserInput) (*CreateUserOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) CreateUserWithContext(ctx aws.Context, input *CreateUserInput, opts ...request.Option) (*CreateUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).CreateUser")
+	defer span.End()
+
 	req, out := c.CreateUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2168,6 +2229,9 @@ func (c *IAM) CreateVirtualMFADevice(input *CreateVirtualMFADeviceInput) (*Creat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) CreateVirtualMFADeviceWithContext(ctx aws.Context, input *CreateVirtualMFADeviceInput, opts ...request.Option) (*CreateVirtualMFADeviceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).CreateVirtualMFADevice")
+	defer span.End()
+
 	req, out := c.CreateVirtualMFADeviceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2269,6 +2333,9 @@ func (c *IAM) DeactivateMFADevice(input *DeactivateMFADeviceInput) (*DeactivateM
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeactivateMFADeviceWithContext(ctx aws.Context, input *DeactivateMFADeviceInput, opts ...request.Option) (*DeactivateMFADeviceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeactivateMFADevice")
+	defer span.End()
+
 	req, out := c.DeactivateMFADeviceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2365,6 +2432,9 @@ func (c *IAM) DeleteAccessKey(input *DeleteAccessKeyInput) (*DeleteAccessKeyOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteAccessKeyWithContext(ctx aws.Context, input *DeleteAccessKeyInput, opts ...request.Option) (*DeleteAccessKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteAccessKey")
+	defer span.End()
+
 	req, out := c.DeleteAccessKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2457,6 +2527,9 @@ func (c *IAM) DeleteAccountAlias(input *DeleteAccountAliasInput) (*DeleteAccount
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteAccountAliasWithContext(ctx aws.Context, input *DeleteAccountAliasInput, opts ...request.Option) (*DeleteAccountAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteAccountAlias")
+	defer span.End()
+
 	req, out := c.DeleteAccountAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2547,6 +2620,9 @@ func (c *IAM) DeleteAccountPasswordPolicy(input *DeleteAccountPasswordPolicyInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteAccountPasswordPolicyWithContext(ctx aws.Context, input *DeleteAccountPasswordPolicyInput, opts ...request.Option) (*DeleteAccountPasswordPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteAccountPasswordPolicy")
+	defer span.End()
+
 	req, out := c.DeleteAccountPasswordPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2642,6 +2718,9 @@ func (c *IAM) DeleteGroup(input *DeleteGroupInput) (*DeleteGroupOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteGroupWithContext(ctx aws.Context, input *DeleteGroupInput, opts ...request.Option) (*DeleteGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteGroup")
+	defer span.End()
+
 	req, out := c.DeleteGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2738,6 +2817,9 @@ func (c *IAM) DeleteGroupPolicy(input *DeleteGroupPolicyInput) (*DeleteGroupPoli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteGroupPolicyWithContext(ctx aws.Context, input *DeleteGroupPolicyInput, opts ...request.Option) (*DeleteGroupPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteGroupPolicy")
+	defer span.End()
+
 	req, out := c.DeleteGroupPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2841,6 +2923,9 @@ func (c *IAM) DeleteInstanceProfile(input *DeleteInstanceProfileInput) (*DeleteI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteInstanceProfileWithContext(ctx aws.Context, input *DeleteInstanceProfileInput, opts ...request.Option) (*DeleteInstanceProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteInstanceProfile")
+	defer span.End()
+
 	req, out := c.DeleteInstanceProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2943,6 +3028,9 @@ func (c *IAM) DeleteLoginProfile(input *DeleteLoginProfileInput) (*DeleteLoginPr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteLoginProfileWithContext(ctx aws.Context, input *DeleteLoginProfileInput, opts ...request.Option) (*DeleteLoginProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteLoginProfile")
+	defer span.End()
+
 	req, out := c.DeleteLoginProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3040,6 +3128,9 @@ func (c *IAM) DeleteOpenIDConnectProvider(input *DeleteOpenIDConnectProviderInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteOpenIDConnectProviderWithContext(ctx aws.Context, input *DeleteOpenIDConnectProviderInput, opts ...request.Option) (*DeleteOpenIDConnectProviderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteOpenIDConnectProvider")
+	defer span.End()
+
 	req, out := c.DeleteOpenIDConnectProviderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3160,6 +3251,9 @@ func (c *IAM) DeletePolicy(input *DeletePolicyInput) (*DeletePolicyOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeletePolicyWithContext(ctx aws.Context, input *DeletePolicyInput, opts ...request.Option) (*DeletePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeletePolicy")
+	defer span.End()
+
 	req, out := c.DeletePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3266,6 +3360,9 @@ func (c *IAM) DeletePolicyVersion(input *DeletePolicyVersionInput) (*DeletePolic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeletePolicyVersionWithContext(ctx aws.Context, input *DeletePolicyVersionInput, opts ...request.Option) (*DeletePolicyVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeletePolicyVersion")
+	defer span.End()
+
 	req, out := c.DeletePolicyVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3372,6 +3469,9 @@ func (c *IAM) DeleteRole(input *DeleteRoleInput) (*DeleteRoleOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteRoleWithContext(ctx aws.Context, input *DeleteRoleInput, opts ...request.Option) (*DeleteRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteRole")
+	defer span.End()
+
 	req, out := c.DeleteRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3474,6 +3574,9 @@ func (c *IAM) DeleteRolePolicy(input *DeleteRolePolicyInput) (*DeleteRolePolicyO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteRolePolicyWithContext(ctx aws.Context, input *DeleteRolePolicyInput, opts ...request.Option) (*DeleteRolePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteRolePolicy")
+	defer span.End()
+
 	req, out := c.DeleteRolePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3575,6 +3678,9 @@ func (c *IAM) DeleteSAMLProvider(input *DeleteSAMLProviderInput) (*DeleteSAMLPro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteSAMLProviderWithContext(ctx aws.Context, input *DeleteSAMLProviderInput, opts ...request.Option) (*DeleteSAMLProviderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteSAMLProvider")
+	defer span.End()
+
 	req, out := c.DeleteSAMLProviderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3663,6 +3769,9 @@ func (c *IAM) DeleteSSHPublicKey(input *DeleteSSHPublicKeyInput) (*DeleteSSHPubl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteSSHPublicKeyWithContext(ctx aws.Context, input *DeleteSSHPublicKeyInput, opts ...request.Option) (*DeleteSSHPublicKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteSSHPublicKey")
+	defer span.End()
+
 	req, out := c.DeleteSSHPublicKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3772,6 +3881,9 @@ func (c *IAM) DeleteServerCertificate(input *DeleteServerCertificateInput) (*Del
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteServerCertificateWithContext(ctx aws.Context, input *DeleteServerCertificateInput, opts ...request.Option) (*DeleteServerCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteServerCertificate")
+	defer span.End()
+
 	req, out := c.DeleteServerCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3879,6 +3991,9 @@ func (c *IAM) DeleteServiceLinkedRole(input *DeleteServiceLinkedRoleInput) (*Del
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteServiceLinkedRoleWithContext(ctx aws.Context, input *DeleteServiceLinkedRoleInput, opts ...request.Option) (*DeleteServiceLinkedRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteServiceLinkedRole")
+	defer span.End()
+
 	req, out := c.DeleteServiceLinkedRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3961,6 +4076,9 @@ func (c *IAM) DeleteServiceSpecificCredential(input *DeleteServiceSpecificCreden
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteServiceSpecificCredentialWithContext(ctx aws.Context, input *DeleteServiceSpecificCredentialInput, opts ...request.Option) (*DeleteServiceSpecificCredentialOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteServiceSpecificCredential")
+	defer span.End()
+
 	req, out := c.DeleteServiceSpecificCredentialRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4057,6 +4175,9 @@ func (c *IAM) DeleteSigningCertificate(input *DeleteSigningCertificateInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteSigningCertificateWithContext(ctx aws.Context, input *DeleteSigningCertificateInput, opts ...request.Option) (*DeleteSigningCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteSigningCertificate")
+	defer span.End()
+
 	req, out := c.DeleteSigningCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4152,6 +4273,9 @@ func (c *IAM) DeleteUser(input *DeleteUserInput) (*DeleteUserOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteUserWithContext(ctx aws.Context, input *DeleteUserInput, opts ...request.Option) (*DeleteUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteUser")
+	defer span.End()
+
 	req, out := c.DeleteUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4248,6 +4372,9 @@ func (c *IAM) DeleteUserPolicy(input *DeleteUserPolicyInput) (*DeleteUserPolicyO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteUserPolicyWithContext(ctx aws.Context, input *DeleteUserPolicyInput, opts ...request.Option) (*DeleteUserPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteUserPolicy")
+	defer span.End()
+
 	req, out := c.DeleteUserPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4345,6 +4472,9 @@ func (c *IAM) DeleteVirtualMFADevice(input *DeleteVirtualMFADeviceInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DeleteVirtualMFADeviceWithContext(ctx aws.Context, input *DeleteVirtualMFADeviceInput, opts ...request.Option) (*DeleteVirtualMFADeviceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DeleteVirtualMFADevice")
+	defer span.End()
+
 	req, out := c.DeleteVirtualMFADeviceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4444,6 +4574,9 @@ func (c *IAM) DetachGroupPolicy(input *DetachGroupPolicyInput) (*DetachGroupPoli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DetachGroupPolicyWithContext(ctx aws.Context, input *DetachGroupPolicyInput, opts ...request.Option) (*DetachGroupPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DetachGroupPolicy")
+	defer span.End()
+
 	req, out := c.DetachGroupPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4549,6 +4682,9 @@ func (c *IAM) DetachRolePolicy(input *DetachRolePolicyInput) (*DetachRolePolicyO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DetachRolePolicyWithContext(ctx aws.Context, input *DetachRolePolicyInput, opts ...request.Option) (*DetachRolePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DetachRolePolicy")
+	defer span.End()
+
 	req, out := c.DetachRolePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4648,6 +4784,9 @@ func (c *IAM) DetachUserPolicy(input *DetachUserPolicyInput) (*DetachUserPolicyO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) DetachUserPolicyWithContext(ctx aws.Context, input *DetachUserPolicyInput, opts ...request.Option) (*DetachUserPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).DetachUserPolicy")
+	defer span.End()
+
 	req, out := c.DetachUserPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4754,6 +4893,9 @@ func (c *IAM) EnableMFADevice(input *EnableMFADeviceInput) (*EnableMFADeviceOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) EnableMFADeviceWithContext(ctx aws.Context, input *EnableMFADeviceInput, opts ...request.Option) (*EnableMFADeviceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).EnableMFADevice")
+	defer span.End()
+
 	req, out := c.EnableMFADeviceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4840,6 +4982,9 @@ func (c *IAM) GenerateCredentialReport(input *GenerateCredentialReportInput) (*G
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GenerateCredentialReportWithContext(ctx aws.Context, input *GenerateCredentialReportInput, opts ...request.Option) (*GenerateCredentialReportOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GenerateCredentialReport")
+	defer span.End()
+
 	req, out := c.GenerateCredentialReportRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4923,6 +5068,9 @@ func (c *IAM) GetAccessKeyLastUsed(input *GetAccessKeyLastUsedInput) (*GetAccess
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetAccessKeyLastUsedWithContext(ctx aws.Context, input *GetAccessKeyLastUsedInput, opts ...request.Option) (*GetAccessKeyLastUsedOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetAccessKeyLastUsed")
+	defer span.End()
+
 	req, out := c.GetAccessKeyLastUsedRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5021,6 +5169,9 @@ func (c *IAM) GetAccountAuthorizationDetails(input *GetAccountAuthorizationDetai
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetAccountAuthorizationDetailsWithContext(ctx aws.Context, input *GetAccountAuthorizationDetailsInput, opts ...request.Option) (*GetAccountAuthorizationDetailsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetAccountAuthorizationDetails")
+	defer span.End()
+
 	req, out := c.GetAccountAuthorizationDetailsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5156,6 +5307,9 @@ func (c *IAM) GetAccountPasswordPolicy(input *GetAccountPasswordPolicyInput) (*G
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetAccountPasswordPolicyWithContext(ctx aws.Context, input *GetAccountPasswordPolicyInput, opts ...request.Option) (*GetAccountPasswordPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetAccountPasswordPolicy")
+	defer span.End()
+
 	req, out := c.GetAccountPasswordPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5240,6 +5394,9 @@ func (c *IAM) GetAccountSummary(input *GetAccountSummaryInput) (*GetAccountSumma
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetAccountSummaryWithContext(ctx aws.Context, input *GetAccountSummaryInput, opts ...request.Option) (*GetAccountSummaryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetAccountSummary")
+	defer span.End()
+
 	req, out := c.GetAccountSummaryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5329,6 +5486,9 @@ func (c *IAM) GetContextKeysForCustomPolicy(input *GetContextKeysForCustomPolicy
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetContextKeysForCustomPolicyWithContext(ctx aws.Context, input *GetContextKeysForCustomPolicyInput, opts ...request.Option) (*GetContextKeysForPolicyResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetContextKeysForCustomPolicy")
+	defer span.End()
+
 	req, out := c.GetContextKeysForCustomPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5429,6 +5589,9 @@ func (c *IAM) GetContextKeysForPrincipalPolicy(input *GetContextKeysForPrincipal
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetContextKeysForPrincipalPolicyWithContext(ctx aws.Context, input *GetContextKeysForPrincipalPolicyInput, opts ...request.Option) (*GetContextKeysForPolicyResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetContextKeysForPrincipalPolicy")
+	defer span.End()
+
 	req, out := c.GetContextKeysForPrincipalPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5525,6 +5688,9 @@ func (c *IAM) GetCredentialReport(input *GetCredentialReportInput) (*GetCredenti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetCredentialReportWithContext(ctx aws.Context, input *GetCredentialReportInput, opts ...request.Option) (*GetCredentialReportOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetCredentialReport")
+	defer span.End()
+
 	req, out := c.GetCredentialReportRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5616,6 +5782,9 @@ func (c *IAM) GetGroup(input *GetGroupInput) (*GetGroupOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetGroupWithContext(ctx aws.Context, input *GetGroupInput, opts ...request.Option) (*GetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetGroup")
+	defer span.End()
+
 	req, out := c.GetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5766,6 +5935,9 @@ func (c *IAM) GetGroupPolicy(input *GetGroupPolicyInput) (*GetGroupPolicyOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetGroupPolicyWithContext(ctx aws.Context, input *GetGroupPolicyInput, opts ...request.Option) (*GetGroupPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetGroupPolicy")
+	defer span.End()
+
 	req, out := c.GetGroupPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5853,6 +6025,9 @@ func (c *IAM) GetInstanceProfile(input *GetInstanceProfileInput) (*GetInstancePr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetInstanceProfileWithContext(ctx aws.Context, input *GetInstanceProfileInput, opts ...request.Option) (*GetInstanceProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetInstanceProfile")
+	defer span.End()
+
 	req, out := c.GetInstanceProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5939,6 +6114,9 @@ func (c *IAM) GetLoginProfile(input *GetLoginProfileInput) (*GetLoginProfileOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetLoginProfileWithContext(ctx aws.Context, input *GetLoginProfileInput, opts ...request.Option) (*GetLoginProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetLoginProfile")
+	defer span.End()
+
 	req, out := c.GetLoginProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6028,6 +6206,9 @@ func (c *IAM) GetOpenIDConnectProvider(input *GetOpenIDConnectProviderInput) (*G
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetOpenIDConnectProviderWithContext(ctx aws.Context, input *GetOpenIDConnectProviderInput, opts ...request.Option) (*GetOpenIDConnectProviderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetOpenIDConnectProvider")
+	defer span.End()
+
 	req, out := c.GetOpenIDConnectProviderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6129,6 +6310,9 @@ func (c *IAM) GetPolicy(input *GetPolicyInput) (*GetPolicyOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetPolicyWithContext(ctx aws.Context, input *GetPolicyInput, opts ...request.Option) (*GetPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetPolicy")
+	defer span.End()
+
 	req, out := c.GetPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6238,6 +6422,9 @@ func (c *IAM) GetPolicyVersion(input *GetPolicyVersionInput) (*GetPolicyVersionO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetPolicyVersionWithContext(ctx aws.Context, input *GetPolicyVersionInput, opts ...request.Option) (*GetPolicyVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetPolicyVersion")
+	defer span.End()
+
 	req, out := c.GetPolicyVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6330,6 +6517,9 @@ func (c *IAM) GetRole(input *GetRoleInput) (*GetRoleOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetRoleWithContext(ctx aws.Context, input *GetRoleInput, opts ...request.Option) (*GetRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetRole")
+	defer span.End()
+
 	req, out := c.GetRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6433,6 +6623,9 @@ func (c *IAM) GetRolePolicy(input *GetRolePolicyInput) (*GetRolePolicyOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetRolePolicyWithContext(ctx aws.Context, input *GetRolePolicyInput, opts ...request.Option) (*GetRolePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetRolePolicy")
+	defer span.End()
+
 	req, out := c.GetRolePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6524,6 +6717,9 @@ func (c *IAM) GetSAMLProvider(input *GetSAMLProviderInput) (*GetSAMLProviderOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetSAMLProviderWithContext(ctx aws.Context, input *GetSAMLProviderInput, opts ...request.Option) (*GetSAMLProviderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetSAMLProvider")
+	defer span.End()
+
 	req, out := c.GetSAMLProviderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6614,6 +6810,9 @@ func (c *IAM) GetSSHPublicKey(input *GetSSHPublicKeyInput) (*GetSSHPublicKeyOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetSSHPublicKeyWithContext(ctx aws.Context, input *GetSSHPublicKeyInput, opts ...request.Option) (*GetSSHPublicKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetSSHPublicKey")
+	defer span.End()
+
 	req, out := c.GetSSHPublicKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6703,6 +6902,9 @@ func (c *IAM) GetServerCertificate(input *GetServerCertificateInput) (*GetServer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetServerCertificateWithContext(ctx aws.Context, input *GetServerCertificateInput, opts ...request.Option) (*GetServerCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetServerCertificate")
+	defer span.End()
+
 	req, out := c.GetServerCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6796,6 +6998,9 @@ func (c *IAM) GetServiceLinkedRoleDeletionStatus(input *GetServiceLinkedRoleDele
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetServiceLinkedRoleDeletionStatusWithContext(ctx aws.Context, input *GetServiceLinkedRoleDeletionStatusInput, opts ...request.Option) (*GetServiceLinkedRoleDeletionStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetServiceLinkedRoleDeletionStatus")
+	defer span.End()
+
 	req, out := c.GetServiceLinkedRoleDeletionStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6884,6 +7089,9 @@ func (c *IAM) GetUser(input *GetUserInput) (*GetUserOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetUserWithContext(ctx aws.Context, input *GetUserInput, opts ...request.Option) (*GetUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetUser")
+	defer span.End()
+
 	req, out := c.GetUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6984,6 +7192,9 @@ func (c *IAM) GetUserPolicy(input *GetUserPolicyInput) (*GetUserPolicyOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) GetUserPolicyWithContext(ctx aws.Context, input *GetUserPolicyInput, opts ...request.Option) (*GetUserPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).GetUserPolicy")
+	defer span.End()
+
 	req, out := c.GetUserPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7087,6 +7298,9 @@ func (c *IAM) ListAccessKeys(input *ListAccessKeysInput) (*ListAccessKeysOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListAccessKeysWithContext(ctx aws.Context, input *ListAccessKeysInput, opts ...request.Option) (*ListAccessKeysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListAccessKeys")
+	defer span.End()
+
 	req, out := c.ListAccessKeysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7226,6 +7440,9 @@ func (c *IAM) ListAccountAliases(input *ListAccountAliasesInput) (*ListAccountAl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListAccountAliasesWithContext(ctx aws.Context, input *ListAccountAliasesInput, opts ...request.Option) (*ListAccountAliasesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListAccountAliases")
+	defer span.End()
+
 	req, out := c.ListAccountAliasesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7381,6 +7598,9 @@ func (c *IAM) ListAttachedGroupPolicies(input *ListAttachedGroupPoliciesInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListAttachedGroupPoliciesWithContext(ctx aws.Context, input *ListAttachedGroupPoliciesInput, opts ...request.Option) (*ListAttachedGroupPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListAttachedGroupPolicies")
+	defer span.End()
+
 	req, out := c.ListAttachedGroupPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7536,6 +7756,9 @@ func (c *IAM) ListAttachedRolePolicies(input *ListAttachedRolePoliciesInput) (*L
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListAttachedRolePoliciesWithContext(ctx aws.Context, input *ListAttachedRolePoliciesInput, opts ...request.Option) (*ListAttachedRolePoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListAttachedRolePolicies")
+	defer span.End()
+
 	req, out := c.ListAttachedRolePoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7691,6 +7914,9 @@ func (c *IAM) ListAttachedUserPolicies(input *ListAttachedUserPoliciesInput) (*L
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListAttachedUserPoliciesWithContext(ctx aws.Context, input *ListAttachedUserPoliciesInput, opts ...request.Option) (*ListAttachedUserPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListAttachedUserPolicies")
+	defer span.End()
+
 	req, out := c.ListAttachedUserPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7843,6 +8069,9 @@ func (c *IAM) ListEntitiesForPolicy(input *ListEntitiesForPolicyInput) (*ListEnt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListEntitiesForPolicyWithContext(ctx aws.Context, input *ListEntitiesForPolicyInput, opts ...request.Option) (*ListEntitiesForPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListEntitiesForPolicy")
+	defer span.End()
+
 	req, out := c.ListEntitiesForPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7994,6 +8223,9 @@ func (c *IAM) ListGroupPolicies(input *ListGroupPoliciesInput) (*ListGroupPolici
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListGroupPoliciesWithContext(ctx aws.Context, input *ListGroupPoliciesInput, opts ...request.Option) (*ListGroupPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListGroupPolicies")
+	defer span.End()
+
 	req, out := c.ListGroupPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8132,6 +8364,9 @@ func (c *IAM) ListGroups(input *ListGroupsInput) (*ListGroupsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListGroupsWithContext(ctx aws.Context, input *ListGroupsInput, opts ...request.Option) (*ListGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListGroups")
+	defer span.End()
+
 	req, out := c.ListGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8274,6 +8509,9 @@ func (c *IAM) ListGroupsForUser(input *ListGroupsForUserInput) (*ListGroupsForUs
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListGroupsForUserWithContext(ctx aws.Context, input *ListGroupsForUserInput, opts ...request.Option) (*ListGroupsForUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListGroupsForUser")
+	defer span.End()
+
 	req, out := c.ListGroupsForUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8414,6 +8652,9 @@ func (c *IAM) ListInstanceProfiles(input *ListInstanceProfilesInput) (*ListInsta
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListInstanceProfilesWithContext(ctx aws.Context, input *ListInstanceProfilesInput, opts ...request.Option) (*ListInstanceProfilesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListInstanceProfiles")
+	defer span.End()
+
 	req, out := c.ListInstanceProfilesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8558,6 +8799,9 @@ func (c *IAM) ListInstanceProfilesForRole(input *ListInstanceProfilesForRoleInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListInstanceProfilesForRoleWithContext(ctx aws.Context, input *ListInstanceProfilesForRoleInput, opts ...request.Option) (*ListInstanceProfilesForRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListInstanceProfilesForRole")
+	defer span.End()
+
 	req, out := c.ListInstanceProfilesForRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8703,6 +8947,9 @@ func (c *IAM) ListMFADevices(input *ListMFADevicesInput) (*ListMFADevicesOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListMFADevicesWithContext(ctx aws.Context, input *ListMFADevicesInput, opts ...request.Option) (*ListMFADevicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListMFADevices")
+	defer span.End()
+
 	req, out := c.ListMFADevicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8834,6 +9081,9 @@ func (c *IAM) ListOpenIDConnectProviders(input *ListOpenIDConnectProvidersInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListOpenIDConnectProvidersWithContext(ctx aws.Context, input *ListOpenIDConnectProvidersInput, opts ...request.Option) (*ListOpenIDConnectProvidersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListOpenIDConnectProviders")
+	defer span.End()
+
 	req, out := c.ListOpenIDConnectProvidersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8932,6 +9182,9 @@ func (c *IAM) ListPolicies(input *ListPoliciesInput) (*ListPoliciesOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListPoliciesWithContext(ctx aws.Context, input *ListPoliciesInput, opts ...request.Option) (*ListPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListPolicies")
+	defer span.End()
+
 	req, out := c.ListPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9081,6 +9334,9 @@ func (c *IAM) ListPolicyVersions(input *ListPolicyVersionsInput) (*ListPolicyVer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListPolicyVersionsWithContext(ctx aws.Context, input *ListPolicyVersionsInput, opts ...request.Option) (*ListPolicyVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListPolicyVersions")
+	defer span.End()
+
 	req, out := c.ListPolicyVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9231,6 +9487,9 @@ func (c *IAM) ListRolePolicies(input *ListRolePoliciesInput) (*ListRolePoliciesO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListRolePoliciesWithContext(ctx aws.Context, input *ListRolePoliciesInput, opts ...request.Option) (*ListRolePoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListRolePolicies")
+	defer span.End()
+
 	req, out := c.ListRolePoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9371,6 +9630,9 @@ func (c *IAM) ListRoles(input *ListRolesInput) (*ListRolesOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListRolesWithContext(ctx aws.Context, input *ListRolesInput, opts ...request.Option) (*ListRolesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListRoles")
+	defer span.End()
+
 	req, out := c.ListRolesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9503,6 +9765,9 @@ func (c *IAM) ListSAMLProviders(input *ListSAMLProvidersInput) (*ListSAMLProvide
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListSAMLProvidersWithContext(ctx aws.Context, input *ListSAMLProvidersInput, opts ...request.Option) (*ListSAMLProvidersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListSAMLProviders")
+	defer span.End()
+
 	req, out := c.ListSAMLProvidersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9599,6 +9864,9 @@ func (c *IAM) ListSSHPublicKeys(input *ListSSHPublicKeysInput) (*ListSSHPublicKe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListSSHPublicKeysWithContext(ctx aws.Context, input *ListSSHPublicKeysInput, opts ...request.Option) (*ListSSHPublicKeysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListSSHPublicKeys")
+	defer span.End()
+
 	req, out := c.ListSSHPublicKeysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9743,6 +10011,9 @@ func (c *IAM) ListServerCertificates(input *ListServerCertificatesInput) (*ListS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListServerCertificatesWithContext(ctx aws.Context, input *ListServerCertificatesInput, opts ...request.Option) (*ListServerCertificatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListServerCertificates")
+	defer span.End()
+
 	req, out := c.ListServerCertificatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9882,6 +10153,9 @@ func (c *IAM) ListServiceSpecificCredentials(input *ListServiceSpecificCredentia
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListServiceSpecificCredentialsWithContext(ctx aws.Context, input *ListServiceSpecificCredentialsInput, opts ...request.Option) (*ListServiceSpecificCredentialsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListServiceSpecificCredentials")
+	defer span.End()
+
 	req, out := c.ListServiceSpecificCredentialsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9982,6 +10256,9 @@ func (c *IAM) ListSigningCertificates(input *ListSigningCertificatesInput) (*Lis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListSigningCertificatesWithContext(ctx aws.Context, input *ListSigningCertificatesInput, opts ...request.Option) (*ListSigningCertificatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListSigningCertificates")
+	defer span.End()
+
 	req, out := c.ListSigningCertificatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10131,6 +10408,9 @@ func (c *IAM) ListUserPolicies(input *ListUserPoliciesInput) (*ListUserPoliciesO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListUserPoliciesWithContext(ctx aws.Context, input *ListUserPoliciesInput, opts ...request.Option) (*ListUserPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListUserPolicies")
+	defer span.End()
+
 	req, out := c.ListUserPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10271,6 +10551,9 @@ func (c *IAM) ListUsers(input *ListUsersInput) (*ListUsersOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListUsersWithContext(ctx aws.Context, input *ListUsersInput, opts ...request.Option) (*ListUsersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListUsers")
+	defer span.End()
+
 	req, out := c.ListUsersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10406,6 +10689,9 @@ func (c *IAM) ListVirtualMFADevices(input *ListVirtualMFADevicesInput) (*ListVir
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ListVirtualMFADevicesWithContext(ctx aws.Context, input *ListVirtualMFADevicesInput, opts ...request.Option) (*ListVirtualMFADevicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ListVirtualMFADevices")
+	defer span.End()
+
 	req, out := c.ListVirtualMFADevicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10566,6 +10852,9 @@ func (c *IAM) PutGroupPolicy(input *PutGroupPolicyInput) (*PutGroupPolicyOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) PutGroupPolicyWithContext(ctx aws.Context, input *PutGroupPolicyInput, opts ...request.Option) (*PutGroupPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).PutGroupPolicy")
+	defer span.End()
+
 	req, out := c.PutGroupPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10688,6 +10977,9 @@ func (c *IAM) PutRolePolicy(input *PutRolePolicyInput) (*PutRolePolicyOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) PutRolePolicyWithContext(ctx aws.Context, input *PutRolePolicyInput, opts ...request.Option) (*PutRolePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).PutRolePolicy")
+	defer span.End()
+
 	req, out := c.PutRolePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10798,6 +11090,9 @@ func (c *IAM) PutUserPolicy(input *PutUserPolicyInput) (*PutUserPolicyOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) PutUserPolicyWithContext(ctx aws.Context, input *PutUserPolicyInput, opts ...request.Option) (*PutUserPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).PutUserPolicy")
+	defer span.End()
+
 	req, out := c.PutUserPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10893,6 +11188,9 @@ func (c *IAM) RemoveClientIDFromOpenIDConnectProvider(input *RemoveClientIDFromO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) RemoveClientIDFromOpenIDConnectProviderWithContext(ctx aws.Context, input *RemoveClientIDFromOpenIDConnectProviderInput, opts ...request.Option) (*RemoveClientIDFromOpenIDConnectProviderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).RemoveClientIDFromOpenIDConnectProvider")
+	defer span.End()
+
 	req, out := c.RemoveClientIDFromOpenIDConnectProviderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10998,6 +11296,9 @@ func (c *IAM) RemoveRoleFromInstanceProfile(input *RemoveRoleFromInstanceProfile
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) RemoveRoleFromInstanceProfileWithContext(ctx aws.Context, input *RemoveRoleFromInstanceProfileInput, opts ...request.Option) (*RemoveRoleFromInstanceProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).RemoveRoleFromInstanceProfile")
+	defer span.End()
+
 	req, out := c.RemoveRoleFromInstanceProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11088,6 +11389,9 @@ func (c *IAM) RemoveUserFromGroup(input *RemoveUserFromGroupInput) (*RemoveUserF
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) RemoveUserFromGroupWithContext(ctx aws.Context, input *RemoveUserFromGroupInput, opts ...request.Option) (*RemoveUserFromGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).RemoveUserFromGroup")
+	defer span.End()
+
 	req, out := c.RemoveUserFromGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11171,6 +11475,9 @@ func (c *IAM) ResetServiceSpecificCredential(input *ResetServiceSpecificCredenti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ResetServiceSpecificCredentialWithContext(ctx aws.Context, input *ResetServiceSpecificCredentialInput, opts ...request.Option) (*ResetServiceSpecificCredentialOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ResetServiceSpecificCredential")
+	defer span.End()
+
 	req, out := c.ResetServiceSpecificCredentialRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11270,6 +11577,9 @@ func (c *IAM) ResyncMFADevice(input *ResyncMFADeviceInput) (*ResyncMFADeviceOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) ResyncMFADeviceWithContext(ctx aws.Context, input *ResyncMFADeviceInput, opts ...request.Option) (*ResyncMFADeviceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).ResyncMFADevice")
+	defer span.End()
+
 	req, out := c.ResyncMFADeviceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11373,6 +11683,9 @@ func (c *IAM) SetDefaultPolicyVersion(input *SetDefaultPolicyVersionInput) (*Set
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) SetDefaultPolicyVersionWithContext(ctx aws.Context, input *SetDefaultPolicyVersionInput, opts ...request.Option) (*SetDefaultPolicyVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).SetDefaultPolicyVersion")
+	defer span.End()
+
 	req, out := c.SetDefaultPolicyVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11479,6 +11792,9 @@ func (c *IAM) SimulateCustomPolicy(input *SimulateCustomPolicyInput) (*SimulateP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) SimulateCustomPolicyWithContext(ctx aws.Context, input *SimulateCustomPolicyInput, opts ...request.Option) (*SimulatePolicyResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).SimulateCustomPolicy")
+	defer span.End()
+
 	req, out := c.SimulateCustomPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11649,6 +11965,9 @@ func (c *IAM) SimulatePrincipalPolicy(input *SimulatePrincipalPolicyInput) (*Sim
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) SimulatePrincipalPolicyWithContext(ctx aws.Context, input *SimulatePrincipalPolicyInput, opts ...request.Option) (*SimulatePolicyResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).SimulatePrincipalPolicy")
+	defer span.End()
+
 	req, out := c.SimulatePrincipalPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11800,6 +12119,9 @@ func (c *IAM) UpdateAccessKey(input *UpdateAccessKeyInput) (*UpdateAccessKeyOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UpdateAccessKeyWithContext(ctx aws.Context, input *UpdateAccessKeyInput, opts ...request.Option) (*UpdateAccessKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UpdateAccessKey")
+	defer span.End()
+
 	req, out := c.UpdateAccessKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11905,6 +12227,9 @@ func (c *IAM) UpdateAccountPasswordPolicy(input *UpdateAccountPasswordPolicyInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UpdateAccountPasswordPolicyWithContext(ctx aws.Context, input *UpdateAccountPasswordPolicyInput, opts ...request.Option) (*UpdateAccountPasswordPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UpdateAccountPasswordPolicy")
+	defer span.End()
+
 	req, out := c.UpdateAccountPasswordPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12008,6 +12333,9 @@ func (c *IAM) UpdateAssumeRolePolicy(input *UpdateAssumeRolePolicyInput) (*Updat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UpdateAssumeRolePolicyWithContext(ctx aws.Context, input *UpdateAssumeRolePolicyInput, opts ...request.Option) (*UpdateAssumeRolePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UpdateAssumeRolePolicy")
+	defer span.End()
+
 	req, out := c.UpdateAssumeRolePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12113,6 +12441,9 @@ func (c *IAM) UpdateGroup(input *UpdateGroupInput) (*UpdateGroupOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UpdateGroupWithContext(ctx aws.Context, input *UpdateGroupInput, opts ...request.Option) (*UpdateGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UpdateGroup")
+	defer span.End()
+
 	req, out := c.UpdateGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12217,6 +12548,9 @@ func (c *IAM) UpdateLoginProfile(input *UpdateLoginProfileInput) (*UpdateLoginPr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UpdateLoginProfileWithContext(ctx aws.Context, input *UpdateLoginProfileInput, opts ...request.Option) (*UpdateLoginProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UpdateLoginProfile")
+	defer span.End()
+
 	req, out := c.UpdateLoginProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12320,6 +12654,9 @@ func (c *IAM) UpdateOpenIDConnectProviderThumbprint(input *UpdateOpenIDConnectPr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UpdateOpenIDConnectProviderThumbprintWithContext(ctx aws.Context, input *UpdateOpenIDConnectProviderThumbprintInput, opts ...request.Option) (*UpdateOpenIDConnectProviderThumbprintOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UpdateOpenIDConnectProviderThumbprint")
+	defer span.End()
+
 	req, out := c.UpdateOpenIDConnectProviderThumbprintRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12410,6 +12747,9 @@ func (c *IAM) UpdateRole(input *UpdateRoleInput) (*UpdateRoleOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UpdateRoleWithContext(ctx aws.Context, input *UpdateRoleInput, opts ...request.Option) (*UpdateRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UpdateRole")
+	defer span.End()
+
 	req, out := c.UpdateRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12503,6 +12843,9 @@ func (c *IAM) UpdateRoleDescription(input *UpdateRoleDescriptionInput) (*UpdateR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UpdateRoleDescriptionWithContext(ctx aws.Context, input *UpdateRoleDescriptionInput, opts ...request.Option) (*UpdateRoleDescriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UpdateRoleDescription")
+	defer span.End()
+
 	req, out := c.UpdateRoleDescriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12597,6 +12940,9 @@ func (c *IAM) UpdateSAMLProvider(input *UpdateSAMLProviderInput) (*UpdateSAMLPro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UpdateSAMLProviderWithContext(ctx aws.Context, input *UpdateSAMLProviderInput, opts ...request.Option) (*UpdateSAMLProviderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UpdateSAMLProvider")
+	defer span.End()
+
 	req, out := c.UpdateSAMLProviderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12688,6 +13034,9 @@ func (c *IAM) UpdateSSHPublicKey(input *UpdateSSHPublicKeyInput) (*UpdateSSHPubl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UpdateSSHPublicKeyWithContext(ctx aws.Context, input *UpdateSSHPublicKeyInput, opts ...request.Option) (*UpdateSSHPublicKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UpdateSSHPublicKey")
+	defer span.End()
+
 	req, out := c.UpdateSSHPublicKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12801,6 +13150,9 @@ func (c *IAM) UpdateServerCertificate(input *UpdateServerCertificateInput) (*Upd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UpdateServerCertificateWithContext(ctx aws.Context, input *UpdateServerCertificateInput, opts ...request.Option) (*UpdateServerCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UpdateServerCertificate")
+	defer span.End()
+
 	req, out := c.UpdateServerCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12886,6 +13238,9 @@ func (c *IAM) UpdateServiceSpecificCredential(input *UpdateServiceSpecificCreden
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UpdateServiceSpecificCredentialWithContext(ctx aws.Context, input *UpdateServiceSpecificCredentialInput, opts ...request.Option) (*UpdateServiceSpecificCredentialOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UpdateServiceSpecificCredential")
+	defer span.End()
+
 	req, out := c.UpdateServiceSpecificCredentialRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12984,6 +13339,9 @@ func (c *IAM) UpdateSigningCertificate(input *UpdateSigningCertificateInput) (*U
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UpdateSigningCertificateWithContext(ctx aws.Context, input *UpdateSigningCertificateInput, opts ...request.Option) (*UpdateSigningCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UpdateSigningCertificate")
+	defer span.End()
+
 	req, out := c.UpdateSigningCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -13095,6 +13453,9 @@ func (c *IAM) UpdateUser(input *UpdateUserInput) (*UpdateUserOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UpdateUserWithContext(ctx aws.Context, input *UpdateUserInput, opts ...request.Option) (*UpdateUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UpdateUser")
+	defer span.End()
+
 	req, out := c.UpdateUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -13197,6 +13558,9 @@ func (c *IAM) UploadSSHPublicKey(input *UploadSSHPublicKeyInput) (*UploadSSHPubl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UploadSSHPublicKeyWithContext(ctx aws.Context, input *UploadSSHPublicKeyInput, opts ...request.Option) (*UploadSSHPublicKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UploadSSHPublicKey")
+	defer span.End()
+
 	req, out := c.UploadSSHPublicKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -13318,6 +13682,9 @@ func (c *IAM) UploadServerCertificate(input *UploadServerCertificateInput) (*Upl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UploadServerCertificateWithContext(ctx aws.Context, input *UploadServerCertificateInput, opts ...request.Option) (*UploadServerCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UploadServerCertificate")
+	defer span.End()
+
 	req, out := c.UploadServerCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -13438,6 +13805,9 @@ func (c *IAM) UploadSigningCertificate(input *UploadSigningCertificateInput) (*U
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IAM) UploadSigningCertificateWithContext(ctx aws.Context, input *UploadSigningCertificateInput, opts ...request.Option) (*UploadSigningCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iam.(*IAM).UploadSigningCertificate")
+	defer span.End()
+
 	req, out := c.UploadSigningCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

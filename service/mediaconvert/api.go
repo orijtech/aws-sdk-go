@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCancelJob = "CancelJob"
@@ -93,6 +94,9 @@ func (c *MediaConvert) CancelJob(input *CancelJobInput) (*CancelJobOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) CancelJobWithContext(ctx aws.Context, input *CancelJobInput, opts ...request.Option) (*CancelJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).CancelJob")
+	defer span.End()
+
 	req, out := c.CancelJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -182,6 +186,9 @@ func (c *MediaConvert) CreateJob(input *CreateJobInput) (*CreateJobOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) CreateJobWithContext(ctx aws.Context, input *CreateJobInput, opts ...request.Option) (*CreateJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).CreateJob")
+	defer span.End()
+
 	req, out := c.CreateJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -271,6 +278,9 @@ func (c *MediaConvert) CreateJobTemplate(input *CreateJobTemplateInput) (*Create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) CreateJobTemplateWithContext(ctx aws.Context, input *CreateJobTemplateInput, opts ...request.Option) (*CreateJobTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).CreateJobTemplate")
+	defer span.End()
+
 	req, out := c.CreateJobTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -360,6 +370,9 @@ func (c *MediaConvert) CreatePreset(input *CreatePresetInput) (*CreatePresetOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) CreatePresetWithContext(ctx aws.Context, input *CreatePresetInput, opts ...request.Option) (*CreatePresetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).CreatePreset")
+	defer span.End()
+
 	req, out := c.CreatePresetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -449,6 +462,9 @@ func (c *MediaConvert) CreateQueue(input *CreateQueueInput) (*CreateQueueOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) CreateQueueWithContext(ctx aws.Context, input *CreateQueueInput, opts ...request.Option) (*CreateQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).CreateQueue")
+	defer span.End()
+
 	req, out := c.CreateQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -537,6 +553,9 @@ func (c *MediaConvert) DeleteJobTemplate(input *DeleteJobTemplateInput) (*Delete
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) DeleteJobTemplateWithContext(ctx aws.Context, input *DeleteJobTemplateInput, opts ...request.Option) (*DeleteJobTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).DeleteJobTemplate")
+	defer span.End()
+
 	req, out := c.DeleteJobTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -625,6 +644,9 @@ func (c *MediaConvert) DeletePreset(input *DeletePresetInput) (*DeletePresetOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) DeletePresetWithContext(ctx aws.Context, input *DeletePresetInput, opts ...request.Option) (*DeletePresetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).DeletePreset")
+	defer span.End()
+
 	req, out := c.DeletePresetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -713,6 +735,9 @@ func (c *MediaConvert) DeleteQueue(input *DeleteQueueInput) (*DeleteQueueOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) DeleteQueueWithContext(ctx aws.Context, input *DeleteQueueInput, opts ...request.Option) (*DeleteQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).DeleteQueue")
+	defer span.End()
+
 	req, out := c.DeleteQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -802,6 +827,9 @@ func (c *MediaConvert) DescribeEndpoints(input *DescribeEndpointsInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) DescribeEndpointsWithContext(ctx aws.Context, input *DescribeEndpointsInput, opts ...request.Option) (*DescribeEndpointsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).DescribeEndpoints")
+	defer span.End()
+
 	req, out := c.DescribeEndpointsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -890,6 +918,9 @@ func (c *MediaConvert) GetJob(input *GetJobInput) (*GetJobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) GetJobWithContext(ctx aws.Context, input *GetJobInput, opts ...request.Option) (*GetJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).GetJob")
+	defer span.End()
+
 	req, out := c.GetJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -978,6 +1009,9 @@ func (c *MediaConvert) GetJobTemplate(input *GetJobTemplateInput) (*GetJobTempla
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) GetJobTemplateWithContext(ctx aws.Context, input *GetJobTemplateInput, opts ...request.Option) (*GetJobTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).GetJobTemplate")
+	defer span.End()
+
 	req, out := c.GetJobTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1066,6 +1100,9 @@ func (c *MediaConvert) GetPreset(input *GetPresetInput) (*GetPresetOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) GetPresetWithContext(ctx aws.Context, input *GetPresetInput, opts ...request.Option) (*GetPresetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).GetPreset")
+	defer span.End()
+
 	req, out := c.GetPresetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1154,6 +1191,9 @@ func (c *MediaConvert) GetQueue(input *GetQueueInput) (*GetQueueOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) GetQueueWithContext(ctx aws.Context, input *GetQueueInput, opts ...request.Option) (*GetQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).GetQueue")
+	defer span.End()
+
 	req, out := c.GetQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1244,6 +1284,9 @@ func (c *MediaConvert) ListJobTemplates(input *ListJobTemplatesInput) (*ListJobT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) ListJobTemplatesWithContext(ctx aws.Context, input *ListJobTemplatesInput, opts ...request.Option) (*ListJobTemplatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).ListJobTemplates")
+	defer span.End()
+
 	req, out := c.ListJobTemplatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1335,6 +1378,9 @@ func (c *MediaConvert) ListJobs(input *ListJobsInput) (*ListJobsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) ListJobsWithContext(ctx aws.Context, input *ListJobsInput, opts ...request.Option) (*ListJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).ListJobs")
+	defer span.End()
+
 	req, out := c.ListJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1425,6 +1471,9 @@ func (c *MediaConvert) ListPresets(input *ListPresetsInput) (*ListPresetsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) ListPresetsWithContext(ctx aws.Context, input *ListPresetsInput, opts ...request.Option) (*ListPresetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).ListPresets")
+	defer span.End()
+
 	req, out := c.ListPresetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1515,6 +1564,9 @@ func (c *MediaConvert) ListQueues(input *ListQueuesInput) (*ListQueuesOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) ListQueuesWithContext(ctx aws.Context, input *ListQueuesInput, opts ...request.Option) (*ListQueuesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).ListQueues")
+	defer span.End()
+
 	req, out := c.ListQueuesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1603,6 +1655,9 @@ func (c *MediaConvert) UpdateJobTemplate(input *UpdateJobTemplateInput) (*Update
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) UpdateJobTemplateWithContext(ctx aws.Context, input *UpdateJobTemplateInput, opts ...request.Option) (*UpdateJobTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).UpdateJobTemplate")
+	defer span.End()
+
 	req, out := c.UpdateJobTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1691,6 +1746,9 @@ func (c *MediaConvert) UpdatePreset(input *UpdatePresetInput) (*UpdatePresetOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) UpdatePresetWithContext(ctx aws.Context, input *UpdatePresetInput, opts ...request.Option) (*UpdatePresetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).UpdatePreset")
+	defer span.End()
+
 	req, out := c.UpdatePresetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1779,6 +1837,9 @@ func (c *MediaConvert) UpdateQueue(input *UpdateQueueInput) (*UpdateQueueOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaConvert) UpdateQueueWithContext(ctx aws.Context, input *UpdateQueueInput, opts ...request.Option) (*UpdateQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediaconvert.(*MediaConvert).UpdateQueue")
+	defer span.End()
+
 	req, out := c.UpdateQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

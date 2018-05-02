@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opCountClosedWorkflowExecutions = "CountClosedWorkflowExecutions"
@@ -119,6 +120,9 @@ func (c *SWF) CountClosedWorkflowExecutions(input *CountClosedWorkflowExecutions
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) CountClosedWorkflowExecutionsWithContext(ctx aws.Context, input *CountClosedWorkflowExecutionsInput, opts ...request.Option) (*WorkflowExecutionCount, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).CountClosedWorkflowExecutions")
+	defer span.End()
+
 	req, out := c.CountClosedWorkflowExecutionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -231,6 +235,9 @@ func (c *SWF) CountOpenWorkflowExecutions(input *CountOpenWorkflowExecutionsInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) CountOpenWorkflowExecutionsWithContext(ctx aws.Context, input *CountOpenWorkflowExecutionsInput, opts ...request.Option) (*WorkflowExecutionCount, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).CountOpenWorkflowExecutions")
+	defer span.End()
+
 	req, out := c.CountOpenWorkflowExecutionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -337,6 +344,9 @@ func (c *SWF) CountPendingActivityTasks(input *CountPendingActivityTasksInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) CountPendingActivityTasksWithContext(ctx aws.Context, input *CountPendingActivityTasksInput, opts ...request.Option) (*PendingTaskCount, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).CountPendingActivityTasks")
+	defer span.End()
+
 	req, out := c.CountPendingActivityTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -443,6 +453,9 @@ func (c *SWF) CountPendingDecisionTasks(input *CountPendingDecisionTasksInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) CountPendingDecisionTasksWithContext(ctx aws.Context, input *CountPendingDecisionTasksInput, opts ...request.Option) (*PendingTaskCount, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).CountPendingDecisionTasks")
+	defer span.End()
+
 	req, out := c.CountPendingDecisionTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -559,6 +572,9 @@ func (c *SWF) DeprecateActivityType(input *DeprecateActivityTypeInput) (*Depreca
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) DeprecateActivityTypeWithContext(ctx aws.Context, input *DeprecateActivityTypeInput, opts ...request.Option) (*DeprecateActivityTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).DeprecateActivityType")
+	defer span.End()
+
 	req, out := c.DeprecateActivityTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -673,6 +689,9 @@ func (c *SWF) DeprecateDomain(input *DeprecateDomainInput) (*DeprecateDomainOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) DeprecateDomainWithContext(ctx aws.Context, input *DeprecateDomainInput, opts ...request.Option) (*DeprecateDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).DeprecateDomain")
+	defer span.End()
+
 	req, out := c.DeprecateDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -790,6 +809,9 @@ func (c *SWF) DeprecateWorkflowType(input *DeprecateWorkflowTypeInput) (*Depreca
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) DeprecateWorkflowTypeWithContext(ctx aws.Context, input *DeprecateWorkflowTypeInput, opts ...request.Option) (*DeprecateWorkflowTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).DeprecateWorkflowType")
+	defer span.End()
+
 	req, out := c.DeprecateWorkflowTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -898,6 +920,9 @@ func (c *SWF) DescribeActivityType(input *DescribeActivityTypeInput) (*DescribeA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) DescribeActivityTypeWithContext(ctx aws.Context, input *DescribeActivityTypeInput, opts ...request.Option) (*DescribeActivityTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).DescribeActivityType")
+	defer span.End()
+
 	req, out := c.DescribeActivityTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1000,6 +1025,9 @@ func (c *SWF) DescribeDomain(input *DescribeDomainInput) (*DescribeDomainOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) DescribeDomainWithContext(ctx aws.Context, input *DescribeDomainInput, opts ...request.Option) (*DescribeDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).DescribeDomain")
+	defer span.End()
+
 	req, out := c.DescribeDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1105,6 +1133,9 @@ func (c *SWF) DescribeWorkflowExecution(input *DescribeWorkflowExecutionInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) DescribeWorkflowExecutionWithContext(ctx aws.Context, input *DescribeWorkflowExecutionInput, opts ...request.Option) (*DescribeWorkflowExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).DescribeWorkflowExecution")
+	defer span.End()
+
 	req, out := c.DescribeWorkflowExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1213,6 +1244,9 @@ func (c *SWF) DescribeWorkflowType(input *DescribeWorkflowTypeInput) (*DescribeW
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) DescribeWorkflowTypeWithContext(ctx aws.Context, input *DescribeWorkflowTypeInput, opts ...request.Option) (*DescribeWorkflowTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).DescribeWorkflowType")
+	defer span.End()
+
 	req, out := c.DescribeWorkflowTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1325,6 +1359,9 @@ func (c *SWF) GetWorkflowExecutionHistory(input *GetWorkflowExecutionHistoryInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) GetWorkflowExecutionHistoryWithContext(ctx aws.Context, input *GetWorkflowExecutionHistoryInput, opts ...request.Option) (*GetWorkflowExecutionHistoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).GetWorkflowExecutionHistory")
+	defer span.End()
+
 	req, out := c.GetWorkflowExecutionHistoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1486,6 +1523,9 @@ func (c *SWF) ListActivityTypes(input *ListActivityTypesInput) (*ListActivityTyp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) ListActivityTypesWithContext(ctx aws.Context, input *ListActivityTypesInput, opts ...request.Option) (*ListActivityTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).ListActivityTypes")
+	defer span.End()
+
 	req, out := c.ListActivityTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1656,6 +1696,9 @@ func (c *SWF) ListClosedWorkflowExecutions(input *ListClosedWorkflowExecutionsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) ListClosedWorkflowExecutionsWithContext(ctx aws.Context, input *ListClosedWorkflowExecutionsInput, opts ...request.Option) (*WorkflowExecutionInfos, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).ListClosedWorkflowExecutions")
+	defer span.End()
+
 	req, out := c.ListClosedWorkflowExecutionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1814,6 +1857,9 @@ func (c *SWF) ListDomains(input *ListDomainsInput) (*ListDomainsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) ListDomainsWithContext(ctx aws.Context, input *ListDomainsInput, opts ...request.Option) (*ListDomainsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).ListDomains")
+	defer span.End()
+
 	req, out := c.ListDomainsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1984,6 +2030,9 @@ func (c *SWF) ListOpenWorkflowExecutions(input *ListOpenWorkflowExecutionsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) ListOpenWorkflowExecutionsWithContext(ctx aws.Context, input *ListOpenWorkflowExecutionsInput, opts ...request.Option) (*WorkflowExecutionInfos, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).ListOpenWorkflowExecutions")
+	defer span.End()
+
 	req, out := c.ListOpenWorkflowExecutionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2143,6 +2192,9 @@ func (c *SWF) ListWorkflowTypes(input *ListWorkflowTypesInput) (*ListWorkflowTyp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) ListWorkflowTypesWithContext(ctx aws.Context, input *ListWorkflowTypesInput, opts ...request.Option) (*ListWorkflowTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).ListWorkflowTypes")
+	defer span.End()
+
 	req, out := c.ListWorkflowTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2311,6 +2363,9 @@ func (c *SWF) PollForActivityTask(input *PollForActivityTaskInput) (*PollForActi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) PollForActivityTaskWithContext(ctx aws.Context, input *PollForActivityTaskInput, opts ...request.Option) (*PollForActivityTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).PollForActivityTask")
+	defer span.End()
+
 	req, out := c.PollForActivityTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2445,6 +2500,9 @@ func (c *SWF) PollForDecisionTask(input *PollForDecisionTaskInput) (*PollForDeci
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) PollForDecisionTaskWithContext(ctx aws.Context, input *PollForDecisionTaskInput, opts ...request.Option) (*PollForDecisionTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).PollForDecisionTask")
+	defer span.End()
+
 	req, out := c.PollForDecisionTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2621,6 +2679,9 @@ func (c *SWF) RecordActivityTaskHeartbeat(input *RecordActivityTaskHeartbeatInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) RecordActivityTaskHeartbeatWithContext(ctx aws.Context, input *RecordActivityTaskHeartbeatInput, opts ...request.Option) (*RecordActivityTaskHeartbeatOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).RecordActivityTaskHeartbeat")
+	defer span.End()
+
 	req, out := c.RecordActivityTaskHeartbeatRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2747,6 +2808,9 @@ func (c *SWF) RegisterActivityType(input *RegisterActivityTypeInput) (*RegisterA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) RegisterActivityTypeWithContext(ctx aws.Context, input *RegisterActivityTypeInput, opts ...request.Option) (*RegisterActivityTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).RegisterActivityType")
+	defer span.End()
+
 	req, out := c.RegisterActivityTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2855,6 +2919,9 @@ func (c *SWF) RegisterDomain(input *RegisterDomainInput) (*RegisterDomainOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) RegisterDomainWithContext(ctx aws.Context, input *RegisterDomainInput, opts ...request.Option) (*RegisterDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).RegisterDomain")
+	defer span.End()
+
 	req, out := c.RegisterDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2984,6 +3051,9 @@ func (c *SWF) RegisterWorkflowType(input *RegisterWorkflowTypeInput) (*RegisterW
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) RegisterWorkflowTypeWithContext(ctx aws.Context, input *RegisterWorkflowTypeInput, opts ...request.Option) (*RegisterWorkflowTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).RegisterWorkflowType")
+	defer span.End()
+
 	req, out := c.RegisterWorkflowTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3098,6 +3168,9 @@ func (c *SWF) RequestCancelWorkflowExecution(input *RequestCancelWorkflowExecuti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) RequestCancelWorkflowExecutionWithContext(ctx aws.Context, input *RequestCancelWorkflowExecutionInput, opts ...request.Option) (*RequestCancelWorkflowExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).RequestCancelWorkflowExecution")
+	defer span.End()
+
 	req, out := c.RequestCancelWorkflowExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3215,6 +3288,9 @@ func (c *SWF) RespondActivityTaskCanceled(input *RespondActivityTaskCanceledInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) RespondActivityTaskCanceledWithContext(ctx aws.Context, input *RespondActivityTaskCanceledInput, opts ...request.Option) (*RespondActivityTaskCanceledOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).RespondActivityTaskCanceled")
+	defer span.End()
+
 	req, out := c.RespondActivityTaskCanceledRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3331,6 +3407,9 @@ func (c *SWF) RespondActivityTaskCompleted(input *RespondActivityTaskCompletedIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) RespondActivityTaskCompletedWithContext(ctx aws.Context, input *RespondActivityTaskCompletedInput, opts ...request.Option) (*RespondActivityTaskCompletedOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).RespondActivityTaskCompleted")
+	defer span.End()
+
 	req, out := c.RespondActivityTaskCompletedRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3442,6 +3521,9 @@ func (c *SWF) RespondActivityTaskFailed(input *RespondActivityTaskFailedInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) RespondActivityTaskFailedWithContext(ctx aws.Context, input *RespondActivityTaskFailedInput, opts ...request.Option) (*RespondActivityTaskFailedOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).RespondActivityTaskFailed")
+	defer span.End()
+
 	req, out := c.RespondActivityTaskFailedRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3542,6 +3624,9 @@ func (c *SWF) RespondDecisionTaskCompleted(input *RespondDecisionTaskCompletedIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) RespondDecisionTaskCompletedWithContext(ctx aws.Context, input *RespondDecisionTaskCompletedInput, opts ...request.Option) (*RespondDecisionTaskCompletedOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).RespondDecisionTaskCompleted")
+	defer span.End()
+
 	req, out := c.RespondDecisionTaskCompletedRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3654,6 +3739,9 @@ func (c *SWF) SignalWorkflowExecution(input *SignalWorkflowExecutionInput) (*Sig
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) SignalWorkflowExecutionWithContext(ctx aws.Context, input *SignalWorkflowExecutionInput, opts ...request.Option) (*SignalWorkflowExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).SignalWorkflowExecution")
+	defer span.End()
+
 	req, out := c.SignalWorkflowExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3800,6 +3888,9 @@ func (c *SWF) StartWorkflowExecution(input *StartWorkflowExecutionInput) (*Start
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) StartWorkflowExecutionWithContext(ctx aws.Context, input *StartWorkflowExecutionInput, opts ...request.Option) (*StartWorkflowExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).StartWorkflowExecution")
+	defer span.End()
+
 	req, out := c.StartWorkflowExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3917,6 +4008,9 @@ func (c *SWF) TerminateWorkflowExecution(input *TerminateWorkflowExecutionInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SWF) TerminateWorkflowExecutionWithContext(ctx aws.Context, input *TerminateWorkflowExecutionInput, opts ...request.Option) (*TerminateWorkflowExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/swf.(*SWF).TerminateWorkflowExecution")
+	defer span.End()
+
 	req, out := c.TerminateWorkflowExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

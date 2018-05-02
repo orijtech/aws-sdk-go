@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/query"
+	"go.opencensus.io/trace"
 )
 
 const opAuthorizeClusterSecurityGroupIngress = "AuthorizeClusterSecurityGroupIngress"
@@ -115,6 +116,9 @@ func (c *Redshift) AuthorizeClusterSecurityGroupIngress(input *AuthorizeClusterS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) AuthorizeClusterSecurityGroupIngressWithContext(ctx aws.Context, input *AuthorizeClusterSecurityGroupIngressInput, opts ...request.Option) (*AuthorizeClusterSecurityGroupIngressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).AuthorizeClusterSecurityGroupIngress")
+	defer span.End()
+
 	req, out := c.AuthorizeClusterSecurityGroupIngressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -216,6 +220,9 @@ func (c *Redshift) AuthorizeSnapshotAccess(input *AuthorizeSnapshotAccessInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) AuthorizeSnapshotAccessWithContext(ctx aws.Context, input *AuthorizeSnapshotAccessInput, opts ...request.Option) (*AuthorizeSnapshotAccessOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).AuthorizeSnapshotAccess")
+	defer span.End()
+
 	req, out := c.AuthorizeSnapshotAccessRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -319,6 +326,9 @@ func (c *Redshift) CopyClusterSnapshot(input *CopyClusterSnapshotInput) (*CopyCl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) CopyClusterSnapshotWithContext(ctx aws.Context, input *CopyClusterSnapshotInput, opts ...request.Option) (*CopyClusterSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).CopyClusterSnapshot")
+	defer span.End()
+
 	req, out := c.CopyClusterSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -468,6 +478,9 @@ func (c *Redshift) CreateCluster(input *CreateClusterInput) (*CreateClusterOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) CreateClusterWithContext(ctx aws.Context, input *CreateClusterInput, opts ...request.Option) (*CreateClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).CreateCluster")
+	defer span.End()
+
 	req, out := c.CreateClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -569,6 +582,9 @@ func (c *Redshift) CreateClusterParameterGroup(input *CreateClusterParameterGrou
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) CreateClusterParameterGroupWithContext(ctx aws.Context, input *CreateClusterParameterGroupInput, opts ...request.Option) (*CreateClusterParameterGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).CreateClusterParameterGroup")
+	defer span.End()
+
 	req, out := c.CreateClusterParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -665,6 +681,9 @@ func (c *Redshift) CreateClusterSecurityGroup(input *CreateClusterSecurityGroupI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) CreateClusterSecurityGroupWithContext(ctx aws.Context, input *CreateClusterSecurityGroupInput, opts ...request.Option) (*CreateClusterSecurityGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).CreateClusterSecurityGroup")
+	defer span.End()
+
 	req, out := c.CreateClusterSecurityGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -766,6 +785,9 @@ func (c *Redshift) CreateClusterSnapshot(input *CreateClusterSnapshotInput) (*Cr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) CreateClusterSnapshotWithContext(ctx aws.Context, input *CreateClusterSnapshotInput, opts ...request.Option) (*CreateClusterSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).CreateClusterSnapshot")
+	defer span.End()
+
 	req, out := c.CreateClusterSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -880,6 +902,9 @@ func (c *Redshift) CreateClusterSubnetGroup(input *CreateClusterSubnetGroupInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) CreateClusterSubnetGroupWithContext(ctx aws.Context, input *CreateClusterSubnetGroupInput, opts ...request.Option) (*CreateClusterSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).CreateClusterSubnetGroup")
+	defer span.End()
+
 	req, out := c.CreateClusterSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1020,6 +1045,9 @@ func (c *Redshift) CreateEventSubscription(input *CreateEventSubscriptionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) CreateEventSubscriptionWithContext(ctx aws.Context, input *CreateEventSubscriptionInput, opts ...request.Option) (*CreateEventSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).CreateEventSubscription")
+	defer span.End()
+
 	req, out := c.CreateEventSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1119,6 +1147,9 @@ func (c *Redshift) CreateHsmClientCertificate(input *CreateHsmClientCertificateI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) CreateHsmClientCertificateWithContext(ctx aws.Context, input *CreateHsmClientCertificateInput, opts ...request.Option) (*CreateHsmClientCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).CreateHsmClientCertificate")
+	defer span.End()
+
 	req, out := c.CreateHsmClientCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1219,6 +1250,9 @@ func (c *Redshift) CreateHsmConfiguration(input *CreateHsmConfigurationInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) CreateHsmConfigurationWithContext(ctx aws.Context, input *CreateHsmConfigurationInput, opts ...request.Option) (*CreateHsmConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).CreateHsmConfiguration")
+	defer span.End()
+
 	req, out := c.CreateHsmConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1322,6 +1356,9 @@ func (c *Redshift) CreateSnapshotCopyGrant(input *CreateSnapshotCopyGrantInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) CreateSnapshotCopyGrantWithContext(ctx aws.Context, input *CreateSnapshotCopyGrantInput, opts ...request.Option) (*CreateSnapshotCopyGrantOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).CreateSnapshotCopyGrant")
+	defer span.End()
+
 	req, out := c.CreateSnapshotCopyGrantRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1415,6 +1452,9 @@ func (c *Redshift) CreateTags(input *CreateTagsInput) (*CreateTagsOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) CreateTagsWithContext(ctx aws.Context, input *CreateTagsInput, opts ...request.Option) (*CreateTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).CreateTags")
+	defer span.End()
+
 	req, out := c.CreateTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1521,6 +1561,9 @@ func (c *Redshift) DeleteCluster(input *DeleteClusterInput) (*DeleteClusterOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DeleteClusterWithContext(ctx aws.Context, input *DeleteClusterInput, opts ...request.Option) (*DeleteClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DeleteCluster")
+	defer span.End()
+
 	req, out := c.DeleteClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1609,6 +1652,9 @@ func (c *Redshift) DeleteClusterParameterGroup(input *DeleteClusterParameterGrou
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DeleteClusterParameterGroupWithContext(ctx aws.Context, input *DeleteClusterParameterGroupInput, opts ...request.Option) (*DeleteClusterParameterGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DeleteClusterParameterGroup")
+	defer span.End()
+
 	req, out := c.DeleteClusterParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1701,6 +1747,9 @@ func (c *Redshift) DeleteClusterSecurityGroup(input *DeleteClusterSecurityGroupI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DeleteClusterSecurityGroupWithContext(ctx aws.Context, input *DeleteClusterSecurityGroupInput, opts ...request.Option) (*DeleteClusterSecurityGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DeleteClusterSecurityGroup")
+	defer span.End()
+
 	req, out := c.DeleteClusterSecurityGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1791,6 +1840,9 @@ func (c *Redshift) DeleteClusterSnapshot(input *DeleteClusterSnapshotInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DeleteClusterSnapshotWithContext(ctx aws.Context, input *DeleteClusterSnapshotInput, opts ...request.Option) (*DeleteClusterSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DeleteClusterSnapshot")
+	defer span.End()
+
 	req, out := c.DeleteClusterSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1879,6 +1931,9 @@ func (c *Redshift) DeleteClusterSubnetGroup(input *DeleteClusterSubnetGroupInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DeleteClusterSubnetGroupWithContext(ctx aws.Context, input *DeleteClusterSubnetGroupInput, opts ...request.Option) (*DeleteClusterSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DeleteClusterSubnetGroup")
+	defer span.End()
+
 	req, out := c.DeleteClusterSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1965,6 +2020,9 @@ func (c *Redshift) DeleteEventSubscription(input *DeleteEventSubscriptionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DeleteEventSubscriptionWithContext(ctx aws.Context, input *DeleteEventSubscriptionInput, opts ...request.Option) (*DeleteEventSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DeleteEventSubscription")
+	defer span.End()
+
 	req, out := c.DeleteEventSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2050,6 +2108,9 @@ func (c *Redshift) DeleteHsmClientCertificate(input *DeleteHsmClientCertificateI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DeleteHsmClientCertificateWithContext(ctx aws.Context, input *DeleteHsmClientCertificateInput, opts ...request.Option) (*DeleteHsmClientCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DeleteHsmClientCertificate")
+	defer span.End()
+
 	req, out := c.DeleteHsmClientCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2135,6 +2196,9 @@ func (c *Redshift) DeleteHsmConfiguration(input *DeleteHsmConfigurationInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DeleteHsmConfigurationWithContext(ctx aws.Context, input *DeleteHsmConfigurationInput, opts ...request.Option) (*DeleteHsmConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DeleteHsmConfiguration")
+	defer span.End()
+
 	req, out := c.DeleteHsmConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2221,6 +2285,9 @@ func (c *Redshift) DeleteSnapshotCopyGrant(input *DeleteSnapshotCopyGrantInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DeleteSnapshotCopyGrantWithContext(ctx aws.Context, input *DeleteSnapshotCopyGrantInput, opts ...request.Option) (*DeleteSnapshotCopyGrantOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DeleteSnapshotCopyGrant")
+	defer span.End()
+
 	req, out := c.DeleteSnapshotCopyGrantRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2306,6 +2373,9 @@ func (c *Redshift) DeleteTags(input *DeleteTagsInput) (*DeleteTagsOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DeleteTagsWithContext(ctx aws.Context, input *DeleteTagsInput, opts ...request.Option) (*DeleteTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DeleteTags")
+	defer span.End()
+
 	req, out := c.DeleteTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2412,6 +2482,9 @@ func (c *Redshift) DescribeClusterParameterGroups(input *DescribeClusterParamete
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeClusterParameterGroupsWithContext(ctx aws.Context, input *DescribeClusterParameterGroupsInput, opts ...request.Option) (*DescribeClusterParameterGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeClusterParameterGroups")
+	defer span.End()
+
 	req, out := c.DescribeClusterParameterGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2558,6 +2631,9 @@ func (c *Redshift) DescribeClusterParameters(input *DescribeClusterParametersInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeClusterParametersWithContext(ctx aws.Context, input *DescribeClusterParametersInput, opts ...request.Option) (*DescribeClusterParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeClusterParameters")
+	defer span.End()
+
 	req, out := c.DescribeClusterParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2713,6 +2789,9 @@ func (c *Redshift) DescribeClusterSecurityGroups(input *DescribeClusterSecurityG
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeClusterSecurityGroupsWithContext(ctx aws.Context, input *DescribeClusterSecurityGroupsInput, opts ...request.Option) (*DescribeClusterSecurityGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeClusterSecurityGroups")
+	defer span.End()
+
 	req, out := c.DescribeClusterSecurityGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2868,6 +2947,9 @@ func (c *Redshift) DescribeClusterSnapshots(input *DescribeClusterSnapshotsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeClusterSnapshotsWithContext(ctx aws.Context, input *DescribeClusterSnapshotsInput, opts ...request.Option) (*DescribeClusterSnapshotsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeClusterSnapshots")
+	defer span.End()
+
 	req, out := c.DescribeClusterSnapshotsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3019,6 +3101,9 @@ func (c *Redshift) DescribeClusterSubnetGroups(input *DescribeClusterSubnetGroup
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeClusterSubnetGroupsWithContext(ctx aws.Context, input *DescribeClusterSubnetGroupsInput, opts ...request.Option) (*DescribeClusterSubnetGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeClusterSubnetGroups")
+	defer span.End()
+
 	req, out := c.DescribeClusterSubnetGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3153,6 +3238,9 @@ func (c *Redshift) DescribeClusterVersions(input *DescribeClusterVersionsInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeClusterVersionsWithContext(ctx aws.Context, input *DescribeClusterVersionsInput, opts ...request.Option) (*DescribeClusterVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeClusterVersions")
+	defer span.End()
+
 	req, out := c.DescribeClusterVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3304,6 +3392,9 @@ func (c *Redshift) DescribeClusters(input *DescribeClustersInput) (*DescribeClus
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeClustersWithContext(ctx aws.Context, input *DescribeClustersInput, opts ...request.Option) (*DescribeClustersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeClusters")
+	defer span.End()
+
 	req, out := c.DescribeClustersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3438,6 +3529,9 @@ func (c *Redshift) DescribeDefaultClusterParameters(input *DescribeDefaultCluste
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeDefaultClusterParametersWithContext(ctx aws.Context, input *DescribeDefaultClusterParametersInput, opts ...request.Option) (*DescribeDefaultClusterParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeDefaultClusterParameters")
+	defer span.End()
+
 	req, out := c.DescribeDefaultClusterParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3564,6 +3658,9 @@ func (c *Redshift) DescribeEventCategories(input *DescribeEventCategoriesInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeEventCategoriesWithContext(ctx aws.Context, input *DescribeEventCategoriesInput, opts ...request.Option) (*DescribeEventCategoriesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeEventCategories")
+	defer span.End()
+
 	req, out := c.DescribeEventCategoriesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3665,6 +3762,9 @@ func (c *Redshift) DescribeEventSubscriptions(input *DescribeEventSubscriptionsI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeEventSubscriptionsWithContext(ctx aws.Context, input *DescribeEventSubscriptionsInput, opts ...request.Option) (*DescribeEventSubscriptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeEventSubscriptions")
+	defer span.End()
+
 	req, out := c.DescribeEventSubscriptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3798,6 +3898,9 @@ func (c *Redshift) DescribeEvents(input *DescribeEventsInput) (*DescribeEventsOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeEventsWithContext(ctx aws.Context, input *DescribeEventsInput, opts ...request.Option) (*DescribeEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeEvents")
+	defer span.End()
+
 	req, out := c.DescribeEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3948,6 +4051,9 @@ func (c *Redshift) DescribeHsmClientCertificates(input *DescribeHsmClientCertifi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeHsmClientCertificatesWithContext(ctx aws.Context, input *DescribeHsmClientCertificatesInput, opts ...request.Option) (*DescribeHsmClientCertificatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeHsmClientCertificates")
+	defer span.End()
+
 	req, out := c.DescribeHsmClientCertificatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4098,6 +4204,9 @@ func (c *Redshift) DescribeHsmConfigurations(input *DescribeHsmConfigurationsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeHsmConfigurationsWithContext(ctx aws.Context, input *DescribeHsmConfigurationsInput, opts ...request.Option) (*DescribeHsmConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeHsmConfigurations")
+	defer span.End()
+
 	req, out := c.DescribeHsmConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4228,6 +4337,9 @@ func (c *Redshift) DescribeLoggingStatus(input *DescribeLoggingStatusInput) (*Lo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeLoggingStatusWithContext(ctx aws.Context, input *DescribeLoggingStatusInput, opts ...request.Option) (*LoggingStatus, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeLoggingStatus")
+	defer span.End()
+
 	req, out := c.DescribeLoggingStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4316,6 +4428,9 @@ func (c *Redshift) DescribeOrderableClusterOptions(input *DescribeOrderableClust
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeOrderableClusterOptionsWithContext(ctx aws.Context, input *DescribeOrderableClusterOptionsInput, opts ...request.Option) (*DescribeOrderableClusterOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeOrderableClusterOptions")
+	defer span.End()
+
 	req, out := c.DescribeOrderableClusterOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4467,6 +4582,9 @@ func (c *Redshift) DescribeReservedNodeOfferings(input *DescribeReservedNodeOffe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeReservedNodeOfferingsWithContext(ctx aws.Context, input *DescribeReservedNodeOfferingsInput, opts ...request.Option) (*DescribeReservedNodeOfferingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeReservedNodeOfferings")
+	defer span.End()
+
 	req, out := c.DescribeReservedNodeOfferingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4606,6 +4724,9 @@ func (c *Redshift) DescribeReservedNodes(input *DescribeReservedNodesInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeReservedNodesWithContext(ctx aws.Context, input *DescribeReservedNodesInput, opts ...request.Option) (*DescribeReservedNodesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeReservedNodes")
+	defer span.End()
+
 	req, out := c.DescribeReservedNodesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4744,6 +4865,9 @@ func (c *Redshift) DescribeResize(input *DescribeResizeInput) (*DescribeResizeOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeResizeWithContext(ctx aws.Context, input *DescribeResizeInput, opts ...request.Option) (*DescribeResizeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeResize")
+	defer span.End()
+
 	req, out := c.DescribeResizeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4832,6 +4956,9 @@ func (c *Redshift) DescribeSnapshotCopyGrants(input *DescribeSnapshotCopyGrantsI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeSnapshotCopyGrantsWithContext(ctx aws.Context, input *DescribeSnapshotCopyGrantsInput, opts ...request.Option) (*DescribeSnapshotCopyGrantsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeSnapshotCopyGrants")
+	defer span.End()
+
 	req, out := c.DescribeSnapshotCopyGrantsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4918,6 +5045,9 @@ func (c *Redshift) DescribeTableRestoreStatus(input *DescribeTableRestoreStatusI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeTableRestoreStatusWithContext(ctx aws.Context, input *DescribeTableRestoreStatusInput, opts ...request.Option) (*DescribeTableRestoreStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeTableRestoreStatus")
+	defer span.End()
+
 	req, out := c.DescribeTableRestoreStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5022,6 +5152,9 @@ func (c *Redshift) DescribeTags(input *DescribeTagsInput) (*DescribeTagsOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DescribeTagsWithContext(ctx aws.Context, input *DescribeTagsInput, opts ...request.Option) (*DescribeTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DescribeTags")
+	defer span.End()
+
 	req, out := c.DescribeTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5102,6 +5235,9 @@ func (c *Redshift) DisableLogging(input *DisableLoggingInput) (*LoggingStatus, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DisableLoggingWithContext(ctx aws.Context, input *DisableLoggingInput, opts ...request.Option) (*LoggingStatus, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DisableLogging")
+	defer span.End()
+
 	req, out := c.DisableLoggingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5195,6 +5331,9 @@ func (c *Redshift) DisableSnapshotCopy(input *DisableSnapshotCopyInput) (*Disabl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) DisableSnapshotCopyWithContext(ctx aws.Context, input *DisableSnapshotCopyInput, opts ...request.Option) (*DisableSnapshotCopyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).DisableSnapshotCopy")
+	defer span.End()
+
 	req, out := c.DisableSnapshotCopyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5291,6 +5430,9 @@ func (c *Redshift) EnableLogging(input *EnableLoggingInput) (*LoggingStatus, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) EnableLoggingWithContext(ctx aws.Context, input *EnableLoggingInput, opts ...request.Option) (*LoggingStatus, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).EnableLogging")
+	defer span.End()
+
 	req, out := c.EnableLoggingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5400,6 +5542,9 @@ func (c *Redshift) EnableSnapshotCopy(input *EnableSnapshotCopyInput) (*EnableSn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) EnableSnapshotCopyWithContext(ctx aws.Context, input *EnableSnapshotCopyInput, opts ...request.Option) (*EnableSnapshotCopyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).EnableSnapshotCopy")
+	defer span.End()
+
 	req, out := c.EnableSnapshotCopyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5505,6 +5650,9 @@ func (c *Redshift) GetClusterCredentials(input *GetClusterCredentialsInput) (*Ge
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) GetClusterCredentialsWithContext(ctx aws.Context, input *GetClusterCredentialsInput, opts ...request.Option) (*GetClusterCredentialsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).GetClusterCredentials")
+	defer span.End()
+
 	req, out := c.GetClusterCredentialsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5644,6 +5792,9 @@ func (c *Redshift) ModifyCluster(input *ModifyClusterInput) (*ModifyClusterOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) ModifyClusterWithContext(ctx aws.Context, input *ModifyClusterInput, opts ...request.Option) (*ModifyClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).ModifyCluster")
+	defer span.End()
+
 	req, out := c.ModifyClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5729,6 +5880,9 @@ func (c *Redshift) ModifyClusterIamRoles(input *ModifyClusterIamRolesInput) (*Mo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) ModifyClusterIamRolesWithContext(ctx aws.Context, input *ModifyClusterIamRolesInput, opts ...request.Option) (*ModifyClusterIamRolesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).ModifyClusterIamRoles")
+	defer span.End()
+
 	req, out := c.ModifyClusterIamRolesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5817,6 +5971,9 @@ func (c *Redshift) ModifyClusterParameterGroup(input *ModifyClusterParameterGrou
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) ModifyClusterParameterGroupWithContext(ctx aws.Context, input *ModifyClusterParameterGroupInput, opts ...request.Option) (*ClusterParameterGroupNameMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).ModifyClusterParameterGroup")
+	defer span.End()
+
 	req, out := c.ModifyClusterParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5919,6 +6076,9 @@ func (c *Redshift) ModifyClusterSubnetGroup(input *ModifyClusterSubnetGroupInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) ModifyClusterSubnetGroupWithContext(ctx aws.Context, input *ModifyClusterSubnetGroupInput, opts ...request.Option) (*ModifyClusterSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).ModifyClusterSubnetGroup")
+	defer span.End()
+
 	req, out := c.ModifyClusterSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6030,6 +6190,9 @@ func (c *Redshift) ModifyEventSubscription(input *ModifyEventSubscriptionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) ModifyEventSubscriptionWithContext(ctx aws.Context, input *ModifyEventSubscriptionInput, opts ...request.Option) (*ModifyEventSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).ModifyEventSubscription")
+	defer span.End()
+
 	req, out := c.ModifyEventSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6119,6 +6282,9 @@ func (c *Redshift) ModifySnapshotCopyRetentionPeriod(input *ModifySnapshotCopyRe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) ModifySnapshotCopyRetentionPeriodWithContext(ctx aws.Context, input *ModifySnapshotCopyRetentionPeriodInput, opts ...request.Option) (*ModifySnapshotCopyRetentionPeriodOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).ModifySnapshotCopyRetentionPeriod")
+	defer span.End()
+
 	req, out := c.ModifySnapshotCopyRetentionPeriodRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6217,6 +6383,9 @@ func (c *Redshift) PurchaseReservedNodeOffering(input *PurchaseReservedNodeOffer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) PurchaseReservedNodeOfferingWithContext(ctx aws.Context, input *PurchaseReservedNodeOfferingInput, opts ...request.Option) (*PurchaseReservedNodeOfferingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).PurchaseReservedNodeOffering")
+	defer span.End()
+
 	req, out := c.PurchaseReservedNodeOfferingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6305,6 +6474,9 @@ func (c *Redshift) RebootCluster(input *RebootClusterInput) (*RebootClusterOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) RebootClusterWithContext(ctx aws.Context, input *RebootClusterInput, opts ...request.Option) (*RebootClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).RebootCluster")
+	defer span.End()
+
 	req, out := c.RebootClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6392,6 +6564,9 @@ func (c *Redshift) ResetClusterParameterGroup(input *ResetClusterParameterGroupI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) ResetClusterParameterGroupWithContext(ctx aws.Context, input *ResetClusterParameterGroupInput, opts ...request.Option) (*ClusterParameterGroupNameMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).ResetClusterParameterGroup")
+	defer span.End()
+
 	req, out := c.ResetClusterParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6557,6 +6732,9 @@ func (c *Redshift) RestoreFromClusterSnapshot(input *RestoreFromClusterSnapshotI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) RestoreFromClusterSnapshotWithContext(ctx aws.Context, input *RestoreFromClusterSnapshotInput, opts ...request.Option) (*RestoreFromClusterSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).RestoreFromClusterSnapshot")
+	defer span.End()
+
 	req, out := c.RestoreFromClusterSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6669,6 +6847,9 @@ func (c *Redshift) RestoreTableFromClusterSnapshot(input *RestoreTableFromCluste
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) RestoreTableFromClusterSnapshotWithContext(ctx aws.Context, input *RestoreTableFromClusterSnapshotInput, opts ...request.Option) (*RestoreTableFromClusterSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).RestoreTableFromClusterSnapshot")
+	defer span.End()
+
 	req, out := c.RestoreTableFromClusterSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6760,6 +6941,9 @@ func (c *Redshift) RevokeClusterSecurityGroupIngress(input *RevokeClusterSecurit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) RevokeClusterSecurityGroupIngressWithContext(ctx aws.Context, input *RevokeClusterSecurityGroupIngressInput, opts ...request.Option) (*RevokeClusterSecurityGroupIngressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).RevokeClusterSecurityGroupIngress")
+	defer span.End()
+
 	req, out := c.RevokeClusterSecurityGroupIngressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6853,6 +7037,9 @@ func (c *Redshift) RevokeSnapshotAccess(input *RevokeSnapshotAccessInput) (*Revo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) RevokeSnapshotAccessWithContext(ctx aws.Context, input *RevokeSnapshotAccessInput, opts ...request.Option) (*RevokeSnapshotAccessOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).RevokeSnapshotAccess")
+	defer span.End()
+
 	req, out := c.RevokeSnapshotAccessRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6939,6 +7126,9 @@ func (c *Redshift) RotateEncryptionKey(input *RotateEncryptionKeyInput) (*Rotate
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Redshift) RotateEncryptionKeyWithContext(ctx aws.Context, input *RotateEncryptionKeyInput, opts ...request.Option) (*RotateEncryptionKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/redshift.(*Redshift).RotateEncryptionKey")
+	defer span.End()
+
 	req, out := c.RotateEncryptionKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

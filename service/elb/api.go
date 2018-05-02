@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAddTags = "AddTags"
@@ -98,6 +99,9 @@ func (c *ELB) AddTags(input *AddTagsInput) (*AddTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) AddTagsWithContext(ctx aws.Context, input *AddTagsInput, opts ...request.Option) (*AddTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).AddTags")
+	defer span.End()
+
 	req, out := c.AddTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -188,6 +192,9 @@ func (c *ELB) ApplySecurityGroupsToLoadBalancer(input *ApplySecurityGroupsToLoad
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) ApplySecurityGroupsToLoadBalancerWithContext(ctx aws.Context, input *ApplySecurityGroupsToLoadBalancerInput, opts ...request.Option) (*ApplySecurityGroupsToLoadBalancerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).ApplySecurityGroupsToLoadBalancer")
+	defer span.End()
+
 	req, out := c.ApplySecurityGroupsToLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -282,6 +289,9 @@ func (c *ELB) AttachLoadBalancerToSubnets(input *AttachLoadBalancerToSubnetsInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) AttachLoadBalancerToSubnetsWithContext(ctx aws.Context, input *AttachLoadBalancerToSubnetsInput, opts ...request.Option) (*AttachLoadBalancerToSubnetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).AttachLoadBalancerToSubnets")
+	defer span.End()
+
 	req, out := c.AttachLoadBalancerToSubnetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -366,6 +376,9 @@ func (c *ELB) ConfigureHealthCheck(input *ConfigureHealthCheckInput) (*Configure
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) ConfigureHealthCheckWithContext(ctx aws.Context, input *ConfigureHealthCheckInput, opts ...request.Option) (*ConfigureHealthCheckOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).ConfigureHealthCheck")
+	defer span.End()
+
 	req, out := c.ConfigureHealthCheckRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -468,6 +481,9 @@ func (c *ELB) CreateAppCookieStickinessPolicy(input *CreateAppCookieStickinessPo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) CreateAppCookieStickinessPolicyWithContext(ctx aws.Context, input *CreateAppCookieStickinessPolicyInput, opts ...request.Option) (*CreateAppCookieStickinessPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).CreateAppCookieStickinessPolicy")
+	defer span.End()
+
 	req, out := c.CreateAppCookieStickinessPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -572,6 +588,9 @@ func (c *ELB) CreateLBCookieStickinessPolicy(input *CreateLBCookieStickinessPoli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) CreateLBCookieStickinessPolicyWithContext(ctx aws.Context, input *CreateLBCookieStickinessPolicyInput, opts ...request.Option) (*CreateLBCookieStickinessPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).CreateLBCookieStickinessPolicy")
+	defer span.End()
+
 	req, out := c.CreateLBCookieStickinessPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -701,6 +720,9 @@ func (c *ELB) CreateLoadBalancer(input *CreateLoadBalancerInput) (*CreateLoadBal
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) CreateLoadBalancerWithContext(ctx aws.Context, input *CreateLoadBalancerInput, opts ...request.Option) (*CreateLoadBalancerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).CreateLoadBalancer")
+	defer span.End()
+
 	req, out := c.CreateLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -802,6 +824,9 @@ func (c *ELB) CreateLoadBalancerListeners(input *CreateLoadBalancerListenersInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) CreateLoadBalancerListenersWithContext(ctx aws.Context, input *CreateLoadBalancerListenersInput, opts ...request.Option) (*CreateLoadBalancerListenersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).CreateLoadBalancerListeners")
+	defer span.End()
+
 	req, out := c.CreateLoadBalancerListenersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -897,6 +922,9 @@ func (c *ELB) CreateLoadBalancerPolicy(input *CreateLoadBalancerPolicyInput) (*C
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) CreateLoadBalancerPolicyWithContext(ctx aws.Context, input *CreateLoadBalancerPolicyInput, opts ...request.Option) (*CreateLoadBalancerPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).CreateLoadBalancerPolicy")
+	defer span.End()
+
 	req, out := c.CreateLoadBalancerPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -980,6 +1008,9 @@ func (c *ELB) DeleteLoadBalancer(input *DeleteLoadBalancerInput) (*DeleteLoadBal
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) DeleteLoadBalancerWithContext(ctx aws.Context, input *DeleteLoadBalancerInput, opts ...request.Option) (*DeleteLoadBalancerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).DeleteLoadBalancer")
+	defer span.End()
+
 	req, out := c.DeleteLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1059,6 +1090,9 @@ func (c *ELB) DeleteLoadBalancerListeners(input *DeleteLoadBalancerListenersInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) DeleteLoadBalancerListenersWithContext(ctx aws.Context, input *DeleteLoadBalancerListenersInput, opts ...request.Option) (*DeleteLoadBalancerListenersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).DeleteLoadBalancerListeners")
+	defer span.End()
+
 	req, out := c.DeleteLoadBalancerListenersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1142,6 +1176,9 @@ func (c *ELB) DeleteLoadBalancerPolicy(input *DeleteLoadBalancerPolicyInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) DeleteLoadBalancerPolicyWithContext(ctx aws.Context, input *DeleteLoadBalancerPolicyInput, opts ...request.Option) (*DeleteLoadBalancerPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).DeleteLoadBalancerPolicy")
+	defer span.End()
+
 	req, out := c.DeleteLoadBalancerPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1232,6 +1269,9 @@ func (c *ELB) DeregisterInstancesFromLoadBalancer(input *DeregisterInstancesFrom
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) DeregisterInstancesFromLoadBalancerWithContext(ctx aws.Context, input *DeregisterInstancesFromLoadBalancerInput, opts ...request.Option) (*DeregisterInstancesFromLoadBalancerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).DeregisterInstancesFromLoadBalancer")
+	defer span.End()
+
 	req, out := c.DeregisterInstancesFromLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1310,6 +1350,9 @@ func (c *ELB) DescribeAccountLimits(input *DescribeAccountLimitsInput) (*Describ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) DescribeAccountLimitsWithContext(ctx aws.Context, input *DescribeAccountLimitsInput, opts ...request.Option) (*DescribeAccountLimitsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).DescribeAccountLimits")
+	defer span.End()
+
 	req, out := c.DescribeAccountLimitsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1397,6 +1440,9 @@ func (c *ELB) DescribeInstanceHealth(input *DescribeInstanceHealthInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) DescribeInstanceHealthWithContext(ctx aws.Context, input *DescribeInstanceHealthInput, opts ...request.Option) (*DescribeInstanceHealthOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).DescribeInstanceHealth")
+	defer span.End()
+
 	req, out := c.DescribeInstanceHealthRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1479,6 +1525,9 @@ func (c *ELB) DescribeLoadBalancerAttributes(input *DescribeLoadBalancerAttribut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) DescribeLoadBalancerAttributesWithContext(ctx aws.Context, input *DescribeLoadBalancerAttributesInput, opts ...request.Option) (*DescribeLoadBalancerAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).DescribeLoadBalancerAttributes")
+	defer span.End()
+
 	req, out := c.DescribeLoadBalancerAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1568,6 +1617,9 @@ func (c *ELB) DescribeLoadBalancerPolicies(input *DescribeLoadBalancerPoliciesIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) DescribeLoadBalancerPoliciesWithContext(ctx aws.Context, input *DescribeLoadBalancerPoliciesInput, opts ...request.Option) (*DescribeLoadBalancerPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).DescribeLoadBalancerPolicies")
+	defer span.End()
+
 	req, out := c.DescribeLoadBalancerPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1658,6 +1710,9 @@ func (c *ELB) DescribeLoadBalancerPolicyTypes(input *DescribeLoadBalancerPolicyT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) DescribeLoadBalancerPolicyTypesWithContext(ctx aws.Context, input *DescribeLoadBalancerPolicyTypesInput, opts ...request.Option) (*DescribeLoadBalancerPolicyTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).DescribeLoadBalancerPolicyTypes")
+	defer span.End()
+
 	req, out := c.DescribeLoadBalancerPolicyTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1746,6 +1801,9 @@ func (c *ELB) DescribeLoadBalancers(input *DescribeLoadBalancersInput) (*Describ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) DescribeLoadBalancersWithContext(ctx aws.Context, input *DescribeLoadBalancersInput, opts ...request.Option) (*DescribeLoadBalancersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).DescribeLoadBalancers")
+	defer span.End()
+
 	req, out := c.DescribeLoadBalancersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1875,6 +1933,9 @@ func (c *ELB) DescribeTags(input *DescribeTagsInput) (*DescribeTagsOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) DescribeTagsWithContext(ctx aws.Context, input *DescribeTagsInput, opts ...request.Option) (*DescribeTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).DescribeTags")
+	defer span.End()
+
 	req, out := c.DescribeTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1962,6 +2023,9 @@ func (c *ELB) DetachLoadBalancerFromSubnets(input *DetachLoadBalancerFromSubnets
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) DetachLoadBalancerFromSubnetsWithContext(ctx aws.Context, input *DetachLoadBalancerFromSubnetsInput, opts ...request.Option) (*DetachLoadBalancerFromSubnetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).DetachLoadBalancerFromSubnets")
+	defer span.End()
+
 	req, out := c.DetachLoadBalancerFromSubnetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2054,6 +2118,9 @@ func (c *ELB) DisableAvailabilityZonesForLoadBalancer(input *DisableAvailability
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) DisableAvailabilityZonesForLoadBalancerWithContext(ctx aws.Context, input *DisableAvailabilityZonesForLoadBalancerInput, opts ...request.Option) (*DisableAvailabilityZonesForLoadBalancerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).DisableAvailabilityZonesForLoadBalancer")
+	defer span.End()
+
 	req, out := c.DisableAvailabilityZonesForLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2140,6 +2207,9 @@ func (c *ELB) EnableAvailabilityZonesForLoadBalancer(input *EnableAvailabilityZo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) EnableAvailabilityZonesForLoadBalancerWithContext(ctx aws.Context, input *EnableAvailabilityZonesForLoadBalancerInput, opts ...request.Option) (*EnableAvailabilityZonesForLoadBalancerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).EnableAvailabilityZonesForLoadBalancer")
+	defer span.End()
+
 	req, out := c.EnableAvailabilityZonesForLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2240,6 +2310,9 @@ func (c *ELB) ModifyLoadBalancerAttributes(input *ModifyLoadBalancerAttributesIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) ModifyLoadBalancerAttributesWithContext(ctx aws.Context, input *ModifyLoadBalancerAttributesInput, opts ...request.Option) (*ModifyLoadBalancerAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).ModifyLoadBalancerAttributes")
+	defer span.End()
+
 	req, out := c.ModifyLoadBalancerAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2344,6 +2417,9 @@ func (c *ELB) RegisterInstancesWithLoadBalancer(input *RegisterInstancesWithLoad
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) RegisterInstancesWithLoadBalancerWithContext(ctx aws.Context, input *RegisterInstancesWithLoadBalancerInput, opts ...request.Option) (*RegisterInstancesWithLoadBalancerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).RegisterInstancesWithLoadBalancer")
+	defer span.End()
+
 	req, out := c.RegisterInstancesWithLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2423,6 +2499,9 @@ func (c *ELB) RemoveTags(input *RemoveTagsInput) (*RemoveTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) RemoveTagsWithContext(ctx aws.Context, input *RemoveTagsInput, opts ...request.Option) (*RemoveTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).RemoveTags")
+	defer span.End()
+
 	req, out := c.RemoveTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2523,6 +2602,9 @@ func (c *ELB) SetLoadBalancerListenerSSLCertificate(input *SetLoadBalancerListen
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) SetLoadBalancerListenerSSLCertificateWithContext(ctx aws.Context, input *SetLoadBalancerListenerSSLCertificateInput, opts ...request.Option) (*SetLoadBalancerListenerSSLCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).SetLoadBalancerListenerSSLCertificate")
+	defer span.End()
+
 	req, out := c.SetLoadBalancerListenerSSLCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2623,6 +2705,9 @@ func (c *ELB) SetLoadBalancerPoliciesForBackendServer(input *SetLoadBalancerPoli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) SetLoadBalancerPoliciesForBackendServerWithContext(ctx aws.Context, input *SetLoadBalancerPoliciesForBackendServerInput, opts ...request.Option) (*SetLoadBalancerPoliciesForBackendServerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).SetLoadBalancerPoliciesForBackendServer")
+	defer span.End()
+
 	req, out := c.SetLoadBalancerPoliciesForBackendServerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2720,6 +2805,9 @@ func (c *ELB) SetLoadBalancerPoliciesOfListener(input *SetLoadBalancerPoliciesOf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ELB) SetLoadBalancerPoliciesOfListenerWithContext(ctx aws.Context, input *SetLoadBalancerPoliciesOfListenerInput, opts ...request.Option) (*SetLoadBalancerPoliciesOfListenerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elb.(*ELB).SetLoadBalancerPoliciesOfListener")
+	defer span.End()
+
 	req, out := c.SetLoadBalancerPoliciesOfListenerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

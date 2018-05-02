@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAssociateCreatedArtifact = "AssociateCreatedArtifact"
@@ -121,6 +122,9 @@ func (c *MigrationHub) AssociateCreatedArtifact(input *AssociateCreatedArtifactI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) AssociateCreatedArtifactWithContext(ctx aws.Context, input *AssociateCreatedArtifactInput, opts ...request.Option) (*AssociateCreatedArtifactOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).AssociateCreatedArtifact")
+	defer span.End()
+
 	req, out := c.AssociateCreatedArtifactRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -231,6 +235,9 @@ func (c *MigrationHub) AssociateDiscoveredResource(input *AssociateDiscoveredRes
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) AssociateDiscoveredResourceWithContext(ctx aws.Context, input *AssociateDiscoveredResourceInput, opts ...request.Option) (*AssociateDiscoveredResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).AssociateDiscoveredResource")
+	defer span.End()
+
 	req, out := c.AssociateDiscoveredResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -334,6 +341,9 @@ func (c *MigrationHub) CreateProgressUpdateStream(input *CreateProgressUpdateStr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) CreateProgressUpdateStreamWithContext(ctx aws.Context, input *CreateProgressUpdateStreamInput, opts ...request.Option) (*CreateProgressUpdateStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).CreateProgressUpdateStream")
+	defer span.End()
+
 	req, out := c.CreateProgressUpdateStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -460,6 +470,9 @@ func (c *MigrationHub) DeleteProgressUpdateStream(input *DeleteProgressUpdateStr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) DeleteProgressUpdateStreamWithContext(ctx aws.Context, input *DeleteProgressUpdateStreamInput, opts ...request.Option) (*DeleteProgressUpdateStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).DeleteProgressUpdateStream")
+	defer span.End()
+
 	req, out := c.DeleteProgressUpdateStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -561,6 +574,9 @@ func (c *MigrationHub) DescribeApplicationState(input *DescribeApplicationStateI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) DescribeApplicationStateWithContext(ctx aws.Context, input *DescribeApplicationStateInput, opts ...request.Option) (*DescribeApplicationStateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).DescribeApplicationState")
+	defer span.End()
+
 	req, out := c.DescribeApplicationStateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -657,6 +673,9 @@ func (c *MigrationHub) DescribeMigrationTask(input *DescribeMigrationTaskInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) DescribeMigrationTaskWithContext(ctx aws.Context, input *DescribeMigrationTaskInput, opts ...request.Option) (*DescribeMigrationTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).DescribeMigrationTask")
+	defer span.End()
+
 	req, out := c.DescribeMigrationTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -773,6 +792,9 @@ func (c *MigrationHub) DisassociateCreatedArtifact(input *DisassociateCreatedArt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) DisassociateCreatedArtifactWithContext(ctx aws.Context, input *DisassociateCreatedArtifactInput, opts ...request.Option) (*DisassociateCreatedArtifactOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).DisassociateCreatedArtifact")
+	defer span.End()
+
 	req, out := c.DisassociateCreatedArtifactRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -878,6 +900,9 @@ func (c *MigrationHub) DisassociateDiscoveredResource(input *DisassociateDiscove
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) DisassociateDiscoveredResourceWithContext(ctx aws.Context, input *DisassociateDiscoveredResourceInput, opts ...request.Option) (*DisassociateDiscoveredResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).DisassociateDiscoveredResource")
+	defer span.End()
+
 	req, out := c.DisassociateDiscoveredResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -987,6 +1012,9 @@ func (c *MigrationHub) ImportMigrationTask(input *ImportMigrationTaskInput) (*Im
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) ImportMigrationTaskWithContext(ctx aws.Context, input *ImportMigrationTaskInput, opts ...request.Option) (*ImportMigrationTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).ImportMigrationTask")
+	defer span.End()
+
 	req, out := c.ImportMigrationTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1091,6 +1119,9 @@ func (c *MigrationHub) ListCreatedArtifacts(input *ListCreatedArtifactsInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) ListCreatedArtifactsWithContext(ctx aws.Context, input *ListCreatedArtifactsInput, opts ...request.Option) (*ListCreatedArtifactsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).ListCreatedArtifacts")
+	defer span.End()
+
 	req, out := c.ListCreatedArtifactsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1187,6 +1218,9 @@ func (c *MigrationHub) ListDiscoveredResources(input *ListDiscoveredResourcesInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) ListDiscoveredResourcesWithContext(ctx aws.Context, input *ListDiscoveredResourcesInput, opts ...request.Option) (*ListDiscoveredResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).ListDiscoveredResources")
+	defer span.End()
+
 	req, out := c.ListDiscoveredResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1296,6 +1330,9 @@ func (c *MigrationHub) ListMigrationTasks(input *ListMigrationTasksInput) (*List
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) ListMigrationTasksWithContext(ctx aws.Context, input *ListMigrationTasksInput, opts ...request.Option) (*ListMigrationTasksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).ListMigrationTasks")
+	defer span.End()
+
 	req, out := c.ListMigrationTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1388,6 +1425,9 @@ func (c *MigrationHub) ListProgressUpdateStreams(input *ListProgressUpdateStream
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) ListProgressUpdateStreamsWithContext(ctx aws.Context, input *ListProgressUpdateStreamsInput, opts ...request.Option) (*ListProgressUpdateStreamsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).ListProgressUpdateStreams")
+	defer span.End()
+
 	req, out := c.ListProgressUpdateStreamsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1499,6 +1539,9 @@ func (c *MigrationHub) NotifyApplicationState(input *NotifyApplicationStateInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) NotifyApplicationStateWithContext(ctx aws.Context, input *NotifyApplicationStateInput, opts ...request.Option) (*NotifyApplicationStateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).NotifyApplicationState")
+	defer span.End()
+
 	req, out := c.NotifyApplicationStateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1612,6 +1655,9 @@ func (c *MigrationHub) NotifyMigrationTaskState(input *NotifyMigrationTaskStateI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) NotifyMigrationTaskStateWithContext(ctx aws.Context, input *NotifyMigrationTaskStateInput, opts ...request.Option) (*NotifyMigrationTaskStateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).NotifyMigrationTaskState")
+	defer span.End()
+
 	req, out := c.NotifyMigrationTaskStateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1731,6 +1777,9 @@ func (c *MigrationHub) PutResourceAttributes(input *PutResourceAttributesInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MigrationHub) PutResourceAttributesWithContext(ctx aws.Context, input *PutResourceAttributesInput, opts ...request.Option) (*PutResourceAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/migrationhub.(*MigrationHub).PutResourceAttributes")
+	defer span.End()
+
 	req, out := c.PutResourceAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

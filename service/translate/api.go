@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opText = "TranslateText"
@@ -123,6 +124,9 @@ func (c *Translate) Text(input *TextInput) (*TextOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Translate) TextWithContext(ctx aws.Context, input *TextInput, opts ...request.Option) (*TextOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/translate.(*Translate).Text")
+	defer span.End()
+
 	req, out := c.TextRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

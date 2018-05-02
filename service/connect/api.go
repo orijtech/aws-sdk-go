@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opStartOutboundVoiceContact = "StartOutboundVoiceContact"
@@ -109,6 +110,9 @@ func (c *Connect) StartOutboundVoiceContact(input *StartOutboundVoiceContactInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Connect) StartOutboundVoiceContactWithContext(ctx aws.Context, input *StartOutboundVoiceContactInput, opts ...request.Option) (*StartOutboundVoiceContactOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/connect.(*Connect).StartOutboundVoiceContact")
+	defer span.End()
+
 	req, out := c.StartOutboundVoiceContactRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -203,6 +207,9 @@ func (c *Connect) StopContact(input *StopContactInput) (*StopContactOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Connect) StopContactWithContext(ctx aws.Context, input *StopContactInput, opts ...request.Option) (*StopContactOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/connect.(*Connect).StopContact")
+	defer span.End()
+
 	req, out := c.StopContactRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

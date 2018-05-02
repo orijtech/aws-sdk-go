@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateBroker = "CreateBroker"
@@ -93,6 +94,9 @@ func (c *MQ) CreateBroker(input *CreateBrokerRequest) (*CreateBrokerResponse, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) CreateBrokerWithContext(ctx aws.Context, input *CreateBrokerRequest, opts ...request.Option) (*CreateBrokerResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).CreateBroker")
+	defer span.End()
+
 	req, out := c.CreateBrokerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -183,6 +187,9 @@ func (c *MQ) CreateConfiguration(input *CreateConfigurationRequest) (*CreateConf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) CreateConfigurationWithContext(ctx aws.Context, input *CreateConfigurationRequest, opts ...request.Option) (*CreateConfigurationResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).CreateConfiguration")
+	defer span.End()
+
 	req, out := c.CreateConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -274,6 +281,9 @@ func (c *MQ) CreateUser(input *CreateUserRequest) (*CreateUserOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) CreateUserWithContext(ctx aws.Context, input *CreateUserRequest, opts ...request.Option) (*CreateUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).CreateUser")
+	defer span.End()
+
 	req, out := c.CreateUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -362,6 +372,9 @@ func (c *MQ) DeleteBroker(input *DeleteBrokerInput) (*DeleteBrokerResponse, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) DeleteBrokerWithContext(ctx aws.Context, input *DeleteBrokerInput, opts ...request.Option) (*DeleteBrokerResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).DeleteBroker")
+	defer span.End()
+
 	req, out := c.DeleteBrokerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -450,6 +463,9 @@ func (c *MQ) DeleteUser(input *DeleteUserInput) (*DeleteUserOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) DeleteUserWithContext(ctx aws.Context, input *DeleteUserInput, opts ...request.Option) (*DeleteUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).DeleteUser")
+	defer span.End()
+
 	req, out := c.DeleteUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -538,6 +554,9 @@ func (c *MQ) DescribeBroker(input *DescribeBrokerInput) (*DescribeBrokerResponse
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) DescribeBrokerWithContext(ctx aws.Context, input *DescribeBrokerInput, opts ...request.Option) (*DescribeBrokerResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).DescribeBroker")
+	defer span.End()
+
 	req, out := c.DescribeBrokerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -626,6 +645,9 @@ func (c *MQ) DescribeConfiguration(input *DescribeConfigurationInput) (*Describe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) DescribeConfigurationWithContext(ctx aws.Context, input *DescribeConfigurationInput, opts ...request.Option) (*DescribeConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).DescribeConfiguration")
+	defer span.End()
+
 	req, out := c.DescribeConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -714,6 +736,9 @@ func (c *MQ) DescribeConfigurationRevision(input *DescribeConfigurationRevisionI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) DescribeConfigurationRevisionWithContext(ctx aws.Context, input *DescribeConfigurationRevisionInput, opts ...request.Option) (*DescribeConfigurationRevisionResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).DescribeConfigurationRevision")
+	defer span.End()
+
 	req, out := c.DescribeConfigurationRevisionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -802,6 +827,9 @@ func (c *MQ) DescribeUser(input *DescribeUserInput) (*DescribeUserResponse, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) DescribeUserWithContext(ctx aws.Context, input *DescribeUserInput, opts ...request.Option) (*DescribeUserResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).DescribeUser")
+	defer span.End()
+
 	req, out := c.DescribeUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -887,6 +915,9 @@ func (c *MQ) ListBrokers(input *ListBrokersInput) (*ListBrokersResponse, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) ListBrokersWithContext(ctx aws.Context, input *ListBrokersInput, opts ...request.Option) (*ListBrokersResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).ListBrokers")
+	defer span.End()
+
 	req, out := c.ListBrokersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -975,6 +1006,9 @@ func (c *MQ) ListConfigurationRevisions(input *ListConfigurationRevisionsInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) ListConfigurationRevisionsWithContext(ctx aws.Context, input *ListConfigurationRevisionsInput, opts ...request.Option) (*ListConfigurationRevisionsResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).ListConfigurationRevisions")
+	defer span.End()
+
 	req, out := c.ListConfigurationRevisionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1060,6 +1094,9 @@ func (c *MQ) ListConfigurations(input *ListConfigurationsInput) (*ListConfigurat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) ListConfigurationsWithContext(ctx aws.Context, input *ListConfigurationsInput, opts ...request.Option) (*ListConfigurationsResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).ListConfigurations")
+	defer span.End()
+
 	req, out := c.ListConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1148,6 +1185,9 @@ func (c *MQ) ListUsers(input *ListUsersInput) (*ListUsersResponse, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) ListUsersWithContext(ctx aws.Context, input *ListUsersInput, opts ...request.Option) (*ListUsersResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).ListUsers")
+	defer span.End()
+
 	req, out := c.ListUsersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1236,6 +1276,9 @@ func (c *MQ) RebootBroker(input *RebootBrokerInput) (*RebootBrokerOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) RebootBrokerWithContext(ctx aws.Context, input *RebootBrokerInput, opts ...request.Option) (*RebootBrokerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).RebootBroker")
+	defer span.End()
+
 	req, out := c.RebootBrokerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1324,6 +1367,9 @@ func (c *MQ) UpdateBroker(input *UpdateBrokerRequest) (*UpdateBrokerResponse, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) UpdateBrokerWithContext(ctx aws.Context, input *UpdateBrokerRequest, opts ...request.Option) (*UpdateBrokerResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).UpdateBroker")
+	defer span.End()
+
 	req, out := c.UpdateBrokerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1415,6 +1461,9 @@ func (c *MQ) UpdateConfiguration(input *UpdateConfigurationRequest) (*UpdateConf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) UpdateConfigurationWithContext(ctx aws.Context, input *UpdateConfigurationRequest, opts ...request.Option) (*UpdateConfigurationResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).UpdateConfiguration")
+	defer span.End()
+
 	req, out := c.UpdateConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1506,6 +1555,9 @@ func (c *MQ) UpdateUser(input *UpdateUserRequest) (*UpdateUserOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MQ) UpdateUserWithContext(ctx aws.Context, input *UpdateUserRequest, opts ...request.Option) (*UpdateUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mq.(*MQ).UpdateUser")
+	defer span.End()
+
 	req, out := c.UpdateUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

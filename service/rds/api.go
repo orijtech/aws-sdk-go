@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/query"
+	"go.opencensus.io/trace"
 )
 
 const opAddRoleToDBCluster = "AddRoleToDBCluster"
@@ -101,6 +102,9 @@ func (c *RDS) AddRoleToDBCluster(input *AddRoleToDBClusterInput) (*AddRoleToDBCl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) AddRoleToDBClusterWithContext(ctx aws.Context, input *AddRoleToDBClusterInput, opts ...request.Option) (*AddRoleToDBClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).AddRoleToDBCluster")
+	defer span.End()
+
 	req, out := c.AddRoleToDBClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -183,6 +187,9 @@ func (c *RDS) AddSourceIdentifierToSubscription(input *AddSourceIdentifierToSubs
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) AddSourceIdentifierToSubscriptionWithContext(ctx aws.Context, input *AddSourceIdentifierToSubscriptionInput, opts ...request.Option) (*AddSourceIdentifierToSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).AddSourceIdentifierToSubscription")
+	defer span.End()
+
 	req, out := c.AddSourceIdentifierToSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -275,6 +282,9 @@ func (c *RDS) AddTagsToResource(input *AddTagsToResourceInput) (*AddTagsToResour
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) AddTagsToResourceWithContext(ctx aws.Context, input *AddTagsToResourceInput, opts ...request.Option) (*AddTagsToResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).AddTagsToResource")
+	defer span.End()
+
 	req, out := c.AddTagsToResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -355,6 +365,9 @@ func (c *RDS) ApplyPendingMaintenanceAction(input *ApplyPendingMaintenanceAction
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) ApplyPendingMaintenanceActionWithContext(ctx aws.Context, input *ApplyPendingMaintenanceActionInput, opts ...request.Option) (*ApplyPendingMaintenanceActionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).ApplyPendingMaintenanceAction")
+	defer span.End()
+
 	req, out := c.ApplyPendingMaintenanceActionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -456,6 +469,9 @@ func (c *RDS) AuthorizeDBSecurityGroupIngress(input *AuthorizeDBSecurityGroupIng
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) AuthorizeDBSecurityGroupIngressWithContext(ctx aws.Context, input *AuthorizeDBSecurityGroupIngressInput, opts ...request.Option) (*AuthorizeDBSecurityGroupIngressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).AuthorizeDBSecurityGroupIngress")
+	defer span.End()
+
 	req, out := c.AuthorizeDBSecurityGroupIngressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -542,6 +558,9 @@ func (c *RDS) CopyDBClusterParameterGroup(input *CopyDBClusterParameterGroupInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CopyDBClusterParameterGroupWithContext(ctx aws.Context, input *CopyDBClusterParameterGroupInput, opts ...request.Option) (*CopyDBClusterParameterGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CopyDBClusterParameterGroup")
+	defer span.End()
+
 	req, out := c.CopyDBClusterParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -698,6 +717,9 @@ func (c *RDS) CopyDBClusterSnapshot(input *CopyDBClusterSnapshotInput) (*CopyDBC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CopyDBClusterSnapshotWithContext(ctx aws.Context, input *CopyDBClusterSnapshotInput, opts ...request.Option) (*CopyDBClusterSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CopyDBClusterSnapshot")
+	defer span.End()
+
 	req, out := c.CopyDBClusterSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -784,6 +806,9 @@ func (c *RDS) CopyDBParameterGroup(input *CopyDBParameterGroupInput) (*CopyDBPar
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CopyDBParameterGroupWithContext(ctx aws.Context, input *CopyDBParameterGroupInput, opts ...request.Option) (*CopyDBParameterGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CopyDBParameterGroup")
+	defer span.End()
+
 	req, out := c.CopyDBParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -883,6 +908,9 @@ func (c *RDS) CopyDBSnapshot(input *CopyDBSnapshotInput) (*CopyDBSnapshotOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CopyDBSnapshotWithContext(ctx aws.Context, input *CopyDBSnapshotInput, opts ...request.Option) (*CopyDBSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CopyDBSnapshot")
+	defer span.End()
+
 	req, out := c.CopyDBSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -968,6 +996,9 @@ func (c *RDS) CopyOptionGroup(input *CopyOptionGroupInput) (*CopyOptionGroupOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CopyOptionGroupWithContext(ctx aws.Context, input *CopyOptionGroupInput, opts ...request.Option) (*CopyOptionGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CopyOptionGroup")
+	defer span.End()
+
 	req, out := c.CopyOptionGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1105,6 +1136,9 @@ func (c *RDS) CreateDBCluster(input *CreateDBClusterInput) (*CreateDBClusterOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CreateDBClusterWithContext(ctx aws.Context, input *CreateDBClusterInput, opts ...request.Option) (*CreateDBClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CreateDBCluster")
+	defer span.End()
+
 	req, out := c.CreateDBClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1215,6 +1249,9 @@ func (c *RDS) CreateDBClusterParameterGroup(input *CreateDBClusterParameterGroup
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CreateDBClusterParameterGroupWithContext(ctx aws.Context, input *CreateDBClusterParameterGroupInput, opts ...request.Option) (*CreateDBClusterParameterGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CreateDBClusterParameterGroup")
+	defer span.End()
+
 	req, out := c.CreateDBClusterParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1308,6 +1345,9 @@ func (c *RDS) CreateDBClusterSnapshot(input *CreateDBClusterSnapshotInput) (*Cre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CreateDBClusterSnapshotWithContext(ctx aws.Context, input *CreateDBClusterSnapshotInput, opts ...request.Option) (*CreateDBClusterSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CreateDBClusterSnapshot")
+	defer span.End()
+
 	req, out := c.CreateDBClusterSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1447,6 +1487,9 @@ func (c *RDS) CreateDBInstance(input *CreateDBInstanceInput) (*CreateDBInstanceO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CreateDBInstanceWithContext(ctx aws.Context, input *CreateDBInstanceInput, opts ...request.Option) (*CreateDBInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CreateDBInstance")
+	defer span.End()
+
 	req, out := c.CreateDBInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1596,6 +1639,9 @@ func (c *RDS) CreateDBInstanceReadReplica(input *CreateDBInstanceReadReplicaInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CreateDBInstanceReadReplicaWithContext(ctx aws.Context, input *CreateDBInstanceReadReplicaInput, opts ...request.Option) (*CreateDBInstanceReadReplicaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CreateDBInstanceReadReplica")
+	defer span.End()
+
 	req, out := c.CreateDBInstanceReadReplicaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1699,6 +1745,9 @@ func (c *RDS) CreateDBParameterGroup(input *CreateDBParameterGroupInput) (*Creat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CreateDBParameterGroupWithContext(ctx aws.Context, input *CreateDBParameterGroupInput, opts ...request.Option) (*CreateDBParameterGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CreateDBParameterGroup")
+	defer span.End()
+
 	req, out := c.CreateDBParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1787,6 +1836,9 @@ func (c *RDS) CreateDBSecurityGroup(input *CreateDBSecurityGroupInput) (*CreateD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CreateDBSecurityGroupWithContext(ctx aws.Context, input *CreateDBSecurityGroupInput, opts ...request.Option) (*CreateDBSecurityGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CreateDBSecurityGroup")
+	defer span.End()
+
 	req, out := c.CreateDBSecurityGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1875,6 +1927,9 @@ func (c *RDS) CreateDBSnapshot(input *CreateDBSnapshotInput) (*CreateDBSnapshotO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CreateDBSnapshotWithContext(ctx aws.Context, input *CreateDBSnapshotInput, opts ...request.Option) (*CreateDBSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CreateDBSnapshot")
+	defer span.End()
+
 	req, out := c.CreateDBSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1970,6 +2025,9 @@ func (c *RDS) CreateDBSubnetGroup(input *CreateDBSubnetGroupInput) (*CreateDBSub
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CreateDBSubnetGroupWithContext(ctx aws.Context, input *CreateDBSubnetGroupInput, opts ...request.Option) (*CreateDBSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CreateDBSubnetGroup")
+	defer span.End()
+
 	req, out := c.CreateDBSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2084,6 +2142,9 @@ func (c *RDS) CreateEventSubscription(input *CreateEventSubscriptionInput) (*Cre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CreateEventSubscriptionWithContext(ctx aws.Context, input *CreateEventSubscriptionInput, opts ...request.Option) (*CreateEventSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CreateEventSubscription")
+	defer span.End()
+
 	req, out := c.CreateEventSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2166,6 +2227,9 @@ func (c *RDS) CreateOptionGroup(input *CreateOptionGroupInput) (*CreateOptionGro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) CreateOptionGroupWithContext(ctx aws.Context, input *CreateOptionGroupInput, opts ...request.Option) (*CreateOptionGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).CreateOptionGroup")
+	defer span.End()
+
 	req, out := c.CreateOptionGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2262,6 +2326,9 @@ func (c *RDS) DeleteDBCluster(input *DeleteDBClusterInput) (*DeleteDBClusterOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DeleteDBClusterWithContext(ctx aws.Context, input *DeleteDBClusterInput, opts ...request.Option) (*DeleteDBClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DeleteDBCluster")
+	defer span.End()
+
 	req, out := c.DeleteDBClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2352,6 +2419,9 @@ func (c *RDS) DeleteDBClusterParameterGroup(input *DeleteDBClusterParameterGroup
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DeleteDBClusterParameterGroupWithContext(ctx aws.Context, input *DeleteDBClusterParameterGroupInput, opts ...request.Option) (*DeleteDBClusterParameterGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DeleteDBClusterParameterGroup")
+	defer span.End()
+
 	req, out := c.DeleteDBClusterParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2440,6 +2510,9 @@ func (c *RDS) DeleteDBClusterSnapshot(input *DeleteDBClusterSnapshotInput) (*Del
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DeleteDBClusterSnapshotWithContext(ctx aws.Context, input *DeleteDBClusterSnapshotInput, opts ...request.Option) (*DeleteDBClusterSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DeleteDBClusterSnapshot")
+	defer span.End()
+
 	req, out := c.DeleteDBClusterSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2555,6 +2628,9 @@ func (c *RDS) DeleteDBInstance(input *DeleteDBInstanceInput) (*DeleteDBInstanceO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DeleteDBInstanceWithContext(ctx aws.Context, input *DeleteDBInstanceInput, opts ...request.Option) (*DeleteDBInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DeleteDBInstance")
+	defer span.End()
+
 	req, out := c.DeleteDBInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2642,6 +2718,9 @@ func (c *RDS) DeleteDBParameterGroup(input *DeleteDBParameterGroupInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DeleteDBParameterGroupWithContext(ctx aws.Context, input *DeleteDBParameterGroupInput, opts ...request.Option) (*DeleteDBParameterGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DeleteDBParameterGroup")
+	defer span.End()
+
 	req, out := c.DeleteDBParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2728,6 +2807,9 @@ func (c *RDS) DeleteDBSecurityGroup(input *DeleteDBSecurityGroupInput) (*DeleteD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DeleteDBSecurityGroupWithContext(ctx aws.Context, input *DeleteDBSecurityGroupInput, opts ...request.Option) (*DeleteDBSecurityGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DeleteDBSecurityGroup")
+	defer span.End()
+
 	req, out := c.DeleteDBSecurityGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2813,6 +2895,9 @@ func (c *RDS) DeleteDBSnapshot(input *DeleteDBSnapshotInput) (*DeleteDBSnapshotO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DeleteDBSnapshotWithContext(ctx aws.Context, input *DeleteDBSnapshotInput, opts ...request.Option) (*DeleteDBSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DeleteDBSnapshot")
+	defer span.End()
+
 	req, out := c.DeleteDBSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2902,6 +2987,9 @@ func (c *RDS) DeleteDBSubnetGroup(input *DeleteDBSubnetGroupInput) (*DeleteDBSub
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DeleteDBSubnetGroupWithContext(ctx aws.Context, input *DeleteDBSubnetGroupInput, opts ...request.Option) (*DeleteDBSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DeleteDBSubnetGroup")
+	defer span.End()
+
 	req, out := c.DeleteDBSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2985,6 +3073,9 @@ func (c *RDS) DeleteEventSubscription(input *DeleteEventSubscriptionInput) (*Del
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DeleteEventSubscriptionWithContext(ctx aws.Context, input *DeleteEventSubscriptionInput, opts ...request.Option) (*DeleteEventSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DeleteEventSubscription")
+	defer span.End()
+
 	req, out := c.DeleteEventSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3069,6 +3160,9 @@ func (c *RDS) DeleteOptionGroup(input *DeleteOptionGroupInput) (*DeleteOptionGro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DeleteOptionGroupWithContext(ctx aws.Context, input *DeleteOptionGroupInput, opts ...request.Option) (*DeleteOptionGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DeleteOptionGroup")
+	defer span.End()
+
 	req, out := c.DeleteOptionGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3148,6 +3242,9 @@ func (c *RDS) DescribeAccountAttributes(input *DescribeAccountAttributesInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeAccountAttributesWithContext(ctx aws.Context, input *DescribeAccountAttributesInput, opts ...request.Option) (*DescribeAccountAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeAccountAttributes")
+	defer span.End()
+
 	req, out := c.DescribeAccountAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3227,6 +3324,9 @@ func (c *RDS) DescribeCertificates(input *DescribeCertificatesInput) (*DescribeC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeCertificatesWithContext(ctx aws.Context, input *DescribeCertificatesInput, opts ...request.Option) (*DescribeCertificatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeCertificates")
+	defer span.End()
+
 	req, out := c.DescribeCertificatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3311,6 +3411,9 @@ func (c *RDS) DescribeDBClusterParameterGroups(input *DescribeDBClusterParameter
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeDBClusterParameterGroupsWithContext(ctx aws.Context, input *DescribeDBClusterParameterGroupsInput, opts ...request.Option) (*DescribeDBClusterParameterGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeDBClusterParameterGroups")
+	defer span.End()
+
 	req, out := c.DescribeDBClusterParameterGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3394,6 +3497,9 @@ func (c *RDS) DescribeDBClusterParameters(input *DescribeDBClusterParametersInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeDBClusterParametersWithContext(ctx aws.Context, input *DescribeDBClusterParametersInput, opts ...request.Option) (*DescribeDBClusterParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeDBClusterParameters")
+	defer span.End()
+
 	req, out := c.DescribeDBClusterParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3484,6 +3590,9 @@ func (c *RDS) DescribeDBClusterSnapshotAttributes(input *DescribeDBClusterSnapsh
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeDBClusterSnapshotAttributesWithContext(ctx aws.Context, input *DescribeDBClusterSnapshotAttributesInput, opts ...request.Option) (*DescribeDBClusterSnapshotAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeDBClusterSnapshotAttributes")
+	defer span.End()
+
 	req, out := c.DescribeDBClusterSnapshotAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3567,6 +3676,9 @@ func (c *RDS) DescribeDBClusterSnapshots(input *DescribeDBClusterSnapshotsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeDBClusterSnapshotsWithContext(ctx aws.Context, input *DescribeDBClusterSnapshotsInput, opts ...request.Option) (*DescribeDBClusterSnapshotsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeDBClusterSnapshots")
+	defer span.End()
+
 	req, out := c.DescribeDBClusterSnapshotsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3650,6 +3762,9 @@ func (c *RDS) DescribeDBClusters(input *DescribeDBClustersInput) (*DescribeDBClu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeDBClustersWithContext(ctx aws.Context, input *DescribeDBClustersInput, opts ...request.Option) (*DescribeDBClustersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeDBClusters")
+	defer span.End()
+
 	req, out := c.DescribeDBClustersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3730,6 +3845,9 @@ func (c *RDS) DescribeDBEngineVersions(input *DescribeDBEngineVersionsInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeDBEngineVersionsWithContext(ctx aws.Context, input *DescribeDBEngineVersionsInput, opts ...request.Option) (*DescribeDBEngineVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeDBEngineVersions")
+	defer span.End()
+
 	req, out := c.DescribeDBEngineVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3865,6 +3983,9 @@ func (c *RDS) DescribeDBInstances(input *DescribeDBInstancesInput) (*DescribeDBI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeDBInstancesWithContext(ctx aws.Context, input *DescribeDBInstancesInput, opts ...request.Option) (*DescribeDBInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeDBInstances")
+	defer span.End()
+
 	req, out := c.DescribeDBInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4000,6 +4121,9 @@ func (c *RDS) DescribeDBLogFiles(input *DescribeDBLogFilesInput) (*DescribeDBLog
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeDBLogFilesWithContext(ctx aws.Context, input *DescribeDBLogFilesInput, opts ...request.Option) (*DescribeDBLogFilesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeDBLogFiles")
+	defer span.End()
+
 	req, out := c.DescribeDBLogFilesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4137,6 +4261,9 @@ func (c *RDS) DescribeDBParameterGroups(input *DescribeDBParameterGroupsInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeDBParameterGroupsWithContext(ctx aws.Context, input *DescribeDBParameterGroupsInput, opts ...request.Option) (*DescribeDBParameterGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeDBParameterGroups")
+	defer span.End()
+
 	req, out := c.DescribeDBParameterGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4272,6 +4399,9 @@ func (c *RDS) DescribeDBParameters(input *DescribeDBParametersInput) (*DescribeD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeDBParametersWithContext(ctx aws.Context, input *DescribeDBParametersInput, opts ...request.Option) (*DescribeDBParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeDBParameters")
+	defer span.End()
+
 	req, out := c.DescribeDBParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4409,6 +4539,9 @@ func (c *RDS) DescribeDBSecurityGroups(input *DescribeDBSecurityGroupsInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeDBSecurityGroupsWithContext(ctx aws.Context, input *DescribeDBSecurityGroupsInput, opts ...request.Option) (*DescribeDBSecurityGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeDBSecurityGroups")
+	defer span.End()
+
 	req, out := c.DescribeDBSecurityGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4549,6 +4682,9 @@ func (c *RDS) DescribeDBSnapshotAttributes(input *DescribeDBSnapshotAttributesIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeDBSnapshotAttributesWithContext(ctx aws.Context, input *DescribeDBSnapshotAttributesInput, opts ...request.Option) (*DescribeDBSnapshotAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeDBSnapshotAttributes")
+	defer span.End()
+
 	req, out := c.DescribeDBSnapshotAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4634,6 +4770,9 @@ func (c *RDS) DescribeDBSnapshots(input *DescribeDBSnapshotsInput) (*DescribeDBS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeDBSnapshotsWithContext(ctx aws.Context, input *DescribeDBSnapshotsInput, opts ...request.Option) (*DescribeDBSnapshotsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeDBSnapshots")
+	defer span.End()
+
 	req, out := c.DescribeDBSnapshotsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4772,6 +4911,9 @@ func (c *RDS) DescribeDBSubnetGroups(input *DescribeDBSubnetGroupsInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeDBSubnetGroupsWithContext(ctx aws.Context, input *DescribeDBSubnetGroupsInput, opts ...request.Option) (*DescribeDBSubnetGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeDBSubnetGroups")
+	defer span.End()
+
 	req, out := c.DescribeDBSubnetGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4900,6 +5042,9 @@ func (c *RDS) DescribeEngineDefaultClusterParameters(input *DescribeEngineDefaul
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeEngineDefaultClusterParametersWithContext(ctx aws.Context, input *DescribeEngineDefaultClusterParametersInput, opts ...request.Option) (*DescribeEngineDefaultClusterParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeEngineDefaultClusterParameters")
+	defer span.End()
+
 	req, out := c.DescribeEngineDefaultClusterParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4981,6 +5126,9 @@ func (c *RDS) DescribeEngineDefaultParameters(input *DescribeEngineDefaultParame
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeEngineDefaultParametersWithContext(ctx aws.Context, input *DescribeEngineDefaultParametersInput, opts ...request.Option) (*DescribeEngineDefaultParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeEngineDefaultParameters")
+	defer span.End()
+
 	req, out := c.DescribeEngineDefaultParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5108,6 +5256,9 @@ func (c *RDS) DescribeEventCategories(input *DescribeEventCategoriesInput) (*Des
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeEventCategoriesWithContext(ctx aws.Context, input *DescribeEventCategoriesInput, opts ...request.Option) (*DescribeEventCategoriesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeEventCategories")
+	defer span.End()
+
 	req, out := c.DescribeEventCategoriesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5197,6 +5348,9 @@ func (c *RDS) DescribeEventSubscriptions(input *DescribeEventSubscriptionsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeEventSubscriptionsWithContext(ctx aws.Context, input *DescribeEventSubscriptionsInput, opts ...request.Option) (*DescribeEventSubscriptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeEventSubscriptions")
+	defer span.End()
+
 	req, out := c.DescribeEventSubscriptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5331,6 +5485,9 @@ func (c *RDS) DescribeEvents(input *DescribeEventsInput) (*DescribeEventsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeEventsWithContext(ctx aws.Context, input *DescribeEventsInput, opts ...request.Option) (*DescribeEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeEvents")
+	defer span.End()
+
 	req, out := c.DescribeEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5461,6 +5618,9 @@ func (c *RDS) DescribeOptionGroupOptions(input *DescribeOptionGroupOptionsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeOptionGroupOptionsWithContext(ctx aws.Context, input *DescribeOptionGroupOptionsInput, opts ...request.Option) (*DescribeOptionGroupOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeOptionGroupOptions")
+	defer span.End()
+
 	req, out := c.DescribeOptionGroupOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5596,6 +5756,9 @@ func (c *RDS) DescribeOptionGroups(input *DescribeOptionGroupsInput) (*DescribeO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeOptionGroupsWithContext(ctx aws.Context, input *DescribeOptionGroupsInput, opts ...request.Option) (*DescribeOptionGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeOptionGroups")
+	defer span.End()
+
 	req, out := c.DescribeOptionGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5726,6 +5889,9 @@ func (c *RDS) DescribeOrderableDBInstanceOptions(input *DescribeOrderableDBInsta
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeOrderableDBInstanceOptionsWithContext(ctx aws.Context, input *DescribeOrderableDBInstanceOptionsInput, opts ...request.Option) (*DescribeOrderableDBInstanceOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeOrderableDBInstanceOptions")
+	defer span.End()
+
 	req, out := c.DescribeOrderableDBInstanceOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5856,6 +6022,9 @@ func (c *RDS) DescribePendingMaintenanceActions(input *DescribePendingMaintenanc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribePendingMaintenanceActionsWithContext(ctx aws.Context, input *DescribePendingMaintenanceActionsInput, opts ...request.Option) (*DescribePendingMaintenanceActionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribePendingMaintenanceActions")
+	defer span.End()
+
 	req, out := c.DescribePendingMaintenanceActionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5942,6 +6111,9 @@ func (c *RDS) DescribeReservedDBInstances(input *DescribeReservedDBInstancesInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeReservedDBInstancesWithContext(ctx aws.Context, input *DescribeReservedDBInstancesInput, opts ...request.Option) (*DescribeReservedDBInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeReservedDBInstances")
+	defer span.End()
+
 	req, out := c.DescribeReservedDBInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6077,6 +6249,9 @@ func (c *RDS) DescribeReservedDBInstancesOfferings(input *DescribeReservedDBInst
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeReservedDBInstancesOfferingsWithContext(ctx aws.Context, input *DescribeReservedDBInstancesOfferingsInput, opts ...request.Option) (*DescribeReservedDBInstancesOfferingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeReservedDBInstancesOfferings")
+	defer span.End()
+
 	req, out := c.DescribeReservedDBInstancesOfferingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6203,6 +6378,9 @@ func (c *RDS) DescribeSourceRegions(input *DescribeSourceRegionsInput) (*Describ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeSourceRegionsWithContext(ctx aws.Context, input *DescribeSourceRegionsInput, opts ...request.Option) (*DescribeSourceRegionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeSourceRegions")
+	defer span.End()
+
 	req, out := c.DescribeSourceRegionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6287,6 +6465,9 @@ func (c *RDS) DescribeValidDBInstanceModifications(input *DescribeValidDBInstanc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DescribeValidDBInstanceModificationsWithContext(ctx aws.Context, input *DescribeValidDBInstanceModificationsInput, opts ...request.Option) (*DescribeValidDBInstanceModificationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DescribeValidDBInstanceModifications")
+	defer span.End()
+
 	req, out := c.DescribeValidDBInstanceModificationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6375,6 +6556,9 @@ func (c *RDS) DownloadDBLogFilePortion(input *DownloadDBLogFilePortionInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) DownloadDBLogFilePortionWithContext(ctx aws.Context, input *DownloadDBLogFilePortionInput, opts ...request.Option) (*DownloadDBLogFilePortionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).DownloadDBLogFilePortion")
+	defer span.End()
+
 	req, out := c.DownloadDBLogFilePortionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6523,6 +6707,9 @@ func (c *RDS) FailoverDBCluster(input *FailoverDBClusterInput) (*FailoverDBClust
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) FailoverDBClusterWithContext(ctx aws.Context, input *FailoverDBClusterInput, opts ...request.Option) (*FailoverDBClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).FailoverDBCluster")
+	defer span.End()
+
 	req, out := c.FailoverDBClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6611,6 +6798,9 @@ func (c *RDS) ListTagsForResource(input *ListTagsForResourceInput) (*ListTagsFor
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*ListTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).ListTagsForResource")
+	defer span.End()
+
 	req, out := c.ListTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6728,6 +6918,9 @@ func (c *RDS) ModifyDBCluster(input *ModifyDBClusterInput) (*ModifyDBClusterOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) ModifyDBClusterWithContext(ctx aws.Context, input *ModifyDBClusterInput, opts ...request.Option) (*ModifyDBClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).ModifyDBCluster")
+	defer span.End()
+
 	req, out := c.ModifyDBClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6832,6 +7025,9 @@ func (c *RDS) ModifyDBClusterParameterGroup(input *ModifyDBClusterParameterGroup
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) ModifyDBClusterParameterGroupWithContext(ctx aws.Context, input *ModifyDBClusterParameterGroupInput, opts ...request.Option) (*DBClusterParameterGroupNameMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).ModifyDBClusterParameterGroup")
+	defer span.End()
+
 	req, out := c.ModifyDBClusterParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6934,6 +7130,9 @@ func (c *RDS) ModifyDBClusterSnapshotAttribute(input *ModifyDBClusterSnapshotAtt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) ModifyDBClusterSnapshotAttributeWithContext(ctx aws.Context, input *ModifyDBClusterSnapshotAttributeInput, opts ...request.Option) (*ModifyDBClusterSnapshotAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).ModifyDBClusterSnapshotAttribute")
+	defer span.End()
+
 	req, out := c.ModifyDBClusterSnapshotAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7068,6 +7267,9 @@ func (c *RDS) ModifyDBInstance(input *ModifyDBInstanceInput) (*ModifyDBInstanceO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) ModifyDBInstanceWithContext(ctx aws.Context, input *ModifyDBInstanceInput, opts ...request.Option) (*ModifyDBInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).ModifyDBInstance")
+	defer span.End()
+
 	req, out := c.ModifyDBInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7169,6 +7371,9 @@ func (c *RDS) ModifyDBParameterGroup(input *ModifyDBParameterGroupInput) (*DBPar
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) ModifyDBParameterGroupWithContext(ctx aws.Context, input *ModifyDBParameterGroupInput, opts ...request.Option) (*DBParameterGroupNameMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).ModifyDBParameterGroup")
+	defer span.End()
+
 	req, out := c.ModifyDBParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7251,6 +7456,9 @@ func (c *RDS) ModifyDBSnapshot(input *ModifyDBSnapshotInput) (*ModifyDBSnapshotO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) ModifyDBSnapshotWithContext(ctx aws.Context, input *ModifyDBSnapshotInput, opts ...request.Option) (*ModifyDBSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).ModifyDBSnapshot")
+	defer span.End()
+
 	req, out := c.ModifyDBSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7353,6 +7561,9 @@ func (c *RDS) ModifyDBSnapshotAttribute(input *ModifyDBSnapshotAttributeInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) ModifyDBSnapshotAttributeWithContext(ctx aws.Context, input *ModifyDBSnapshotAttributeInput, opts ...request.Option) (*ModifyDBSnapshotAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).ModifyDBSnapshotAttribute")
+	defer span.End()
+
 	req, out := c.ModifyDBSnapshotAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7448,6 +7659,9 @@ func (c *RDS) ModifyDBSubnetGroup(input *ModifyDBSubnetGroupInput) (*ModifyDBSub
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) ModifyDBSubnetGroupWithContext(ctx aws.Context, input *ModifyDBSubnetGroupInput, opts ...request.Option) (*ModifyDBSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).ModifyDBSubnetGroup")
+	defer span.End()
+
 	req, out := c.ModifyDBSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7550,6 +7764,9 @@ func (c *RDS) ModifyEventSubscription(input *ModifyEventSubscriptionInput) (*Mod
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) ModifyEventSubscriptionWithContext(ctx aws.Context, input *ModifyEventSubscriptionInput, opts ...request.Option) (*ModifyEventSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).ModifyEventSubscription")
+	defer span.End()
+
 	req, out := c.ModifyEventSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7632,6 +7849,9 @@ func (c *RDS) ModifyOptionGroup(input *ModifyOptionGroupInput) (*ModifyOptionGro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) ModifyOptionGroupWithContext(ctx aws.Context, input *ModifyOptionGroupInput, opts ...request.Option) (*ModifyOptionGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).ModifyOptionGroup")
+	defer span.End()
+
 	req, out := c.ModifyOptionGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7724,6 +7944,9 @@ func (c *RDS) PromoteReadReplica(input *PromoteReadReplicaInput) (*PromoteReadRe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) PromoteReadReplicaWithContext(ctx aws.Context, input *PromoteReadReplicaInput, opts ...request.Option) (*PromoteReadReplicaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).PromoteReadReplica")
+	defer span.End()
+
 	req, out := c.PromoteReadReplicaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7806,6 +8029,9 @@ func (c *RDS) PromoteReadReplicaDBCluster(input *PromoteReadReplicaDBClusterInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) PromoteReadReplicaDBClusterWithContext(ctx aws.Context, input *PromoteReadReplicaDBClusterInput, opts ...request.Option) (*PromoteReadReplicaDBClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).PromoteReadReplicaDBCluster")
+	defer span.End()
+
 	req, out := c.PromoteReadReplicaDBClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7891,6 +8117,9 @@ func (c *RDS) PurchaseReservedDBInstancesOffering(input *PurchaseReservedDBInsta
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) PurchaseReservedDBInstancesOfferingWithContext(ctx aws.Context, input *PurchaseReservedDBInstancesOfferingInput, opts ...request.Option) (*PurchaseReservedDBInstancesOfferingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).PurchaseReservedDBInstancesOffering")
+	defer span.End()
+
 	req, out := c.PurchaseReservedDBInstancesOfferingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7982,6 +8211,9 @@ func (c *RDS) RebootDBInstance(input *RebootDBInstanceInput) (*RebootDBInstanceO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) RebootDBInstanceWithContext(ctx aws.Context, input *RebootDBInstanceInput, opts ...request.Option) (*RebootDBInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).RebootDBInstance")
+	defer span.End()
+
 	req, out := c.RebootDBInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8072,6 +8304,9 @@ func (c *RDS) RemoveRoleFromDBCluster(input *RemoveRoleFromDBClusterInput) (*Rem
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) RemoveRoleFromDBClusterWithContext(ctx aws.Context, input *RemoveRoleFromDBClusterInput, opts ...request.Option) (*RemoveRoleFromDBClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).RemoveRoleFromDBCluster")
+	defer span.End()
+
 	req, out := c.RemoveRoleFromDBClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8154,6 +8389,9 @@ func (c *RDS) RemoveSourceIdentifierFromSubscription(input *RemoveSourceIdentifi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) RemoveSourceIdentifierFromSubscriptionWithContext(ctx aws.Context, input *RemoveSourceIdentifierFromSubscriptionInput, opts ...request.Option) (*RemoveSourceIdentifierFromSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).RemoveSourceIdentifierFromSubscription")
+	defer span.End()
+
 	req, out := c.RemoveSourceIdentifierFromSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8244,6 +8482,9 @@ func (c *RDS) RemoveTagsFromResource(input *RemoveTagsFromResourceInput) (*Remov
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) RemoveTagsFromResourceWithContext(ctx aws.Context, input *RemoveTagsFromResourceInput, opts ...request.Option) (*RemoveTagsFromResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).RemoveTagsFromResource")
+	defer span.End()
+
 	req, out := c.RemoveTagsFromResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8340,6 +8581,9 @@ func (c *RDS) ResetDBClusterParameterGroup(input *ResetDBClusterParameterGroupIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) ResetDBClusterParameterGroupWithContext(ctx aws.Context, input *ResetDBClusterParameterGroupInput, opts ...request.Option) (*DBClusterParameterGroupNameMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).ResetDBClusterParameterGroup")
+	defer span.End()
+
 	req, out := c.ResetDBClusterParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8430,6 +8674,9 @@ func (c *RDS) ResetDBParameterGroup(input *ResetDBParameterGroupInput) (*DBParam
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) ResetDBParameterGroupWithContext(ctx aws.Context, input *ResetDBParameterGroupInput, opts ...request.Option) (*DBParameterGroupNameMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).ResetDBParameterGroup")
+	defer span.End()
+
 	req, out := c.ResetDBParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8557,6 +8804,9 @@ func (c *RDS) RestoreDBClusterFromS3(input *RestoreDBClusterFromS3Input) (*Resto
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) RestoreDBClusterFromS3WithContext(ctx aws.Context, input *RestoreDBClusterFromS3Input, opts ...request.Option) (*RestoreDBClusterFromS3Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).RestoreDBClusterFromS3")
+	defer span.End()
+
 	req, out := c.RestoreDBClusterFromS3Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8702,6 +8952,9 @@ func (c *RDS) RestoreDBClusterFromSnapshot(input *RestoreDBClusterFromSnapshotIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) RestoreDBClusterFromSnapshotWithContext(ctx aws.Context, input *RestoreDBClusterFromSnapshotInput, opts ...request.Option) (*RestoreDBClusterFromSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).RestoreDBClusterFromSnapshot")
+	defer span.End()
+
 	req, out := c.RestoreDBClusterFromSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8846,6 +9099,9 @@ func (c *RDS) RestoreDBClusterToPointInTime(input *RestoreDBClusterToPointInTime
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) RestoreDBClusterToPointInTimeWithContext(ctx aws.Context, input *RestoreDBClusterToPointInTimeInput, opts ...request.Option) (*RestoreDBClusterToPointInTimeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).RestoreDBClusterToPointInTime")
+	defer span.End()
+
 	req, out := c.RestoreDBClusterToPointInTimeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9006,6 +9262,9 @@ func (c *RDS) RestoreDBInstanceFromDBSnapshot(input *RestoreDBInstanceFromDBSnap
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) RestoreDBInstanceFromDBSnapshotWithContext(ctx aws.Context, input *RestoreDBInstanceFromDBSnapshotInput, opts ...request.Option) (*RestoreDBInstanceFromDBSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).RestoreDBInstanceFromDBSnapshot")
+	defer span.End()
+
 	req, out := c.RestoreDBInstanceFromDBSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9146,6 +9405,9 @@ func (c *RDS) RestoreDBInstanceFromS3(input *RestoreDBInstanceFromS3Input) (*Res
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) RestoreDBInstanceFromS3WithContext(ctx aws.Context, input *RestoreDBInstanceFromS3Input, opts ...request.Option) (*RestoreDBInstanceFromS3Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).RestoreDBInstanceFromS3")
+	defer span.End()
+
 	req, out := c.RestoreDBInstanceFromS3Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9303,6 +9565,9 @@ func (c *RDS) RestoreDBInstanceToPointInTime(input *RestoreDBInstanceToPointInTi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) RestoreDBInstanceToPointInTimeWithContext(ctx aws.Context, input *RestoreDBInstanceToPointInTimeInput, opts ...request.Option) (*RestoreDBInstanceToPointInTimeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).RestoreDBInstanceToPointInTime")
+	defer span.End()
+
 	req, out := c.RestoreDBInstanceToPointInTimeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9395,6 +9660,9 @@ func (c *RDS) RevokeDBSecurityGroupIngress(input *RevokeDBSecurityGroupIngressIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) RevokeDBSecurityGroupIngressWithContext(ctx aws.Context, input *RevokeDBSecurityGroupIngressInput, opts ...request.Option) (*RevokeDBSecurityGroupIngressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).RevokeDBSecurityGroupIngress")
+	defer span.End()
+
 	req, out := c.RevokeDBSecurityGroupIngressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9516,6 +9784,9 @@ func (c *RDS) StartDBInstance(input *StartDBInstanceInput) (*StartDBInstanceOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) StartDBInstanceWithContext(ctx aws.Context, input *StartDBInstanceInput, opts ...request.Option) (*StartDBInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).StartDBInstance")
+	defer span.End()
+
 	req, out := c.StartDBInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9613,6 +9884,9 @@ func (c *RDS) StopDBInstance(input *StopDBInstanceInput) (*StopDBInstanceOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *RDS) StopDBInstanceWithContext(ctx aws.Context, input *StopDBInstanceInput, opts ...request.Option) (*StopDBInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rds.(*RDS).StopDBInstance")
+	defer span.End()
+
 	req, out := c.StopDBInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

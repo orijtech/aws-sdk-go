@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAddIpRoutes = "AddIpRoutes"
@@ -112,6 +113,9 @@ func (c *DirectoryService) AddIpRoutes(input *AddIpRoutesInput) (*AddIpRoutesOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) AddIpRoutesWithContext(ctx aws.Context, input *AddIpRoutesInput, opts ...request.Option) (*AddIpRoutesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).AddIpRoutes")
+	defer span.End()
+
 	req, out := c.AddIpRoutesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -205,6 +209,9 @@ func (c *DirectoryService) AddTagsToResource(input *AddTagsToResourceInput) (*Ad
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) AddTagsToResourceWithContext(ctx aws.Context, input *AddTagsToResourceInput, opts ...request.Option) (*AddTagsToResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).AddTagsToResource")
+	defer span.End()
+
 	req, out := c.AddTagsToResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -293,6 +300,9 @@ func (c *DirectoryService) CancelSchemaExtension(input *CancelSchemaExtensionInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) CancelSchemaExtensionWithContext(ctx aws.Context, input *CancelSchemaExtensionInput, opts ...request.Option) (*CancelSchemaExtensionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).CancelSchemaExtension")
+	defer span.End()
+
 	req, out := c.CancelSchemaExtensionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -388,6 +398,9 @@ func (c *DirectoryService) ConnectDirectory(input *ConnectDirectoryInput) (*Conn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) ConnectDirectoryWithContext(ctx aws.Context, input *ConnectDirectoryInput, opts ...request.Option) (*ConnectDirectoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).ConnectDirectory")
+	defer span.End()
+
 	req, out := c.ConnectDirectoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -484,6 +497,9 @@ func (c *DirectoryService) CreateAlias(input *CreateAliasInput) (*CreateAliasOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) CreateAliasWithContext(ctx aws.Context, input *CreateAliasInput, opts ...request.Option) (*CreateAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).CreateAlias")
+	defer span.End()
+
 	req, out := c.CreateAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -585,6 +601,9 @@ func (c *DirectoryService) CreateComputer(input *CreateComputerInput) (*CreateCo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) CreateComputerWithContext(ctx aws.Context, input *CreateComputerInput, opts ...request.Option) (*CreateComputerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).CreateComputer")
+	defer span.End()
+
 	req, out := c.CreateComputerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -684,6 +703,9 @@ func (c *DirectoryService) CreateConditionalForwarder(input *CreateConditionalFo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) CreateConditionalForwarderWithContext(ctx aws.Context, input *CreateConditionalForwarderInput, opts ...request.Option) (*CreateConditionalForwarderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).CreateConditionalForwarder")
+	defer span.End()
+
 	req, out := c.CreateConditionalForwarderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -779,6 +801,9 @@ func (c *DirectoryService) CreateDirectory(input *CreateDirectoryInput) (*Create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) CreateDirectoryWithContext(ctx aws.Context, input *CreateDirectoryInput, opts ...request.Option) (*CreateDirectoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).CreateDirectory")
+	defer span.End()
+
 	req, out := c.CreateDirectoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -877,6 +902,9 @@ func (c *DirectoryService) CreateMicrosoftAD(input *CreateMicrosoftADInput) (*Cr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) CreateMicrosoftADWithContext(ctx aws.Context, input *CreateMicrosoftADInput, opts ...request.Option) (*CreateMicrosoftADOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).CreateMicrosoftAD")
+	defer span.End()
+
 	req, out := c.CreateMicrosoftADRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -972,6 +1000,9 @@ func (c *DirectoryService) CreateSnapshot(input *CreateSnapshotInput) (*CreateSn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) CreateSnapshotWithContext(ctx aws.Context, input *CreateSnapshotInput, opts ...request.Option) (*CreateSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).CreateSnapshot")
+	defer span.End()
+
 	req, out := c.CreateSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1073,6 +1104,9 @@ func (c *DirectoryService) CreateTrust(input *CreateTrustInput) (*CreateTrustOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) CreateTrustWithContext(ctx aws.Context, input *CreateTrustInput, opts ...request.Option) (*CreateTrustOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).CreateTrust")
+	defer span.End()
+
 	req, out := c.CreateTrustRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1167,6 +1201,9 @@ func (c *DirectoryService) DeleteConditionalForwarder(input *DeleteConditionalFo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) DeleteConditionalForwarderWithContext(ctx aws.Context, input *DeleteConditionalForwarderInput, opts ...request.Option) (*DeleteConditionalForwarderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).DeleteConditionalForwarder")
+	defer span.End()
+
 	req, out := c.DeleteConditionalForwarderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1257,6 +1294,9 @@ func (c *DirectoryService) DeleteDirectory(input *DeleteDirectoryInput) (*Delete
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) DeleteDirectoryWithContext(ctx aws.Context, input *DeleteDirectoryInput, opts ...request.Option) (*DeleteDirectoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).DeleteDirectory")
+	defer span.End()
+
 	req, out := c.DeleteDirectoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1345,6 +1385,9 @@ func (c *DirectoryService) DeleteSnapshot(input *DeleteSnapshotInput) (*DeleteSn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) DeleteSnapshotWithContext(ctx aws.Context, input *DeleteSnapshotInput, opts ...request.Option) (*DeleteSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).DeleteSnapshot")
+	defer span.End()
+
 	req, out := c.DeleteSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1437,6 +1480,9 @@ func (c *DirectoryService) DeleteTrust(input *DeleteTrustInput) (*DeleteTrustOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) DeleteTrustWithContext(ctx aws.Context, input *DeleteTrustInput, opts ...request.Option) (*DeleteTrustOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).DeleteTrust")
+	defer span.End()
+
 	req, out := c.DeleteTrustRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1525,6 +1571,9 @@ func (c *DirectoryService) DeregisterEventTopic(input *DeregisterEventTopicInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) DeregisterEventTopicWithContext(ctx aws.Context, input *DeregisterEventTopicInput, opts ...request.Option) (*DeregisterEventTopicOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).DeregisterEventTopic")
+	defer span.End()
+
 	req, out := c.DeregisterEventTopicRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1622,6 +1671,9 @@ func (c *DirectoryService) DescribeConditionalForwarders(input *DescribeConditio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) DescribeConditionalForwardersWithContext(ctx aws.Context, input *DescribeConditionalForwardersInput, opts ...request.Option) (*DescribeConditionalForwardersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).DescribeConditionalForwarders")
+	defer span.End()
+
 	req, out := c.DescribeConditionalForwardersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1724,6 +1776,9 @@ func (c *DirectoryService) DescribeDirectories(input *DescribeDirectoriesInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) DescribeDirectoriesWithContext(ctx aws.Context, input *DescribeDirectoriesInput, opts ...request.Option) (*DescribeDirectoriesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).DescribeDirectories")
+	defer span.End()
+
 	req, out := c.DescribeDirectoriesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1824,6 +1879,9 @@ func (c *DirectoryService) DescribeDomainControllers(input *DescribeDomainContro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) DescribeDomainControllersWithContext(ctx aws.Context, input *DescribeDomainControllersInput, opts ...request.Option) (*DescribeDomainControllersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).DescribeDomainControllers")
+	defer span.End()
+
 	req, out := c.DescribeDomainControllersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1966,6 +2024,9 @@ func (c *DirectoryService) DescribeEventTopics(input *DescribeEventTopicsInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) DescribeEventTopicsWithContext(ctx aws.Context, input *DescribeEventTopicsInput, opts ...request.Option) (*DescribeEventTopicsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).DescribeEventTopics")
+	defer span.End()
+
 	req, out := c.DescribeEventTopicsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2064,6 +2125,9 @@ func (c *DirectoryService) DescribeSnapshots(input *DescribeSnapshotsInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) DescribeSnapshotsWithContext(ctx aws.Context, input *DescribeSnapshotsInput, opts ...request.Option) (*DescribeSnapshotsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).DescribeSnapshots")
+	defer span.End()
+
 	req, out := c.DescribeSnapshotsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2161,6 +2225,9 @@ func (c *DirectoryService) DescribeTrusts(input *DescribeTrustsInput) (*Describe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) DescribeTrustsWithContext(ctx aws.Context, input *DescribeTrustsInput, opts ...request.Option) (*DescribeTrustsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).DescribeTrusts")
+	defer span.End()
+
 	req, out := c.DescribeTrustsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2247,6 +2314,9 @@ func (c *DirectoryService) DisableRadius(input *DisableRadiusInput) (*DisableRad
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) DisableRadiusWithContext(ctx aws.Context, input *DisableRadiusInput, opts ...request.Option) (*DisableRadiusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).DisableRadius")
+	defer span.End()
+
 	req, out := c.DisableRadiusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2338,6 +2408,9 @@ func (c *DirectoryService) DisableSso(input *DisableSsoInput) (*DisableSsoOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) DisableSsoWithContext(ctx aws.Context, input *DisableSsoInput, opts ...request.Option) (*DisableSsoOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).DisableSso")
+	defer span.End()
+
 	req, out := c.DisableSsoRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2430,6 +2503,9 @@ func (c *DirectoryService) EnableRadius(input *EnableRadiusInput) (*EnableRadius
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) EnableRadiusWithContext(ctx aws.Context, input *EnableRadiusInput, opts ...request.Option) (*EnableRadiusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).EnableRadius")
+	defer span.End()
+
 	req, out := c.EnableRadiusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2521,6 +2597,9 @@ func (c *DirectoryService) EnableSso(input *EnableSsoInput) (*EnableSsoOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) EnableSsoWithContext(ctx aws.Context, input *EnableSsoInput, opts ...request.Option) (*EnableSsoOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).EnableSso")
+	defer span.End()
+
 	req, out := c.EnableSsoRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2606,6 +2685,9 @@ func (c *DirectoryService) GetDirectoryLimits(input *GetDirectoryLimitsInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) GetDirectoryLimitsWithContext(ctx aws.Context, input *GetDirectoryLimitsInput, opts ...request.Option) (*GetDirectoryLimitsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).GetDirectoryLimits")
+	defer span.End()
+
 	req, out := c.GetDirectoryLimitsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2691,6 +2773,9 @@ func (c *DirectoryService) GetSnapshotLimits(input *GetSnapshotLimitsInput) (*Ge
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) GetSnapshotLimitsWithContext(ctx aws.Context, input *GetSnapshotLimitsInput, opts ...request.Option) (*GetSnapshotLimitsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).GetSnapshotLimits")
+	defer span.End()
+
 	req, out := c.GetSnapshotLimitsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2782,6 +2867,9 @@ func (c *DirectoryService) ListIpRoutes(input *ListIpRoutesInput) (*ListIpRoutes
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) ListIpRoutesWithContext(ctx aws.Context, input *ListIpRoutesInput, opts ...request.Option) (*ListIpRoutesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).ListIpRoutes")
+	defer span.End()
+
 	req, out := c.ListIpRoutesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2870,6 +2958,9 @@ func (c *DirectoryService) ListSchemaExtensions(input *ListSchemaExtensionsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) ListSchemaExtensionsWithContext(ctx aws.Context, input *ListSchemaExtensionsInput, opts ...request.Option) (*ListSchemaExtensionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).ListSchemaExtensions")
+	defer span.End()
+
 	req, out := c.ListSchemaExtensionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2961,6 +3052,9 @@ func (c *DirectoryService) ListTagsForResource(input *ListTagsForResourceInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*ListTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).ListTagsForResource")
+	defer span.End()
+
 	req, out := c.ListTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3054,6 +3148,9 @@ func (c *DirectoryService) RegisterEventTopic(input *RegisterEventTopicInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) RegisterEventTopicWithContext(ctx aws.Context, input *RegisterEventTopicInput, opts ...request.Option) (*RegisterEventTopicOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).RegisterEventTopic")
+	defer span.End()
+
 	req, out := c.RegisterEventTopicRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3145,6 +3242,9 @@ func (c *DirectoryService) RemoveIpRoutes(input *RemoveIpRoutesInput) (*RemoveIp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) RemoveIpRoutesWithContext(ctx aws.Context, input *RemoveIpRoutesInput, opts ...request.Option) (*RemoveIpRoutesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).RemoveIpRoutes")
+	defer span.End()
+
 	req, out := c.RemoveIpRoutesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3233,6 +3333,9 @@ func (c *DirectoryService) RemoveTagsFromResource(input *RemoveTagsFromResourceI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) RemoveTagsFromResourceWithContext(ctx aws.Context, input *RemoveTagsFromResourceInput, opts ...request.Option) (*RemoveTagsFromResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).RemoveTagsFromResource")
+	defer span.End()
+
 	req, out := c.RemoveTagsFromResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3329,6 +3432,9 @@ func (c *DirectoryService) RestoreFromSnapshot(input *RestoreFromSnapshotInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) RestoreFromSnapshotWithContext(ctx aws.Context, input *RestoreFromSnapshotInput, opts ...request.Option) (*RestoreFromSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).RestoreFromSnapshot")
+	defer span.End()
+
 	req, out := c.RestoreFromSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3425,6 +3531,9 @@ func (c *DirectoryService) StartSchemaExtension(input *StartSchemaExtensionInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) StartSchemaExtensionWithContext(ctx aws.Context, input *StartSchemaExtensionInput, opts ...request.Option) (*StartSchemaExtensionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).StartSchemaExtension")
+	defer span.End()
+
 	req, out := c.StartSchemaExtensionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3519,6 +3628,9 @@ func (c *DirectoryService) UpdateConditionalForwarder(input *UpdateConditionalFo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) UpdateConditionalForwarderWithContext(ctx aws.Context, input *UpdateConditionalForwarderInput, opts ...request.Option) (*UpdateConditionalForwarderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).UpdateConditionalForwarder")
+	defer span.End()
+
 	req, out := c.UpdateConditionalForwarderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3622,6 +3734,9 @@ func (c *DirectoryService) UpdateNumberOfDomainControllers(input *UpdateNumberOf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) UpdateNumberOfDomainControllersWithContext(ctx aws.Context, input *UpdateNumberOfDomainControllersInput, opts ...request.Option) (*UpdateNumberOfDomainControllersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).UpdateNumberOfDomainControllers")
+	defer span.End()
+
 	req, out := c.UpdateNumberOfDomainControllersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3711,6 +3826,9 @@ func (c *DirectoryService) UpdateRadius(input *UpdateRadiusInput) (*UpdateRadius
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) UpdateRadiusWithContext(ctx aws.Context, input *UpdateRadiusInput, opts ...request.Option) (*UpdateRadiusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).UpdateRadius")
+	defer span.End()
+
 	req, out := c.UpdateRadiusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3806,6 +3924,9 @@ func (c *DirectoryService) VerifyTrust(input *VerifyTrustInput) (*VerifyTrustOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectoryService) VerifyTrustWithContext(ctx aws.Context, input *VerifyTrustInput, opts ...request.Option) (*VerifyTrustOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directoryservice.(*DirectoryService).VerifyTrust")
+	defer span.End()
+
 	req, out := c.VerifyTrustRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

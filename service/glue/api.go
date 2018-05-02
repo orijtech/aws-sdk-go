@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opBatchCreatePartition = "BatchCreatePartition"
@@ -99,6 +100,9 @@ func (c *Glue) BatchCreatePartition(input *BatchCreatePartitionInput) (*BatchCre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) BatchCreatePartitionWithContext(ctx aws.Context, input *BatchCreatePartitionInput, opts ...request.Option) (*BatchCreatePartitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).BatchCreatePartition")
+	defer span.End()
+
 	req, out := c.BatchCreatePartitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -181,6 +185,9 @@ func (c *Glue) BatchDeleteConnection(input *BatchDeleteConnectionInput) (*BatchD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) BatchDeleteConnectionWithContext(ctx aws.Context, input *BatchDeleteConnectionInput, opts ...request.Option) (*BatchDeleteConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).BatchDeleteConnection")
+	defer span.End()
+
 	req, out := c.BatchDeleteConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -269,6 +276,9 @@ func (c *Glue) BatchDeletePartition(input *BatchDeletePartitionInput) (*BatchDel
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) BatchDeletePartitionWithContext(ctx aws.Context, input *BatchDeletePartitionInput, opts ...request.Option) (*BatchDeletePartitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).BatchDeletePartition")
+	defer span.End()
+
 	req, out := c.BatchDeletePartitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -357,6 +367,9 @@ func (c *Glue) BatchDeleteTable(input *BatchDeleteTableInput) (*BatchDeleteTable
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) BatchDeleteTableWithContext(ctx aws.Context, input *BatchDeleteTableInput, opts ...request.Option) (*BatchDeleteTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).BatchDeleteTable")
+	defer span.End()
+
 	req, out := c.BatchDeleteTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -445,6 +458,9 @@ func (c *Glue) BatchDeleteTableVersion(input *BatchDeleteTableVersionInput) (*Ba
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) BatchDeleteTableVersionWithContext(ctx aws.Context, input *BatchDeleteTableVersionInput, opts ...request.Option) (*BatchDeleteTableVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).BatchDeleteTableVersion")
+	defer span.End()
+
 	req, out := c.BatchDeleteTableVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -533,6 +549,9 @@ func (c *Glue) BatchGetPartition(input *BatchGetPartitionInput) (*BatchGetPartit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) BatchGetPartitionWithContext(ctx aws.Context, input *BatchGetPartitionInput, opts ...request.Option) (*BatchGetPartitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).BatchGetPartition")
+	defer span.End()
+
 	req, out := c.BatchGetPartitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -618,6 +637,9 @@ func (c *Glue) BatchStopJobRun(input *BatchStopJobRunInput) (*BatchStopJobRunOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) BatchStopJobRunWithContext(ctx aws.Context, input *BatchStopJobRunInput, opts ...request.Option) (*BatchStopJobRunOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).BatchStopJobRun")
+	defer span.End()
+
 	req, out := c.BatchStopJobRunRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -705,6 +727,9 @@ func (c *Glue) CreateClassifier(input *CreateClassifierInput) (*CreateClassifier
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) CreateClassifierWithContext(ctx aws.Context, input *CreateClassifierInput, opts ...request.Option) (*CreateClassifierOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).CreateClassifier")
+	defer span.End()
+
 	req, out := c.CreateClassifierRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -793,6 +818,9 @@ func (c *Glue) CreateConnection(input *CreateConnectionInput) (*CreateConnection
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) CreateConnectionWithContext(ctx aws.Context, input *CreateConnectionInput, opts ...request.Option) (*CreateConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).CreateConnection")
+	defer span.End()
+
 	req, out := c.CreateConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -883,6 +911,9 @@ func (c *Glue) CreateCrawler(input *CreateCrawlerInput) (*CreateCrawlerOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) CreateCrawlerWithContext(ctx aws.Context, input *CreateCrawlerInput, opts ...request.Option) (*CreateCrawlerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).CreateCrawler")
+	defer span.End()
+
 	req, out := c.CreateCrawlerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -974,6 +1005,9 @@ func (c *Glue) CreateDatabase(input *CreateDatabaseInput) (*CreateDatabaseOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) CreateDatabaseWithContext(ctx aws.Context, input *CreateDatabaseInput, opts ...request.Option) (*CreateDatabaseOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).CreateDatabase")
+	defer span.End()
+
 	req, out := c.CreateDatabaseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1074,6 +1108,9 @@ func (c *Glue) CreateDevEndpoint(input *CreateDevEndpointInput) (*CreateDevEndpo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) CreateDevEndpointWithContext(ctx aws.Context, input *CreateDevEndpointInput, opts ...request.Option) (*CreateDevEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).CreateDevEndpoint")
+	defer span.End()
+
 	req, out := c.CreateDevEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1171,6 +1208,9 @@ func (c *Glue) CreateJob(input *CreateJobInput) (*CreateJobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) CreateJobWithContext(ctx aws.Context, input *CreateJobInput, opts ...request.Option) (*CreateJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).CreateJob")
+	defer span.End()
+
 	req, out := c.CreateJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1265,6 +1305,9 @@ func (c *Glue) CreatePartition(input *CreatePartitionInput) (*CreatePartitionOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) CreatePartitionWithContext(ctx aws.Context, input *CreatePartitionInput, opts ...request.Option) (*CreatePartitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).CreatePartition")
+	defer span.End()
+
 	req, out := c.CreatePartitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1350,6 +1393,9 @@ func (c *Glue) CreateScript(input *CreateScriptInput) (*CreateScriptOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) CreateScriptWithContext(ctx aws.Context, input *CreateScriptInput, opts ...request.Option) (*CreateScriptOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).CreateScript")
+	defer span.End()
+
 	req, out := c.CreateScriptRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1444,6 +1490,9 @@ func (c *Glue) CreateTable(input *CreateTableInput) (*CreateTableOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) CreateTableWithContext(ctx aws.Context, input *CreateTableInput, opts ...request.Option) (*CreateTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).CreateTable")
+	defer span.End()
+
 	req, out := c.CreateTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1541,6 +1590,9 @@ func (c *Glue) CreateTrigger(input *CreateTriggerInput) (*CreateTriggerOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) CreateTriggerWithContext(ctx aws.Context, input *CreateTriggerInput, opts ...request.Option) (*CreateTriggerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).CreateTrigger")
+	defer span.End()
+
 	req, out := c.CreateTriggerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1635,6 +1687,9 @@ func (c *Glue) CreateUserDefinedFunction(input *CreateUserDefinedFunctionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) CreateUserDefinedFunctionWithContext(ctx aws.Context, input *CreateUserDefinedFunctionInput, opts ...request.Option) (*CreateUserDefinedFunctionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).CreateUserDefinedFunction")
+	defer span.End()
+
 	req, out := c.CreateUserDefinedFunctionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1717,6 +1772,9 @@ func (c *Glue) DeleteClassifier(input *DeleteClassifierInput) (*DeleteClassifier
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) DeleteClassifierWithContext(ctx aws.Context, input *DeleteClassifierInput, opts ...request.Option) (*DeleteClassifierOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).DeleteClassifier")
+	defer span.End()
+
 	req, out := c.DeleteClassifierRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1799,6 +1857,9 @@ func (c *Glue) DeleteConnection(input *DeleteConnectionInput) (*DeleteConnection
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) DeleteConnectionWithContext(ctx aws.Context, input *DeleteConnectionInput, opts ...request.Option) (*DeleteConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).DeleteConnection")
+	defer span.End()
+
 	req, out := c.DeleteConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1888,6 +1949,9 @@ func (c *Glue) DeleteCrawler(input *DeleteCrawlerInput) (*DeleteCrawlerOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) DeleteCrawlerWithContext(ctx aws.Context, input *DeleteCrawlerInput, opts ...request.Option) (*DeleteCrawlerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).DeleteCrawler")
+	defer span.End()
+
 	req, out := c.DeleteCrawlerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1976,6 +2040,9 @@ func (c *Glue) DeleteDatabase(input *DeleteDatabaseInput) (*DeleteDatabaseOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) DeleteDatabaseWithContext(ctx aws.Context, input *DeleteDatabaseInput, opts ...request.Option) (*DeleteDatabaseOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).DeleteDatabase")
+	defer span.End()
+
 	req, out := c.DeleteDatabaseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2064,6 +2131,9 @@ func (c *Glue) DeleteDevEndpoint(input *DeleteDevEndpointInput) (*DeleteDevEndpo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) DeleteDevEndpointWithContext(ctx aws.Context, input *DeleteDevEndpointInput, opts ...request.Option) (*DeleteDevEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).DeleteDevEndpoint")
+	defer span.End()
+
 	req, out := c.DeleteDevEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2150,6 +2220,9 @@ func (c *Glue) DeleteJob(input *DeleteJobInput) (*DeleteJobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) DeleteJobWithContext(ctx aws.Context, input *DeleteJobInput, opts ...request.Option) (*DeleteJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).DeleteJob")
+	defer span.End()
+
 	req, out := c.DeleteJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2238,6 +2311,9 @@ func (c *Glue) DeletePartition(input *DeletePartitionInput) (*DeletePartitionOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) DeletePartitionWithContext(ctx aws.Context, input *DeletePartitionInput, opts ...request.Option) (*DeletePartitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).DeletePartition")
+	defer span.End()
+
 	req, out := c.DeletePartitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2326,6 +2402,9 @@ func (c *Glue) DeleteTable(input *DeleteTableInput) (*DeleteTableOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) DeleteTableWithContext(ctx aws.Context, input *DeleteTableInput, opts ...request.Option) (*DeleteTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).DeleteTable")
+	defer span.End()
+
 	req, out := c.DeleteTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2414,6 +2493,9 @@ func (c *Glue) DeleteTableVersion(input *DeleteTableVersionInput) (*DeleteTableV
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) DeleteTableVersionWithContext(ctx aws.Context, input *DeleteTableVersionInput, opts ...request.Option) (*DeleteTableVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).DeleteTableVersion")
+	defer span.End()
+
 	req, out := c.DeleteTableVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2503,6 +2585,9 @@ func (c *Glue) DeleteTrigger(input *DeleteTriggerInput) (*DeleteTriggerOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) DeleteTriggerWithContext(ctx aws.Context, input *DeleteTriggerInput, opts ...request.Option) (*DeleteTriggerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).DeleteTrigger")
+	defer span.End()
+
 	req, out := c.DeleteTriggerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2591,6 +2676,9 @@ func (c *Glue) DeleteUserDefinedFunction(input *DeleteUserDefinedFunctionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) DeleteUserDefinedFunctionWithContext(ctx aws.Context, input *DeleteUserDefinedFunctionInput, opts ...request.Option) (*DeleteUserDefinedFunctionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).DeleteUserDefinedFunction")
+	defer span.End()
+
 	req, out := c.DeleteUserDefinedFunctionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2673,6 +2761,9 @@ func (c *Glue) GetCatalogImportStatus(input *GetCatalogImportStatusInput) (*GetC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetCatalogImportStatusWithContext(ctx aws.Context, input *GetCatalogImportStatusInput, opts ...request.Option) (*GetCatalogImportStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetCatalogImportStatus")
+	defer span.End()
+
 	req, out := c.GetCatalogImportStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2755,6 +2846,9 @@ func (c *Glue) GetClassifier(input *GetClassifierInput) (*GetClassifierOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetClassifierWithContext(ctx aws.Context, input *GetClassifierInput, opts ...request.Option) (*GetClassifierOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetClassifier")
+	defer span.End()
+
 	req, out := c.GetClassifierRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2840,6 +2934,9 @@ func (c *Glue) GetClassifiers(input *GetClassifiersInput) (*GetClassifiersOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetClassifiersWithContext(ctx aws.Context, input *GetClassifiersInput, opts ...request.Option) (*GetClassifiersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetClassifiers")
+	defer span.End()
+
 	req, out := c.GetClassifiersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2972,6 +3069,9 @@ func (c *Glue) GetConnection(input *GetConnectionInput) (*GetConnectionOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetConnectionWithContext(ctx aws.Context, input *GetConnectionInput, opts ...request.Option) (*GetConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetConnection")
+	defer span.End()
+
 	req, out := c.GetConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3060,6 +3160,9 @@ func (c *Glue) GetConnections(input *GetConnectionsInput) (*GetConnectionsOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetConnectionsWithContext(ctx aws.Context, input *GetConnectionsInput, opts ...request.Option) (*GetConnectionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetConnections")
+	defer span.End()
+
 	req, out := c.GetConnectionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3192,6 +3295,9 @@ func (c *Glue) GetCrawler(input *GetCrawlerInput) (*GetCrawlerOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetCrawlerWithContext(ctx aws.Context, input *GetCrawlerInput, opts ...request.Option) (*GetCrawlerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetCrawler")
+	defer span.End()
+
 	req, out := c.GetCrawlerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3277,6 +3383,9 @@ func (c *Glue) GetCrawlerMetrics(input *GetCrawlerMetricsInput) (*GetCrawlerMetr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetCrawlerMetricsWithContext(ctx aws.Context, input *GetCrawlerMetricsInput, opts ...request.Option) (*GetCrawlerMetricsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetCrawlerMetrics")
+	defer span.End()
+
 	req, out := c.GetCrawlerMetricsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3412,6 +3521,9 @@ func (c *Glue) GetCrawlers(input *GetCrawlersInput) (*GetCrawlersOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetCrawlersWithContext(ctx aws.Context, input *GetCrawlersInput, opts ...request.Option) (*GetCrawlersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetCrawlers")
+	defer span.End()
+
 	req, out := c.GetCrawlersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3550,6 +3662,9 @@ func (c *Glue) GetDatabase(input *GetDatabaseInput) (*GetDatabaseOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetDatabaseWithContext(ctx aws.Context, input *GetDatabaseInput, opts ...request.Option) (*GetDatabaseOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetDatabase")
+	defer span.End()
+
 	req, out := c.GetDatabaseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3641,6 +3756,9 @@ func (c *Glue) GetDatabases(input *GetDatabasesInput) (*GetDatabasesOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetDatabasesWithContext(ctx aws.Context, input *GetDatabasesInput, opts ...request.Option) (*GetDatabasesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetDatabases")
+	defer span.End()
+
 	req, out := c.GetDatabasesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3776,6 +3894,9 @@ func (c *Glue) GetDataflowGraph(input *GetDataflowGraphInput) (*GetDataflowGraph
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetDataflowGraphWithContext(ctx aws.Context, input *GetDataflowGraphInput, opts ...request.Option) (*GetDataflowGraphOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetDataflowGraph")
+	defer span.End()
+
 	req, out := c.GetDataflowGraphRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3864,6 +3985,9 @@ func (c *Glue) GetDevEndpoint(input *GetDevEndpointInput) (*GetDevEndpointOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetDevEndpointWithContext(ctx aws.Context, input *GetDevEndpointInput, opts ...request.Option) (*GetDevEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetDevEndpoint")
+	defer span.End()
+
 	req, out := c.GetDevEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3958,6 +4082,9 @@ func (c *Glue) GetDevEndpoints(input *GetDevEndpointsInput) (*GetDevEndpointsOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetDevEndpointsWithContext(ctx aws.Context, input *GetDevEndpointsInput, opts ...request.Option) (*GetDevEndpointsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetDevEndpoints")
+	defer span.End()
+
 	req, out := c.GetDevEndpointsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4096,6 +4223,9 @@ func (c *Glue) GetJob(input *GetJobInput) (*GetJobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetJobWithContext(ctx aws.Context, input *GetJobInput, opts ...request.Option) (*GetJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetJob")
+	defer span.End()
+
 	req, out := c.GetJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4184,6 +4314,9 @@ func (c *Glue) GetJobRun(input *GetJobRunInput) (*GetJobRunOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetJobRunWithContext(ctx aws.Context, input *GetJobRunInput, opts ...request.Option) (*GetJobRunOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetJobRun")
+	defer span.End()
+
 	req, out := c.GetJobRunRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4278,6 +4411,9 @@ func (c *Glue) GetJobRuns(input *GetJobRunsInput) (*GetJobRunsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetJobRunsWithContext(ctx aws.Context, input *GetJobRunsInput, opts ...request.Option) (*GetJobRunsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetJobRuns")
+	defer span.End()
+
 	req, out := c.GetJobRunsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4422,6 +4558,9 @@ func (c *Glue) GetJobs(input *GetJobsInput) (*GetJobsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetJobsWithContext(ctx aws.Context, input *GetJobsInput, opts ...request.Option) (*GetJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetJobs")
+	defer span.End()
+
 	req, out := c.GetJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4560,6 +4699,9 @@ func (c *Glue) GetMapping(input *GetMappingInput) (*GetMappingOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetMappingWithContext(ctx aws.Context, input *GetMappingInput, opts ...request.Option) (*GetMappingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetMapping")
+	defer span.End()
+
 	req, out := c.GetMappingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4648,6 +4790,9 @@ func (c *Glue) GetPartition(input *GetPartitionInput) (*GetPartitionOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetPartitionWithContext(ctx aws.Context, input *GetPartitionInput, opts ...request.Option) (*GetPartitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetPartition")
+	defer span.End()
+
 	req, out := c.GetPartitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4742,6 +4887,9 @@ func (c *Glue) GetPartitions(input *GetPartitionsInput) (*GetPartitionsOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetPartitionsWithContext(ctx aws.Context, input *GetPartitionsInput, opts ...request.Option) (*GetPartitionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetPartitions")
+	defer span.End()
+
 	req, out := c.GetPartitionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4877,6 +5025,9 @@ func (c *Glue) GetPlan(input *GetPlanInput) (*GetPlanOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetPlanWithContext(ctx aws.Context, input *GetPlanInput, opts ...request.Option) (*GetPlanOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetPlan")
+	defer span.End()
+
 	req, out := c.GetPlanRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4965,6 +5116,9 @@ func (c *Glue) GetTable(input *GetTableInput) (*GetTableOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetTableWithContext(ctx aws.Context, input *GetTableInput, opts ...request.Option) (*GetTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetTable")
+	defer span.End()
+
 	req, out := c.GetTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5053,6 +5207,9 @@ func (c *Glue) GetTableVersion(input *GetTableVersionInput) (*GetTableVersionOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetTableVersionWithContext(ctx aws.Context, input *GetTableVersionInput, opts ...request.Option) (*GetTableVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetTableVersion")
+	defer span.End()
+
 	req, out := c.GetTableVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5148,6 +5305,9 @@ func (c *Glue) GetTableVersions(input *GetTableVersionsInput) (*GetTableVersions
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetTableVersionsWithContext(ctx aws.Context, input *GetTableVersionsInput, opts ...request.Option) (*GetTableVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetTableVersions")
+	defer span.End()
+
 	req, out := c.GetTableVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5292,6 +5452,9 @@ func (c *Glue) GetTables(input *GetTablesInput) (*GetTablesOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetTablesWithContext(ctx aws.Context, input *GetTablesInput, opts ...request.Option) (*GetTablesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetTables")
+	defer span.End()
+
 	req, out := c.GetTablesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5430,6 +5593,9 @@ func (c *Glue) GetTrigger(input *GetTriggerInput) (*GetTriggerOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetTriggerWithContext(ctx aws.Context, input *GetTriggerInput, opts ...request.Option) (*GetTriggerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetTrigger")
+	defer span.End()
+
 	req, out := c.GetTriggerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5524,6 +5690,9 @@ func (c *Glue) GetTriggers(input *GetTriggersInput) (*GetTriggersOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetTriggersWithContext(ctx aws.Context, input *GetTriggersInput, opts ...request.Option) (*GetTriggersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetTriggers")
+	defer span.End()
+
 	req, out := c.GetTriggersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5662,6 +5831,9 @@ func (c *Glue) GetUserDefinedFunction(input *GetUserDefinedFunctionInput) (*GetU
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetUserDefinedFunctionWithContext(ctx aws.Context, input *GetUserDefinedFunctionInput, opts ...request.Option) (*GetUserDefinedFunctionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetUserDefinedFunction")
+	defer span.End()
+
 	req, out := c.GetUserDefinedFunctionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5756,6 +5928,9 @@ func (c *Glue) GetUserDefinedFunctions(input *GetUserDefinedFunctionsInput) (*Ge
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) GetUserDefinedFunctionsWithContext(ctx aws.Context, input *GetUserDefinedFunctionsInput, opts ...request.Option) (*GetUserDefinedFunctionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).GetUserDefinedFunctions")
+	defer span.End()
+
 	req, out := c.GetUserDefinedFunctionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5888,6 +6063,9 @@ func (c *Glue) ImportCatalogToGlue(input *ImportCatalogToGlueInput) (*ImportCata
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) ImportCatalogToGlueWithContext(ctx aws.Context, input *ImportCatalogToGlueInput, opts ...request.Option) (*ImportCatalogToGlueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).ImportCatalogToGlue")
+	defer span.End()
+
 	req, out := c.ImportCatalogToGlueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5976,6 +6154,9 @@ func (c *Glue) ResetJobBookmark(input *ResetJobBookmarkInput) (*ResetJobBookmark
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) ResetJobBookmarkWithContext(ctx aws.Context, input *ResetJobBookmarkInput, opts ...request.Option) (*ResetJobBookmarkOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).ResetJobBookmark")
+	defer span.End()
+
 	req, out := c.ResetJobBookmarkRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6062,6 +6243,9 @@ func (c *Glue) StartCrawler(input *StartCrawlerInput) (*StartCrawlerOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) StartCrawlerWithContext(ctx aws.Context, input *StartCrawlerInput, opts ...request.Option) (*StartCrawlerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).StartCrawler")
+	defer span.End()
+
 	req, out := c.StartCrawlerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6154,6 +6338,9 @@ func (c *Glue) StartCrawlerSchedule(input *StartCrawlerScheduleInput) (*StartCra
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) StartCrawlerScheduleWithContext(ctx aws.Context, input *StartCrawlerScheduleInput, opts ...request.Option) (*StartCrawlerScheduleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).StartCrawlerSchedule")
+	defer span.End()
+
 	req, out := c.StartCrawlerScheduleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6248,6 +6435,9 @@ func (c *Glue) StartJobRun(input *StartJobRunInput) (*StartJobRunOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) StartJobRunWithContext(ctx aws.Context, input *StartJobRunInput, opts ...request.Option) (*StartJobRunOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).StartJobRun")
+	defer span.End()
+
 	req, out := c.StartJobRunRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6343,6 +6533,9 @@ func (c *Glue) StartTrigger(input *StartTriggerInput) (*StartTriggerOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) StartTriggerWithContext(ctx aws.Context, input *StartTriggerInput, opts ...request.Option) (*StartTriggerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).StartTrigger")
+	defer span.End()
+
 	req, out := c.StartTriggerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6431,6 +6624,9 @@ func (c *Glue) StopCrawler(input *StopCrawlerInput) (*StopCrawlerOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) StopCrawlerWithContext(ctx aws.Context, input *StopCrawlerInput, opts ...request.Option) (*StopCrawlerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).StopCrawler")
+	defer span.End()
+
 	req, out := c.StopCrawlerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6520,6 +6716,9 @@ func (c *Glue) StopCrawlerSchedule(input *StopCrawlerScheduleInput) (*StopCrawle
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) StopCrawlerScheduleWithContext(ctx aws.Context, input *StopCrawlerScheduleInput, opts ...request.Option) (*StopCrawlerScheduleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).StopCrawlerSchedule")
+	defer span.End()
+
 	req, out := c.StopCrawlerScheduleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6611,6 +6810,9 @@ func (c *Glue) StopTrigger(input *StopTriggerInput) (*StopTriggerOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) StopTriggerWithContext(ctx aws.Context, input *StopTriggerInput, opts ...request.Option) (*StopTriggerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).StopTrigger")
+	defer span.End()
+
 	req, out := c.StopTriggerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6700,6 +6902,9 @@ func (c *Glue) UpdateClassifier(input *UpdateClassifierInput) (*UpdateClassifier
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) UpdateClassifierWithContext(ctx aws.Context, input *UpdateClassifierInput, opts ...request.Option) (*UpdateClassifierOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).UpdateClassifier")
+	defer span.End()
+
 	req, out := c.UpdateClassifierRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6785,6 +6990,9 @@ func (c *Glue) UpdateConnection(input *UpdateConnectionInput) (*UpdateConnection
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) UpdateConnectionWithContext(ctx aws.Context, input *UpdateConnectionInput, opts ...request.Option) (*UpdateConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).UpdateConnection")
+	defer span.End()
+
 	req, out := c.UpdateConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6877,6 +7085,9 @@ func (c *Glue) UpdateCrawler(input *UpdateCrawlerInput) (*UpdateCrawlerOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) UpdateCrawlerWithContext(ctx aws.Context, input *UpdateCrawlerInput, opts ...request.Option) (*UpdateCrawlerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).UpdateCrawler")
+	defer span.End()
+
 	req, out := c.UpdateCrawlerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6968,6 +7179,9 @@ func (c *Glue) UpdateCrawlerSchedule(input *UpdateCrawlerScheduleInput) (*Update
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) UpdateCrawlerScheduleWithContext(ctx aws.Context, input *UpdateCrawlerScheduleInput, opts ...request.Option) (*UpdateCrawlerScheduleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).UpdateCrawlerSchedule")
+	defer span.End()
+
 	req, out := c.UpdateCrawlerScheduleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7056,6 +7270,9 @@ func (c *Glue) UpdateDatabase(input *UpdateDatabaseInput) (*UpdateDatabaseOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) UpdateDatabaseWithContext(ctx aws.Context, input *UpdateDatabaseInput, opts ...request.Option) (*UpdateDatabaseOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).UpdateDatabase")
+	defer span.End()
+
 	req, out := c.UpdateDatabaseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7147,6 +7364,9 @@ func (c *Glue) UpdateDevEndpoint(input *UpdateDevEndpointInput) (*UpdateDevEndpo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) UpdateDevEndpointWithContext(ctx aws.Context, input *UpdateDevEndpointInput, opts ...request.Option) (*UpdateDevEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).UpdateDevEndpoint")
+	defer span.End()
+
 	req, out := c.UpdateDevEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7238,6 +7458,9 @@ func (c *Glue) UpdateJob(input *UpdateJobInput) (*UpdateJobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) UpdateJobWithContext(ctx aws.Context, input *UpdateJobInput, opts ...request.Option) (*UpdateJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).UpdateJob")
+	defer span.End()
+
 	req, out := c.UpdateJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7326,6 +7549,9 @@ func (c *Glue) UpdatePartition(input *UpdatePartitionInput) (*UpdatePartitionOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) UpdatePartitionWithContext(ctx aws.Context, input *UpdatePartitionInput, opts ...request.Option) (*UpdatePartitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).UpdatePartition")
+	defer span.End()
+
 	req, out := c.UpdatePartitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7420,6 +7646,9 @@ func (c *Glue) UpdateTable(input *UpdateTableInput) (*UpdateTableOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) UpdateTableWithContext(ctx aws.Context, input *UpdateTableInput, opts ...request.Option) (*UpdateTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).UpdateTable")
+	defer span.End()
+
 	req, out := c.UpdateTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7511,6 +7740,9 @@ func (c *Glue) UpdateTrigger(input *UpdateTriggerInput) (*UpdateTriggerOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) UpdateTriggerWithContext(ctx aws.Context, input *UpdateTriggerInput, opts ...request.Option) (*UpdateTriggerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).UpdateTrigger")
+	defer span.End()
+
 	req, out := c.UpdateTriggerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7599,6 +7831,9 @@ func (c *Glue) UpdateUserDefinedFunction(input *UpdateUserDefinedFunctionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Glue) UpdateUserDefinedFunctionWithContext(ctx aws.Context, input *UpdateUserDefinedFunctionInput, opts ...request.Option) (*UpdateUserDefinedFunctionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/glue.(*Glue).UpdateUserDefinedFunction")
+	defer span.End()
+
 	req, out := c.UpdateUserDefinedFunctionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

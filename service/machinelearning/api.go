@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAddTags = "AddTags"
@@ -94,6 +95,9 @@ func (c *MachineLearning) AddTags(input *AddTagsInput) (*AddTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) AddTagsWithContext(ctx aws.Context, input *AddTagsInput, opts ...request.Option) (*AddTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).AddTags")
+	defer span.End()
+
 	req, out := c.AddTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -192,6 +196,9 @@ func (c *MachineLearning) CreateBatchPrediction(input *CreateBatchPredictionInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) CreateBatchPredictionWithContext(ctx aws.Context, input *CreateBatchPredictionInput, opts ...request.Option) (*CreateBatchPredictionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).CreateBatchPrediction")
+	defer span.End()
+
 	req, out := c.CreateBatchPredictionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -290,6 +297,9 @@ func (c *MachineLearning) CreateDataSourceFromRDS(input *CreateDataSourceFromRDS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) CreateDataSourceFromRDSWithContext(ctx aws.Context, input *CreateDataSourceFromRDSInput, opts ...request.Option) (*CreateDataSourceFromRDSOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).CreateDataSourceFromRDS")
+	defer span.End()
+
 	req, out := c.CreateDataSourceFromRDSRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -407,6 +417,9 @@ func (c *MachineLearning) CreateDataSourceFromRedshift(input *CreateDataSourceFr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) CreateDataSourceFromRedshiftWithContext(ctx aws.Context, input *CreateDataSourceFromRedshiftInput, opts ...request.Option) (*CreateDataSourceFromRedshiftOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).CreateDataSourceFromRedshift")
+	defer span.End()
+
 	req, out := c.CreateDataSourceFromRedshiftRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -519,6 +532,9 @@ func (c *MachineLearning) CreateDataSourceFromS3(input *CreateDataSourceFromS3In
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) CreateDataSourceFromS3WithContext(ctx aws.Context, input *CreateDataSourceFromS3Input, opts ...request.Option) (*CreateDataSourceFromS3Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).CreateDataSourceFromS3")
+	defer span.End()
+
 	req, out := c.CreateDataSourceFromS3Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -619,6 +635,9 @@ func (c *MachineLearning) CreateEvaluation(input *CreateEvaluationInput) (*Creat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) CreateEvaluationWithContext(ctx aws.Context, input *CreateEvaluationInput, opts ...request.Option) (*CreateEvaluationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).CreateEvaluation")
+	defer span.End()
+
 	req, out := c.CreateEvaluationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -720,6 +739,9 @@ func (c *MachineLearning) CreateMLModel(input *CreateMLModelInput) (*CreateMLMod
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) CreateMLModelWithContext(ctx aws.Context, input *CreateMLModelInput, opts ...request.Option) (*CreateMLModelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).CreateMLModel")
+	defer span.End()
+
 	req, out := c.CreateMLModelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -805,6 +827,9 @@ func (c *MachineLearning) CreateRealtimeEndpoint(input *CreateRealtimeEndpointIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) CreateRealtimeEndpointWithContext(ctx aws.Context, input *CreateRealtimeEndpointInput, opts ...request.Option) (*CreateRealtimeEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).CreateRealtimeEndpoint")
+	defer span.End()
+
 	req, out := c.CreateRealtimeEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -893,6 +918,9 @@ func (c *MachineLearning) DeleteBatchPrediction(input *DeleteBatchPredictionInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) DeleteBatchPredictionWithContext(ctx aws.Context, input *DeleteBatchPredictionInput, opts ...request.Option) (*DeleteBatchPredictionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).DeleteBatchPrediction")
+	defer span.End()
+
 	req, out := c.DeleteBatchPredictionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -981,6 +1009,9 @@ func (c *MachineLearning) DeleteDataSource(input *DeleteDataSourceInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) DeleteDataSourceWithContext(ctx aws.Context, input *DeleteDataSourceInput, opts ...request.Option) (*DeleteDataSourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).DeleteDataSource")
+	defer span.End()
+
 	req, out := c.DeleteDataSourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1069,6 +1100,9 @@ func (c *MachineLearning) DeleteEvaluation(input *DeleteEvaluationInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) DeleteEvaluationWithContext(ctx aws.Context, input *DeleteEvaluationInput, opts ...request.Option) (*DeleteEvaluationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).DeleteEvaluation")
+	defer span.End()
+
 	req, out := c.DeleteEvaluationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1157,6 +1191,9 @@ func (c *MachineLearning) DeleteMLModel(input *DeleteMLModelInput) (*DeleteMLMod
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) DeleteMLModelWithContext(ctx aws.Context, input *DeleteMLModelInput, opts ...request.Option) (*DeleteMLModelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).DeleteMLModel")
+	defer span.End()
+
 	req, out := c.DeleteMLModelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1240,6 +1277,9 @@ func (c *MachineLearning) DeleteRealtimeEndpoint(input *DeleteRealtimeEndpointIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) DeleteRealtimeEndpointWithContext(ctx aws.Context, input *DeleteRealtimeEndpointInput, opts ...request.Option) (*DeleteRealtimeEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).DeleteRealtimeEndpoint")
+	defer span.End()
+
 	req, out := c.DeleteRealtimeEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1328,6 +1368,9 @@ func (c *MachineLearning) DeleteTags(input *DeleteTagsInput) (*DeleteTagsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) DeleteTagsWithContext(ctx aws.Context, input *DeleteTagsInput, opts ...request.Option) (*DeleteTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).DeleteTags")
+	defer span.End()
+
 	req, out := c.DeleteTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1415,6 +1458,9 @@ func (c *MachineLearning) DescribeBatchPredictions(input *DescribeBatchPredictio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) DescribeBatchPredictionsWithContext(ctx aws.Context, input *DescribeBatchPredictionsInput, opts ...request.Option) (*DescribeBatchPredictionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).DescribeBatchPredictions")
+	defer span.End()
+
 	req, out := c.DescribeBatchPredictionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1551,6 +1597,9 @@ func (c *MachineLearning) DescribeDataSources(input *DescribeDataSourcesInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) DescribeDataSourcesWithContext(ctx aws.Context, input *DescribeDataSourcesInput, opts ...request.Option) (*DescribeDataSourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).DescribeDataSources")
+	defer span.End()
+
 	req, out := c.DescribeDataSourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1688,6 +1737,9 @@ func (c *MachineLearning) DescribeEvaluations(input *DescribeEvaluationsInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) DescribeEvaluationsWithContext(ctx aws.Context, input *DescribeEvaluationsInput, opts ...request.Option) (*DescribeEvaluationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).DescribeEvaluations")
+	defer span.End()
+
 	req, out := c.DescribeEvaluationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1824,6 +1876,9 @@ func (c *MachineLearning) DescribeMLModels(input *DescribeMLModelsInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) DescribeMLModelsWithContext(ctx aws.Context, input *DescribeMLModelsInput, opts ...request.Option) (*DescribeMLModelsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).DescribeMLModels")
+	defer span.End()
+
 	req, out := c.DescribeMLModelsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1957,6 +2012,9 @@ func (c *MachineLearning) DescribeTags(input *DescribeTagsInput) (*DescribeTagsO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) DescribeTagsWithContext(ctx aws.Context, input *DescribeTagsInput, opts ...request.Option) (*DescribeTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).DescribeTags")
+	defer span.End()
+
 	req, out := c.DescribeTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2041,6 +2099,9 @@ func (c *MachineLearning) GetBatchPrediction(input *GetBatchPredictionInput) (*G
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) GetBatchPredictionWithContext(ctx aws.Context, input *GetBatchPredictionInput, opts ...request.Option) (*GetBatchPredictionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).GetBatchPrediction")
+	defer span.End()
+
 	req, out := c.GetBatchPredictionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2129,6 +2190,9 @@ func (c *MachineLearning) GetDataSource(input *GetDataSourceInput) (*GetDataSour
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) GetDataSourceWithContext(ctx aws.Context, input *GetDataSourceInput, opts ...request.Option) (*GetDataSourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).GetDataSource")
+	defer span.End()
+
 	req, out := c.GetDataSourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2213,6 +2277,9 @@ func (c *MachineLearning) GetEvaluation(input *GetEvaluationInput) (*GetEvaluati
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) GetEvaluationWithContext(ctx aws.Context, input *GetEvaluationInput, opts ...request.Option) (*GetEvaluationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).GetEvaluation")
+	defer span.End()
+
 	req, out := c.GetEvaluationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2299,6 +2366,9 @@ func (c *MachineLearning) GetMLModel(input *GetMLModelInput) (*GetMLModelOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) GetMLModelWithContext(ctx aws.Context, input *GetMLModelInput, opts ...request.Option) (*GetMLModelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).GetMLModel")
+	defer span.End()
+
 	req, out := c.GetMLModelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2392,6 +2462,9 @@ func (c *MachineLearning) Predict(input *PredictInput) (*PredictOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) PredictWithContext(ctx aws.Context, input *PredictInput, opts ...request.Option) (*PredictOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).Predict")
+	defer span.End()
+
 	req, out := c.PredictRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2478,6 +2551,9 @@ func (c *MachineLearning) UpdateBatchPrediction(input *UpdateBatchPredictionInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) UpdateBatchPredictionWithContext(ctx aws.Context, input *UpdateBatchPredictionInput, opts ...request.Option) (*UpdateBatchPredictionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).UpdateBatchPrediction")
+	defer span.End()
+
 	req, out := c.UpdateBatchPredictionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2564,6 +2640,9 @@ func (c *MachineLearning) UpdateDataSource(input *UpdateDataSourceInput) (*Updat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) UpdateDataSourceWithContext(ctx aws.Context, input *UpdateDataSourceInput, opts ...request.Option) (*UpdateDataSourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).UpdateDataSource")
+	defer span.End()
+
 	req, out := c.UpdateDataSourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2650,6 +2729,9 @@ func (c *MachineLearning) UpdateEvaluation(input *UpdateEvaluationInput) (*Updat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) UpdateEvaluationWithContext(ctx aws.Context, input *UpdateEvaluationInput, opts ...request.Option) (*UpdateEvaluationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).UpdateEvaluation")
+	defer span.End()
+
 	req, out := c.UpdateEvaluationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2736,6 +2818,9 @@ func (c *MachineLearning) UpdateMLModel(input *UpdateMLModelInput) (*UpdateMLMod
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MachineLearning) UpdateMLModelWithContext(ctx aws.Context, input *UpdateMLModelInput, opts ...request.Option) (*UpdateMLModelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/machinelearning.(*MachineLearning).UpdateMLModel")
+	defer span.End()
+
 	req, out := c.UpdateMLModelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -165,6 +165,9 @@ func (c *OutputService1ProtocolTest) OutputService1TestCaseOperation1(input *Out
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService1ProtocolTest) OutputService1TestCaseOperation1WithContext(ctx aws.Context, input *OutputService1TestShapeOutputService1TestCaseOperation1Input, opts ...request.Option) (*OutputService1TestShapeOutputService1TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice1protocoltest.(*OutputService1ProtocolTest).OutputService1TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService1TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -372,6 +375,9 @@ func (c *OutputService2ProtocolTest) OutputService2TestCaseOperation1(input *Out
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService2ProtocolTest) OutputService2TestCaseOperation1WithContext(ctx aws.Context, input *OutputService2TestShapeOutputService2TestCaseOperation1Input, opts ...request.Option) (*OutputService2TestShapeOutputService2TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice2protocoltest.(*OutputService2ProtocolTest).OutputService2TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService2TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -523,6 +529,9 @@ func (c *OutputService3ProtocolTest) OutputService3TestCaseOperation1(input *Out
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService3ProtocolTest) OutputService3TestCaseOperation1WithContext(ctx aws.Context, input *OutputService3TestShapeOutputService3TestCaseOperation1Input, opts ...request.Option) (*OutputService3TestShapeOutputService3TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice3protocoltest.(*OutputService3ProtocolTest).OutputService3TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService3TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -667,6 +676,9 @@ func (c *OutputService4ProtocolTest) OutputService4TestCaseOperation1(input *Out
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService4ProtocolTest) OutputService4TestCaseOperation1WithContext(ctx aws.Context, input *OutputService4TestShapeOutputService4TestCaseOperation1Input, opts ...request.Option) (*OutputService4TestShapeOutputService4TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice4protocoltest.(*OutputService4ProtocolTest).OutputService4TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService4TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -810,6 +822,9 @@ func (c *OutputService5ProtocolTest) OutputService5TestCaseOperation1(input *Out
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService5ProtocolTest) OutputService5TestCaseOperation1WithContext(ctx aws.Context, input *OutputService5TestShapeOutputService5TestCaseOperation1Input, opts ...request.Option) (*OutputService5TestShapeOutputService5TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice5protocoltest.(*OutputService5ProtocolTest).OutputService5TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService5TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -953,6 +968,9 @@ func (c *OutputService6ProtocolTest) OutputService6TestCaseOperation1(input *Out
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService6ProtocolTest) OutputService6TestCaseOperation1WithContext(ctx aws.Context, input *OutputService6TestShapeOutputService6TestCaseOperation1Input, opts ...request.Option) (*OutputService6TestShapeOutputService6TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice6protocoltest.(*OutputService6ProtocolTest).OutputService6TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService6TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1096,6 +1114,9 @@ func (c *OutputService7ProtocolTest) OutputService7TestCaseOperation1(input *Out
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService7ProtocolTest) OutputService7TestCaseOperation1WithContext(ctx aws.Context, input *OutputService7TestShapeOutputService7TestCaseOperation1Input, opts ...request.Option) (*OutputService7TestShapeOutputService7TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice7protocoltest.(*OutputService7ProtocolTest).OutputService7TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService7TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1239,6 +1260,9 @@ func (c *OutputService8ProtocolTest) OutputService8TestCaseOperation1(input *Out
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService8ProtocolTest) OutputService8TestCaseOperation1WithContext(ctx aws.Context, input *OutputService8TestShapeOutputService8TestCaseOperation1Input, opts ...request.Option) (*OutputService8TestShapeOutputService8TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice8protocoltest.(*OutputService8ProtocolTest).OutputService8TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService8TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1410,6 +1434,9 @@ func (c *OutputService9ProtocolTest) OutputService9TestCaseOperation1(input *Out
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService9ProtocolTest) OutputService9TestCaseOperation1WithContext(ctx aws.Context, input *OutputService9TestShapeOutputService9TestCaseOperation1Input, opts ...request.Option) (*OutputService9TestShapeOutputService9TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice9protocoltest.(*OutputService9ProtocolTest).OutputService9TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService9TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1581,6 +1608,9 @@ func (c *OutputService10ProtocolTest) OutputService10TestCaseOperation1(input *O
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService10ProtocolTest) OutputService10TestCaseOperation1WithContext(ctx aws.Context, input *OutputService10TestShapeOutputService10TestCaseOperation1Input, opts ...request.Option) (*OutputService10TestShapeOutputService10TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice10protocoltest.(*OutputService10ProtocolTest).OutputService10TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService10TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1724,6 +1754,9 @@ func (c *OutputService11ProtocolTest) OutputService11TestCaseOperation1(input *O
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService11ProtocolTest) OutputService11TestCaseOperation1WithContext(ctx aws.Context, input *OutputService11TestShapeOutputService11TestCaseOperation1Input, opts ...request.Option) (*OutputService11TestShapeOutputService11TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice11protocoltest.(*OutputService11ProtocolTest).OutputService11TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService11TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1879,6 +1912,9 @@ func (c *OutputService12ProtocolTest) OutputService12TestCaseOperation1(input *O
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService12ProtocolTest) OutputService12TestCaseOperation1WithContext(ctx aws.Context, input *OutputService12TestShapeOutputService12TestCaseOperation1Input, opts ...request.Option) (*OutputService12TestShapeOutputService12TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice12protocoltest.(*OutputService12ProtocolTest).OutputService12TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService12TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2022,6 +2058,9 @@ func (c *OutputService13ProtocolTest) OutputService13TestCaseOperation1(input *O
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService13ProtocolTest) OutputService13TestCaseOperation1WithContext(ctx aws.Context, input *OutputService13TestShapeOutputService13TestCaseOperation1Input, opts ...request.Option) (*OutputService13TestShapeOutputService13TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice13protocoltest.(*OutputService13ProtocolTest).OutputService13TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService13TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2165,6 +2204,9 @@ func (c *OutputService14ProtocolTest) OutputService14TestCaseOperation1(input *O
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService14ProtocolTest) OutputService14TestCaseOperation1WithContext(ctx aws.Context, input *OutputService14TestShapeOutputService14TestCaseOperation1Input, opts ...request.Option) (*OutputService14TestShapeOutputService14TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice14protocoltest.(*OutputService14ProtocolTest).OutputService14TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService14TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2308,6 +2350,9 @@ func (c *OutputService15ProtocolTest) OutputService15TestCaseOperation1(input *O
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService15ProtocolTest) OutputService15TestCaseOperation1WithContext(ctx aws.Context, input *OutputService15TestShapeOutputService15TestCaseOperation1Input, opts ...request.Option) (*OutputService15TestShapeOutputService15TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice15protocoltest.(*OutputService15ProtocolTest).OutputService15TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService15TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2451,6 +2496,9 @@ func (c *OutputService16ProtocolTest) OutputService16TestCaseOperation1(input *O
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OutputService16ProtocolTest) OutputService16TestCaseOperation1WithContext(ctx aws.Context, input *OutputService16TestShapeOutputService16TestCaseOperation1Input, opts ...request.Option) (*OutputService16TestShapeOutputService16TestCaseOperation1Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/outputservice16protocoltest.(*OutputService16ProtocolTest).OutputService16TestCaseOperation1")
+	defer span.End()
+
 	req, out := c.OutputService16TestCaseOperation1Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

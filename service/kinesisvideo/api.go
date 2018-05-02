@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateStream = "CreateStream"
@@ -109,6 +110,9 @@ func (c *KinesisVideo) CreateStream(input *CreateStreamInput) (*CreateStreamOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisVideo) CreateStreamWithContext(ctx aws.Context, input *CreateStreamInput, opts ...request.Option) (*CreateStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisvideo.(*KinesisVideo).CreateStream")
+	defer span.End()
+
 	req, out := c.CreateStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -209,6 +213,9 @@ func (c *KinesisVideo) DeleteStream(input *DeleteStreamInput) (*DeleteStreamOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisVideo) DeleteStreamWithContext(ctx aws.Context, input *DeleteStreamInput, opts ...request.Option) (*DeleteStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisvideo.(*KinesisVideo).DeleteStream")
+	defer span.End()
+
 	req, out := c.DeleteStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -299,6 +306,9 @@ func (c *KinesisVideo) DescribeStream(input *DescribeStreamInput) (*DescribeStre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisVideo) DescribeStreamWithContext(ctx aws.Context, input *DescribeStreamInput, opts ...request.Option) (*DescribeStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisvideo.(*KinesisVideo).DescribeStream")
+	defer span.End()
+
 	req, out := c.DescribeStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -396,6 +406,9 @@ func (c *KinesisVideo) GetDataEndpoint(input *GetDataEndpointInput) (*GetDataEnd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisVideo) GetDataEndpointWithContext(ctx aws.Context, input *GetDataEndpointInput, opts ...request.Option) (*GetDataEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisvideo.(*KinesisVideo).GetDataEndpoint")
+	defer span.End()
+
 	req, out := c.GetDataEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -481,6 +494,9 @@ func (c *KinesisVideo) ListStreams(input *ListStreamsInput) (*ListStreamsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisVideo) ListStreamsWithContext(ctx aws.Context, input *ListStreamsInput, opts ...request.Option) (*ListStreamsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisvideo.(*KinesisVideo).ListStreams")
+	defer span.End()
+
 	req, out := c.ListStreamsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -575,6 +591,9 @@ func (c *KinesisVideo) ListTagsForStream(input *ListTagsForStreamInput) (*ListTa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisVideo) ListTagsForStreamWithContext(ctx aws.Context, input *ListTagsForStreamInput, opts ...request.Option) (*ListTagsForStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisvideo.(*KinesisVideo).ListTagsForStream")
+	defer span.End()
+
 	req, out := c.ListTagsForStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -682,6 +701,9 @@ func (c *KinesisVideo) TagStream(input *TagStreamInput) (*TagStreamOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisVideo) TagStreamWithContext(ctx aws.Context, input *TagStreamInput, opts ...request.Option) (*TagStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisvideo.(*KinesisVideo).TagStream")
+	defer span.End()
+
 	req, out := c.TagStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -778,6 +800,9 @@ func (c *KinesisVideo) UntagStream(input *UntagStreamInput) (*UntagStreamOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisVideo) UntagStreamWithContext(ctx aws.Context, input *UntagStreamInput, opts ...request.Option) (*UntagStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisvideo.(*KinesisVideo).UntagStream")
+	defer span.End()
+
 	req, out := c.UntagStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -895,6 +920,9 @@ func (c *KinesisVideo) UpdateDataRetention(input *UpdateDataRetentionInput) (*Up
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisVideo) UpdateDataRetentionWithContext(ctx aws.Context, input *UpdateDataRetentionInput, opts ...request.Option) (*UpdateDataRetentionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisvideo.(*KinesisVideo).UpdateDataRetention")
+	defer span.End()
+
 	req, out := c.UpdateDataRetentionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1003,6 +1031,9 @@ func (c *KinesisVideo) UpdateStream(input *UpdateStreamInput) (*UpdateStreamOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisVideo) UpdateStreamWithContext(ctx aws.Context, input *UpdateStreamInput, opts ...request.Option) (*UpdateStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisvideo.(*KinesisVideo).UpdateStream")
+	defer span.End()
+
 	req, out := c.UpdateStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

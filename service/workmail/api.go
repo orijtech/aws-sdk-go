@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAssociateDelegateToResource = "AssociateDelegateToResource"
@@ -99,6 +100,9 @@ func (c *WorkMail) AssociateDelegateToResource(input *AssociateDelegateToResourc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) AssociateDelegateToResourceWithContext(ctx aws.Context, input *AssociateDelegateToResourceInput, opts ...request.Option) (*AssociateDelegateToResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).AssociateDelegateToResource")
+	defer span.End()
+
 	req, out := c.AssociateDelegateToResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -204,6 +208,9 @@ func (c *WorkMail) AssociateMemberToGroup(input *AssociateMemberToGroupInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) AssociateMemberToGroupWithContext(ctx aws.Context, input *AssociateMemberToGroupInput, opts ...request.Option) (*AssociateMemberToGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).AssociateMemberToGroup")
+	defer span.End()
+
 	req, out := c.AssociateMemberToGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -311,6 +318,9 @@ func (c *WorkMail) CreateAlias(input *CreateAliasInput) (*CreateAliasOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) CreateAliasWithContext(ctx aws.Context, input *CreateAliasInput, opts ...request.Option) (*CreateAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).CreateAlias")
+	defer span.End()
+
 	req, out := c.CreateAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -415,6 +425,9 @@ func (c *WorkMail) CreateGroup(input *CreateGroupInput) (*CreateGroupOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) CreateGroupWithContext(ctx aws.Context, input *CreateGroupInput, opts ...request.Option) (*CreateGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).CreateGroup")
+	defer span.End()
+
 	req, out := c.CreateGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -516,6 +529,9 @@ func (c *WorkMail) CreateResource(input *CreateResourceInput) (*CreateResourceOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) CreateResourceWithContext(ctx aws.Context, input *CreateResourceInput, opts ...request.Option) (*CreateResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).CreateResource")
+	defer span.End()
+
 	req, out := c.CreateResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -624,6 +640,9 @@ func (c *WorkMail) CreateUser(input *CreateUserInput) (*CreateUserOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) CreateUserWithContext(ctx aws.Context, input *CreateUserInput, opts ...request.Option) (*CreateUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).CreateUser")
+	defer span.End()
+
 	req, out := c.CreateUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -719,6 +738,9 @@ func (c *WorkMail) DeleteAlias(input *DeleteAliasInput) (*DeleteAliasOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) DeleteAliasWithContext(ctx aws.Context, input *DeleteAliasInput, opts ...request.Option) (*DeleteAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).DeleteAlias")
+	defer span.End()
+
 	req, out := c.DeleteAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -820,6 +842,9 @@ func (c *WorkMail) DeleteGroup(input *DeleteGroupInput) (*DeleteGroupOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) DeleteGroupWithContext(ctx aws.Context, input *DeleteGroupInput, opts ...request.Option) (*DeleteGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).DeleteGroup")
+	defer span.End()
+
 	req, out := c.DeleteGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -915,6 +940,9 @@ func (c *WorkMail) DeleteMailboxPermissions(input *DeleteMailboxPermissionsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) DeleteMailboxPermissionsWithContext(ctx aws.Context, input *DeleteMailboxPermissionsInput, opts ...request.Option) (*DeleteMailboxPermissionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).DeleteMailboxPermissions")
+	defer span.End()
+
 	req, out := c.DeleteMailboxPermissionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1006,6 +1034,9 @@ func (c *WorkMail) DeleteResource(input *DeleteResourceInput) (*DeleteResourceOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) DeleteResourceWithContext(ctx aws.Context, input *DeleteResourceInput, opts ...request.Option) (*DeleteResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).DeleteResource")
+	defer span.End()
+
 	req, out := c.DeleteResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1109,6 +1140,9 @@ func (c *WorkMail) DeleteUser(input *DeleteUserInput) (*DeleteUserOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) DeleteUserWithContext(ctx aws.Context, input *DeleteUserInput, opts ...request.Option) (*DeleteUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).DeleteUser")
+	defer span.End()
+
 	req, out := c.DeleteUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1207,6 +1241,9 @@ func (c *WorkMail) DeregisterFromWorkMail(input *DeregisterFromWorkMailInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) DeregisterFromWorkMailWithContext(ctx aws.Context, input *DeregisterFromWorkMailInput, opts ...request.Option) (*DeregisterFromWorkMailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).DeregisterFromWorkMail")
+	defer span.End()
+
 	req, out := c.DeregisterFromWorkMailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1298,6 +1335,9 @@ func (c *WorkMail) DescribeGroup(input *DescribeGroupInput) (*DescribeGroupOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) DescribeGroupWithContext(ctx aws.Context, input *DescribeGroupInput, opts ...request.Option) (*DescribeGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).DescribeGroup")
+	defer span.End()
+
 	req, out := c.DescribeGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1381,6 +1421,9 @@ func (c *WorkMail) DescribeOrganization(input *DescribeOrganizationInput) (*Desc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) DescribeOrganizationWithContext(ctx aws.Context, input *DescribeOrganizationInput, opts ...request.Option) (*DescribeOrganizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).DescribeOrganization")
+	defer span.End()
+
 	req, out := c.DescribeOrganizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1472,6 +1515,9 @@ func (c *WorkMail) DescribeResource(input *DescribeResourceInput) (*DescribeReso
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) DescribeResourceWithContext(ctx aws.Context, input *DescribeResourceInput, opts ...request.Option) (*DescribeResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).DescribeResource")
+	defer span.End()
+
 	req, out := c.DescribeResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1563,6 +1609,9 @@ func (c *WorkMail) DescribeUser(input *DescribeUserInput) (*DescribeUserOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) DescribeUserWithContext(ctx aws.Context, input *DescribeUserInput, opts ...request.Option) (*DescribeUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).DescribeUser")
+	defer span.End()
+
 	req, out := c.DescribeUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1658,6 +1707,9 @@ func (c *WorkMail) DisassociateDelegateFromResource(input *DisassociateDelegateF
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) DisassociateDelegateFromResourceWithContext(ctx aws.Context, input *DisassociateDelegateFromResourceInput, opts ...request.Option) (*DisassociateDelegateFromResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).DisassociateDelegateFromResource")
+	defer span.End()
+
 	req, out := c.DisassociateDelegateFromResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1763,6 +1815,9 @@ func (c *WorkMail) DisassociateMemberFromGroup(input *DisassociateMemberFromGrou
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) DisassociateMemberFromGroupWithContext(ctx aws.Context, input *DisassociateMemberFromGroupInput, opts ...request.Option) (*DisassociateMemberFromGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).DisassociateMemberFromGroup")
+	defer span.End()
+
 	req, out := c.DisassociateMemberFromGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1864,6 +1919,9 @@ func (c *WorkMail) ListAliases(input *ListAliasesInput) (*ListAliasesOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) ListAliasesWithContext(ctx aws.Context, input *ListAliasesInput, opts ...request.Option) (*ListAliasesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).ListAliases")
+	defer span.End()
+
 	req, out := c.ListAliasesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2015,6 +2073,9 @@ func (c *WorkMail) ListGroupMembers(input *ListGroupMembersInput) (*ListGroupMem
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) ListGroupMembersWithContext(ctx aws.Context, input *ListGroupMembersInput, opts ...request.Option) (*ListGroupMembersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).ListGroupMembers")
+	defer span.End()
+
 	req, out := c.ListGroupMembersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2162,6 +2223,9 @@ func (c *WorkMail) ListGroups(input *ListGroupsInput) (*ListGroupsOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) ListGroupsWithContext(ctx aws.Context, input *ListGroupsInput, opts ...request.Option) (*ListGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).ListGroups")
+	defer span.End()
+
 	req, out := c.ListGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2309,6 +2373,9 @@ func (c *WorkMail) ListMailboxPermissions(input *ListMailboxPermissionsInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) ListMailboxPermissionsWithContext(ctx aws.Context, input *ListMailboxPermissionsInput, opts ...request.Option) (*ListMailboxPermissionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).ListMailboxPermissions")
+	defer span.End()
+
 	req, out := c.ListMailboxPermissionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2444,6 +2511,9 @@ func (c *WorkMail) ListOrganizations(input *ListOrganizationsInput) (*ListOrgani
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) ListOrganizationsWithContext(ctx aws.Context, input *ListOrganizationsInput, opts ...request.Option) (*ListOrganizationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).ListOrganizations")
+	defer span.End()
+
 	req, out := c.ListOrganizationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2590,6 +2660,9 @@ func (c *WorkMail) ListResourceDelegates(input *ListResourceDelegatesInput) (*Li
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) ListResourceDelegatesWithContext(ctx aws.Context, input *ListResourceDelegatesInput, opts ...request.Option) (*ListResourceDelegatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).ListResourceDelegates")
+	defer span.End()
+
 	req, out := c.ListResourceDelegatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2683,6 +2756,9 @@ func (c *WorkMail) ListResources(input *ListResourcesInput) (*ListResourcesOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) ListResourcesWithContext(ctx aws.Context, input *ListResourcesInput, opts ...request.Option) (*ListResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).ListResources")
+	defer span.End()
+
 	req, out := c.ListResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2826,6 +2902,9 @@ func (c *WorkMail) ListUsers(input *ListUsersInput) (*ListUsersOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) ListUsersWithContext(ctx aws.Context, input *ListUsersInput, opts ...request.Option) (*ListUsersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).ListUsers")
+	defer span.End()
+
 	req, out := c.ListUsersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2972,6 +3051,9 @@ func (c *WorkMail) PutMailboxPermissions(input *PutMailboxPermissionsInput) (*Pu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) PutMailboxPermissionsWithContext(ctx aws.Context, input *PutMailboxPermissionsInput, opts ...request.Option) (*PutMailboxPermissionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).PutMailboxPermissions")
+	defer span.End()
+
 	req, out := c.PutMailboxPermissionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3096,6 +3178,9 @@ func (c *WorkMail) RegisterToWorkMail(input *RegisterToWorkMailInput) (*Register
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) RegisterToWorkMailWithContext(ctx aws.Context, input *RegisterToWorkMailInput, opts ...request.Option) (*RegisterToWorkMailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).RegisterToWorkMail")
+	defer span.End()
+
 	req, out := c.RegisterToWorkMailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3205,6 +3290,9 @@ func (c *WorkMail) ResetPassword(input *ResetPasswordInput) (*ResetPasswordOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) ResetPasswordWithContext(ctx aws.Context, input *ResetPasswordInput, opts ...request.Option) (*ResetPasswordOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).ResetPassword")
+	defer span.End()
+
 	req, out := c.ResetPasswordRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3327,6 +3415,9 @@ func (c *WorkMail) UpdatePrimaryEmailAddress(input *UpdatePrimaryEmailAddressInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) UpdatePrimaryEmailAddressWithContext(ctx aws.Context, input *UpdatePrimaryEmailAddressInput, opts ...request.Option) (*UpdatePrimaryEmailAddressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).UpdatePrimaryEmailAddress")
+	defer span.End()
+
 	req, out := c.UpdatePrimaryEmailAddressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3444,6 +3535,9 @@ func (c *WorkMail) UpdateResource(input *UpdateResourceInput) (*UpdateResourceOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkMail) UpdateResourceWithContext(ctx aws.Context, input *UpdateResourceInput, opts ...request.Option) (*UpdateResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workmail.(*WorkMail).UpdateResource")
+	defer span.End()
+
 	req, out := c.UpdateResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

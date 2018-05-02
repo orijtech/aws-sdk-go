@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateProtection = "CreateProtection"
@@ -111,6 +112,9 @@ func (c *Shield) CreateProtection(input *CreateProtectionInput) (*CreateProtecti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Shield) CreateProtectionWithContext(ctx aws.Context, input *CreateProtectionInput, opts ...request.Option) (*CreateProtectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/shield.(*Shield).CreateProtection")
+	defer span.End()
+
 	req, out := c.CreateProtectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -194,6 +198,9 @@ func (c *Shield) CreateSubscription(input *CreateSubscriptionInput) (*CreateSubs
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Shield) CreateSubscriptionWithContext(ctx aws.Context, input *CreateSubscriptionInput, opts ...request.Option) (*CreateSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/shield.(*Shield).CreateSubscription")
+	defer span.End()
+
 	req, out := c.CreateSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -281,6 +288,9 @@ func (c *Shield) DeleteProtection(input *DeleteProtectionInput) (*DeleteProtecti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Shield) DeleteProtectionWithContext(ctx aws.Context, input *DeleteProtectionInput, opts ...request.Option) (*DeleteProtectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/shield.(*Shield).DeleteProtection")
+	defer span.End()
+
 	req, out := c.DeleteProtectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -370,6 +380,9 @@ func (c *Shield) DeleteSubscription(input *DeleteSubscriptionInput) (*DeleteSubs
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Shield) DeleteSubscriptionWithContext(ctx aws.Context, input *DeleteSubscriptionInput, opts ...request.Option) (*DeleteSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/shield.(*Shield).DeleteSubscription")
+	defer span.End()
+
 	req, out := c.DeleteSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -453,6 +466,9 @@ func (c *Shield) DescribeAttack(input *DescribeAttackInput) (*DescribeAttackOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Shield) DescribeAttackWithContext(ctx aws.Context, input *DescribeAttackInput, opts ...request.Option) (*DescribeAttackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/shield.(*Shield).DescribeAttack")
+	defer span.End()
+
 	req, out := c.DescribeAttackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -536,6 +552,9 @@ func (c *Shield) DescribeProtection(input *DescribeProtectionInput) (*DescribePr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Shield) DescribeProtectionWithContext(ctx aws.Context, input *DescribeProtectionInput, opts ...request.Option) (*DescribeProtectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/shield.(*Shield).DescribeProtection")
+	defer span.End()
+
 	req, out := c.DescribeProtectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -619,6 +638,9 @@ func (c *Shield) DescribeSubscription(input *DescribeSubscriptionInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Shield) DescribeSubscriptionWithContext(ctx aws.Context, input *DescribeSubscriptionInput, opts ...request.Option) (*DescribeSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/shield.(*Shield).DescribeSubscription")
+	defer span.End()
+
 	req, out := c.DescribeSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -699,6 +721,9 @@ func (c *Shield) GetSubscriptionState(input *GetSubscriptionStateInput) (*GetSub
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Shield) GetSubscriptionStateWithContext(ctx aws.Context, input *GetSubscriptionStateInput, opts ...request.Option) (*GetSubscriptionStateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/shield.(*Shield).GetSubscriptionState")
+	defer span.End()
+
 	req, out := c.GetSubscriptionStateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -787,6 +812,9 @@ func (c *Shield) ListAttacks(input *ListAttacksInput) (*ListAttacksOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Shield) ListAttacksWithContext(ctx aws.Context, input *ListAttacksInput, opts ...request.Option) (*ListAttacksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/shield.(*Shield).ListAttacks")
+	defer span.End()
+
 	req, out := c.ListAttacksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -870,6 +898,9 @@ func (c *Shield) ListProtections(input *ListProtectionsInput) (*ListProtectionsO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Shield) ListProtectionsWithContext(ctx aws.Context, input *ListProtectionsInput, opts ...request.Option) (*ListProtectionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/shield.(*Shield).ListProtections")
+	defer span.End()
+
 	req, out := c.ListProtectionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

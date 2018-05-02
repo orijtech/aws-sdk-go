@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAddAttachmentsToSet = "AddAttachmentsToSet"
@@ -105,6 +106,9 @@ func (c *Support) AddAttachmentsToSet(input *AddAttachmentsToSetInput) (*AddAtta
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Support) AddAttachmentsToSetWithContext(ctx aws.Context, input *AddAttachmentsToSetInput, opts ...request.Option) (*AddAttachmentsToSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/support.(*Support).AddAttachmentsToSet")
+	defer span.End()
+
 	req, out := c.AddAttachmentsToSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -201,6 +205,9 @@ func (c *Support) AddCommunicationToCase(input *AddCommunicationToCaseInput) (*A
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Support) AddCommunicationToCaseWithContext(ctx aws.Context, input *AddCommunicationToCaseInput, opts ...request.Option) (*AddCommunicationToCaseOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/support.(*Support).AddCommunicationToCase")
+	defer span.End()
+
 	req, out := c.AddCommunicationToCaseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -333,6 +340,9 @@ func (c *Support) CreateCase(input *CreateCaseInput) (*CreateCaseOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Support) CreateCaseWithContext(ctx aws.Context, input *CreateCaseInput, opts ...request.Option) (*CreateCaseOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/support.(*Support).CreateCase")
+	defer span.End()
+
 	req, out := c.CreateCaseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -422,6 +432,9 @@ func (c *Support) DescribeAttachment(input *DescribeAttachmentInput) (*DescribeA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Support) DescribeAttachmentWithContext(ctx aws.Context, input *DescribeAttachmentInput, opts ...request.Option) (*DescribeAttachmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/support.(*Support).DescribeAttachment")
+	defer span.End()
+
 	req, out := c.DescribeAttachmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -524,6 +537,9 @@ func (c *Support) DescribeCases(input *DescribeCasesInput) (*DescribeCasesOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Support) DescribeCasesWithContext(ctx aws.Context, input *DescribeCasesInput, opts ...request.Option) (*DescribeCasesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/support.(*Support).DescribeCases")
+	defer span.End()
+
 	req, out := c.DescribeCasesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -671,6 +687,9 @@ func (c *Support) DescribeCommunications(input *DescribeCommunicationsInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Support) DescribeCommunicationsWithContext(ctx aws.Context, input *DescribeCommunicationsInput, opts ...request.Option) (*DescribeCommunicationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/support.(*Support).DescribeCommunications")
+	defer span.End()
+
 	req, out := c.DescribeCommunicationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -810,6 +829,9 @@ func (c *Support) DescribeServices(input *DescribeServicesInput) (*DescribeServi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Support) DescribeServicesWithContext(ctx aws.Context, input *DescribeServicesInput, opts ...request.Option) (*DescribeServicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/support.(*Support).DescribeServices")
+	defer span.End()
+
 	req, out := c.DescribeServicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -891,6 +913,9 @@ func (c *Support) DescribeSeverityLevels(input *DescribeSeverityLevelsInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Support) DescribeSeverityLevelsWithContext(ctx aws.Context, input *DescribeSeverityLevelsInput, opts ...request.Option) (*DescribeSeverityLevelsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/support.(*Support).DescribeSeverityLevels")
+	defer span.End()
+
 	req, out := c.DescribeSeverityLevelsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -975,6 +1000,9 @@ func (c *Support) DescribeTrustedAdvisorCheckRefreshStatuses(input *DescribeTrus
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Support) DescribeTrustedAdvisorCheckRefreshStatusesWithContext(ctx aws.Context, input *DescribeTrustedAdvisorCheckRefreshStatusesInput, opts ...request.Option) (*DescribeTrustedAdvisorCheckRefreshStatusesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/support.(*Support).DescribeTrustedAdvisorCheckRefreshStatuses")
+	defer span.End()
+
 	req, out := c.DescribeTrustedAdvisorCheckRefreshStatusesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1073,6 +1101,9 @@ func (c *Support) DescribeTrustedAdvisorCheckResult(input *DescribeTrustedAdviso
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Support) DescribeTrustedAdvisorCheckResultWithContext(ctx aws.Context, input *DescribeTrustedAdvisorCheckResultInput, opts ...request.Option) (*DescribeTrustedAdvisorCheckResultOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/support.(*Support).DescribeTrustedAdvisorCheckResult")
+	defer span.End()
+
 	req, out := c.DescribeTrustedAdvisorCheckResultRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1155,6 +1186,9 @@ func (c *Support) DescribeTrustedAdvisorCheckSummaries(input *DescribeTrustedAdv
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Support) DescribeTrustedAdvisorCheckSummariesWithContext(ctx aws.Context, input *DescribeTrustedAdvisorCheckSummariesInput, opts ...request.Option) (*DescribeTrustedAdvisorCheckSummariesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/support.(*Support).DescribeTrustedAdvisorCheckSummaries")
+	defer span.End()
+
 	req, out := c.DescribeTrustedAdvisorCheckSummariesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1237,6 +1271,9 @@ func (c *Support) DescribeTrustedAdvisorChecks(input *DescribeTrustedAdvisorChec
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Support) DescribeTrustedAdvisorChecksWithContext(ctx aws.Context, input *DescribeTrustedAdvisorChecksInput, opts ...request.Option) (*DescribeTrustedAdvisorChecksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/support.(*Support).DescribeTrustedAdvisorChecks")
+	defer span.End()
+
 	req, out := c.DescribeTrustedAdvisorChecksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1332,6 +1369,9 @@ func (c *Support) RefreshTrustedAdvisorCheck(input *RefreshTrustedAdvisorCheckIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Support) RefreshTrustedAdvisorCheckWithContext(ctx aws.Context, input *RefreshTrustedAdvisorCheckInput, opts ...request.Option) (*RefreshTrustedAdvisorCheckOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/support.(*Support).RefreshTrustedAdvisorCheck")
+	defer span.End()
+
 	req, out := c.RefreshTrustedAdvisorCheckRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1415,6 +1455,9 @@ func (c *Support) ResolveCase(input *ResolveCaseInput) (*ResolveCaseOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Support) ResolveCaseWithContext(ctx aws.Context, input *ResolveCaseInput, opts ...request.Option) (*ResolveCaseOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/support.(*Support).ResolveCase")
+	defer span.End()
+
 	req, out := c.ResolveCaseRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

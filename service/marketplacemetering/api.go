@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opBatchMeterUsage = "BatchMeterUsage"
@@ -111,6 +112,9 @@ func (c *MarketplaceMetering) BatchMeterUsage(input *BatchMeterUsageInput) (*Bat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MarketplaceMetering) BatchMeterUsageWithContext(ctx aws.Context, input *BatchMeterUsageInput, opts ...request.Option) (*BatchMeterUsageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/marketplacemetering.(*MarketplaceMetering).BatchMeterUsage")
+	defer span.End()
+
 	req, out := c.BatchMeterUsageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -218,6 +222,9 @@ func (c *MarketplaceMetering) MeterUsage(input *MeterUsageInput) (*MeterUsageOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MarketplaceMetering) MeterUsageWithContext(ctx aws.Context, input *MeterUsageInput, opts ...request.Option) (*MeterUsageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/marketplacemetering.(*MarketplaceMetering).MeterUsage")
+	defer span.End()
+
 	req, out := c.MeterUsageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -313,6 +320,9 @@ func (c *MarketplaceMetering) ResolveCustomer(input *ResolveCustomerInput) (*Res
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MarketplaceMetering) ResolveCustomerWithContext(ctx aws.Context, input *ResolveCustomerInput, opts ...request.Option) (*ResolveCustomerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/marketplacemetering.(*MarketplaceMetering).ResolveCustomer")
+	defer span.End()
+
 	req, out := c.ResolveCustomerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

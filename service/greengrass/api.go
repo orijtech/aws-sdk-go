@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAssociateRoleToGroup = "AssociateRoleToGroup"
@@ -86,6 +87,9 @@ func (c *Greengrass) AssociateRoleToGroup(input *AssociateRoleToGroupInput) (*As
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) AssociateRoleToGroupWithContext(ctx aws.Context, input *AssociateRoleToGroupInput, opts ...request.Option) (*AssociateRoleToGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).AssociateRoleToGroup")
+	defer span.End()
+
 	req, out := c.AssociateRoleToGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -171,6 +175,9 @@ func (c *Greengrass) AssociateServiceRoleToAccount(input *AssociateServiceRoleTo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) AssociateServiceRoleToAccountWithContext(ctx aws.Context, input *AssociateServiceRoleToAccountInput, opts ...request.Option) (*AssociateServiceRoleToAccountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).AssociateServiceRoleToAccount")
+	defer span.End()
+
 	req, out := c.AssociateServiceRoleToAccountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -252,6 +259,9 @@ func (c *Greengrass) CreateCoreDefinition(input *CreateCoreDefinitionInput) (*Cr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateCoreDefinitionWithContext(ctx aws.Context, input *CreateCoreDefinitionInput, opts ...request.Option) (*CreateCoreDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateCoreDefinition")
+	defer span.End()
+
 	req, out := c.CreateCoreDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -332,6 +342,9 @@ func (c *Greengrass) CreateCoreDefinitionVersion(input *CreateCoreDefinitionVers
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateCoreDefinitionVersionWithContext(ctx aws.Context, input *CreateCoreDefinitionVersionInput, opts ...request.Option) (*CreateCoreDefinitionVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateCoreDefinitionVersion")
+	defer span.End()
+
 	req, out := c.CreateCoreDefinitionVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -411,6 +424,9 @@ func (c *Greengrass) CreateDeployment(input *CreateDeploymentInput) (*CreateDepl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateDeploymentWithContext(ctx aws.Context, input *CreateDeploymentInput, opts ...request.Option) (*CreateDeploymentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateDeployment")
+	defer span.End()
+
 	req, out := c.CreateDeploymentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -491,6 +507,9 @@ func (c *Greengrass) CreateDeviceDefinition(input *CreateDeviceDefinitionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateDeviceDefinitionWithContext(ctx aws.Context, input *CreateDeviceDefinitionInput, opts ...request.Option) (*CreateDeviceDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateDeviceDefinition")
+	defer span.End()
+
 	req, out := c.CreateDeviceDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -570,6 +589,9 @@ func (c *Greengrass) CreateDeviceDefinitionVersion(input *CreateDeviceDefinition
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateDeviceDefinitionVersionWithContext(ctx aws.Context, input *CreateDeviceDefinitionVersionInput, opts ...request.Option) (*CreateDeviceDefinitionVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateDeviceDefinitionVersion")
+	defer span.End()
+
 	req, out := c.CreateDeviceDefinitionVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -652,6 +674,9 @@ func (c *Greengrass) CreateFunctionDefinition(input *CreateFunctionDefinitionInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateFunctionDefinitionWithContext(ctx aws.Context, input *CreateFunctionDefinitionInput, opts ...request.Option) (*CreateFunctionDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateFunctionDefinition")
+	defer span.End()
+
 	req, out := c.CreateFunctionDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -731,6 +756,9 @@ func (c *Greengrass) CreateFunctionDefinitionVersion(input *CreateFunctionDefini
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateFunctionDefinitionVersionWithContext(ctx aws.Context, input *CreateFunctionDefinitionVersionInput, opts ...request.Option) (*CreateFunctionDefinitionVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateFunctionDefinitionVersion")
+	defer span.End()
+
 	req, out := c.CreateFunctionDefinitionVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -811,6 +839,9 @@ func (c *Greengrass) CreateGroup(input *CreateGroupInput) (*CreateGroupOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateGroupWithContext(ctx aws.Context, input *CreateGroupInput, opts ...request.Option) (*CreateGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateGroup")
+	defer span.End()
+
 	req, out := c.CreateGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -894,6 +925,9 @@ func (c *Greengrass) CreateGroupCertificateAuthority(input *CreateGroupCertifica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateGroupCertificateAuthorityWithContext(ctx aws.Context, input *CreateGroupCertificateAuthorityInput, opts ...request.Option) (*CreateGroupCertificateAuthorityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateGroupCertificateAuthority")
+	defer span.End()
+
 	req, out := c.CreateGroupCertificateAuthorityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -973,6 +1007,9 @@ func (c *Greengrass) CreateGroupVersion(input *CreateGroupVersionInput) (*Create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateGroupVersionWithContext(ctx aws.Context, input *CreateGroupVersionInput, opts ...request.Option) (*CreateGroupVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateGroupVersion")
+	defer span.End()
+
 	req, out := c.CreateGroupVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1053,6 +1090,9 @@ func (c *Greengrass) CreateLoggerDefinition(input *CreateLoggerDefinitionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateLoggerDefinitionWithContext(ctx aws.Context, input *CreateLoggerDefinitionInput, opts ...request.Option) (*CreateLoggerDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateLoggerDefinition")
+	defer span.End()
+
 	req, out := c.CreateLoggerDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1132,6 +1172,9 @@ func (c *Greengrass) CreateLoggerDefinitionVersion(input *CreateLoggerDefinition
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateLoggerDefinitionVersionWithContext(ctx aws.Context, input *CreateLoggerDefinitionVersionInput, opts ...request.Option) (*CreateLoggerDefinitionVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateLoggerDefinitionVersion")
+	defer span.End()
+
 	req, out := c.CreateLoggerDefinitionVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1213,6 +1256,9 @@ func (c *Greengrass) CreateResourceDefinition(input *CreateResourceDefinitionInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateResourceDefinitionWithContext(ctx aws.Context, input *CreateResourceDefinitionInput, opts ...request.Option) (*CreateResourceDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateResourceDefinition")
+	defer span.End()
+
 	req, out := c.CreateResourceDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1292,6 +1338,9 @@ func (c *Greengrass) CreateResourceDefinitionVersion(input *CreateResourceDefini
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateResourceDefinitionVersionWithContext(ctx aws.Context, input *CreateResourceDefinitionVersionInput, opts ...request.Option) (*CreateResourceDefinitionVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateResourceDefinitionVersion")
+	defer span.End()
+
 	req, out := c.CreateResourceDefinitionVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1377,6 +1426,9 @@ func (c *Greengrass) CreateSoftwareUpdateJob(input *CreateSoftwareUpdateJobInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateSoftwareUpdateJobWithContext(ctx aws.Context, input *CreateSoftwareUpdateJobInput, opts ...request.Option) (*CreateSoftwareUpdateJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateSoftwareUpdateJob")
+	defer span.End()
+
 	req, out := c.CreateSoftwareUpdateJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1458,6 +1510,9 @@ func (c *Greengrass) CreateSubscriptionDefinition(input *CreateSubscriptionDefin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateSubscriptionDefinitionWithContext(ctx aws.Context, input *CreateSubscriptionDefinitionInput, opts ...request.Option) (*CreateSubscriptionDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateSubscriptionDefinition")
+	defer span.End()
+
 	req, out := c.CreateSubscriptionDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1537,6 +1592,9 @@ func (c *Greengrass) CreateSubscriptionDefinitionVersion(input *CreateSubscripti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) CreateSubscriptionDefinitionVersionWithContext(ctx aws.Context, input *CreateSubscriptionDefinitionVersionInput, opts ...request.Option) (*CreateSubscriptionDefinitionVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).CreateSubscriptionDefinitionVersion")
+	defer span.End()
+
 	req, out := c.CreateSubscriptionDefinitionVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1616,6 +1674,9 @@ func (c *Greengrass) DeleteCoreDefinition(input *DeleteCoreDefinitionInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) DeleteCoreDefinitionWithContext(ctx aws.Context, input *DeleteCoreDefinitionInput, opts ...request.Option) (*DeleteCoreDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).DeleteCoreDefinition")
+	defer span.End()
+
 	req, out := c.DeleteCoreDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1695,6 +1756,9 @@ func (c *Greengrass) DeleteDeviceDefinition(input *DeleteDeviceDefinitionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) DeleteDeviceDefinitionWithContext(ctx aws.Context, input *DeleteDeviceDefinitionInput, opts ...request.Option) (*DeleteDeviceDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).DeleteDeviceDefinition")
+	defer span.End()
+
 	req, out := c.DeleteDeviceDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1774,6 +1838,9 @@ func (c *Greengrass) DeleteFunctionDefinition(input *DeleteFunctionDefinitionInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) DeleteFunctionDefinitionWithContext(ctx aws.Context, input *DeleteFunctionDefinitionInput, opts ...request.Option) (*DeleteFunctionDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).DeleteFunctionDefinition")
+	defer span.End()
+
 	req, out := c.DeleteFunctionDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1853,6 +1920,9 @@ func (c *Greengrass) DeleteGroup(input *DeleteGroupInput) (*DeleteGroupOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) DeleteGroupWithContext(ctx aws.Context, input *DeleteGroupInput, opts ...request.Option) (*DeleteGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).DeleteGroup")
+	defer span.End()
+
 	req, out := c.DeleteGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1932,6 +2002,9 @@ func (c *Greengrass) DeleteLoggerDefinition(input *DeleteLoggerDefinitionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) DeleteLoggerDefinitionWithContext(ctx aws.Context, input *DeleteLoggerDefinitionInput, opts ...request.Option) (*DeleteLoggerDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).DeleteLoggerDefinition")
+	defer span.End()
+
 	req, out := c.DeleteLoggerDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2011,6 +2084,9 @@ func (c *Greengrass) DeleteResourceDefinition(input *DeleteResourceDefinitionInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) DeleteResourceDefinitionWithContext(ctx aws.Context, input *DeleteResourceDefinitionInput, opts ...request.Option) (*DeleteResourceDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).DeleteResourceDefinition")
+	defer span.End()
+
 	req, out := c.DeleteResourceDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2090,6 +2166,9 @@ func (c *Greengrass) DeleteSubscriptionDefinition(input *DeleteSubscriptionDefin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) DeleteSubscriptionDefinitionWithContext(ctx aws.Context, input *DeleteSubscriptionDefinitionInput, opts ...request.Option) (*DeleteSubscriptionDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).DeleteSubscriptionDefinition")
+	defer span.End()
+
 	req, out := c.DeleteSubscriptionDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2172,6 +2251,9 @@ func (c *Greengrass) DisassociateRoleFromGroup(input *DisassociateRoleFromGroupI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) DisassociateRoleFromGroupWithContext(ctx aws.Context, input *DisassociateRoleFromGroupInput, opts ...request.Option) (*DisassociateRoleFromGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).DisassociateRoleFromGroup")
+	defer span.End()
+
 	req, out := c.DisassociateRoleFromGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2252,6 +2334,9 @@ func (c *Greengrass) DisassociateServiceRoleFromAccount(input *DisassociateServi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) DisassociateServiceRoleFromAccountWithContext(ctx aws.Context, input *DisassociateServiceRoleFromAccountInput, opts ...request.Option) (*DisassociateServiceRoleFromAccountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).DisassociateServiceRoleFromAccount")
+	defer span.End()
+
 	req, out := c.DisassociateServiceRoleFromAccountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2334,6 +2419,9 @@ func (c *Greengrass) GetAssociatedRole(input *GetAssociatedRoleInput) (*GetAssoc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetAssociatedRoleWithContext(ctx aws.Context, input *GetAssociatedRoleInput, opts ...request.Option) (*GetAssociatedRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetAssociatedRole")
+	defer span.End()
+
 	req, out := c.GetAssociatedRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2416,6 +2504,9 @@ func (c *Greengrass) GetConnectivityInfo(input *GetConnectivityInfoInput) (*GetC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetConnectivityInfoWithContext(ctx aws.Context, input *GetConnectivityInfoInput, opts ...request.Option) (*GetConnectivityInfoOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetConnectivityInfo")
+	defer span.End()
+
 	req, out := c.GetConnectivityInfoRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2495,6 +2586,9 @@ func (c *Greengrass) GetCoreDefinition(input *GetCoreDefinitionInput) (*GetCoreD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetCoreDefinitionWithContext(ctx aws.Context, input *GetCoreDefinitionInput, opts ...request.Option) (*GetCoreDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetCoreDefinition")
+	defer span.End()
+
 	req, out := c.GetCoreDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2574,6 +2668,9 @@ func (c *Greengrass) GetCoreDefinitionVersion(input *GetCoreDefinitionVersionInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetCoreDefinitionVersionWithContext(ctx aws.Context, input *GetCoreDefinitionVersionInput, opts ...request.Option) (*GetCoreDefinitionVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetCoreDefinitionVersion")
+	defer span.End()
+
 	req, out := c.GetCoreDefinitionVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2653,6 +2750,9 @@ func (c *Greengrass) GetDeploymentStatus(input *GetDeploymentStatusInput) (*GetD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetDeploymentStatusWithContext(ctx aws.Context, input *GetDeploymentStatusInput, opts ...request.Option) (*GetDeploymentStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetDeploymentStatus")
+	defer span.End()
+
 	req, out := c.GetDeploymentStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2732,6 +2832,9 @@ func (c *Greengrass) GetDeviceDefinition(input *GetDeviceDefinitionInput) (*GetD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetDeviceDefinitionWithContext(ctx aws.Context, input *GetDeviceDefinitionInput, opts ...request.Option) (*GetDeviceDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetDeviceDefinition")
+	defer span.End()
+
 	req, out := c.GetDeviceDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2811,6 +2914,9 @@ func (c *Greengrass) GetDeviceDefinitionVersion(input *GetDeviceDefinitionVersio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetDeviceDefinitionVersionWithContext(ctx aws.Context, input *GetDeviceDefinitionVersionInput, opts ...request.Option) (*GetDeviceDefinitionVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetDeviceDefinitionVersion")
+	defer span.End()
+
 	req, out := c.GetDeviceDefinitionVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2891,6 +2997,9 @@ func (c *Greengrass) GetFunctionDefinition(input *GetFunctionDefinitionInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetFunctionDefinitionWithContext(ctx aws.Context, input *GetFunctionDefinitionInput, opts ...request.Option) (*GetFunctionDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetFunctionDefinition")
+	defer span.End()
+
 	req, out := c.GetFunctionDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2971,6 +3080,9 @@ func (c *Greengrass) GetFunctionDefinitionVersion(input *GetFunctionDefinitionVe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetFunctionDefinitionVersionWithContext(ctx aws.Context, input *GetFunctionDefinitionVersionInput, opts ...request.Option) (*GetFunctionDefinitionVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetFunctionDefinitionVersion")
+	defer span.End()
+
 	req, out := c.GetFunctionDefinitionVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3050,6 +3162,9 @@ func (c *Greengrass) GetGroup(input *GetGroupInput) (*GetGroupOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetGroupWithContext(ctx aws.Context, input *GetGroupInput, opts ...request.Option) (*GetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetGroup")
+	defer span.End()
+
 	req, out := c.GetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3132,6 +3247,9 @@ func (c *Greengrass) GetGroupCertificateAuthority(input *GetGroupCertificateAuth
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetGroupCertificateAuthorityWithContext(ctx aws.Context, input *GetGroupCertificateAuthorityInput, opts ...request.Option) (*GetGroupCertificateAuthorityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetGroupCertificateAuthority")
+	defer span.End()
+
 	req, out := c.GetGroupCertificateAuthorityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3214,6 +3332,9 @@ func (c *Greengrass) GetGroupCertificateConfiguration(input *GetGroupCertificate
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetGroupCertificateConfigurationWithContext(ctx aws.Context, input *GetGroupCertificateConfigurationInput, opts ...request.Option) (*GetGroupCertificateConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetGroupCertificateConfiguration")
+	defer span.End()
+
 	req, out := c.GetGroupCertificateConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3293,6 +3414,9 @@ func (c *Greengrass) GetGroupVersion(input *GetGroupVersionInput) (*GetGroupVers
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetGroupVersionWithContext(ctx aws.Context, input *GetGroupVersionInput, opts ...request.Option) (*GetGroupVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetGroupVersion")
+	defer span.End()
+
 	req, out := c.GetGroupVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3372,6 +3496,9 @@ func (c *Greengrass) GetLoggerDefinition(input *GetLoggerDefinitionInput) (*GetL
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetLoggerDefinitionWithContext(ctx aws.Context, input *GetLoggerDefinitionInput, opts ...request.Option) (*GetLoggerDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetLoggerDefinition")
+	defer span.End()
+
 	req, out := c.GetLoggerDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3451,6 +3578,9 @@ func (c *Greengrass) GetLoggerDefinitionVersion(input *GetLoggerDefinitionVersio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetLoggerDefinitionVersionWithContext(ctx aws.Context, input *GetLoggerDefinitionVersionInput, opts ...request.Option) (*GetLoggerDefinitionVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetLoggerDefinitionVersion")
+	defer span.End()
+
 	req, out := c.GetLoggerDefinitionVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3531,6 +3661,9 @@ func (c *Greengrass) GetResourceDefinition(input *GetResourceDefinitionInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetResourceDefinitionWithContext(ctx aws.Context, input *GetResourceDefinitionInput, opts ...request.Option) (*GetResourceDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetResourceDefinition")
+	defer span.End()
+
 	req, out := c.GetResourceDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3611,6 +3744,9 @@ func (c *Greengrass) GetResourceDefinitionVersion(input *GetResourceDefinitionVe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetResourceDefinitionVersionWithContext(ctx aws.Context, input *GetResourceDefinitionVersionInput, opts ...request.Option) (*GetResourceDefinitionVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetResourceDefinitionVersion")
+	defer span.End()
+
 	req, out := c.GetResourceDefinitionVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3690,6 +3826,9 @@ func (c *Greengrass) GetServiceRoleForAccount(input *GetServiceRoleForAccountInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetServiceRoleForAccountWithContext(ctx aws.Context, input *GetServiceRoleForAccountInput, opts ...request.Option) (*GetServiceRoleForAccountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetServiceRoleForAccount")
+	defer span.End()
+
 	req, out := c.GetServiceRoleForAccountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3769,6 +3908,9 @@ func (c *Greengrass) GetSubscriptionDefinition(input *GetSubscriptionDefinitionI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetSubscriptionDefinitionWithContext(ctx aws.Context, input *GetSubscriptionDefinitionInput, opts ...request.Option) (*GetSubscriptionDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetSubscriptionDefinition")
+	defer span.End()
+
 	req, out := c.GetSubscriptionDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3848,6 +3990,9 @@ func (c *Greengrass) GetSubscriptionDefinitionVersion(input *GetSubscriptionDefi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) GetSubscriptionDefinitionVersionWithContext(ctx aws.Context, input *GetSubscriptionDefinitionVersionInput, opts ...request.Option) (*GetSubscriptionDefinitionVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).GetSubscriptionDefinitionVersion")
+	defer span.End()
+
 	req, out := c.GetSubscriptionDefinitionVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3927,6 +4072,9 @@ func (c *Greengrass) ListCoreDefinitionVersions(input *ListCoreDefinitionVersion
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListCoreDefinitionVersionsWithContext(ctx aws.Context, input *ListCoreDefinitionVersionsInput, opts ...request.Option) (*ListCoreDefinitionVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListCoreDefinitionVersions")
+	defer span.End()
+
 	req, out := c.ListCoreDefinitionVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4001,6 +4149,9 @@ func (c *Greengrass) ListCoreDefinitions(input *ListCoreDefinitionsInput) (*List
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListCoreDefinitionsWithContext(ctx aws.Context, input *ListCoreDefinitionsInput, opts ...request.Option) (*ListCoreDefinitionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListCoreDefinitions")
+	defer span.End()
+
 	req, out := c.ListCoreDefinitionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4080,6 +4231,9 @@ func (c *Greengrass) ListDeployments(input *ListDeploymentsInput) (*ListDeployme
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListDeploymentsWithContext(ctx aws.Context, input *ListDeploymentsInput, opts ...request.Option) (*ListDeploymentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListDeployments")
+	defer span.End()
+
 	req, out := c.ListDeploymentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4159,6 +4313,9 @@ func (c *Greengrass) ListDeviceDefinitionVersions(input *ListDeviceDefinitionVer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListDeviceDefinitionVersionsWithContext(ctx aws.Context, input *ListDeviceDefinitionVersionsInput, opts ...request.Option) (*ListDeviceDefinitionVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListDeviceDefinitionVersions")
+	defer span.End()
+
 	req, out := c.ListDeviceDefinitionVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4233,6 +4390,9 @@ func (c *Greengrass) ListDeviceDefinitions(input *ListDeviceDefinitionsInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListDeviceDefinitionsWithContext(ctx aws.Context, input *ListDeviceDefinitionsInput, opts ...request.Option) (*ListDeviceDefinitionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListDeviceDefinitions")
+	defer span.End()
+
 	req, out := c.ListDeviceDefinitionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4312,6 +4472,9 @@ func (c *Greengrass) ListFunctionDefinitionVersions(input *ListFunctionDefinitio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListFunctionDefinitionVersionsWithContext(ctx aws.Context, input *ListFunctionDefinitionVersionsInput, opts ...request.Option) (*ListFunctionDefinitionVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListFunctionDefinitionVersions")
+	defer span.End()
+
 	req, out := c.ListFunctionDefinitionVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4386,6 +4549,9 @@ func (c *Greengrass) ListFunctionDefinitions(input *ListFunctionDefinitionsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListFunctionDefinitionsWithContext(ctx aws.Context, input *ListFunctionDefinitionsInput, opts ...request.Option) (*ListFunctionDefinitionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListFunctionDefinitions")
+	defer span.End()
+
 	req, out := c.ListFunctionDefinitionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4468,6 +4634,9 @@ func (c *Greengrass) ListGroupCertificateAuthorities(input *ListGroupCertificate
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListGroupCertificateAuthoritiesWithContext(ctx aws.Context, input *ListGroupCertificateAuthoritiesInput, opts ...request.Option) (*ListGroupCertificateAuthoritiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListGroupCertificateAuthorities")
+	defer span.End()
+
 	req, out := c.ListGroupCertificateAuthoritiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4547,6 +4716,9 @@ func (c *Greengrass) ListGroupVersions(input *ListGroupVersionsInput) (*ListGrou
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListGroupVersionsWithContext(ctx aws.Context, input *ListGroupVersionsInput, opts ...request.Option) (*ListGroupVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListGroupVersions")
+	defer span.End()
+
 	req, out := c.ListGroupVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4621,6 +4793,9 @@ func (c *Greengrass) ListGroups(input *ListGroupsInput) (*ListGroupsOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListGroupsWithContext(ctx aws.Context, input *ListGroupsInput, opts ...request.Option) (*ListGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListGroups")
+	defer span.End()
+
 	req, out := c.ListGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4700,6 +4875,9 @@ func (c *Greengrass) ListLoggerDefinitionVersions(input *ListLoggerDefinitionVer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListLoggerDefinitionVersionsWithContext(ctx aws.Context, input *ListLoggerDefinitionVersionsInput, opts ...request.Option) (*ListLoggerDefinitionVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListLoggerDefinitionVersions")
+	defer span.End()
+
 	req, out := c.ListLoggerDefinitionVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4774,6 +4952,9 @@ func (c *Greengrass) ListLoggerDefinitions(input *ListLoggerDefinitionsInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListLoggerDefinitionsWithContext(ctx aws.Context, input *ListLoggerDefinitionsInput, opts ...request.Option) (*ListLoggerDefinitionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListLoggerDefinitions")
+	defer span.End()
+
 	req, out := c.ListLoggerDefinitionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4853,6 +5034,9 @@ func (c *Greengrass) ListResourceDefinitionVersions(input *ListResourceDefinitio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListResourceDefinitionVersionsWithContext(ctx aws.Context, input *ListResourceDefinitionVersionsInput, opts ...request.Option) (*ListResourceDefinitionVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListResourceDefinitionVersions")
+	defer span.End()
+
 	req, out := c.ListResourceDefinitionVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4927,6 +5111,9 @@ func (c *Greengrass) ListResourceDefinitions(input *ListResourceDefinitionsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListResourceDefinitionsWithContext(ctx aws.Context, input *ListResourceDefinitionsInput, opts ...request.Option) (*ListResourceDefinitionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListResourceDefinitions")
+	defer span.End()
+
 	req, out := c.ListResourceDefinitionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5006,6 +5193,9 @@ func (c *Greengrass) ListSubscriptionDefinitionVersions(input *ListSubscriptionD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListSubscriptionDefinitionVersionsWithContext(ctx aws.Context, input *ListSubscriptionDefinitionVersionsInput, opts ...request.Option) (*ListSubscriptionDefinitionVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListSubscriptionDefinitionVersions")
+	defer span.End()
+
 	req, out := c.ListSubscriptionDefinitionVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5080,6 +5270,9 @@ func (c *Greengrass) ListSubscriptionDefinitions(input *ListSubscriptionDefiniti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ListSubscriptionDefinitionsWithContext(ctx aws.Context, input *ListSubscriptionDefinitionsInput, opts ...request.Option) (*ListSubscriptionDefinitionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ListSubscriptionDefinitions")
+	defer span.End()
+
 	req, out := c.ListSubscriptionDefinitionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5159,6 +5352,9 @@ func (c *Greengrass) ResetDeployments(input *ResetDeploymentsInput) (*ResetDeplo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) ResetDeploymentsWithContext(ctx aws.Context, input *ResetDeploymentsInput, opts ...request.Option) (*ResetDeploymentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).ResetDeployments")
+	defer span.End()
+
 	req, out := c.ResetDeploymentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5243,6 +5439,9 @@ func (c *Greengrass) UpdateConnectivityInfo(input *UpdateConnectivityInfoInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) UpdateConnectivityInfoWithContext(ctx aws.Context, input *UpdateConnectivityInfoInput, opts ...request.Option) (*UpdateConnectivityInfoOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).UpdateConnectivityInfo")
+	defer span.End()
+
 	req, out := c.UpdateConnectivityInfoRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5322,6 +5521,9 @@ func (c *Greengrass) UpdateCoreDefinition(input *UpdateCoreDefinitionInput) (*Up
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) UpdateCoreDefinitionWithContext(ctx aws.Context, input *UpdateCoreDefinitionInput, opts ...request.Option) (*UpdateCoreDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).UpdateCoreDefinition")
+	defer span.End()
+
 	req, out := c.UpdateCoreDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5401,6 +5603,9 @@ func (c *Greengrass) UpdateDeviceDefinition(input *UpdateDeviceDefinitionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) UpdateDeviceDefinitionWithContext(ctx aws.Context, input *UpdateDeviceDefinitionInput, opts ...request.Option) (*UpdateDeviceDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).UpdateDeviceDefinition")
+	defer span.End()
+
 	req, out := c.UpdateDeviceDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5480,6 +5685,9 @@ func (c *Greengrass) UpdateFunctionDefinition(input *UpdateFunctionDefinitionInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) UpdateFunctionDefinitionWithContext(ctx aws.Context, input *UpdateFunctionDefinitionInput, opts ...request.Option) (*UpdateFunctionDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).UpdateFunctionDefinition")
+	defer span.End()
+
 	req, out := c.UpdateFunctionDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5559,6 +5767,9 @@ func (c *Greengrass) UpdateGroup(input *UpdateGroupInput) (*UpdateGroupOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) UpdateGroupWithContext(ctx aws.Context, input *UpdateGroupInput, opts ...request.Option) (*UpdateGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).UpdateGroup")
+	defer span.End()
+
 	req, out := c.UpdateGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5641,6 +5852,9 @@ func (c *Greengrass) UpdateGroupCertificateConfiguration(input *UpdateGroupCerti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) UpdateGroupCertificateConfigurationWithContext(ctx aws.Context, input *UpdateGroupCertificateConfigurationInput, opts ...request.Option) (*UpdateGroupCertificateConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).UpdateGroupCertificateConfiguration")
+	defer span.End()
+
 	req, out := c.UpdateGroupCertificateConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5720,6 +5934,9 @@ func (c *Greengrass) UpdateLoggerDefinition(input *UpdateLoggerDefinitionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) UpdateLoggerDefinitionWithContext(ctx aws.Context, input *UpdateLoggerDefinitionInput, opts ...request.Option) (*UpdateLoggerDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).UpdateLoggerDefinition")
+	defer span.End()
+
 	req, out := c.UpdateLoggerDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5799,6 +6016,9 @@ func (c *Greengrass) UpdateResourceDefinition(input *UpdateResourceDefinitionInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) UpdateResourceDefinitionWithContext(ctx aws.Context, input *UpdateResourceDefinitionInput, opts ...request.Option) (*UpdateResourceDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).UpdateResourceDefinition")
+	defer span.End()
+
 	req, out := c.UpdateResourceDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5878,6 +6098,9 @@ func (c *Greengrass) UpdateSubscriptionDefinition(input *UpdateSubscriptionDefin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Greengrass) UpdateSubscriptionDefinitionWithContext(ctx aws.Context, input *UpdateSubscriptionDefinitionInput, opts ...request.Option) (*UpdateSubscriptionDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/greengrass.(*Greengrass).UpdateSubscriptionDefinition")
+	defer span.End()
+
 	req, out := c.UpdateSubscriptionDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

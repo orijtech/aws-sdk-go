@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/query"
+	"go.opencensus.io/trace"
 )
 
 const opAddPermission = "AddPermission"
@@ -97,6 +98,9 @@ func (c *SNS) AddPermission(input *AddPermissionInput) (*AddPermissionOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) AddPermissionWithContext(ctx aws.Context, input *AddPermissionInput, opts ...request.Option) (*AddPermissionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).AddPermission")
+	defer span.End()
+
 	req, out := c.AddPermissionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -191,6 +195,9 @@ func (c *SNS) CheckIfPhoneNumberIsOptedOut(input *CheckIfPhoneNumberIsOptedOutIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) CheckIfPhoneNumberIsOptedOutWithContext(ctx aws.Context, input *CheckIfPhoneNumberIsOptedOutInput, opts ...request.Option) (*CheckIfPhoneNumberIsOptedOutOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).CheckIfPhoneNumberIsOptedOut")
+	defer span.End()
+
 	req, out := c.CheckIfPhoneNumberIsOptedOutRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -286,6 +293,9 @@ func (c *SNS) ConfirmSubscription(input *ConfirmSubscriptionInput) (*ConfirmSubs
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) ConfirmSubscriptionWithContext(ctx aws.Context, input *ConfirmSubscriptionInput, opts ...request.Option) (*ConfirmSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).ConfirmSubscription")
+	defer span.End()
+
 	req, out := c.ConfirmSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -396,6 +406,9 @@ func (c *SNS) CreatePlatformApplication(input *CreatePlatformApplicationInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) CreatePlatformApplicationWithContext(ctx aws.Context, input *CreatePlatformApplicationInput, opts ...request.Option) (*CreatePlatformApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).CreatePlatformApplication")
+	defer span.End()
+
 	req, out := c.CreatePlatformApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -497,6 +510,9 @@ func (c *SNS) CreatePlatformEndpoint(input *CreatePlatformEndpointInput) (*Creat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) CreatePlatformEndpointWithContext(ctx aws.Context, input *CreatePlatformEndpointInput, opts ...request.Option) (*CreatePlatformEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).CreatePlatformEndpoint")
+	defer span.End()
+
 	req, out := c.CreatePlatformEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -589,6 +605,9 @@ func (c *SNS) CreateTopic(input *CreateTopicInput) (*CreateTopicOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) CreateTopicWithContext(ctx aws.Context, input *CreateTopicInput, opts ...request.Option) (*CreateTopicOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).CreateTopic")
+	defer span.End()
+
 	req, out := c.CreateTopicRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -681,6 +700,9 @@ func (c *SNS) DeleteEndpoint(input *DeleteEndpointInput) (*DeleteEndpointOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) DeleteEndpointWithContext(ctx aws.Context, input *DeleteEndpointInput, opts ...request.Option) (*DeleteEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).DeleteEndpoint")
+	defer span.End()
+
 	req, out := c.DeleteEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -770,6 +792,9 @@ func (c *SNS) DeletePlatformApplication(input *DeletePlatformApplicationInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) DeletePlatformApplicationWithContext(ctx aws.Context, input *DeletePlatformApplicationInput, opts ...request.Option) (*DeletePlatformApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).DeletePlatformApplication")
+	defer span.End()
+
 	req, out := c.DeletePlatformApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -863,6 +888,9 @@ func (c *SNS) DeleteTopic(input *DeleteTopicInput) (*DeleteTopicOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) DeleteTopicWithContext(ctx aws.Context, input *DeleteTopicInput, opts ...request.Option) (*DeleteTopicOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).DeleteTopic")
+	defer span.End()
+
 	req, out := c.DeleteTopicRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -953,6 +981,9 @@ func (c *SNS) GetEndpointAttributes(input *GetEndpointAttributesInput) (*GetEndp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) GetEndpointAttributesWithContext(ctx aws.Context, input *GetEndpointAttributesInput, opts ...request.Option) (*GetEndpointAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).GetEndpointAttributes")
+	defer span.End()
+
 	req, out := c.GetEndpointAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1043,6 +1074,9 @@ func (c *SNS) GetPlatformApplicationAttributes(input *GetPlatformApplicationAttr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) GetPlatformApplicationAttributesWithContext(ctx aws.Context, input *GetPlatformApplicationAttributesInput, opts ...request.Option) (*GetPlatformApplicationAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).GetPlatformApplicationAttributes")
+	defer span.End()
+
 	req, out := c.GetPlatformApplicationAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1134,6 +1168,9 @@ func (c *SNS) GetSMSAttributes(input *GetSMSAttributesInput) (*GetSMSAttributesO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) GetSMSAttributesWithContext(ctx aws.Context, input *GetSMSAttributesInput, opts ...request.Option) (*GetSMSAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).GetSMSAttributes")
+	defer span.End()
+
 	req, out := c.GetSMSAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1222,6 +1259,9 @@ func (c *SNS) GetSubscriptionAttributes(input *GetSubscriptionAttributesInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) GetSubscriptionAttributesWithContext(ctx aws.Context, input *GetSubscriptionAttributesInput, opts ...request.Option) (*GetSubscriptionAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).GetSubscriptionAttributes")
+	defer span.End()
+
 	req, out := c.GetSubscriptionAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1311,6 +1351,9 @@ func (c *SNS) GetTopicAttributes(input *GetTopicAttributesInput) (*GetTopicAttri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) GetTopicAttributesWithContext(ctx aws.Context, input *GetTopicAttributesInput, opts ...request.Option) (*GetTopicAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).GetTopicAttributes")
+	defer span.End()
+
 	req, out := c.GetTopicAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1412,6 +1455,9 @@ func (c *SNS) ListEndpointsByPlatformApplication(input *ListEndpointsByPlatformA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) ListEndpointsByPlatformApplicationWithContext(ctx aws.Context, input *ListEndpointsByPlatformApplicationInput, opts ...request.Option) (*ListEndpointsByPlatformApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).ListEndpointsByPlatformApplication")
+	defer span.End()
+
 	req, out := c.ListEndpointsByPlatformApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1559,6 +1605,9 @@ func (c *SNS) ListPhoneNumbersOptedOut(input *ListPhoneNumbersOptedOutInput) (*L
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) ListPhoneNumbersOptedOutWithContext(ctx aws.Context, input *ListPhoneNumbersOptedOutInput, opts ...request.Option) (*ListPhoneNumbersOptedOutOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).ListPhoneNumbersOptedOut")
+	defer span.End()
+
 	req, out := c.ListPhoneNumbersOptedOutRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1657,6 +1706,9 @@ func (c *SNS) ListPlatformApplications(input *ListPlatformApplicationsInput) (*L
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) ListPlatformApplicationsWithContext(ctx aws.Context, input *ListPlatformApplicationsInput, opts ...request.Option) (*ListPlatformApplicationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).ListPlatformApplications")
+	defer span.End()
+
 	req, out := c.ListPlatformApplicationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1801,6 +1853,9 @@ func (c *SNS) ListSubscriptions(input *ListSubscriptionsInput) (*ListSubscriptio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) ListSubscriptionsWithContext(ctx aws.Context, input *ListSubscriptionsInput, opts ...request.Option) (*ListSubscriptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).ListSubscriptions")
+	defer span.End()
+
 	req, out := c.ListSubscriptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1948,6 +2003,9 @@ func (c *SNS) ListSubscriptionsByTopic(input *ListSubscriptionsByTopicInput) (*L
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) ListSubscriptionsByTopicWithContext(ctx aws.Context, input *ListSubscriptionsByTopicInput, opts ...request.Option) (*ListSubscriptionsByTopicOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).ListSubscriptionsByTopic")
+	defer span.End()
+
 	req, out := c.ListSubscriptionsByTopicRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2091,6 +2149,9 @@ func (c *SNS) ListTopics(input *ListTopicsInput) (*ListTopicsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) ListTopicsWithContext(ctx aws.Context, input *ListTopicsInput, opts ...request.Option) (*ListTopicsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).ListTopics")
+	defer span.End()
+
 	req, out := c.ListTopicsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2233,6 +2294,9 @@ func (c *SNS) OptInPhoneNumber(input *OptInPhoneNumberInput) (*OptInPhoneNumberO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) OptInPhoneNumberWithContext(ctx aws.Context, input *OptInPhoneNumberInput, opts ...request.Option) (*OptInPhoneNumberOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).OptInPhoneNumber")
+	defer span.End()
+
 	req, out := c.OptInPhoneNumberRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2341,6 +2405,9 @@ func (c *SNS) Publish(input *PublishInput) (*PublishOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) PublishWithContext(ctx aws.Context, input *PublishInput, opts ...request.Option) (*PublishOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).Publish")
+	defer span.End()
+
 	req, out := c.PublishRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2431,6 +2498,9 @@ func (c *SNS) RemovePermission(input *RemovePermissionInput) (*RemovePermissionO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) RemovePermissionWithContext(ctx aws.Context, input *RemovePermissionInput, opts ...request.Option) (*RemovePermissionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).RemovePermission")
+	defer span.End()
+
 	req, out := c.RemovePermissionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2523,6 +2593,9 @@ func (c *SNS) SetEndpointAttributes(input *SetEndpointAttributesInput) (*SetEndp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) SetEndpointAttributesWithContext(ctx aws.Context, input *SetEndpointAttributesInput, opts ...request.Option) (*SetEndpointAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).SetEndpointAttributes")
+	defer span.End()
+
 	req, out := c.SetEndpointAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2617,6 +2690,9 @@ func (c *SNS) SetPlatformApplicationAttributes(input *SetPlatformApplicationAttr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) SetPlatformApplicationAttributesWithContext(ctx aws.Context, input *SetPlatformApplicationAttributesInput, opts ...request.Option) (*SetPlatformApplicationAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).SetPlatformApplicationAttributes")
+	defer span.End()
+
 	req, out := c.SetPlatformApplicationAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2712,6 +2788,9 @@ func (c *SNS) SetSMSAttributes(input *SetSMSAttributesInput) (*SetSMSAttributesO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) SetSMSAttributesWithContext(ctx aws.Context, input *SetSMSAttributesInput, opts ...request.Option) (*SetSMSAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).SetSMSAttributes")
+	defer span.End()
+
 	req, out := c.SetSMSAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2802,6 +2881,9 @@ func (c *SNS) SetSubscriptionAttributes(input *SetSubscriptionAttributesInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) SetSubscriptionAttributesWithContext(ctx aws.Context, input *SetSubscriptionAttributesInput, opts ...request.Option) (*SetSubscriptionAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).SetSubscriptionAttributes")
+	defer span.End()
+
 	req, out := c.SetSubscriptionAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2892,6 +2974,9 @@ func (c *SNS) SetTopicAttributes(input *SetTopicAttributesInput) (*SetTopicAttri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) SetTopicAttributesWithContext(ctx aws.Context, input *SetTopicAttributesInput, opts ...request.Option) (*SetTopicAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).SetTopicAttributes")
+	defer span.End()
+
 	req, out := c.SetTopicAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2986,6 +3071,9 @@ func (c *SNS) Subscribe(input *SubscribeInput) (*SubscribeOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) SubscribeWithContext(ctx aws.Context, input *SubscribeInput, opts ...request.Option) (*SubscribeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).Subscribe")
+	defer span.End()
+
 	req, out := c.SubscribeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3081,6 +3169,9 @@ func (c *SNS) Unsubscribe(input *UnsubscribeInput) (*UnsubscribeOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SNS) UnsubscribeWithContext(ctx aws.Context, input *UnsubscribeInput, opts ...request.Option) (*UnsubscribeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sns.(*SNS).Unsubscribe")
+	defer span.End()
+
 	req, out := c.UnsubscribeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

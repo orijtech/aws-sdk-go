@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opGenerateDataSet = "GenerateDataSet"
@@ -92,6 +93,9 @@ func (c *MarketplaceCommerceAnalytics) GenerateDataSet(input *GenerateDataSetInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MarketplaceCommerceAnalytics) GenerateDataSetWithContext(ctx aws.Context, input *GenerateDataSetInput, opts ...request.Option) (*GenerateDataSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/marketplacecommerceanalytics.(*MarketplaceCommerceAnalytics).GenerateDataSet")
+	defer span.End()
+
 	req, out := c.GenerateDataSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -181,6 +185,9 @@ func (c *MarketplaceCommerceAnalytics) StartSupportDataExport(input *StartSuppor
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MarketplaceCommerceAnalytics) StartSupportDataExportWithContext(ctx aws.Context, input *StartSupportDataExportInput, opts ...request.Option) (*StartSupportDataExportOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/marketplacecommerceanalytics.(*MarketplaceCommerceAnalytics).StartSupportDataExport")
+	defer span.End()
+
 	req, out := c.StartSupportDataExportRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

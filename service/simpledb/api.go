@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/query"
+	"go.opencensus.io/trace"
 )
 
 const opBatchDeleteAttributes = "BatchDeleteAttributes"
@@ -102,6 +103,9 @@ func (c *SimpleDB) BatchDeleteAttributes(input *BatchDeleteAttributesInput) (*Ba
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SimpleDB) BatchDeleteAttributesWithContext(ctx aws.Context, input *BatchDeleteAttributesInput, opts ...request.Option) (*BatchDeleteAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/simpledb.(*SimpleDB).BatchDeleteAttributes")
+	defer span.End()
+
 	req, out := c.BatchDeleteAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -246,6 +250,9 @@ func (c *SimpleDB) BatchPutAttributes(input *BatchPutAttributesInput) (*BatchPut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SimpleDB) BatchPutAttributesWithContext(ctx aws.Context, input *BatchPutAttributesInput, opts ...request.Option) (*BatchPutAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/simpledb.(*SimpleDB).BatchPutAttributes")
+	defer span.End()
+
 	req, out := c.BatchPutAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -338,6 +345,9 @@ func (c *SimpleDB) CreateDomain(input *CreateDomainInput) (*CreateDomainOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SimpleDB) CreateDomainWithContext(ctx aws.Context, input *CreateDomainInput, opts ...request.Option) (*CreateDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/simpledb.(*SimpleDB).CreateDomain")
+	defer span.End()
+
 	req, out := c.CreateDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -435,6 +445,9 @@ func (c *SimpleDB) DeleteAttributes(input *DeleteAttributesInput) (*DeleteAttrib
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SimpleDB) DeleteAttributesWithContext(ctx aws.Context, input *DeleteAttributesInput, opts ...request.Option) (*DeleteAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/simpledb.(*SimpleDB).DeleteAttributes")
+	defer span.End()
+
 	req, out := c.DeleteAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -518,6 +531,9 @@ func (c *SimpleDB) DeleteDomain(input *DeleteDomainInput) (*DeleteDomainOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SimpleDB) DeleteDomainWithContext(ctx aws.Context, input *DeleteDomainInput, opts ...request.Option) (*DeleteDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/simpledb.(*SimpleDB).DeleteDomain")
+	defer span.End()
+
 	req, out := c.DeleteDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -599,6 +615,9 @@ func (c *SimpleDB) DomainMetadata(input *DomainMetadataInput) (*DomainMetadataOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SimpleDB) DomainMetadataWithContext(ctx aws.Context, input *DomainMetadataInput, opts ...request.Option) (*DomainMetadataOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/simpledb.(*SimpleDB).DomainMetadata")
+	defer span.End()
+
 	req, out := c.DomainMetadataRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -690,6 +709,9 @@ func (c *SimpleDB) GetAttributes(input *GetAttributesInput) (*GetAttributesOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SimpleDB) GetAttributesWithContext(ctx aws.Context, input *GetAttributesInput, opts ...request.Option) (*GetAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/simpledb.(*SimpleDB).GetAttributes")
+	defer span.End()
+
 	req, out := c.GetAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -780,6 +802,9 @@ func (c *SimpleDB) ListDomains(input *ListDomainsInput) (*ListDomainsOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SimpleDB) ListDomainsWithContext(ctx aws.Context, input *ListDomainsInput, opts ...request.Option) (*ListDomainsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/simpledb.(*SimpleDB).ListDomains")
+	defer span.End()
+
 	req, out := c.ListDomainsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -956,6 +981,9 @@ func (c *SimpleDB) PutAttributes(input *PutAttributesInput) (*PutAttributesOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SimpleDB) PutAttributesWithContext(ctx aws.Context, input *PutAttributesInput, opts ...request.Option) (*PutAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/simpledb.(*SimpleDB).PutAttributes")
+	defer span.End()
+
 	req, out := c.PutAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1073,6 +1101,9 @@ func (c *SimpleDB) Select(input *SelectInput) (*SelectOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SimpleDB) SelectWithContext(ctx aws.Context, input *SelectInput, opts ...request.Option) (*SelectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/simpledb.(*SimpleDB).Select")
+	defer span.End()
+
 	req, out := c.SelectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

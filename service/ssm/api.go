@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAddTagsToResource = "AddTagsToResource"
@@ -119,6 +120,9 @@ func (c *SSM) AddTagsToResource(input *AddTagsToResourceInput) (*AddTagsToResour
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) AddTagsToResourceWithContext(ctx aws.Context, input *AddTagsToResourceInput, opts ...request.Option) (*AddTagsToResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).AddTagsToResource")
+	defer span.End()
+
 	req, out := c.AddTagsToResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -219,6 +223,9 @@ func (c *SSM) CancelCommand(input *CancelCommandInput) (*CancelCommandOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) CancelCommandWithContext(ctx aws.Context, input *CancelCommandInput, opts ...request.Option) (*CancelCommandOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).CancelCommand")
+	defer span.End()
+
 	req, out := c.CancelCommandRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -302,6 +309,9 @@ func (c *SSM) CreateActivation(input *CreateActivationInput) (*CreateActivationO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) CreateActivationWithContext(ctx aws.Context, input *CreateActivationInput, opts ...request.Option) (*CreateActivationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).CreateActivation")
+	defer span.End()
+
 	req, out := c.CreateActivationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -435,6 +445,9 @@ func (c *SSM) CreateAssociation(input *CreateAssociationInput) (*CreateAssociati
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) CreateAssociationWithContext(ctx aws.Context, input *CreateAssociationInput, opts ...request.Option) (*CreateAssociationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).CreateAssociation")
+	defer span.End()
+
 	req, out := c.CreateAssociationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -568,6 +581,9 @@ func (c *SSM) CreateAssociationBatch(input *CreateAssociationBatchInput) (*Creat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) CreateAssociationBatchWithContext(ctx aws.Context, input *CreateAssociationBatchInput, opts ...request.Option) (*CreateAssociationBatchOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).CreateAssociationBatch")
+	defer span.End()
+
 	req, out := c.CreateAssociationBatchRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -665,6 +681,9 @@ func (c *SSM) CreateDocument(input *CreateDocumentInput) (*CreateDocumentOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) CreateDocumentWithContext(ctx aws.Context, input *CreateDocumentInput, opts ...request.Option) (*CreateDocumentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).CreateDocument")
+	defer span.End()
+
 	req, out := c.CreateDocumentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -755,6 +774,9 @@ func (c *SSM) CreateMaintenanceWindow(input *CreateMaintenanceWindowInput) (*Cre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) CreateMaintenanceWindowWithContext(ctx aws.Context, input *CreateMaintenanceWindowInput, opts ...request.Option) (*CreateMaintenanceWindowOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).CreateMaintenanceWindow")
+	defer span.End()
+
 	req, out := c.CreateMaintenanceWindowRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -848,6 +870,9 @@ func (c *SSM) CreatePatchBaseline(input *CreatePatchBaselineInput) (*CreatePatch
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) CreatePatchBaselineWithContext(ctx aws.Context, input *CreatePatchBaselineInput, opts ...request.Option) (*CreatePatchBaselineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).CreatePatchBaseline")
+	defer span.End()
+
 	req, out := c.CreatePatchBaselineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -946,6 +971,9 @@ func (c *SSM) CreateResourceDataSync(input *CreateResourceDataSyncInput) (*Creat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) CreateResourceDataSyncWithContext(ctx aws.Context, input *CreateResourceDataSyncInput, opts ...request.Option) (*CreateResourceDataSyncOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).CreateResourceDataSync")
+	defer span.End()
+
 	req, out := c.CreateResourceDataSyncRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1040,6 +1068,9 @@ func (c *SSM) DeleteActivation(input *DeleteActivationInput) (*DeleteActivationO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DeleteActivationWithContext(ctx aws.Context, input *DeleteActivationInput, opts ...request.Option) (*DeleteActivationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DeleteActivation")
+	defer span.End()
+
 	req, out := c.DeleteActivationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1149,6 +1180,9 @@ func (c *SSM) DeleteAssociation(input *DeleteAssociationInput) (*DeleteAssociati
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DeleteAssociationWithContext(ctx aws.Context, input *DeleteAssociationInput, opts ...request.Option) (*DeleteAssociationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DeleteAssociation")
+	defer span.End()
+
 	req, out := c.DeleteAssociationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1243,6 +1277,9 @@ func (c *SSM) DeleteDocument(input *DeleteDocumentInput) (*DeleteDocumentOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DeleteDocumentWithContext(ctx aws.Context, input *DeleteDocumentInput, opts ...request.Option) (*DeleteDocumentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DeleteDocument")
+	defer span.End()
+
 	req, out := c.DeleteDocumentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1322,6 +1359,9 @@ func (c *SSM) DeleteMaintenanceWindow(input *DeleteMaintenanceWindowInput) (*Del
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DeleteMaintenanceWindowWithContext(ctx aws.Context, input *DeleteMaintenanceWindowInput, opts ...request.Option) (*DeleteMaintenanceWindowOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DeleteMaintenanceWindow")
+	defer span.End()
+
 	req, out := c.DeleteMaintenanceWindowRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1404,6 +1444,9 @@ func (c *SSM) DeleteParameter(input *DeleteParameterInput) (*DeleteParameterOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DeleteParameterWithContext(ctx aws.Context, input *DeleteParameterInput, opts ...request.Option) (*DeleteParameterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DeleteParameter")
+	defer span.End()
+
 	req, out := c.DeleteParameterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1484,6 +1527,9 @@ func (c *SSM) DeleteParameters(input *DeleteParametersInput) (*DeleteParametersO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DeleteParametersWithContext(ctx aws.Context, input *DeleteParametersInput, opts ...request.Option) (*DeleteParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DeleteParameters")
+	defer span.End()
+
 	req, out := c.DeleteParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1567,6 +1613,9 @@ func (c *SSM) DeletePatchBaseline(input *DeletePatchBaselineInput) (*DeletePatch
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DeletePatchBaselineWithContext(ctx aws.Context, input *DeletePatchBaselineInput, opts ...request.Option) (*DeletePatchBaselineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DeletePatchBaseline")
+	defer span.End()
+
 	req, out := c.DeletePatchBaselineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1652,6 +1701,9 @@ func (c *SSM) DeleteResourceDataSync(input *DeleteResourceDataSyncInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DeleteResourceDataSyncWithContext(ctx aws.Context, input *DeleteResourceDataSyncInput, opts ...request.Option) (*DeleteResourceDataSyncOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DeleteResourceDataSync")
+	defer span.End()
+
 	req, out := c.DeleteResourceDataSyncRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1748,6 +1800,9 @@ func (c *SSM) DeregisterManagedInstance(input *DeregisterManagedInstanceInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DeregisterManagedInstanceWithContext(ctx aws.Context, input *DeregisterManagedInstanceInput, opts ...request.Option) (*DeregisterManagedInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DeregisterManagedInstance")
+	defer span.End()
+
 	req, out := c.DeregisterManagedInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1831,6 +1886,9 @@ func (c *SSM) DeregisterPatchBaselineForPatchGroup(input *DeregisterPatchBaselin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DeregisterPatchBaselineForPatchGroupWithContext(ctx aws.Context, input *DeregisterPatchBaselineForPatchGroupInput, opts ...request.Option) (*DeregisterPatchBaselineForPatchGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DeregisterPatchBaselineForPatchGroup")
+	defer span.End()
+
 	req, out := c.DeregisterPatchBaselineForPatchGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1921,6 +1979,9 @@ func (c *SSM) DeregisterTargetFromMaintenanceWindow(input *DeregisterTargetFromM
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DeregisterTargetFromMaintenanceWindowWithContext(ctx aws.Context, input *DeregisterTargetFromMaintenanceWindowInput, opts ...request.Option) (*DeregisterTargetFromMaintenanceWindowOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DeregisterTargetFromMaintenanceWindow")
+	defer span.End()
+
 	req, out := c.DeregisterTargetFromMaintenanceWindowRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2007,6 +2068,9 @@ func (c *SSM) DeregisterTaskFromMaintenanceWindow(input *DeregisterTaskFromMaint
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DeregisterTaskFromMaintenanceWindowWithContext(ctx aws.Context, input *DeregisterTaskFromMaintenanceWindowInput, opts ...request.Option) (*DeregisterTaskFromMaintenanceWindowOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DeregisterTaskFromMaintenanceWindow")
+	defer span.End()
+
 	req, out := c.DeregisterTaskFromMaintenanceWindowRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2101,6 +2165,9 @@ func (c *SSM) DescribeActivations(input *DescribeActivationsInput) (*DescribeAct
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeActivationsWithContext(ctx aws.Context, input *DescribeActivationsInput, opts ...request.Option) (*DescribeActivationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeActivations")
+	defer span.End()
+
 	req, out := c.DescribeActivationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2260,6 +2327,9 @@ func (c *SSM) DescribeAssociation(input *DescribeAssociationInput) (*DescribeAss
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeAssociationWithContext(ctx aws.Context, input *DescribeAssociationInput, opts ...request.Option) (*DescribeAssociationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeAssociation")
+	defer span.End()
+
 	req, out := c.DescribeAssociationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2348,6 +2418,9 @@ func (c *SSM) DescribeAutomationExecutions(input *DescribeAutomationExecutionsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeAutomationExecutionsWithContext(ctx aws.Context, input *DescribeAutomationExecutionsInput, opts ...request.Option) (*DescribeAutomationExecutionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeAutomationExecutions")
+	defer span.End()
+
 	req, out := c.DescribeAutomationExecutionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2441,6 +2514,9 @@ func (c *SSM) DescribeAutomationStepExecutions(input *DescribeAutomationStepExec
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeAutomationStepExecutionsWithContext(ctx aws.Context, input *DescribeAutomationStepExecutionsInput, opts ...request.Option) (*DescribeAutomationStepExecutionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeAutomationStepExecutions")
+	defer span.End()
+
 	req, out := c.DescribeAutomationStepExecutionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2520,6 +2596,9 @@ func (c *SSM) DescribeAvailablePatches(input *DescribeAvailablePatchesInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeAvailablePatchesWithContext(ctx aws.Context, input *DescribeAvailablePatchesInput, opts ...request.Option) (*DescribeAvailablePatchesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeAvailablePatches")
+	defer span.End()
+
 	req, out := c.DescribeAvailablePatchesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2605,6 +2684,9 @@ func (c *SSM) DescribeDocument(input *DescribeDocumentInput) (*DescribeDocumentO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeDocumentWithContext(ctx aws.Context, input *DescribeDocumentInput, opts ...request.Option) (*DescribeDocumentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeDocument")
+	defer span.End()
+
 	req, out := c.DescribeDocumentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2693,6 +2775,9 @@ func (c *SSM) DescribeDocumentPermission(input *DescribeDocumentPermissionInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeDocumentPermissionWithContext(ctx aws.Context, input *DescribeDocumentPermissionInput, opts ...request.Option) (*DescribeDocumentPermissionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeDocumentPermission")
+	defer span.End()
+
 	req, out := c.DescribeDocumentPermissionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2790,6 +2875,9 @@ func (c *SSM) DescribeEffectiveInstanceAssociations(input *DescribeEffectiveInst
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeEffectiveInstanceAssociationsWithContext(ctx aws.Context, input *DescribeEffectiveInstanceAssociationsInput, opts ...request.Option) (*DescribeEffectiveInstanceAssociationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeEffectiveInstanceAssociations")
+	defer span.End()
+
 	req, out := c.DescribeEffectiveInstanceAssociationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2887,6 +2975,9 @@ func (c *SSM) DescribeEffectivePatchesForPatchBaseline(input *DescribeEffectiveP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeEffectivePatchesForPatchBaselineWithContext(ctx aws.Context, input *DescribeEffectivePatchesForPatchBaselineInput, opts ...request.Option) (*DescribeEffectivePatchesForPatchBaselineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeEffectivePatchesForPatchBaseline")
+	defer span.End()
+
 	req, out := c.DescribeEffectivePatchesForPatchBaselineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2984,6 +3075,9 @@ func (c *SSM) DescribeInstanceAssociationsStatus(input *DescribeInstanceAssociat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeInstanceAssociationsStatusWithContext(ctx aws.Context, input *DescribeInstanceAssociationsStatusInput, opts ...request.Option) (*DescribeInstanceAssociationsStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeInstanceAssociationsStatus")
+	defer span.End()
+
 	req, out := c.DescribeInstanceAssociationsStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3098,6 +3192,9 @@ func (c *SSM) DescribeInstanceInformation(input *DescribeInstanceInformationInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeInstanceInformationWithContext(ctx aws.Context, input *DescribeInstanceInformationInput, opts ...request.Option) (*DescribeInstanceInformationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeInstanceInformation")
+	defer span.End()
+
 	req, out := c.DescribeInstanceInformationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3230,6 +3327,9 @@ func (c *SSM) DescribeInstancePatchStates(input *DescribeInstancePatchStatesInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeInstancePatchStatesWithContext(ctx aws.Context, input *DescribeInstancePatchStatesInput, opts ...request.Option) (*DescribeInstancePatchStatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeInstancePatchStates")
+	defer span.End()
+
 	req, out := c.DescribeInstancePatchStatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3317,6 +3417,9 @@ func (c *SSM) DescribeInstancePatchStatesForPatchGroup(input *DescribeInstancePa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeInstancePatchStatesForPatchGroupWithContext(ctx aws.Context, input *DescribeInstancePatchStatesForPatchGroupInput, opts ...request.Option) (*DescribeInstancePatchStatesForPatchGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeInstancePatchStatesForPatchGroup")
+	defer span.End()
+
 	req, out := c.DescribeInstancePatchStatesForPatchGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3419,6 +3522,9 @@ func (c *SSM) DescribeInstancePatches(input *DescribeInstancePatchesInput) (*Des
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeInstancePatchesWithContext(ctx aws.Context, input *DescribeInstancePatchesInput, opts ...request.Option) (*DescribeInstancePatchesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeInstancePatches")
+	defer span.End()
+
 	req, out := c.DescribeInstancePatchesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3506,6 +3612,9 @@ func (c *SSM) DescribeMaintenanceWindowExecutionTaskInvocations(input *DescribeM
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeMaintenanceWindowExecutionTaskInvocationsWithContext(ctx aws.Context, input *DescribeMaintenanceWindowExecutionTaskInvocationsInput, opts ...request.Option) (*DescribeMaintenanceWindowExecutionTaskInvocationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeMaintenanceWindowExecutionTaskInvocations")
+	defer span.End()
+
 	req, out := c.DescribeMaintenanceWindowExecutionTaskInvocationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3592,6 +3701,9 @@ func (c *SSM) DescribeMaintenanceWindowExecutionTasks(input *DescribeMaintenance
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeMaintenanceWindowExecutionTasksWithContext(ctx aws.Context, input *DescribeMaintenanceWindowExecutionTasksInput, opts ...request.Option) (*DescribeMaintenanceWindowExecutionTasksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeMaintenanceWindowExecutionTasks")
+	defer span.End()
+
 	req, out := c.DescribeMaintenanceWindowExecutionTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3673,6 +3785,9 @@ func (c *SSM) DescribeMaintenanceWindowExecutions(input *DescribeMaintenanceWind
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeMaintenanceWindowExecutionsWithContext(ctx aws.Context, input *DescribeMaintenanceWindowExecutionsInput, opts ...request.Option) (*DescribeMaintenanceWindowExecutionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeMaintenanceWindowExecutions")
+	defer span.End()
+
 	req, out := c.DescribeMaintenanceWindowExecutionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3759,6 +3874,9 @@ func (c *SSM) DescribeMaintenanceWindowTargets(input *DescribeMaintenanceWindowT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeMaintenanceWindowTargetsWithContext(ctx aws.Context, input *DescribeMaintenanceWindowTargetsInput, opts ...request.Option) (*DescribeMaintenanceWindowTargetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeMaintenanceWindowTargets")
+	defer span.End()
+
 	req, out := c.DescribeMaintenanceWindowTargetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3845,6 +3963,9 @@ func (c *SSM) DescribeMaintenanceWindowTasks(input *DescribeMaintenanceWindowTas
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeMaintenanceWindowTasksWithContext(ctx aws.Context, input *DescribeMaintenanceWindowTasksInput, opts ...request.Option) (*DescribeMaintenanceWindowTasksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeMaintenanceWindowTasks")
+	defer span.End()
+
 	req, out := c.DescribeMaintenanceWindowTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3924,6 +4045,9 @@ func (c *SSM) DescribeMaintenanceWindows(input *DescribeMaintenanceWindowsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeMaintenanceWindowsWithContext(ctx aws.Context, input *DescribeMaintenanceWindowsInput, opts ...request.Option) (*DescribeMaintenanceWindowsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeMaintenanceWindows")
+	defer span.End()
+
 	req, out := c.DescribeMaintenanceWindowsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4030,6 +4154,9 @@ func (c *SSM) DescribeParameters(input *DescribeParametersInput) (*DescribeParam
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribeParametersWithContext(ctx aws.Context, input *DescribeParametersInput, opts ...request.Option) (*DescribeParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribeParameters")
+	defer span.End()
+
 	req, out := c.DescribeParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4159,6 +4286,9 @@ func (c *SSM) DescribePatchBaselines(input *DescribePatchBaselinesInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribePatchBaselinesWithContext(ctx aws.Context, input *DescribePatchBaselinesInput, opts ...request.Option) (*DescribePatchBaselinesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribePatchBaselines")
+	defer span.End()
+
 	req, out := c.DescribePatchBaselinesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4241,6 +4371,9 @@ func (c *SSM) DescribePatchGroupState(input *DescribePatchGroupStateInput) (*Des
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribePatchGroupStateWithContext(ctx aws.Context, input *DescribePatchGroupStateInput, opts ...request.Option) (*DescribePatchGroupStateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribePatchGroupState")
+	defer span.End()
+
 	req, out := c.DescribePatchGroupStateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4320,6 +4453,9 @@ func (c *SSM) DescribePatchGroups(input *DescribePatchGroupsInput) (*DescribePat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) DescribePatchGroupsWithContext(ctx aws.Context, input *DescribePatchGroupsInput, opts ...request.Option) (*DescribePatchGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).DescribePatchGroups")
+	defer span.End()
+
 	req, out := c.DescribePatchGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4403,6 +4539,9 @@ func (c *SSM) GetAutomationExecution(input *GetAutomationExecutionInput) (*GetAu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetAutomationExecutionWithContext(ctx aws.Context, input *GetAutomationExecutionInput, opts ...request.Option) (*GetAutomationExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetAutomationExecution")
+	defer span.End()
+
 	req, out := c.GetAutomationExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4507,6 +4646,9 @@ func (c *SSM) GetCommandInvocation(input *GetCommandInvocationInput) (*GetComman
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetCommandInvocationWithContext(ctx aws.Context, input *GetCommandInvocationInput, opts ...request.Option) (*GetCommandInvocationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetCommandInvocation")
+	defer span.End()
+
 	req, out := c.GetCommandInvocationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4588,6 +4730,9 @@ func (c *SSM) GetDefaultPatchBaseline(input *GetDefaultPatchBaselineInput) (*Get
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetDefaultPatchBaselineWithContext(ctx aws.Context, input *GetDefaultPatchBaselineInput, opts ...request.Option) (*GetDefaultPatchBaselineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetDefaultPatchBaseline")
+	defer span.End()
+
 	req, out := c.GetDefaultPatchBaselineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4673,6 +4818,9 @@ func (c *SSM) GetDeployablePatchSnapshotForInstance(input *GetDeployablePatchSna
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetDeployablePatchSnapshotForInstanceWithContext(ctx aws.Context, input *GetDeployablePatchSnapshotForInstanceInput, opts ...request.Option) (*GetDeployablePatchSnapshotForInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetDeployablePatchSnapshotForInstance")
+	defer span.End()
+
 	req, out := c.GetDeployablePatchSnapshotForInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4758,6 +4906,9 @@ func (c *SSM) GetDocument(input *GetDocumentInput) (*GetDocumentOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetDocumentWithContext(ctx aws.Context, input *GetDocumentInput, opts ...request.Option) (*GetDocumentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetDocument")
+	defer span.End()
+
 	req, out := c.GetDocumentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4850,6 +5001,9 @@ func (c *SSM) GetInventory(input *GetInventoryInput) (*GetInventoryOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetInventoryWithContext(ctx aws.Context, input *GetInventoryInput, opts ...request.Option) (*GetInventoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetInventory")
+	defer span.End()
+
 	req, out := c.GetInventoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4936,6 +5090,9 @@ func (c *SSM) GetInventorySchema(input *GetInventorySchemaInput) (*GetInventoryS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetInventorySchemaWithContext(ctx aws.Context, input *GetInventorySchemaInput, opts ...request.Option) (*GetInventorySchemaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetInventorySchema")
+	defer span.End()
+
 	req, out := c.GetInventorySchemaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5022,6 +5179,9 @@ func (c *SSM) GetMaintenanceWindow(input *GetMaintenanceWindowInput) (*GetMainte
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetMaintenanceWindowWithContext(ctx aws.Context, input *GetMaintenanceWindowInput, opts ...request.Option) (*GetMaintenanceWindowOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetMaintenanceWindow")
+	defer span.End()
+
 	req, out := c.GetMaintenanceWindowRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5109,6 +5269,9 @@ func (c *SSM) GetMaintenanceWindowExecution(input *GetMaintenanceWindowExecution
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetMaintenanceWindowExecutionWithContext(ctx aws.Context, input *GetMaintenanceWindowExecutionInput, opts ...request.Option) (*GetMaintenanceWindowExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetMaintenanceWindowExecution")
+	defer span.End()
+
 	req, out := c.GetMaintenanceWindowExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5196,6 +5359,9 @@ func (c *SSM) GetMaintenanceWindowExecutionTask(input *GetMaintenanceWindowExecu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetMaintenanceWindowExecutionTaskWithContext(ctx aws.Context, input *GetMaintenanceWindowExecutionTaskInput, opts ...request.Option) (*GetMaintenanceWindowExecutionTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetMaintenanceWindowExecutionTask")
+	defer span.End()
+
 	req, out := c.GetMaintenanceWindowExecutionTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5283,6 +5449,9 @@ func (c *SSM) GetMaintenanceWindowExecutionTaskInvocation(input *GetMaintenanceW
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetMaintenanceWindowExecutionTaskInvocationWithContext(ctx aws.Context, input *GetMaintenanceWindowExecutionTaskInvocationInput, opts ...request.Option) (*GetMaintenanceWindowExecutionTaskInvocationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetMaintenanceWindowExecutionTaskInvocation")
+	defer span.End()
+
 	req, out := c.GetMaintenanceWindowExecutionTaskInvocationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5369,6 +5538,9 @@ func (c *SSM) GetMaintenanceWindowTask(input *GetMaintenanceWindowTaskInput) (*G
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetMaintenanceWindowTaskWithContext(ctx aws.Context, input *GetMaintenanceWindowTaskInput, opts ...request.Option) (*GetMaintenanceWindowTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetMaintenanceWindowTask")
+	defer span.End()
+
 	req, out := c.GetMaintenanceWindowTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5458,6 +5630,9 @@ func (c *SSM) GetParameter(input *GetParameterInput) (*GetParameterOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetParameterWithContext(ctx aws.Context, input *GetParameterInput, opts ...request.Option) (*GetParameterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetParameter")
+	defer span.End()
+
 	req, out := c.GetParameterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5552,6 +5727,9 @@ func (c *SSM) GetParameterHistory(input *GetParameterHistoryInput) (*GetParamete
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetParameterHistoryWithContext(ctx aws.Context, input *GetParameterHistoryInput, opts ...request.Option) (*GetParameterHistoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetParameterHistory")
+	defer span.End()
+
 	req, out := c.GetParameterHistoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5684,6 +5862,9 @@ func (c *SSM) GetParameters(input *GetParametersInput) (*GetParametersOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetParametersWithContext(ctx aws.Context, input *GetParametersInput, opts ...request.Option) (*GetParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetParameters")
+	defer span.End()
+
 	req, out := c.GetParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5796,6 +5977,9 @@ func (c *SSM) GetParametersByPath(input *GetParametersByPathInput) (*GetParamete
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetParametersByPathWithContext(ctx aws.Context, input *GetParametersByPathInput, opts ...request.Option) (*GetParametersByPathOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetParametersByPath")
+	defer span.End()
+
 	req, out := c.GetParametersByPathRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5936,6 +6120,9 @@ func (c *SSM) GetPatchBaseline(input *GetPatchBaselineInput) (*GetPatchBaselineO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetPatchBaselineWithContext(ctx aws.Context, input *GetPatchBaselineInput, opts ...request.Option) (*GetPatchBaselineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetPatchBaseline")
+	defer span.End()
+
 	req, out := c.GetPatchBaselineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6016,6 +6203,9 @@ func (c *SSM) GetPatchBaselineForPatchGroup(input *GetPatchBaselineForPatchGroup
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) GetPatchBaselineForPatchGroupWithContext(ctx aws.Context, input *GetPatchBaselineForPatchGroupInput, opts ...request.Option) (*GetPatchBaselineForPatchGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).GetPatchBaselineForPatchGroup")
+	defer span.End()
+
 	req, out := c.GetPatchBaselineForPatchGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6101,6 +6291,9 @@ func (c *SSM) ListAssociationVersions(input *ListAssociationVersionsInput) (*Lis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) ListAssociationVersionsWithContext(ctx aws.Context, input *ListAssociationVersionsInput, opts ...request.Option) (*ListAssociationVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).ListAssociationVersions")
+	defer span.End()
+
 	req, out := c.ListAssociationVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6189,6 +6382,9 @@ func (c *SSM) ListAssociations(input *ListAssociationsInput) (*ListAssociationsO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) ListAssociationsWithContext(ctx aws.Context, input *ListAssociationsInput, opts ...request.Option) (*ListAssociationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).ListAssociations")
+	defer span.End()
+
 	req, out := c.ListAssociationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6351,6 +6547,9 @@ func (c *SSM) ListCommandInvocations(input *ListCommandInvocationsInput) (*ListC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) ListCommandInvocationsWithContext(ctx aws.Context, input *ListCommandInvocationsInput, opts ...request.Option) (*ListCommandInvocationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).ListCommandInvocations")
+	defer span.End()
+
 	req, out := c.ListCommandInvocationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6509,6 +6708,9 @@ func (c *SSM) ListCommands(input *ListCommandsInput) (*ListCommandsOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) ListCommandsWithContext(ctx aws.Context, input *ListCommandsInput, opts ...request.Option) (*ListCommandsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).ListCommands")
+	defer span.End()
+
 	req, out := c.ListCommandsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6656,6 +6858,9 @@ func (c *SSM) ListComplianceItems(input *ListComplianceItemsInput) (*ListComplia
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) ListComplianceItemsWithContext(ctx aws.Context, input *ListComplianceItemsInput, opts ...request.Option) (*ListComplianceItemsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).ListComplianceItems")
+	defer span.End()
+
 	req, out := c.ListComplianceItemsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6744,6 +6949,9 @@ func (c *SSM) ListComplianceSummaries(input *ListComplianceSummariesInput) (*Lis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) ListComplianceSummariesWithContext(ctx aws.Context, input *ListComplianceSummariesInput, opts ...request.Option) (*ListComplianceSummariesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).ListComplianceSummaries")
+	defer span.End()
+
 	req, out := c.ListComplianceSummariesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6829,6 +7037,9 @@ func (c *SSM) ListDocumentVersions(input *ListDocumentVersionsInput) (*ListDocum
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) ListDocumentVersionsWithContext(ctx aws.Context, input *ListDocumentVersionsInput, opts ...request.Option) (*ListDocumentVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).ListDocumentVersions")
+	defer span.End()
+
 	req, out := c.ListDocumentVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6920,6 +7131,9 @@ func (c *SSM) ListDocuments(input *ListDocumentsInput) (*ListDocumentsOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) ListDocumentsWithContext(ctx aws.Context, input *ListDocumentsInput, opts ...request.Option) (*ListDocumentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).ListDocuments")
+	defer span.End()
+
 	req, out := c.ListDocumentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7074,6 +7288,9 @@ func (c *SSM) ListInventoryEntries(input *ListInventoryEntriesInput) (*ListInven
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) ListInventoryEntriesWithContext(ctx aws.Context, input *ListInventoryEntriesInput, opts ...request.Option) (*ListInventoryEntriesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).ListInventoryEntries")
+	defer span.End()
+
 	req, out := c.ListInventoryEntriesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7162,6 +7379,9 @@ func (c *SSM) ListResourceComplianceSummaries(input *ListResourceComplianceSumma
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) ListResourceComplianceSummariesWithContext(ctx aws.Context, input *ListResourceComplianceSummariesInput, opts ...request.Option) (*ListResourceComplianceSummariesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).ListResourceComplianceSummaries")
+	defer span.End()
+
 	req, out := c.ListResourceComplianceSummariesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7253,6 +7473,9 @@ func (c *SSM) ListResourceDataSync(input *ListResourceDataSyncInput) (*ListResou
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) ListResourceDataSyncWithContext(ctx aws.Context, input *ListResourceDataSyncInput, opts ...request.Option) (*ListResourceDataSyncOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).ListResourceDataSync")
+	defer span.End()
+
 	req, out := c.ListResourceDataSyncRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7340,6 +7563,9 @@ func (c *SSM) ListTagsForResource(input *ListTagsForResourceInput) (*ListTagsFor
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*ListTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).ListTagsForResource")
+	defer span.End()
+
 	req, out := c.ListTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7437,6 +7663,9 @@ func (c *SSM) ModifyDocumentPermission(input *ModifyDocumentPermissionInput) (*M
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) ModifyDocumentPermissionWithContext(ctx aws.Context, input *ModifyDocumentPermissionInput, opts ...request.Option) (*ModifyDocumentPermissionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).ModifyDocumentPermission")
+	defer span.End()
+
 	req, out := c.ModifyDocumentPermissionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7578,6 +7807,9 @@ func (c *SSM) PutComplianceItems(input *PutComplianceItemsInput) (*PutCompliance
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) PutComplianceItemsWithContext(ctx aws.Context, input *PutComplianceItemsInput, opts ...request.Option) (*PutComplianceItemsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).PutComplianceItems")
+	defer span.End()
+
 	req, out := c.PutComplianceItemsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7710,6 +7942,9 @@ func (c *SSM) PutInventory(input *PutInventoryInput) (*PutInventoryOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) PutInventoryWithContext(ctx aws.Context, input *PutInventoryInput, opts ...request.Option) (*PutInventoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).PutInventory")
+	defer span.End()
+
 	req, out := c.PutInventoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7824,6 +8059,9 @@ func (c *SSM) PutParameter(input *PutParameterInput) (*PutParameterOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) PutParameterWithContext(ctx aws.Context, input *PutParameterInput, opts ...request.Option) (*PutParameterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).PutParameter")
+	defer span.End()
+
 	req, out := c.PutParameterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7914,6 +8152,9 @@ func (c *SSM) RegisterDefaultPatchBaseline(input *RegisterDefaultPatchBaselineIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) RegisterDefaultPatchBaselineWithContext(ctx aws.Context, input *RegisterDefaultPatchBaselineInput, opts ...request.Option) (*RegisterDefaultPatchBaselineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).RegisterDefaultPatchBaseline")
+	defer span.End()
+
 	req, out := c.RegisterDefaultPatchBaselineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8015,6 +8256,9 @@ func (c *SSM) RegisterPatchBaselineForPatchGroup(input *RegisterPatchBaselineFor
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) RegisterPatchBaselineForPatchGroupWithContext(ctx aws.Context, input *RegisterPatchBaselineForPatchGroupInput, opts ...request.Option) (*RegisterPatchBaselineForPatchGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).RegisterPatchBaselineForPatchGroup")
+	defer span.End()
+
 	req, out := c.RegisterPatchBaselineForPatchGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8112,6 +8356,9 @@ func (c *SSM) RegisterTargetWithMaintenanceWindow(input *RegisterTargetWithMaint
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) RegisterTargetWithMaintenanceWindowWithContext(ctx aws.Context, input *RegisterTargetWithMaintenanceWindowInput, opts ...request.Option) (*RegisterTargetWithMaintenanceWindowOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).RegisterTargetWithMaintenanceWindow")
+	defer span.End()
+
 	req, out := c.RegisterTargetWithMaintenanceWindowRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8213,6 +8460,9 @@ func (c *SSM) RegisterTaskWithMaintenanceWindow(input *RegisterTaskWithMaintenan
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) RegisterTaskWithMaintenanceWindowWithContext(ctx aws.Context, input *RegisterTaskWithMaintenanceWindowInput, opts ...request.Option) (*RegisterTaskWithMaintenanceWindowOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).RegisterTaskWithMaintenanceWindow")
+	defer span.End()
+
 	req, out := c.RegisterTaskWithMaintenanceWindowRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8304,6 +8554,9 @@ func (c *SSM) RemoveTagsFromResource(input *RemoveTagsFromResourceInput) (*Remov
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) RemoveTagsFromResourceWithContext(ctx aws.Context, input *RemoveTagsFromResourceInput, opts ...request.Option) (*RemoveTagsFromResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).RemoveTagsFromResource")
+	defer span.End()
+
 	req, out := c.RemoveTagsFromResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8395,6 +8648,9 @@ func (c *SSM) SendAutomationSignal(input *SendAutomationSignalInput) (*SendAutom
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) SendAutomationSignalWithContext(ctx aws.Context, input *SendAutomationSignalInput, opts ...request.Option) (*SendAutomationSignalOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).SendAutomationSignal")
+	defer span.End()
+
 	req, out := c.SendAutomationSignalRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8521,6 +8777,9 @@ func (c *SSM) SendCommand(input *SendCommandInput) (*SendCommandOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) SendCommandWithContext(ctx aws.Context, input *SendCommandInput, opts ...request.Option) (*SendCommandOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).SendCommand")
+	defer span.End()
+
 	req, out := c.SendCommandRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8623,6 +8882,9 @@ func (c *SSM) StartAutomationExecution(input *StartAutomationExecutionInput) (*S
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) StartAutomationExecutionWithContext(ctx aws.Context, input *StartAutomationExecutionInput, opts ...request.Option) (*StartAutomationExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).StartAutomationExecution")
+	defer span.End()
+
 	req, out := c.StartAutomationExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8709,6 +8971,9 @@ func (c *SSM) StopAutomationExecution(input *StopAutomationExecutionInput) (*Sto
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) StopAutomationExecutionWithContext(ctx aws.Context, input *StopAutomationExecutionInput, opts ...request.Option) (*StopAutomationExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).StopAutomationExecution")
+	defer span.End()
+
 	req, out := c.StopAutomationExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8829,6 +9094,9 @@ func (c *SSM) UpdateAssociation(input *UpdateAssociationInput) (*UpdateAssociati
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) UpdateAssociationWithContext(ctx aws.Context, input *UpdateAssociationInput, opts ...request.Option) (*UpdateAssociationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).UpdateAssociation")
+	defer span.End()
+
 	req, out := c.UpdateAssociationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8937,6 +9205,9 @@ func (c *SSM) UpdateAssociationStatus(input *UpdateAssociationStatusInput) (*Upd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) UpdateAssociationStatusWithContext(ctx aws.Context, input *UpdateAssociationStatusInput, opts ...request.Option) (*UpdateAssociationStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).UpdateAssociationStatus")
+	defer span.End()
+
 	req, out := c.UpdateAssociationStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9039,6 +9310,9 @@ func (c *SSM) UpdateDocument(input *UpdateDocumentInput) (*UpdateDocumentOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) UpdateDocumentWithContext(ctx aws.Context, input *UpdateDocumentInput, opts ...request.Option) (*UpdateDocumentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).UpdateDocument")
+	defer span.End()
+
 	req, out := c.UpdateDocumentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9127,6 +9401,9 @@ func (c *SSM) UpdateDocumentDefaultVersion(input *UpdateDocumentDefaultVersionIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) UpdateDocumentDefaultVersionWithContext(ctx aws.Context, input *UpdateDocumentDefaultVersionInput, opts ...request.Option) (*UpdateDocumentDefaultVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).UpdateDocumentDefaultVersion")
+	defer span.End()
+
 	req, out := c.UpdateDocumentDefaultVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9213,6 +9490,9 @@ func (c *SSM) UpdateMaintenanceWindow(input *UpdateMaintenanceWindowInput) (*Upd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) UpdateMaintenanceWindowWithContext(ctx aws.Context, input *UpdateMaintenanceWindowInput, opts ...request.Option) (*UpdateMaintenanceWindowOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).UpdateMaintenanceWindow")
+	defer span.End()
+
 	req, out := c.UpdateMaintenanceWindowRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9315,6 +9595,9 @@ func (c *SSM) UpdateMaintenanceWindowTarget(input *UpdateMaintenanceWindowTarget
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) UpdateMaintenanceWindowTargetWithContext(ctx aws.Context, input *UpdateMaintenanceWindowTargetInput, opts ...request.Option) (*UpdateMaintenanceWindowTargetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).UpdateMaintenanceWindowTarget")
+	defer span.End()
+
 	req, out := c.UpdateMaintenanceWindowTargetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9420,6 +9703,9 @@ func (c *SSM) UpdateMaintenanceWindowTask(input *UpdateMaintenanceWindowTaskInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) UpdateMaintenanceWindowTaskWithContext(ctx aws.Context, input *UpdateMaintenanceWindowTaskInput, opts ...request.Option) (*UpdateMaintenanceWindowTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).UpdateMaintenanceWindowTask")
+	defer span.End()
+
 	req, out := c.UpdateMaintenanceWindowTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9515,6 +9801,9 @@ func (c *SSM) UpdateManagedInstanceRole(input *UpdateManagedInstanceRoleInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) UpdateManagedInstanceRoleWithContext(ctx aws.Context, input *UpdateManagedInstanceRoleInput, opts ...request.Option) (*UpdateManagedInstanceRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).UpdateManagedInstanceRole")
+	defer span.End()
+
 	req, out := c.UpdateManagedInstanceRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9605,6 +9894,9 @@ func (c *SSM) UpdatePatchBaseline(input *UpdatePatchBaselineInput) (*UpdatePatch
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SSM) UpdatePatchBaselineWithContext(ctx aws.Context, input *UpdatePatchBaselineInput, opts ...request.Option) (*UpdatePatchBaselineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ssm.(*SSM).UpdatePatchBaseline")
+	defer span.End()
+
 	req, out := c.UpdatePatchBaselineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

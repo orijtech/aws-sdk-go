@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAcceptQualificationRequest = "AcceptQualificationRequest"
@@ -95,6 +96,9 @@ func (c *MTurk) AcceptQualificationRequest(input *AcceptQualificationRequestInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) AcceptQualificationRequestWithContext(ctx aws.Context, input *AcceptQualificationRequestInput, opts ...request.Option) (*AcceptQualificationRequestOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).AcceptQualificationRequest")
+	defer span.End()
+
 	req, out := c.AcceptQualificationRequestRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -196,6 +200,9 @@ func (c *MTurk) ApproveAssignment(input *ApproveAssignmentInput) (*ApproveAssign
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) ApproveAssignmentWithContext(ctx aws.Context, input *ApproveAssignmentInput, opts ...request.Option) (*ApproveAssignmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).ApproveAssignment")
+	defer span.End()
+
 	req, out := c.ApproveAssignmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -291,6 +298,9 @@ func (c *MTurk) AssociateQualificationWithWorker(input *AssociateQualificationWi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) AssociateQualificationWithWorkerWithContext(ctx aws.Context, input *AssociateQualificationWithWorkerInput, opts ...request.Option) (*AssociateQualificationWithWorkerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).AssociateQualificationWithWorker")
+	defer span.End()
+
 	req, out := c.AssociateQualificationWithWorkerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -388,6 +398,9 @@ func (c *MTurk) CreateAdditionalAssignmentsForHIT(input *CreateAdditionalAssignm
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) CreateAdditionalAssignmentsForHITWithContext(ctx aws.Context, input *CreateAdditionalAssignmentsForHITInput, opts ...request.Option) (*CreateAdditionalAssignmentsForHITOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).CreateAdditionalAssignmentsForHIT")
+	defer span.End()
+
 	req, out := c.CreateAdditionalAssignmentsForHITRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -492,6 +505,9 @@ func (c *MTurk) CreateHIT(input *CreateHITInput) (*CreateHITOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) CreateHITWithContext(ctx aws.Context, input *CreateHITInput, opts ...request.Option) (*CreateHITOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).CreateHIT")
+	defer span.End()
+
 	req, out := c.CreateHITRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -578,6 +594,9 @@ func (c *MTurk) CreateHITType(input *CreateHITTypeInput) (*CreateHITTypeOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) CreateHITTypeWithContext(ctx aws.Context, input *CreateHITTypeInput, opts ...request.Option) (*CreateHITTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).CreateHITType")
+	defer span.End()
+
 	req, out := c.CreateHITTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -673,6 +692,9 @@ func (c *MTurk) CreateHITWithHITType(input *CreateHITWithHITTypeInput) (*CreateH
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) CreateHITWithHITTypeWithContext(ctx aws.Context, input *CreateHITWithHITTypeInput, opts ...request.Option) (*CreateHITWithHITTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).CreateHITWithHITType")
+	defer span.End()
+
 	req, out := c.CreateHITWithHITTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -757,6 +779,9 @@ func (c *MTurk) CreateQualificationType(input *CreateQualificationTypeInput) (*C
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) CreateQualificationTypeWithContext(ctx aws.Context, input *CreateQualificationTypeInput, opts ...request.Option) (*CreateQualificationTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).CreateQualificationType")
+	defer span.End()
+
 	req, out := c.CreateQualificationTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -842,6 +867,9 @@ func (c *MTurk) CreateWorkerBlock(input *CreateWorkerBlockInput) (*CreateWorkerB
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) CreateWorkerBlockWithContext(ctx aws.Context, input *CreateWorkerBlockInput, opts ...request.Option) (*CreateWorkerBlockOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).CreateWorkerBlock")
+	defer span.End()
+
 	req, out := c.CreateWorkerBlockRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -943,6 +971,9 @@ func (c *MTurk) DeleteHIT(input *DeleteHITInput) (*DeleteHITOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) DeleteHITWithContext(ctx aws.Context, input *DeleteHITInput, opts ...request.Option) (*DeleteHITOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).DeleteHIT")
+	defer span.End()
+
 	req, out := c.DeleteHITRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1038,6 +1069,9 @@ func (c *MTurk) DeleteQualificationType(input *DeleteQualificationTypeInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) DeleteQualificationTypeWithContext(ctx aws.Context, input *DeleteQualificationTypeInput, opts ...request.Option) (*DeleteQualificationTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).DeleteQualificationType")
+	defer span.End()
+
 	req, out := c.DeleteQualificationTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1126,6 +1160,9 @@ func (c *MTurk) DeleteWorkerBlock(input *DeleteWorkerBlockInput) (*DeleteWorkerB
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) DeleteWorkerBlockWithContext(ctx aws.Context, input *DeleteWorkerBlockInput, opts ...request.Option) (*DeleteWorkerBlockOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).DeleteWorkerBlock")
+	defer span.End()
+
 	req, out := c.DeleteWorkerBlockRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1213,6 +1250,9 @@ func (c *MTurk) DisassociateQualificationFromWorker(input *DisassociateQualifica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) DisassociateQualificationFromWorkerWithContext(ctx aws.Context, input *DisassociateQualificationFromWorkerInput, opts ...request.Option) (*DisassociateQualificationFromWorkerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).DisassociateQualificationFromWorker")
+	defer span.End()
+
 	req, out := c.DisassociateQualificationFromWorkerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1297,6 +1337,9 @@ func (c *MTurk) GetAccountBalance(input *GetAccountBalanceInput) (*GetAccountBal
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) GetAccountBalanceWithContext(ctx aws.Context, input *GetAccountBalanceInput, opts ...request.Option) (*GetAccountBalanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).GetAccountBalance")
+	defer span.End()
+
 	req, out := c.GetAccountBalanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1380,6 +1423,9 @@ func (c *MTurk) GetAssignment(input *GetAssignmentInput) (*GetAssignmentOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) GetAssignmentWithContext(ctx aws.Context, input *GetAssignmentInput, opts ...request.Option) (*GetAssignmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).GetAssignment")
+	defer span.End()
+
 	req, out := c.GetAssignmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1473,6 +1519,9 @@ func (c *MTurk) GetFileUploadURL(input *GetFileUploadURLInput) (*GetFileUploadUR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) GetFileUploadURLWithContext(ctx aws.Context, input *GetFileUploadURLInput, opts ...request.Option) (*GetFileUploadURLOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).GetFileUploadURL")
+	defer span.End()
+
 	req, out := c.GetFileUploadURLRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1556,6 +1605,9 @@ func (c *MTurk) GetHIT(input *GetHITInput) (*GetHITOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) GetHITWithContext(ctx aws.Context, input *GetHITInput, opts ...request.Option) (*GetHITOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).GetHIT")
+	defer span.End()
+
 	req, out := c.GetHITRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1647,6 +1699,9 @@ func (c *MTurk) GetQualificationScore(input *GetQualificationScoreInput) (*GetQu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) GetQualificationScoreWithContext(ctx aws.Context, input *GetQualificationScoreInput, opts ...request.Option) (*GetQualificationScoreOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).GetQualificationScore")
+	defer span.End()
+
 	req, out := c.GetQualificationScoreRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1731,6 +1786,9 @@ func (c *MTurk) GetQualificationType(input *GetQualificationTypeInput) (*GetQual
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) GetQualificationTypeWithContext(ctx aws.Context, input *GetQualificationTypeInput, opts ...request.Option) (*GetQualificationTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).GetQualificationType")
+	defer span.End()
+
 	req, out := c.GetQualificationTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1840,6 +1898,9 @@ func (c *MTurk) ListAssignmentsForHIT(input *ListAssignmentsForHITInput) (*ListA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) ListAssignmentsForHITWithContext(ctx aws.Context, input *ListAssignmentsForHITInput, opts ...request.Option) (*ListAssignmentsForHITOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).ListAssignmentsForHIT")
+	defer span.End()
+
 	req, out := c.ListAssignmentsForHITRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1980,6 +2041,9 @@ func (c *MTurk) ListBonusPayments(input *ListBonusPaymentsInput) (*ListBonusPaym
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) ListBonusPaymentsWithContext(ctx aws.Context, input *ListBonusPaymentsInput, opts ...request.Option) (*ListBonusPaymentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).ListBonusPayments")
+	defer span.End()
+
 	req, out := c.ListBonusPaymentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2121,6 +2185,9 @@ func (c *MTurk) ListHITs(input *ListHITsInput) (*ListHITsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) ListHITsWithContext(ctx aws.Context, input *ListHITsInput, opts ...request.Option) (*ListHITsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).ListHITs")
+	defer span.End()
+
 	req, out := c.ListHITsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2263,6 +2330,9 @@ func (c *MTurk) ListHITsForQualificationType(input *ListHITsForQualificationType
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) ListHITsForQualificationTypeWithContext(ctx aws.Context, input *ListHITsForQualificationTypeInput, opts ...request.Option) (*ListHITsForQualificationTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).ListHITsForQualificationType")
+	defer span.End()
+
 	req, out := c.ListHITsForQualificationTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2405,6 +2475,9 @@ func (c *MTurk) ListQualificationRequests(input *ListQualificationRequestsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) ListQualificationRequestsWithContext(ctx aws.Context, input *ListQualificationRequestsInput, opts ...request.Option) (*ListQualificationRequestsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).ListQualificationRequests")
+	defer span.End()
+
 	req, out := c.ListQualificationRequestsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2545,6 +2618,9 @@ func (c *MTurk) ListQualificationTypes(input *ListQualificationTypesInput) (*Lis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) ListQualificationTypesWithContext(ctx aws.Context, input *ListQualificationTypesInput, opts ...request.Option) (*ListQualificationTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).ListQualificationTypes")
+	defer span.End()
+
 	req, out := c.ListQualificationTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2688,6 +2764,9 @@ func (c *MTurk) ListReviewPolicyResultsForHIT(input *ListReviewPolicyResultsForH
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) ListReviewPolicyResultsForHITWithContext(ctx aws.Context, input *ListReviewPolicyResultsForHITInput, opts ...request.Option) (*ListReviewPolicyResultsForHITOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).ListReviewPolicyResultsForHIT")
+	defer span.End()
+
 	req, out := c.ListReviewPolicyResultsForHITRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2829,6 +2908,9 @@ func (c *MTurk) ListReviewableHITs(input *ListReviewableHITsInput) (*ListReviewa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) ListReviewableHITsWithContext(ctx aws.Context, input *ListReviewableHITsInput, opts ...request.Option) (*ListReviewableHITsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).ListReviewableHITs")
+	defer span.End()
+
 	req, out := c.ListReviewableHITsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2969,6 +3051,9 @@ func (c *MTurk) ListWorkerBlocks(input *ListWorkerBlocksInput) (*ListWorkerBlock
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) ListWorkerBlocksWithContext(ctx aws.Context, input *ListWorkerBlocksInput, opts ...request.Option) (*ListWorkerBlocksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).ListWorkerBlocks")
+	defer span.End()
+
 	req, out := c.ListWorkerBlocksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3109,6 +3194,9 @@ func (c *MTurk) ListWorkersWithQualificationType(input *ListWorkersWithQualifica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) ListWorkersWithQualificationTypeWithContext(ctx aws.Context, input *ListWorkersWithQualificationTypeInput, opts ...request.Option) (*ListWorkersWithQualificationTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).ListWorkersWithQualificationType")
+	defer span.End()
+
 	req, out := c.ListWorkersWithQualificationTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3246,6 +3334,9 @@ func (c *MTurk) NotifyWorkers(input *NotifyWorkersInput) (*NotifyWorkersOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) NotifyWorkersWithContext(ctx aws.Context, input *NotifyWorkersInput, opts ...request.Option) (*NotifyWorkersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).NotifyWorkers")
+	defer span.End()
+
 	req, out := c.NotifyWorkersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3337,6 +3428,9 @@ func (c *MTurk) RejectAssignment(input *RejectAssignmentInput) (*RejectAssignmen
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) RejectAssignmentWithContext(ctx aws.Context, input *RejectAssignmentInput, opts ...request.Option) (*RejectAssignmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).RejectAssignment")
+	defer span.End()
+
 	req, out := c.RejectAssignmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3423,6 +3517,9 @@ func (c *MTurk) RejectQualificationRequest(input *RejectQualificationRequestInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) RejectQualificationRequestWithContext(ctx aws.Context, input *RejectQualificationRequestInput, opts ...request.Option) (*RejectQualificationRequestOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).RejectQualificationRequest")
+	defer span.End()
+
 	req, out := c.RejectQualificationRequestRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3514,6 +3611,9 @@ func (c *MTurk) SendBonus(input *SendBonusInput) (*SendBonusOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) SendBonusWithContext(ctx aws.Context, input *SendBonusInput, opts ...request.Option) (*SendBonusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).SendBonus")
+	defer span.End()
+
 	req, out := c.SendBonusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3602,6 +3702,9 @@ func (c *MTurk) SendTestEventNotification(input *SendTestEventNotificationInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) SendTestEventNotificationWithContext(ctx aws.Context, input *SendTestEventNotificationInput, opts ...request.Option) (*SendTestEventNotificationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).SendTestEventNotification")
+	defer span.End()
+
 	req, out := c.SendTestEventNotificationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3687,6 +3790,9 @@ func (c *MTurk) UpdateExpirationForHIT(input *UpdateExpirationForHITInput) (*Upd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) UpdateExpirationForHITWithContext(ctx aws.Context, input *UpdateExpirationForHITInput, opts ...request.Option) (*UpdateExpirationForHITOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).UpdateExpirationForHIT")
+	defer span.End()
+
 	req, out := c.UpdateExpirationForHITRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3772,6 +3878,9 @@ func (c *MTurk) UpdateHITReviewStatus(input *UpdateHITReviewStatusInput) (*Updat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) UpdateHITReviewStatusWithContext(ctx aws.Context, input *UpdateHITReviewStatusInput, opts ...request.Option) (*UpdateHITReviewStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).UpdateHITReviewStatus")
+	defer span.End()
+
 	req, out := c.UpdateHITReviewStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3858,6 +3967,9 @@ func (c *MTurk) UpdateHITTypeOfHIT(input *UpdateHITTypeOfHITInput) (*UpdateHITTy
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) UpdateHITTypeOfHITWithContext(ctx aws.Context, input *UpdateHITTypeOfHITInput, opts ...request.Option) (*UpdateHITTypeOfHITOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).UpdateHITTypeOfHIT")
+	defer span.End()
+
 	req, out := c.UpdateHITTypeOfHITRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3950,6 +4062,9 @@ func (c *MTurk) UpdateNotificationSettings(input *UpdateNotificationSettingsInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) UpdateNotificationSettingsWithContext(ctx aws.Context, input *UpdateNotificationSettingsInput, opts ...request.Option) (*UpdateNotificationSettingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).UpdateNotificationSettings")
+	defer span.End()
+
 	req, out := c.UpdateNotificationSettingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4063,6 +4178,9 @@ func (c *MTurk) UpdateQualificationType(input *UpdateQualificationTypeInput) (*U
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MTurk) UpdateQualificationTypeWithContext(ctx aws.Context, input *UpdateQualificationTypeInput, opts ...request.Option) (*UpdateQualificationTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mturk.(*MTurk).UpdateQualificationType")
+	defer span.End()
+
 	req, out := c.UpdateQualificationTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

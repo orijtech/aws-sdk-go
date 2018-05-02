@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAddTagsToResource = "AddTagsToResource"
@@ -100,6 +101,9 @@ func (c *CloudHSM) AddTagsToResource(input *AddTagsToResourceInput) (*AddTagsToR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) AddTagsToResourceWithContext(ctx aws.Context, input *AddTagsToResourceInput, opts ...request.Option) (*AddTagsToResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).AddTagsToResource")
+	defer span.End()
+
 	req, out := c.AddTagsToResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -195,6 +199,9 @@ func (c *CloudHSM) CreateHapg(input *CreateHapgInput) (*CreateHapgOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) CreateHapgWithContext(ctx aws.Context, input *CreateHapgInput, opts ...request.Option) (*CreateHapgOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).CreateHapg")
+	defer span.End()
+
 	req, out := c.CreateHapgRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -299,6 +306,9 @@ func (c *CloudHSM) CreateHsm(input *CreateHsmInput) (*CreateHsmOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) CreateHsmWithContext(ctx aws.Context, input *CreateHsmInput, opts ...request.Option) (*CreateHsmOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).CreateHsm")
+	defer span.End()
+
 	req, out := c.CreateHsmRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -393,6 +403,9 @@ func (c *CloudHSM) CreateLunaClient(input *CreateLunaClientInput) (*CreateLunaCl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) CreateLunaClientWithContext(ctx aws.Context, input *CreateLunaClientInput, opts ...request.Option) (*CreateLunaClientOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).CreateLunaClient")
+	defer span.End()
+
 	req, out := c.CreateLunaClientRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -487,6 +500,9 @@ func (c *CloudHSM) DeleteHapg(input *DeleteHapgInput) (*DeleteHapgOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) DeleteHapgWithContext(ctx aws.Context, input *DeleteHapgInput, opts ...request.Option) (*DeleteHapgOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).DeleteHapg")
+	defer span.End()
+
 	req, out := c.DeleteHapgRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -582,6 +598,9 @@ func (c *CloudHSM) DeleteHsm(input *DeleteHsmInput) (*DeleteHsmOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) DeleteHsmWithContext(ctx aws.Context, input *DeleteHsmInput, opts ...request.Option) (*DeleteHsmOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).DeleteHsm")
+	defer span.End()
+
 	req, out := c.DeleteHsmRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -676,6 +695,9 @@ func (c *CloudHSM) DeleteLunaClient(input *DeleteLunaClientInput) (*DeleteLunaCl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) DeleteLunaClientWithContext(ctx aws.Context, input *DeleteLunaClientInput, opts ...request.Option) (*DeleteLunaClientOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).DeleteLunaClient")
+	defer span.End()
+
 	req, out := c.DeleteLunaClientRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -770,6 +792,9 @@ func (c *CloudHSM) DescribeHapg(input *DescribeHapgInput) (*DescribeHapgOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) DescribeHapgWithContext(ctx aws.Context, input *DescribeHapgInput, opts ...request.Option) (*DescribeHapgOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).DescribeHapg")
+	defer span.End()
+
 	req, out := c.DescribeHapgRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -865,6 +890,9 @@ func (c *CloudHSM) DescribeHsm(input *DescribeHsmInput) (*DescribeHsmOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) DescribeHsmWithContext(ctx aws.Context, input *DescribeHsmInput, opts ...request.Option) (*DescribeHsmOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).DescribeHsm")
+	defer span.End()
+
 	req, out := c.DescribeHsmRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -959,6 +987,9 @@ func (c *CloudHSM) DescribeLunaClient(input *DescribeLunaClientInput) (*Describe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) DescribeLunaClientWithContext(ctx aws.Context, input *DescribeLunaClientInput, opts ...request.Option) (*DescribeLunaClientOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).DescribeLunaClient")
+	defer span.End()
+
 	req, out := c.DescribeLunaClientRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1054,6 +1085,9 @@ func (c *CloudHSM) GetConfig(input *GetConfigInput) (*GetConfigOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) GetConfigWithContext(ctx aws.Context, input *GetConfigInput, opts ...request.Option) (*GetConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).GetConfig")
+	defer span.End()
+
 	req, out := c.GetConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1148,6 +1182,9 @@ func (c *CloudHSM) ListAvailableZones(input *ListAvailableZonesInput) (*ListAvai
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) ListAvailableZonesWithContext(ctx aws.Context, input *ListAvailableZonesInput, opts ...request.Option) (*ListAvailableZonesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).ListAvailableZones")
+	defer span.End()
+
 	req, out := c.ListAvailableZonesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1247,6 +1284,9 @@ func (c *CloudHSM) ListHapgs(input *ListHapgsInput) (*ListHapgsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) ListHapgsWithContext(ctx aws.Context, input *ListHapgsInput, opts ...request.Option) (*ListHapgsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).ListHapgs")
+	defer span.End()
+
 	req, out := c.ListHapgsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1347,6 +1387,9 @@ func (c *CloudHSM) ListHsms(input *ListHsmsInput) (*ListHsmsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) ListHsmsWithContext(ctx aws.Context, input *ListHsmsInput, opts ...request.Option) (*ListHsmsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).ListHsms")
+	defer span.End()
+
 	req, out := c.ListHsmsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1446,6 +1489,9 @@ func (c *CloudHSM) ListLunaClients(input *ListLunaClientsInput) (*ListLunaClient
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) ListLunaClientsWithContext(ctx aws.Context, input *ListLunaClientsInput, opts ...request.Option) (*ListLunaClientsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).ListLunaClients")
+	defer span.End()
+
 	req, out := c.ListLunaClientsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1540,6 +1586,9 @@ func (c *CloudHSM) ListTagsForResource(input *ListTagsForResourceInput) (*ListTa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*ListTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).ListTagsForResource")
+	defer span.End()
+
 	req, out := c.ListTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1634,6 +1683,9 @@ func (c *CloudHSM) ModifyHapg(input *ModifyHapgInput) (*ModifyHapgOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) ModifyHapgWithContext(ctx aws.Context, input *ModifyHapgInput, opts ...request.Option) (*ModifyHapgOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).ModifyHapg")
+	defer span.End()
+
 	req, out := c.ModifyHapgRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1734,6 +1786,9 @@ func (c *CloudHSM) ModifyHsm(input *ModifyHsmInput) (*ModifyHsmOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) ModifyHsmWithContext(ctx aws.Context, input *ModifyHsmInput, opts ...request.Option) (*ModifyHsmOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).ModifyHsm")
+	defer span.End()
+
 	req, out := c.ModifyHsmRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1825,6 +1880,9 @@ func (c *CloudHSM) ModifyLunaClient(input *ModifyLunaClientInput) (*ModifyLunaCl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) ModifyLunaClientWithContext(ctx aws.Context, input *ModifyLunaClientInput, opts ...request.Option) (*ModifyLunaClientOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).ModifyLunaClient")
+	defer span.End()
+
 	req, out := c.ModifyLunaClientRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1922,6 +1980,9 @@ func (c *CloudHSM) RemoveTagsFromResource(input *RemoveTagsFromResourceInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSM) RemoveTagsFromResourceWithContext(ctx aws.Context, input *RemoveTagsFromResourceInput, opts ...request.Option) (*RemoveTagsFromResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsm.(*CloudHSM).RemoveTagsFromResource")
+	defer span.End()
+
 	req, out := c.RemoveTagsFromResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

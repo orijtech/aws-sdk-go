@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateScalingPlan = "CreateScalingPlan"
@@ -100,6 +101,9 @@ func (c *AutoScalingPlans) CreateScalingPlan(input *CreateScalingPlanInput) (*Cr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScalingPlans) CreateScalingPlanWithContext(ctx aws.Context, input *CreateScalingPlanInput, opts ...request.Option) (*CreateScalingPlanOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscalingplans.(*AutoScalingPlans).CreateScalingPlan")
+	defer span.End()
+
 	req, out := c.CreateScalingPlanRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -189,6 +193,9 @@ func (c *AutoScalingPlans) DeleteScalingPlan(input *DeleteScalingPlanInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScalingPlans) DeleteScalingPlanWithContext(ctx aws.Context, input *DeleteScalingPlanInput, opts ...request.Option) (*DeleteScalingPlanOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscalingplans.(*AutoScalingPlans).DeleteScalingPlan")
+	defer span.End()
+
 	req, out := c.DeleteScalingPlanRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -278,6 +285,9 @@ func (c *AutoScalingPlans) DescribeScalingPlanResources(input *DescribeScalingPl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScalingPlans) DescribeScalingPlanResourcesWithContext(ctx aws.Context, input *DescribeScalingPlanResourcesInput, opts ...request.Option) (*DescribeScalingPlanResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscalingplans.(*AutoScalingPlans).DescribeScalingPlanResources")
+	defer span.End()
+
 	req, out := c.DescribeScalingPlanResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -367,6 +377,9 @@ func (c *AutoScalingPlans) DescribeScalingPlans(input *DescribeScalingPlansInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScalingPlans) DescribeScalingPlansWithContext(ctx aws.Context, input *DescribeScalingPlansInput, opts ...request.Option) (*DescribeScalingPlansOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscalingplans.(*AutoScalingPlans).DescribeScalingPlans")
+	defer span.End()
+
 	req, out := c.DescribeScalingPlansRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

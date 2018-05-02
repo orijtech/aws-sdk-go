@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCancelCluster = "CancelCluster"
@@ -95,6 +96,9 @@ func (c *Snowball) CancelCluster(input *CancelClusterInput) (*CancelClusterOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) CancelClusterWithContext(ctx aws.Context, input *CancelClusterInput, opts ...request.Option) (*CancelClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).CancelCluster")
+	defer span.End()
+
 	req, out := c.CancelClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -186,6 +190,9 @@ func (c *Snowball) CancelJob(input *CancelJobInput) (*CancelJobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) CancelJobWithContext(ctx aws.Context, input *CancelJobInput, opts ...request.Option) (*CancelJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).CancelJob")
+	defer span.End()
+
 	req, out := c.CancelJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -274,6 +281,9 @@ func (c *Snowball) CreateAddress(input *CreateAddressInput) (*CreateAddressOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) CreateAddressWithContext(ctx aws.Context, input *CreateAddressInput, opts ...request.Option) (*CreateAddressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).CreateAddress")
+	defer span.End()
+
 	req, out := c.CreateAddressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -365,6 +375,9 @@ func (c *Snowball) CreateCluster(input *CreateClusterInput) (*CreateClusterOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) CreateClusterWithContext(ctx aws.Context, input *CreateClusterInput, opts ...request.Option) (*CreateClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).CreateCluster")
+	defer span.End()
+
 	req, out := c.CreateClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -464,6 +477,9 @@ func (c *Snowball) CreateJob(input *CreateJobInput) (*CreateJobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) CreateJobWithContext(ctx aws.Context, input *CreateJobInput, opts ...request.Option) (*CreateJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).CreateJob")
+	defer span.End()
+
 	req, out := c.CreateJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -545,6 +561,9 @@ func (c *Snowball) DescribeAddress(input *DescribeAddressInput) (*DescribeAddres
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) DescribeAddressWithContext(ctx aws.Context, input *DescribeAddressInput, opts ...request.Option) (*DescribeAddressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).DescribeAddress")
+	defer span.End()
+
 	req, out := c.DescribeAddressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -637,6 +656,9 @@ func (c *Snowball) DescribeAddresses(input *DescribeAddressesInput) (*DescribeAd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) DescribeAddressesWithContext(ctx aws.Context, input *DescribeAddressesInput, opts ...request.Option) (*DescribeAddressesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).DescribeAddresses")
+	defer span.End()
+
 	req, out := c.DescribeAddressesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -768,6 +790,9 @@ func (c *Snowball) DescribeCluster(input *DescribeClusterInput) (*DescribeCluste
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) DescribeClusterWithContext(ctx aws.Context, input *DescribeClusterInput, opts ...request.Option) (*DescribeClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).DescribeCluster")
+	defer span.End()
+
 	req, out := c.DescribeClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -849,6 +874,9 @@ func (c *Snowball) DescribeJob(input *DescribeJobInput) (*DescribeJobOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) DescribeJobWithContext(ctx aws.Context, input *DescribeJobInput, opts ...request.Option) (*DescribeJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).DescribeJob")
+	defer span.End()
+
 	req, out := c.DescribeJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -950,6 +978,9 @@ func (c *Snowball) GetJobManifest(input *GetJobManifestInput) (*GetJobManifestOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) GetJobManifestWithContext(ctx aws.Context, input *GetJobManifestInput, opts ...request.Option) (*GetJobManifestOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).GetJobManifest")
+	defer span.End()
+
 	req, out := c.GetJobManifestRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1046,6 +1077,9 @@ func (c *Snowball) GetJobUnlockCode(input *GetJobUnlockCodeInput) (*GetJobUnlock
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) GetJobUnlockCodeWithContext(ctx aws.Context, input *GetJobUnlockCodeInput, opts ...request.Option) (*GetJobUnlockCodeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).GetJobUnlockCode")
+	defer span.End()
+
 	req, out := c.GetJobUnlockCodeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1124,6 +1158,9 @@ func (c *Snowball) GetSnowballUsage(input *GetSnowballUsageInput) (*GetSnowballU
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) GetSnowballUsageWithContext(ctx aws.Context, input *GetSnowballUsageInput, opts ...request.Option) (*GetSnowballUsageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).GetSnowballUsage")
+	defer span.End()
+
 	req, out := c.GetSnowballUsageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1210,6 +1247,9 @@ func (c *Snowball) ListClusterJobs(input *ListClusterJobsInput) (*ListClusterJob
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) ListClusterJobsWithContext(ctx aws.Context, input *ListClusterJobsInput, opts ...request.Option) (*ListClusterJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).ListClusterJobs")
+	defer span.End()
+
 	req, out := c.ListClusterJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1292,6 +1332,9 @@ func (c *Snowball) ListClusters(input *ListClustersInput) (*ListClustersOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) ListClustersWithContext(ctx aws.Context, input *ListClustersInput, opts ...request.Option) (*ListClustersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).ListClusters")
+	defer span.End()
+
 	req, out := c.ListClustersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1382,6 +1425,9 @@ func (c *Snowball) ListJobs(input *ListJobsInput) (*ListJobsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) ListJobsWithContext(ctx aws.Context, input *ListJobsInput, opts ...request.Option) (*ListJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).ListJobs")
+	defer span.End()
+
 	req, out := c.ListJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1528,6 +1574,9 @@ func (c *Snowball) UpdateCluster(input *UpdateClusterInput) (*UpdateClusterOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) UpdateClusterWithContext(ctx aws.Context, input *UpdateClusterInput, opts ...request.Option) (*UpdateClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).UpdateCluster")
+	defer span.End()
+
 	req, out := c.UpdateClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1629,6 +1678,9 @@ func (c *Snowball) UpdateJob(input *UpdateJobInput) (*UpdateJobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Snowball) UpdateJobWithContext(ctx aws.Context, input *UpdateJobInput, opts ...request.Option) (*UpdateJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/snowball.(*Snowball).UpdateJob")
+	defer span.End()
+
 	req, out := c.UpdateJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

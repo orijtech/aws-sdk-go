@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opAssociateAdminAccount = "AssociateAdminAccount"
@@ -107,6 +108,9 @@ func (c *FMS) AssociateAdminAccount(input *AssociateAdminAccountInput) (*Associa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *FMS) AssociateAdminAccountWithContext(ctx aws.Context, input *AssociateAdminAccountInput, opts ...request.Option) (*AssociateAdminAccountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/fms.(*FMS).AssociateAdminAccount")
+	defer span.End()
+
 	req, out := c.AssociateAdminAccountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -199,6 +203,9 @@ func (c *FMS) DeleteNotificationChannel(input *DeleteNotificationChannelInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *FMS) DeleteNotificationChannelWithContext(ctx aws.Context, input *DeleteNotificationChannelInput, opts ...request.Option) (*DeleteNotificationChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/fms.(*FMS).DeleteNotificationChannel")
+	defer span.End()
+
 	req, out := c.DeleteNotificationChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -289,6 +296,9 @@ func (c *FMS) DeletePolicy(input *DeletePolicyInput) (*DeletePolicyOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *FMS) DeletePolicyWithContext(ctx aws.Context, input *DeletePolicyInput, opts ...request.Option) (*DeletePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/fms.(*FMS).DeletePolicy")
+	defer span.End()
+
 	req, out := c.DeletePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -381,6 +391,9 @@ func (c *FMS) DisassociateAdminAccount(input *DisassociateAdminAccountInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *FMS) DisassociateAdminAccountWithContext(ctx aws.Context, input *DisassociateAdminAccountInput, opts ...request.Option) (*DisassociateAdminAccountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/fms.(*FMS).DisassociateAdminAccount")
+	defer span.End()
+
 	req, out := c.DisassociateAdminAccountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -470,6 +483,9 @@ func (c *FMS) GetAdminAccount(input *GetAdminAccountInput) (*GetAdminAccountOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *FMS) GetAdminAccountWithContext(ctx aws.Context, input *GetAdminAccountInput, opts ...request.Option) (*GetAdminAccountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/fms.(*FMS).GetAdminAccount")
+	defer span.End()
+
 	req, out := c.GetAdminAccountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -556,6 +572,9 @@ func (c *FMS) GetComplianceDetail(input *GetComplianceDetailInput) (*GetComplian
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *FMS) GetComplianceDetailWithContext(ctx aws.Context, input *GetComplianceDetailInput, opts ...request.Option) (*GetComplianceDetailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/fms.(*FMS).GetComplianceDetail")
+	defer span.End()
+
 	req, out := c.GetComplianceDetailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -645,6 +664,9 @@ func (c *FMS) GetNotificationChannel(input *GetNotificationChannelInput) (*GetNo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *FMS) GetNotificationChannelWithContext(ctx aws.Context, input *GetNotificationChannelInput, opts ...request.Option) (*GetNotificationChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/fms.(*FMS).GetNotificationChannel")
+	defer span.End()
+
 	req, out := c.GetNotificationChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -733,6 +755,9 @@ func (c *FMS) GetPolicy(input *GetPolicyInput) (*GetPolicyOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *FMS) GetPolicyWithContext(ctx aws.Context, input *GetPolicyInput, opts ...request.Option) (*GetPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/fms.(*FMS).GetPolicy")
+	defer span.End()
+
 	req, out := c.GetPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -818,6 +843,9 @@ func (c *FMS) ListComplianceStatus(input *ListComplianceStatusInput) (*ListCompl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *FMS) ListComplianceStatusWithContext(ctx aws.Context, input *ListComplianceStatusInput, opts ...request.Option) (*ListComplianceStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/fms.(*FMS).ListComplianceStatus")
+	defer span.End()
+
 	req, out := c.ListComplianceStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -912,6 +940,9 @@ func (c *FMS) ListPolicies(input *ListPoliciesInput) (*ListPoliciesOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *FMS) ListPoliciesWithContext(ctx aws.Context, input *ListPoliciesInput, opts ...request.Option) (*ListPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/fms.(*FMS).ListPolicies")
+	defer span.End()
+
 	req, out := c.ListPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1003,6 +1034,9 @@ func (c *FMS) PutNotificationChannel(input *PutNotificationChannelInput) (*PutNo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *FMS) PutNotificationChannelWithContext(ctx aws.Context, input *PutNotificationChannelInput, opts ...request.Option) (*PutNotificationChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/fms.(*FMS).PutNotificationChannel")
+	defer span.End()
+
 	req, out := c.PutNotificationChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1094,6 +1128,9 @@ func (c *FMS) PutPolicy(input *PutPolicyInput) (*PutPolicyOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *FMS) PutPolicyWithContext(ctx aws.Context, input *PutPolicyInput, opts ...request.Option) (*PutPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/fms.(*FMS).PutPolicy")
+	defer span.End()
+
 	req, out := c.PutPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

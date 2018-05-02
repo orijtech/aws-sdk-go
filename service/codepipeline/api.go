@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opAcknowledgeJob = "AcknowledgeJob"
@@ -93,6 +94,9 @@ func (c *CodePipeline) AcknowledgeJob(input *AcknowledgeJobInput) (*AcknowledgeJ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) AcknowledgeJobWithContext(ctx aws.Context, input *AcknowledgeJobInput, opts ...request.Option) (*AcknowledgeJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).AcknowledgeJob")
+	defer span.End()
+
 	req, out := c.AcknowledgeJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -182,6 +186,9 @@ func (c *CodePipeline) AcknowledgeThirdPartyJob(input *AcknowledgeThirdPartyJobI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) AcknowledgeThirdPartyJobWithContext(ctx aws.Context, input *AcknowledgeThirdPartyJobInput, opts ...request.Option) (*AcknowledgeThirdPartyJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).AcknowledgeThirdPartyJob")
+	defer span.End()
+
 	req, out := c.AcknowledgeThirdPartyJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -266,6 +273,9 @@ func (c *CodePipeline) CreateCustomActionType(input *CreateCustomActionTypeInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) CreateCustomActionTypeWithContext(ctx aws.Context, input *CreateCustomActionTypeInput, opts ...request.Option) (*CreateCustomActionTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).CreateCustomActionType")
+	defer span.End()
+
 	req, out := c.CreateCustomActionTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -364,6 +374,9 @@ func (c *CodePipeline) CreatePipeline(input *CreatePipelineInput) (*CreatePipeli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) CreatePipelineWithContext(ctx aws.Context, input *CreatePipelineInput, opts ...request.Option) (*CreatePipelineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).CreatePipeline")
+	defer span.End()
+
 	req, out := c.CreatePipelineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -449,6 +462,9 @@ func (c *CodePipeline) DeleteCustomActionType(input *DeleteCustomActionTypeInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) DeleteCustomActionTypeWithContext(ctx aws.Context, input *DeleteCustomActionTypeInput, opts ...request.Option) (*DeleteCustomActionTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).DeleteCustomActionType")
+	defer span.End()
+
 	req, out := c.DeleteCustomActionTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -530,6 +546,9 @@ func (c *CodePipeline) DeletePipeline(input *DeletePipelineInput) (*DeletePipeli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) DeletePipelineWithContext(ctx aws.Context, input *DeletePipelineInput, opts ...request.Option) (*DeletePipelineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).DeletePipeline")
+	defer span.End()
+
 	req, out := c.DeletePipelineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -618,6 +637,9 @@ func (c *CodePipeline) DisableStageTransition(input *DisableStageTransitionInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) DisableStageTransitionWithContext(ctx aws.Context, input *DisableStageTransitionInput, opts ...request.Option) (*DisableStageTransitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).DisableStageTransition")
+	defer span.End()
+
 	req, out := c.DisableStageTransitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -705,6 +727,9 @@ func (c *CodePipeline) EnableStageTransition(input *EnableStageTransitionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) EnableStageTransitionWithContext(ctx aws.Context, input *EnableStageTransitionInput, opts ...request.Option) (*EnableStageTransitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).EnableStageTransition")
+	defer span.End()
+
 	req, out := c.EnableStageTransitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -792,6 +817,9 @@ func (c *CodePipeline) GetJobDetails(input *GetJobDetailsInput) (*GetJobDetailsO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) GetJobDetailsWithContext(ctx aws.Context, input *GetJobDetailsInput, opts ...request.Option) (*GetJobDetailsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).GetJobDetails")
+	defer span.End()
+
 	req, out := c.GetJobDetailsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -880,6 +908,9 @@ func (c *CodePipeline) GetPipeline(input *GetPipelineInput) (*GetPipelineOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) GetPipelineWithContext(ctx aws.Context, input *GetPipelineInput, opts ...request.Option) (*GetPipelineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).GetPipeline")
+	defer span.End()
+
 	req, out := c.GetPipelineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -968,6 +999,9 @@ func (c *CodePipeline) GetPipelineExecution(input *GetPipelineExecutionInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) GetPipelineExecutionWithContext(ctx aws.Context, input *GetPipelineExecutionInput, opts ...request.Option) (*GetPipelineExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).GetPipelineExecution")
+	defer span.End()
+
 	req, out := c.GetPipelineExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1051,6 +1085,9 @@ func (c *CodePipeline) GetPipelineState(input *GetPipelineStateInput) (*GetPipel
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) GetPipelineStateWithContext(ctx aws.Context, input *GetPipelineStateInput, opts ...request.Option) (*GetPipelineStateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).GetPipelineState")
+	defer span.End()
+
 	req, out := c.GetPipelineStateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1145,6 +1182,9 @@ func (c *CodePipeline) GetThirdPartyJobDetails(input *GetThirdPartyJobDetailsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) GetThirdPartyJobDetailsWithContext(ctx aws.Context, input *GetThirdPartyJobDetailsInput, opts ...request.Option) (*GetThirdPartyJobDetailsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).GetThirdPartyJobDetails")
+	defer span.End()
+
 	req, out := c.GetThirdPartyJobDetailsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1229,6 +1269,9 @@ func (c *CodePipeline) ListActionTypes(input *ListActionTypesInput) (*ListAction
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) ListActionTypesWithContext(ctx aws.Context, input *ListActionTypesInput, opts ...request.Option) (*ListActionTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).ListActionTypes")
+	defer span.End()
+
 	req, out := c.ListActionTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1315,6 +1358,9 @@ func (c *CodePipeline) ListPipelineExecutions(input *ListPipelineExecutionsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) ListPipelineExecutionsWithContext(ctx aws.Context, input *ListPipelineExecutionsInput, opts ...request.Option) (*ListPipelineExecutionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).ListPipelineExecutions")
+	defer span.End()
+
 	req, out := c.ListPipelineExecutionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1395,6 +1441,9 @@ func (c *CodePipeline) ListPipelines(input *ListPipelinesInput) (*ListPipelinesO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) ListPipelinesWithContext(ctx aws.Context, input *ListPipelinesInput, opts ...request.Option) (*ListPipelinesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).ListPipelines")
+	defer span.End()
+
 	req, out := c.ListPipelinesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1482,6 +1531,9 @@ func (c *CodePipeline) PollForJobs(input *PollForJobsInput) (*PollForJobsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) PollForJobsWithContext(ctx aws.Context, input *PollForJobsInput, opts ...request.Option) (*PollForJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).PollForJobs")
+	defer span.End()
+
 	req, out := c.PollForJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1569,6 +1621,9 @@ func (c *CodePipeline) PollForThirdPartyJobs(input *PollForThirdPartyJobsInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) PollForThirdPartyJobsWithContext(ctx aws.Context, input *PollForThirdPartyJobsInput, opts ...request.Option) (*PollForThirdPartyJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).PollForThirdPartyJobs")
+	defer span.End()
+
 	req, out := c.PollForThirdPartyJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1657,6 +1712,9 @@ func (c *CodePipeline) PutActionRevision(input *PutActionRevisionInput) (*PutAct
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) PutActionRevisionWithContext(ctx aws.Context, input *PutActionRevisionInput, opts ...request.Option) (*PutActionRevisionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).PutActionRevision")
+	defer span.End()
+
 	req, out := c.PutActionRevisionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1752,6 +1810,9 @@ func (c *CodePipeline) PutApprovalResult(input *PutApprovalResultInput) (*PutApp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) PutApprovalResultWithContext(ctx aws.Context, input *PutApprovalResultInput, opts ...request.Option) (*PutApprovalResultOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).PutApprovalResult")
+	defer span.End()
+
 	req, out := c.PutApprovalResultRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1840,6 +1901,9 @@ func (c *CodePipeline) PutJobFailureResult(input *PutJobFailureResultInput) (*Pu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) PutJobFailureResultWithContext(ctx aws.Context, input *PutJobFailureResultInput, opts ...request.Option) (*PutJobFailureResultOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).PutJobFailureResult")
+	defer span.End()
+
 	req, out := c.PutJobFailureResultRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1928,6 +1992,9 @@ func (c *CodePipeline) PutJobSuccessResult(input *PutJobSuccessResultInput) (*Pu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) PutJobSuccessResultWithContext(ctx aws.Context, input *PutJobSuccessResultInput, opts ...request.Option) (*PutJobSuccessResultOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).PutJobSuccessResult")
+	defer span.End()
+
 	req, out := c.PutJobSuccessResultRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2019,6 +2086,9 @@ func (c *CodePipeline) PutThirdPartyJobFailureResult(input *PutThirdPartyJobFail
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) PutThirdPartyJobFailureResultWithContext(ctx aws.Context, input *PutThirdPartyJobFailureResultInput, opts ...request.Option) (*PutThirdPartyJobFailureResultOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).PutThirdPartyJobFailureResult")
+	defer span.End()
+
 	req, out := c.PutThirdPartyJobFailureResultRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2110,6 +2180,9 @@ func (c *CodePipeline) PutThirdPartyJobSuccessResult(input *PutThirdPartyJobSucc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) PutThirdPartyJobSuccessResultWithContext(ctx aws.Context, input *PutThirdPartyJobSuccessResultInput, opts ...request.Option) (*PutThirdPartyJobSuccessResultOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).PutThirdPartyJobSuccessResult")
+	defer span.End()
+
 	req, out := c.PutThirdPartyJobSuccessResultRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2205,6 +2278,9 @@ func (c *CodePipeline) RetryStageExecution(input *RetryStageExecutionInput) (*Re
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) RetryStageExecutionWithContext(ctx aws.Context, input *RetryStageExecutionInput, opts ...request.Option) (*RetryStageExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).RetryStageExecution")
+	defer span.End()
+
 	req, out := c.RetryStageExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2288,6 +2364,9 @@ func (c *CodePipeline) StartPipelineExecution(input *StartPipelineExecutionInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) StartPipelineExecutionWithContext(ctx aws.Context, input *StartPipelineExecutionInput, opts ...request.Option) (*StartPipelineExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).StartPipelineExecution")
+	defer span.End()
+
 	req, out := c.StartPipelineExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2382,6 +2461,9 @@ func (c *CodePipeline) UpdatePipeline(input *UpdatePipelineInput) (*UpdatePipeli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodePipeline) UpdatePipelineWithContext(ctx aws.Context, input *UpdatePipelineInput, opts ...request.Option) (*UpdatePipelineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codepipeline.(*CodePipeline).UpdatePipeline")
+	defer span.End()
+
 	req, out := c.UpdatePipelineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

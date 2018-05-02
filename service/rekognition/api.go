@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCompareFaces = "CompareFaces"
@@ -146,6 +147,9 @@ func (c *Rekognition) CompareFaces(input *CompareFacesInput) (*CompareFacesOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) CompareFacesWithContext(ctx aws.Context, input *CompareFacesInput, opts ...request.Option) (*CompareFacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).CompareFaces")
+	defer span.End()
+
 	req, out := c.CompareFacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -251,6 +255,9 @@ func (c *Rekognition) CreateCollection(input *CreateCollectionInput) (*CreateCol
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) CreateCollectionWithContext(ctx aws.Context, input *CreateCollectionInput, opts ...request.Option) (*CreateCollectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).CreateCollection")
+	defer span.End()
+
 	req, out := c.CreateCollectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -360,6 +367,9 @@ func (c *Rekognition) CreateStreamProcessor(input *CreateStreamProcessorInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) CreateStreamProcessorWithContext(ctx aws.Context, input *CreateStreamProcessorInput, opts ...request.Option) (*CreateStreamProcessorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).CreateStreamProcessor")
+	defer span.End()
+
 	req, out := c.CreateStreamProcessorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -458,6 +468,9 @@ func (c *Rekognition) DeleteCollection(input *DeleteCollectionInput) (*DeleteCol
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) DeleteCollectionWithContext(ctx aws.Context, input *DeleteCollectionInput, opts ...request.Option) (*DeleteCollectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).DeleteCollection")
+	defer span.End()
+
 	req, out := c.DeleteCollectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -556,6 +569,9 @@ func (c *Rekognition) DeleteFaces(input *DeleteFacesInput) (*DeleteFacesOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) DeleteFacesWithContext(ctx aws.Context, input *DeleteFacesInput, opts ...request.Option) (*DeleteFacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).DeleteFaces")
+	defer span.End()
+
 	req, out := c.DeleteFacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -655,6 +671,9 @@ func (c *Rekognition) DeleteStreamProcessor(input *DeleteStreamProcessorInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) DeleteStreamProcessorWithContext(ctx aws.Context, input *DeleteStreamProcessorInput, opts ...request.Option) (*DeleteStreamProcessorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).DeleteStreamProcessor")
+	defer span.End()
+
 	req, out := c.DeleteStreamProcessorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -751,6 +770,9 @@ func (c *Rekognition) DescribeStreamProcessor(input *DescribeStreamProcessorInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) DescribeStreamProcessorWithContext(ctx aws.Context, input *DescribeStreamProcessorInput, opts ...request.Option) (*DescribeStreamProcessorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).DescribeStreamProcessor")
+	defer span.End()
+
 	req, out := c.DescribeStreamProcessorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -875,6 +897,9 @@ func (c *Rekognition) DetectFaces(input *DetectFacesInput) (*DetectFacesOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) DetectFacesWithContext(ctx aws.Context, input *DetectFacesInput, opts ...request.Option) (*DetectFacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).DetectFaces")
+	defer span.End()
+
 	req, out := c.DetectFacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1029,6 +1054,9 @@ func (c *Rekognition) DetectLabels(input *DetectLabelsInput) (*DetectLabelsOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) DetectLabelsWithContext(ctx aws.Context, input *DetectLabelsInput, opts ...request.Option) (*DetectLabelsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).DetectLabels")
+	defer span.End()
+
 	req, out := c.DetectLabelsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1142,6 +1170,9 @@ func (c *Rekognition) DetectModerationLabels(input *DetectModerationLabelsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) DetectModerationLabelsWithContext(ctx aws.Context, input *DetectModerationLabelsInput, opts ...request.Option) (*DetectModerationLabelsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).DetectModerationLabels")
+	defer span.End()
+
 	req, out := c.DetectModerationLabelsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1273,6 +1304,9 @@ func (c *Rekognition) DetectText(input *DetectTextInput) (*DetectTextOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) DetectTextWithContext(ctx aws.Context, input *DetectTextInput, opts ...request.Option) (*DetectTextOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).DetectText")
+	defer span.End()
+
 	req, out := c.DetectTextRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1373,6 +1407,9 @@ func (c *Rekognition) GetCelebrityInfo(input *GetCelebrityInfoInput) (*GetCelebr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) GetCelebrityInfoWithContext(ctx aws.Context, input *GetCelebrityInfoInput, opts ...request.Option) (*GetCelebrityInfoOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).GetCelebrityInfo")
+	defer span.End()
+
 	req, out := c.GetCelebrityInfoRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1509,6 +1546,9 @@ func (c *Rekognition) GetCelebrityRecognition(input *GetCelebrityRecognitionInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) GetCelebrityRecognitionWithContext(ctx aws.Context, input *GetCelebrityRecognitionInput, opts ...request.Option) (*GetCelebrityRecognitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).GetCelebrityRecognition")
+	defer span.End()
+
 	req, out := c.GetCelebrityRecognitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1689,6 +1729,9 @@ func (c *Rekognition) GetContentModeration(input *GetContentModerationInput) (*G
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) GetContentModerationWithContext(ctx aws.Context, input *GetContentModerationInput, opts ...request.Option) (*GetContentModerationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).GetContentModeration")
+	defer span.End()
+
 	req, out := c.GetContentModerationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1861,6 +1904,9 @@ func (c *Rekognition) GetFaceDetection(input *GetFaceDetectionInput) (*GetFaceDe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) GetFaceDetectionWithContext(ctx aws.Context, input *GetFaceDetectionInput, opts ...request.Option) (*GetFaceDetectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).GetFaceDetection")
+	defer span.End()
+
 	req, out := c.GetFaceDetectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2035,6 +2081,9 @@ func (c *Rekognition) GetFaceSearch(input *GetFaceSearchInput) (*GetFaceSearchOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) GetFaceSearchWithContext(ctx aws.Context, input *GetFaceSearchInput, opts ...request.Option) (*GetFaceSearchOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).GetFaceSearch")
+	defer span.End()
+
 	req, out := c.GetFaceSearchRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2212,6 +2261,9 @@ func (c *Rekognition) GetLabelDetection(input *GetLabelDetectionInput) (*GetLabe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) GetLabelDetectionWithContext(ctx aws.Context, input *GetLabelDetectionInput, opts ...request.Option) (*GetLabelDetectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).GetLabelDetection")
+	defer span.End()
+
 	req, out := c.GetLabelDetectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2389,6 +2441,9 @@ func (c *Rekognition) GetPersonTracking(input *GetPersonTrackingInput) (*GetPers
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) GetPersonTrackingWithContext(ctx aws.Context, input *GetPersonTrackingInput, opts ...request.Option) (*GetPersonTrackingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).GetPersonTracking")
+	defer span.End()
+
 	req, out := c.GetPersonTrackingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2580,6 +2635,9 @@ func (c *Rekognition) IndexFaces(input *IndexFacesInput) (*IndexFacesOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) IndexFacesWithContext(ctx aws.Context, input *IndexFacesInput, opts ...request.Option) (*IndexFacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).IndexFaces")
+	defer span.End()
+
 	req, out := c.IndexFacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2690,6 +2748,9 @@ func (c *Rekognition) ListCollections(input *ListCollectionsInput) (*ListCollect
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) ListCollectionsWithContext(ctx aws.Context, input *ListCollectionsInput, opts ...request.Option) (*ListCollectionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).ListCollections")
+	defer span.End()
+
 	req, out := c.ListCollectionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2848,6 +2909,9 @@ func (c *Rekognition) ListFaces(input *ListFacesInput) (*ListFacesOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) ListFacesWithContext(ctx aws.Context, input *ListFacesInput, opts ...request.Option) (*ListFacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).ListFaces")
+	defer span.End()
+
 	req, out := c.ListFacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2998,6 +3062,9 @@ func (c *Rekognition) ListStreamProcessors(input *ListStreamProcessorsInput) (*L
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) ListStreamProcessorsWithContext(ctx aws.Context, input *ListStreamProcessorsInput, opts ...request.Option) (*ListStreamProcessorsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).ListStreamProcessors")
+	defer span.End()
+
 	req, out := c.ListStreamProcessorsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3180,6 +3247,9 @@ func (c *Rekognition) RecognizeCelebrities(input *RecognizeCelebritiesInput) (*R
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) RecognizeCelebritiesWithContext(ctx aws.Context, input *RecognizeCelebritiesInput, opts ...request.Option) (*RecognizeCelebritiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).RecognizeCelebrities")
+	defer span.End()
+
 	req, out := c.RecognizeCelebritiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3291,6 +3361,9 @@ func (c *Rekognition) SearchFaces(input *SearchFacesInput) (*SearchFacesOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) SearchFacesWithContext(ctx aws.Context, input *SearchFacesInput, opts ...request.Option) (*SearchFacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).SearchFaces")
+	defer span.End()
+
 	req, out := c.SearchFacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3422,6 +3495,9 @@ func (c *Rekognition) SearchFacesByImage(input *SearchFacesByImageInput) (*Searc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) SearchFacesByImageWithContext(ctx aws.Context, input *SearchFacesByImageInput, opts ...request.Option) (*SearchFacesByImageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).SearchFacesByImage")
+	defer span.End()
+
 	req, out := c.SearchFacesByImageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3538,6 +3614,9 @@ func (c *Rekognition) StartCelebrityRecognition(input *StartCelebrityRecognition
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) StartCelebrityRecognitionWithContext(ctx aws.Context, input *StartCelebrityRecognitionInput, opts ...request.Option) (*StartCelebrityRecognitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).StartCelebrityRecognition")
+	defer span.End()
+
 	req, out := c.StartCelebrityRecognitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3656,6 +3735,9 @@ func (c *Rekognition) StartContentModeration(input *StartContentModerationInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) StartContentModerationWithContext(ctx aws.Context, input *StartContentModerationInput, opts ...request.Option) (*StartContentModerationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).StartContentModeration")
+	defer span.End()
+
 	req, out := c.StartContentModerationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3771,6 +3853,9 @@ func (c *Rekognition) StartFaceDetection(input *StartFaceDetectionInput) (*Start
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) StartFaceDetectionWithContext(ctx aws.Context, input *StartFaceDetectionInput, opts ...request.Option) (*StartFaceDetectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).StartFaceDetection")
+	defer span.End()
+
 	req, out := c.StartFaceDetectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3890,6 +3975,9 @@ func (c *Rekognition) StartFaceSearch(input *StartFaceSearchInput) (*StartFaceSe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) StartFaceSearchWithContext(ctx aws.Context, input *StartFaceSearchInput, opts ...request.Option) (*StartFaceSearchOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).StartFaceSearch")
+	defer span.End()
+
 	req, out := c.StartFaceSearchRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4012,6 +4100,9 @@ func (c *Rekognition) StartLabelDetection(input *StartLabelDetectionInput) (*Sta
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) StartLabelDetectionWithContext(ctx aws.Context, input *StartLabelDetectionInput, opts ...request.Option) (*StartLabelDetectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).StartLabelDetection")
+	defer span.End()
+
 	req, out := c.StartLabelDetectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4128,6 +4219,9 @@ func (c *Rekognition) StartPersonTracking(input *StartPersonTrackingInput) (*Sta
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) StartPersonTrackingWithContext(ctx aws.Context, input *StartPersonTrackingInput, opts ...request.Option) (*StartPersonTrackingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).StartPersonTracking")
+	defer span.End()
+
 	req, out := c.StartPersonTrackingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4226,6 +4320,9 @@ func (c *Rekognition) StartStreamProcessor(input *StartStreamProcessorInput) (*S
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) StartStreamProcessorWithContext(ctx aws.Context, input *StartStreamProcessorInput, opts ...request.Option) (*StartStreamProcessorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).StartStreamProcessor")
+	defer span.End()
+
 	req, out := c.StartStreamProcessorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4322,6 +4419,9 @@ func (c *Rekognition) StopStreamProcessor(input *StopStreamProcessorInput) (*Sto
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Rekognition) StopStreamProcessorWithContext(ctx aws.Context, input *StopStreamProcessorInput, opts ...request.Option) (*StopStreamProcessorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/rekognition.(*Rekognition).StopStreamProcessor")
+	defer span.End()
+
 	req, out := c.StopStreamProcessorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

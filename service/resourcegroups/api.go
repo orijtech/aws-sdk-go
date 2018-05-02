@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateGroup = "CreateGroup"
@@ -94,6 +95,9 @@ func (c *ResourceGroups) CreateGroup(input *CreateGroupInput) (*CreateGroupOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroups) CreateGroupWithContext(ctx aws.Context, input *CreateGroupInput, opts ...request.Option) (*CreateGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroups.(*ResourceGroups).CreateGroup")
+	defer span.End()
+
 	req, out := c.CreateGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -190,6 +194,9 @@ func (c *ResourceGroups) DeleteGroup(input *DeleteGroupInput) (*DeleteGroupOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroups) DeleteGroupWithContext(ctx aws.Context, input *DeleteGroupInput, opts ...request.Option) (*DeleteGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroups.(*ResourceGroups).DeleteGroup")
+	defer span.End()
+
 	req, out := c.DeleteGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -285,6 +292,9 @@ func (c *ResourceGroups) GetGroup(input *GetGroupInput) (*GetGroupOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroups) GetGroupWithContext(ctx aws.Context, input *GetGroupInput, opts ...request.Option) (*GetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroups.(*ResourceGroups).GetGroup")
+	defer span.End()
+
 	req, out := c.GetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -380,6 +390,9 @@ func (c *ResourceGroups) GetGroupQuery(input *GetGroupQueryInput) (*GetGroupQuer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroups) GetGroupQueryWithContext(ctx aws.Context, input *GetGroupQueryInput, opts ...request.Option) (*GetGroupQueryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroups.(*ResourceGroups).GetGroupQuery")
+	defer span.End()
+
 	req, out := c.GetGroupQueryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -476,6 +489,9 @@ func (c *ResourceGroups) GetTags(input *GetTagsInput) (*GetTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroups) GetTagsWithContext(ctx aws.Context, input *GetTagsInput, opts ...request.Option) (*GetTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroups.(*ResourceGroups).GetTags")
+	defer span.End()
+
 	req, out := c.GetTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -582,6 +598,9 @@ func (c *ResourceGroups) ListGroupResources(input *ListGroupResourcesInput) (*Li
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroups) ListGroupResourcesWithContext(ctx aws.Context, input *ListGroupResourcesInput, opts ...request.Option) (*ListGroupResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroups.(*ResourceGroups).ListGroupResources")
+	defer span.End()
+
 	req, out := c.ListGroupResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -730,6 +749,9 @@ func (c *ResourceGroups) ListGroups(input *ListGroupsInput) (*ListGroupsOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroups) ListGroupsWithContext(ctx aws.Context, input *ListGroupsInput, opts ...request.Option) (*ListGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroups.(*ResourceGroups).ListGroups")
+	defer span.End()
+
 	req, out := c.ListGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -884,6 +906,9 @@ func (c *ResourceGroups) SearchResources(input *SearchResourcesInput) (*SearchRe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroups) SearchResourcesWithContext(ctx aws.Context, input *SearchResourcesInput, opts ...request.Option) (*SearchResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroups.(*ResourceGroups).SearchResources")
+	defer span.End()
+
 	req, out := c.SearchResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1030,6 +1055,9 @@ func (c *ResourceGroups) Tag(input *TagInput) (*TagOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroups) TagWithContext(ctx aws.Context, input *TagInput, opts ...request.Option) (*TagOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroups.(*ResourceGroups).Tag")
+	defer span.End()
+
 	req, out := c.TagRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1125,6 +1153,9 @@ func (c *ResourceGroups) Untag(input *UntagInput) (*UntagOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroups) UntagWithContext(ctx aws.Context, input *UntagInput, opts ...request.Option) (*UntagOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroups.(*ResourceGroups).Untag")
+	defer span.End()
+
 	req, out := c.UntagRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1221,6 +1252,9 @@ func (c *ResourceGroups) UpdateGroup(input *UpdateGroupInput) (*UpdateGroupOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroups) UpdateGroupWithContext(ctx aws.Context, input *UpdateGroupInput, opts ...request.Option) (*UpdateGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroups.(*ResourceGroups).UpdateGroup")
+	defer span.End()
+
 	req, out := c.UpdateGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1316,6 +1350,9 @@ func (c *ResourceGroups) UpdateGroupQuery(input *UpdateGroupQueryInput) (*Update
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ResourceGroups) UpdateGroupQueryWithContext(ctx aws.Context, input *UpdateGroupQueryInput, opts ...request.Option) (*UpdateGroupQueryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/resourcegroups.(*ResourceGroups).UpdateGroupQuery")
+	defer span.End()
+
 	req, out := c.UpdateGroupQueryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

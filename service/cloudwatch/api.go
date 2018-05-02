@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/query"
+	"go.opencensus.io/trace"
 )
 
 const opDeleteAlarms = "DeleteAlarms"
@@ -88,6 +89,9 @@ func (c *CloudWatch) DeleteAlarms(input *DeleteAlarmsInput) (*DeleteAlarmsOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) DeleteAlarmsWithContext(ctx aws.Context, input *DeleteAlarmsInput, opts ...request.Option) (*DeleteAlarmsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).DeleteAlarms")
+	defer span.End()
+
 	req, out := c.DeleteAlarmsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -174,6 +178,9 @@ func (c *CloudWatch) DeleteDashboards(input *DeleteDashboardsInput) (*DeleteDash
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) DeleteDashboardsWithContext(ctx aws.Context, input *DeleteDashboardsInput, opts ...request.Option) (*DeleteDashboardsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).DeleteDashboards")
+	defer span.End()
+
 	req, out := c.DeleteDashboardsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -263,6 +270,9 @@ func (c *CloudWatch) DescribeAlarmHistory(input *DescribeAlarmHistoryInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) DescribeAlarmHistoryWithContext(ctx aws.Context, input *DescribeAlarmHistoryInput, opts ...request.Option) (*DescribeAlarmHistoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).DescribeAlarmHistory")
+	defer span.End()
+
 	req, out := c.DescribeAlarmHistoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -400,6 +410,9 @@ func (c *CloudWatch) DescribeAlarms(input *DescribeAlarmsInput) (*DescribeAlarms
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) DescribeAlarmsWithContext(ctx aws.Context, input *DescribeAlarmsInput, opts ...request.Option) (*DescribeAlarmsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).DescribeAlarms")
+	defer span.End()
+
 	req, out := c.DescribeAlarmsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -525,6 +538,9 @@ func (c *CloudWatch) DescribeAlarmsForMetric(input *DescribeAlarmsForMetricInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) DescribeAlarmsForMetricWithContext(ctx aws.Context, input *DescribeAlarmsForMetricInput, opts ...request.Option) (*DescribeAlarmsForMetricOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).DescribeAlarmsForMetric")
+	defer span.End()
+
 	req, out := c.DescribeAlarmsForMetricRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -602,6 +618,9 @@ func (c *CloudWatch) DisableAlarmActions(input *DisableAlarmActionsInput) (*Disa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) DisableAlarmActionsWithContext(ctx aws.Context, input *DisableAlarmActionsInput, opts ...request.Option) (*DisableAlarmActionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).DisableAlarmActions")
+	defer span.End()
+
 	req, out := c.DisableAlarmActionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -678,6 +697,9 @@ func (c *CloudWatch) EnableAlarmActions(input *EnableAlarmActionsInput) (*Enable
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) EnableAlarmActionsWithContext(ctx aws.Context, input *EnableAlarmActionsInput, opts ...request.Option) (*EnableAlarmActionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).EnableAlarmActions")
+	defer span.End()
+
 	req, out := c.EnableAlarmActionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -767,6 +789,9 @@ func (c *CloudWatch) GetDashboard(input *GetDashboardInput) (*GetDashboardOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) GetDashboardWithContext(ctx aws.Context, input *GetDashboardInput, opts ...request.Option) (*GetDashboardOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).GetDashboard")
+	defer span.End()
+
 	req, out := c.GetDashboardRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -857,6 +882,9 @@ func (c *CloudWatch) GetMetricData(input *GetMetricDataInput) (*GetMetricDataOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) GetMetricDataWithContext(ctx aws.Context, input *GetMetricDataInput, opts ...request.Option) (*GetMetricDataOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).GetMetricData")
+	defer span.End()
+
 	req, out := c.GetMetricDataRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -995,6 +1023,9 @@ func (c *CloudWatch) GetMetricStatistics(input *GetMetricStatisticsInput) (*GetM
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) GetMetricStatisticsWithContext(ctx aws.Context, input *GetMetricStatisticsInput, opts ...request.Option) (*GetMetricStatisticsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).GetMetricStatistics")
+	defer span.End()
+
 	req, out := c.GetMetricStatisticsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1079,6 +1110,9 @@ func (c *CloudWatch) ListDashboards(input *ListDashboardsInput) (*ListDashboards
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) ListDashboardsWithContext(ctx aws.Context, input *ListDashboardsInput, opts ...request.Option) (*ListDashboardsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).ListDashboards")
+	defer span.End()
+
 	req, out := c.ListDashboardsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1175,6 +1209,9 @@ func (c *CloudWatch) ListMetrics(input *ListMetricsInput) (*ListMetricsOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) ListMetricsWithContext(ctx aws.Context, input *ListMetricsInput, opts ...request.Option) (*ListMetricsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).ListMetrics")
+	defer span.End()
+
 	req, out := c.ListMetricsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1325,6 +1362,9 @@ func (c *CloudWatch) PutDashboard(input *PutDashboardInput) (*PutDashboardOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) PutDashboardWithContext(ctx aws.Context, input *PutDashboardInput, opts ...request.Option) (*PutDashboardOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).PutDashboard")
+	defer span.End()
+
 	req, out := c.PutDashboardRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1447,6 +1487,9 @@ func (c *CloudWatch) PutMetricAlarm(input *PutMetricAlarmInput) (*PutMetricAlarm
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) PutMetricAlarmWithContext(ctx aws.Context, input *PutMetricAlarmInput, opts ...request.Option) (*PutMetricAlarmOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).PutMetricAlarm")
+	defer span.End()
+
 	req, out := c.PutMetricAlarmRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1565,6 +1608,9 @@ func (c *CloudWatch) PutMetricData(input *PutMetricDataInput) (*PutMetricDataOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) PutMetricDataWithContext(ctx aws.Context, input *PutMetricDataInput, opts ...request.Option) (*PutMetricDataOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).PutMetricData")
+	defer span.End()
+
 	req, out := c.PutMetricDataRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1656,6 +1702,9 @@ func (c *CloudWatch) SetAlarmState(input *SetAlarmStateInput) (*SetAlarmStateOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatch) SetAlarmStateWithContext(ctx aws.Context, input *SetAlarmStateInput, opts ...request.Option) (*SetAlarmStateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatch.(*CloudWatch).SetAlarmState")
+	defer span.End()
+
 	req, out := c.SetAlarmStateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

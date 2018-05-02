@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restxml"
+	"go.opencensus.io/trace"
 )
 
 const opCreateCloudFrontOriginAccessIdentity = "CreateCloudFrontOriginAccessIdentity2017_10_30"
@@ -108,6 +109,9 @@ func (c *CloudFront) CreateCloudFrontOriginAccessIdentity(input *CreateCloudFron
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) CreateCloudFrontOriginAccessIdentityWithContext(ctx aws.Context, input *CreateCloudFrontOriginAccessIdentityInput, opts ...request.Option) (*CreateCloudFrontOriginAccessIdentityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).CreateCloudFrontOriginAccessIdentity")
+	defer span.End()
+
 	req, out := c.CreateCloudFrontOriginAccessIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -314,6 +318,9 @@ func (c *CloudFront) CreateDistribution(input *CreateDistributionInput) (*Create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) CreateDistributionWithContext(ctx aws.Context, input *CreateDistributionInput, opts ...request.Option) (*CreateDistributionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).CreateDistribution")
+	defer span.End()
+
 	req, out := c.CreateDistributionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -521,6 +528,9 @@ func (c *CloudFront) CreateDistributionWithTags(input *CreateDistributionWithTag
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) CreateDistributionWithTagsWithContext(ctx aws.Context, input *CreateDistributionWithTagsInput, opts ...request.Option) (*CreateDistributionWithTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).CreateDistributionWithTags")
+	defer span.End()
+
 	req, out := c.CreateDistributionWithTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -624,6 +634,9 @@ func (c *CloudFront) CreateFieldLevelEncryptionConfig(input *CreateFieldLevelEnc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) CreateFieldLevelEncryptionConfigWithContext(ctx aws.Context, input *CreateFieldLevelEncryptionConfigInput, opts ...request.Option) (*CreateFieldLevelEncryptionConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).CreateFieldLevelEncryptionConfig")
+	defer span.End()
+
 	req, out := c.CreateFieldLevelEncryptionConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -726,6 +739,9 @@ func (c *CloudFront) CreateFieldLevelEncryptionProfile(input *CreateFieldLevelEn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) CreateFieldLevelEncryptionProfileWithContext(ctx aws.Context, input *CreateFieldLevelEncryptionProfileInput, opts ...request.Option) (*CreateFieldLevelEncryptionProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).CreateFieldLevelEncryptionProfile")
+	defer span.End()
+
 	req, out := c.CreateFieldLevelEncryptionProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -824,6 +840,9 @@ func (c *CloudFront) CreateInvalidation(input *CreateInvalidationInput) (*Create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) CreateInvalidationWithContext(ctx aws.Context, input *CreateInvalidationInput, opts ...request.Option) (*CreateInvalidationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).CreateInvalidation")
+	defer span.End()
+
 	req, out := c.CreateInvalidationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -911,6 +930,9 @@ func (c *CloudFront) CreatePublicKey(input *CreatePublicKeyInput) (*CreatePublic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) CreatePublicKeyWithContext(ctx aws.Context, input *CreatePublicKeyInput, opts ...request.Option) (*CreatePublicKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).CreatePublicKey")
+	defer span.End()
+
 	req, out := c.CreatePublicKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1050,6 +1072,9 @@ func (c *CloudFront) CreateStreamingDistribution(input *CreateStreamingDistribut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) CreateStreamingDistributionWithContext(ctx aws.Context, input *CreateStreamingDistributionInput, opts ...request.Option) (*CreateStreamingDistributionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).CreateStreamingDistribution")
+	defer span.End()
+
 	req, out := c.CreateStreamingDistributionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1164,6 +1189,9 @@ func (c *CloudFront) CreateStreamingDistributionWithTags(input *CreateStreamingD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) CreateStreamingDistributionWithTagsWithContext(ctx aws.Context, input *CreateStreamingDistributionWithTagsInput, opts ...request.Option) (*CreateStreamingDistributionWithTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).CreateStreamingDistributionWithTags")
+	defer span.End()
+
 	req, out := c.CreateStreamingDistributionWithTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1257,6 +1285,9 @@ func (c *CloudFront) DeleteCloudFrontOriginAccessIdentity(input *DeleteCloudFron
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) DeleteCloudFrontOriginAccessIdentityWithContext(ctx aws.Context, input *DeleteCloudFrontOriginAccessIdentityInput, opts ...request.Option) (*DeleteCloudFrontOriginAccessIdentityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).DeleteCloudFrontOriginAccessIdentity")
+	defer span.End()
+
 	req, out := c.DeleteCloudFrontOriginAccessIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1350,6 +1381,9 @@ func (c *CloudFront) DeleteDistribution(input *DeleteDistributionInput) (*Delete
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) DeleteDistributionWithContext(ctx aws.Context, input *DeleteDistributionInput, opts ...request.Option) (*DeleteDistributionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).DeleteDistribution")
+	defer span.End()
+
 	req, out := c.DeleteDistributionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1444,6 +1478,9 @@ func (c *CloudFront) DeleteFieldLevelEncryptionConfig(input *DeleteFieldLevelEnc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) DeleteFieldLevelEncryptionConfigWithContext(ctx aws.Context, input *DeleteFieldLevelEncryptionConfigInput, opts ...request.Option) (*DeleteFieldLevelEncryptionConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).DeleteFieldLevelEncryptionConfig")
+	defer span.End()
+
 	req, out := c.DeleteFieldLevelEncryptionConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1538,6 +1575,9 @@ func (c *CloudFront) DeleteFieldLevelEncryptionProfile(input *DeleteFieldLevelEn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) DeleteFieldLevelEncryptionProfileWithContext(ctx aws.Context, input *DeleteFieldLevelEncryptionProfileInput, opts ...request.Option) (*DeleteFieldLevelEncryptionProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).DeleteFieldLevelEncryptionProfile")
+	defer span.End()
+
 	req, out := c.DeleteFieldLevelEncryptionProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1632,6 +1672,9 @@ func (c *CloudFront) DeletePublicKey(input *DeletePublicKeyInput) (*DeletePublic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) DeletePublicKeyWithContext(ctx aws.Context, input *DeletePublicKeyInput, opts ...request.Option) (*DeletePublicKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).DeletePublicKey")
+	defer span.End()
+
 	req, out := c.DeletePublicKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1718,6 +1761,9 @@ func (c *CloudFront) DeleteServiceLinkedRole(input *DeleteServiceLinkedRoleInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) DeleteServiceLinkedRoleWithContext(ctx aws.Context, input *DeleteServiceLinkedRoleInput, opts ...request.Option) (*DeleteServiceLinkedRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).DeleteServiceLinkedRole")
+	defer span.End()
+
 	req, out := c.DeleteServiceLinkedRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1846,6 +1892,9 @@ func (c *CloudFront) DeleteStreamingDistribution(input *DeleteStreamingDistribut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) DeleteStreamingDistributionWithContext(ctx aws.Context, input *DeleteStreamingDistributionInput, opts ...request.Option) (*DeleteStreamingDistributionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).DeleteStreamingDistribution")
+	defer span.End()
+
 	req, out := c.DeleteStreamingDistributionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1928,6 +1977,9 @@ func (c *CloudFront) GetCloudFrontOriginAccessIdentity(input *GetCloudFrontOrigi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) GetCloudFrontOriginAccessIdentityWithContext(ctx aws.Context, input *GetCloudFrontOriginAccessIdentityInput, opts ...request.Option) (*GetCloudFrontOriginAccessIdentityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).GetCloudFrontOriginAccessIdentity")
+	defer span.End()
+
 	req, out := c.GetCloudFrontOriginAccessIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2010,6 +2062,9 @@ func (c *CloudFront) GetCloudFrontOriginAccessIdentityConfig(input *GetCloudFron
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) GetCloudFrontOriginAccessIdentityConfigWithContext(ctx aws.Context, input *GetCloudFrontOriginAccessIdentityConfigInput, opts ...request.Option) (*GetCloudFrontOriginAccessIdentityConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).GetCloudFrontOriginAccessIdentityConfig")
+	defer span.End()
+
 	req, out := c.GetCloudFrontOriginAccessIdentityConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2092,6 +2147,9 @@ func (c *CloudFront) GetDistribution(input *GetDistributionInput) (*GetDistribut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) GetDistributionWithContext(ctx aws.Context, input *GetDistributionInput, opts ...request.Option) (*GetDistributionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).GetDistribution")
+	defer span.End()
+
 	req, out := c.GetDistributionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2174,6 +2232,9 @@ func (c *CloudFront) GetDistributionConfig(input *GetDistributionConfigInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) GetDistributionConfigWithContext(ctx aws.Context, input *GetDistributionConfigInput, opts ...request.Option) (*GetDistributionConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).GetDistributionConfig")
+	defer span.End()
+
 	req, out := c.GetDistributionConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2256,6 +2317,9 @@ func (c *CloudFront) GetFieldLevelEncryption(input *GetFieldLevelEncryptionInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) GetFieldLevelEncryptionWithContext(ctx aws.Context, input *GetFieldLevelEncryptionInput, opts ...request.Option) (*GetFieldLevelEncryptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).GetFieldLevelEncryption")
+	defer span.End()
+
 	req, out := c.GetFieldLevelEncryptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2338,6 +2402,9 @@ func (c *CloudFront) GetFieldLevelEncryptionConfig(input *GetFieldLevelEncryptio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) GetFieldLevelEncryptionConfigWithContext(ctx aws.Context, input *GetFieldLevelEncryptionConfigInput, opts ...request.Option) (*GetFieldLevelEncryptionConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).GetFieldLevelEncryptionConfig")
+	defer span.End()
+
 	req, out := c.GetFieldLevelEncryptionConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2420,6 +2487,9 @@ func (c *CloudFront) GetFieldLevelEncryptionProfile(input *GetFieldLevelEncrypti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) GetFieldLevelEncryptionProfileWithContext(ctx aws.Context, input *GetFieldLevelEncryptionProfileInput, opts ...request.Option) (*GetFieldLevelEncryptionProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).GetFieldLevelEncryptionProfile")
+	defer span.End()
+
 	req, out := c.GetFieldLevelEncryptionProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2502,6 +2572,9 @@ func (c *CloudFront) GetFieldLevelEncryptionProfileConfig(input *GetFieldLevelEn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) GetFieldLevelEncryptionProfileConfigWithContext(ctx aws.Context, input *GetFieldLevelEncryptionProfileConfigInput, opts ...request.Option) (*GetFieldLevelEncryptionProfileConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).GetFieldLevelEncryptionProfileConfig")
+	defer span.End()
+
 	req, out := c.GetFieldLevelEncryptionProfileConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2587,6 +2660,9 @@ func (c *CloudFront) GetInvalidation(input *GetInvalidationInput) (*GetInvalidat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) GetInvalidationWithContext(ctx aws.Context, input *GetInvalidationInput, opts ...request.Option) (*GetInvalidationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).GetInvalidation")
+	defer span.End()
+
 	req, out := c.GetInvalidationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2669,6 +2745,9 @@ func (c *CloudFront) GetPublicKey(input *GetPublicKeyInput) (*GetPublicKeyOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) GetPublicKeyWithContext(ctx aws.Context, input *GetPublicKeyInput, opts ...request.Option) (*GetPublicKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).GetPublicKey")
+	defer span.End()
+
 	req, out := c.GetPublicKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2751,6 +2830,9 @@ func (c *CloudFront) GetPublicKeyConfig(input *GetPublicKeyConfigInput) (*GetPub
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) GetPublicKeyConfigWithContext(ctx aws.Context, input *GetPublicKeyConfigInput, opts ...request.Option) (*GetPublicKeyConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).GetPublicKeyConfig")
+	defer span.End()
+
 	req, out := c.GetPublicKeyConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2834,6 +2916,9 @@ func (c *CloudFront) GetStreamingDistribution(input *GetStreamingDistributionInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) GetStreamingDistributionWithContext(ctx aws.Context, input *GetStreamingDistributionInput, opts ...request.Option) (*GetStreamingDistributionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).GetStreamingDistribution")
+	defer span.End()
+
 	req, out := c.GetStreamingDistributionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2916,6 +3001,9 @@ func (c *CloudFront) GetStreamingDistributionConfig(input *GetStreamingDistribut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) GetStreamingDistributionConfigWithContext(ctx aws.Context, input *GetStreamingDistributionConfigInput, opts ...request.Option) (*GetStreamingDistributionConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).GetStreamingDistributionConfig")
+	defer span.End()
+
 	req, out := c.GetStreamingDistributionConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3001,6 +3089,9 @@ func (c *CloudFront) ListCloudFrontOriginAccessIdentities(input *ListCloudFrontO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) ListCloudFrontOriginAccessIdentitiesWithContext(ctx aws.Context, input *ListCloudFrontOriginAccessIdentitiesInput, opts ...request.Option) (*ListCloudFrontOriginAccessIdentitiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).ListCloudFrontOriginAccessIdentities")
+	defer span.End()
+
 	req, out := c.ListCloudFrontOriginAccessIdentitiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3136,6 +3227,9 @@ func (c *CloudFront) ListDistributions(input *ListDistributionsInput) (*ListDist
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) ListDistributionsWithContext(ctx aws.Context, input *ListDistributionsInput, opts ...request.Option) (*ListDistributionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).ListDistributions")
+	defer span.End()
+
 	req, out := c.ListDistributionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3267,6 +3361,9 @@ func (c *CloudFront) ListDistributionsByWebACLId(input *ListDistributionsByWebAC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) ListDistributionsByWebACLIdWithContext(ctx aws.Context, input *ListDistributionsByWebACLIdInput, opts ...request.Option) (*ListDistributionsByWebACLIdOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).ListDistributionsByWebACLId")
+	defer span.End()
+
 	req, out := c.ListDistributionsByWebACLIdRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3347,6 +3444,9 @@ func (c *CloudFront) ListFieldLevelEncryptionConfigs(input *ListFieldLevelEncryp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) ListFieldLevelEncryptionConfigsWithContext(ctx aws.Context, input *ListFieldLevelEncryptionConfigsInput, opts ...request.Option) (*ListFieldLevelEncryptionConfigsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).ListFieldLevelEncryptionConfigs")
+	defer span.End()
+
 	req, out := c.ListFieldLevelEncryptionConfigsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3427,6 +3527,9 @@ func (c *CloudFront) ListFieldLevelEncryptionProfiles(input *ListFieldLevelEncry
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) ListFieldLevelEncryptionProfilesWithContext(ctx aws.Context, input *ListFieldLevelEncryptionProfilesInput, opts ...request.Option) (*ListFieldLevelEncryptionProfilesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).ListFieldLevelEncryptionProfiles")
+	defer span.End()
+
 	req, out := c.ListFieldLevelEncryptionProfilesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3518,6 +3621,9 @@ func (c *CloudFront) ListInvalidations(input *ListInvalidationsInput) (*ListInva
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) ListInvalidationsWithContext(ctx aws.Context, input *ListInvalidationsInput, opts ...request.Option) (*ListInvalidationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).ListInvalidations")
+	defer span.End()
+
 	req, out := c.ListInvalidationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3647,6 +3753,9 @@ func (c *CloudFront) ListPublicKeys(input *ListPublicKeysInput) (*ListPublicKeys
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) ListPublicKeysWithContext(ctx aws.Context, input *ListPublicKeysInput, opts ...request.Option) (*ListPublicKeysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).ListPublicKeys")
+	defer span.End()
+
 	req, out := c.ListPublicKeysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3732,6 +3841,9 @@ func (c *CloudFront) ListStreamingDistributions(input *ListStreamingDistribution
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) ListStreamingDistributionsWithContext(ctx aws.Context, input *ListStreamingDistributionsInput, opts ...request.Option) (*ListStreamingDistributionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).ListStreamingDistributions")
+	defer span.End()
+
 	req, out := c.ListStreamingDistributionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3868,6 +3980,9 @@ func (c *CloudFront) ListTagsForResource(input *ListTagsForResourceInput) (*List
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*ListTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).ListTagsForResource")
+	defer span.End()
+
 	req, out := c.ListTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3956,6 +4071,9 @@ func (c *CloudFront) TagResource(input *TagResourceInput) (*TagResourceOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).TagResource")
+	defer span.End()
+
 	req, out := c.TagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4044,6 +4162,9 @@ func (c *CloudFront) UntagResource(input *UntagResourceInput) (*UntagResourceOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).UntagResource")
+	defer span.End()
+
 	req, out := c.UntagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4146,6 +4267,9 @@ func (c *CloudFront) UpdateCloudFrontOriginAccessIdentity(input *UpdateCloudFron
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) UpdateCloudFrontOriginAccessIdentityWithContext(ctx aws.Context, input *UpdateCloudFrontOriginAccessIdentityInput, opts ...request.Option) (*UpdateCloudFrontOriginAccessIdentityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).UpdateCloudFrontOriginAccessIdentity")
+	defer span.End()
+
 	req, out := c.UpdateCloudFrontOriginAccessIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4397,6 +4521,9 @@ func (c *CloudFront) UpdateDistribution(input *UpdateDistributionInput) (*Update
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) UpdateDistributionWithContext(ctx aws.Context, input *UpdateDistributionInput, opts ...request.Option) (*UpdateDistributionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).UpdateDistribution")
+	defer span.End()
+
 	req, out := c.UpdateDistributionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4509,6 +4636,9 @@ func (c *CloudFront) UpdateFieldLevelEncryptionConfig(input *UpdateFieldLevelEnc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) UpdateFieldLevelEncryptionConfigWithContext(ctx aws.Context, input *UpdateFieldLevelEncryptionConfigInput, opts ...request.Option) (*UpdateFieldLevelEncryptionConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).UpdateFieldLevelEncryptionConfig")
+	defer span.End()
+
 	req, out := c.UpdateFieldLevelEncryptionConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4624,6 +4754,9 @@ func (c *CloudFront) UpdateFieldLevelEncryptionProfile(input *UpdateFieldLevelEn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) UpdateFieldLevelEncryptionProfileWithContext(ctx aws.Context, input *UpdateFieldLevelEncryptionProfileInput, opts ...request.Option) (*UpdateFieldLevelEncryptionProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).UpdateFieldLevelEncryptionProfile")
+	defer span.End()
+
 	req, out := c.UpdateFieldLevelEncryptionProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4723,6 +4856,9 @@ func (c *CloudFront) UpdatePublicKey(input *UpdatePublicKeyInput) (*UpdatePublic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) UpdatePublicKeyWithContext(ctx aws.Context, input *UpdatePublicKeyInput, opts ...request.Option) (*UpdatePublicKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).UpdatePublicKey")
+	defer span.End()
+
 	req, out := c.UpdatePublicKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4838,6 +4974,9 @@ func (c *CloudFront) UpdateStreamingDistribution(input *UpdateStreamingDistribut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFront) UpdateStreamingDistributionWithContext(ctx aws.Context, input *UpdateStreamingDistributionInput, opts ...request.Option) (*UpdateStreamingDistributionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudfront.(*CloudFront).UpdateStreamingDistribution")
+	defer span.End()
+
 	req, out := c.UpdateStreamingDistributionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

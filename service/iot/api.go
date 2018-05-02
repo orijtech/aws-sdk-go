@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
+	"go.opencensus.io/trace"
 )
 
 const opAcceptCertificateTransfer = "AcceptCertificateTransfer"
@@ -108,6 +109,9 @@ func (c *IoT) AcceptCertificateTransfer(input *AcceptCertificateTransferInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) AcceptCertificateTransferWithContext(ctx aws.Context, input *AcceptCertificateTransferInput, opts ...request.Option) (*AcceptCertificateTransferOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).AcceptCertificateTransfer")
+	defer span.End()
+
 	req, out := c.AcceptCertificateTransferRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -193,6 +197,9 @@ func (c *IoT) AddThingToThingGroup(input *AddThingToThingGroupInput) (*AddThingT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) AddThingToThingGroupWithContext(ctx aws.Context, input *AddThingToThingGroupInput, opts ...request.Option) (*AddThingToThingGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).AddThingToThingGroup")
+	defer span.End()
+
 	req, out := c.AddThingToThingGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -289,6 +296,9 @@ func (c *IoT) AssociateTargetsWithJob(input *AssociateTargetsWithJobInput) (*Ass
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) AssociateTargetsWithJobWithContext(ctx aws.Context, input *AssociateTargetsWithJobInput, opts ...request.Option) (*AssociateTargetsWithJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).AssociateTargetsWithJob")
+	defer span.End()
+
 	req, out := c.AssociateTargetsWithJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -385,6 +395,9 @@ func (c *IoT) AttachPolicy(input *AttachPolicyInput) (*AttachPolicyOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) AttachPolicyWithContext(ctx aws.Context, input *AttachPolicyInput, opts ...request.Option) (*AttachPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).AttachPolicy")
+	defer span.End()
+
 	req, out := c.AttachPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -487,6 +500,9 @@ func (c *IoT) AttachPrincipalPolicy(input *AttachPrincipalPolicyInput) (*AttachP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) AttachPrincipalPolicyWithContext(ctx aws.Context, input *AttachPrincipalPolicyInput, opts ...request.Option) (*AttachPrincipalPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).AttachPrincipalPolicy")
+	defer span.End()
+
 	req, out := c.AttachPrincipalPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -578,6 +594,9 @@ func (c *IoT) AttachThingPrincipal(input *AttachThingPrincipalInput) (*AttachThi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) AttachThingPrincipalWithContext(ctx aws.Context, input *AttachThingPrincipalInput, opts ...request.Option) (*AttachThingPrincipalOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).AttachThingPrincipal")
+	defer span.End()
+
 	req, out := c.AttachThingPrincipalRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -684,6 +703,9 @@ func (c *IoT) CancelCertificateTransfer(input *CancelCertificateTransferInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CancelCertificateTransferWithContext(ctx aws.Context, input *CancelCertificateTransferInput, opts ...request.Option) (*CancelCertificateTransferOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CancelCertificateTransfer")
+	defer span.End()
+
 	req, out := c.CancelCertificateTransferRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -769,6 +791,9 @@ func (c *IoT) CancelJob(input *CancelJobInput) (*CancelJobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CancelJobWithContext(ctx aws.Context, input *CancelJobInput, opts ...request.Option) (*CancelJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CancelJob")
+	defer span.End()
+
 	req, out := c.CancelJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -860,6 +885,9 @@ func (c *IoT) ClearDefaultAuthorizer(input *ClearDefaultAuthorizerInput) (*Clear
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ClearDefaultAuthorizerWithContext(ctx aws.Context, input *ClearDefaultAuthorizerInput, opts ...request.Option) (*ClearDefaultAuthorizerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ClearDefaultAuthorizer")
+	defer span.End()
+
 	req, out := c.ClearDefaultAuthorizerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -954,6 +982,9 @@ func (c *IoT) CreateAuthorizer(input *CreateAuthorizerInput) (*CreateAuthorizerO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CreateAuthorizerWithContext(ctx aws.Context, input *CreateAuthorizerInput, opts ...request.Option) (*CreateAuthorizerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CreateAuthorizer")
+	defer span.End()
+
 	req, out := c.CreateAuthorizerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1083,6 +1114,9 @@ func (c *IoT) CreateCertificateFromCsr(input *CreateCertificateFromCsrInput) (*C
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CreateCertificateFromCsrWithContext(ctx aws.Context, input *CreateCertificateFromCsrInput, opts ...request.Option) (*CreateCertificateFromCsrOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CreateCertificateFromCsr")
+	defer span.End()
+
 	req, out := c.CreateCertificateFromCsrRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1174,6 +1208,9 @@ func (c *IoT) CreateJob(input *CreateJobInput) (*CreateJobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CreateJobWithContext(ctx aws.Context, input *CreateJobInput, opts ...request.Option) (*CreateJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CreateJob")
+	defer span.End()
+
 	req, out := c.CreateJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1266,6 +1303,9 @@ func (c *IoT) CreateKeysAndCertificate(input *CreateKeysAndCertificateInput) (*C
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CreateKeysAndCertificateWithContext(ctx aws.Context, input *CreateKeysAndCertificateInput, opts ...request.Option) (*CreateKeysAndCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CreateKeysAndCertificate")
+	defer span.End()
+
 	req, out := c.CreateKeysAndCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1360,6 +1400,9 @@ func (c *IoT) CreateOTAUpdate(input *CreateOTAUpdateInput) (*CreateOTAUpdateOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CreateOTAUpdateWithContext(ctx aws.Context, input *CreateOTAUpdateInput, opts ...request.Option) (*CreateOTAUpdateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CreateOTAUpdate")
+	defer span.End()
+
 	req, out := c.CreateOTAUpdateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1458,6 +1501,9 @@ func (c *IoT) CreatePolicy(input *CreatePolicyInput) (*CreatePolicyOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CreatePolicyWithContext(ctx aws.Context, input *CreatePolicyInput, opts ...request.Option) (*CreatePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CreatePolicy")
+	defer span.End()
+
 	req, out := c.CreatePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1562,6 +1608,9 @@ func (c *IoT) CreatePolicyVersion(input *CreatePolicyVersionInput) (*CreatePolic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CreatePolicyVersionWithContext(ctx aws.Context, input *CreatePolicyVersionInput, opts ...request.Option) (*CreatePolicyVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CreatePolicyVersion")
+	defer span.End()
+
 	req, out := c.CreatePolicyVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1656,6 +1705,9 @@ func (c *IoT) CreateRoleAlias(input *CreateRoleAliasInput) (*CreateRoleAliasOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CreateRoleAliasWithContext(ctx aws.Context, input *CreateRoleAliasInput, opts ...request.Option) (*CreateRoleAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CreateRoleAlias")
+	defer span.End()
+
 	req, out := c.CreateRoleAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1756,6 +1808,9 @@ func (c *IoT) CreateStream(input *CreateStreamInput) (*CreateStreamOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CreateStreamWithContext(ctx aws.Context, input *CreateStreamInput, opts ...request.Option) (*CreateStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CreateStream")
+	defer span.End()
+
 	req, out := c.CreateStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1850,6 +1905,9 @@ func (c *IoT) CreateThing(input *CreateThingInput) (*CreateThingOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CreateThingWithContext(ctx aws.Context, input *CreateThingInput, opts ...request.Option) (*CreateThingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CreateThing")
+	defer span.End()
+
 	req, out := c.CreateThingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1935,6 +1993,9 @@ func (c *IoT) CreateThingGroup(input *CreateThingGroupInput) (*CreateThingGroupO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CreateThingGroupWithContext(ctx aws.Context, input *CreateThingGroupInput, opts ...request.Option) (*CreateThingGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CreateThingGroup")
+	defer span.End()
+
 	req, out := c.CreateThingGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2026,6 +2087,9 @@ func (c *IoT) CreateThingType(input *CreateThingTypeInput) (*CreateThingTypeOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CreateThingTypeWithContext(ctx aws.Context, input *CreateThingTypeInput, opts ...request.Option) (*CreateThingTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CreateThingType")
+	defer span.End()
+
 	req, out := c.CreateThingTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2118,6 +2182,9 @@ func (c *IoT) CreateTopicRule(input *CreateTopicRuleInput) (*CreateTopicRuleOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) CreateTopicRuleWithContext(ctx aws.Context, input *CreateTopicRuleInput, opts ...request.Option) (*CreateTopicRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).CreateTopicRule")
+	defer span.End()
+
 	req, out := c.CreateTopicRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2212,6 +2279,9 @@ func (c *IoT) DeleteAuthorizer(input *DeleteAuthorizerInput) (*DeleteAuthorizerO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeleteAuthorizerWithContext(ctx aws.Context, input *DeleteAuthorizerInput, opts ...request.Option) (*DeleteAuthorizerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeleteAuthorizer")
+	defer span.End()
+
 	req, out := c.DeleteAuthorizerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2306,6 +2376,9 @@ func (c *IoT) DeleteCACertificate(input *DeleteCACertificateInput) (*DeleteCACer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeleteCACertificateWithContext(ctx aws.Context, input *DeleteCACertificateInput, opts ...request.Option) (*DeleteCACertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeleteCACertificate")
+	defer span.End()
+
 	req, out := c.DeleteCACertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2410,6 +2483,9 @@ func (c *IoT) DeleteCertificate(input *DeleteCertificateInput) (*DeleteCertifica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeleteCertificateWithContext(ctx aws.Context, input *DeleteCertificateInput, opts ...request.Option) (*DeleteCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeleteCertificate")
+	defer span.End()
+
 	req, out := c.DeleteCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2501,6 +2577,9 @@ func (c *IoT) DeleteOTAUpdate(input *DeleteOTAUpdateInput) (*DeleteOTAUpdateOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeleteOTAUpdateWithContext(ctx aws.Context, input *DeleteOTAUpdateInput, opts ...request.Option) (*DeleteOTAUpdateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeleteOTAUpdate")
+	defer span.End()
+
 	req, out := c.DeleteOTAUpdateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2607,6 +2686,9 @@ func (c *IoT) DeletePolicy(input *DeletePolicyInput) (*DeletePolicyOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeletePolicyWithContext(ctx aws.Context, input *DeletePolicyInput, opts ...request.Option) (*DeletePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeletePolicy")
+	defer span.End()
+
 	req, out := c.DeletePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2706,6 +2788,9 @@ func (c *IoT) DeletePolicyVersion(input *DeletePolicyVersionInput) (*DeletePolic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeletePolicyVersionWithContext(ctx aws.Context, input *DeletePolicyVersionInput, opts ...request.Option) (*DeletePolicyVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeletePolicyVersion")
+	defer span.End()
+
 	req, out := c.DeletePolicyVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2794,6 +2879,9 @@ func (c *IoT) DeleteRegistrationCode(input *DeleteRegistrationCodeInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeleteRegistrationCodeWithContext(ctx aws.Context, input *DeleteRegistrationCodeInput, opts ...request.Option) (*DeleteRegistrationCodeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeleteRegistrationCode")
+	defer span.End()
+
 	req, out := c.DeleteRegistrationCodeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2888,6 +2976,9 @@ func (c *IoT) DeleteRoleAlias(input *DeleteRoleAliasInput) (*DeleteRoleAliasOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeleteRoleAliasWithContext(ctx aws.Context, input *DeleteRoleAliasInput, opts ...request.Option) (*DeleteRoleAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeleteRoleAlias")
+	defer span.End()
+
 	req, out := c.DeleteRoleAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2982,6 +3073,9 @@ func (c *IoT) DeleteStream(input *DeleteStreamInput) (*DeleteStreamOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeleteStreamWithContext(ctx aws.Context, input *DeleteStreamInput, opts ...request.Option) (*DeleteStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeleteStream")
+	defer span.End()
+
 	req, out := c.DeleteStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3077,6 +3171,9 @@ func (c *IoT) DeleteThing(input *DeleteThingInput) (*DeleteThingOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeleteThingWithContext(ctx aws.Context, input *DeleteThingInput, opts ...request.Option) (*DeleteThingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeleteThing")
+	defer span.End()
+
 	req, out := c.DeleteThingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3163,6 +3260,9 @@ func (c *IoT) DeleteThingGroup(input *DeleteThingGroupInput) (*DeleteThingGroupO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeleteThingGroupWithContext(ctx aws.Context, input *DeleteThingGroupInput, opts ...request.Option) (*DeleteThingGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeleteThingGroup")
+	defer span.End()
+
 	req, out := c.DeleteThingGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3258,6 +3358,9 @@ func (c *IoT) DeleteThingType(input *DeleteThingTypeInput) (*DeleteThingTypeOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeleteThingTypeWithContext(ctx aws.Context, input *DeleteThingTypeInput, opts ...request.Option) (*DeleteThingTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeleteThingType")
+	defer span.End()
+
 	req, out := c.DeleteThingTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3345,6 +3448,9 @@ func (c *IoT) DeleteTopicRule(input *DeleteTopicRuleInput) (*DeleteTopicRuleOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeleteTopicRuleWithContext(ctx aws.Context, input *DeleteTopicRuleInput, opts ...request.Option) (*DeleteTopicRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeleteTopicRule")
+	defer span.End()
+
 	req, out := c.DeleteTopicRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3429,6 +3535,9 @@ func (c *IoT) DeleteV2LoggingLevel(input *DeleteV2LoggingLevelInput) (*DeleteV2L
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeleteV2LoggingLevelWithContext(ctx aws.Context, input *DeleteV2LoggingLevelInput, opts ...request.Option) (*DeleteV2LoggingLevelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeleteV2LoggingLevel")
+	defer span.End()
+
 	req, out := c.DeleteV2LoggingLevelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3521,6 +3630,9 @@ func (c *IoT) DeprecateThingType(input *DeprecateThingTypeInput) (*DeprecateThin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DeprecateThingTypeWithContext(ctx aws.Context, input *DeprecateThingTypeInput, opts ...request.Option) (*DeprecateThingTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DeprecateThingType")
+	defer span.End()
+
 	req, out := c.DeprecateThingTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3612,6 +3724,9 @@ func (c *IoT) DescribeAuthorizer(input *DescribeAuthorizerInput) (*DescribeAutho
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeAuthorizerWithContext(ctx aws.Context, input *DescribeAuthorizerInput, opts ...request.Option) (*DescribeAuthorizerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeAuthorizer")
+	defer span.End()
+
 	req, out := c.DescribeAuthorizerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3703,6 +3818,9 @@ func (c *IoT) DescribeCACertificate(input *DescribeCACertificateInput) (*Describ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeCACertificateWithContext(ctx aws.Context, input *DescribeCACertificateInput, opts ...request.Option) (*DescribeCACertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeCACertificate")
+	defer span.End()
+
 	req, out := c.DescribeCACertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3794,6 +3912,9 @@ func (c *IoT) DescribeCertificate(input *DescribeCertificateInput) (*DescribeCer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeCertificateWithContext(ctx aws.Context, input *DescribeCertificateInput, opts ...request.Option) (*DescribeCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeCertificate")
+	defer span.End()
+
 	req, out := c.DescribeCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3885,6 +4006,9 @@ func (c *IoT) DescribeDefaultAuthorizer(input *DescribeDefaultAuthorizerInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeDefaultAuthorizerWithContext(ctx aws.Context, input *DescribeDefaultAuthorizerInput, opts ...request.Option) (*DescribeDefaultAuthorizerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeDefaultAuthorizer")
+	defer span.End()
+
 	req, out := c.DescribeDefaultAuthorizerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3970,6 +4094,9 @@ func (c *IoT) DescribeEndpoint(input *DescribeEndpointInput) (*DescribeEndpointO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeEndpointWithContext(ctx aws.Context, input *DescribeEndpointInput, opts ...request.Option) (*DescribeEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeEndpoint")
+	defer span.End()
+
 	req, out := c.DescribeEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4049,6 +4176,9 @@ func (c *IoT) DescribeEventConfigurations(input *DescribeEventConfigurationsInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeEventConfigurationsWithContext(ctx aws.Context, input *DescribeEventConfigurationsInput, opts ...request.Option) (*DescribeEventConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeEventConfigurations")
+	defer span.End()
+
 	req, out := c.DescribeEventConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4140,6 +4270,9 @@ func (c *IoT) DescribeIndex(input *DescribeIndexInput) (*DescribeIndexOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeIndexWithContext(ctx aws.Context, input *DescribeIndexInput, opts ...request.Option) (*DescribeIndexOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeIndex")
+	defer span.End()
+
 	req, out := c.DescribeIndexRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4225,6 +4358,9 @@ func (c *IoT) DescribeJob(input *DescribeJobInput) (*DescribeJobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeJobWithContext(ctx aws.Context, input *DescribeJobInput, opts ...request.Option) (*DescribeJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeJob")
+	defer span.End()
+
 	req, out := c.DescribeJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4310,6 +4446,9 @@ func (c *IoT) DescribeJobExecution(input *DescribeJobExecutionInput) (*DescribeJ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeJobExecutionWithContext(ctx aws.Context, input *DescribeJobExecutionInput, opts ...request.Option) (*DescribeJobExecutionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeJobExecution")
+	defer span.End()
+
 	req, out := c.DescribeJobExecutionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4401,6 +4540,9 @@ func (c *IoT) DescribeRoleAlias(input *DescribeRoleAliasInput) (*DescribeRoleAli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeRoleAliasWithContext(ctx aws.Context, input *DescribeRoleAliasInput, opts ...request.Option) (*DescribeRoleAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeRoleAlias")
+	defer span.End()
+
 	req, out := c.DescribeRoleAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4492,6 +4634,9 @@ func (c *IoT) DescribeStream(input *DescribeStreamInput) (*DescribeStreamOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeStreamWithContext(ctx aws.Context, input *DescribeStreamInput, opts ...request.Option) (*DescribeStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeStream")
+	defer span.End()
+
 	req, out := c.DescribeStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4583,6 +4728,9 @@ func (c *IoT) DescribeThing(input *DescribeThingInput) (*DescribeThingOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeThingWithContext(ctx aws.Context, input *DescribeThingInput, opts ...request.Option) (*DescribeThingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeThing")
+	defer span.End()
+
 	req, out := c.DescribeThingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4668,6 +4816,9 @@ func (c *IoT) DescribeThingGroup(input *DescribeThingGroupInput) (*DescribeThing
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeThingGroupWithContext(ctx aws.Context, input *DescribeThingGroupInput, opts ...request.Option) (*DescribeThingGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeThingGroup")
+	defer span.End()
+
 	req, out := c.DescribeThingGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4756,6 +4907,9 @@ func (c *IoT) DescribeThingRegistrationTask(input *DescribeThingRegistrationTask
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeThingRegistrationTaskWithContext(ctx aws.Context, input *DescribeThingRegistrationTaskInput, opts ...request.Option) (*DescribeThingRegistrationTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeThingRegistrationTask")
+	defer span.End()
+
 	req, out := c.DescribeThingRegistrationTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4847,6 +5001,9 @@ func (c *IoT) DescribeThingType(input *DescribeThingTypeInput) (*DescribeThingTy
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DescribeThingTypeWithContext(ctx aws.Context, input *DescribeThingTypeInput, opts ...request.Option) (*DescribeThingTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DescribeThingType")
+	defer span.End()
+
 	req, out := c.DescribeThingTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4940,6 +5097,9 @@ func (c *IoT) DetachPolicy(input *DetachPolicyInput) (*DetachPolicyOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DetachPolicyWithContext(ctx aws.Context, input *DetachPolicyInput, opts ...request.Option) (*DetachPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DetachPolicy")
+	defer span.End()
+
 	req, out := c.DetachPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5038,6 +5198,9 @@ func (c *IoT) DetachPrincipalPolicy(input *DetachPrincipalPolicyInput) (*DetachP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DetachPrincipalPolicyWithContext(ctx aws.Context, input *DetachPrincipalPolicyInput, opts ...request.Option) (*DetachPrincipalPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DetachPrincipalPolicy")
+	defer span.End()
+
 	req, out := c.DetachPrincipalPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5129,6 +5292,9 @@ func (c *IoT) DetachThingPrincipal(input *DetachThingPrincipalInput) (*DetachThi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DetachThingPrincipalWithContext(ctx aws.Context, input *DetachThingPrincipalInput, opts ...request.Option) (*DetachThingPrincipalOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DetachThingPrincipal")
+	defer span.End()
+
 	req, out := c.DetachThingPrincipalRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5216,6 +5382,9 @@ func (c *IoT) DisableTopicRule(input *DisableTopicRuleInput) (*DisableTopicRuleO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) DisableTopicRuleWithContext(ctx aws.Context, input *DisableTopicRuleInput, opts ...request.Option) (*DisableTopicRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).DisableTopicRule")
+	defer span.End()
+
 	req, out := c.DisableTopicRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5303,6 +5472,9 @@ func (c *IoT) EnableTopicRule(input *EnableTopicRuleInput) (*EnableTopicRuleOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) EnableTopicRuleWithContext(ctx aws.Context, input *EnableTopicRuleInput, opts ...request.Option) (*EnableTopicRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).EnableTopicRule")
+	defer span.End()
+
 	req, out := c.EnableTopicRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5397,6 +5569,9 @@ func (c *IoT) GetEffectivePolicies(input *GetEffectivePoliciesInput) (*GetEffect
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) GetEffectivePoliciesWithContext(ctx aws.Context, input *GetEffectivePoliciesInput, opts ...request.Option) (*GetEffectivePoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).GetEffectivePolicies")
+	defer span.End()
+
 	req, out := c.GetEffectivePoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5485,6 +5660,9 @@ func (c *IoT) GetIndexingConfiguration(input *GetIndexingConfigurationInput) (*G
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) GetIndexingConfigurationWithContext(ctx aws.Context, input *GetIndexingConfigurationInput, opts ...request.Option) (*GetIndexingConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).GetIndexingConfiguration")
+	defer span.End()
+
 	req, out := c.GetIndexingConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5570,6 +5748,9 @@ func (c *IoT) GetJobDocument(input *GetJobDocumentInput) (*GetJobDocumentOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) GetJobDocumentWithContext(ctx aws.Context, input *GetJobDocumentInput, opts ...request.Option) (*GetJobDocumentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).GetJobDocument")
+	defer span.End()
+
 	req, out := c.GetJobDocumentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5652,6 +5833,9 @@ func (c *IoT) GetLoggingOptions(input *GetLoggingOptionsInput) (*GetLoggingOptio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) GetLoggingOptionsWithContext(ctx aws.Context, input *GetLoggingOptionsInput, opts ...request.Option) (*GetLoggingOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).GetLoggingOptions")
+	defer span.End()
+
 	req, out := c.GetLoggingOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5743,6 +5927,9 @@ func (c *IoT) GetOTAUpdate(input *GetOTAUpdateInput) (*GetOTAUpdateOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) GetOTAUpdateWithContext(ctx aws.Context, input *GetOTAUpdateInput, opts ...request.Option) (*GetOTAUpdateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).GetOTAUpdate")
+	defer span.End()
+
 	req, out := c.GetOTAUpdateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5835,6 +6022,9 @@ func (c *IoT) GetPolicy(input *GetPolicyInput) (*GetPolicyOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) GetPolicyWithContext(ctx aws.Context, input *GetPolicyInput, opts ...request.Option) (*GetPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).GetPolicy")
+	defer span.End()
+
 	req, out := c.GetPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5926,6 +6116,9 @@ func (c *IoT) GetPolicyVersion(input *GetPolicyVersionInput) (*GetPolicyVersionO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) GetPolicyVersionWithContext(ctx aws.Context, input *GetPolicyVersionInput, opts ...request.Option) (*GetPolicyVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).GetPolicyVersion")
+	defer span.End()
+
 	req, out := c.GetPolicyVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6014,6 +6207,9 @@ func (c *IoT) GetRegistrationCode(input *GetRegistrationCodeInput) (*GetRegistra
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) GetRegistrationCodeWithContext(ctx aws.Context, input *GetRegistrationCodeInput, opts ...request.Option) (*GetRegistrationCodeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).GetRegistrationCode")
+	defer span.End()
+
 	req, out := c.GetRegistrationCodeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6099,6 +6295,9 @@ func (c *IoT) GetTopicRule(input *GetTopicRuleInput) (*GetTopicRuleOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) GetTopicRuleWithContext(ctx aws.Context, input *GetTopicRuleInput, opts ...request.Option) (*GetTopicRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).GetTopicRule")
+	defer span.End()
+
 	req, out := c.GetTopicRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6181,6 +6380,9 @@ func (c *IoT) GetV2LoggingOptions(input *GetV2LoggingOptionsInput) (*GetV2Loggin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) GetV2LoggingOptionsWithContext(ctx aws.Context, input *GetV2LoggingOptionsInput, opts ...request.Option) (*GetV2LoggingOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).GetV2LoggingOptions")
+	defer span.End()
+
 	req, out := c.GetV2LoggingOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6275,6 +6477,9 @@ func (c *IoT) ListAttachedPolicies(input *ListAttachedPoliciesInput) (*ListAttac
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListAttachedPoliciesWithContext(ctx aws.Context, input *ListAttachedPoliciesInput, opts ...request.Option) (*ListAttachedPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListAttachedPolicies")
+	defer span.End()
+
 	req, out := c.ListAttachedPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6363,6 +6568,9 @@ func (c *IoT) ListAuthorizers(input *ListAuthorizersInput) (*ListAuthorizersOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListAuthorizersWithContext(ctx aws.Context, input *ListAuthorizersInput, opts ...request.Option) (*ListAuthorizersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListAuthorizers")
+	defer span.End()
+
 	req, out := c.ListAuthorizersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6454,6 +6662,9 @@ func (c *IoT) ListCACertificates(input *ListCACertificatesInput) (*ListCACertifi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListCACertificatesWithContext(ctx aws.Context, input *ListCACertificatesInput, opts ...request.Option) (*ListCACertificatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListCACertificates")
+	defer span.End()
+
 	req, out := c.ListCACertificatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6545,6 +6756,9 @@ func (c *IoT) ListCertificates(input *ListCertificatesInput) (*ListCertificatesO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListCertificatesWithContext(ctx aws.Context, input *ListCertificatesInput, opts ...request.Option) (*ListCertificatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListCertificates")
+	defer span.End()
+
 	req, out := c.ListCertificatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6633,6 +6847,9 @@ func (c *IoT) ListCertificatesByCA(input *ListCertificatesByCAInput) (*ListCerti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListCertificatesByCAWithContext(ctx aws.Context, input *ListCertificatesByCAInput, opts ...request.Option) (*ListCertificatesByCAOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListCertificatesByCA")
+	defer span.End()
+
 	req, out := c.ListCertificatesByCARequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6721,6 +6938,9 @@ func (c *IoT) ListIndices(input *ListIndicesInput) (*ListIndicesOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListIndicesWithContext(ctx aws.Context, input *ListIndicesInput, opts ...request.Option) (*ListIndicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListIndices")
+	defer span.End()
+
 	req, out := c.ListIndicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6806,6 +7026,9 @@ func (c *IoT) ListJobExecutionsForJob(input *ListJobExecutionsForJobInput) (*Lis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListJobExecutionsForJobWithContext(ctx aws.Context, input *ListJobExecutionsForJobInput, opts ...request.Option) (*ListJobExecutionsForJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListJobExecutionsForJob")
+	defer span.End()
+
 	req, out := c.ListJobExecutionsForJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6891,6 +7114,9 @@ func (c *IoT) ListJobExecutionsForThing(input *ListJobExecutionsForThingInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListJobExecutionsForThingWithContext(ctx aws.Context, input *ListJobExecutionsForThingInput, opts ...request.Option) (*ListJobExecutionsForThingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListJobExecutionsForThing")
+	defer span.End()
+
 	req, out := c.ListJobExecutionsForThingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6976,6 +7202,9 @@ func (c *IoT) ListJobs(input *ListJobsInput) (*ListJobsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListJobsWithContext(ctx aws.Context, input *ListJobsInput, opts ...request.Option) (*ListJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListJobs")
+	defer span.End()
+
 	req, out := c.ListJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7064,6 +7293,9 @@ func (c *IoT) ListOTAUpdates(input *ListOTAUpdatesInput) (*ListOTAUpdatesOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListOTAUpdatesWithContext(ctx aws.Context, input *ListOTAUpdatesInput, opts ...request.Option) (*ListOTAUpdatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListOTAUpdates")
+	defer span.End()
+
 	req, out := c.ListOTAUpdatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7152,6 +7384,9 @@ func (c *IoT) ListOutgoingCertificates(input *ListOutgoingCertificatesInput) (*L
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListOutgoingCertificatesWithContext(ctx aws.Context, input *ListOutgoingCertificatesInput, opts ...request.Option) (*ListOutgoingCertificatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListOutgoingCertificates")
+	defer span.End()
+
 	req, out := c.ListOutgoingCertificatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7240,6 +7475,9 @@ func (c *IoT) ListPolicies(input *ListPoliciesInput) (*ListPoliciesOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListPoliciesWithContext(ctx aws.Context, input *ListPoliciesInput, opts ...request.Option) (*ListPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListPolicies")
+	defer span.End()
+
 	req, out := c.ListPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7336,6 +7574,9 @@ func (c *IoT) ListPolicyPrincipals(input *ListPolicyPrincipalsInput) (*ListPolic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListPolicyPrincipalsWithContext(ctx aws.Context, input *ListPolicyPrincipalsInput, opts ...request.Option) (*ListPolicyPrincipalsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListPolicyPrincipals")
+	defer span.End()
+
 	req, out := c.ListPolicyPrincipalsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7427,6 +7668,9 @@ func (c *IoT) ListPolicyVersions(input *ListPolicyVersionsInput) (*ListPolicyVer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListPolicyVersionsWithContext(ctx aws.Context, input *ListPolicyVersionsInput, opts ...request.Option) (*ListPolicyVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListPolicyVersions")
+	defer span.End()
+
 	req, out := c.ListPolicyVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7524,6 +7768,9 @@ func (c *IoT) ListPrincipalPolicies(input *ListPrincipalPoliciesInput) (*ListPri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListPrincipalPoliciesWithContext(ctx aws.Context, input *ListPrincipalPoliciesInput, opts ...request.Option) (*ListPrincipalPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListPrincipalPolicies")
+	defer span.End()
+
 	req, out := c.ListPrincipalPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7615,6 +7862,9 @@ func (c *IoT) ListPrincipalThings(input *ListPrincipalThingsInput) (*ListPrincip
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListPrincipalThingsWithContext(ctx aws.Context, input *ListPrincipalThingsInput, opts ...request.Option) (*ListPrincipalThingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListPrincipalThings")
+	defer span.End()
+
 	req, out := c.ListPrincipalThingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7703,6 +7953,9 @@ func (c *IoT) ListRoleAliases(input *ListRoleAliasesInput) (*ListRoleAliasesOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListRoleAliasesWithContext(ctx aws.Context, input *ListRoleAliasesInput, opts ...request.Option) (*ListRoleAliasesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListRoleAliases")
+	defer span.End()
+
 	req, out := c.ListRoleAliasesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7791,6 +8044,9 @@ func (c *IoT) ListStreams(input *ListStreamsInput) (*ListStreamsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListStreamsWithContext(ctx aws.Context, input *ListStreamsInput, opts ...request.Option) (*ListStreamsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListStreams")
+	defer span.End()
+
 	req, out := c.ListStreamsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7885,6 +8141,9 @@ func (c *IoT) ListTargetsForPolicy(input *ListTargetsForPolicyInput) (*ListTarge
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListTargetsForPolicyWithContext(ctx aws.Context, input *ListTargetsForPolicyInput, opts ...request.Option) (*ListTargetsForPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListTargetsForPolicy")
+	defer span.End()
+
 	req, out := c.ListTargetsForPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7967,6 +8226,9 @@ func (c *IoT) ListThingGroups(input *ListThingGroupsInput) (*ListThingGroupsOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListThingGroupsWithContext(ctx aws.Context, input *ListThingGroupsInput, opts ...request.Option) (*ListThingGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListThingGroups")
+	defer span.End()
+
 	req, out := c.ListThingGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8049,6 +8311,9 @@ func (c *IoT) ListThingGroupsForThing(input *ListThingGroupsForThingInput) (*Lis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListThingGroupsForThingWithContext(ctx aws.Context, input *ListThingGroupsForThingInput, opts ...request.Option) (*ListThingGroupsForThingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListThingGroupsForThing")
+	defer span.End()
+
 	req, out := c.ListThingGroupsForThingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8140,6 +8405,9 @@ func (c *IoT) ListThingPrincipals(input *ListThingPrincipalsInput) (*ListThingPr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListThingPrincipalsWithContext(ctx aws.Context, input *ListThingPrincipalsInput, opts ...request.Option) (*ListThingPrincipalsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListThingPrincipals")
+	defer span.End()
+
 	req, out := c.ListThingPrincipalsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8225,6 +8493,9 @@ func (c *IoT) ListThingRegistrationTaskReports(input *ListThingRegistrationTaskR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListThingRegistrationTaskReportsWithContext(ctx aws.Context, input *ListThingRegistrationTaskReportsInput, opts ...request.Option) (*ListThingRegistrationTaskReportsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListThingRegistrationTaskReports")
+	defer span.End()
+
 	req, out := c.ListThingRegistrationTaskReportsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8310,6 +8581,9 @@ func (c *IoT) ListThingRegistrationTasks(input *ListThingRegistrationTasksInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListThingRegistrationTasksWithContext(ctx aws.Context, input *ListThingRegistrationTasksInput, opts ...request.Option) (*ListThingRegistrationTasksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListThingRegistrationTasks")
+	defer span.End()
+
 	req, out := c.ListThingRegistrationTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8398,6 +8672,9 @@ func (c *IoT) ListThingTypes(input *ListThingTypesInput) (*ListThingTypesOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListThingTypesWithContext(ctx aws.Context, input *ListThingTypesInput, opts ...request.Option) (*ListThingTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListThingTypes")
+	defer span.End()
+
 	req, out := c.ListThingTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8489,6 +8766,9 @@ func (c *IoT) ListThings(input *ListThingsInput) (*ListThingsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListThingsWithContext(ctx aws.Context, input *ListThingsInput, opts ...request.Option) (*ListThingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListThings")
+	defer span.End()
+
 	req, out := c.ListThingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8571,6 +8851,9 @@ func (c *IoT) ListThingsInThingGroup(input *ListThingsInThingGroupInput) (*ListT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListThingsInThingGroupWithContext(ctx aws.Context, input *ListThingsInThingGroupInput, opts ...request.Option) (*ListThingsInThingGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListThingsInThingGroup")
+	defer span.End()
+
 	req, out := c.ListThingsInThingGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8653,6 +8936,9 @@ func (c *IoT) ListTopicRules(input *ListTopicRulesInput) (*ListTopicRulesOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListTopicRulesWithContext(ctx aws.Context, input *ListTopicRulesInput, opts ...request.Option) (*ListTopicRulesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListTopicRules")
+	defer span.End()
+
 	req, out := c.ListTopicRulesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8738,6 +9024,9 @@ func (c *IoT) ListV2LoggingLevels(input *ListV2LoggingLevelsInput) (*ListV2Loggi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ListV2LoggingLevelsWithContext(ctx aws.Context, input *ListV2LoggingLevelsInput, opts ...request.Option) (*ListV2LoggingLevelsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ListV2LoggingLevels")
+	defer span.End()
+
 	req, out := c.ListV2LoggingLevelsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8844,6 +9133,9 @@ func (c *IoT) RegisterCACertificate(input *RegisterCACertificateInput) (*Registe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) RegisterCACertificateWithContext(ctx aws.Context, input *RegisterCACertificateInput, opts ...request.Option) (*RegisterCACertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).RegisterCACertificate")
+	defer span.End()
+
 	req, out := c.RegisterCACertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8948,6 +9240,9 @@ func (c *IoT) RegisterCertificate(input *RegisterCertificateInput) (*RegisterCer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) RegisterCertificateWithContext(ctx aws.Context, input *RegisterCertificateInput, opts ...request.Option) (*RegisterCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).RegisterCertificate")
+	defer span.End()
+
 	req, out := c.RegisterCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9043,6 +9338,9 @@ func (c *IoT) RegisterThing(input *RegisterThingInput) (*RegisterThingOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) RegisterThingWithContext(ctx aws.Context, input *RegisterThingInput, opts ...request.Option) (*RegisterThingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).RegisterThing")
+	defer span.End()
+
 	req, out := c.RegisterThingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9148,6 +9446,9 @@ func (c *IoT) RejectCertificateTransfer(input *RejectCertificateTransferInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) RejectCertificateTransferWithContext(ctx aws.Context, input *RejectCertificateTransferInput, opts ...request.Option) (*RejectCertificateTransferOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).RejectCertificateTransfer")
+	defer span.End()
+
 	req, out := c.RejectCertificateTransferRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9233,6 +9534,9 @@ func (c *IoT) RemoveThingFromThingGroup(input *RemoveThingFromThingGroupInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) RemoveThingFromThingGroupWithContext(ctx aws.Context, input *RemoveThingFromThingGroupInput, opts ...request.Option) (*RemoveThingFromThingGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).RemoveThingFromThingGroup")
+	defer span.End()
+
 	req, out := c.RemoveThingFromThingGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9325,6 +9629,9 @@ func (c *IoT) ReplaceTopicRule(input *ReplaceTopicRuleInput) (*ReplaceTopicRuleO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) ReplaceTopicRuleWithContext(ctx aws.Context, input *ReplaceTopicRuleInput, opts ...request.Option) (*ReplaceTopicRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).ReplaceTopicRule")
+	defer span.End()
+
 	req, out := c.ReplaceTopicRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9422,6 +9729,9 @@ func (c *IoT) SearchIndex(input *SearchIndexInput) (*SearchIndexOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) SearchIndexWithContext(ctx aws.Context, input *SearchIndexInput, opts ...request.Option) (*SearchIndexOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).SearchIndex")
+	defer span.End()
+
 	req, out := c.SearchIndexRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9517,6 +9827,9 @@ func (c *IoT) SetDefaultAuthorizer(input *SetDefaultAuthorizerInput) (*SetDefaul
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) SetDefaultAuthorizerWithContext(ctx aws.Context, input *SetDefaultAuthorizerInput, opts ...request.Option) (*SetDefaultAuthorizerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).SetDefaultAuthorizer")
+	defer span.End()
+
 	req, out := c.SetDefaultAuthorizerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9613,6 +9926,9 @@ func (c *IoT) SetDefaultPolicyVersion(input *SetDefaultPolicyVersionInput) (*Set
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) SetDefaultPolicyVersionWithContext(ctx aws.Context, input *SetDefaultPolicyVersionInput, opts ...request.Option) (*SetDefaultPolicyVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).SetDefaultPolicyVersion")
+	defer span.End()
+
 	req, out := c.SetDefaultPolicyVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9697,6 +10013,9 @@ func (c *IoT) SetLoggingOptions(input *SetLoggingOptionsInput) (*SetLoggingOptio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) SetLoggingOptionsWithContext(ctx aws.Context, input *SetLoggingOptionsInput, opts ...request.Option) (*SetLoggingOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).SetLoggingOptions")
+	defer span.End()
+
 	req, out := c.SetLoggingOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9784,6 +10103,9 @@ func (c *IoT) SetV2LoggingLevel(input *SetV2LoggingLevelInput) (*SetV2LoggingLev
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) SetV2LoggingLevelWithContext(ctx aws.Context, input *SetV2LoggingLevelInput, opts ...request.Option) (*SetV2LoggingLevelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).SetV2LoggingLevel")
+	defer span.End()
+
 	req, out := c.SetV2LoggingLevelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9868,6 +10190,9 @@ func (c *IoT) SetV2LoggingOptions(input *SetV2LoggingOptionsInput) (*SetV2Loggin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) SetV2LoggingOptionsWithContext(ctx aws.Context, input *SetV2LoggingOptionsInput, opts ...request.Option) (*SetV2LoggingOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).SetV2LoggingOptions")
+	defer span.End()
+
 	req, out := c.SetV2LoggingOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9953,6 +10278,9 @@ func (c *IoT) StartThingRegistrationTask(input *StartThingRegistrationTaskInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) StartThingRegistrationTaskWithContext(ctx aws.Context, input *StartThingRegistrationTaskInput, opts ...request.Option) (*StartThingRegistrationTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).StartThingRegistrationTask")
+	defer span.End()
+
 	req, out := c.StartThingRegistrationTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10041,6 +10369,9 @@ func (c *IoT) StopThingRegistrationTask(input *StopThingRegistrationTaskInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) StopThingRegistrationTaskWithContext(ctx aws.Context, input *StopThingRegistrationTaskInput, opts ...request.Option) (*StopThingRegistrationTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).StopThingRegistrationTask")
+	defer span.End()
+
 	req, out := c.StopThingRegistrationTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10135,6 +10466,9 @@ func (c *IoT) TestAuthorization(input *TestAuthorizationInput) (*TestAuthorizati
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) TestAuthorizationWithContext(ctx aws.Context, input *TestAuthorizationInput, opts ...request.Option) (*TestAuthorizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).TestAuthorization")
+	defer span.End()
+
 	req, out := c.TestAuthorizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10229,6 +10563,9 @@ func (c *IoT) TestInvokeAuthorizer(input *TestInvokeAuthorizerInput) (*TestInvok
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) TestInvokeAuthorizerWithContext(ctx aws.Context, input *TestInvokeAuthorizerInput, opts ...request.Option) (*TestInvokeAuthorizerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).TestInvokeAuthorizer")
+	defer span.End()
+
 	req, out := c.TestInvokeAuthorizerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10338,6 +10675,9 @@ func (c *IoT) TransferCertificate(input *TransferCertificateInput) (*TransferCer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) TransferCertificateWithContext(ctx aws.Context, input *TransferCertificateInput, opts ...request.Option) (*TransferCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).TransferCertificate")
+	defer span.End()
+
 	req, out := c.TransferCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10432,6 +10772,9 @@ func (c *IoT) UpdateAuthorizer(input *UpdateAuthorizerInput) (*UpdateAuthorizerO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) UpdateAuthorizerWithContext(ctx aws.Context, input *UpdateAuthorizerInput, opts ...request.Option) (*UpdateAuthorizerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).UpdateAuthorizer")
+	defer span.End()
+
 	req, out := c.UpdateAuthorizerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10525,6 +10868,9 @@ func (c *IoT) UpdateCACertificate(input *UpdateCACertificateInput) (*UpdateCACer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) UpdateCACertificateWithContext(ctx aws.Context, input *UpdateCACertificateInput, opts ...request.Option) (*UpdateCACertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).UpdateCACertificate")
+	defer span.End()
+
 	req, out := c.UpdateCACertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10627,6 +10973,9 @@ func (c *IoT) UpdateCertificate(input *UpdateCertificateInput) (*UpdateCertifica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) UpdateCertificateWithContext(ctx aws.Context, input *UpdateCertificateInput, opts ...request.Option) (*UpdateCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).UpdateCertificate")
+	defer span.End()
+
 	req, out := c.UpdateCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10709,6 +11058,9 @@ func (c *IoT) UpdateEventConfigurations(input *UpdateEventConfigurationsInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) UpdateEventConfigurationsWithContext(ctx aws.Context, input *UpdateEventConfigurationsInput, opts ...request.Option) (*UpdateEventConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).UpdateEventConfigurations")
+	defer span.End()
+
 	req, out := c.UpdateEventConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10797,6 +11149,9 @@ func (c *IoT) UpdateIndexingConfiguration(input *UpdateIndexingConfigurationInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) UpdateIndexingConfigurationWithContext(ctx aws.Context, input *UpdateIndexingConfigurationInput, opts ...request.Option) (*UpdateIndexingConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).UpdateIndexingConfiguration")
+	defer span.End()
+
 	req, out := c.UpdateIndexingConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10888,6 +11243,9 @@ func (c *IoT) UpdateRoleAlias(input *UpdateRoleAliasInput) (*UpdateRoleAliasOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) UpdateRoleAliasWithContext(ctx aws.Context, input *UpdateRoleAliasInput, opts ...request.Option) (*UpdateRoleAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).UpdateRoleAlias")
+	defer span.End()
+
 	req, out := c.UpdateRoleAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10979,6 +11337,9 @@ func (c *IoT) UpdateStream(input *UpdateStreamInput) (*UpdateStreamOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) UpdateStreamWithContext(ctx aws.Context, input *UpdateStreamInput, opts ...request.Option) (*UpdateStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).UpdateStream")
+	defer span.End()
+
 	req, out := c.UpdateStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11074,6 +11435,9 @@ func (c *IoT) UpdateThing(input *UpdateThingInput) (*UpdateThingOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) UpdateThingWithContext(ctx aws.Context, input *UpdateThingInput, opts ...request.Option) (*UpdateThingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).UpdateThing")
+	defer span.End()
+
 	req, out := c.UpdateThingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11163,6 +11527,9 @@ func (c *IoT) UpdateThingGroup(input *UpdateThingGroupInput) (*UpdateThingGroupO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) UpdateThingGroupWithContext(ctx aws.Context, input *UpdateThingGroupInput, opts ...request.Option) (*UpdateThingGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).UpdateThingGroup")
+	defer span.End()
+
 	req, out := c.UpdateThingGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11248,6 +11615,9 @@ func (c *IoT) UpdateThingGroupsForThing(input *UpdateThingGroupsForThingInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *IoT) UpdateThingGroupsForThingWithContext(ctx aws.Context, input *UpdateThingGroupsForThingInput, opts ...request.Option) (*UpdateThingGroupsForThingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/iot.(*IoT).UpdateThingGroupsForThing")
+	defer span.End()
+
 	req, out := c.UpdateThingGroupsForThingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

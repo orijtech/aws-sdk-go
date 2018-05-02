@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAllocateConnectionOnInterconnect = "AllocateConnectionOnInterconnect"
@@ -99,6 +100,9 @@ func (c *DirectConnect) AllocateConnectionOnInterconnect(input *AllocateConnecti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) AllocateConnectionOnInterconnectWithContext(ctx aws.Context, input *AllocateConnectionOnInterconnectInput, opts ...request.Option) (*Connection, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).AllocateConnectionOnInterconnect")
+	defer span.End()
+
 	req, out := c.AllocateConnectionOnInterconnectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -189,6 +193,9 @@ func (c *DirectConnect) AllocateHostedConnection(input *AllocateHostedConnection
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) AllocateHostedConnectionWithContext(ctx aws.Context, input *AllocateHostedConnectionInput, opts ...request.Option) (*Connection, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).AllocateHostedConnection")
+	defer span.End()
+
 	req, out := c.AllocateHostedConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -278,6 +285,9 @@ func (c *DirectConnect) AllocatePrivateVirtualInterface(input *AllocatePrivateVi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) AllocatePrivateVirtualInterfaceWithContext(ctx aws.Context, input *AllocatePrivateVirtualInterfaceInput, opts ...request.Option) (*VirtualInterface, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).AllocatePrivateVirtualInterface")
+	defer span.End()
+
 	req, out := c.AllocatePrivateVirtualInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -374,6 +384,9 @@ func (c *DirectConnect) AllocatePublicVirtualInterface(input *AllocatePublicVirt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) AllocatePublicVirtualInterfaceWithContext(ctx aws.Context, input *AllocatePublicVirtualInterfaceInput, opts ...request.Option) (*VirtualInterface, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).AllocatePublicVirtualInterface")
+	defer span.End()
+
 	req, out := c.AllocatePublicVirtualInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -474,6 +487,9 @@ func (c *DirectConnect) AssociateConnectionWithLag(input *AssociateConnectionWit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) AssociateConnectionWithLagWithContext(ctx aws.Context, input *AssociateConnectionWithLagInput, opts ...request.Option) (*Connection, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).AssociateConnectionWithLag")
+	defer span.End()
+
 	req, out := c.AssociateConnectionWithLagRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -564,6 +580,9 @@ func (c *DirectConnect) AssociateHostedConnection(input *AssociateHostedConnecti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) AssociateHostedConnectionWithContext(ctx aws.Context, input *AssociateHostedConnectionInput, opts ...request.Option) (*Connection, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).AssociateHostedConnection")
+	defer span.End()
+
 	req, out := c.AssociateHostedConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -662,6 +681,9 @@ func (c *DirectConnect) AssociateVirtualInterface(input *AssociateVirtualInterfa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) AssociateVirtualInterfaceWithContext(ctx aws.Context, input *AssociateVirtualInterfaceInput, opts ...request.Option) (*VirtualInterface, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).AssociateVirtualInterface")
+	defer span.End()
+
 	req, out := c.AssociateVirtualInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -750,6 +772,9 @@ func (c *DirectConnect) ConfirmConnection(input *ConfirmConnectionInput) (*Confi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) ConfirmConnectionWithContext(ctx aws.Context, input *ConfirmConnectionInput, opts ...request.Option) (*ConfirmConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).ConfirmConnection")
+	defer span.End()
+
 	req, out := c.ConfirmConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -838,6 +863,9 @@ func (c *DirectConnect) ConfirmPrivateVirtualInterface(input *ConfirmPrivateVirt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) ConfirmPrivateVirtualInterfaceWithContext(ctx aws.Context, input *ConfirmPrivateVirtualInterfaceInput, opts ...request.Option) (*ConfirmPrivateVirtualInterfaceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).ConfirmPrivateVirtualInterface")
+	defer span.End()
+
 	req, out := c.ConfirmPrivateVirtualInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -925,6 +953,9 @@ func (c *DirectConnect) ConfirmPublicVirtualInterface(input *ConfirmPublicVirtua
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) ConfirmPublicVirtualInterfaceWithContext(ctx aws.Context, input *ConfirmPublicVirtualInterfaceInput, opts ...request.Option) (*ConfirmPublicVirtualInterfaceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).ConfirmPublicVirtualInterface")
+	defer span.End()
+
 	req, out := c.ConfirmPublicVirtualInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1021,6 +1052,9 @@ func (c *DirectConnect) CreateBGPPeer(input *CreateBGPPeerInput) (*CreateBGPPeer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) CreateBGPPeerWithContext(ctx aws.Context, input *CreateBGPPeerInput, opts ...request.Option) (*CreateBGPPeerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).CreateBGPPeer")
+	defer span.End()
+
 	req, out := c.CreateBGPPeerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1122,6 +1156,9 @@ func (c *DirectConnect) CreateConnection(input *CreateConnectionInput) (*Connect
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) CreateConnectionWithContext(ctx aws.Context, input *CreateConnectionInput, opts ...request.Option) (*Connection, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).CreateConnection")
+	defer span.End()
+
 	req, out := c.CreateConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1213,6 +1250,9 @@ func (c *DirectConnect) CreateDirectConnectGateway(input *CreateDirectConnectGat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) CreateDirectConnectGatewayWithContext(ctx aws.Context, input *CreateDirectConnectGatewayInput, opts ...request.Option) (*CreateDirectConnectGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).CreateDirectConnectGateway")
+	defer span.End()
+
 	req, out := c.CreateDirectConnectGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1299,6 +1339,9 @@ func (c *DirectConnect) CreateDirectConnectGatewayAssociation(input *CreateDirec
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) CreateDirectConnectGatewayAssociationWithContext(ctx aws.Context, input *CreateDirectConnectGatewayAssociationInput, opts ...request.Option) (*CreateDirectConnectGatewayAssociationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).CreateDirectConnectGatewayAssociation")
+	defer span.End()
+
 	req, out := c.CreateDirectConnectGatewayAssociationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1406,6 +1449,9 @@ func (c *DirectConnect) CreateInterconnect(input *CreateInterconnectInput) (*Int
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) CreateInterconnectWithContext(ctx aws.Context, input *CreateInterconnectInput, opts ...request.Option) (*Interconnect, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).CreateInterconnect")
+	defer span.End()
+
 	req, out := c.CreateInterconnectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1514,6 +1560,9 @@ func (c *DirectConnect) CreateLag(input *CreateLagInput) (*Lag, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) CreateLagWithContext(ctx aws.Context, input *CreateLagInput, opts ...request.Option) (*Lag, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).CreateLag")
+	defer span.End()
+
 	req, out := c.CreateLagRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1600,6 +1649,9 @@ func (c *DirectConnect) CreatePrivateVirtualInterface(input *CreatePrivateVirtua
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) CreatePrivateVirtualInterfaceWithContext(ctx aws.Context, input *CreatePrivateVirtualInterfaceInput, opts ...request.Option) (*VirtualInterface, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).CreatePrivateVirtualInterface")
+	defer span.End()
+
 	req, out := c.CreatePrivateVirtualInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1691,6 +1743,9 @@ func (c *DirectConnect) CreatePublicVirtualInterface(input *CreatePublicVirtualI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) CreatePublicVirtualInterfaceWithContext(ctx aws.Context, input *CreatePublicVirtualInterfaceInput, opts ...request.Option) (*VirtualInterface, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).CreatePublicVirtualInterface")
+	defer span.End()
+
 	req, out := c.CreatePublicVirtualInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1777,6 +1832,9 @@ func (c *DirectConnect) DeleteBGPPeer(input *DeleteBGPPeerInput) (*DeleteBGPPeer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DeleteBGPPeerWithContext(ctx aws.Context, input *DeleteBGPPeerInput, opts ...request.Option) (*DeleteBGPPeerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DeleteBGPPeer")
+	defer span.End()
+
 	req, out := c.DeleteBGPPeerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1866,6 +1924,9 @@ func (c *DirectConnect) DeleteConnection(input *DeleteConnectionInput) (*Connect
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DeleteConnectionWithContext(ctx aws.Context, input *DeleteConnectionInput, opts ...request.Option) (*Connection, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DeleteConnection")
+	defer span.End()
+
 	req, out := c.DeleteConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1952,6 +2013,9 @@ func (c *DirectConnect) DeleteDirectConnectGateway(input *DeleteDirectConnectGat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DeleteDirectConnectGatewayWithContext(ctx aws.Context, input *DeleteDirectConnectGatewayInput, opts ...request.Option) (*DeleteDirectConnectGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DeleteDirectConnectGateway")
+	defer span.End()
+
 	req, out := c.DeleteDirectConnectGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2037,6 +2101,9 @@ func (c *DirectConnect) DeleteDirectConnectGatewayAssociation(input *DeleteDirec
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DeleteDirectConnectGatewayAssociationWithContext(ctx aws.Context, input *DeleteDirectConnectGatewayAssociationInput, opts ...request.Option) (*DeleteDirectConnectGatewayAssociationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DeleteDirectConnectGatewayAssociation")
+	defer span.End()
+
 	req, out := c.DeleteDirectConnectGatewayAssociationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2123,6 +2190,9 @@ func (c *DirectConnect) DeleteInterconnect(input *DeleteInterconnectInput) (*Del
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DeleteInterconnectWithContext(ctx aws.Context, input *DeleteInterconnectInput, opts ...request.Option) (*DeleteInterconnectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DeleteInterconnect")
+	defer span.End()
+
 	req, out := c.DeleteInterconnectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2208,6 +2278,9 @@ func (c *DirectConnect) DeleteLag(input *DeleteLagInput) (*Lag, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DeleteLagWithContext(ctx aws.Context, input *DeleteLagInput, opts ...request.Option) (*Lag, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DeleteLag")
+	defer span.End()
+
 	req, out := c.DeleteLagRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2292,6 +2365,9 @@ func (c *DirectConnect) DeleteVirtualInterface(input *DeleteVirtualInterfaceInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DeleteVirtualInterfaceWithContext(ctx aws.Context, input *DeleteVirtualInterfaceInput, opts ...request.Option) (*DeleteVirtualInterfaceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DeleteVirtualInterface")
+	defer span.End()
+
 	req, out := c.DeleteVirtualInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2387,6 +2463,9 @@ func (c *DirectConnect) DescribeConnectionLoa(input *DescribeConnectionLoaInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeConnectionLoaWithContext(ctx aws.Context, input *DescribeConnectionLoaInput, opts ...request.Option) (*DescribeConnectionLoaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeConnectionLoa")
+	defer span.End()
+
 	req, out := c.DescribeConnectionLoaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2473,6 +2552,9 @@ func (c *DirectConnect) DescribeConnections(input *DescribeConnectionsInput) (*C
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeConnectionsWithContext(ctx aws.Context, input *DescribeConnectionsInput, opts ...request.Option) (*Connections, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeConnections")
+	defer span.End()
+
 	req, out := c.DescribeConnectionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2564,6 +2646,9 @@ func (c *DirectConnect) DescribeConnectionsOnInterconnect(input *DescribeConnect
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeConnectionsOnInterconnectWithContext(ctx aws.Context, input *DescribeConnectionsOnInterconnectInput, opts ...request.Option) (*Connections, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeConnectionsOnInterconnect")
+	defer span.End()
+
 	req, out := c.DescribeConnectionsOnInterconnectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2654,6 +2739,9 @@ func (c *DirectConnect) DescribeDirectConnectGatewayAssociations(input *Describe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeDirectConnectGatewayAssociationsWithContext(ctx aws.Context, input *DescribeDirectConnectGatewayAssociationsInput, opts ...request.Option) (*DescribeDirectConnectGatewayAssociationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeDirectConnectGatewayAssociations")
+	defer span.End()
+
 	req, out := c.DescribeDirectConnectGatewayAssociationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2744,6 +2832,9 @@ func (c *DirectConnect) DescribeDirectConnectGatewayAttachments(input *DescribeD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeDirectConnectGatewayAttachmentsWithContext(ctx aws.Context, input *DescribeDirectConnectGatewayAttachmentsInput, opts ...request.Option) (*DescribeDirectConnectGatewayAttachmentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeDirectConnectGatewayAttachments")
+	defer span.End()
+
 	req, out := c.DescribeDirectConnectGatewayAttachmentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2832,6 +2923,9 @@ func (c *DirectConnect) DescribeDirectConnectGateways(input *DescribeDirectConne
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeDirectConnectGatewaysWithContext(ctx aws.Context, input *DescribeDirectConnectGatewaysInput, opts ...request.Option) (*DescribeDirectConnectGatewaysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeDirectConnectGateways")
+	defer span.End()
+
 	req, out := c.DescribeDirectConnectGatewaysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2919,6 +3013,9 @@ func (c *DirectConnect) DescribeHostedConnections(input *DescribeHostedConnectio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeHostedConnectionsWithContext(ctx aws.Context, input *DescribeHostedConnectionsInput, opts ...request.Option) (*Connections, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeHostedConnections")
+	defer span.End()
+
 	req, out := c.DescribeHostedConnectionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3014,6 +3111,9 @@ func (c *DirectConnect) DescribeInterconnectLoa(input *DescribeInterconnectLoaIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeInterconnectLoaWithContext(ctx aws.Context, input *DescribeInterconnectLoaInput, opts ...request.Option) (*DescribeInterconnectLoaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeInterconnectLoa")
+	defer span.End()
+
 	req, out := c.DescribeInterconnectLoaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3100,6 +3200,9 @@ func (c *DirectConnect) DescribeInterconnects(input *DescribeInterconnectsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeInterconnectsWithContext(ctx aws.Context, input *DescribeInterconnectsInput, opts ...request.Option) (*DescribeInterconnectsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeInterconnects")
+	defer span.End()
+
 	req, out := c.DescribeInterconnectsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3186,6 +3289,9 @@ func (c *DirectConnect) DescribeLags(input *DescribeLagsInput) (*DescribeLagsOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeLagsWithContext(ctx aws.Context, input *DescribeLagsInput, opts ...request.Option) (*DescribeLagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeLags")
+	defer span.End()
+
 	req, out := c.DescribeLagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3277,6 +3383,9 @@ func (c *DirectConnect) DescribeLoa(input *DescribeLoaInput) (*Loa, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeLoaWithContext(ctx aws.Context, input *DescribeLoaInput, opts ...request.Option) (*Loa, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeLoa")
+	defer span.End()
+
 	req, out := c.DescribeLoaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3363,6 +3472,9 @@ func (c *DirectConnect) DescribeLocations(input *DescribeLocationsInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeLocationsWithContext(ctx aws.Context, input *DescribeLocationsInput, opts ...request.Option) (*DescribeLocationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeLocations")
+	defer span.End()
+
 	req, out := c.DescribeLocationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3447,6 +3559,9 @@ func (c *DirectConnect) DescribeTags(input *DescribeTagsInput) (*DescribeTagsOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeTagsWithContext(ctx aws.Context, input *DescribeTagsInput, opts ...request.Option) (*DescribeTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeTags")
+	defer span.End()
+
 	req, out := c.DescribeTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3537,6 +3652,9 @@ func (c *DirectConnect) DescribeVirtualGateways(input *DescribeVirtualGatewaysIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeVirtualGatewaysWithContext(ctx aws.Context, input *DescribeVirtualGatewaysInput, opts ...request.Option) (*DescribeVirtualGatewaysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeVirtualGateways")
+	defer span.End()
+
 	req, out := c.DescribeVirtualGatewaysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3628,6 +3746,9 @@ func (c *DirectConnect) DescribeVirtualInterfaces(input *DescribeVirtualInterfac
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DescribeVirtualInterfacesWithContext(ctx aws.Context, input *DescribeVirtualInterfacesInput, opts ...request.Option) (*DescribeVirtualInterfacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DescribeVirtualInterfaces")
+	defer span.End()
+
 	req, out := c.DescribeVirtualInterfacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3722,6 +3843,9 @@ func (c *DirectConnect) DisassociateConnectionFromLag(input *DisassociateConnect
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) DisassociateConnectionFromLagWithContext(ctx aws.Context, input *DisassociateConnectionFromLagInput, opts ...request.Option) (*Connection, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).DisassociateConnectionFromLag")
+	defer span.End()
+
 	req, out := c.DisassociateConnectionFromLagRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3818,6 +3942,9 @@ func (c *DirectConnect) TagResource(input *TagResourceInput) (*TagResourceOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).TagResource")
+	defer span.End()
+
 	req, out := c.TagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3902,6 +4029,9 @@ func (c *DirectConnect) UntagResource(input *UntagResourceInput) (*UntagResource
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).UntagResource")
+	defer span.End()
+
 	req, out := c.UntagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4000,6 +4130,9 @@ func (c *DirectConnect) UpdateLag(input *UpdateLagInput) (*Lag, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DirectConnect) UpdateLagWithContext(ctx aws.Context, input *UpdateLagInput, opts ...request.Option) (*Lag, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/directconnect.(*DirectConnect).UpdateLag")
+	defer span.End()
+
 	req, out := c.UpdateLagRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opBatchGetTraces = "BatchGetTraces"
@@ -95,6 +96,9 @@ func (c *XRay) BatchGetTraces(input *BatchGetTracesInput) (*BatchGetTracesOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *XRay) BatchGetTracesWithContext(ctx aws.Context, input *BatchGetTracesInput, opts ...request.Option) (*BatchGetTracesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/xray.(*XRay).BatchGetTraces")
+	defer span.End()
+
 	req, out := c.BatchGetTracesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -237,6 +241,9 @@ func (c *XRay) GetServiceGraph(input *GetServiceGraphInput) (*GetServiceGraphOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *XRay) GetServiceGraphWithContext(ctx aws.Context, input *GetServiceGraphInput, opts ...request.Option) (*GetServiceGraphOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/xray.(*XRay).GetServiceGraph")
+	defer span.End()
+
 	req, out := c.GetServiceGraphRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -375,6 +382,9 @@ func (c *XRay) GetTraceGraph(input *GetTraceGraphInput) (*GetTraceGraphOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *XRay) GetTraceGraphWithContext(ctx aws.Context, input *GetTraceGraphInput, opts ...request.Option) (*GetTraceGraphOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/xray.(*XRay).GetTraceGraph")
+	defer span.End()
+
 	req, out := c.GetTraceGraphRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -529,6 +539,9 @@ func (c *XRay) GetTraceSummaries(input *GetTraceSummariesInput) (*GetTraceSummar
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *XRay) GetTraceSummariesWithContext(ctx aws.Context, input *GetTraceSummariesInput, opts ...request.Option) (*GetTraceSummariesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/xray.(*XRay).GetTraceSummaries")
+	defer span.End()
+
 	req, out := c.GetTraceSummariesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -661,6 +674,9 @@ func (c *XRay) PutTelemetryRecords(input *PutTelemetryRecordsInput) (*PutTelemet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *XRay) PutTelemetryRecordsWithContext(ctx aws.Context, input *PutTelemetryRecordsInput, opts ...request.Option) (*PutTelemetryRecordsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/xray.(*XRay).PutTelemetryRecords")
+	defer span.End()
+
 	req, out := c.PutTelemetryRecordsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -788,6 +804,9 @@ func (c *XRay) PutTraceSegments(input *PutTraceSegmentsInput) (*PutTraceSegments
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *XRay) PutTraceSegmentsWithContext(ctx aws.Context, input *PutTraceSegmentsInput, opts ...request.Option) (*PutTraceSegmentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/xray.(*XRay).PutTraceSegments")
+	defer span.End()
+
 	req, out := c.PutTraceSegmentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

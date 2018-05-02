@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCancelJob = "CancelJob"
@@ -102,6 +103,9 @@ func (c *ElasticTranscoder) CancelJob(input *CancelJobInput) (*CancelJobOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) CancelJobWithContext(ctx aws.Context, input *CancelJobInput, opts ...request.Option) (*CancelJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).CancelJob")
+	defer span.End()
+
 	req, out := c.CancelJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -202,6 +206,9 @@ func (c *ElasticTranscoder) CreateJob(input *CreateJobInput) (*CreateJobResponse
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) CreateJobWithContext(ctx aws.Context, input *CreateJobInput, opts ...request.Option) (*CreateJobResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).CreateJob")
+	defer span.End()
+
 	req, out := c.CreateJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -296,6 +303,9 @@ func (c *ElasticTranscoder) CreatePipeline(input *CreatePipelineInput) (*CreateP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) CreatePipelineWithContext(ctx aws.Context, input *CreatePipelineInput, opts ...request.Option) (*CreatePipelineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).CreatePipeline")
+	defer span.End()
+
 	req, out := c.CreatePipelineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -399,6 +409,9 @@ func (c *ElasticTranscoder) CreatePreset(input *CreatePresetInput) (*CreatePrese
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) CreatePresetWithContext(ctx aws.Context, input *CreatePresetInput, opts ...request.Option) (*CreatePresetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).CreatePreset")
+	defer span.End()
+
 	req, out := c.CreatePresetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -497,6 +510,9 @@ func (c *ElasticTranscoder) DeletePipeline(input *DeletePipelineInput) (*DeleteP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) DeletePipelineWithContext(ctx aws.Context, input *DeletePipelineInput, opts ...request.Option) (*DeletePipelineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).DeletePipeline")
+	defer span.End()
+
 	req, out := c.DeletePipelineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -589,6 +605,9 @@ func (c *ElasticTranscoder) DeletePreset(input *DeletePresetInput) (*DeletePrese
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) DeletePresetWithContext(ctx aws.Context, input *DeletePresetInput, opts ...request.Option) (*DeletePresetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).DeletePreset")
+	defer span.End()
+
 	req, out := c.DeletePresetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -689,6 +708,9 @@ func (c *ElasticTranscoder) ListJobsByPipeline(input *ListJobsByPipelineInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) ListJobsByPipelineWithContext(ctx aws.Context, input *ListJobsByPipelineInput, opts ...request.Option) (*ListJobsByPipelineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).ListJobsByPipeline")
+	defer span.End()
+
 	req, out := c.ListJobsByPipelineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -837,6 +859,9 @@ func (c *ElasticTranscoder) ListJobsByStatus(input *ListJobsByStatusInput) (*Lis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) ListJobsByStatusWithContext(ctx aws.Context, input *ListJobsByStatusInput, opts ...request.Option) (*ListJobsByStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).ListJobsByStatus")
+	defer span.End()
+
 	req, out := c.ListJobsByStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -979,6 +1004,9 @@ func (c *ElasticTranscoder) ListPipelines(input *ListPipelinesInput) (*ListPipel
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) ListPipelinesWithContext(ctx aws.Context, input *ListPipelinesInput, opts ...request.Option) (*ListPipelinesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).ListPipelines")
+	defer span.End()
+
 	req, out := c.ListPipelinesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1121,6 +1149,9 @@ func (c *ElasticTranscoder) ListPresets(input *ListPresetsInput) (*ListPresetsOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) ListPresetsWithContext(ctx aws.Context, input *ListPresetsInput, opts ...request.Option) (*ListPresetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).ListPresets")
+	defer span.End()
+
 	req, out := c.ListPresetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1261,6 +1292,9 @@ func (c *ElasticTranscoder) ReadJob(input *ReadJobInput) (*ReadJobOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) ReadJobWithContext(ctx aws.Context, input *ReadJobInput, opts ...request.Option) (*ReadJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).ReadJob")
+	defer span.End()
+
 	req, out := c.ReadJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1351,6 +1385,9 @@ func (c *ElasticTranscoder) ReadPipeline(input *ReadPipelineInput) (*ReadPipelin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) ReadPipelineWithContext(ctx aws.Context, input *ReadPipelineInput, opts ...request.Option) (*ReadPipelineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).ReadPipeline")
+	defer span.End()
+
 	req, out := c.ReadPipelineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1441,6 +1478,9 @@ func (c *ElasticTranscoder) ReadPreset(input *ReadPresetInput) (*ReadPresetOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) ReadPresetWithContext(ctx aws.Context, input *ReadPresetInput, opts ...request.Option) (*ReadPresetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).ReadPreset")
+	defer span.End()
+
 	req, out := c.ReadPresetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1540,6 +1580,9 @@ func (c *ElasticTranscoder) TestRole(input *TestRoleInput) (*TestRoleOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) TestRoleWithContext(ctx aws.Context, input *TestRoleInput, opts ...request.Option) (*TestRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).TestRole")
+	defer span.End()
+
 	req, out := c.TestRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1639,6 +1682,9 @@ func (c *ElasticTranscoder) UpdatePipeline(input *UpdatePipelineInput) (*UpdateP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) UpdatePipelineWithContext(ctx aws.Context, input *UpdatePipelineInput, opts ...request.Option) (*UpdatePipelineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).UpdatePipeline")
+	defer span.End()
+
 	req, out := c.UpdatePipelineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1737,6 +1783,9 @@ func (c *ElasticTranscoder) UpdatePipelineNotifications(input *UpdatePipelineNot
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) UpdatePipelineNotificationsWithContext(ctx aws.Context, input *UpdatePipelineNotificationsInput, opts ...request.Option) (*UpdatePipelineNotificationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).UpdatePipelineNotifications")
+	defer span.End()
+
 	req, out := c.UpdatePipelineNotificationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1838,6 +1887,9 @@ func (c *ElasticTranscoder) UpdatePipelineStatus(input *UpdatePipelineStatusInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticTranscoder) UpdatePipelineStatusWithContext(ctx aws.Context, input *UpdatePipelineStatusInput, opts ...request.Option) (*UpdatePipelineStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elastictranscoder.(*ElasticTranscoder).UpdatePipelineStatus")
+	defer span.End()
+
 	req, out := c.UpdatePipelineStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

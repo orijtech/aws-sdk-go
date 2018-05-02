@@ -12,6 +12,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opAddCustomAttributes = "AddCustomAttributes"
@@ -106,6 +107,9 @@ func (c *CognitoIdentityProvider) AddCustomAttributes(input *AddCustomAttributes
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AddCustomAttributesWithContext(ctx aws.Context, input *AddCustomAttributesInput, opts ...request.Option) (*AddCustomAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AddCustomAttributes")
+	defer span.End()
+
 	req, out := c.AddCustomAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -207,6 +211,9 @@ func (c *CognitoIdentityProvider) AdminAddUserToGroup(input *AdminAddUserToGroup
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminAddUserToGroupWithContext(ctx aws.Context, input *AdminAddUserToGroupInput, opts ...request.Option) (*AdminAddUserToGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminAddUserToGroup")
+	defer span.End()
+
 	req, out := c.AdminAddUserToGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -327,6 +334,9 @@ func (c *CognitoIdentityProvider) AdminConfirmSignUp(input *AdminConfirmSignUpIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminConfirmSignUpWithContext(ctx aws.Context, input *AdminConfirmSignUpInput, opts ...request.Option) (*AdminConfirmSignUpOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminConfirmSignUp")
+	defer span.End()
+
 	req, out := c.AdminConfirmSignUpRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -478,6 +488,9 @@ func (c *CognitoIdentityProvider) AdminCreateUser(input *AdminCreateUserInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminCreateUserWithContext(ctx aws.Context, input *AdminCreateUserInput, opts ...request.Option) (*AdminCreateUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminCreateUser")
+	defer span.End()
+
 	req, out := c.AdminCreateUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -579,6 +592,9 @@ func (c *CognitoIdentityProvider) AdminDeleteUser(input *AdminDeleteUserInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminDeleteUserWithContext(ctx aws.Context, input *AdminDeleteUserInput, opts ...request.Option) (*AdminDeleteUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminDeleteUser")
+	defer span.End()
+
 	req, out := c.AdminDeleteUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -679,6 +695,9 @@ func (c *CognitoIdentityProvider) AdminDeleteUserAttributes(input *AdminDeleteUs
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminDeleteUserAttributesWithContext(ctx aws.Context, input *AdminDeleteUserAttributesInput, opts ...request.Option) (*AdminDeleteUserAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminDeleteUserAttributes")
+	defer span.End()
+
 	req, out := c.AdminDeleteUserAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -810,6 +829,9 @@ func (c *CognitoIdentityProvider) AdminDisableProviderForUser(input *AdminDisabl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminDisableProviderForUserWithContext(ctx aws.Context, input *AdminDisableProviderForUserInput, opts ...request.Option) (*AdminDisableProviderForUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminDisableProviderForUser")
+	defer span.End()
+
 	req, out := c.AdminDisableProviderForUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -909,6 +931,9 @@ func (c *CognitoIdentityProvider) AdminDisableUser(input *AdminDisableUserInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminDisableUserWithContext(ctx aws.Context, input *AdminDisableUserInput, opts ...request.Option) (*AdminDisableUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminDisableUser")
+	defer span.End()
+
 	req, out := c.AdminDisableUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1008,6 +1033,9 @@ func (c *CognitoIdentityProvider) AdminEnableUser(input *AdminEnableUserInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminEnableUserWithContext(ctx aws.Context, input *AdminEnableUserInput, opts ...request.Option) (*AdminEnableUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminEnableUser")
+	defer span.End()
+
 	req, out := c.AdminEnableUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1112,6 +1140,9 @@ func (c *CognitoIdentityProvider) AdminForgetDevice(input *AdminForgetDeviceInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminForgetDeviceWithContext(ctx aws.Context, input *AdminForgetDeviceInput, opts ...request.Option) (*AdminForgetDeviceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminForgetDevice")
+	defer span.End()
+
 	req, out := c.AdminForgetDeviceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1211,6 +1242,9 @@ func (c *CognitoIdentityProvider) AdminGetDevice(input *AdminGetDeviceInput) (*A
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminGetDeviceWithContext(ctx aws.Context, input *AdminGetDeviceInput, opts ...request.Option) (*AdminGetDeviceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminGetDevice")
+	defer span.End()
+
 	req, out := c.AdminGetDeviceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1311,6 +1345,9 @@ func (c *CognitoIdentityProvider) AdminGetUser(input *AdminGetUserInput) (*Admin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminGetUserWithContext(ctx aws.Context, input *AdminGetUserInput, opts ...request.Option) (*AdminGetUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminGetUser")
+	defer span.End()
+
 	req, out := c.AdminGetUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1445,6 +1482,9 @@ func (c *CognitoIdentityProvider) AdminInitiateAuth(input *AdminInitiateAuthInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminInitiateAuthWithContext(ctx aws.Context, input *AdminInitiateAuthInput, opts ...request.Option) (*AdminInitiateAuthOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminInitiateAuth")
+	defer span.End()
+
 	req, out := c.AdminInitiateAuthRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1566,6 +1606,9 @@ func (c *CognitoIdentityProvider) AdminLinkProviderForUser(input *AdminLinkProvi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminLinkProviderForUserWithContext(ctx aws.Context, input *AdminLinkProviderForUserInput, opts ...request.Option) (*AdminLinkProviderForUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminLinkProviderForUser")
+	defer span.End()
+
 	req, out := c.AdminLinkProviderForUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1665,6 +1708,9 @@ func (c *CognitoIdentityProvider) AdminListDevices(input *AdminListDevicesInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminListDevicesWithContext(ctx aws.Context, input *AdminListDevicesInput, opts ...request.Option) (*AdminListDevicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminListDevices")
+	defer span.End()
+
 	req, out := c.AdminListDevicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1764,6 +1810,9 @@ func (c *CognitoIdentityProvider) AdminListGroupsForUser(input *AdminListGroupsF
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminListGroupsForUserWithContext(ctx aws.Context, input *AdminListGroupsForUserInput, opts ...request.Option) (*AdminListGroupsForUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminListGroupsForUser")
+	defer span.End()
+
 	req, out := c.AdminListGroupsForUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1865,6 +1914,9 @@ func (c *CognitoIdentityProvider) AdminListUserAuthEvents(input *AdminListUserAu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminListUserAuthEventsWithContext(ctx aws.Context, input *AdminListUserAuthEventsInput, opts ...request.Option) (*AdminListUserAuthEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminListUserAuthEvents")
+	defer span.End()
+
 	req, out := c.AdminListUserAuthEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1966,6 +2018,9 @@ func (c *CognitoIdentityProvider) AdminRemoveUserFromGroup(input *AdminRemoveUse
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminRemoveUserFromGroupWithContext(ctx aws.Context, input *AdminRemoveUserFromGroupInput, opts ...request.Option) (*AdminRemoveUserFromGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminRemoveUserFromGroup")
+	defer span.End()
+
 	req, out := c.AdminRemoveUserFromGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2106,6 +2161,9 @@ func (c *CognitoIdentityProvider) AdminResetUserPassword(input *AdminResetUserPa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminResetUserPasswordWithContext(ctx aws.Context, input *AdminResetUserPasswordInput, opts ...request.Option) (*AdminResetUserPasswordOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminResetUserPassword")
+	defer span.End()
+
 	req, out := c.AdminResetUserPasswordRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2261,6 +2319,9 @@ func (c *CognitoIdentityProvider) AdminRespondToAuthChallenge(input *AdminRespon
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminRespondToAuthChallengeWithContext(ctx aws.Context, input *AdminRespondToAuthChallengeInput, opts ...request.Option) (*AdminRespondToAuthChallengeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminRespondToAuthChallenge")
+	defer span.End()
+
 	req, out := c.AdminRespondToAuthChallengeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2360,6 +2421,9 @@ func (c *CognitoIdentityProvider) AdminSetUserMFAPreference(input *AdminSetUserM
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminSetUserMFAPreferenceWithContext(ctx aws.Context, input *AdminSetUserMFAPreferenceInput, opts ...request.Option) (*AdminSetUserMFAPreferenceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminSetUserMFAPreference")
+	defer span.End()
+
 	req, out := c.AdminSetUserMFAPreferenceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2455,6 +2519,9 @@ func (c *CognitoIdentityProvider) AdminSetUserSettings(input *AdminSetUserSettin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminSetUserSettingsWithContext(ctx aws.Context, input *AdminSetUserSettingsInput, opts ...request.Option) (*AdminSetUserSettingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminSetUserSettings")
+	defer span.End()
+
 	req, out := c.AdminSetUserSettingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2557,6 +2624,9 @@ func (c *CognitoIdentityProvider) AdminUpdateAuthEventFeedback(input *AdminUpdat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminUpdateAuthEventFeedbackWithContext(ctx aws.Context, input *AdminUpdateAuthEventFeedbackInput, opts ...request.Option) (*AdminUpdateAuthEventFeedbackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminUpdateAuthEventFeedback")
+	defer span.End()
+
 	req, out := c.AdminUpdateAuthEventFeedbackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2659,6 +2729,9 @@ func (c *CognitoIdentityProvider) AdminUpdateDeviceStatus(input *AdminUpdateDevi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminUpdateDeviceStatusWithContext(ctx aws.Context, input *AdminUpdateDeviceStatusInput, opts ...request.Option) (*AdminUpdateDeviceStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminUpdateDeviceStatus")
+	defer span.End()
+
 	req, out := c.AdminUpdateDeviceStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2783,6 +2856,9 @@ func (c *CognitoIdentityProvider) AdminUpdateUserAttributes(input *AdminUpdateUs
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminUpdateUserAttributesWithContext(ctx aws.Context, input *AdminUpdateUserAttributesInput, opts ...request.Option) (*AdminUpdateUserAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminUpdateUserAttributes")
+	defer span.End()
+
 	req, out := c.AdminUpdateUserAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2882,6 +2958,9 @@ func (c *CognitoIdentityProvider) AdminUserGlobalSignOut(input *AdminUserGlobalS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AdminUserGlobalSignOutWithContext(ctx aws.Context, input *AdminUserGlobalSignOutInput, opts ...request.Option) (*AdminUserGlobalSignOutOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AdminUserGlobalSignOut")
+	defer span.End()
+
 	req, out := c.AdminUserGlobalSignOutRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2977,6 +3056,9 @@ func (c *CognitoIdentityProvider) AssociateSoftwareToken(input *AssociateSoftwar
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) AssociateSoftwareTokenWithContext(ctx aws.Context, input *AssociateSoftwareTokenInput, opts ...request.Option) (*AssociateSoftwareTokenOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).AssociateSoftwareToken")
+	defer span.End()
+
 	req, out := c.AssociateSoftwareTokenRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3089,6 +3171,9 @@ func (c *CognitoIdentityProvider) ChangePassword(input *ChangePasswordInput) (*C
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ChangePasswordWithContext(ctx aws.Context, input *ChangePasswordInput, opts ...request.Option) (*ChangePasswordOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ChangePassword")
+	defer span.End()
+
 	req, out := c.ChangePasswordRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3208,6 +3293,9 @@ func (c *CognitoIdentityProvider) ConfirmDevice(input *ConfirmDeviceInput) (*Con
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ConfirmDeviceWithContext(ctx aws.Context, input *ConfirmDeviceInput, opts ...request.Option) (*ConfirmDeviceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ConfirmDevice")
+	defer span.End()
+
 	req, out := c.ConfirmDeviceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3340,6 +3428,9 @@ func (c *CognitoIdentityProvider) ConfirmForgotPassword(input *ConfirmForgotPass
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ConfirmForgotPasswordWithContext(ctx aws.Context, input *ConfirmForgotPasswordInput, opts ...request.Option) (*ConfirmForgotPasswordOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ConfirmForgotPassword")
+	defer span.End()
+
 	req, out := c.ConfirmForgotPasswordRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3472,6 +3563,9 @@ func (c *CognitoIdentityProvider) ConfirmSignUp(input *ConfirmSignUpInput) (*Con
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ConfirmSignUpWithContext(ctx aws.Context, input *ConfirmSignUpInput, opts ...request.Option) (*ConfirmSignUpOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ConfirmSignUp")
+	defer span.End()
+
 	req, out := c.ConfirmSignUpRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3576,6 +3670,9 @@ func (c *CognitoIdentityProvider) CreateGroup(input *CreateGroupInput) (*CreateG
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) CreateGroupWithContext(ctx aws.Context, input *CreateGroupInput, opts ...request.Option) (*CreateGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).CreateGroup")
+	defer span.End()
+
 	req, out := c.CreateGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3678,6 +3775,9 @@ func (c *CognitoIdentityProvider) CreateIdentityProvider(input *CreateIdentityPr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) CreateIdentityProviderWithContext(ctx aws.Context, input *CreateIdentityProviderInput, opts ...request.Option) (*CreateIdentityProviderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).CreateIdentityProvider")
+	defer span.End()
+
 	req, out := c.CreateIdentityProviderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3776,6 +3876,9 @@ func (c *CognitoIdentityProvider) CreateResourceServer(input *CreateResourceServ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) CreateResourceServerWithContext(ctx aws.Context, input *CreateResourceServerInput, opts ...request.Option) (*CreateResourceServerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).CreateResourceServer")
+	defer span.End()
+
 	req, out := c.CreateResourceServerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3877,6 +3980,9 @@ func (c *CognitoIdentityProvider) CreateUserImportJob(input *CreateUserImportJob
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) CreateUserImportJobWithContext(ctx aws.Context, input *CreateUserImportJobInput, opts ...request.Option) (*CreateUserImportJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).CreateUserImportJob")
+	defer span.End()
+
 	req, out := c.CreateUserImportJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3989,6 +4095,9 @@ func (c *CognitoIdentityProvider) CreateUserPool(input *CreateUserPoolInput) (*C
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) CreateUserPoolWithContext(ctx aws.Context, input *CreateUserPoolInput, opts ...request.Option) (*CreateUserPoolOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).CreateUserPool")
+	defer span.End()
+
 	req, out := c.CreateUserPoolRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4093,6 +4202,9 @@ func (c *CognitoIdentityProvider) CreateUserPoolClient(input *CreateUserPoolClie
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) CreateUserPoolClientWithContext(ctx aws.Context, input *CreateUserPoolClientInput, opts ...request.Option) (*CreateUserPoolClientOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).CreateUserPoolClient")
+	defer span.End()
+
 	req, out := c.CreateUserPoolClientRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4183,6 +4295,9 @@ func (c *CognitoIdentityProvider) CreateUserPoolDomain(input *CreateUserPoolDoma
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) CreateUserPoolDomainWithContext(ctx aws.Context, input *CreateUserPoolDomainInput, opts ...request.Option) (*CreateUserPoolDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).CreateUserPoolDomain")
+	defer span.End()
+
 	req, out := c.CreateUserPoolDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4281,6 +4396,9 @@ func (c *CognitoIdentityProvider) DeleteGroup(input *DeleteGroupInput) (*DeleteG
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DeleteGroupWithContext(ctx aws.Context, input *DeleteGroupInput, opts ...request.Option) (*DeleteGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DeleteGroup")
+	defer span.End()
+
 	req, out := c.DeleteGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4380,6 +4498,9 @@ func (c *CognitoIdentityProvider) DeleteIdentityProvider(input *DeleteIdentityPr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DeleteIdentityProviderWithContext(ctx aws.Context, input *DeleteIdentityProviderInput, opts ...request.Option) (*DeleteIdentityProviderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DeleteIdentityProvider")
+	defer span.End()
+
 	req, out := c.DeleteIdentityProviderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4476,6 +4597,9 @@ func (c *CognitoIdentityProvider) DeleteResourceServer(input *DeleteResourceServ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DeleteResourceServerWithContext(ctx aws.Context, input *DeleteResourceServerInput, opts ...request.Option) (*DeleteResourceServerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DeleteResourceServer")
+	defer span.End()
+
 	req, out := c.DeleteResourceServerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4582,6 +4706,9 @@ func (c *CognitoIdentityProvider) DeleteUser(input *DeleteUserInput) (*DeleteUse
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DeleteUserWithContext(ctx aws.Context, input *DeleteUserInput, opts ...request.Option) (*DeleteUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DeleteUser")
+	defer span.End()
+
 	req, out := c.DeleteUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4686,6 +4813,9 @@ func (c *CognitoIdentityProvider) DeleteUserAttributes(input *DeleteUserAttribut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DeleteUserAttributesWithContext(ctx aws.Context, input *DeleteUserAttributesInput, opts ...request.Option) (*DeleteUserAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DeleteUserAttributes")
+	defer span.End()
+
 	req, out := c.DeleteUserAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4786,6 +4916,9 @@ func (c *CognitoIdentityProvider) DeleteUserPool(input *DeleteUserPoolInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DeleteUserPoolWithContext(ctx aws.Context, input *DeleteUserPoolInput, opts ...request.Option) (*DeleteUserPoolOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DeleteUserPool")
+	defer span.End()
+
 	req, out := c.DeleteUserPoolRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4882,6 +5015,9 @@ func (c *CognitoIdentityProvider) DeleteUserPoolClient(input *DeleteUserPoolClie
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DeleteUserPoolClientWithContext(ctx aws.Context, input *DeleteUserPoolClientInput, opts ...request.Option) (*DeleteUserPoolClientOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DeleteUserPoolClient")
+	defer span.End()
+
 	req, out := c.DeleteUserPoolClientRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4972,6 +5108,9 @@ func (c *CognitoIdentityProvider) DeleteUserPoolDomain(input *DeleteUserPoolDoma
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DeleteUserPoolDomainWithContext(ctx aws.Context, input *DeleteUserPoolDomainInput, opts ...request.Option) (*DeleteUserPoolDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DeleteUserPoolDomain")
+	defer span.End()
+
 	req, out := c.DeleteUserPoolDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5066,6 +5205,9 @@ func (c *CognitoIdentityProvider) DescribeIdentityProvider(input *DescribeIdenti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DescribeIdentityProviderWithContext(ctx aws.Context, input *DescribeIdentityProviderInput, opts ...request.Option) (*DescribeIdentityProviderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DescribeIdentityProvider")
+	defer span.End()
+
 	req, out := c.DescribeIdentityProviderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5160,6 +5302,9 @@ func (c *CognitoIdentityProvider) DescribeResourceServer(input *DescribeResource
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DescribeResourceServerWithContext(ctx aws.Context, input *DescribeResourceServerInput, opts ...request.Option) (*DescribeResourceServerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DescribeResourceServer")
+	defer span.End()
+
 	req, out := c.DescribeResourceServerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5257,6 +5402,9 @@ func (c *CognitoIdentityProvider) DescribeRiskConfiguration(input *DescribeRiskC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DescribeRiskConfigurationWithContext(ctx aws.Context, input *DescribeRiskConfigurationInput, opts ...request.Option) (*DescribeRiskConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DescribeRiskConfiguration")
+	defer span.End()
+
 	req, out := c.DescribeRiskConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5351,6 +5499,9 @@ func (c *CognitoIdentityProvider) DescribeUserImportJob(input *DescribeUserImpor
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DescribeUserImportJobWithContext(ctx aws.Context, input *DescribeUserImportJobInput, opts ...request.Option) (*DescribeUserImportJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DescribeUserImportJob")
+	defer span.End()
+
 	req, out := c.DescribeUserImportJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5449,6 +5600,9 @@ func (c *CognitoIdentityProvider) DescribeUserPool(input *DescribeUserPoolInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DescribeUserPoolWithContext(ctx aws.Context, input *DescribeUserPoolInput, opts ...request.Option) (*DescribeUserPoolOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DescribeUserPool")
+	defer span.End()
+
 	req, out := c.DescribeUserPoolRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5544,6 +5698,9 @@ func (c *CognitoIdentityProvider) DescribeUserPoolClient(input *DescribeUserPool
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DescribeUserPoolClientWithContext(ctx aws.Context, input *DescribeUserPoolClientInput, opts ...request.Option) (*DescribeUserPoolClientOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DescribeUserPoolClient")
+	defer span.End()
+
 	req, out := c.DescribeUserPoolClientRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5634,6 +5791,9 @@ func (c *CognitoIdentityProvider) DescribeUserPoolDomain(input *DescribeUserPool
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) DescribeUserPoolDomainWithContext(ctx aws.Context, input *DescribeUserPoolDomainInput, opts ...request.Option) (*DescribeUserPoolDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).DescribeUserPoolDomain")
+	defer span.End()
+
 	req, out := c.DescribeUserPoolDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5742,6 +5902,9 @@ func (c *CognitoIdentityProvider) ForgetDevice(input *ForgetDeviceInput) (*Forge
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ForgetDeviceWithContext(ctx aws.Context, input *ForgetDeviceInput, opts ...request.Option) (*ForgetDeviceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ForgetDevice")
+	defer span.End()
+
 	req, out := c.ForgetDeviceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5883,6 +6046,9 @@ func (c *CognitoIdentityProvider) ForgotPassword(input *ForgotPasswordInput) (*F
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ForgotPasswordWithContext(ctx aws.Context, input *ForgotPasswordInput, opts ...request.Option) (*ForgotPasswordOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ForgotPassword")
+	defer span.End()
+
 	req, out := c.ForgotPasswordRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5978,6 +6144,9 @@ func (c *CognitoIdentityProvider) GetCSVHeader(input *GetCSVHeaderInput) (*GetCS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) GetCSVHeaderWithContext(ctx aws.Context, input *GetCSVHeaderInput, opts ...request.Option) (*GetCSVHeaderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).GetCSVHeader")
+	defer span.End()
+
 	req, out := c.GetCSVHeaderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6084,6 +6253,9 @@ func (c *CognitoIdentityProvider) GetDevice(input *GetDeviceInput) (*GetDeviceOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) GetDeviceWithContext(ctx aws.Context, input *GetDeviceInput, opts ...request.Option) (*GetDeviceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).GetDevice")
+	defer span.End()
+
 	req, out := c.GetDeviceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6180,6 +6352,9 @@ func (c *CognitoIdentityProvider) GetGroup(input *GetGroupInput) (*GetGroupOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) GetGroupWithContext(ctx aws.Context, input *GetGroupInput, opts ...request.Option) (*GetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).GetGroup")
+	defer span.End()
+
 	req, out := c.GetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6274,6 +6449,9 @@ func (c *CognitoIdentityProvider) GetIdentityProviderByIdentifier(input *GetIden
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) GetIdentityProviderByIdentifierWithContext(ctx aws.Context, input *GetIdentityProviderByIdentifierInput, opts ...request.Option) (*GetIdentityProviderByIdentifierOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).GetIdentityProviderByIdentifier")
+	defer span.End()
+
 	req, out := c.GetIdentityProviderByIdentifierRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6357,6 +6535,9 @@ func (c *CognitoIdentityProvider) GetSigningCertificate(input *GetSigningCertifi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) GetSigningCertificateWithContext(ctx aws.Context, input *GetSigningCertificateInput, opts ...request.Option) (*GetSigningCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).GetSigningCertificate")
+	defer span.End()
+
 	req, out := c.GetSigningCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6454,6 +6635,9 @@ func (c *CognitoIdentityProvider) GetUICustomization(input *GetUICustomizationIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) GetUICustomizationWithContext(ctx aws.Context, input *GetUICustomizationInput, opts ...request.Option) (*GetUICustomizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).GetUICustomization")
+	defer span.End()
+
 	req, out := c.GetUICustomizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6558,6 +6742,9 @@ func (c *CognitoIdentityProvider) GetUser(input *GetUserInput) (*GetUserOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) GetUserWithContext(ctx aws.Context, input *GetUserInput, opts ...request.Option) (*GetUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).GetUser")
+	defer span.End()
+
 	req, out := c.GetUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6695,6 +6882,9 @@ func (c *CognitoIdentityProvider) GetUserAttributeVerificationCode(input *GetUse
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) GetUserAttributeVerificationCodeWithContext(ctx aws.Context, input *GetUserAttributeVerificationCodeInput, opts ...request.Option) (*GetUserAttributeVerificationCodeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).GetUserAttributeVerificationCode")
+	defer span.End()
+
 	req, out := c.GetUserAttributeVerificationCodeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6789,6 +6979,9 @@ func (c *CognitoIdentityProvider) GetUserPoolMfaConfig(input *GetUserPoolMfaConf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) GetUserPoolMfaConfigWithContext(ctx aws.Context, input *GetUserPoolMfaConfigInput, opts ...request.Option) (*GetUserPoolMfaConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).GetUserPoolMfaConfig")
+	defer span.End()
+
 	req, out := c.GetUserPoolMfaConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6889,6 +7082,9 @@ func (c *CognitoIdentityProvider) GlobalSignOut(input *GlobalSignOutInput) (*Glo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) GlobalSignOutWithContext(ctx aws.Context, input *GlobalSignOutInput, opts ...request.Option) (*GlobalSignOutOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).GlobalSignOut")
+	defer span.End()
+
 	req, out := c.GlobalSignOutRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7007,6 +7203,9 @@ func (c *CognitoIdentityProvider) InitiateAuth(input *InitiateAuthInput) (*Initi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) InitiateAuthWithContext(ctx aws.Context, input *InitiateAuthInput, opts ...request.Option) (*InitiateAuthOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).InitiateAuth")
+	defer span.End()
+
 	req, out := c.InitiateAuthRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7113,6 +7312,9 @@ func (c *CognitoIdentityProvider) ListDevices(input *ListDevicesInput) (*ListDev
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ListDevicesWithContext(ctx aws.Context, input *ListDevicesInput, opts ...request.Option) (*ListDevicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ListDevices")
+	defer span.End()
+
 	req, out := c.ListDevicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7209,6 +7411,9 @@ func (c *CognitoIdentityProvider) ListGroups(input *ListGroupsInput) (*ListGroup
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ListGroupsWithContext(ctx aws.Context, input *ListGroupsInput, opts ...request.Option) (*ListGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ListGroups")
+	defer span.End()
+
 	req, out := c.ListGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7303,6 +7508,9 @@ func (c *CognitoIdentityProvider) ListIdentityProviders(input *ListIdentityProvi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ListIdentityProvidersWithContext(ctx aws.Context, input *ListIdentityProvidersInput, opts ...request.Option) (*ListIdentityProvidersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ListIdentityProviders")
+	defer span.End()
+
 	req, out := c.ListIdentityProvidersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7397,6 +7605,9 @@ func (c *CognitoIdentityProvider) ListResourceServers(input *ListResourceServers
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ListResourceServersWithContext(ctx aws.Context, input *ListResourceServersInput, opts ...request.Option) (*ListResourceServersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ListResourceServers")
+	defer span.End()
+
 	req, out := c.ListResourceServersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7491,6 +7702,9 @@ func (c *CognitoIdentityProvider) ListUserImportJobs(input *ListUserImportJobsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ListUserImportJobsWithContext(ctx aws.Context, input *ListUserImportJobsInput, opts ...request.Option) (*ListUserImportJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ListUserImportJobs")
+	defer span.End()
+
 	req, out := c.ListUserImportJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7585,6 +7799,9 @@ func (c *CognitoIdentityProvider) ListUserPoolClients(input *ListUserPoolClients
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ListUserPoolClientsWithContext(ctx aws.Context, input *ListUserPoolClientsInput, opts ...request.Option) (*ListUserPoolClientsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ListUserPoolClients")
+	defer span.End()
+
 	req, out := c.ListUserPoolClientsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7675,6 +7892,9 @@ func (c *CognitoIdentityProvider) ListUserPools(input *ListUserPoolsInput) (*Lis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ListUserPoolsWithContext(ctx aws.Context, input *ListUserPoolsInput, opts ...request.Option) (*ListUserPoolsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ListUserPools")
+	defer span.End()
+
 	req, out := c.ListUserPoolsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7769,6 +7989,9 @@ func (c *CognitoIdentityProvider) ListUsers(input *ListUsersInput) (*ListUsersOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ListUsersWithContext(ctx aws.Context, input *ListUsersInput, opts ...request.Option) (*ListUsersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ListUsers")
+	defer span.End()
+
 	req, out := c.ListUsersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7865,6 +8088,9 @@ func (c *CognitoIdentityProvider) ListUsersInGroup(input *ListUsersInGroupInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ListUsersInGroupWithContext(ctx aws.Context, input *ListUsersInGroupInput, opts ...request.Option) (*ListUsersInGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ListUsersInGroup")
+	defer span.End()
+
 	req, out := c.ListUsersInGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7997,6 +8223,9 @@ func (c *CognitoIdentityProvider) ResendConfirmationCode(input *ResendConfirmati
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) ResendConfirmationCodeWithContext(ctx aws.Context, input *ResendConfirmationCodeInput, opts ...request.Option) (*ResendConfirmationCodeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).ResendConfirmationCode")
+	defer span.End()
+
 	req, out := c.ResendConfirmationCodeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8150,6 +8379,9 @@ func (c *CognitoIdentityProvider) RespondToAuthChallenge(input *RespondToAuthCha
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) RespondToAuthChallengeWithContext(ctx aws.Context, input *RespondToAuthChallengeInput, opts ...request.Option) (*RespondToAuthChallengeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).RespondToAuthChallenge")
+	defer span.End()
+
 	req, out := c.RespondToAuthChallengeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8260,6 +8492,9 @@ func (c *CognitoIdentityProvider) SetRiskConfiguration(input *SetRiskConfigurati
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) SetRiskConfigurationWithContext(ctx aws.Context, input *SetRiskConfigurationInput, opts ...request.Option) (*SetRiskConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).SetRiskConfiguration")
+	defer span.End()
+
 	req, out := c.SetRiskConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8365,6 +8600,9 @@ func (c *CognitoIdentityProvider) SetUICustomization(input *SetUICustomizationIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) SetUICustomizationWithContext(ctx aws.Context, input *SetUICustomizationInput, opts ...request.Option) (*SetUICustomizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).SetUICustomization")
+	defer span.End()
+
 	req, out := c.SetUICustomizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8464,6 +8702,9 @@ func (c *CognitoIdentityProvider) SetUserMFAPreference(input *SetUserMFAPreferen
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) SetUserMFAPreferenceWithContext(ctx aws.Context, input *SetUserMFAPreferenceInput, opts ...request.Option) (*SetUserMFAPreferenceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).SetUserMFAPreference")
+	defer span.End()
+
 	req, out := c.SetUserMFAPreferenceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8568,6 +8809,9 @@ func (c *CognitoIdentityProvider) SetUserPoolMfaConfig(input *SetUserPoolMfaConf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) SetUserPoolMfaConfigWithContext(ctx aws.Context, input *SetUserPoolMfaConfigInput, opts ...request.Option) (*SetUserPoolMfaConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).SetUserPoolMfaConfig")
+	defer span.End()
+
 	req, out := c.SetUserPoolMfaConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8670,6 +8914,9 @@ func (c *CognitoIdentityProvider) SetUserSettings(input *SetUserSettingsInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) SetUserSettingsWithContext(ctx aws.Context, input *SetUserSettingsInput, opts ...request.Option) (*SetUserSettingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).SetUserSettings")
+	defer span.End()
+
 	req, out := c.SetUserSettingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8803,6 +9050,9 @@ func (c *CognitoIdentityProvider) SignUp(input *SignUpInput) (*SignUpOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) SignUpWithContext(ctx aws.Context, input *SignUpInput, opts ...request.Option) (*SignUpOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).SignUp")
+	defer span.End()
+
 	req, out := c.SignUpRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8900,6 +9150,9 @@ func (c *CognitoIdentityProvider) StartUserImportJob(input *StartUserImportJobIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) StartUserImportJobWithContext(ctx aws.Context, input *StartUserImportJobInput, opts ...request.Option) (*StartUserImportJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).StartUserImportJob")
+	defer span.End()
+
 	req, out := c.StartUserImportJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8997,6 +9250,9 @@ func (c *CognitoIdentityProvider) StopUserImportJob(input *StopUserImportJobInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) StopUserImportJobWithContext(ctx aws.Context, input *StopUserImportJobInput, opts ...request.Option) (*StopUserImportJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).StopUserImportJob")
+	defer span.End()
+
 	req, out := c.StopUserImportJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9099,6 +9355,9 @@ func (c *CognitoIdentityProvider) UpdateAuthEventFeedback(input *UpdateAuthEvent
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) UpdateAuthEventFeedbackWithContext(ctx aws.Context, input *UpdateAuthEventFeedbackInput, opts ...request.Option) (*UpdateAuthEventFeedbackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).UpdateAuthEventFeedback")
+	defer span.End()
+
 	req, out := c.UpdateAuthEventFeedbackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9205,6 +9464,9 @@ func (c *CognitoIdentityProvider) UpdateDeviceStatus(input *UpdateDeviceStatusIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) UpdateDeviceStatusWithContext(ctx aws.Context, input *UpdateDeviceStatusInput, opts ...request.Option) (*UpdateDeviceStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).UpdateDeviceStatus")
+	defer span.End()
+
 	req, out := c.UpdateDeviceStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9301,6 +9563,9 @@ func (c *CognitoIdentityProvider) UpdateGroup(input *UpdateGroupInput) (*UpdateG
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) UpdateGroupWithContext(ctx aws.Context, input *UpdateGroupInput, opts ...request.Option) (*UpdateGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).UpdateGroup")
+	defer span.End()
+
 	req, out := c.UpdateGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9398,6 +9663,9 @@ func (c *CognitoIdentityProvider) UpdateIdentityProvider(input *UpdateIdentityPr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) UpdateIdentityProviderWithContext(ctx aws.Context, input *UpdateIdentityProviderInput, opts ...request.Option) (*UpdateIdentityProviderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).UpdateIdentityProvider")
+	defer span.End()
+
 	req, out := c.UpdateIdentityProviderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9492,6 +9760,9 @@ func (c *CognitoIdentityProvider) UpdateResourceServer(input *UpdateResourceServ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) UpdateResourceServerWithContext(ctx aws.Context, input *UpdateResourceServerInput, opts ...request.Option) (*UpdateResourceServerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).UpdateResourceServer")
+	defer span.End()
+
 	req, out := c.UpdateResourceServerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9638,6 +9909,9 @@ func (c *CognitoIdentityProvider) UpdateUserAttributes(input *UpdateUserAttribut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) UpdateUserAttributesWithContext(ctx aws.Context, input *UpdateUserAttributesInput, opts ...request.Option) (*UpdateUserAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).UpdateUserAttributes")
+	defer span.End()
+
 	req, out := c.UpdateUserAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9756,6 +10030,9 @@ func (c *CognitoIdentityProvider) UpdateUserPool(input *UpdateUserPoolInput) (*U
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) UpdateUserPoolWithContext(ctx aws.Context, input *UpdateUserPoolInput, opts ...request.Option) (*UpdateUserPoolOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).UpdateUserPool")
+	defer span.End()
+
 	req, out := c.UpdateUserPoolRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9860,6 +10137,9 @@ func (c *CognitoIdentityProvider) UpdateUserPoolClient(input *UpdateUserPoolClie
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) UpdateUserPoolClientWithContext(ctx aws.Context, input *UpdateUserPoolClientInput, opts ...request.Option) (*UpdateUserPoolClientOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).UpdateUserPoolClient")
+	defer span.End()
+
 	req, out := c.UpdateUserPoolClientRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9982,6 +10262,9 @@ func (c *CognitoIdentityProvider) VerifySoftwareToken(input *VerifySoftwareToken
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) VerifySoftwareTokenWithContext(ctx aws.Context, input *VerifySoftwareTokenInput, opts ...request.Option) (*VerifySoftwareTokenOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).VerifySoftwareToken")
+	defer span.End()
+
 	req, out := c.VerifySoftwareTokenRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10097,6 +10380,9 @@ func (c *CognitoIdentityProvider) VerifyUserAttribute(input *VerifyUserAttribute
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentityProvider) VerifyUserAttributeWithContext(ctx aws.Context, input *VerifyUserAttributeInput, opts ...request.Option) (*VerifyUserAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentityprovider.(*CognitoIdentityProvider).VerifyUserAttribute")
+	defer span.End()
+
 	req, out := c.VerifyUserAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

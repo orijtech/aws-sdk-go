@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opGetMedia = "GetMedia"
@@ -123,6 +124,9 @@ func (c *KinesisVideoMedia) GetMedia(input *GetMediaInput) (*GetMediaOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisVideoMedia) GetMediaWithContext(ctx aws.Context, input *GetMediaInput, opts ...request.Option) (*GetMediaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisvideomedia.(*KinesisVideoMedia).GetMedia")
+	defer span.End()
+
 	req, out := c.GetMediaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opAssignInstance = "AssignInstance"
@@ -102,6 +103,9 @@ func (c *OpsWorks) AssignInstance(input *AssignInstanceInput) (*AssignInstanceOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) AssignInstanceWithContext(ctx aws.Context, input *AssignInstanceInput, opts ...request.Option) (*AssignInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).AssignInstance")
+	defer span.End()
+
 	req, out := c.AssignInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -195,6 +199,9 @@ func (c *OpsWorks) AssignVolume(input *AssignVolumeInput) (*AssignVolumeOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) AssignVolumeWithContext(ctx aws.Context, input *AssignVolumeInput, opts ...request.Option) (*AssignVolumeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).AssignVolume")
+	defer span.End()
+
 	req, out := c.AssignVolumeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -286,6 +293,9 @@ func (c *OpsWorks) AssociateElasticIp(input *AssociateElasticIpInput) (*Associat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) AssociateElasticIpWithContext(ctx aws.Context, input *AssociateElasticIpInput, opts ...request.Option) (*AssociateElasticIpOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).AssociateElasticIp")
+	defer span.End()
+
 	req, out := c.AssociateElasticIpRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -382,6 +392,9 @@ func (c *OpsWorks) AttachElasticLoadBalancer(input *AttachElasticLoadBalancerInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) AttachElasticLoadBalancerWithContext(ctx aws.Context, input *AttachElasticLoadBalancerInput, opts ...request.Option) (*AttachElasticLoadBalancerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).AttachElasticLoadBalancer")
+	defer span.End()
+
 	req, out := c.AttachElasticLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -470,6 +483,9 @@ func (c *OpsWorks) CloneStack(input *CloneStackInput) (*CloneStackOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) CloneStackWithContext(ctx aws.Context, input *CloneStackInput, opts ...request.Option) (*CloneStackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).CloneStack")
+	defer span.End()
+
 	req, out := c.CloneStackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -558,6 +574,9 @@ func (c *OpsWorks) CreateApp(input *CreateAppInput) (*CreateAppOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) CreateAppWithContext(ctx aws.Context, input *CreateAppInput, opts ...request.Option) (*CreateAppOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).CreateApp")
+	defer span.End()
+
 	req, out := c.CreateAppRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -647,6 +666,9 @@ func (c *OpsWorks) CreateDeployment(input *CreateDeploymentInput) (*CreateDeploy
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) CreateDeploymentWithContext(ctx aws.Context, input *CreateDeploymentInput, opts ...request.Option) (*CreateDeploymentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).CreateDeployment")
+	defer span.End()
+
 	req, out := c.CreateDeploymentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -735,6 +757,9 @@ func (c *OpsWorks) CreateInstance(input *CreateInstanceInput) (*CreateInstanceOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) CreateInstanceWithContext(ctx aws.Context, input *CreateInstanceInput, opts ...request.Option) (*CreateInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).CreateInstance")
+	defer span.End()
+
 	req, out := c.CreateInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -829,6 +854,9 @@ func (c *OpsWorks) CreateLayer(input *CreateLayerInput) (*CreateLayerOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) CreateLayerWithContext(ctx aws.Context, input *CreateLayerInput, opts ...request.Option) (*CreateLayerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).CreateLayer")
+	defer span.End()
+
 	req, out := c.CreateLayerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -912,6 +940,9 @@ func (c *OpsWorks) CreateStack(input *CreateStackInput) (*CreateStackOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) CreateStackWithContext(ctx aws.Context, input *CreateStackInput, opts ...request.Option) (*CreateStackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).CreateStack")
+	defer span.End()
+
 	req, out := c.CreateStackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -995,6 +1026,9 @@ func (c *OpsWorks) CreateUserProfile(input *CreateUserProfileInput) (*CreateUser
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) CreateUserProfileWithContext(ctx aws.Context, input *CreateUserProfileInput, opts ...request.Option) (*CreateUserProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).CreateUserProfile")
+	defer span.End()
+
 	req, out := c.CreateUserProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1084,6 +1118,9 @@ func (c *OpsWorks) DeleteApp(input *DeleteAppInput) (*DeleteAppOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DeleteAppWithContext(ctx aws.Context, input *DeleteAppInput, opts ...request.Option) (*DeleteAppOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DeleteApp")
+	defer span.End()
+
 	req, out := c.DeleteAppRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1176,6 +1213,9 @@ func (c *OpsWorks) DeleteInstance(input *DeleteInstanceInput) (*DeleteInstanceOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DeleteInstanceWithContext(ctx aws.Context, input *DeleteInstanceInput, opts ...request.Option) (*DeleteInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DeleteInstance")
+	defer span.End()
+
 	req, out := c.DeleteInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1267,6 +1307,9 @@ func (c *OpsWorks) DeleteLayer(input *DeleteLayerInput) (*DeleteLayerOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DeleteLayerWithContext(ctx aws.Context, input *DeleteLayerInput, opts ...request.Option) (*DeleteLayerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DeleteLayer")
+	defer span.End()
+
 	req, out := c.DeleteLayerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1358,6 +1401,9 @@ func (c *OpsWorks) DeleteStack(input *DeleteStackInput) (*DeleteStackOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DeleteStackWithContext(ctx aws.Context, input *DeleteStackInput, opts ...request.Option) (*DeleteStackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DeleteStack")
+	defer span.End()
+
 	req, out := c.DeleteStackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1446,6 +1492,9 @@ func (c *OpsWorks) DeleteUserProfile(input *DeleteUserProfileInput) (*DeleteUser
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DeleteUserProfileWithContext(ctx aws.Context, input *DeleteUserProfileInput, opts ...request.Option) (*DeleteUserProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DeleteUserProfile")
+	defer span.End()
+
 	req, out := c.DeleteUserProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1536,6 +1585,9 @@ func (c *OpsWorks) DeregisterEcsCluster(input *DeregisterEcsClusterInput) (*Dere
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DeregisterEcsClusterWithContext(ctx aws.Context, input *DeregisterEcsClusterInput, opts ...request.Option) (*DeregisterEcsClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DeregisterEcsCluster")
+	defer span.End()
+
 	req, out := c.DeregisterEcsClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1626,6 +1678,9 @@ func (c *OpsWorks) DeregisterElasticIp(input *DeregisterElasticIpInput) (*Deregi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DeregisterElasticIpWithContext(ctx aws.Context, input *DeregisterElasticIpInput, opts ...request.Option) (*DeregisterElasticIpOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DeregisterElasticIp")
+	defer span.End()
+
 	req, out := c.DeregisterElasticIpRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1717,6 +1772,9 @@ func (c *OpsWorks) DeregisterInstance(input *DeregisterInstanceInput) (*Deregist
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DeregisterInstanceWithContext(ctx aws.Context, input *DeregisterInstanceInput, opts ...request.Option) (*DeregisterInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DeregisterInstance")
+	defer span.End()
+
 	req, out := c.DeregisterInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1806,6 +1864,9 @@ func (c *OpsWorks) DeregisterRdsDbInstance(input *DeregisterRdsDbInstanceInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DeregisterRdsDbInstanceWithContext(ctx aws.Context, input *DeregisterRdsDbInstanceInput, opts ...request.Option) (*DeregisterRdsDbInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DeregisterRdsDbInstance")
+	defer span.End()
+
 	req, out := c.DeregisterRdsDbInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1896,6 +1957,9 @@ func (c *OpsWorks) DeregisterVolume(input *DeregisterVolumeInput) (*DeregisterVo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DeregisterVolumeWithContext(ctx aws.Context, input *DeregisterVolumeInput, opts ...request.Option) (*DeregisterVolumeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DeregisterVolume")
+	defer span.End()
+
 	req, out := c.DeregisterVolumeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1980,6 +2044,9 @@ func (c *OpsWorks) DescribeAgentVersions(input *DescribeAgentVersionsInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeAgentVersionsWithContext(ctx aws.Context, input *DescribeAgentVersionsInput, opts ...request.Option) (*DescribeAgentVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeAgentVersions")
+	defer span.End()
+
 	req, out := c.DescribeAgentVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2069,6 +2136,9 @@ func (c *OpsWorks) DescribeApps(input *DescribeAppsInput) (*DescribeAppsOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeAppsWithContext(ctx aws.Context, input *DescribeAppsInput, opts ...request.Option) (*DescribeAppsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeApps")
+	defer span.End()
+
 	req, out := c.DescribeAppsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2158,6 +2228,9 @@ func (c *OpsWorks) DescribeCommands(input *DescribeCommandsInput) (*DescribeComm
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeCommandsWithContext(ctx aws.Context, input *DescribeCommandsInput, opts ...request.Option) (*DescribeCommandsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeCommands")
+	defer span.End()
+
 	req, out := c.DescribeCommandsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2247,6 +2320,9 @@ func (c *OpsWorks) DescribeDeployments(input *DescribeDeploymentsInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeDeploymentsWithContext(ctx aws.Context, input *DescribeDeploymentsInput, opts ...request.Option) (*DescribeDeploymentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeDeployments")
+	defer span.End()
+
 	req, out := c.DescribeDeploymentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2345,6 +2421,9 @@ func (c *OpsWorks) DescribeEcsClusters(input *DescribeEcsClustersInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeEcsClustersWithContext(ctx aws.Context, input *DescribeEcsClustersInput, opts ...request.Option) (*DescribeEcsClustersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeEcsClusters")
+	defer span.End()
+
 	req, out := c.DescribeEcsClustersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2484,6 +2563,9 @@ func (c *OpsWorks) DescribeElasticIps(input *DescribeElasticIpsInput) (*Describe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeElasticIpsWithContext(ctx aws.Context, input *DescribeElasticIpsInput, opts ...request.Option) (*DescribeElasticIpsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeElasticIps")
+	defer span.End()
+
 	req, out := c.DescribeElasticIpsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2573,6 +2655,9 @@ func (c *OpsWorks) DescribeElasticLoadBalancers(input *DescribeElasticLoadBalanc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeElasticLoadBalancersWithContext(ctx aws.Context, input *DescribeElasticLoadBalancersInput, opts ...request.Option) (*DescribeElasticLoadBalancersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeElasticLoadBalancers")
+	defer span.End()
+
 	req, out := c.DescribeElasticLoadBalancersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2662,6 +2747,9 @@ func (c *OpsWorks) DescribeInstances(input *DescribeInstancesInput) (*DescribeIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeInstancesWithContext(ctx aws.Context, input *DescribeInstancesInput, opts ...request.Option) (*DescribeInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeInstances")
+	defer span.End()
+
 	req, out := c.DescribeInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2751,6 +2839,9 @@ func (c *OpsWorks) DescribeLayers(input *DescribeLayersInput) (*DescribeLayersOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeLayersWithContext(ctx aws.Context, input *DescribeLayersInput, opts ...request.Option) (*DescribeLayersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeLayers")
+	defer span.End()
+
 	req, out := c.DescribeLayersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2840,6 +2931,9 @@ func (c *OpsWorks) DescribeLoadBasedAutoScaling(input *DescribeLoadBasedAutoScal
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeLoadBasedAutoScalingWithContext(ctx aws.Context, input *DescribeLoadBasedAutoScalingInput, opts ...request.Option) (*DescribeLoadBasedAutoScalingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeLoadBasedAutoScaling")
+	defer span.End()
+
 	req, out := c.DescribeLoadBasedAutoScalingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2918,6 +3012,9 @@ func (c *OpsWorks) DescribeMyUserProfile(input *DescribeMyUserProfileInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeMyUserProfileWithContext(ctx aws.Context, input *DescribeMyUserProfileInput, opts ...request.Option) (*DescribeMyUserProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeMyUserProfile")
+	defer span.End()
+
 	req, out := c.DescribeMyUserProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2992,6 +3089,9 @@ func (c *OpsWorks) DescribeOperatingSystems(input *DescribeOperatingSystemsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeOperatingSystemsWithContext(ctx aws.Context, input *DescribeOperatingSystemsInput, opts ...request.Option) (*DescribeOperatingSystemsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeOperatingSystems")
+	defer span.End()
+
 	req, out := c.DescribeOperatingSystemsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3079,6 +3179,9 @@ func (c *OpsWorks) DescribePermissions(input *DescribePermissionsInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribePermissionsWithContext(ctx aws.Context, input *DescribePermissionsInput, opts ...request.Option) (*DescribePermissionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribePermissions")
+	defer span.End()
+
 	req, out := c.DescribePermissionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3168,6 +3271,9 @@ func (c *OpsWorks) DescribeRaidArrays(input *DescribeRaidArraysInput) (*Describe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeRaidArraysWithContext(ctx aws.Context, input *DescribeRaidArraysInput, opts ...request.Option) (*DescribeRaidArraysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeRaidArrays")
+	defer span.End()
+
 	req, out := c.DescribeRaidArraysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3257,6 +3363,9 @@ func (c *OpsWorks) DescribeRdsDbInstances(input *DescribeRdsDbInstancesInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeRdsDbInstancesWithContext(ctx aws.Context, input *DescribeRdsDbInstancesInput, opts ...request.Option) (*DescribeRdsDbInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeRdsDbInstances")
+	defer span.End()
+
 	req, out := c.DescribeRdsDbInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3346,6 +3455,9 @@ func (c *OpsWorks) DescribeServiceErrors(input *DescribeServiceErrorsInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeServiceErrorsWithContext(ctx aws.Context, input *DescribeServiceErrorsInput, opts ...request.Option) (*DescribeServiceErrorsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeServiceErrors")
+	defer span.End()
+
 	req, out := c.DescribeServiceErrorsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3433,6 +3545,9 @@ func (c *OpsWorks) DescribeStackProvisioningParameters(input *DescribeStackProvi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeStackProvisioningParametersWithContext(ctx aws.Context, input *DescribeStackProvisioningParametersInput, opts ...request.Option) (*DescribeStackProvisioningParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeStackProvisioningParameters")
+	defer span.End()
+
 	req, out := c.DescribeStackProvisioningParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3521,6 +3636,9 @@ func (c *OpsWorks) DescribeStackSummary(input *DescribeStackSummaryInput) (*Desc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeStackSummaryWithContext(ctx aws.Context, input *DescribeStackSummaryInput, opts ...request.Option) (*DescribeStackSummaryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeStackSummary")
+	defer span.End()
+
 	req, out := c.DescribeStackSummaryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3608,6 +3726,9 @@ func (c *OpsWorks) DescribeStacks(input *DescribeStacksInput) (*DescribeStacksOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeStacksWithContext(ctx aws.Context, input *DescribeStacksInput, opts ...request.Option) (*DescribeStacksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeStacks")
+	defer span.End()
+
 	req, out := c.DescribeStacksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3697,6 +3818,9 @@ func (c *OpsWorks) DescribeTimeBasedAutoScaling(input *DescribeTimeBasedAutoScal
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeTimeBasedAutoScalingWithContext(ctx aws.Context, input *DescribeTimeBasedAutoScalingInput, opts ...request.Option) (*DescribeTimeBasedAutoScalingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeTimeBasedAutoScaling")
+	defer span.End()
+
 	req, out := c.DescribeTimeBasedAutoScalingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3783,6 +3907,9 @@ func (c *OpsWorks) DescribeUserProfiles(input *DescribeUserProfilesInput) (*Desc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeUserProfilesWithContext(ctx aws.Context, input *DescribeUserProfilesInput, opts ...request.Option) (*DescribeUserProfilesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeUserProfiles")
+	defer span.End()
+
 	req, out := c.DescribeUserProfilesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3872,6 +3999,9 @@ func (c *OpsWorks) DescribeVolumes(input *DescribeVolumesInput) (*DescribeVolume
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DescribeVolumesWithContext(ctx aws.Context, input *DescribeVolumesInput, opts ...request.Option) (*DescribeVolumesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DescribeVolumes")
+	defer span.End()
+
 	req, out := c.DescribeVolumesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3958,6 +4088,9 @@ func (c *OpsWorks) DetachElasticLoadBalancer(input *DetachElasticLoadBalancerInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DetachElasticLoadBalancerWithContext(ctx aws.Context, input *DetachElasticLoadBalancerInput, opts ...request.Option) (*DetachElasticLoadBalancerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DetachElasticLoadBalancer")
+	defer span.End()
+
 	req, out := c.DetachElasticLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4049,6 +4182,9 @@ func (c *OpsWorks) DisassociateElasticIp(input *DisassociateElasticIpInput) (*Di
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) DisassociateElasticIpWithContext(ctx aws.Context, input *DisassociateElasticIpInput, opts ...request.Option) (*DisassociateElasticIpOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).DisassociateElasticIp")
+	defer span.End()
+
 	req, out := c.DisassociateElasticIpRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4137,6 +4273,9 @@ func (c *OpsWorks) GetHostnameSuggestion(input *GetHostnameSuggestionInput) (*Ge
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) GetHostnameSuggestionWithContext(ctx aws.Context, input *GetHostnameSuggestionInput, opts ...request.Option) (*GetHostnameSuggestionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).GetHostnameSuggestion")
+	defer span.End()
+
 	req, out := c.GetHostnameSuggestionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4221,6 +4360,9 @@ func (c *OpsWorks) GrantAccess(input *GrantAccessInput) (*GrantAccessOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) GrantAccessWithContext(ctx aws.Context, input *GrantAccessInput, opts ...request.Option) (*GrantAccessOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).GrantAccess")
+	defer span.End()
+
 	req, out := c.GrantAccessRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4303,6 +4445,9 @@ func (c *OpsWorks) ListTags(input *ListTagsInput) (*ListTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) ListTagsWithContext(ctx aws.Context, input *ListTagsInput, opts ...request.Option) (*ListTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).ListTags")
+	defer span.End()
+
 	req, out := c.ListTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4393,6 +4538,9 @@ func (c *OpsWorks) RebootInstance(input *RebootInstanceInput) (*RebootInstanceOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) RebootInstanceWithContext(ctx aws.Context, input *RebootInstanceInput, opts ...request.Option) (*RebootInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).RebootInstance")
+	defer span.End()
+
 	req, out := c.RebootInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4482,6 +4630,9 @@ func (c *OpsWorks) RegisterEcsCluster(input *RegisterEcsClusterInput) (*Register
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) RegisterEcsClusterWithContext(ctx aws.Context, input *RegisterEcsClusterInput, opts ...request.Option) (*RegisterEcsClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).RegisterEcsCluster")
+	defer span.End()
+
 	req, out := c.RegisterEcsClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4572,6 +4723,9 @@ func (c *OpsWorks) RegisterElasticIp(input *RegisterElasticIpInput) (*RegisterEl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) RegisterElasticIpWithContext(ctx aws.Context, input *RegisterElasticIpInput, opts ...request.Option) (*RegisterElasticIpOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).RegisterElasticIp")
+	defer span.End()
+
 	req, out := c.RegisterElasticIpRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4673,6 +4827,9 @@ func (c *OpsWorks) RegisterInstance(input *RegisterInstanceInput) (*RegisterInst
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) RegisterInstanceWithContext(ctx aws.Context, input *RegisterInstanceInput, opts ...request.Option) (*RegisterInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).RegisterInstance")
+	defer span.End()
+
 	req, out := c.RegisterInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4762,6 +4919,9 @@ func (c *OpsWorks) RegisterRdsDbInstance(input *RegisterRdsDbInstanceInput) (*Re
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) RegisterRdsDbInstanceWithContext(ctx aws.Context, input *RegisterRdsDbInstanceInput, opts ...request.Option) (*RegisterRdsDbInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).RegisterRdsDbInstance")
+	defer span.End()
+
 	req, out := c.RegisterRdsDbInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4852,6 +5012,9 @@ func (c *OpsWorks) RegisterVolume(input *RegisterVolumeInput) (*RegisterVolumeOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) RegisterVolumeWithContext(ctx aws.Context, input *RegisterVolumeInput, opts ...request.Option) (*RegisterVolumeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).RegisterVolume")
+	defer span.End()
+
 	req, out := c.RegisterVolumeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4948,6 +5111,9 @@ func (c *OpsWorks) SetLoadBasedAutoScaling(input *SetLoadBasedAutoScalingInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) SetLoadBasedAutoScalingWithContext(ctx aws.Context, input *SetLoadBasedAutoScalingInput, opts ...request.Option) (*SetLoadBasedAutoScalingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).SetLoadBasedAutoScaling")
+	defer span.End()
+
 	req, out := c.SetLoadBasedAutoScalingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5038,6 +5204,9 @@ func (c *OpsWorks) SetPermission(input *SetPermissionInput) (*SetPermissionOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) SetPermissionWithContext(ctx aws.Context, input *SetPermissionInput, opts ...request.Option) (*SetPermissionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).SetPermission")
+	defer span.End()
+
 	req, out := c.SetPermissionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5129,6 +5298,9 @@ func (c *OpsWorks) SetTimeBasedAutoScaling(input *SetTimeBasedAutoScalingInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) SetTimeBasedAutoScalingWithContext(ctx aws.Context, input *SetTimeBasedAutoScalingInput, opts ...request.Option) (*SetTimeBasedAutoScalingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).SetTimeBasedAutoScaling")
+	defer span.End()
+
 	req, out := c.SetTimeBasedAutoScalingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5219,6 +5391,9 @@ func (c *OpsWorks) StartInstance(input *StartInstanceInput) (*StartInstanceOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) StartInstanceWithContext(ctx aws.Context, input *StartInstanceInput, opts ...request.Option) (*StartInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).StartInstance")
+	defer span.End()
+
 	req, out := c.StartInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5308,6 +5483,9 @@ func (c *OpsWorks) StartStack(input *StartStackInput) (*StartStackOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) StartStackWithContext(ctx aws.Context, input *StartStackInput, opts ...request.Option) (*StartStackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).StartStack")
+	defer span.End()
+
 	req, out := c.StartStackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5400,6 +5578,9 @@ func (c *OpsWorks) StopInstance(input *StopInstanceInput) (*StopInstanceOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) StopInstanceWithContext(ctx aws.Context, input *StopInstanceInput, opts ...request.Option) (*StopInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).StopInstance")
+	defer span.End()
+
 	req, out := c.StopInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5489,6 +5670,9 @@ func (c *OpsWorks) StopStack(input *StopStackInput) (*StopStackOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) StopStackWithContext(ctx aws.Context, input *StopStackInput, opts ...request.Option) (*StopStackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).StopStack")
+	defer span.End()
+
 	req, out := c.StopStackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5575,6 +5759,9 @@ func (c *OpsWorks) TagResource(input *TagResourceInput) (*TagResourceOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).TagResource")
+	defer span.End()
+
 	req, out := c.TagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5667,6 +5854,9 @@ func (c *OpsWorks) UnassignInstance(input *UnassignInstanceInput) (*UnassignInst
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) UnassignInstanceWithContext(ctx aws.Context, input *UnassignInstanceInput, opts ...request.Option) (*UnassignInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).UnassignInstance")
+	defer span.End()
+
 	req, out := c.UnassignInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5757,6 +5947,9 @@ func (c *OpsWorks) UnassignVolume(input *UnassignVolumeInput) (*UnassignVolumeOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) UnassignVolumeWithContext(ctx aws.Context, input *UnassignVolumeInput, opts ...request.Option) (*UnassignVolumeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).UnassignVolume")
+	defer span.End()
+
 	req, out := c.UnassignVolumeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5841,6 +6034,9 @@ func (c *OpsWorks) UntagResource(input *UntagResourceInput) (*UntagResourceOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).UntagResource")
+	defer span.End()
+
 	req, out := c.UntagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5930,6 +6126,9 @@ func (c *OpsWorks) UpdateApp(input *UpdateAppInput) (*UpdateAppOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) UpdateAppWithContext(ctx aws.Context, input *UpdateAppInput, opts ...request.Option) (*UpdateAppOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).UpdateApp")
+	defer span.End()
+
 	req, out := c.UpdateAppRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6020,6 +6219,9 @@ func (c *OpsWorks) UpdateElasticIp(input *UpdateElasticIpInput) (*UpdateElasticI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) UpdateElasticIpWithContext(ctx aws.Context, input *UpdateElasticIpInput, opts ...request.Option) (*UpdateElasticIpOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).UpdateElasticIp")
+	defer span.End()
+
 	req, out := c.UpdateElasticIpRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6109,6 +6311,9 @@ func (c *OpsWorks) UpdateInstance(input *UpdateInstanceInput) (*UpdateInstanceOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) UpdateInstanceWithContext(ctx aws.Context, input *UpdateInstanceInput, opts ...request.Option) (*UpdateInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).UpdateInstance")
+	defer span.End()
+
 	req, out := c.UpdateInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6198,6 +6403,9 @@ func (c *OpsWorks) UpdateLayer(input *UpdateLayerInput) (*UpdateLayerOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) UpdateLayerWithContext(ctx aws.Context, input *UpdateLayerInput, opts ...request.Option) (*UpdateLayerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).UpdateLayer")
+	defer span.End()
+
 	req, out := c.UpdateLayerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6283,6 +6491,9 @@ func (c *OpsWorks) UpdateMyUserProfile(input *UpdateMyUserProfileInput) (*Update
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) UpdateMyUserProfileWithContext(ctx aws.Context, input *UpdateMyUserProfileInput, opts ...request.Option) (*UpdateMyUserProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).UpdateMyUserProfile")
+	defer span.End()
+
 	req, out := c.UpdateMyUserProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6372,6 +6583,9 @@ func (c *OpsWorks) UpdateRdsDbInstance(input *UpdateRdsDbInstanceInput) (*Update
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) UpdateRdsDbInstanceWithContext(ctx aws.Context, input *UpdateRdsDbInstanceInput, opts ...request.Option) (*UpdateRdsDbInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).UpdateRdsDbInstance")
+	defer span.End()
+
 	req, out := c.UpdateRdsDbInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6461,6 +6675,9 @@ func (c *OpsWorks) UpdateStack(input *UpdateStackInput) (*UpdateStackOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) UpdateStackWithContext(ctx aws.Context, input *UpdateStackInput, opts ...request.Option) (*UpdateStackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).UpdateStack")
+	defer span.End()
+
 	req, out := c.UpdateStackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6549,6 +6766,9 @@ func (c *OpsWorks) UpdateUserProfile(input *UpdateUserProfileInput) (*UpdateUser
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) UpdateUserProfileWithContext(ctx aws.Context, input *UpdateUserProfileInput, opts ...request.Option) (*UpdateUserProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).UpdateUserProfile")
+	defer span.End()
+
 	req, out := c.UpdateUserProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6639,6 +6859,9 @@ func (c *OpsWorks) UpdateVolume(input *UpdateVolumeInput) (*UpdateVolumeOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorks) UpdateVolumeWithContext(ctx aws.Context, input *UpdateVolumeInput, opts ...request.Option) (*UpdateVolumeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworks.(*OpsWorks).UpdateVolume")
+	defer span.End()
+
 	req, out := c.UpdateVolumeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

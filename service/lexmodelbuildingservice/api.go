@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
+	"go.opencensus.io/trace"
 )
 
 const opCreateBotVersion = "CreateBotVersion"
@@ -114,6 +115,9 @@ func (c *LexModelBuildingService) CreateBotVersion(input *CreateBotVersionInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) CreateBotVersionWithContext(ctx aws.Context, input *CreateBotVersionInput, opts ...request.Option) (*CreateBotVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).CreateBotVersion")
+	defer span.End()
+
 	req, out := c.CreateBotVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -223,6 +227,9 @@ func (c *LexModelBuildingService) CreateIntentVersion(input *CreateIntentVersion
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) CreateIntentVersionWithContext(ctx aws.Context, input *CreateIntentVersionInput, opts ...request.Option) (*CreateIntentVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).CreateIntentVersion")
+	defer span.End()
+
 	req, out := c.CreateIntentVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -331,6 +338,9 @@ func (c *LexModelBuildingService) CreateSlotTypeVersion(input *CreateSlotTypeVer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) CreateSlotTypeVersionWithContext(ctx aws.Context, input *CreateSlotTypeVersionInput, opts ...request.Option) (*CreateSlotTypeVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).CreateSlotTypeVersion")
+	defer span.End()
+
 	req, out := c.CreateSlotTypeVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -448,6 +458,9 @@ func (c *LexModelBuildingService) DeleteBot(input *DeleteBotInput) (*DeleteBotOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) DeleteBotWithContext(ctx aws.Context, input *DeleteBotInput, opts ...request.Option) (*DeleteBotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).DeleteBot")
+	defer span.End()
+
 	req, out := c.DeleteBotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -564,6 +577,9 @@ func (c *LexModelBuildingService) DeleteBotAlias(input *DeleteBotAliasInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) DeleteBotAliasWithContext(ctx aws.Context, input *DeleteBotAliasInput, opts ...request.Option) (*DeleteBotAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).DeleteBotAlias")
+	defer span.End()
+
 	req, out := c.DeleteBotAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -662,6 +678,9 @@ func (c *LexModelBuildingService) DeleteBotChannelAssociation(input *DeleteBotCh
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) DeleteBotChannelAssociationWithContext(ctx aws.Context, input *DeleteBotChannelAssociationInput, opts ...request.Option) (*DeleteBotChannelAssociationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).DeleteBotChannelAssociation")
+	defer span.End()
+
 	req, out := c.DeleteBotChannelAssociationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -773,6 +792,9 @@ func (c *LexModelBuildingService) DeleteBotVersion(input *DeleteBotVersionInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) DeleteBotVersionWithContext(ctx aws.Context, input *DeleteBotVersionInput, opts ...request.Option) (*DeleteBotVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).DeleteBotVersion")
+	defer span.End()
+
 	req, out := c.DeleteBotVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -894,6 +916,9 @@ func (c *LexModelBuildingService) DeleteIntent(input *DeleteIntentInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) DeleteIntentWithContext(ctx aws.Context, input *DeleteIntentInput, opts ...request.Option) (*DeleteIntentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).DeleteIntent")
+	defer span.End()
+
 	req, out := c.DeleteIntentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1005,6 +1030,9 @@ func (c *LexModelBuildingService) DeleteIntentVersion(input *DeleteIntentVersion
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) DeleteIntentVersionWithContext(ctx aws.Context, input *DeleteIntentVersionInput, opts ...request.Option) (*DeleteIntentVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).DeleteIntentVersion")
+	defer span.End()
+
 	req, out := c.DeleteIntentVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1128,6 +1156,9 @@ func (c *LexModelBuildingService) DeleteSlotType(input *DeleteSlotTypeInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) DeleteSlotTypeWithContext(ctx aws.Context, input *DeleteSlotTypeInput, opts ...request.Option) (*DeleteSlotTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).DeleteSlotType")
+	defer span.End()
+
 	req, out := c.DeleteSlotTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1239,6 +1270,9 @@ func (c *LexModelBuildingService) DeleteSlotTypeVersion(input *DeleteSlotTypeVer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) DeleteSlotTypeVersionWithContext(ctx aws.Context, input *DeleteSlotTypeVersionInput, opts ...request.Option) (*DeleteSlotTypeVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).DeleteSlotTypeVersion")
+	defer span.End()
+
 	req, out := c.DeleteSlotTypeVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1341,6 +1375,9 @@ func (c *LexModelBuildingService) DeleteUtterances(input *DeleteUtterancesInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) DeleteUtterancesWithContext(ctx aws.Context, input *DeleteUtterancesInput, opts ...request.Option) (*DeleteUtterancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).DeleteUtterances")
+	defer span.End()
+
 	req, out := c.DeleteUtterancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1434,6 +1471,9 @@ func (c *LexModelBuildingService) GetBot(input *GetBotInput) (*GetBotOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetBotWithContext(ctx aws.Context, input *GetBotInput, opts ...request.Option) (*GetBotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetBot")
+	defer span.End()
+
 	req, out := c.GetBotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1527,6 +1567,9 @@ func (c *LexModelBuildingService) GetBotAlias(input *GetBotAliasInput) (*GetBotA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetBotAliasWithContext(ctx aws.Context, input *GetBotAliasInput, opts ...request.Option) (*GetBotAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetBotAlias")
+	defer span.End()
+
 	req, out := c.GetBotAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1621,6 +1664,9 @@ func (c *LexModelBuildingService) GetBotAliases(input *GetBotAliasesInput) (*Get
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetBotAliasesWithContext(ctx aws.Context, input *GetBotAliasesInput, opts ...request.Option) (*GetBotAliasesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetBotAliases")
+	defer span.End()
+
 	req, out := c.GetBotAliasesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1765,6 +1811,9 @@ func (c *LexModelBuildingService) GetBotChannelAssociation(input *GetBotChannelA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetBotChannelAssociationWithContext(ctx aws.Context, input *GetBotChannelAssociationInput, opts ...request.Option) (*GetBotChannelAssociationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetBotChannelAssociation")
+	defer span.End()
+
 	req, out := c.GetBotChannelAssociationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1860,6 +1909,9 @@ func (c *LexModelBuildingService) GetBotChannelAssociations(input *GetBotChannel
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetBotChannelAssociationsWithContext(ctx aws.Context, input *GetBotChannelAssociationsInput, opts ...request.Option) (*GetBotChannelAssociationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetBotChannelAssociations")
+	defer span.End()
+
 	req, out := c.GetBotChannelAssociationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2016,6 +2068,9 @@ func (c *LexModelBuildingService) GetBotVersions(input *GetBotVersionsInput) (*G
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetBotVersionsWithContext(ctx aws.Context, input *GetBotVersionsInput, opts ...request.Option) (*GetBotVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetBotVersions")
+	defer span.End()
+
 	req, out := c.GetBotVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2171,6 +2226,9 @@ func (c *LexModelBuildingService) GetBots(input *GetBotsInput) (*GetBotsOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetBotsWithContext(ctx aws.Context, input *GetBotsInput, opts ...request.Option) (*GetBotsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetBots")
+	defer span.End()
+
 	req, out := c.GetBotsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2313,6 +2371,9 @@ func (c *LexModelBuildingService) GetBuiltinIntent(input *GetBuiltinIntentInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetBuiltinIntentWithContext(ctx aws.Context, input *GetBuiltinIntentInput, opts ...request.Option) (*GetBuiltinIntentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetBuiltinIntent")
+	defer span.End()
+
 	req, out := c.GetBuiltinIntentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2407,6 +2468,9 @@ func (c *LexModelBuildingService) GetBuiltinIntents(input *GetBuiltinIntentsInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetBuiltinIntentsWithContext(ctx aws.Context, input *GetBuiltinIntentsInput, opts ...request.Option) (*GetBuiltinIntentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetBuiltinIntents")
+	defer span.End()
+
 	req, out := c.GetBuiltinIntentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2554,6 +2618,9 @@ func (c *LexModelBuildingService) GetBuiltinSlotTypes(input *GetBuiltinSlotTypes
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetBuiltinSlotTypesWithContext(ctx aws.Context, input *GetBuiltinSlotTypesInput, opts ...request.Option) (*GetBuiltinSlotTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetBuiltinSlotTypes")
+	defer span.End()
+
 	req, out := c.GetBuiltinSlotTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2694,6 +2761,9 @@ func (c *LexModelBuildingService) GetExport(input *GetExportInput) (*GetExportOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetExportWithContext(ctx aws.Context, input *GetExportInput, opts ...request.Option) (*GetExportOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetExport")
+	defer span.End()
+
 	req, out := c.GetExportRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2784,6 +2854,9 @@ func (c *LexModelBuildingService) GetImport(input *GetImportInput) (*GetImportOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetImportWithContext(ctx aws.Context, input *GetImportInput, opts ...request.Option) (*GetImportOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetImport")
+	defer span.End()
+
 	req, out := c.GetImportRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2877,6 +2950,9 @@ func (c *LexModelBuildingService) GetIntent(input *GetIntentInput) (*GetIntentOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetIntentWithContext(ctx aws.Context, input *GetIntentInput, opts ...request.Option) (*GetIntentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetIntent")
+	defer span.End()
+
 	req, out := c.GetIntentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2983,6 +3059,9 @@ func (c *LexModelBuildingService) GetIntentVersions(input *GetIntentVersionsInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetIntentVersionsWithContext(ctx aws.Context, input *GetIntentVersionsInput, opts ...request.Option) (*GetIntentVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetIntentVersions")
+	defer span.End()
+
 	req, out := c.GetIntentVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3137,6 +3216,9 @@ func (c *LexModelBuildingService) GetIntents(input *GetIntentsInput) (*GetIntent
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetIntentsWithContext(ctx aws.Context, input *GetIntentsInput, opts ...request.Option) (*GetIntentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetIntents")
+	defer span.End()
+
 	req, out := c.GetIntentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3280,6 +3362,9 @@ func (c *LexModelBuildingService) GetSlotType(input *GetSlotTypeInput) (*GetSlot
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetSlotTypeWithContext(ctx aws.Context, input *GetSlotTypeInput, opts ...request.Option) (*GetSlotTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetSlotType")
+	defer span.End()
+
 	req, out := c.GetSlotTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3386,6 +3471,9 @@ func (c *LexModelBuildingService) GetSlotTypeVersions(input *GetSlotTypeVersions
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetSlotTypeVersionsWithContext(ctx aws.Context, input *GetSlotTypeVersionsInput, opts ...request.Option) (*GetSlotTypeVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetSlotTypeVersions")
+	defer span.End()
+
 	req, out := c.GetSlotTypeVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3540,6 +3628,9 @@ func (c *LexModelBuildingService) GetSlotTypes(input *GetSlotTypesInput) (*GetSl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetSlotTypesWithContext(ctx aws.Context, input *GetSlotTypesInput, opts ...request.Option) (*GetSlotTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetSlotTypes")
+	defer span.End()
+
 	req, out := c.GetSlotTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3696,6 +3787,9 @@ func (c *LexModelBuildingService) GetUtterancesView(input *GetUtterancesViewInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) GetUtterancesViewWithContext(ctx aws.Context, input *GetUtterancesViewInput, opts ...request.Option) (*GetUtterancesViewOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).GetUtterancesView")
+	defer span.End()
+
 	req, out := c.GetUtterancesViewRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3802,6 +3896,9 @@ func (c *LexModelBuildingService) PutBot(input *PutBotInput) (*PutBotOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) PutBotWithContext(ctx aws.Context, input *PutBotInput, opts ...request.Option) (*PutBotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).PutBot")
+	defer span.End()
+
 	req, out := c.PutBotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3899,6 +3996,9 @@ func (c *LexModelBuildingService) PutBotAlias(input *PutBotAliasInput) (*PutBotA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) PutBotAliasWithContext(ctx aws.Context, input *PutBotAliasInput, opts ...request.Option) (*PutBotAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).PutBotAlias")
+	defer span.End()
+
 	req, out := c.PutBotAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4037,6 +4137,9 @@ func (c *LexModelBuildingService) PutIntent(input *PutIntentInput) (*PutIntentOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) PutIntentWithContext(ctx aws.Context, input *PutIntentInput, opts ...request.Option) (*PutIntentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).PutIntent")
+	defer span.End()
+
 	req, out := c.PutIntentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4143,6 +4246,9 @@ func (c *LexModelBuildingService) PutSlotType(input *PutSlotTypeInput) (*PutSlot
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) PutSlotTypeWithContext(ctx aws.Context, input *PutSlotTypeInput, opts ...request.Option) (*PutSlotTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).PutSlotType")
+	defer span.End()
+
 	req, out := c.PutSlotTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4229,6 +4335,9 @@ func (c *LexModelBuildingService) StartImport(input *StartImportInput) (*StartIm
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *LexModelBuildingService) StartImportWithContext(ctx aws.Context, input *StartImportInput, opts ...request.Option) (*StartImportOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lexmodelbuildingservice.(*LexModelBuildingService).StartImport")
+	defer span.End()
+
 	req, out := c.StartImportRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

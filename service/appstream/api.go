@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAssociateFleet = "AssociateFleet"
@@ -100,6 +101,9 @@ func (c *AppStream) AssociateFleet(input *AssociateFleetInput) (*AssociateFleetO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) AssociateFleetWithContext(ctx aws.Context, input *AssociateFleetInput, opts ...request.Option) (*AssociateFleetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).AssociateFleet")
+	defer span.End()
+
 	req, out := c.AssociateFleetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -196,6 +200,9 @@ func (c *AppStream) CopyImage(input *CopyImageInput) (*CopyImageOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) CopyImageWithContext(ctx aws.Context, input *CopyImageInput, opts ...request.Option) (*CopyImageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).CopyImage")
+	defer span.End()
+
 	req, out := c.CopyImageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -282,6 +289,9 @@ func (c *AppStream) CreateDirectoryConfig(input *CreateDirectoryConfigInput) (*C
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) CreateDirectoryConfigWithContext(ctx aws.Context, input *CreateDirectoryConfigInput, opts ...request.Option) (*CreateDirectoryConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).CreateDirectoryConfig")
+	defer span.End()
+
 	req, out := c.CreateDirectoryConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -386,6 +396,9 @@ func (c *AppStream) CreateFleet(input *CreateFleetInput) (*CreateFleetOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) CreateFleetWithContext(ctx aws.Context, input *CreateFleetInput, opts ...request.Option) (*CreateFleetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).CreateFleet")
+	defer span.End()
+
 	req, out := c.CreateFleetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -493,6 +506,9 @@ func (c *AppStream) CreateImageBuilder(input *CreateImageBuilderInput) (*CreateI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) CreateImageBuilderWithContext(ctx aws.Context, input *CreateImageBuilderInput, opts ...request.Option) (*CreateImageBuilderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).CreateImageBuilder")
+	defer span.End()
+
 	req, out := c.CreateImageBuilderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -575,6 +591,9 @@ func (c *AppStream) CreateImageBuilderStreamingURL(input *CreateImageBuilderStre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) CreateImageBuilderStreamingURLWithContext(ctx aws.Context, input *CreateImageBuilderStreamingURLInput, opts ...request.Option) (*CreateImageBuilderStreamingURLOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).CreateImageBuilderStreamingURL")
+	defer span.End()
+
 	req, out := c.CreateImageBuilderStreamingURLRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -673,6 +692,9 @@ func (c *AppStream) CreateStack(input *CreateStackInput) (*CreateStackOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) CreateStackWithContext(ctx aws.Context, input *CreateStackInput, opts ...request.Option) (*CreateStackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).CreateStack")
+	defer span.End()
+
 	req, out := c.CreateStackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -761,6 +783,9 @@ func (c *AppStream) CreateStreamingURL(input *CreateStreamingURLInput) (*CreateS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) CreateStreamingURLWithContext(ctx aws.Context, input *CreateStreamingURLInput, opts ...request.Option) (*CreateStreamingURLOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).CreateStreamingURL")
+	defer span.End()
+
 	req, out := c.CreateStreamingURLRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -843,6 +868,9 @@ func (c *AppStream) DeleteDirectoryConfig(input *DeleteDirectoryConfigInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) DeleteDirectoryConfigWithContext(ctx aws.Context, input *DeleteDirectoryConfigInput, opts ...request.Option) (*DeleteDirectoryConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).DeleteDirectoryConfig")
+	defer span.End()
+
 	req, out := c.DeleteDirectoryConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -928,6 +956,9 @@ func (c *AppStream) DeleteFleet(input *DeleteFleetInput) (*DeleteFleetOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) DeleteFleetWithContext(ctx aws.Context, input *DeleteFleetInput, opts ...request.Option) (*DeleteFleetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).DeleteFleet")
+	defer span.End()
+
 	req, out := c.DeleteFleetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1018,6 +1049,9 @@ func (c *AppStream) DeleteImage(input *DeleteImageInput) (*DeleteImageOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) DeleteImageWithContext(ctx aws.Context, input *DeleteImageInput, opts ...request.Option) (*DeleteImageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).DeleteImage")
+	defer span.End()
+
 	req, out := c.DeleteImageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1103,6 +1137,9 @@ func (c *AppStream) DeleteImageBuilder(input *DeleteImageBuilderInput) (*DeleteI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) DeleteImageBuilderWithContext(ctx aws.Context, input *DeleteImageBuilderInput, opts ...request.Option) (*DeleteImageBuilderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).DeleteImageBuilder")
+	defer span.End()
+
 	req, out := c.DeleteImageBuilderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1189,6 +1226,9 @@ func (c *AppStream) DeleteStack(input *DeleteStackInput) (*DeleteStackOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) DeleteStackWithContext(ctx aws.Context, input *DeleteStackInput, opts ...request.Option) (*DeleteStackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).DeleteStack")
+	defer span.End()
+
 	req, out := c.DeleteStackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1270,6 +1310,9 @@ func (c *AppStream) DescribeDirectoryConfigs(input *DescribeDirectoryConfigsInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) DescribeDirectoryConfigsWithContext(ctx aws.Context, input *DescribeDirectoryConfigsInput, opts ...request.Option) (*DescribeDirectoryConfigsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).DescribeDirectoryConfigs")
+	defer span.End()
+
 	req, out := c.DescribeDirectoryConfigsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1349,6 +1392,9 @@ func (c *AppStream) DescribeFleets(input *DescribeFleetsInput) (*DescribeFleetsO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) DescribeFleetsWithContext(ctx aws.Context, input *DescribeFleetsInput, opts ...request.Option) (*DescribeFleetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).DescribeFleets")
+	defer span.End()
+
 	req, out := c.DescribeFleetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1428,6 +1474,9 @@ func (c *AppStream) DescribeImageBuilders(input *DescribeImageBuildersInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) DescribeImageBuildersWithContext(ctx aws.Context, input *DescribeImageBuildersInput, opts ...request.Option) (*DescribeImageBuildersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).DescribeImageBuilders")
+	defer span.End()
+
 	req, out := c.DescribeImageBuildersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1507,6 +1556,9 @@ func (c *AppStream) DescribeImages(input *DescribeImagesInput) (*DescribeImagesO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) DescribeImagesWithContext(ctx aws.Context, input *DescribeImagesInput, opts ...request.Option) (*DescribeImagesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).DescribeImages")
+	defer span.End()
+
 	req, out := c.DescribeImagesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1589,6 +1641,9 @@ func (c *AppStream) DescribeSessions(input *DescribeSessionsInput) (*DescribeSes
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) DescribeSessionsWithContext(ctx aws.Context, input *DescribeSessionsInput, opts ...request.Option) (*DescribeSessionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).DescribeSessions")
+	defer span.End()
+
 	req, out := c.DescribeSessionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1668,6 +1723,9 @@ func (c *AppStream) DescribeStacks(input *DescribeStacksInput) (*DescribeStacksO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) DescribeStacksWithContext(ctx aws.Context, input *DescribeStacksInput, opts ...request.Option) (*DescribeStacksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).DescribeStacks")
+	defer span.End()
+
 	req, out := c.DescribeStacksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1753,6 +1811,9 @@ func (c *AppStream) DisassociateFleet(input *DisassociateFleetInput) (*Disassoci
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) DisassociateFleetWithContext(ctx aws.Context, input *DisassociateFleetInput, opts ...request.Option) (*DisassociateFleetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).DisassociateFleet")
+	defer span.End()
+
 	req, out := c.DisassociateFleetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1827,6 +1888,9 @@ func (c *AppStream) ExpireSession(input *ExpireSessionInput) (*ExpireSessionOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) ExpireSessionWithContext(ctx aws.Context, input *ExpireSessionInput, opts ...request.Option) (*ExpireSessionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).ExpireSession")
+	defer span.End()
+
 	req, out := c.ExpireSessionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1901,6 +1965,9 @@ func (c *AppStream) ListAssociatedFleets(input *ListAssociatedFleetsInput) (*Lis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) ListAssociatedFleetsWithContext(ctx aws.Context, input *ListAssociatedFleetsInput, opts ...request.Option) (*ListAssociatedFleetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).ListAssociatedFleets")
+	defer span.End()
+
 	req, out := c.ListAssociatedFleetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1975,6 +2042,9 @@ func (c *AppStream) ListAssociatedStacks(input *ListAssociatedStacksInput) (*Lis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) ListAssociatedStacksWithContext(ctx aws.Context, input *ListAssociatedStacksInput, opts ...request.Option) (*ListAssociatedStacksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).ListAssociatedStacks")
+	defer span.End()
+
 	req, out := c.ListAssociatedStacksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2058,6 +2128,9 @@ func (c *AppStream) ListTagsForResource(input *ListTagsForResourceInput) (*ListT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*ListTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).ListTagsForResource")
+	defer span.End()
+
 	req, out := c.ListTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2150,6 +2223,9 @@ func (c *AppStream) StartFleet(input *StartFleetInput) (*StartFleetOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) StartFleetWithContext(ctx aws.Context, input *StartFleetInput, opts ...request.Option) (*StartFleetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).StartFleet")
+	defer span.End()
+
 	req, out := c.StartFleetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2242,6 +2318,9 @@ func (c *AppStream) StartImageBuilder(input *StartImageBuilderInput) (*StartImag
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) StartImageBuilderWithContext(ctx aws.Context, input *StartImageBuilderInput, opts ...request.Option) (*StartImageBuilderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).StartImageBuilder")
+	defer span.End()
+
 	req, out := c.StartImageBuilderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2324,6 +2403,9 @@ func (c *AppStream) StopFleet(input *StopFleetInput) (*StopFleetOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) StopFleetWithContext(ctx aws.Context, input *StopFleetInput, opts ...request.Option) (*StopFleetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).StopFleet")
+	defer span.End()
+
 	req, out := c.StopFleetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2409,6 +2491,9 @@ func (c *AppStream) StopImageBuilder(input *StopImageBuilderInput) (*StopImageBu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) StopImageBuilderWithContext(ctx aws.Context, input *StopImageBuilderInput, opts ...request.Option) (*StopImageBuilderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).StopImageBuilder")
+	defer span.End()
+
 	req, out := c.StopImageBuilderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2505,6 +2590,9 @@ func (c *AppStream) TagResource(input *TagResourceInput) (*TagResourceOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).TagResource")
+	defer span.End()
+
 	req, out := c.TagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2589,6 +2677,9 @@ func (c *AppStream) UntagResource(input *UntagResourceInput) (*UntagResourceOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).UntagResource")
+	defer span.End()
+
 	req, out := c.UntagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2674,6 +2765,9 @@ func (c *AppStream) UpdateDirectoryConfig(input *UpdateDirectoryConfigInput) (*U
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) UpdateDirectoryConfigWithContext(ctx aws.Context, input *UpdateDirectoryConfigInput, opts ...request.Option) (*UpdateDirectoryConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).UpdateDirectoryConfig")
+	defer span.End()
+
 	req, out := c.UpdateDirectoryConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2786,6 +2880,9 @@ func (c *AppStream) UpdateFleet(input *UpdateFleetInput) (*UpdateFleetOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) UpdateFleetWithContext(ctx aws.Context, input *UpdateFleetInput, opts ...request.Option) (*UpdateFleetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).UpdateFleet")
+	defer span.End()
+
 	req, out := c.UpdateFleetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2884,6 +2981,9 @@ func (c *AppStream) UpdateStack(input *UpdateStackInput) (*UpdateStackOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppStream) UpdateStackWithContext(ctx aws.Context, input *UpdateStackInput, opts ...request.Option) (*UpdateStackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appstream.(*AppStream).UpdateStack")
+	defer span.End()
+
 	req, out := c.UpdateStackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

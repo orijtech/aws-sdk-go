@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAssociateContactWithAddressBook = "AssociateContactWithAddressBook"
@@ -78,6 +79,9 @@ func (c *AlexaForBusiness) AssociateContactWithAddressBook(input *AssociateConta
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) AssociateContactWithAddressBookWithContext(ctx aws.Context, input *AssociateContactWithAddressBookInput, opts ...request.Option) (*AssociateContactWithAddressBookOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).AssociateContactWithAddressBook")
+	defer span.End()
+
 	req, out := c.AssociateContactWithAddressBookRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -161,6 +165,9 @@ func (c *AlexaForBusiness) AssociateDeviceWithRoom(input *AssociateDeviceWithRoo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) AssociateDeviceWithRoomWithContext(ctx aws.Context, input *AssociateDeviceWithRoomInput, opts ...request.Option) (*AssociateDeviceWithRoomOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).AssociateDeviceWithRoom")
+	defer span.End()
+
 	req, out := c.AssociateDeviceWithRoomRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -236,6 +243,9 @@ func (c *AlexaForBusiness) AssociateSkillGroupWithRoom(input *AssociateSkillGrou
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) AssociateSkillGroupWithRoomWithContext(ctx aws.Context, input *AssociateSkillGroupWithRoomInput, opts ...request.Option) (*AssociateSkillGroupWithRoomOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).AssociateSkillGroupWithRoom")
+	defer span.End()
+
 	req, out := c.AssociateSkillGroupWithRoomRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -319,6 +329,9 @@ func (c *AlexaForBusiness) CreateAddressBook(input *CreateAddressBookInput) (*Cr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) CreateAddressBookWithContext(ctx aws.Context, input *CreateAddressBookInput, opts ...request.Option) (*CreateAddressBookOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).CreateAddressBook")
+	defer span.End()
+
 	req, out := c.CreateAddressBookRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -402,6 +415,9 @@ func (c *AlexaForBusiness) CreateContact(input *CreateContactInput) (*CreateCont
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) CreateContactWithContext(ctx aws.Context, input *CreateContactInput, opts ...request.Option) (*CreateContactOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).CreateContact")
+	defer span.End()
+
 	req, out := c.CreateContactRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -485,6 +501,9 @@ func (c *AlexaForBusiness) CreateProfile(input *CreateProfileInput) (*CreateProf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) CreateProfileWithContext(ctx aws.Context, input *CreateProfileInput, opts ...request.Option) (*CreateProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).CreateProfile")
+	defer span.End()
+
 	req, out := c.CreateProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -568,6 +587,9 @@ func (c *AlexaForBusiness) CreateRoom(input *CreateRoomInput) (*CreateRoomOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) CreateRoomWithContext(ctx aws.Context, input *CreateRoomInput, opts ...request.Option) (*CreateRoomOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).CreateRoom")
+	defer span.End()
+
 	req, out := c.CreateRoomRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -651,6 +673,9 @@ func (c *AlexaForBusiness) CreateSkillGroup(input *CreateSkillGroupInput) (*Crea
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) CreateSkillGroupWithContext(ctx aws.Context, input *CreateSkillGroupInput, opts ...request.Option) (*CreateSkillGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).CreateSkillGroup")
+	defer span.End()
+
 	req, out := c.CreateSkillGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -734,6 +759,9 @@ func (c *AlexaForBusiness) CreateUser(input *CreateUserInput) (*CreateUserOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) CreateUserWithContext(ctx aws.Context, input *CreateUserInput, opts ...request.Option) (*CreateUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).CreateUser")
+	defer span.End()
+
 	req, out := c.CreateUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -813,6 +841,9 @@ func (c *AlexaForBusiness) DeleteAddressBook(input *DeleteAddressBookInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) DeleteAddressBookWithContext(ctx aws.Context, input *DeleteAddressBookInput, opts ...request.Option) (*DeleteAddressBookOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).DeleteAddressBook")
+	defer span.End()
+
 	req, out := c.DeleteAddressBookRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -892,6 +923,9 @@ func (c *AlexaForBusiness) DeleteContact(input *DeleteContactInput) (*DeleteCont
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) DeleteContactWithContext(ctx aws.Context, input *DeleteContactInput, opts ...request.Option) (*DeleteContactOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).DeleteContact")
+	defer span.End()
+
 	req, out := c.DeleteContactRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -971,6 +1005,9 @@ func (c *AlexaForBusiness) DeleteProfile(input *DeleteProfileInput) (*DeleteProf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) DeleteProfileWithContext(ctx aws.Context, input *DeleteProfileInput, opts ...request.Option) (*DeleteProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).DeleteProfile")
+	defer span.End()
+
 	req, out := c.DeleteProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1050,6 +1087,9 @@ func (c *AlexaForBusiness) DeleteRoom(input *DeleteRoomInput) (*DeleteRoomOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) DeleteRoomWithContext(ctx aws.Context, input *DeleteRoomInput, opts ...request.Option) (*DeleteRoomOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).DeleteRoom")
+	defer span.End()
+
 	req, out := c.DeleteRoomRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1124,6 +1164,9 @@ func (c *AlexaForBusiness) DeleteRoomSkillParameter(input *DeleteRoomSkillParame
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) DeleteRoomSkillParameterWithContext(ctx aws.Context, input *DeleteRoomSkillParameterInput, opts ...request.Option) (*DeleteRoomSkillParameterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).DeleteRoomSkillParameter")
+	defer span.End()
+
 	req, out := c.DeleteRoomSkillParameterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1203,6 +1246,9 @@ func (c *AlexaForBusiness) DeleteSkillGroup(input *DeleteSkillGroupInput) (*Dele
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) DeleteSkillGroupWithContext(ctx aws.Context, input *DeleteSkillGroupInput, opts ...request.Option) (*DeleteSkillGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).DeleteSkillGroup")
+	defer span.End()
+
 	req, out := c.DeleteSkillGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1282,6 +1328,9 @@ func (c *AlexaForBusiness) DeleteUser(input *DeleteUserInput) (*DeleteUserOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) DeleteUserWithContext(ctx aws.Context, input *DeleteUserInput, opts ...request.Option) (*DeleteUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).DeleteUser")
+	defer span.End()
+
 	req, out := c.DeleteUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1356,6 +1405,9 @@ func (c *AlexaForBusiness) DisassociateContactFromAddressBook(input *Disassociat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) DisassociateContactFromAddressBookWithContext(ctx aws.Context, input *DisassociateContactFromAddressBookInput, opts ...request.Option) (*DisassociateContactFromAddressBookOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).DisassociateContactFromAddressBook")
+	defer span.End()
+
 	req, out := c.DisassociateContactFromAddressBookRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1432,6 +1484,9 @@ func (c *AlexaForBusiness) DisassociateDeviceFromRoom(input *DisassociateDeviceF
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) DisassociateDeviceFromRoomWithContext(ctx aws.Context, input *DisassociateDeviceFromRoomInput, opts ...request.Option) (*DisassociateDeviceFromRoomOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).DisassociateDeviceFromRoom")
+	defer span.End()
+
 	req, out := c.DisassociateDeviceFromRoomRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1507,6 +1562,9 @@ func (c *AlexaForBusiness) DisassociateSkillGroupFromRoom(input *DisassociateSki
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) DisassociateSkillGroupFromRoomWithContext(ctx aws.Context, input *DisassociateSkillGroupFromRoomInput, opts ...request.Option) (*DisassociateSkillGroupFromRoomOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).DisassociateSkillGroupFromRoom")
+	defer span.End()
+
 	req, out := c.DisassociateSkillGroupFromRoomRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1586,6 +1644,9 @@ func (c *AlexaForBusiness) GetAddressBook(input *GetAddressBookInput) (*GetAddre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) GetAddressBookWithContext(ctx aws.Context, input *GetAddressBookInput, opts ...request.Option) (*GetAddressBookOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).GetAddressBook")
+	defer span.End()
+
 	req, out := c.GetAddressBookRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1665,6 +1726,9 @@ func (c *AlexaForBusiness) GetContact(input *GetContactInput) (*GetContactOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) GetContactWithContext(ctx aws.Context, input *GetContactInput, opts ...request.Option) (*GetContactOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).GetContact")
+	defer span.End()
+
 	req, out := c.GetContactRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1744,6 +1808,9 @@ func (c *AlexaForBusiness) GetDevice(input *GetDeviceInput) (*GetDeviceOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) GetDeviceWithContext(ctx aws.Context, input *GetDeviceInput, opts ...request.Option) (*GetDeviceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).GetDevice")
+	defer span.End()
+
 	req, out := c.GetDeviceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1823,6 +1890,9 @@ func (c *AlexaForBusiness) GetProfile(input *GetProfileInput) (*GetProfileOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) GetProfileWithContext(ctx aws.Context, input *GetProfileInput, opts ...request.Option) (*GetProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).GetProfile")
+	defer span.End()
+
 	req, out := c.GetProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1902,6 +1972,9 @@ func (c *AlexaForBusiness) GetRoom(input *GetRoomInput) (*GetRoomOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) GetRoomWithContext(ctx aws.Context, input *GetRoomInput, opts ...request.Option) (*GetRoomOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).GetRoom")
+	defer span.End()
+
 	req, out := c.GetRoomRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1981,6 +2054,9 @@ func (c *AlexaForBusiness) GetRoomSkillParameter(input *GetRoomSkillParameterInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) GetRoomSkillParameterWithContext(ctx aws.Context, input *GetRoomSkillParameterInput, opts ...request.Option) (*GetRoomSkillParameterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).GetRoomSkillParameter")
+	defer span.End()
+
 	req, out := c.GetRoomSkillParameterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2060,6 +2136,9 @@ func (c *AlexaForBusiness) GetSkillGroup(input *GetSkillGroupInput) (*GetSkillGr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) GetSkillGroupWithContext(ctx aws.Context, input *GetSkillGroupInput, opts ...request.Option) (*GetSkillGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).GetSkillGroup")
+	defer span.End()
+
 	req, out := c.GetSkillGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2140,6 +2219,9 @@ func (c *AlexaForBusiness) ListSkills(input *ListSkillsInput) (*ListSkillsOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) ListSkillsWithContext(ctx aws.Context, input *ListSkillsInput, opts ...request.Option) (*ListSkillsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).ListSkills")
+	defer span.End()
+
 	req, out := c.ListSkillsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2275,6 +2357,9 @@ func (c *AlexaForBusiness) ListTags(input *ListTagsInput) (*ListTagsOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) ListTagsWithContext(ctx aws.Context, input *ListTagsInput, opts ...request.Option) (*ListTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).ListTags")
+	defer span.End()
+
 	req, out := c.ListTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2400,6 +2485,9 @@ func (c *AlexaForBusiness) PutRoomSkillParameter(input *PutRoomSkillParameterInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) PutRoomSkillParameterWithContext(ctx aws.Context, input *PutRoomSkillParameterInput, opts ...request.Option) (*PutRoomSkillParameterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).PutRoomSkillParameter")
+	defer span.End()
+
 	req, out := c.PutRoomSkillParameterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2480,6 +2568,9 @@ func (c *AlexaForBusiness) ResolveRoom(input *ResolveRoomInput) (*ResolveRoomOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) ResolveRoomWithContext(ctx aws.Context, input *ResolveRoomInput, opts ...request.Option) (*ResolveRoomOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).ResolveRoom")
+	defer span.End()
+
 	req, out := c.ResolveRoomRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2559,6 +2650,9 @@ func (c *AlexaForBusiness) RevokeInvitation(input *RevokeInvitationInput) (*Revo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) RevokeInvitationWithContext(ctx aws.Context, input *RevokeInvitationInput, opts ...request.Option) (*RevokeInvitationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).RevokeInvitation")
+	defer span.End()
+
 	req, out := c.RevokeInvitationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2640,6 +2734,9 @@ func (c *AlexaForBusiness) SearchAddressBooks(input *SearchAddressBooksInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) SearchAddressBooksWithContext(ctx aws.Context, input *SearchAddressBooksInput, opts ...request.Option) (*SearchAddressBooksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).SearchAddressBooks")
+	defer span.End()
+
 	req, out := c.SearchAddressBooksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2770,6 +2867,9 @@ func (c *AlexaForBusiness) SearchContacts(input *SearchContactsInput) (*SearchCo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) SearchContactsWithContext(ctx aws.Context, input *SearchContactsInput, opts ...request.Option) (*SearchContactsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).SearchContacts")
+	defer span.End()
+
 	req, out := c.SearchContactsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2900,6 +3000,9 @@ func (c *AlexaForBusiness) SearchDevices(input *SearchDevicesInput) (*SearchDevi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) SearchDevicesWithContext(ctx aws.Context, input *SearchDevicesInput, opts ...request.Option) (*SearchDevicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).SearchDevices")
+	defer span.End()
+
 	req, out := c.SearchDevicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3030,6 +3133,9 @@ func (c *AlexaForBusiness) SearchProfiles(input *SearchProfilesInput) (*SearchPr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) SearchProfilesWithContext(ctx aws.Context, input *SearchProfilesInput, opts ...request.Option) (*SearchProfilesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).SearchProfiles")
+	defer span.End()
+
 	req, out := c.SearchProfilesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3160,6 +3266,9 @@ func (c *AlexaForBusiness) SearchRooms(input *SearchRoomsInput) (*SearchRoomsOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) SearchRoomsWithContext(ctx aws.Context, input *SearchRoomsInput, opts ...request.Option) (*SearchRoomsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).SearchRooms")
+	defer span.End()
+
 	req, out := c.SearchRoomsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3291,6 +3400,9 @@ func (c *AlexaForBusiness) SearchSkillGroups(input *SearchSkillGroupsInput) (*Se
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) SearchSkillGroupsWithContext(ctx aws.Context, input *SearchSkillGroupsInput, opts ...request.Option) (*SearchSkillGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).SearchSkillGroups")
+	defer span.End()
+
 	req, out := c.SearchSkillGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3421,6 +3533,9 @@ func (c *AlexaForBusiness) SearchUsers(input *SearchUsersInput) (*SearchUsersOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) SearchUsersWithContext(ctx aws.Context, input *SearchUsersInput, opts ...request.Option) (*SearchUsersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).SearchUsers")
+	defer span.End()
+
 	req, out := c.SearchUsersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3555,6 +3670,9 @@ func (c *AlexaForBusiness) SendInvitation(input *SendInvitationInput) (*SendInvi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) SendInvitationWithContext(ctx aws.Context, input *SendInvitationInput, opts ...request.Option) (*SendInvitationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).SendInvitation")
+	defer span.End()
+
 	req, out := c.SendInvitationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3630,6 +3748,9 @@ func (c *AlexaForBusiness) StartDeviceSync(input *StartDeviceSyncInput) (*StartD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) StartDeviceSyncWithContext(ctx aws.Context, input *StartDeviceSyncInput, opts ...request.Option) (*StartDeviceSyncOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).StartDeviceSync")
+	defer span.End()
+
 	req, out := c.StartDeviceSyncRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3709,6 +3830,9 @@ func (c *AlexaForBusiness) TagResource(input *TagResourceInput) (*TagResourceOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).TagResource")
+	defer span.End()
+
 	req, out := c.TagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3788,6 +3912,9 @@ func (c *AlexaForBusiness) UntagResource(input *UntagResourceInput) (*UntagResou
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).UntagResource")
+	defer span.End()
+
 	req, out := c.UntagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3870,6 +3997,9 @@ func (c *AlexaForBusiness) UpdateAddressBook(input *UpdateAddressBookInput) (*Up
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) UpdateAddressBookWithContext(ctx aws.Context, input *UpdateAddressBookInput, opts ...request.Option) (*UpdateAddressBookOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).UpdateAddressBook")
+	defer span.End()
+
 	req, out := c.UpdateAddressBookRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3949,6 +4079,9 @@ func (c *AlexaForBusiness) UpdateContact(input *UpdateContactInput) (*UpdateCont
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) UpdateContactWithContext(ctx aws.Context, input *UpdateContactInput, opts ...request.Option) (*UpdateContactOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).UpdateContact")
+	defer span.End()
+
 	req, out := c.UpdateContactRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4028,6 +4161,9 @@ func (c *AlexaForBusiness) UpdateDevice(input *UpdateDeviceInput) (*UpdateDevice
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) UpdateDeviceWithContext(ctx aws.Context, input *UpdateDeviceInput, opts ...request.Option) (*UpdateDeviceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).UpdateDevice")
+	defer span.End()
+
 	req, out := c.UpdateDeviceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4110,6 +4246,9 @@ func (c *AlexaForBusiness) UpdateProfile(input *UpdateProfileInput) (*UpdateProf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) UpdateProfileWithContext(ctx aws.Context, input *UpdateProfileInput, opts ...request.Option) (*UpdateProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).UpdateProfile")
+	defer span.End()
+
 	req, out := c.UpdateProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4192,6 +4331,9 @@ func (c *AlexaForBusiness) UpdateRoom(input *UpdateRoomInput) (*UpdateRoomOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) UpdateRoomWithContext(ctx aws.Context, input *UpdateRoomInput, opts ...request.Option) (*UpdateRoomOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).UpdateRoom")
+	defer span.End()
+
 	req, out := c.UpdateRoomRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4274,6 +4416,9 @@ func (c *AlexaForBusiness) UpdateSkillGroup(input *UpdateSkillGroupInput) (*Upda
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AlexaForBusiness) UpdateSkillGroupWithContext(ctx aws.Context, input *UpdateSkillGroupInput, opts ...request.Option) (*UpdateSkillGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/alexaforbusiness.(*AlexaForBusiness).UpdateSkillGroup")
+	defer span.End()
+
 	req, out := c.UpdateSkillGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

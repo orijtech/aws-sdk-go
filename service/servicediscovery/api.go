@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opCreatePrivateDnsNamespace = "CreatePrivateDnsNamespace"
@@ -103,6 +104,9 @@ func (c *ServiceDiscovery) CreatePrivateDnsNamespace(input *CreatePrivateDnsName
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) CreatePrivateDnsNamespaceWithContext(ctx aws.Context, input *CreatePrivateDnsNamespaceInput, opts ...request.Option) (*CreatePrivateDnsNamespaceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).CreatePrivateDnsNamespace")
+	defer span.End()
+
 	req, out := c.CreatePrivateDnsNamespaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -199,6 +203,9 @@ func (c *ServiceDiscovery) CreatePublicDnsNamespace(input *CreatePublicDnsNamesp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) CreatePublicDnsNamespaceWithContext(ctx aws.Context, input *CreatePublicDnsNamespaceInput, opts ...request.Option) (*CreatePublicDnsNamespaceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).CreatePublicDnsNamespace")
+	defer span.End()
+
 	req, out := c.CreatePublicDnsNamespaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -303,6 +310,9 @@ func (c *ServiceDiscovery) CreateService(input *CreateServiceInput) (*CreateServ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) CreateServiceWithContext(ctx aws.Context, input *CreateServiceInput, opts ...request.Option) (*CreateServiceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).CreateService")
+	defer span.End()
+
 	req, out := c.CreateServiceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -394,6 +404,9 @@ func (c *ServiceDiscovery) DeleteNamespace(input *DeleteNamespaceInput) (*Delete
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) DeleteNamespaceWithContext(ctx aws.Context, input *DeleteNamespaceInput, opts ...request.Option) (*DeleteNamespaceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).DeleteNamespace")
+	defer span.End()
+
 	req, out := c.DeleteNamespaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -482,6 +495,9 @@ func (c *ServiceDiscovery) DeleteService(input *DeleteServiceInput) (*DeleteServ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) DeleteServiceWithContext(ctx aws.Context, input *DeleteServiceInput, opts ...request.Option) (*DeleteServiceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).DeleteService")
+	defer span.End()
+
 	req, out := c.DeleteServiceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -577,6 +593,9 @@ func (c *ServiceDiscovery) DeregisterInstance(input *DeregisterInstanceInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) DeregisterInstanceWithContext(ctx aws.Context, input *DeregisterInstanceInput, opts ...request.Option) (*DeregisterInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).DeregisterInstance")
+	defer span.End()
+
 	req, out := c.DeregisterInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -664,6 +683,9 @@ func (c *ServiceDiscovery) GetInstance(input *GetInstanceInput) (*GetInstanceOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) GetInstanceWithContext(ctx aws.Context, input *GetInstanceInput, opts ...request.Option) (*GetInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).GetInstance")
+	defer span.End()
+
 	req, out := c.GetInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -761,6 +783,9 @@ func (c *ServiceDiscovery) GetInstancesHealthStatus(input *GetInstancesHealthSta
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) GetInstancesHealthStatusWithContext(ctx aws.Context, input *GetInstancesHealthStatusInput, opts ...request.Option) (*GetInstancesHealthStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).GetInstancesHealthStatus")
+	defer span.End()
+
 	req, out := c.GetInstancesHealthStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -894,6 +919,9 @@ func (c *ServiceDiscovery) GetNamespace(input *GetNamespaceInput) (*GetNamespace
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) GetNamespaceWithContext(ctx aws.Context, input *GetNamespaceInput, opts ...request.Option) (*GetNamespaceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).GetNamespace")
+	defer span.End()
+
 	req, out := c.GetNamespaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -976,6 +1004,9 @@ func (c *ServiceDiscovery) GetOperation(input *GetOperationInput) (*GetOperation
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) GetOperationWithContext(ctx aws.Context, input *GetOperationInput, opts ...request.Option) (*GetOperationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).GetOperation")
+	defer span.End()
+
 	req, out := c.GetOperationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1059,6 +1090,9 @@ func (c *ServiceDiscovery) GetService(input *GetServiceInput) (*GetServiceOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) GetServiceWithContext(ctx aws.Context, input *GetServiceInput, opts ...request.Option) (*GetServiceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).GetService")
+	defer span.End()
+
 	req, out := c.GetServiceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1149,6 +1183,9 @@ func (c *ServiceDiscovery) ListInstances(input *ListInstancesInput) (*ListInstan
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) ListInstancesWithContext(ctx aws.Context, input *ListInstancesInput, opts ...request.Option) (*ListInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).ListInstances")
+	defer span.End()
+
 	req, out := c.ListInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1286,6 +1323,9 @@ func (c *ServiceDiscovery) ListNamespaces(input *ListNamespacesInput) (*ListName
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) ListNamespacesWithContext(ctx aws.Context, input *ListNamespacesInput, opts ...request.Option) (*ListNamespacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).ListNamespaces")
+	defer span.End()
+
 	req, out := c.ListNamespacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1422,6 +1462,9 @@ func (c *ServiceDiscovery) ListOperations(input *ListOperationsInput) (*ListOper
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) ListOperationsWithContext(ctx aws.Context, input *ListOperationsInput, opts ...request.Option) (*ListOperationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).ListOperations")
+	defer span.End()
+
 	req, out := c.ListOperationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1559,6 +1602,9 @@ func (c *ServiceDiscovery) ListServices(input *ListServicesInput) (*ListServices
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) ListServicesWithContext(ctx aws.Context, input *ListServicesInput, opts ...request.Option) (*ListServicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).ListServices")
+	defer span.End()
+
 	req, out := c.ListServicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1735,6 +1781,9 @@ func (c *ServiceDiscovery) RegisterInstance(input *RegisterInstanceInput) (*Regi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) RegisterInstanceWithContext(ctx aws.Context, input *RegisterInstanceInput, opts ...request.Option) (*RegisterInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).RegisterInstance")
+	defer span.End()
+
 	req, out := c.RegisterInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1824,6 +1873,9 @@ func (c *ServiceDiscovery) UpdateInstanceCustomHealthStatus(input *UpdateInstanc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) UpdateInstanceCustomHealthStatusWithContext(ctx aws.Context, input *UpdateInstanceCustomHealthStatusInput, opts ...request.Option) (*UpdateInstanceCustomHealthStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).UpdateInstanceCustomHealthStatus")
+	defer span.End()
+
 	req, out := c.UpdateInstanceCustomHealthStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1924,6 +1976,9 @@ func (c *ServiceDiscovery) UpdateService(input *UpdateServiceInput) (*UpdateServ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceDiscovery) UpdateServiceWithContext(ctx aws.Context, input *UpdateServiceInput, opts ...request.Option) (*UpdateServiceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicediscovery.(*ServiceDiscovery).UpdateService")
+	defer span.End()
+
 	req, out := c.UpdateServiceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

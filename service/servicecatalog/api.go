@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAcceptPortfolioShare = "AcceptPortfolioShare"
@@ -92,6 +93,9 @@ func (c *ServiceCatalog) AcceptPortfolioShare(input *AcceptPortfolioShareInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) AcceptPortfolioShareWithContext(ctx aws.Context, input *AcceptPortfolioShareInput, opts ...request.Option) (*AcceptPortfolioShareOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).AcceptPortfolioShare")
+	defer span.End()
+
 	req, out := c.AcceptPortfolioShareRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -179,6 +183,9 @@ func (c *ServiceCatalog) AssociatePrincipalWithPortfolio(input *AssociatePrincip
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) AssociatePrincipalWithPortfolioWithContext(ctx aws.Context, input *AssociatePrincipalWithPortfolioInput, opts ...request.Option) (*AssociatePrincipalWithPortfolioOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).AssociatePrincipalWithPortfolio")
+	defer span.End()
+
 	req, out := c.AssociatePrincipalWithPortfolioRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -266,6 +273,9 @@ func (c *ServiceCatalog) AssociateProductWithPortfolio(input *AssociateProductWi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) AssociateProductWithPortfolioWithContext(ctx aws.Context, input *AssociateProductWithPortfolioInput, opts ...request.Option) (*AssociateProductWithPortfolioOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).AssociateProductWithPortfolio")
+	defer span.End()
+
 	req, out := c.AssociateProductWithPortfolioRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -366,6 +376,9 @@ func (c *ServiceCatalog) AssociateTagOptionWithResource(input *AssociateTagOptio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) AssociateTagOptionWithResourceWithContext(ctx aws.Context, input *AssociateTagOptionWithResourceInput, opts ...request.Option) (*AssociateTagOptionWithResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).AssociateTagOptionWithResource")
+	defer span.End()
+
 	req, out := c.AssociateTagOptionWithResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -455,6 +468,9 @@ func (c *ServiceCatalog) CopyProduct(input *CopyProductInput) (*CopyProductOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) CopyProductWithContext(ctx aws.Context, input *CopyProductInput, opts ...request.Option) (*CopyProductOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).CopyProduct")
+	defer span.End()
+
 	req, out := c.CopyProductRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -545,6 +561,9 @@ func (c *ServiceCatalog) CreateConstraint(input *CreateConstraintInput) (*Create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) CreateConstraintWithContext(ctx aws.Context, input *CreateConstraintInput, opts ...request.Option) (*CreateConstraintOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).CreateConstraint")
+	defer span.End()
+
 	req, out := c.CreateConstraintRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -634,6 +653,9 @@ func (c *ServiceCatalog) CreatePortfolio(input *CreatePortfolioInput) (*CreatePo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) CreatePortfolioWithContext(ctx aws.Context, input *CreatePortfolioInput, opts ...request.Option) (*CreatePortfolioOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).CreatePortfolio")
+	defer span.End()
+
 	req, out := c.CreatePortfolioRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -721,6 +743,9 @@ func (c *ServiceCatalog) CreatePortfolioShare(input *CreatePortfolioShareInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) CreatePortfolioShareWithContext(ctx aws.Context, input *CreatePortfolioShareInput, opts ...request.Option) (*CreatePortfolioShareOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).CreatePortfolioShare")
+	defer span.End()
+
 	req, out := c.CreatePortfolioShareRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -810,6 +835,9 @@ func (c *ServiceCatalog) CreateProduct(input *CreateProductInput) (*CreateProduc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) CreateProductWithContext(ctx aws.Context, input *CreateProductInput, opts ...request.Option) (*CreateProductOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).CreateProduct")
+	defer span.End()
+
 	req, out := c.CreateProductRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -905,6 +933,9 @@ func (c *ServiceCatalog) CreateProvisionedProductPlan(input *CreateProvisionedPr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) CreateProvisionedProductPlanWithContext(ctx aws.Context, input *CreateProvisionedProductPlanInput, opts ...request.Option) (*CreateProvisionedProductPlanOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).CreateProvisionedProductPlan")
+	defer span.End()
+
 	req, out := c.CreateProvisionedProductPlanRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -996,6 +1027,9 @@ func (c *ServiceCatalog) CreateProvisioningArtifact(input *CreateProvisioningArt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) CreateProvisioningArtifactWithContext(ctx aws.Context, input *CreateProvisioningArtifactInput, opts ...request.Option) (*CreateProvisioningArtifactOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).CreateProvisioningArtifact")
+	defer span.End()
+
 	req, out := c.CreateProvisioningArtifactRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1085,6 +1119,9 @@ func (c *ServiceCatalog) CreateTagOption(input *CreateTagOptionInput) (*CreateTa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) CreateTagOptionWithContext(ctx aws.Context, input *CreateTagOptionInput, opts ...request.Option) (*CreateTagOptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).CreateTagOption")
+	defer span.End()
+
 	req, out := c.CreateTagOptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1167,6 +1204,9 @@ func (c *ServiceCatalog) DeleteConstraint(input *DeleteConstraintInput) (*Delete
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DeleteConstraintWithContext(ctx aws.Context, input *DeleteConstraintInput, opts ...request.Option) (*DeleteConstraintOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DeleteConstraint")
+	defer span.End()
+
 	req, out := c.DeleteConstraintRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1261,6 +1301,9 @@ func (c *ServiceCatalog) DeletePortfolio(input *DeletePortfolioInput) (*DeletePo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DeletePortfolioWithContext(ctx aws.Context, input *DeletePortfolioInput, opts ...request.Option) (*DeletePortfolioOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DeletePortfolio")
+	defer span.End()
+
 	req, out := c.DeletePortfolioRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1340,6 +1383,9 @@ func (c *ServiceCatalog) DeletePortfolioShare(input *DeletePortfolioShareInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DeletePortfolioShareWithContext(ctx aws.Context, input *DeletePortfolioShareInput, opts ...request.Option) (*DeletePortfolioShareOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DeletePortfolioShare")
+	defer span.End()
+
 	req, out := c.DeletePortfolioShareRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1434,6 +1480,9 @@ func (c *ServiceCatalog) DeleteProduct(input *DeleteProductInput) (*DeleteProduc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DeleteProductWithContext(ctx aws.Context, input *DeleteProductInput, opts ...request.Option) (*DeleteProductOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DeleteProduct")
+	defer span.End()
+
 	req, out := c.DeleteProductRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1516,6 +1565,9 @@ func (c *ServiceCatalog) DeleteProvisionedProductPlan(input *DeleteProvisionedPr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DeleteProvisionedProductPlanWithContext(ctx aws.Context, input *DeleteProvisionedProductPlanInput, opts ...request.Option) (*DeleteProvisionedProductPlanOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DeleteProvisionedProductPlan")
+	defer span.End()
+
 	req, out := c.DeleteProvisionedProductPlanRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1607,6 +1659,9 @@ func (c *ServiceCatalog) DeleteProvisioningArtifact(input *DeleteProvisioningArt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DeleteProvisioningArtifactWithContext(ctx aws.Context, input *DeleteProvisioningArtifactInput, opts ...request.Option) (*DeleteProvisioningArtifactOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DeleteProvisioningArtifact")
+	defer span.End()
+
 	req, out := c.DeleteProvisioningArtifactRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1697,6 +1752,9 @@ func (c *ServiceCatalog) DeleteTagOption(input *DeleteTagOptionInput) (*DeleteTa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DeleteTagOptionWithContext(ctx aws.Context, input *DeleteTagOptionInput, opts ...request.Option) (*DeleteTagOptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DeleteTagOption")
+	defer span.End()
+
 	req, out := c.DeleteTagOptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1776,6 +1834,9 @@ func (c *ServiceCatalog) DescribeConstraint(input *DescribeConstraintInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DescribeConstraintWithContext(ctx aws.Context, input *DescribeConstraintInput, opts ...request.Option) (*DescribeConstraintOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DescribeConstraint")
+	defer span.End()
+
 	req, out := c.DescribeConstraintRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1855,6 +1916,9 @@ func (c *ServiceCatalog) DescribeCopyProductStatus(input *DescribeCopyProductSta
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DescribeCopyProductStatusWithContext(ctx aws.Context, input *DescribeCopyProductStatusInput, opts ...request.Option) (*DescribeCopyProductStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DescribeCopyProductStatus")
+	defer span.End()
+
 	req, out := c.DescribeCopyProductStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1934,6 +1998,9 @@ func (c *ServiceCatalog) DescribePortfolio(input *DescribePortfolioInput) (*Desc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DescribePortfolioWithContext(ctx aws.Context, input *DescribePortfolioInput, opts ...request.Option) (*DescribePortfolioOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DescribePortfolio")
+	defer span.End()
+
 	req, out := c.DescribePortfolioRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2016,6 +2083,9 @@ func (c *ServiceCatalog) DescribeProduct(input *DescribeProductInput) (*Describe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DescribeProductWithContext(ctx aws.Context, input *DescribeProductInput, opts ...request.Option) (*DescribeProductOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DescribeProduct")
+	defer span.End()
+
 	req, out := c.DescribeProductRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2096,6 +2166,9 @@ func (c *ServiceCatalog) DescribeProductAsAdmin(input *DescribeProductAsAdminInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DescribeProductAsAdminWithContext(ctx aws.Context, input *DescribeProductAsAdminInput, opts ...request.Option) (*DescribeProductAsAdminOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DescribeProductAsAdmin")
+	defer span.End()
+
 	req, out := c.DescribeProductAsAdminRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2178,6 +2251,9 @@ func (c *ServiceCatalog) DescribeProductView(input *DescribeProductViewInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DescribeProductViewWithContext(ctx aws.Context, input *DescribeProductViewInput, opts ...request.Option) (*DescribeProductViewOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DescribeProductView")
+	defer span.End()
+
 	req, out := c.DescribeProductViewRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2257,6 +2333,9 @@ func (c *ServiceCatalog) DescribeProvisionedProduct(input *DescribeProvisionedPr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DescribeProvisionedProductWithContext(ctx aws.Context, input *DescribeProvisionedProductInput, opts ...request.Option) (*DescribeProvisionedProductOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DescribeProvisionedProduct")
+	defer span.End()
+
 	req, out := c.DescribeProvisionedProductRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2339,6 +2418,9 @@ func (c *ServiceCatalog) DescribeProvisionedProductPlan(input *DescribeProvision
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DescribeProvisionedProductPlanWithContext(ctx aws.Context, input *DescribeProvisionedProductPlanInput, opts ...request.Option) (*DescribeProvisionedProductPlanOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DescribeProvisionedProductPlan")
+	defer span.End()
+
 	req, out := c.DescribeProvisionedProductPlanRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2419,6 +2501,9 @@ func (c *ServiceCatalog) DescribeProvisioningArtifact(input *DescribeProvisionin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DescribeProvisioningArtifactWithContext(ctx aws.Context, input *DescribeProvisioningArtifactInput, opts ...request.Option) (*DescribeProvisioningArtifactOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DescribeProvisioningArtifact")
+	defer span.End()
+
 	req, out := c.DescribeProvisioningArtifactRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2509,6 +2594,9 @@ func (c *ServiceCatalog) DescribeProvisioningParameters(input *DescribeProvision
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DescribeProvisioningParametersWithContext(ctx aws.Context, input *DescribeProvisioningParametersInput, opts ...request.Option) (*DescribeProvisioningParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DescribeProvisioningParameters")
+	defer span.End()
+
 	req, out := c.DescribeProvisioningParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2591,6 +2679,9 @@ func (c *ServiceCatalog) DescribeRecord(input *DescribeRecordInput) (*DescribeRe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DescribeRecordWithContext(ctx aws.Context, input *DescribeRecordInput, opts ...request.Option) (*DescribeRecordOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DescribeRecord")
+	defer span.End()
+
 	req, out := c.DescribeRecordRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2675,6 +2766,9 @@ func (c *ServiceCatalog) DescribeTagOption(input *DescribeTagOptionInput) (*Desc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DescribeTagOptionWithContext(ctx aws.Context, input *DescribeTagOptionInput, opts ...request.Option) (*DescribeTagOptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DescribeTagOption")
+	defer span.End()
+
 	req, out := c.DescribeTagOptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2757,6 +2851,9 @@ func (c *ServiceCatalog) DisassociatePrincipalFromPortfolio(input *DisassociateP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DisassociatePrincipalFromPortfolioWithContext(ctx aws.Context, input *DisassociatePrincipalFromPortfolioInput, opts ...request.Option) (*DisassociatePrincipalFromPortfolioOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DisassociatePrincipalFromPortfolio")
+	defer span.End()
+
 	req, out := c.DisassociatePrincipalFromPortfolioRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2843,6 +2940,9 @@ func (c *ServiceCatalog) DisassociateProductFromPortfolio(input *DisassociatePro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DisassociateProductFromPortfolioWithContext(ctx aws.Context, input *DisassociateProductFromPortfolioInput, opts ...request.Option) (*DisassociateProductFromPortfolioOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DisassociateProductFromPortfolio")
+	defer span.End()
+
 	req, out := c.DisassociateProductFromPortfolioRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2927,6 +3027,9 @@ func (c *ServiceCatalog) DisassociateTagOptionFromResource(input *DisassociateTa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) DisassociateTagOptionFromResourceWithContext(ctx aws.Context, input *DisassociateTagOptionFromResourceInput, opts ...request.Option) (*DisassociateTagOptionFromResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).DisassociateTagOptionFromResource")
+	defer span.End()
+
 	req, out := c.DisassociateTagOptionFromResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3015,6 +3118,9 @@ func (c *ServiceCatalog) ExecuteProvisionedProductPlan(input *ExecuteProvisioned
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ExecuteProvisionedProductPlanWithContext(ctx aws.Context, input *ExecuteProvisionedProductPlanInput, opts ...request.Option) (*ExecuteProvisionedProductPlanOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ExecuteProvisionedProductPlan")
+	defer span.End()
+
 	req, out := c.ExecuteProvisionedProductPlanRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3100,6 +3206,9 @@ func (c *ServiceCatalog) ListAcceptedPortfolioShares(input *ListAcceptedPortfoli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ListAcceptedPortfolioSharesWithContext(ctx aws.Context, input *ListAcceptedPortfolioSharesInput, opts ...request.Option) (*ListAcceptedPortfolioSharesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ListAcceptedPortfolioShares")
+	defer span.End()
+
 	req, out := c.ListAcceptedPortfolioSharesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3238,6 +3347,9 @@ func (c *ServiceCatalog) ListConstraintsForPortfolio(input *ListConstraintsForPo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ListConstraintsForPortfolioWithContext(ctx aws.Context, input *ListConstraintsForPortfolioInput, opts ...request.Option) (*ListConstraintsForPortfolioOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ListConstraintsForPortfolio")
+	defer span.End()
+
 	req, out := c.ListConstraintsForPortfolioRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3378,6 +3490,9 @@ func (c *ServiceCatalog) ListLaunchPaths(input *ListLaunchPathsInput) (*ListLaun
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ListLaunchPathsWithContext(ctx aws.Context, input *ListLaunchPathsInput, opts ...request.Option) (*ListLaunchPathsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ListLaunchPaths")
+	defer span.End()
+
 	req, out := c.ListLaunchPathsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3507,6 +3622,9 @@ func (c *ServiceCatalog) ListPortfolioAccess(input *ListPortfolioAccessInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ListPortfolioAccessWithContext(ctx aws.Context, input *ListPortfolioAccessInput, opts ...request.Option) (*ListPortfolioAccessOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ListPortfolioAccess")
+	defer span.End()
+
 	req, out := c.ListPortfolioAccessRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3592,6 +3710,9 @@ func (c *ServiceCatalog) ListPortfolios(input *ListPortfoliosInput) (*ListPortfo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ListPortfoliosWithContext(ctx aws.Context, input *ListPortfoliosInput, opts ...request.Option) (*ListPortfoliosOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ListPortfolios")
+	defer span.End()
+
 	req, out := c.ListPortfoliosRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3730,6 +3851,9 @@ func (c *ServiceCatalog) ListPortfoliosForProduct(input *ListPortfoliosForProduc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ListPortfoliosForProductWithContext(ctx aws.Context, input *ListPortfoliosForProductInput, opts ...request.Option) (*ListPortfoliosForProductOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ListPortfoliosForProduct")
+	defer span.End()
+
 	req, out := c.ListPortfoliosForProductRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3868,6 +3992,9 @@ func (c *ServiceCatalog) ListPrincipalsForPortfolio(input *ListPrincipalsForPort
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ListPrincipalsForPortfolioWithContext(ctx aws.Context, input *ListPrincipalsForPortfolioInput, opts ...request.Option) (*ListPrincipalsForPortfolioOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ListPrincipalsForPortfolio")
+	defer span.End()
+
 	req, out := c.ListPrincipalsForPortfolioRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4001,6 +4128,9 @@ func (c *ServiceCatalog) ListProvisionedProductPlans(input *ListProvisionedProdu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ListProvisionedProductPlansWithContext(ctx aws.Context, input *ListProvisionedProductPlansInput, opts ...request.Option) (*ListProvisionedProductPlansOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ListProvisionedProductPlans")
+	defer span.End()
+
 	req, out := c.ListProvisionedProductPlansRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4084,6 +4214,9 @@ func (c *ServiceCatalog) ListProvisioningArtifacts(input *ListProvisioningArtifa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ListProvisioningArtifactsWithContext(ctx aws.Context, input *ListProvisioningArtifactsInput, opts ...request.Option) (*ListProvisioningArtifactsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ListProvisioningArtifacts")
+	defer span.End()
+
 	req, out := c.ListProvisioningArtifactsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4163,6 +4296,9 @@ func (c *ServiceCatalog) ListRecordHistory(input *ListRecordHistoryInput) (*List
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ListRecordHistoryWithContext(ctx aws.Context, input *ListRecordHistoryInput, opts ...request.Option) (*ListRecordHistoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ListRecordHistory")
+	defer span.End()
+
 	req, out := c.ListRecordHistoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4256,6 +4392,9 @@ func (c *ServiceCatalog) ListResourcesForTagOption(input *ListResourcesForTagOpt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ListResourcesForTagOptionWithContext(ctx aws.Context, input *ListResourcesForTagOptionInput, opts ...request.Option) (*ListResourcesForTagOptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ListResourcesForTagOption")
+	defer span.End()
+
 	req, out := c.ListResourcesForTagOptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4396,6 +4535,9 @@ func (c *ServiceCatalog) ListTagOptions(input *ListTagOptionsInput) (*ListTagOpt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ListTagOptionsWithContext(ctx aws.Context, input *ListTagOptionsInput, opts ...request.Option) (*ListTagOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ListTagOptions")
+	defer span.End()
+
 	req, out := c.ListTagOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4541,6 +4683,9 @@ func (c *ServiceCatalog) ProvisionProduct(input *ProvisionProductInput) (*Provis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ProvisionProductWithContext(ctx aws.Context, input *ProvisionProductInput, opts ...request.Option) (*ProvisionProductOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ProvisionProduct")
+	defer span.End()
+
 	req, out := c.ProvisionProductRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4620,6 +4765,9 @@ func (c *ServiceCatalog) RejectPortfolioShare(input *RejectPortfolioShareInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) RejectPortfolioShareWithContext(ctx aws.Context, input *RejectPortfolioShareInput, opts ...request.Option) (*RejectPortfolioShareOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).RejectPortfolioShare")
+	defer span.End()
+
 	req, out := c.RejectPortfolioShareRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4701,6 +4849,9 @@ func (c *ServiceCatalog) ScanProvisionedProducts(input *ScanProvisionedProductsI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) ScanProvisionedProductsWithContext(ctx aws.Context, input *ScanProvisionedProductsInput, opts ...request.Option) (*ScanProvisionedProductsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).ScanProvisionedProducts")
+	defer span.End()
+
 	req, out := c.ScanProvisionedProductsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4786,6 +4937,9 @@ func (c *ServiceCatalog) SearchProducts(input *SearchProductsInput) (*SearchProd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) SearchProductsWithContext(ctx aws.Context, input *SearchProductsInput, opts ...request.Option) (*SearchProductsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).SearchProducts")
+	defer span.End()
+
 	req, out := c.SearchProductsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4924,6 +5078,9 @@ func (c *ServiceCatalog) SearchProductsAsAdmin(input *SearchProductsAsAdminInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) SearchProductsAsAdminWithContext(ctx aws.Context, input *SearchProductsAsAdminInput, opts ...request.Option) (*SearchProductsAsAdminOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).SearchProductsAsAdmin")
+	defer span.End()
+
 	req, out := c.SearchProductsAsAdminRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5059,6 +5216,9 @@ func (c *ServiceCatalog) SearchProvisionedProducts(input *SearchProvisionedProdu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) SearchProvisionedProductsWithContext(ctx aws.Context, input *SearchProvisionedProductsInput, opts ...request.Option) (*SearchProvisionedProductsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).SearchProvisionedProducts")
+	defer span.End()
+
 	req, out := c.SearchProvisionedProductsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5193,6 +5353,9 @@ func (c *ServiceCatalog) TerminateProvisionedProduct(input *TerminateProvisioned
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) TerminateProvisionedProductWithContext(ctx aws.Context, input *TerminateProvisionedProductInput, opts ...request.Option) (*TerminateProvisionedProductOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).TerminateProvisionedProduct")
+	defer span.End()
+
 	req, out := c.TerminateProvisionedProductRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5275,6 +5438,9 @@ func (c *ServiceCatalog) UpdateConstraint(input *UpdateConstraintInput) (*Update
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) UpdateConstraintWithContext(ctx aws.Context, input *UpdateConstraintInput, opts ...request.Option) (*UpdateConstraintOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).UpdateConstraint")
+	defer span.End()
+
 	req, out := c.UpdateConstraintRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5369,6 +5535,9 @@ func (c *ServiceCatalog) UpdatePortfolio(input *UpdatePortfolioInput) (*UpdatePo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) UpdatePortfolioWithContext(ctx aws.Context, input *UpdatePortfolioInput, opts ...request.Option) (*UpdatePortfolioOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).UpdatePortfolio")
+	defer span.End()
+
 	req, out := c.UpdatePortfolioRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5456,6 +5625,9 @@ func (c *ServiceCatalog) UpdateProduct(input *UpdateProductInput) (*UpdateProduc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) UpdateProductWithContext(ctx aws.Context, input *UpdateProductInput, opts ...request.Option) (*UpdateProductOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).UpdateProduct")
+	defer span.End()
+
 	req, out := c.UpdateProductRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5545,6 +5717,9 @@ func (c *ServiceCatalog) UpdateProvisionedProduct(input *UpdateProvisionedProduc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) UpdateProvisionedProductWithContext(ctx aws.Context, input *UpdateProvisionedProductInput, opts ...request.Option) (*UpdateProvisionedProductOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).UpdateProvisionedProduct")
+	defer span.End()
+
 	req, out := c.UpdateProvisionedProductRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5631,6 +5806,9 @@ func (c *ServiceCatalog) UpdateProvisioningArtifact(input *UpdateProvisioningArt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) UpdateProvisioningArtifactWithContext(ctx aws.Context, input *UpdateProvisioningArtifactInput, opts ...request.Option) (*UpdateProvisioningArtifactOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).UpdateProvisioningArtifact")
+	defer span.End()
+
 	req, out := c.UpdateProvisioningArtifactRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5721,6 +5899,9 @@ func (c *ServiceCatalog) UpdateTagOption(input *UpdateTagOptionInput) (*UpdateTa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServiceCatalog) UpdateTagOptionWithContext(ctx aws.Context, input *UpdateTagOptionInput, opts ...request.Option) (*UpdateTagOptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/servicecatalog.(*ServiceCatalog).UpdateTagOption")
+	defer span.End()
+
 	req, out := c.UpdateTagOptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

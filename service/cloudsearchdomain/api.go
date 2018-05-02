@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opSearch = "Search"
@@ -100,6 +101,9 @@ func (c *CloudSearchDomain) Search(input *SearchInput) (*SearchOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearchDomain) SearchWithContext(ctx aws.Context, input *SearchInput, opts ...request.Option) (*SearchOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearchdomain.(*CloudSearchDomain).Search")
+	defer span.End()
+
 	req, out := c.SearchRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -192,6 +196,9 @@ func (c *CloudSearchDomain) Suggest(input *SuggestInput) (*SuggestOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearchDomain) SuggestWithContext(ctx aws.Context, input *SuggestInput, opts ...request.Option) (*SuggestOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearchdomain.(*CloudSearchDomain).Suggest")
+	defer span.End()
+
 	req, out := c.SuggestRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -289,6 +296,9 @@ func (c *CloudSearchDomain) UploadDocuments(input *UploadDocumentsInput) (*Uploa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudSearchDomain) UploadDocumentsWithContext(ctx aws.Context, input *UploadDocumentsInput, opts ...request.Option) (*UploadDocumentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudsearchdomain.(*CloudSearchDomain).UploadDocuments")
+	defer span.End()
+
 	req, out := c.UploadDocumentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

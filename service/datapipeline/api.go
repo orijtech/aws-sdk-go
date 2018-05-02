@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opActivatePipeline = "ActivatePipeline"
@@ -105,6 +106,9 @@ func (c *DataPipeline) ActivatePipeline(input *ActivatePipelineInput) (*Activate
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) ActivatePipelineWithContext(ctx aws.Context, input *ActivatePipelineInput, opts ...request.Option) (*ActivatePipelineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).ActivatePipeline")
+	defer span.End()
+
 	req, out := c.ActivatePipelineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -196,6 +200,9 @@ func (c *DataPipeline) AddTags(input *AddTagsInput) (*AddTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) AddTagsWithContext(ctx aws.Context, input *AddTagsInput, opts ...request.Option) (*AddTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).AddTags")
+	defer span.End()
+
 	req, out := c.AddTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -281,6 +288,9 @@ func (c *DataPipeline) CreatePipeline(input *CreatePipelineInput) (*CreatePipeli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) CreatePipelineWithContext(ctx aws.Context, input *CreatePipelineInput, opts ...request.Option) (*CreatePipelineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).CreatePipeline")
+	defer span.End()
+
 	req, out := c.CreatePipelineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -377,6 +387,9 @@ func (c *DataPipeline) DeactivatePipeline(input *DeactivatePipelineInput) (*Deac
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) DeactivatePipelineWithContext(ctx aws.Context, input *DeactivatePipelineInput, opts ...request.Option) (*DeactivatePipelineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).DeactivatePipeline")
+	defer span.End()
+
 	req, out := c.DeactivatePipelineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -474,6 +487,9 @@ func (c *DataPipeline) DeletePipeline(input *DeletePipelineInput) (*DeletePipeli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) DeletePipelineWithContext(ctx aws.Context, input *DeletePipelineInput, opts ...request.Option) (*DeletePipelineOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).DeletePipeline")
+	defer span.End()
+
 	req, out := c.DeletePipelineRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -573,6 +589,9 @@ func (c *DataPipeline) DescribeObjects(input *DescribeObjectsInput) (*DescribeOb
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) DescribeObjectsWithContext(ctx aws.Context, input *DescribeObjectsInput, opts ...request.Option) (*DescribeObjectsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).DescribeObjects")
+	defer span.End()
+
 	req, out := c.DescribeObjectsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -722,6 +741,9 @@ func (c *DataPipeline) DescribePipelines(input *DescribePipelinesInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) DescribePipelinesWithContext(ctx aws.Context, input *DescribePipelinesInput, opts ...request.Option) (*DescribePipelinesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).DescribePipelines")
+	defer span.End()
+
 	req, out := c.DescribePipelinesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -818,6 +840,9 @@ func (c *DataPipeline) EvaluateExpression(input *EvaluateExpressionInput) (*Eval
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) EvaluateExpressionWithContext(ctx aws.Context, input *EvaluateExpressionInput, opts ...request.Option) (*EvaluateExpressionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).EvaluateExpression")
+	defer span.End()
+
 	req, out := c.EvaluateExpressionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -910,6 +935,9 @@ func (c *DataPipeline) GetPipelineDefinition(input *GetPipelineDefinitionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) GetPipelineDefinitionWithContext(ctx aws.Context, input *GetPipelineDefinitionInput, opts ...request.Option) (*GetPipelineDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).GetPipelineDefinition")
+	defer span.End()
+
 	req, out := c.GetPipelineDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1001,6 +1029,9 @@ func (c *DataPipeline) ListPipelines(input *ListPipelinesInput) (*ListPipelinesO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) ListPipelinesWithContext(ctx aws.Context, input *ListPipelinesInput, opts ...request.Option) (*ListPipelinesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).ListPipelines")
+	defer span.End()
+
 	req, out := c.ListPipelinesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1151,6 +1182,9 @@ func (c *DataPipeline) PollForTask(input *PollForTaskInput) (*PollForTaskOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) PollForTaskWithContext(ctx aws.Context, input *PollForTaskInput, opts ...request.Option) (*PollForTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).PollForTask")
+	defer span.End()
+
 	req, out := c.PollForTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1255,6 +1289,9 @@ func (c *DataPipeline) PutPipelineDefinition(input *PutPipelineDefinitionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) PutPipelineDefinitionWithContext(ctx aws.Context, input *PutPipelineDefinitionInput, opts ...request.Option) (*PutPipelineDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).PutPipelineDefinition")
+	defer span.End()
+
 	req, out := c.PutPipelineDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1353,6 +1390,9 @@ func (c *DataPipeline) QueryObjects(input *QueryObjectsInput) (*QueryObjectsOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) QueryObjectsWithContext(ctx aws.Context, input *QueryObjectsInput, opts ...request.Option) (*QueryObjectsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).QueryObjects")
+	defer span.End()
+
 	req, out := c.QueryObjectsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1494,6 +1534,9 @@ func (c *DataPipeline) RemoveTags(input *RemoveTagsInput) (*RemoveTagsOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) RemoveTagsWithContext(ctx aws.Context, input *RemoveTagsInput, opts ...request.Option) (*RemoveTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).RemoveTags")
+	defer span.End()
+
 	req, out := c.RemoveTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1599,6 +1642,9 @@ func (c *DataPipeline) ReportTaskProgress(input *ReportTaskProgressInput) (*Repo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) ReportTaskProgressWithContext(ctx aws.Context, input *ReportTaskProgressInput, opts ...request.Option) (*ReportTaskProgressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).ReportTaskProgress")
+	defer span.End()
+
 	req, out := c.ReportTaskProgressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1687,6 +1733,9 @@ func (c *DataPipeline) ReportTaskRunnerHeartbeat(input *ReportTaskRunnerHeartbea
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) ReportTaskRunnerHeartbeatWithContext(ctx aws.Context, input *ReportTaskRunnerHeartbeatInput, opts ...request.Option) (*ReportTaskRunnerHeartbeatOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).ReportTaskRunnerHeartbeat")
+	defer span.End()
+
 	req, out := c.ReportTaskRunnerHeartbeatRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1784,6 +1833,9 @@ func (c *DataPipeline) SetStatus(input *SetStatusInput) (*SetStatusOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) SetStatusWithContext(ctx aws.Context, input *SetStatusInput, opts ...request.Option) (*SetStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).SetStatus")
+	defer span.End()
+
 	req, out := c.SetStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1882,6 +1934,9 @@ func (c *DataPipeline) SetTaskStatus(input *SetTaskStatusInput) (*SetTaskStatusO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) SetTaskStatusWithContext(ctx aws.Context, input *SetTaskStatusInput, opts ...request.Option) (*SetTaskStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).SetTaskStatus")
+	defer span.End()
+
 	req, out := c.SetTaskStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1974,6 +2029,9 @@ func (c *DataPipeline) ValidatePipelineDefinition(input *ValidatePipelineDefinit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DataPipeline) ValidatePipelineDefinitionWithContext(ctx aws.Context, input *ValidatePipelineDefinitionInput, opts ...request.Option) (*ValidatePipelineDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/datapipeline.(*DataPipeline).ValidatePipelineDefinition")
+	defer span.End()
+
 	req, out := c.ValidatePipelineDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/query"
+	"go.opencensus.io/trace"
 )
 
 const opAbortEnvironmentUpdate = "AbortEnvironmentUpdate"
@@ -90,6 +91,9 @@ func (c *ElasticBeanstalk) AbortEnvironmentUpdate(input *AbortEnvironmentUpdateI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) AbortEnvironmentUpdateWithContext(ctx aws.Context, input *AbortEnvironmentUpdateInput, opts ...request.Option) (*AbortEnvironmentUpdateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).AbortEnvironmentUpdate")
+	defer span.End()
+
 	req, out := c.AbortEnvironmentUpdateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -174,6 +178,9 @@ func (c *ElasticBeanstalk) ApplyEnvironmentManagedAction(input *ApplyEnvironment
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) ApplyEnvironmentManagedActionWithContext(ctx aws.Context, input *ApplyEnvironmentManagedActionInput, opts ...request.Option) (*ApplyEnvironmentManagedActionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).ApplyEnvironmentManagedAction")
+	defer span.End()
+
 	req, out := c.ApplyEnvironmentManagedActionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -248,6 +255,9 @@ func (c *ElasticBeanstalk) CheckDNSAvailability(input *CheckDNSAvailabilityInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) CheckDNSAvailabilityWithContext(ctx aws.Context, input *CheckDNSAvailabilityInput, opts ...request.Option) (*CheckDNSAvailabilityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).CheckDNSAvailability")
+	defer span.End()
+
 	req, out := c.CheckDNSAvailabilityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -337,6 +347,9 @@ func (c *ElasticBeanstalk) ComposeEnvironments(input *ComposeEnvironmentsInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) ComposeEnvironmentsWithContext(ctx aws.Context, input *ComposeEnvironmentsInput, opts ...request.Option) (*EnvironmentDescriptionsMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).ComposeEnvironments")
+	defer span.End()
+
 	req, out := c.ComposeEnvironmentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -417,6 +430,9 @@ func (c *ElasticBeanstalk) CreateApplication(input *CreateApplicationInput) (*Ap
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) CreateApplicationWithContext(ctx aws.Context, input *CreateApplicationInput, opts ...request.Option) (*ApplicationDescriptionMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).CreateApplication")
+	defer span.End()
+
 	req, out := c.CreateApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -532,6 +548,9 @@ func (c *ElasticBeanstalk) CreateApplicationVersion(input *CreateApplicationVers
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) CreateApplicationVersionWithContext(ctx aws.Context, input *CreateApplicationVersionInput, opts ...request.Option) (*ApplicationVersionDescriptionMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).CreateApplicationVersion")
+	defer span.End()
+
 	req, out := c.CreateApplicationVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -628,6 +647,9 @@ func (c *ElasticBeanstalk) CreateConfigurationTemplate(input *CreateConfiguratio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) CreateConfigurationTemplateWithContext(ctx aws.Context, input *CreateConfigurationTemplateInput, opts ...request.Option) (*ConfigurationSettingsDescription, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).CreateConfigurationTemplate")
+	defer span.End()
+
 	req, out := c.CreateConfigurationTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -712,6 +734,9 @@ func (c *ElasticBeanstalk) CreateEnvironment(input *CreateEnvironmentInput) (*En
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) CreateEnvironmentWithContext(ctx aws.Context, input *CreateEnvironmentInput, opts ...request.Option) (*EnvironmentDescription, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).CreateEnvironment")
+	defer span.End()
+
 	req, out := c.CreateEnvironmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -799,6 +824,9 @@ func (c *ElasticBeanstalk) CreatePlatformVersion(input *CreatePlatformVersionInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) CreatePlatformVersionWithContext(ctx aws.Context, input *CreatePlatformVersionInput, opts ...request.Option) (*CreatePlatformVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).CreatePlatformVersion")
+	defer span.End()
+
 	req, out := c.CreatePlatformVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -889,6 +917,9 @@ func (c *ElasticBeanstalk) CreateStorageLocation(input *CreateStorageLocationInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) CreateStorageLocationWithContext(ctx aws.Context, input *CreateStorageLocationInput, opts ...request.Option) (*CreateStorageLocationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).CreateStorageLocation")
+	defer span.End()
+
 	req, out := c.CreateStorageLocationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -975,6 +1006,9 @@ func (c *ElasticBeanstalk) DeleteApplication(input *DeleteApplicationInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DeleteApplicationWithContext(ctx aws.Context, input *DeleteApplicationInput, opts ...request.Option) (*DeleteApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DeleteApplication")
+	defer span.End()
+
 	req, out := c.DeleteApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1078,6 +1112,9 @@ func (c *ElasticBeanstalk) DeleteApplicationVersion(input *DeleteApplicationVers
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DeleteApplicationVersionWithContext(ctx aws.Context, input *DeleteApplicationVersionInput, opts ...request.Option) (*DeleteApplicationVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DeleteApplicationVersion")
+	defer span.End()
+
 	req, out := c.DeleteApplicationVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1164,6 +1201,9 @@ func (c *ElasticBeanstalk) DeleteConfigurationTemplate(input *DeleteConfiguratio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DeleteConfigurationTemplateWithContext(ctx aws.Context, input *DeleteConfigurationTemplateInput, opts ...request.Option) (*DeleteConfigurationTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DeleteConfigurationTemplate")
+	defer span.End()
+
 	req, out := c.DeleteConfigurationTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1247,6 +1287,9 @@ func (c *ElasticBeanstalk) DeleteEnvironmentConfiguration(input *DeleteEnvironme
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DeleteEnvironmentConfigurationWithContext(ctx aws.Context, input *DeleteEnvironmentConfigurationInput, opts ...request.Option) (*DeleteEnvironmentConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DeleteEnvironmentConfiguration")
+	defer span.End()
+
 	req, out := c.DeleteEnvironmentConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1338,6 +1381,9 @@ func (c *ElasticBeanstalk) DeletePlatformVersion(input *DeletePlatformVersionInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DeletePlatformVersionWithContext(ctx aws.Context, input *DeletePlatformVersionInput, opts ...request.Option) (*DeletePlatformVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DeletePlatformVersion")
+	defer span.End()
+
 	req, out := c.DeletePlatformVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1421,6 +1467,9 @@ func (c *ElasticBeanstalk) DescribeAccountAttributes(input *DescribeAccountAttri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DescribeAccountAttributesWithContext(ctx aws.Context, input *DescribeAccountAttributesInput, opts ...request.Option) (*DescribeAccountAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DescribeAccountAttributes")
+	defer span.End()
+
 	req, out := c.DescribeAccountAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1495,6 +1544,9 @@ func (c *ElasticBeanstalk) DescribeApplicationVersions(input *DescribeApplicatio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DescribeApplicationVersionsWithContext(ctx aws.Context, input *DescribeApplicationVersionsInput, opts ...request.Option) (*DescribeApplicationVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DescribeApplicationVersions")
+	defer span.End()
+
 	req, out := c.DescribeApplicationVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1569,6 +1621,9 @@ func (c *ElasticBeanstalk) DescribeApplications(input *DescribeApplicationsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DescribeApplicationsWithContext(ctx aws.Context, input *DescribeApplicationsInput, opts ...request.Option) (*DescribeApplicationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DescribeApplications")
+	defer span.End()
+
 	req, out := c.DescribeApplicationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1652,6 +1707,9 @@ func (c *ElasticBeanstalk) DescribeConfigurationOptions(input *DescribeConfigura
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DescribeConfigurationOptionsWithContext(ctx aws.Context, input *DescribeConfigurationOptionsInput, opts ...request.Option) (*DescribeConfigurationOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DescribeConfigurationOptions")
+	defer span.End()
+
 	req, out := c.DescribeConfigurationOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1743,6 +1801,9 @@ func (c *ElasticBeanstalk) DescribeConfigurationSettings(input *DescribeConfigur
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DescribeConfigurationSettingsWithContext(ctx aws.Context, input *DescribeConfigurationSettingsInput, opts ...request.Option) (*DescribeConfigurationSettingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DescribeConfigurationSettings")
+	defer span.End()
+
 	req, out := c.DescribeConfigurationSettingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1828,6 +1889,9 @@ func (c *ElasticBeanstalk) DescribeEnvironmentHealth(input *DescribeEnvironmentH
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DescribeEnvironmentHealthWithContext(ctx aws.Context, input *DescribeEnvironmentHealthInput, opts ...request.Option) (*DescribeEnvironmentHealthOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DescribeEnvironmentHealth")
+	defer span.End()
+
 	req, out := c.DescribeEnvironmentHealthRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1907,6 +1971,9 @@ func (c *ElasticBeanstalk) DescribeEnvironmentManagedActionHistory(input *Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DescribeEnvironmentManagedActionHistoryWithContext(ctx aws.Context, input *DescribeEnvironmentManagedActionHistoryInput, opts ...request.Option) (*DescribeEnvironmentManagedActionHistoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DescribeEnvironmentManagedActionHistory")
+	defer span.End()
+
 	req, out := c.DescribeEnvironmentManagedActionHistoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1986,6 +2053,9 @@ func (c *ElasticBeanstalk) DescribeEnvironmentManagedActions(input *DescribeEnvi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DescribeEnvironmentManagedActionsWithContext(ctx aws.Context, input *DescribeEnvironmentManagedActionsInput, opts ...request.Option) (*DescribeEnvironmentManagedActionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DescribeEnvironmentManagedActions")
+	defer span.End()
+
 	req, out := c.DescribeEnvironmentManagedActionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2066,6 +2136,9 @@ func (c *ElasticBeanstalk) DescribeEnvironmentResources(input *DescribeEnvironme
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DescribeEnvironmentResourcesWithContext(ctx aws.Context, input *DescribeEnvironmentResourcesInput, opts ...request.Option) (*DescribeEnvironmentResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DescribeEnvironmentResources")
+	defer span.End()
+
 	req, out := c.DescribeEnvironmentResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2140,6 +2213,9 @@ func (c *ElasticBeanstalk) DescribeEnvironments(input *DescribeEnvironmentsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DescribeEnvironmentsWithContext(ctx aws.Context, input *DescribeEnvironmentsInput, opts ...request.Option) (*EnvironmentDescriptionsMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DescribeEnvironments")
+	defer span.End()
+
 	req, out := c.DescribeEnvironmentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2222,6 +2298,9 @@ func (c *ElasticBeanstalk) DescribeEvents(input *DescribeEventsInput) (*Describe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DescribeEventsWithContext(ctx aws.Context, input *DescribeEventsInput, opts ...request.Option) (*DescribeEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DescribeEvents")
+	defer span.End()
+
 	req, out := c.DescribeEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2356,6 +2435,9 @@ func (c *ElasticBeanstalk) DescribeInstancesHealth(input *DescribeInstancesHealt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DescribeInstancesHealthWithContext(ctx aws.Context, input *DescribeInstancesHealthInput, opts ...request.Option) (*DescribeInstancesHealthOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DescribeInstancesHealth")
+	defer span.End()
+
 	req, out := c.DescribeInstancesHealthRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2439,6 +2521,9 @@ func (c *ElasticBeanstalk) DescribePlatformVersion(input *DescribePlatformVersio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) DescribePlatformVersionWithContext(ctx aws.Context, input *DescribePlatformVersionInput, opts ...request.Option) (*DescribePlatformVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).DescribePlatformVersion")
+	defer span.End()
+
 	req, out := c.DescribePlatformVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2514,6 +2599,9 @@ func (c *ElasticBeanstalk) ListAvailableSolutionStacks(input *ListAvailableSolut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) ListAvailableSolutionStacksWithContext(ctx aws.Context, input *ListAvailableSolutionStacksInput, opts ...request.Option) (*ListAvailableSolutionStacksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).ListAvailableSolutionStacks")
+	defer span.End()
+
 	req, out := c.ListAvailableSolutionStacksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2597,6 +2685,9 @@ func (c *ElasticBeanstalk) ListPlatformVersions(input *ListPlatformVersionsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) ListPlatformVersionsWithContext(ctx aws.Context, input *ListPlatformVersionsInput, opts ...request.Option) (*ListPlatformVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).ListPlatformVersions")
+	defer span.End()
+
 	req, out := c.ListPlatformVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2689,6 +2780,9 @@ func (c *ElasticBeanstalk) ListTagsForResource(input *ListTagsForResourceInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*ListTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).ListTagsForResource")
+	defer span.End()
+
 	req, out := c.ListTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2772,6 +2866,9 @@ func (c *ElasticBeanstalk) RebuildEnvironment(input *RebuildEnvironmentInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) RebuildEnvironmentWithContext(ctx aws.Context, input *RebuildEnvironmentInput, opts ...request.Option) (*RebuildEnvironmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).RebuildEnvironment")
+	defer span.End()
+
 	req, out := c.RebuildEnvironmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2862,6 +2959,9 @@ func (c *ElasticBeanstalk) RequestEnvironmentInfo(input *RequestEnvironmentInfoI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) RequestEnvironmentInfoWithContext(ctx aws.Context, input *RequestEnvironmentInfoInput, opts ...request.Option) (*RequestEnvironmentInfoOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).RequestEnvironmentInfo")
+	defer span.End()
+
 	req, out := c.RequestEnvironmentInfoRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2939,6 +3039,9 @@ func (c *ElasticBeanstalk) RestartAppServer(input *RestartAppServerInput) (*Rest
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) RestartAppServerWithContext(ctx aws.Context, input *RestartAppServerInput, opts ...request.Option) (*RestartAppServerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).RestartAppServer")
+	defer span.End()
+
 	req, out := c.RestartAppServerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3017,6 +3120,9 @@ func (c *ElasticBeanstalk) RetrieveEnvironmentInfo(input *RetrieveEnvironmentInf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) RetrieveEnvironmentInfoWithContext(ctx aws.Context, input *RetrieveEnvironmentInfoInput, opts ...request.Option) (*RetrieveEnvironmentInfoOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).RetrieveEnvironmentInfo")
+	defer span.End()
+
 	req, out := c.RetrieveEnvironmentInfoRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3093,6 +3199,9 @@ func (c *ElasticBeanstalk) SwapEnvironmentCNAMEs(input *SwapEnvironmentCNAMEsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) SwapEnvironmentCNAMEsWithContext(ctx aws.Context, input *SwapEnvironmentCNAMEsInput, opts ...request.Option) (*SwapEnvironmentCNAMEsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).SwapEnvironmentCNAMEs")
+	defer span.End()
+
 	req, out := c.SwapEnvironmentCNAMEsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3173,6 +3282,9 @@ func (c *ElasticBeanstalk) TerminateEnvironment(input *TerminateEnvironmentInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) TerminateEnvironmentWithContext(ctx aws.Context, input *TerminateEnvironmentInput, opts ...request.Option) (*EnvironmentDescription, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).TerminateEnvironment")
+	defer span.End()
+
 	req, out := c.TerminateEnvironmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3250,6 +3362,9 @@ func (c *ElasticBeanstalk) UpdateApplication(input *UpdateApplicationInput) (*Ap
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) UpdateApplicationWithContext(ctx aws.Context, input *UpdateApplicationInput, opts ...request.Option) (*ApplicationDescriptionMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).UpdateApplication")
+	defer span.End()
+
 	req, out := c.UpdateApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3330,6 +3445,9 @@ func (c *ElasticBeanstalk) UpdateApplicationResourceLifecycle(input *UpdateAppli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) UpdateApplicationResourceLifecycleWithContext(ctx aws.Context, input *UpdateApplicationResourceLifecycleInput, opts ...request.Option) (*UpdateApplicationResourceLifecycleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).UpdateApplicationResourceLifecycle")
+	defer span.End()
+
 	req, out := c.UpdateApplicationResourceLifecycleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3407,6 +3525,9 @@ func (c *ElasticBeanstalk) UpdateApplicationVersion(input *UpdateApplicationVers
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) UpdateApplicationVersionWithContext(ctx aws.Context, input *UpdateApplicationVersionInput, opts ...request.Option) (*ApplicationVersionDescriptionMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).UpdateApplicationVersion")
+	defer span.End()
+
 	req, out := c.UpdateApplicationVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3498,6 +3619,9 @@ func (c *ElasticBeanstalk) UpdateConfigurationTemplate(input *UpdateConfiguratio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) UpdateConfigurationTemplateWithContext(ctx aws.Context, input *UpdateConfigurationTemplateInput, opts ...request.Option) (*ConfigurationSettingsDescription, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).UpdateConfigurationTemplate")
+	defer span.End()
+
 	req, out := c.UpdateConfigurationTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3591,6 +3715,9 @@ func (c *ElasticBeanstalk) UpdateEnvironment(input *UpdateEnvironmentInput) (*En
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) UpdateEnvironmentWithContext(ctx aws.Context, input *UpdateEnvironmentInput, opts ...request.Option) (*EnvironmentDescription, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).UpdateEnvironment")
+	defer span.End()
+
 	req, out := c.UpdateEnvironmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3709,6 +3836,9 @@ func (c *ElasticBeanstalk) UpdateTagsForResource(input *UpdateTagsForResourceInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) UpdateTagsForResourceWithContext(ctx aws.Context, input *UpdateTagsForResourceInput, opts ...request.Option) (*UpdateTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).UpdateTagsForResource")
+	defer span.End()
+
 	req, out := c.UpdateTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3796,6 +3926,9 @@ func (c *ElasticBeanstalk) ValidateConfigurationSettings(input *ValidateConfigur
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElasticBeanstalk) ValidateConfigurationSettingsWithContext(ctx aws.Context, input *ValidateConfigurationSettingsInput, opts ...request.Option) (*ValidateConfigurationSettingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticbeanstalk.(*ElasticBeanstalk).ValidateConfigurationSettings")
+	defer span.End()
+
 	req, out := c.ValidateConfigurationSettingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

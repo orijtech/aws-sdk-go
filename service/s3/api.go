@@ -12,6 +12,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restxml"
+	"go.opencensus.io/trace"
 )
 
 const opAbortMultipartUpload = "AbortMultipartUpload"
@@ -91,6 +92,9 @@ func (c *S3) AbortMultipartUpload(input *AbortMultipartUploadInput) (*AbortMulti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) AbortMultipartUploadWithContext(ctx aws.Context, input *AbortMultipartUploadInput, opts ...request.Option) (*AbortMultipartUploadOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).AbortMultipartUpload")
+	defer span.End()
+
 	req, out := c.AbortMultipartUploadRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -165,6 +169,9 @@ func (c *S3) CompleteMultipartUpload(input *CompleteMultipartUploadInput) (*Comp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) CompleteMultipartUploadWithContext(ctx aws.Context, input *CompleteMultipartUploadInput, opts ...request.Option) (*CompleteMultipartUploadOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).CompleteMultipartUpload")
+	defer span.End()
+
 	req, out := c.CompleteMultipartUploadRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -245,6 +252,9 @@ func (c *S3) CopyObject(input *CopyObjectInput) (*CopyObjectOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) CopyObjectWithContext(ctx aws.Context, input *CopyObjectInput, opts ...request.Option) (*CopyObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).CopyObject")
+	defer span.End()
+
 	req, out := c.CopyObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -327,6 +337,9 @@ func (c *S3) CreateBucket(input *CreateBucketInput) (*CreateBucketOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) CreateBucketWithContext(ctx aws.Context, input *CreateBucketInput, opts ...request.Option) (*CreateBucketOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).CreateBucket")
+	defer span.End()
+
 	req, out := c.CreateBucketRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -407,6 +420,9 @@ func (c *S3) CreateMultipartUpload(input *CreateMultipartUploadInput) (*CreateMu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) CreateMultipartUploadWithContext(ctx aws.Context, input *CreateMultipartUploadInput, opts ...request.Option) (*CreateMultipartUploadOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).CreateMultipartUpload")
+	defer span.End()
+
 	req, out := c.CreateMultipartUploadRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -484,6 +500,9 @@ func (c *S3) DeleteBucket(input *DeleteBucketInput) (*DeleteBucketOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) DeleteBucketWithContext(ctx aws.Context, input *DeleteBucketInput, opts ...request.Option) (*DeleteBucketOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).DeleteBucket")
+	defer span.End()
+
 	req, out := c.DeleteBucketRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -561,6 +580,9 @@ func (c *S3) DeleteBucketAnalyticsConfiguration(input *DeleteBucketAnalyticsConf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) DeleteBucketAnalyticsConfigurationWithContext(ctx aws.Context, input *DeleteBucketAnalyticsConfigurationInput, opts ...request.Option) (*DeleteBucketAnalyticsConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).DeleteBucketAnalyticsConfiguration")
+	defer span.End()
+
 	req, out := c.DeleteBucketAnalyticsConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -637,6 +659,9 @@ func (c *S3) DeleteBucketCors(input *DeleteBucketCorsInput) (*DeleteBucketCorsOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) DeleteBucketCorsWithContext(ctx aws.Context, input *DeleteBucketCorsInput, opts ...request.Option) (*DeleteBucketCorsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).DeleteBucketCors")
+	defer span.End()
+
 	req, out := c.DeleteBucketCorsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -713,6 +738,9 @@ func (c *S3) DeleteBucketEncryption(input *DeleteBucketEncryptionInput) (*Delete
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) DeleteBucketEncryptionWithContext(ctx aws.Context, input *DeleteBucketEncryptionInput, opts ...request.Option) (*DeleteBucketEncryptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).DeleteBucketEncryption")
+	defer span.End()
+
 	req, out := c.DeleteBucketEncryptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -790,6 +818,9 @@ func (c *S3) DeleteBucketInventoryConfiguration(input *DeleteBucketInventoryConf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) DeleteBucketInventoryConfigurationWithContext(ctx aws.Context, input *DeleteBucketInventoryConfigurationInput, opts ...request.Option) (*DeleteBucketInventoryConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).DeleteBucketInventoryConfiguration")
+	defer span.End()
+
 	req, out := c.DeleteBucketInventoryConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -866,6 +897,9 @@ func (c *S3) DeleteBucketLifecycle(input *DeleteBucketLifecycleInput) (*DeleteBu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) DeleteBucketLifecycleWithContext(ctx aws.Context, input *DeleteBucketLifecycleInput, opts ...request.Option) (*DeleteBucketLifecycleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).DeleteBucketLifecycle")
+	defer span.End()
+
 	req, out := c.DeleteBucketLifecycleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -943,6 +977,9 @@ func (c *S3) DeleteBucketMetricsConfiguration(input *DeleteBucketMetricsConfigur
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) DeleteBucketMetricsConfigurationWithContext(ctx aws.Context, input *DeleteBucketMetricsConfigurationInput, opts ...request.Option) (*DeleteBucketMetricsConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).DeleteBucketMetricsConfiguration")
+	defer span.End()
+
 	req, out := c.DeleteBucketMetricsConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1019,6 +1056,9 @@ func (c *S3) DeleteBucketPolicy(input *DeleteBucketPolicyInput) (*DeleteBucketPo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) DeleteBucketPolicyWithContext(ctx aws.Context, input *DeleteBucketPolicyInput, opts ...request.Option) (*DeleteBucketPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).DeleteBucketPolicy")
+	defer span.End()
+
 	req, out := c.DeleteBucketPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1095,6 +1135,9 @@ func (c *S3) DeleteBucketReplication(input *DeleteBucketReplicationInput) (*Dele
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) DeleteBucketReplicationWithContext(ctx aws.Context, input *DeleteBucketReplicationInput, opts ...request.Option) (*DeleteBucketReplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).DeleteBucketReplication")
+	defer span.End()
+
 	req, out := c.DeleteBucketReplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1171,6 +1214,9 @@ func (c *S3) DeleteBucketTagging(input *DeleteBucketTaggingInput) (*DeleteBucket
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) DeleteBucketTaggingWithContext(ctx aws.Context, input *DeleteBucketTaggingInput, opts ...request.Option) (*DeleteBucketTaggingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).DeleteBucketTagging")
+	defer span.End()
+
 	req, out := c.DeleteBucketTaggingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1247,6 +1293,9 @@ func (c *S3) DeleteBucketWebsite(input *DeleteBucketWebsiteInput) (*DeleteBucket
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) DeleteBucketWebsiteWithContext(ctx aws.Context, input *DeleteBucketWebsiteInput, opts ...request.Option) (*DeleteBucketWebsiteOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).DeleteBucketWebsite")
+	defer span.End()
+
 	req, out := c.DeleteBucketWebsiteRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1323,6 +1372,9 @@ func (c *S3) DeleteObject(input *DeleteObjectInput) (*DeleteObjectOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) DeleteObjectWithContext(ctx aws.Context, input *DeleteObjectInput, opts ...request.Option) (*DeleteObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).DeleteObject")
+	defer span.End()
+
 	req, out := c.DeleteObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1397,6 +1449,9 @@ func (c *S3) DeleteObjectTagging(input *DeleteObjectTaggingInput) (*DeleteObject
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) DeleteObjectTaggingWithContext(ctx aws.Context, input *DeleteObjectTaggingInput, opts ...request.Option) (*DeleteObjectTaggingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).DeleteObjectTagging")
+	defer span.End()
+
 	req, out := c.DeleteObjectTaggingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1472,6 +1527,9 @@ func (c *S3) DeleteObjects(input *DeleteObjectsInput) (*DeleteObjectsOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) DeleteObjectsWithContext(ctx aws.Context, input *DeleteObjectsInput, opts ...request.Option) (*DeleteObjectsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).DeleteObjects")
+	defer span.End()
+
 	req, out := c.DeleteObjectsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1546,6 +1604,9 @@ func (c *S3) GetBucketAccelerateConfiguration(input *GetBucketAccelerateConfigur
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketAccelerateConfigurationWithContext(ctx aws.Context, input *GetBucketAccelerateConfigurationInput, opts ...request.Option) (*GetBucketAccelerateConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketAccelerateConfiguration")
+	defer span.End()
+
 	req, out := c.GetBucketAccelerateConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1620,6 +1681,9 @@ func (c *S3) GetBucketAcl(input *GetBucketAclInput) (*GetBucketAclOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketAclWithContext(ctx aws.Context, input *GetBucketAclInput, opts ...request.Option) (*GetBucketAclOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketAcl")
+	defer span.End()
+
 	req, out := c.GetBucketAclRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1695,6 +1759,9 @@ func (c *S3) GetBucketAnalyticsConfiguration(input *GetBucketAnalyticsConfigurat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketAnalyticsConfigurationWithContext(ctx aws.Context, input *GetBucketAnalyticsConfigurationInput, opts ...request.Option) (*GetBucketAnalyticsConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketAnalyticsConfiguration")
+	defer span.End()
+
 	req, out := c.GetBucketAnalyticsConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1769,6 +1836,9 @@ func (c *S3) GetBucketCors(input *GetBucketCorsInput) (*GetBucketCorsOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketCorsWithContext(ctx aws.Context, input *GetBucketCorsInput, opts ...request.Option) (*GetBucketCorsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketCors")
+	defer span.End()
+
 	req, out := c.GetBucketCorsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1843,6 +1913,9 @@ func (c *S3) GetBucketEncryption(input *GetBucketEncryptionInput) (*GetBucketEnc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketEncryptionWithContext(ctx aws.Context, input *GetBucketEncryptionInput, opts ...request.Option) (*GetBucketEncryptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketEncryption")
+	defer span.End()
+
 	req, out := c.GetBucketEncryptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1918,6 +1991,9 @@ func (c *S3) GetBucketInventoryConfiguration(input *GetBucketInventoryConfigurat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketInventoryConfigurationWithContext(ctx aws.Context, input *GetBucketInventoryConfigurationInput, opts ...request.Option) (*GetBucketInventoryConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketInventoryConfiguration")
+	defer span.End()
+
 	req, out := c.GetBucketInventoryConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1995,6 +2071,9 @@ func (c *S3) GetBucketLifecycle(input *GetBucketLifecycleInput) (*GetBucketLifec
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketLifecycleWithContext(ctx aws.Context, input *GetBucketLifecycleInput, opts ...request.Option) (*GetBucketLifecycleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketLifecycle")
+	defer span.End()
+
 	req, out := c.GetBucketLifecycleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2069,6 +2148,9 @@ func (c *S3) GetBucketLifecycleConfiguration(input *GetBucketLifecycleConfigurat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketLifecycleConfigurationWithContext(ctx aws.Context, input *GetBucketLifecycleConfigurationInput, opts ...request.Option) (*GetBucketLifecycleConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketLifecycleConfiguration")
+	defer span.End()
+
 	req, out := c.GetBucketLifecycleConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2143,6 +2225,9 @@ func (c *S3) GetBucketLocation(input *GetBucketLocationInput) (*GetBucketLocatio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketLocationWithContext(ctx aws.Context, input *GetBucketLocationInput, opts ...request.Option) (*GetBucketLocationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketLocation")
+	defer span.End()
+
 	req, out := c.GetBucketLocationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2218,6 +2303,9 @@ func (c *S3) GetBucketLogging(input *GetBucketLoggingInput) (*GetBucketLoggingOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketLoggingWithContext(ctx aws.Context, input *GetBucketLoggingInput, opts ...request.Option) (*GetBucketLoggingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketLogging")
+	defer span.End()
+
 	req, out := c.GetBucketLoggingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2293,6 +2381,9 @@ func (c *S3) GetBucketMetricsConfiguration(input *GetBucketMetricsConfigurationI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketMetricsConfigurationWithContext(ctx aws.Context, input *GetBucketMetricsConfigurationInput, opts ...request.Option) (*GetBucketMetricsConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketMetricsConfiguration")
+	defer span.End()
+
 	req, out := c.GetBucketMetricsConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2370,6 +2461,9 @@ func (c *S3) GetBucketNotification(input *GetBucketNotificationConfigurationRequ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketNotificationWithContext(ctx aws.Context, input *GetBucketNotificationConfigurationRequest, opts ...request.Option) (*NotificationConfigurationDeprecated, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketNotification")
+	defer span.End()
+
 	req, out := c.GetBucketNotificationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2444,6 +2538,9 @@ func (c *S3) GetBucketNotificationConfiguration(input *GetBucketNotificationConf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketNotificationConfigurationWithContext(ctx aws.Context, input *GetBucketNotificationConfigurationRequest, opts ...request.Option) (*NotificationConfiguration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketNotificationConfiguration")
+	defer span.End()
+
 	req, out := c.GetBucketNotificationConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2518,6 +2615,9 @@ func (c *S3) GetBucketPolicy(input *GetBucketPolicyInput) (*GetBucketPolicyOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketPolicyWithContext(ctx aws.Context, input *GetBucketPolicyInput, opts ...request.Option) (*GetBucketPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketPolicy")
+	defer span.End()
+
 	req, out := c.GetBucketPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2592,6 +2692,9 @@ func (c *S3) GetBucketReplication(input *GetBucketReplicationInput) (*GetBucketR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketReplicationWithContext(ctx aws.Context, input *GetBucketReplicationInput, opts ...request.Option) (*GetBucketReplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketReplication")
+	defer span.End()
+
 	req, out := c.GetBucketReplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2666,6 +2769,9 @@ func (c *S3) GetBucketRequestPayment(input *GetBucketRequestPaymentInput) (*GetB
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketRequestPaymentWithContext(ctx aws.Context, input *GetBucketRequestPaymentInput, opts ...request.Option) (*GetBucketRequestPaymentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketRequestPayment")
+	defer span.End()
+
 	req, out := c.GetBucketRequestPaymentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2740,6 +2846,9 @@ func (c *S3) GetBucketTagging(input *GetBucketTaggingInput) (*GetBucketTaggingOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketTaggingWithContext(ctx aws.Context, input *GetBucketTaggingInput, opts ...request.Option) (*GetBucketTaggingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketTagging")
+	defer span.End()
+
 	req, out := c.GetBucketTaggingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2814,6 +2923,9 @@ func (c *S3) GetBucketVersioning(input *GetBucketVersioningInput) (*GetBucketVer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketVersioningWithContext(ctx aws.Context, input *GetBucketVersioningInput, opts ...request.Option) (*GetBucketVersioningOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketVersioning")
+	defer span.End()
+
 	req, out := c.GetBucketVersioningRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2888,6 +3000,9 @@ func (c *S3) GetBucketWebsite(input *GetBucketWebsiteInput) (*GetBucketWebsiteOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetBucketWebsiteWithContext(ctx aws.Context, input *GetBucketWebsiteInput, opts ...request.Option) (*GetBucketWebsiteOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetBucketWebsite")
+	defer span.End()
+
 	req, out := c.GetBucketWebsiteRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2967,6 +3082,9 @@ func (c *S3) GetObject(input *GetObjectInput) (*GetObjectOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetObjectWithContext(ctx aws.Context, input *GetObjectInput, opts ...request.Option) (*GetObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetObject")
+	defer span.End()
+
 	req, out := c.GetObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3046,6 +3164,9 @@ func (c *S3) GetObjectAcl(input *GetObjectAclInput) (*GetObjectAclOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetObjectAclWithContext(ctx aws.Context, input *GetObjectAclInput, opts ...request.Option) (*GetObjectAclOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetObjectAcl")
+	defer span.End()
+
 	req, out := c.GetObjectAclRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3120,6 +3241,9 @@ func (c *S3) GetObjectTagging(input *GetObjectTaggingInput) (*GetObjectTaggingOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetObjectTaggingWithContext(ctx aws.Context, input *GetObjectTaggingInput, opts ...request.Option) (*GetObjectTaggingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetObjectTagging")
+	defer span.End()
+
 	req, out := c.GetObjectTaggingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3194,6 +3318,9 @@ func (c *S3) GetObjectTorrent(input *GetObjectTorrentInput) (*GetObjectTorrentOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) GetObjectTorrentWithContext(ctx aws.Context, input *GetObjectTorrentInput, opts ...request.Option) (*GetObjectTorrentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).GetObjectTorrent")
+	defer span.End()
+
 	req, out := c.GetObjectTorrentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3276,6 +3403,9 @@ func (c *S3) HeadBucket(input *HeadBucketInput) (*HeadBucketOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) HeadBucketWithContext(ctx aws.Context, input *HeadBucketInput, opts ...request.Option) (*HeadBucketOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).HeadBucket")
+	defer span.End()
+
 	req, out := c.HeadBucketRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3355,6 +3485,9 @@ func (c *S3) HeadObject(input *HeadObjectInput) (*HeadObjectOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) HeadObjectWithContext(ctx aws.Context, input *HeadObjectInput, opts ...request.Option) (*HeadObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).HeadObject")
+	defer span.End()
+
 	req, out := c.HeadObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3429,6 +3562,9 @@ func (c *S3) ListBucketAnalyticsConfigurations(input *ListBucketAnalyticsConfigu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) ListBucketAnalyticsConfigurationsWithContext(ctx aws.Context, input *ListBucketAnalyticsConfigurationsInput, opts ...request.Option) (*ListBucketAnalyticsConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).ListBucketAnalyticsConfigurations")
+	defer span.End()
+
 	req, out := c.ListBucketAnalyticsConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3503,6 +3639,9 @@ func (c *S3) ListBucketInventoryConfigurations(input *ListBucketInventoryConfigu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) ListBucketInventoryConfigurationsWithContext(ctx aws.Context, input *ListBucketInventoryConfigurationsInput, opts ...request.Option) (*ListBucketInventoryConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).ListBucketInventoryConfigurations")
+	defer span.End()
+
 	req, out := c.ListBucketInventoryConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3577,6 +3716,9 @@ func (c *S3) ListBucketMetricsConfigurations(input *ListBucketMetricsConfigurati
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) ListBucketMetricsConfigurationsWithContext(ctx aws.Context, input *ListBucketMetricsConfigurationsInput, opts ...request.Option) (*ListBucketMetricsConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).ListBucketMetricsConfigurations")
+	defer span.End()
+
 	req, out := c.ListBucketMetricsConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3651,6 +3793,9 @@ func (c *S3) ListBuckets(input *ListBucketsInput) (*ListBucketsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) ListBucketsWithContext(ctx aws.Context, input *ListBucketsInput, opts ...request.Option) (*ListBucketsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).ListBuckets")
+	defer span.End()
+
 	req, out := c.ListBucketsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3731,6 +3876,9 @@ func (c *S3) ListMultipartUploads(input *ListMultipartUploadsInput) (*ListMultip
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) ListMultipartUploadsWithContext(ctx aws.Context, input *ListMultipartUploadsInput, opts ...request.Option) (*ListMultipartUploadsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).ListMultipartUploads")
+	defer span.End()
+
 	req, out := c.ListMultipartUploadsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3861,6 +4009,9 @@ func (c *S3) ListObjectVersions(input *ListObjectVersionsInput) (*ListObjectVers
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) ListObjectVersionsWithContext(ctx aws.Context, input *ListObjectVersionsInput, opts ...request.Option) (*ListObjectVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).ListObjectVersions")
+	defer span.End()
+
 	req, out := c.ListObjectVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3998,6 +4149,9 @@ func (c *S3) ListObjects(input *ListObjectsInput) (*ListObjectsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) ListObjectsWithContext(ctx aws.Context, input *ListObjectsInput, opts ...request.Option) (*ListObjectsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).ListObjects")
+	defer span.End()
+
 	req, out := c.ListObjectsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4136,6 +4290,9 @@ func (c *S3) ListObjectsV2(input *ListObjectsV2Input) (*ListObjectsV2Output, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) ListObjectsV2WithContext(ctx aws.Context, input *ListObjectsV2Input, opts ...request.Option) (*ListObjectsV2Output, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).ListObjectsV2")
+	defer span.End()
+
 	req, out := c.ListObjectsV2Request(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4266,6 +4423,9 @@ func (c *S3) ListParts(input *ListPartsInput) (*ListPartsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) ListPartsWithContext(ctx aws.Context, input *ListPartsInput, opts ...request.Option) (*ListPartsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).ListParts")
+	defer span.End()
+
 	req, out := c.ListPartsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4392,6 +4552,9 @@ func (c *S3) PutBucketAccelerateConfiguration(input *PutBucketAccelerateConfigur
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketAccelerateConfigurationWithContext(ctx aws.Context, input *PutBucketAccelerateConfigurationInput, opts ...request.Option) (*PutBucketAccelerateConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketAccelerateConfiguration")
+	defer span.End()
+
 	req, out := c.PutBucketAccelerateConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4468,6 +4631,9 @@ func (c *S3) PutBucketAcl(input *PutBucketAclInput) (*PutBucketAclOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketAclWithContext(ctx aws.Context, input *PutBucketAclInput, opts ...request.Option) (*PutBucketAclOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketAcl")
+	defer span.End()
+
 	req, out := c.PutBucketAclRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4545,6 +4711,9 @@ func (c *S3) PutBucketAnalyticsConfiguration(input *PutBucketAnalyticsConfigurat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketAnalyticsConfigurationWithContext(ctx aws.Context, input *PutBucketAnalyticsConfigurationInput, opts ...request.Option) (*PutBucketAnalyticsConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketAnalyticsConfiguration")
+	defer span.End()
+
 	req, out := c.PutBucketAnalyticsConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4621,6 +4790,9 @@ func (c *S3) PutBucketCors(input *PutBucketCorsInput) (*PutBucketCorsOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketCorsWithContext(ctx aws.Context, input *PutBucketCorsInput, opts ...request.Option) (*PutBucketCorsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketCors")
+	defer span.End()
+
 	req, out := c.PutBucketCorsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4698,6 +4870,9 @@ func (c *S3) PutBucketEncryption(input *PutBucketEncryptionInput) (*PutBucketEnc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketEncryptionWithContext(ctx aws.Context, input *PutBucketEncryptionInput, opts ...request.Option) (*PutBucketEncryptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketEncryption")
+	defer span.End()
+
 	req, out := c.PutBucketEncryptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4775,6 +4950,9 @@ func (c *S3) PutBucketInventoryConfiguration(input *PutBucketInventoryConfigurat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketInventoryConfigurationWithContext(ctx aws.Context, input *PutBucketInventoryConfigurationInput, opts ...request.Option) (*PutBucketInventoryConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketInventoryConfiguration")
+	defer span.End()
+
 	req, out := c.PutBucketInventoryConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4854,6 +5032,9 @@ func (c *S3) PutBucketLifecycle(input *PutBucketLifecycleInput) (*PutBucketLifec
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketLifecycleWithContext(ctx aws.Context, input *PutBucketLifecycleInput, opts ...request.Option) (*PutBucketLifecycleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketLifecycle")
+	defer span.End()
+
 	req, out := c.PutBucketLifecycleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4931,6 +5112,9 @@ func (c *S3) PutBucketLifecycleConfiguration(input *PutBucketLifecycleConfigurat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketLifecycleConfigurationWithContext(ctx aws.Context, input *PutBucketLifecycleConfigurationInput, opts ...request.Option) (*PutBucketLifecycleConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketLifecycleConfiguration")
+	defer span.End()
+
 	req, out := c.PutBucketLifecycleConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5009,6 +5193,9 @@ func (c *S3) PutBucketLogging(input *PutBucketLoggingInput) (*PutBucketLoggingOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketLoggingWithContext(ctx aws.Context, input *PutBucketLoggingInput, opts ...request.Option) (*PutBucketLoggingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketLogging")
+	defer span.End()
+
 	req, out := c.PutBucketLoggingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5086,6 +5273,9 @@ func (c *S3) PutBucketMetricsConfiguration(input *PutBucketMetricsConfigurationI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketMetricsConfigurationWithContext(ctx aws.Context, input *PutBucketMetricsConfigurationInput, opts ...request.Option) (*PutBucketMetricsConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketMetricsConfiguration")
+	defer span.End()
+
 	req, out := c.PutBucketMetricsConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5165,6 +5355,9 @@ func (c *S3) PutBucketNotification(input *PutBucketNotificationInput) (*PutBucke
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketNotificationWithContext(ctx aws.Context, input *PutBucketNotificationInput, opts ...request.Option) (*PutBucketNotificationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketNotification")
+	defer span.End()
+
 	req, out := c.PutBucketNotificationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5241,6 +5434,9 @@ func (c *S3) PutBucketNotificationConfiguration(input *PutBucketNotificationConf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketNotificationConfigurationWithContext(ctx aws.Context, input *PutBucketNotificationConfigurationInput, opts ...request.Option) (*PutBucketNotificationConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketNotificationConfiguration")
+	defer span.End()
+
 	req, out := c.PutBucketNotificationConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5318,6 +5514,9 @@ func (c *S3) PutBucketPolicy(input *PutBucketPolicyInput) (*PutBucketPolicyOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketPolicyWithContext(ctx aws.Context, input *PutBucketPolicyInput, opts ...request.Option) (*PutBucketPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketPolicy")
+	defer span.End()
+
 	req, out := c.PutBucketPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5395,6 +5594,9 @@ func (c *S3) PutBucketReplication(input *PutBucketReplicationInput) (*PutBucketR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketReplicationWithContext(ctx aws.Context, input *PutBucketReplicationInput, opts ...request.Option) (*PutBucketReplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketReplication")
+	defer span.End()
+
 	req, out := c.PutBucketReplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5475,6 +5677,9 @@ func (c *S3) PutBucketRequestPayment(input *PutBucketRequestPaymentInput) (*PutB
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketRequestPaymentWithContext(ctx aws.Context, input *PutBucketRequestPaymentInput, opts ...request.Option) (*PutBucketRequestPaymentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketRequestPayment")
+	defer span.End()
+
 	req, out := c.PutBucketRequestPaymentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5551,6 +5756,9 @@ func (c *S3) PutBucketTagging(input *PutBucketTaggingInput) (*PutBucketTaggingOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketTaggingWithContext(ctx aws.Context, input *PutBucketTaggingInput, opts ...request.Option) (*PutBucketTaggingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketTagging")
+	defer span.End()
+
 	req, out := c.PutBucketTaggingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5628,6 +5836,9 @@ func (c *S3) PutBucketVersioning(input *PutBucketVersioningInput) (*PutBucketVer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketVersioningWithContext(ctx aws.Context, input *PutBucketVersioningInput, opts ...request.Option) (*PutBucketVersioningOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketVersioning")
+	defer span.End()
+
 	req, out := c.PutBucketVersioningRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5704,6 +5915,9 @@ func (c *S3) PutBucketWebsite(input *PutBucketWebsiteInput) (*PutBucketWebsiteOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutBucketWebsiteWithContext(ctx aws.Context, input *PutBucketWebsiteInput, opts ...request.Option) (*PutBucketWebsiteOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutBucketWebsite")
+	defer span.End()
+
 	req, out := c.PutBucketWebsiteRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5778,6 +5992,9 @@ func (c *S3) PutObject(input *PutObjectInput) (*PutObjectOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutObjectWithContext(ctx aws.Context, input *PutObjectInput, opts ...request.Option) (*PutObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutObject")
+	defer span.End()
+
 	req, out := c.PutObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5858,6 +6075,9 @@ func (c *S3) PutObjectAcl(input *PutObjectAclInput) (*PutObjectAclOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutObjectAclWithContext(ctx aws.Context, input *PutObjectAclInput, opts ...request.Option) (*PutObjectAclOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutObjectAcl")
+	defer span.End()
+
 	req, out := c.PutObjectAclRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5932,6 +6152,9 @@ func (c *S3) PutObjectTagging(input *PutObjectTaggingInput) (*PutObjectTaggingOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) PutObjectTaggingWithContext(ctx aws.Context, input *PutObjectTaggingInput, opts ...request.Option) (*PutObjectTaggingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).PutObjectTagging")
+	defer span.End()
+
 	req, out := c.PutObjectTaggingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6011,6 +6234,9 @@ func (c *S3) RestoreObject(input *RestoreObjectInput) (*RestoreObjectOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) RestoreObjectWithContext(ctx aws.Context, input *RestoreObjectInput, opts ...request.Option) (*RestoreObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).RestoreObject")
+	defer span.End()
+
 	req, out := c.RestoreObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6091,6 +6317,9 @@ func (c *S3) UploadPart(input *UploadPartInput) (*UploadPartOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) UploadPartWithContext(ctx aws.Context, input *UploadPartInput, opts ...request.Option) (*UploadPartOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).UploadPart")
+	defer span.End()
+
 	req, out := c.UploadPartRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6165,6 +6394,9 @@ func (c *S3) UploadPartCopy(input *UploadPartCopyInput) (*UploadPartCopyOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *S3) UploadPartCopyWithContext(ctx aws.Context, input *UploadPartCopyInput, opts ...request.Option) (*UploadPartCopyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/s3.(*S3).UploadPartCopy")
+	defer span.End()
+
 	req, out := c.UploadPartCopyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

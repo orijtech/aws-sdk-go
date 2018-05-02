@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAddTags = "AddTags"
@@ -129,6 +130,9 @@ func (c *CloudTrail) AddTags(input *AddTagsInput) (*AddTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudTrail) AddTagsWithContext(ctx aws.Context, input *AddTagsInput, opts ...request.Option) (*AddTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudtrail.(*CloudTrail).AddTags")
+	defer span.End()
+
 	req, out := c.AddTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -287,6 +291,9 @@ func (c *CloudTrail) CreateTrail(input *CreateTrailInput) (*CreateTrailOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudTrail) CreateTrailWithContext(ctx aws.Context, input *CreateTrailInput, opts ...request.Option) (*CreateTrailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudtrail.(*CloudTrail).CreateTrail")
+	defer span.End()
+
 	req, out := c.CreateTrailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -388,6 +395,9 @@ func (c *CloudTrail) DeleteTrail(input *DeleteTrailInput) (*DeleteTrailOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudTrail) DeleteTrailWithContext(ctx aws.Context, input *DeleteTrailInput, opts ...request.Option) (*DeleteTrailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudtrail.(*CloudTrail).DeleteTrail")
+	defer span.End()
+
 	req, out := c.DeleteTrailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -471,6 +481,9 @@ func (c *CloudTrail) DescribeTrails(input *DescribeTrailsInput) (*DescribeTrails
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudTrail) DescribeTrailsWithContext(ctx aws.Context, input *DescribeTrailsInput, opts ...request.Option) (*DescribeTrailsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudtrail.(*CloudTrail).DescribeTrails")
+	defer span.End()
+
 	req, out := c.DescribeTrailsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -584,6 +597,9 @@ func (c *CloudTrail) GetEventSelectors(input *GetEventSelectorsInput) (*GetEvent
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudTrail) GetEventSelectorsWithContext(ctx aws.Context, input *GetEventSelectorsInput, opts ...request.Option) (*GetEventSelectorsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudtrail.(*CloudTrail).GetEventSelectors")
+	defer span.End()
+
 	req, out := c.GetEventSelectorsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -683,6 +699,9 @@ func (c *CloudTrail) GetTrailStatus(input *GetTrailStatusInput) (*GetTrailStatus
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudTrail) GetTrailStatusWithContext(ctx aws.Context, input *GetTrailStatusInput, opts ...request.Option) (*GetTrailStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudtrail.(*CloudTrail).GetTrailStatus")
+	defer span.End()
+
 	req, out := c.GetTrailStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -779,6 +798,9 @@ func (c *CloudTrail) ListPublicKeys(input *ListPublicKeysInput) (*ListPublicKeys
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudTrail) ListPublicKeysWithContext(ctx aws.Context, input *ListPublicKeysInput, opts ...request.Option) (*ListPublicKeysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudtrail.(*CloudTrail).ListPublicKeys")
+	defer span.End()
+
 	req, out := c.ListPublicKeysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -893,6 +915,9 @@ func (c *CloudTrail) ListTags(input *ListTagsInput) (*ListTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudTrail) ListTagsWithContext(ctx aws.Context, input *ListTagsInput, opts ...request.Option) (*ListTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudtrail.(*CloudTrail).ListTags")
+	defer span.End()
+
 	req, out := c.ListTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1014,6 +1039,9 @@ func (c *CloudTrail) LookupEvents(input *LookupEventsInput) (*LookupEventsOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudTrail) LookupEventsWithContext(ctx aws.Context, input *LookupEventsInput, opts ...request.Option) (*LookupEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudtrail.(*CloudTrail).LookupEvents")
+	defer span.End()
+
 	req, out := c.LookupEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1208,6 +1236,9 @@ func (c *CloudTrail) PutEventSelectors(input *PutEventSelectorsInput) (*PutEvent
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudTrail) PutEventSelectorsWithContext(ctx aws.Context, input *PutEventSelectorsInput, opts ...request.Option) (*PutEventSelectorsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudtrail.(*CloudTrail).PutEventSelectors")
+	defer span.End()
+
 	req, out := c.PutEventSelectorsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1323,6 +1354,9 @@ func (c *CloudTrail) RemoveTags(input *RemoveTagsInput) (*RemoveTagsOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudTrail) RemoveTagsWithContext(ctx aws.Context, input *RemoveTagsInput, opts ...request.Option) (*RemoveTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudtrail.(*CloudTrail).RemoveTags")
+	defer span.End()
+
 	req, out := c.RemoveTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1426,6 +1460,9 @@ func (c *CloudTrail) StartLogging(input *StartLoggingInput) (*StartLoggingOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudTrail) StartLoggingWithContext(ctx aws.Context, input *StartLoggingInput, opts ...request.Option) (*StartLoggingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudtrail.(*CloudTrail).StartLogging")
+	defer span.End()
+
 	req, out := c.StartLoggingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1531,6 +1568,9 @@ func (c *CloudTrail) StopLogging(input *StopLoggingInput) (*StopLoggingOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudTrail) StopLoggingWithContext(ctx aws.Context, input *StopLoggingInput, opts ...request.Option) (*StopLoggingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudtrail.(*CloudTrail).StopLogging")
+	defer span.End()
+
 	req, out := c.StopLoggingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1693,6 +1733,9 @@ func (c *CloudTrail) UpdateTrail(input *UpdateTrailInput) (*UpdateTrailOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudTrail) UpdateTrailWithContext(ctx aws.Context, input *UpdateTrailInput, opts ...request.Option) (*UpdateTrailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudtrail.(*CloudTrail).UpdateTrail")
+	defer span.End()
+
 	req, out := c.UpdateTrailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

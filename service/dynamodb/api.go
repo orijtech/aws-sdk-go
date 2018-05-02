@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opBatchGetItem = "BatchGetItem"
@@ -152,6 +153,9 @@ func (c *DynamoDB) BatchGetItem(input *BatchGetItemInput) (*BatchGetItemOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) BatchGetItemWithContext(ctx aws.Context, input *BatchGetItemInput, opts ...request.Option) (*BatchGetItemOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).BatchGetItem")
+	defer span.End()
+
 	req, out := c.BatchGetItemRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -368,6 +372,9 @@ func (c *DynamoDB) BatchWriteItem(input *BatchWriteItemInput) (*BatchWriteItemOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) BatchWriteItemWithContext(ctx aws.Context, input *BatchWriteItemInput, opts ...request.Option) (*BatchWriteItemOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).BatchWriteItem")
+	defer span.End()
+
 	req, out := c.BatchWriteItemRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -504,6 +511,9 @@ func (c *DynamoDB) CreateBackup(input *CreateBackupInput) (*CreateBackupOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) CreateBackupWithContext(ctx aws.Context, input *CreateBackupInput, opts ...request.Option) (*CreateBackupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).CreateBackup")
+	defer span.End()
+
 	req, out := c.CreateBackupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -617,6 +627,9 @@ func (c *DynamoDB) CreateGlobalTable(input *CreateGlobalTableInput) (*CreateGlob
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) CreateGlobalTableWithContext(ctx aws.Context, input *CreateGlobalTableInput, opts ...request.Option) (*CreateGlobalTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).CreateGlobalTable")
+	defer span.End()
+
 	req, out := c.CreateGlobalTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -729,6 +742,9 @@ func (c *DynamoDB) CreateTable(input *CreateTableInput) (*CreateTableOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) CreateTableWithContext(ctx aws.Context, input *CreateTableInput, opts ...request.Option) (*CreateTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).CreateTable")
+	defer span.End()
+
 	req, out := c.CreateTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -831,6 +847,9 @@ func (c *DynamoDB) DeleteBackup(input *DeleteBackupInput) (*DeleteBackupOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) DeleteBackupWithContext(ctx aws.Context, input *DeleteBackupInput, opts ...request.Option) (*DeleteBackupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).DeleteBackup")
+	defer span.End()
+
 	req, out := c.DeleteBackupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -942,6 +961,9 @@ func (c *DynamoDB) DeleteItem(input *DeleteItemInput) (*DeleteItemOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) DeleteItemWithContext(ctx aws.Context, input *DeleteItemInput, opts ...request.Option) (*DeleteItemOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).DeleteItem")
+	defer span.End()
+
 	req, out := c.DeleteItemRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1061,6 +1083,9 @@ func (c *DynamoDB) DeleteTable(input *DeleteTableInput) (*DeleteTableOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) DeleteTableWithContext(ctx aws.Context, input *DeleteTableInput, opts ...request.Option) (*DeleteTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).DeleteTable")
+	defer span.End()
+
 	req, out := c.DeleteTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1145,6 +1170,9 @@ func (c *DynamoDB) DescribeBackup(input *DescribeBackupInput) (*DescribeBackupOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) DescribeBackupWithContext(ctx aws.Context, input *DescribeBackupInput, opts ...request.Option) (*DescribeBackupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).DescribeBackup")
+	defer span.End()
+
 	req, out := c.DescribeBackupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1241,6 +1269,9 @@ func (c *DynamoDB) DescribeContinuousBackups(input *DescribeContinuousBackupsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) DescribeContinuousBackupsWithContext(ctx aws.Context, input *DescribeContinuousBackupsInput, opts ...request.Option) (*DescribeContinuousBackupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).DescribeContinuousBackups")
+	defer span.End()
+
 	req, out := c.DescribeContinuousBackupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1323,6 +1354,9 @@ func (c *DynamoDB) DescribeGlobalTable(input *DescribeGlobalTableInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) DescribeGlobalTableWithContext(ctx aws.Context, input *DescribeGlobalTableInput, opts ...request.Option) (*DescribeGlobalTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).DescribeGlobalTable")
+	defer span.End()
+
 	req, out := c.DescribeGlobalTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1458,6 +1492,9 @@ func (c *DynamoDB) DescribeLimits(input *DescribeLimitsInput) (*DescribeLimitsOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) DescribeLimitsWithContext(ctx aws.Context, input *DescribeLimitsInput, opts ...request.Option) (*DescribeLimitsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).DescribeLimits")
+	defer span.End()
+
 	req, out := c.DescribeLimitsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1549,6 +1586,9 @@ func (c *DynamoDB) DescribeTable(input *DescribeTableInput) (*DescribeTableOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) DescribeTableWithContext(ctx aws.Context, input *DescribeTableInput, opts ...request.Option) (*DescribeTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).DescribeTable")
+	defer span.End()
+
 	req, out := c.DescribeTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1632,6 +1672,9 @@ func (c *DynamoDB) DescribeTimeToLive(input *DescribeTimeToLiveInput) (*Describe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) DescribeTimeToLiveWithContext(ctx aws.Context, input *DescribeTimeToLiveInput, opts ...request.Option) (*DescribeTimeToLiveOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).DescribeTimeToLive")
+	defer span.End()
+
 	req, out := c.DescribeTimeToLiveRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1730,6 +1773,9 @@ func (c *DynamoDB) GetItem(input *GetItemInput) (*GetItemOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) GetItemWithContext(ctx aws.Context, input *GetItemInput, opts ...request.Option) (*GetItemOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).GetItem")
+	defer span.End()
+
 	req, out := c.GetItemRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1817,6 +1863,9 @@ func (c *DynamoDB) ListBackups(input *ListBackupsInput) (*ListBackupsOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) ListBackupsWithContext(ctx aws.Context, input *ListBackupsInput, opts ...request.Option) (*ListBackupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).ListBackups")
+	defer span.End()
+
 	req, out := c.ListBackupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1896,6 +1945,9 @@ func (c *DynamoDB) ListGlobalTables(input *ListGlobalTablesInput) (*ListGlobalTa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) ListGlobalTablesWithContext(ctx aws.Context, input *ListGlobalTablesInput, opts ...request.Option) (*ListGlobalTablesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).ListGlobalTables")
+	defer span.End()
+
 	req, out := c.ListGlobalTablesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1983,6 +2035,9 @@ func (c *DynamoDB) ListTables(input *ListTablesInput) (*ListTablesOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) ListTablesWithContext(ctx aws.Context, input *ListTablesInput, opts ...request.Option) (*ListTablesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).ListTables")
+	defer span.End()
+
 	req, out := c.ListTablesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2120,6 +2175,9 @@ func (c *DynamoDB) ListTagsOfResource(input *ListTagsOfResourceInput) (*ListTags
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) ListTagsOfResourceWithContext(ctx aws.Context, input *ListTagsOfResourceInput, opts ...request.Option) (*ListTagsOfResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).ListTagsOfResource")
+	defer span.End()
+
 	req, out := c.ListTagsOfResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2261,6 +2319,9 @@ func (c *DynamoDB) PutItem(input *PutItemInput) (*PutItemOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) PutItemWithContext(ctx aws.Context, input *PutItemInput, opts ...request.Option) (*PutItemOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).PutItem")
+	defer span.End()
+
 	req, out := c.PutItemRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2405,6 +2466,9 @@ func (c *DynamoDB) Query(input *QueryInput) (*QueryOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) QueryWithContext(ctx aws.Context, input *QueryInput, opts ...request.Option) (*QueryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).Query")
+	defer span.End()
+
 	req, out := c.QueryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2578,6 +2642,9 @@ func (c *DynamoDB) RestoreTableFromBackup(input *RestoreTableFromBackupInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) RestoreTableFromBackupWithContext(ctx aws.Context, input *RestoreTableFromBackupInput, opts ...request.Option) (*RestoreTableFromBackupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).RestoreTableFromBackup")
+	defer span.End()
+
 	req, out := c.RestoreTableFromBackupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2708,6 +2775,9 @@ func (c *DynamoDB) RestoreTableToPointInTime(input *RestoreTableToPointInTimeInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) RestoreTableToPointInTimeWithContext(ctx aws.Context, input *RestoreTableToPointInTimeInput, opts ...request.Option) (*RestoreTableToPointInTimeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).RestoreTableToPointInTime")
+	defer span.End()
+
 	req, out := c.RestoreTableToPointInTimeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2832,6 +2902,9 @@ func (c *DynamoDB) Scan(input *ScanInput) (*ScanOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) ScanWithContext(ctx aws.Context, input *ScanInput, opts ...request.Option) (*ScanOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).Scan")
+	defer span.End()
+
 	req, out := c.ScanRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2992,6 +3065,9 @@ func (c *DynamoDB) TagResource(input *TagResourceInput) (*TagResourceOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).TagResource")
+	defer span.End()
+
 	req, out := c.TagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3100,6 +3176,9 @@ func (c *DynamoDB) UntagResource(input *UntagResourceInput) (*UntagResourceOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).UntagResource")
+	defer span.End()
+
 	req, out := c.UntagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3197,6 +3276,9 @@ func (c *DynamoDB) UpdateContinuousBackups(input *UpdateContinuousBackupsInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) UpdateContinuousBackupsWithContext(ctx aws.Context, input *UpdateContinuousBackupsInput, opts ...request.Option) (*UpdateContinuousBackupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).UpdateContinuousBackups")
+	defer span.End()
+
 	req, out := c.UpdateContinuousBackupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3296,6 +3378,9 @@ func (c *DynamoDB) UpdateGlobalTable(input *UpdateGlobalTableInput) (*UpdateGlob
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) UpdateGlobalTableWithContext(ctx aws.Context, input *UpdateGlobalTableInput, opts ...request.Option) (*UpdateGlobalTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).UpdateGlobalTable")
+	defer span.End()
+
 	req, out := c.UpdateGlobalTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3401,6 +3486,9 @@ func (c *DynamoDB) UpdateItem(input *UpdateItemInput) (*UpdateItemOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) UpdateItemWithContext(ctx aws.Context, input *UpdateItemInput, opts ...request.Option) (*UpdateItemOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).UpdateItem")
+	defer span.End()
+
 	req, out := c.UpdateItemRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3520,6 +3608,9 @@ func (c *DynamoDB) UpdateTable(input *UpdateTableInput) (*UpdateTableOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) UpdateTableWithContext(ctx aws.Context, input *UpdateTableInput, opts ...request.Option) (*UpdateTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).UpdateTable")
+	defer span.End()
+
 	req, out := c.UpdateTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3649,6 +3740,9 @@ func (c *DynamoDB) UpdateTimeToLive(input *UpdateTimeToLiveInput) (*UpdateTimeTo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDB) UpdateTimeToLiveWithContext(ctx aws.Context, input *UpdateTimeToLiveInput, opts ...request.Option) (*UpdateTimeToLiveOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodb.(*DynamoDB).UpdateTimeToLive")
+	defer span.End()
+
 	req, out := c.UpdateTimeToLiveRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

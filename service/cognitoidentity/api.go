@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opCreateIdentityPool = "CreateIdentityPool"
@@ -116,6 +117,9 @@ func (c *CognitoIdentity) CreateIdentityPool(input *CreateIdentityPoolInput) (*I
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) CreateIdentityPoolWithContext(ctx aws.Context, input *CreateIdentityPoolInput, opts ...request.Option) (*IdentityPool, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).CreateIdentityPool")
+	defer span.End()
+
 	req, out := c.CreateIdentityPoolRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -204,6 +208,9 @@ func (c *CognitoIdentity) DeleteIdentities(input *DeleteIdentitiesInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) DeleteIdentitiesWithContext(ctx aws.Context, input *DeleteIdentitiesInput, opts ...request.Option) (*DeleteIdentitiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).DeleteIdentities")
+	defer span.End()
+
 	req, out := c.DeleteIdentitiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -301,6 +308,9 @@ func (c *CognitoIdentity) DeleteIdentityPool(input *DeleteIdentityPoolInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) DeleteIdentityPoolWithContext(ctx aws.Context, input *DeleteIdentityPoolInput, opts ...request.Option) (*DeleteIdentityPoolOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).DeleteIdentityPool")
+	defer span.End()
+
 	req, out := c.DeleteIdentityPoolRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -396,6 +406,9 @@ func (c *CognitoIdentity) DescribeIdentity(input *DescribeIdentityInput) (*Ident
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) DescribeIdentityWithContext(ctx aws.Context, input *DescribeIdentityInput, opts ...request.Option) (*IdentityDescription, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).DescribeIdentity")
+	defer span.End()
+
 	req, out := c.DescribeIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -491,6 +504,9 @@ func (c *CognitoIdentity) DescribeIdentityPool(input *DescribeIdentityPoolInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) DescribeIdentityPoolWithContext(ctx aws.Context, input *DescribeIdentityPoolInput, opts ...request.Option) (*IdentityPool, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).DescribeIdentityPool")
+	defer span.End()
+
 	req, out := c.DescribeIdentityPoolRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -600,6 +616,9 @@ func (c *CognitoIdentity) GetCredentialsForIdentity(input *GetCredentialsForIden
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) GetCredentialsForIdentityWithContext(ctx aws.Context, input *GetCredentialsForIdentityInput, opts ...request.Option) (*GetCredentialsForIdentityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).GetCredentialsForIdentity")
+	defer span.End()
+
 	req, out := c.GetCredentialsForIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -706,6 +725,9 @@ func (c *CognitoIdentity) GetId(input *GetIdInput) (*GetIdOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) GetIdWithContext(ctx aws.Context, input *GetIdInput, opts ...request.Option) (*GetIdOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).GetId")
+	defer span.End()
+
 	req, out := c.GetIdRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -804,6 +826,9 @@ func (c *CognitoIdentity) GetIdentityPoolRoles(input *GetIdentityPoolRolesInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) GetIdentityPoolRolesWithContext(ctx aws.Context, input *GetIdentityPoolRolesInput, opts ...request.Option) (*GetIdentityPoolRolesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).GetIdentityPoolRoles")
+	defer span.End()
+
 	req, out := c.GetIdentityPoolRolesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -910,6 +935,9 @@ func (c *CognitoIdentity) GetOpenIdToken(input *GetOpenIdTokenInput) (*GetOpenId
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) GetOpenIdTokenWithContext(ctx aws.Context, input *GetOpenIdTokenInput, opts ...request.Option) (*GetOpenIdTokenOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).GetOpenIdToken")
+	defer span.End()
+
 	req, out := c.GetOpenIdTokenRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1025,6 +1053,9 @@ func (c *CognitoIdentity) GetOpenIdTokenForDeveloperIdentity(input *GetOpenIdTok
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) GetOpenIdTokenForDeveloperIdentityWithContext(ctx aws.Context, input *GetOpenIdTokenForDeveloperIdentityInput, opts ...request.Option) (*GetOpenIdTokenForDeveloperIdentityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).GetOpenIdTokenForDeveloperIdentity")
+	defer span.End()
+
 	req, out := c.GetOpenIdTokenForDeveloperIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1119,6 +1150,9 @@ func (c *CognitoIdentity) ListIdentities(input *ListIdentitiesInput) (*ListIdent
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) ListIdentitiesWithContext(ctx aws.Context, input *ListIdentitiesInput, opts ...request.Option) (*ListIdentitiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).ListIdentities")
+	defer span.End()
+
 	req, out := c.ListIdentitiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1209,6 +1243,9 @@ func (c *CognitoIdentity) ListIdentityPools(input *ListIdentityPoolsInput) (*Lis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) ListIdentityPoolsWithContext(ctx aws.Context, input *ListIdentityPoolsInput, opts ...request.Option) (*ListIdentityPoolsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).ListIdentityPools")
+	defer span.End()
+
 	req, out := c.ListIdentityPoolsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1314,6 +1351,9 @@ func (c *CognitoIdentity) LookupDeveloperIdentity(input *LookupDeveloperIdentity
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) LookupDeveloperIdentityWithContext(ctx aws.Context, input *LookupDeveloperIdentityInput, opts ...request.Option) (*LookupDeveloperIdentityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).LookupDeveloperIdentity")
+	defer span.End()
+
 	req, out := c.LookupDeveloperIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1418,6 +1458,9 @@ func (c *CognitoIdentity) MergeDeveloperIdentities(input *MergeDeveloperIdentiti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) MergeDeveloperIdentitiesWithContext(ctx aws.Context, input *MergeDeveloperIdentitiesInput, opts ...request.Option) (*MergeDeveloperIdentitiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).MergeDeveloperIdentities")
+	defer span.End()
+
 	req, out := c.MergeDeveloperIdentitiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1522,6 +1565,9 @@ func (c *CognitoIdentity) SetIdentityPoolRoles(input *SetIdentityPoolRolesInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) SetIdentityPoolRolesWithContext(ctx aws.Context, input *SetIdentityPoolRolesInput, opts ...request.Option) (*SetIdentityPoolRolesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).SetIdentityPoolRoles")
+	defer span.End()
+
 	req, out := c.SetIdentityPoolRolesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1625,6 +1671,9 @@ func (c *CognitoIdentity) UnlinkDeveloperIdentity(input *UnlinkDeveloperIdentity
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) UnlinkDeveloperIdentityWithContext(ctx aws.Context, input *UnlinkDeveloperIdentityInput, opts ...request.Option) (*UnlinkDeveloperIdentityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).UnlinkDeveloperIdentity")
+	defer span.End()
+
 	req, out := c.UnlinkDeveloperIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1731,6 +1780,9 @@ func (c *CognitoIdentity) UnlinkIdentity(input *UnlinkIdentityInput) (*UnlinkIde
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) UnlinkIdentityWithContext(ctx aws.Context, input *UnlinkIdentityInput, opts ...request.Option) (*UnlinkIdentityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).UnlinkIdentity")
+	defer span.End()
+
 	req, out := c.UnlinkIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1835,6 +1887,9 @@ func (c *CognitoIdentity) UpdateIdentityPool(input *IdentityPool) (*IdentityPool
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoIdentity) UpdateIdentityPoolWithContext(ctx aws.Context, input *IdentityPool, opts ...request.Option) (*IdentityPool, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitoidentity.(*CognitoIdentity).UpdateIdentityPool")
+	defer span.End()
+
 	req, out := c.UpdateIdentityPoolRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

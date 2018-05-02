@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opAddTagsToStream = "AddTagsToStream"
@@ -107,6 +108,9 @@ func (c *Kinesis) AddTagsToStream(input *AddTagsToStreamInput) (*AddTagsToStream
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) AddTagsToStreamWithContext(ctx aws.Context, input *AddTagsToStreamInput, opts ...request.Option) (*AddTagsToStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).AddTagsToStream")
+	defer span.End()
+
 	req, out := c.AddTagsToStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -235,6 +239,9 @@ func (c *Kinesis) CreateStream(input *CreateStreamInput) (*CreateStreamOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) CreateStreamWithContext(ctx aws.Context, input *CreateStreamInput, opts ...request.Option) (*CreateStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).CreateStream")
+	defer span.End()
+
 	req, out := c.CreateStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -335,6 +342,9 @@ func (c *Kinesis) DecreaseStreamRetentionPeriod(input *DecreaseStreamRetentionPe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) DecreaseStreamRetentionPeriodWithContext(ctx aws.Context, input *DecreaseStreamRetentionPeriodInput, opts ...request.Option) (*DecreaseStreamRetentionPeriodOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).DecreaseStreamRetentionPeriod")
+	defer span.End()
+
 	req, out := c.DecreaseStreamRetentionPeriodRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -440,6 +450,9 @@ func (c *Kinesis) DeleteStream(input *DeleteStreamInput) (*DeleteStreamOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) DeleteStreamWithContext(ctx aws.Context, input *DeleteStreamInput, opts ...request.Option) (*DeleteStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).DeleteStream")
+	defer span.End()
+
 	req, out := c.DeleteStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -525,6 +538,9 @@ func (c *Kinesis) DescribeLimits(input *DescribeLimitsInput) (*DescribeLimitsOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) DescribeLimitsWithContext(ctx aws.Context, input *DescribeLimitsInput, opts ...request.Option) (*DescribeLimitsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).DescribeLimits")
+	defer span.End()
+
 	req, out := c.DescribeLimitsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -633,6 +649,9 @@ func (c *Kinesis) DescribeStream(input *DescribeStreamInput) (*DescribeStreamOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) DescribeStreamWithContext(ctx aws.Context, input *DescribeStreamInput, opts ...request.Option) (*DescribeStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).DescribeStream")
+	defer span.End()
+
 	req, out := c.DescribeStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -772,6 +791,9 @@ func (c *Kinesis) DescribeStreamSummary(input *DescribeStreamSummaryInput) (*Des
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) DescribeStreamSummaryWithContext(ctx aws.Context, input *DescribeStreamSummaryInput, opts ...request.Option) (*DescribeStreamSummaryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).DescribeStreamSummary")
+	defer span.End()
+
 	req, out := c.DescribeStreamSummaryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -864,6 +886,9 @@ func (c *Kinesis) DisableEnhancedMonitoring(input *DisableEnhancedMonitoringInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) DisableEnhancedMonitoringWithContext(ctx aws.Context, input *DisableEnhancedMonitoringInput, opts ...request.Option) (*EnhancedMonitoringOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).DisableEnhancedMonitoring")
+	defer span.End()
+
 	req, out := c.DisableEnhancedMonitoringRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -956,6 +981,9 @@ func (c *Kinesis) EnableEnhancedMonitoring(input *EnableEnhancedMonitoringInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) EnableEnhancedMonitoringWithContext(ctx aws.Context, input *EnableEnhancedMonitoringInput, opts ...request.Option) (*EnhancedMonitoringOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).EnableEnhancedMonitoring")
+	defer span.End()
+
 	req, out := c.EnableEnhancedMonitoringRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1129,6 +1157,9 @@ func (c *Kinesis) GetRecords(input *GetRecordsInput) (*GetRecordsOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) GetRecordsWithContext(ctx aws.Context, input *GetRecordsInput, opts ...request.Option) (*GetRecordsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).GetRecords")
+	defer span.End()
+
 	req, out := c.GetRecordsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1259,6 +1290,9 @@ func (c *Kinesis) GetShardIterator(input *GetShardIteratorInput) (*GetShardItera
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) GetShardIteratorWithContext(ctx aws.Context, input *GetShardIteratorInput, opts ...request.Option) (*GetShardIteratorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).GetShardIterator")
+	defer span.End()
+
 	req, out := c.GetShardIteratorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1363,6 +1397,9 @@ func (c *Kinesis) IncreaseStreamRetentionPeriod(input *IncreaseStreamRetentionPe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) IncreaseStreamRetentionPeriodWithContext(ctx aws.Context, input *IncreaseStreamRetentionPeriodInput, opts ...request.Option) (*IncreaseStreamRetentionPeriodOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).IncreaseStreamRetentionPeriod")
+	defer span.End()
+
 	req, out := c.IncreaseStreamRetentionPeriodRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1465,6 +1502,9 @@ func (c *Kinesis) ListShards(input *ListShardsInput) (*ListShardsOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) ListShardsWithContext(ctx aws.Context, input *ListShardsInput, opts ...request.Option) (*ListShardsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).ListShards")
+	defer span.End()
+
 	req, out := c.ListShardsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1566,6 +1606,9 @@ func (c *Kinesis) ListStreams(input *ListStreamsInput) (*ListStreamsOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) ListStreamsWithContext(ctx aws.Context, input *ListStreamsInput, opts ...request.Option) (*ListStreamsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).ListStreams")
+	defer span.End()
+
 	req, out := c.ListStreamsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1705,6 +1748,9 @@ func (c *Kinesis) ListTagsForStream(input *ListTagsForStreamInput) (*ListTagsFor
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) ListTagsForStreamWithContext(ctx aws.Context, input *ListTagsForStreamInput, opts ...request.Option) (*ListTagsForStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).ListTagsForStream")
+	defer span.End()
+
 	req, out := c.ListTagsForStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1834,6 +1880,9 @@ func (c *Kinesis) MergeShards(input *MergeShardsInput) (*MergeShardsOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) MergeShardsWithContext(ctx aws.Context, input *MergeShardsInput, opts ...request.Option) (*MergeShardsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).MergeShards")
+	defer span.End()
+
 	req, out := c.MergeShardsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1990,6 +2039,9 @@ func (c *Kinesis) PutRecord(input *PutRecordInput) (*PutRecordOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) PutRecordWithContext(ctx aws.Context, input *PutRecordInput, opts ...request.Option) (*PutRecordOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).PutRecord")
+	defer span.End()
+
 	req, out := c.PutRecordRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2166,6 +2218,9 @@ func (c *Kinesis) PutRecords(input *PutRecordsInput) (*PutRecordsOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) PutRecordsWithContext(ctx aws.Context, input *PutRecordsInput, opts ...request.Option) (*PutRecordsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).PutRecords")
+	defer span.End()
+
 	req, out := c.PutRecordsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2265,6 +2320,9 @@ func (c *Kinesis) RemoveTagsFromStream(input *RemoveTagsFromStreamInput) (*Remov
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) RemoveTagsFromStreamWithContext(ctx aws.Context, input *RemoveTagsFromStreamInput, opts ...request.Option) (*RemoveTagsFromStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).RemoveTagsFromStream")
+	defer span.End()
+
 	req, out := c.RemoveTagsFromStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2403,6 +2461,9 @@ func (c *Kinesis) SplitShard(input *SplitShardInput) (*SplitShardOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) SplitShardWithContext(ctx aws.Context, input *SplitShardInput, opts ...request.Option) (*SplitShardOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).SplitShard")
+	defer span.End()
+
 	req, out := c.SplitShardRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2541,6 +2602,9 @@ func (c *Kinesis) StartStreamEncryption(input *StartStreamEncryptionInput) (*Sta
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) StartStreamEncryptionWithContext(ctx aws.Context, input *StartStreamEncryptionInput, opts ...request.Option) (*StartStreamEncryptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).StartStreamEncryption")
+	defer span.End()
+
 	req, out := c.StartStreamEncryptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2652,6 +2716,9 @@ func (c *Kinesis) StopStreamEncryption(input *StopStreamEncryptionInput) (*StopS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) StopStreamEncryptionWithContext(ctx aws.Context, input *StopStreamEncryptionInput, opts ...request.Option) (*StopStreamEncryptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).StopStreamEncryption")
+	defer span.End()
+
 	req, out := c.StopStreamEncryptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2777,6 +2844,9 @@ func (c *Kinesis) UpdateShardCount(input *UpdateShardCountInput) (*UpdateShardCo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Kinesis) UpdateShardCountWithContext(ctx aws.Context, input *UpdateShardCountInput, opts ...request.Option) (*UpdateShardCountOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesis.(*Kinesis).UpdateShardCount")
+	defer span.End()
+
 	req, out := c.UpdateShardCountRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

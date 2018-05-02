@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAssociateTeamMember = "AssociateTeamMember"
@@ -102,6 +103,9 @@ func (c *CodeStar) AssociateTeamMember(input *AssociateTeamMemberInput) (*Associ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) AssociateTeamMemberWithContext(ctx aws.Context, input *AssociateTeamMemberInput, opts ...request.Option) (*AssociateTeamMemberOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).AssociateTeamMember")
+	defer span.End()
+
 	req, out := c.AssociateTeamMemberRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -204,6 +208,9 @@ func (c *CodeStar) CreateProject(input *CreateProjectInput) (*CreateProjectOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) CreateProjectWithContext(ctx aws.Context, input *CreateProjectInput, opts ...request.Option) (*CreateProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).CreateProject")
+	defer span.End()
+
 	req, out := c.CreateProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -292,6 +299,9 @@ func (c *CodeStar) CreateUserProfile(input *CreateUserProfileInput) (*CreateUser
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) CreateUserProfileWithContext(ctx aws.Context, input *CreateUserProfileInput, opts ...request.Option) (*CreateUserProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).CreateUserProfile")
+	defer span.End()
+
 	req, out := c.CreateUserProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -380,6 +390,9 @@ func (c *CodeStar) DeleteProject(input *DeleteProjectInput) (*DeleteProjectOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) DeleteProjectWithContext(ctx aws.Context, input *DeleteProjectInput, opts ...request.Option) (*DeleteProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).DeleteProject")
+	defer span.End()
+
 	req, out := c.DeleteProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -462,6 +475,9 @@ func (c *CodeStar) DeleteUserProfile(input *DeleteUserProfileInput) (*DeleteUser
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) DeleteUserProfileWithContext(ctx aws.Context, input *DeleteUserProfileInput, opts ...request.Option) (*DeleteUserProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).DeleteUserProfile")
+	defer span.End()
+
 	req, out := c.DeleteUserProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -554,6 +570,9 @@ func (c *CodeStar) DescribeProject(input *DescribeProjectInput) (*DescribeProjec
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) DescribeProjectWithContext(ctx aws.Context, input *DescribeProjectInput, opts ...request.Option) (*DescribeProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).DescribeProject")
+	defer span.End()
+
 	req, out := c.DescribeProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -636,6 +655,9 @@ func (c *CodeStar) DescribeUserProfile(input *DescribeUserProfileInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) DescribeUserProfileWithContext(ctx aws.Context, input *DescribeUserProfileInput, opts ...request.Option) (*DescribeUserProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).DescribeUserProfile")
+	defer span.End()
+
 	req, out := c.DescribeUserProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -728,6 +750,9 @@ func (c *CodeStar) DisassociateTeamMember(input *DisassociateTeamMemberInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) DisassociateTeamMemberWithContext(ctx aws.Context, input *DisassociateTeamMemberInput, opts ...request.Option) (*DisassociateTeamMemberOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).DisassociateTeamMember")
+	defer span.End()
+
 	req, out := c.DisassociateTeamMemberRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -810,6 +835,9 @@ func (c *CodeStar) ListProjects(input *ListProjectsInput) (*ListProjectsOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) ListProjectsWithContext(ctx aws.Context, input *ListProjectsInput, opts ...request.Option) (*ListProjectsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).ListProjects")
+	defer span.End()
+
 	req, out := c.ListProjectsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -895,6 +923,9 @@ func (c *CodeStar) ListResources(input *ListResourcesInput) (*ListResourcesOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) ListResourcesWithContext(ctx aws.Context, input *ListResourcesInput, opts ...request.Option) (*ListResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).ListResources")
+	defer span.End()
+
 	req, out := c.ListResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -980,6 +1011,9 @@ func (c *CodeStar) ListTagsForProject(input *ListTagsForProjectInput) (*ListTags
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) ListTagsForProjectWithContext(ctx aws.Context, input *ListTagsForProjectInput, opts ...request.Option) (*ListTagsForProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).ListTagsForProject")
+	defer span.End()
+
 	req, out := c.ListTagsForProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1065,6 +1099,9 @@ func (c *CodeStar) ListTeamMembers(input *ListTeamMembersInput) (*ListTeamMember
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) ListTeamMembersWithContext(ctx aws.Context, input *ListTeamMembersInput, opts ...request.Option) (*ListTeamMembersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).ListTeamMembers")
+	defer span.End()
+
 	req, out := c.ListTeamMembersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1147,6 +1184,9 @@ func (c *CodeStar) ListUserProfiles(input *ListUserProfilesInput) (*ListUserProf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) ListUserProfilesWithContext(ctx aws.Context, input *ListUserProfilesInput, opts ...request.Option) (*ListUserProfilesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).ListUserProfiles")
+	defer span.End()
+
 	req, out := c.ListUserProfilesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1236,6 +1276,9 @@ func (c *CodeStar) TagProject(input *TagProjectInput) (*TagProjectOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) TagProjectWithContext(ctx aws.Context, input *TagProjectInput, opts ...request.Option) (*TagProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).TagProject")
+	defer span.End()
+
 	req, out := c.TagProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1325,6 +1368,9 @@ func (c *CodeStar) UntagProject(input *UntagProjectInput) (*UntagProjectOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) UntagProjectWithContext(ctx aws.Context, input *UntagProjectInput, opts ...request.Option) (*UntagProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).UntagProject")
+	defer span.End()
+
 	req, out := c.UntagProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1407,6 +1453,9 @@ func (c *CodeStar) UpdateProject(input *UpdateProjectInput) (*UpdateProjectOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) UpdateProjectWithContext(ctx aws.Context, input *UpdateProjectInput, opts ...request.Option) (*UpdateProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).UpdateProject")
+	defer span.End()
+
 	req, out := c.UpdateProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1507,6 +1556,9 @@ func (c *CodeStar) UpdateTeamMember(input *UpdateTeamMemberInput) (*UpdateTeamMe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) UpdateTeamMemberWithContext(ctx aws.Context, input *UpdateTeamMemberInput, opts ...request.Option) (*UpdateTeamMemberOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).UpdateTeamMember")
+	defer span.End()
+
 	req, out := c.UpdateTeamMemberRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1591,6 +1643,9 @@ func (c *CodeStar) UpdateUserProfile(input *UpdateUserProfileInput) (*UpdateUser
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeStar) UpdateUserProfileWithContext(ctx aws.Context, input *UpdateUserProfileInput, opts ...request.Option) (*UpdateUserProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codestar.(*CodeStar).UpdateUserProfile")
+	defer span.End()
+
 	req, out := c.UpdateUserProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

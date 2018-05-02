@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/ec2query"
+	"go.opencensus.io/trace"
 )
 
 const opAcceptReservedInstancesExchangeQuote = "AcceptReservedInstancesExchangeQuote"
@@ -82,6 +83,9 @@ func (c *EC2) AcceptReservedInstancesExchangeQuote(input *AcceptReservedInstance
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AcceptReservedInstancesExchangeQuoteWithContext(ctx aws.Context, input *AcceptReservedInstancesExchangeQuoteInput, opts ...request.Option) (*AcceptReservedInstancesExchangeQuoteOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AcceptReservedInstancesExchangeQuote")
+	defer span.End()
+
 	req, out := c.AcceptReservedInstancesExchangeQuoteRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -157,6 +161,9 @@ func (c *EC2) AcceptVpcEndpointConnections(input *AcceptVpcEndpointConnectionsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AcceptVpcEndpointConnectionsWithContext(ctx aws.Context, input *AcceptVpcEndpointConnectionsInput, opts ...request.Option) (*AcceptVpcEndpointConnectionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AcceptVpcEndpointConnections")
+	defer span.End()
+
 	req, out := c.AcceptVpcEndpointConnectionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -237,6 +244,9 @@ func (c *EC2) AcceptVpcPeeringConnection(input *AcceptVpcPeeringConnectionInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AcceptVpcPeeringConnectionWithContext(ctx aws.Context, input *AcceptVpcPeeringConnectionInput, opts ...request.Option) (*AcceptVpcPeeringConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AcceptVpcPeeringConnection")
+	defer span.End()
+
 	req, out := c.AcceptVpcPeeringConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -323,6 +333,9 @@ func (c *EC2) AllocateAddress(input *AllocateAddressInput) (*AllocateAddressOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AllocateAddressWithContext(ctx aws.Context, input *AllocateAddressInput, opts ...request.Option) (*AllocateAddressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AllocateAddress")
+	defer span.End()
+
 	req, out := c.AllocateAddressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -399,6 +412,9 @@ func (c *EC2) AllocateHosts(input *AllocateHostsInput) (*AllocateHostsOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AllocateHostsWithContext(ctx aws.Context, input *AllocateHostsInput, opts ...request.Option) (*AllocateHostsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AllocateHosts")
+	defer span.End()
+
 	req, out := c.AllocateHostsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -480,6 +496,9 @@ func (c *EC2) AssignIpv6Addresses(input *AssignIpv6AddressesInput) (*AssignIpv6A
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AssignIpv6AddressesWithContext(ctx aws.Context, input *AssignIpv6AddressesInput, opts ...request.Option) (*AssignIpv6AddressesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AssignIpv6Addresses")
+	defer span.End()
+
 	req, out := c.AssignIpv6AddressesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -566,6 +585,9 @@ func (c *EC2) AssignPrivateIpAddresses(input *AssignPrivateIpAddressesInput) (*A
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AssignPrivateIpAddressesWithContext(ctx aws.Context, input *AssignPrivateIpAddressesInput, opts ...request.Option) (*AssignPrivateIpAddressesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AssignPrivateIpAddresses")
+	defer span.End()
+
 	req, out := c.AssignPrivateIpAddressesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -663,6 +685,9 @@ func (c *EC2) AssociateAddress(input *AssociateAddressInput) (*AssociateAddressO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AssociateAddressWithContext(ctx aws.Context, input *AssociateAddressInput, opts ...request.Option) (*AssociateAddressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AssociateAddress")
+	defer span.End()
+
 	req, out := c.AssociateAddressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -750,6 +775,9 @@ func (c *EC2) AssociateDhcpOptions(input *AssociateDhcpOptionsInput) (*Associate
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AssociateDhcpOptionsWithContext(ctx aws.Context, input *AssociateDhcpOptionsInput, opts ...request.Option) (*AssociateDhcpOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AssociateDhcpOptions")
+	defer span.End()
+
 	req, out := c.AssociateDhcpOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -825,6 +853,9 @@ func (c *EC2) AssociateIamInstanceProfile(input *AssociateIamInstanceProfileInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AssociateIamInstanceProfileWithContext(ctx aws.Context, input *AssociateIamInstanceProfileInput, opts ...request.Option) (*AssociateIamInstanceProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AssociateIamInstanceProfile")
+	defer span.End()
+
 	req, out := c.AssociateIamInstanceProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -906,6 +937,9 @@ func (c *EC2) AssociateRouteTable(input *AssociateRouteTableInput) (*AssociateRo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AssociateRouteTableWithContext(ctx aws.Context, input *AssociateRouteTableInput, opts ...request.Option) (*AssociateRouteTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AssociateRouteTable")
+	defer span.End()
+
 	req, out := c.AssociateRouteTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -982,6 +1016,9 @@ func (c *EC2) AssociateSubnetCidrBlock(input *AssociateSubnetCidrBlockInput) (*A
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AssociateSubnetCidrBlockWithContext(ctx aws.Context, input *AssociateSubnetCidrBlockInput, opts ...request.Option) (*AssociateSubnetCidrBlockOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AssociateSubnetCidrBlock")
+	defer span.End()
+
 	req, out := c.AssociateSubnetCidrBlockRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1062,6 +1099,9 @@ func (c *EC2) AssociateVpcCidrBlock(input *AssociateVpcCidrBlockInput) (*Associa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AssociateVpcCidrBlockWithContext(ctx aws.Context, input *AssociateVpcCidrBlockInput, opts ...request.Option) (*AssociateVpcCidrBlockOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AssociateVpcCidrBlock")
+	defer span.End()
+
 	req, out := c.AssociateVpcCidrBlockRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1147,6 +1187,9 @@ func (c *EC2) AttachClassicLinkVpc(input *AttachClassicLinkVpcInput) (*AttachCla
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AttachClassicLinkVpcWithContext(ctx aws.Context, input *AttachClassicLinkVpcInput, opts ...request.Option) (*AttachClassicLinkVpcOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AttachClassicLinkVpc")
+	defer span.End()
+
 	req, out := c.AttachClassicLinkVpcRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1225,6 +1268,9 @@ func (c *EC2) AttachInternetGateway(input *AttachInternetGatewayInput) (*AttachI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AttachInternetGatewayWithContext(ctx aws.Context, input *AttachInternetGatewayInput, opts ...request.Option) (*AttachInternetGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AttachInternetGateway")
+	defer span.End()
+
 	req, out := c.AttachInternetGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1299,6 +1345,9 @@ func (c *EC2) AttachNetworkInterface(input *AttachNetworkInterfaceInput) (*Attac
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AttachNetworkInterfaceWithContext(ctx aws.Context, input *AttachNetworkInterfaceInput, opts ...request.Option) (*AttachNetworkInterfaceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AttachNetworkInterface")
+	defer span.End()
+
 	req, out := c.AttachNetworkInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1402,6 +1451,9 @@ func (c *EC2) AttachVolume(input *AttachVolumeInput) (*VolumeAttachment, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AttachVolumeWithContext(ctx aws.Context, input *AttachVolumeInput, opts ...request.Option) (*VolumeAttachment, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AttachVolume")
+	defer span.End()
+
 	req, out := c.AttachVolumeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1480,6 +1532,9 @@ func (c *EC2) AttachVpnGateway(input *AttachVpnGatewayInput) (*AttachVpnGatewayO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AttachVpnGatewayWithContext(ctx aws.Context, input *AttachVpnGatewayInput, opts ...request.Option) (*AttachVpnGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AttachVpnGateway")
+	defer span.End()
+
 	req, out := c.AttachVpnGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1573,6 +1628,9 @@ func (c *EC2) AuthorizeSecurityGroupEgress(input *AuthorizeSecurityGroupEgressIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AuthorizeSecurityGroupEgressWithContext(ctx aws.Context, input *AuthorizeSecurityGroupEgressInput, opts ...request.Option) (*AuthorizeSecurityGroupEgressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AuthorizeSecurityGroupEgress")
+	defer span.End()
+
 	req, out := c.AuthorizeSecurityGroupEgressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1667,6 +1725,9 @@ func (c *EC2) AuthorizeSecurityGroupIngress(input *AuthorizeSecurityGroupIngress
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) AuthorizeSecurityGroupIngressWithContext(ctx aws.Context, input *AuthorizeSecurityGroupIngressInput, opts ...request.Option) (*AuthorizeSecurityGroupIngressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).AuthorizeSecurityGroupIngress")
+	defer span.End()
+
 	req, out := c.AuthorizeSecurityGroupIngressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1749,6 +1810,9 @@ func (c *EC2) BundleInstance(input *BundleInstanceInput) (*BundleInstanceOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) BundleInstanceWithContext(ctx aws.Context, input *BundleInstanceInput, opts ...request.Option) (*BundleInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).BundleInstance")
+	defer span.End()
+
 	req, out := c.BundleInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1823,6 +1887,9 @@ func (c *EC2) CancelBundleTask(input *CancelBundleTaskInput) (*CancelBundleTaskO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CancelBundleTaskWithContext(ctx aws.Context, input *CancelBundleTaskInput, opts ...request.Option) (*CancelBundleTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CancelBundleTask")
+	defer span.End()
+
 	req, out := c.CancelBundleTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1906,6 +1973,9 @@ func (c *EC2) CancelConversionTask(input *CancelConversionTaskInput) (*CancelCon
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CancelConversionTaskWithContext(ctx aws.Context, input *CancelConversionTaskInput, opts ...request.Option) (*CancelConversionTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CancelConversionTask")
+	defer span.End()
+
 	req, out := c.CancelConversionTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1985,6 +2055,9 @@ func (c *EC2) CancelExportTask(input *CancelExportTaskInput) (*CancelExportTaskO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CancelExportTaskWithContext(ctx aws.Context, input *CancelExportTaskInput, opts ...request.Option) (*CancelExportTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CancelExportTask")
+	defer span.End()
+
 	req, out := c.CancelExportTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2059,6 +2132,9 @@ func (c *EC2) CancelImportTask(input *CancelImportTaskInput) (*CancelImportTaskO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CancelImportTaskWithContext(ctx aws.Context, input *CancelImportTaskInput, opts ...request.Option) (*CancelImportTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CancelImportTask")
+	defer span.End()
+
 	req, out := c.CancelImportTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2137,6 +2213,9 @@ func (c *EC2) CancelReservedInstancesListing(input *CancelReservedInstancesListi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CancelReservedInstancesListingWithContext(ctx aws.Context, input *CancelReservedInstancesListingInput, opts ...request.Option) (*CancelReservedInstancesListingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CancelReservedInstancesListing")
+	defer span.End()
+
 	req, out := c.CancelReservedInstancesListingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2218,6 +2297,9 @@ func (c *EC2) CancelSpotFleetRequests(input *CancelSpotFleetRequestsInput) (*Can
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CancelSpotFleetRequestsWithContext(ctx aws.Context, input *CancelSpotFleetRequestsInput, opts ...request.Option) (*CancelSpotFleetRequestsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CancelSpotFleetRequests")
+	defer span.End()
+
 	req, out := c.CancelSpotFleetRequestsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2299,6 +2381,9 @@ func (c *EC2) CancelSpotInstanceRequests(input *CancelSpotInstanceRequestsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CancelSpotInstanceRequestsWithContext(ctx aws.Context, input *CancelSpotInstanceRequestsInput, opts ...request.Option) (*CancelSpotInstanceRequestsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CancelSpotInstanceRequests")
+	defer span.End()
+
 	req, out := c.CancelSpotInstanceRequestsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2375,6 +2460,9 @@ func (c *EC2) ConfirmProductInstance(input *ConfirmProductInstanceInput) (*Confi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ConfirmProductInstanceWithContext(ctx aws.Context, input *ConfirmProductInstanceInput, opts ...request.Option) (*ConfirmProductInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ConfirmProductInstance")
+	defer span.End()
+
 	req, out := c.ConfirmProductInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2449,6 +2537,9 @@ func (c *EC2) CopyFpgaImage(input *CopyFpgaImageInput) (*CopyFpgaImageOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CopyFpgaImageWithContext(ctx aws.Context, input *CopyFpgaImageInput, opts ...request.Option) (*CopyFpgaImageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CopyFpgaImage")
+	defer span.End()
+
 	req, out := c.CopyFpgaImageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2529,6 +2620,9 @@ func (c *EC2) CopyImage(input *CopyImageInput) (*CopyImageOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CopyImageWithContext(ctx aws.Context, input *CopyImageInput, opts ...request.Option) (*CopyImageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CopyImage")
+	defer span.End()
+
 	req, out := c.CopyImageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2622,6 +2716,9 @@ func (c *EC2) CopySnapshot(input *CopySnapshotInput) (*CopySnapshotOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CopySnapshotWithContext(ctx aws.Context, input *CopySnapshotInput, opts ...request.Option) (*CopySnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CopySnapshot")
+	defer span.End()
+
 	req, out := c.CopySnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2720,6 +2817,9 @@ func (c *EC2) CreateCustomerGateway(input *CreateCustomerGatewayInput) (*CreateC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateCustomerGatewayWithContext(ctx aws.Context, input *CreateCustomerGatewayInput, opts ...request.Option) (*CreateCustomerGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateCustomerGateway")
+	defer span.End()
+
 	req, out := c.CreateCustomerGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2798,6 +2898,9 @@ func (c *EC2) CreateDefaultSubnet(input *CreateDefaultSubnetInput) (*CreateDefau
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateDefaultSubnetWithContext(ctx aws.Context, input *CreateDefaultSubnetInput, opts ...request.Option) (*CreateDefaultSubnetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateDefaultSubnet")
+	defer span.End()
+
 	req, out := c.CreateDefaultSubnetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2884,6 +2987,9 @@ func (c *EC2) CreateDefaultVpc(input *CreateDefaultVpcInput) (*CreateDefaultVpcO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateDefaultVpcWithContext(ctx aws.Context, input *CreateDefaultVpcInput, opts ...request.Option) (*CreateDefaultVpcOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateDefaultVpc")
+	defer span.End()
+
 	req, out := c.CreateDefaultVpcRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2997,6 +3103,9 @@ func (c *EC2) CreateDhcpOptions(input *CreateDhcpOptionsInput) (*CreateDhcpOptio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateDhcpOptionsWithContext(ctx aws.Context, input *CreateDhcpOptionsInput, opts ...request.Option) (*CreateDhcpOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateDhcpOptions")
+	defer span.End()
+
 	req, out := c.CreateDhcpOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3074,6 +3183,9 @@ func (c *EC2) CreateEgressOnlyInternetGateway(input *CreateEgressOnlyInternetGat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateEgressOnlyInternetGatewayWithContext(ctx aws.Context, input *CreateEgressOnlyInternetGatewayInput, opts ...request.Option) (*CreateEgressOnlyInternetGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateEgressOnlyInternetGateway")
+	defer span.End()
+
 	req, out := c.CreateEgressOnlyInternetGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3160,6 +3272,9 @@ func (c *EC2) CreateFlowLogs(input *CreateFlowLogsInput) (*CreateFlowLogsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateFlowLogsWithContext(ctx aws.Context, input *CreateFlowLogsInput, opts ...request.Option) (*CreateFlowLogsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateFlowLogs")
+	defer span.End()
+
 	req, out := c.CreateFlowLogsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3241,6 +3356,9 @@ func (c *EC2) CreateFpgaImage(input *CreateFpgaImageInput) (*CreateFpgaImageOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateFpgaImageWithContext(ctx aws.Context, input *CreateFpgaImageInput, opts ...request.Option) (*CreateFpgaImageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateFpgaImage")
+	defer span.End()
+
 	req, out := c.CreateFpgaImageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3324,6 +3442,9 @@ func (c *EC2) CreateImage(input *CreateImageInput) (*CreateImageOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateImageWithContext(ctx aws.Context, input *CreateImageInput, opts ...request.Option) (*CreateImageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateImage")
+	defer span.End()
+
 	req, out := c.CreateImageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3403,6 +3524,9 @@ func (c *EC2) CreateInstanceExportTask(input *CreateInstanceExportTaskInput) (*C
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateInstanceExportTaskWithContext(ctx aws.Context, input *CreateInstanceExportTaskInput, opts ...request.Option) (*CreateInstanceExportTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateInstanceExportTask")
+	defer span.End()
+
 	req, out := c.CreateInstanceExportTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3481,6 +3605,9 @@ func (c *EC2) CreateInternetGateway(input *CreateInternetGatewayInput) (*CreateI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateInternetGatewayWithContext(ctx aws.Context, input *CreateInternetGatewayInput, opts ...request.Option) (*CreateInternetGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateInternetGateway")
+	defer span.End()
+
 	req, out := c.CreateInternetGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3567,6 +3694,9 @@ func (c *EC2) CreateKeyPair(input *CreateKeyPairInput) (*CreateKeyPairOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateKeyPairWithContext(ctx aws.Context, input *CreateKeyPairInput, opts ...request.Option) (*CreateKeyPairOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateKeyPair")
+	defer span.End()
+
 	req, out := c.CreateKeyPairRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3643,6 +3773,9 @@ func (c *EC2) CreateLaunchTemplate(input *CreateLaunchTemplateInput) (*CreateLau
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateLaunchTemplateWithContext(ctx aws.Context, input *CreateLaunchTemplateInput, opts ...request.Option) (*CreateLaunchTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateLaunchTemplate")
+	defer span.End()
+
 	req, out := c.CreateLaunchTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3721,6 +3854,9 @@ func (c *EC2) CreateLaunchTemplateVersion(input *CreateLaunchTemplateVersionInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateLaunchTemplateVersionWithContext(ctx aws.Context, input *CreateLaunchTemplateVersionInput, opts ...request.Option) (*CreateLaunchTemplateVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateLaunchTemplateVersion")
+	defer span.End()
+
 	req, out := c.CreateLaunchTemplateVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3800,6 +3936,9 @@ func (c *EC2) CreateNatGateway(input *CreateNatGatewayInput) (*CreateNatGatewayO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateNatGatewayWithContext(ctx aws.Context, input *CreateNatGatewayInput, opts ...request.Option) (*CreateNatGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateNatGateway")
+	defer span.End()
+
 	req, out := c.CreateNatGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3878,6 +4017,9 @@ func (c *EC2) CreateNetworkAcl(input *CreateNetworkAclInput) (*CreateNetworkAclO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateNetworkAclWithContext(ctx aws.Context, input *CreateNetworkAclInput, opts ...request.Option) (*CreateNetworkAclOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateNetworkAcl")
+	defer span.End()
+
 	req, out := c.CreateNetworkAclRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3970,6 +4112,9 @@ func (c *EC2) CreateNetworkAclEntry(input *CreateNetworkAclEntryInput) (*CreateN
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateNetworkAclEntryWithContext(ctx aws.Context, input *CreateNetworkAclEntryInput, opts ...request.Option) (*CreateNetworkAclEntryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateNetworkAclEntry")
+	defer span.End()
+
 	req, out := c.CreateNetworkAclEntryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4048,6 +4193,9 @@ func (c *EC2) CreateNetworkInterface(input *CreateNetworkInterfaceInput) (*Creat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateNetworkInterfaceWithContext(ctx aws.Context, input *CreateNetworkInterfaceInput, opts ...request.Option) (*CreateNetworkInterfaceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateNetworkInterface")
+	defer span.End()
+
 	req, out := c.CreateNetworkInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4126,6 +4274,9 @@ func (c *EC2) CreateNetworkInterfacePermission(input *CreateNetworkInterfacePerm
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateNetworkInterfacePermissionWithContext(ctx aws.Context, input *CreateNetworkInterfacePermissionInput, opts ...request.Option) (*CreateNetworkInterfacePermissionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateNetworkInterfacePermission")
+	defer span.End()
+
 	req, out := c.CreateNetworkInterfacePermissionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4210,6 +4361,9 @@ func (c *EC2) CreatePlacementGroup(input *CreatePlacementGroupInput) (*CreatePla
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreatePlacementGroupWithContext(ctx aws.Context, input *CreatePlacementGroupInput, opts ...request.Option) (*CreatePlacementGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreatePlacementGroup")
+	defer span.End()
+
 	req, out := c.CreatePlacementGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4307,6 +4461,9 @@ func (c *EC2) CreateReservedInstancesListing(input *CreateReservedInstancesListi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateReservedInstancesListingWithContext(ctx aws.Context, input *CreateReservedInstancesListingInput, opts ...request.Option) (*CreateReservedInstancesListingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateReservedInstancesListing")
+	defer span.End()
+
 	req, out := c.CreateReservedInstancesListingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4400,6 +4557,9 @@ func (c *EC2) CreateRoute(input *CreateRouteInput) (*CreateRouteOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateRouteWithContext(ctx aws.Context, input *CreateRouteInput, opts ...request.Option) (*CreateRouteOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateRoute")
+	defer span.End()
+
 	req, out := c.CreateRouteRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4478,6 +4638,9 @@ func (c *EC2) CreateRouteTable(input *CreateRouteTableInput) (*CreateRouteTableO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateRouteTableWithContext(ctx aws.Context, input *CreateRouteTableInput, opts ...request.Option) (*CreateRouteTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateRouteTable")
+	defer span.End()
+
 	req, out := c.CreateRouteTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4578,6 +4741,9 @@ func (c *EC2) CreateSecurityGroup(input *CreateSecurityGroupInput) (*CreateSecur
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateSecurityGroupWithContext(ctx aws.Context, input *CreateSecurityGroupInput, opts ...request.Option) (*CreateSecurityGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateSecurityGroup")
+	defer span.End()
+
 	req, out := c.CreateSecurityGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4682,6 +4848,9 @@ func (c *EC2) CreateSnapshot(input *CreateSnapshotInput) (*Snapshot, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateSnapshotWithContext(ctx aws.Context, input *CreateSnapshotInput, opts ...request.Option) (*Snapshot, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateSnapshot")
+	defer span.End()
+
 	req, out := c.CreateSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4759,6 +4928,9 @@ func (c *EC2) CreateSpotDatafeedSubscription(input *CreateSpotDatafeedSubscripti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateSpotDatafeedSubscriptionWithContext(ctx aws.Context, input *CreateSpotDatafeedSubscriptionInput, opts ...request.Option) (*CreateSpotDatafeedSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateSpotDatafeedSubscription")
+	defer span.End()
+
 	req, out := c.CreateSpotDatafeedSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4859,6 +5031,9 @@ func (c *EC2) CreateSubnet(input *CreateSubnetInput) (*CreateSubnetOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateSubnetWithContext(ctx aws.Context, input *CreateSubnetInput, opts ...request.Option) (*CreateSubnetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateSubnet")
+	defer span.End()
+
 	req, out := c.CreateSubnetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4943,6 +5118,9 @@ func (c *EC2) CreateTags(input *CreateTagsInput) (*CreateTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateTagsWithContext(ctx aws.Context, input *CreateTagsInput, opts ...request.Option) (*CreateTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateTags")
+	defer span.End()
+
 	req, out := c.CreateTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5035,6 +5213,9 @@ func (c *EC2) CreateVolume(input *CreateVolumeInput) (*Volume, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateVolumeWithContext(ctx aws.Context, input *CreateVolumeInput, opts ...request.Option) (*Volume, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateVolume")
+	defer span.End()
+
 	req, out := c.CreateVolumeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5127,6 +5308,9 @@ func (c *EC2) CreateVpc(input *CreateVpcInput) (*CreateVpcOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateVpcWithContext(ctx aws.Context, input *CreateVpcInput, opts ...request.Option) (*CreateVpcOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateVpc")
+	defer span.End()
+
 	req, out := c.CreateVpcRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5217,6 +5401,9 @@ func (c *EC2) CreateVpcEndpoint(input *CreateVpcEndpointInput) (*CreateVpcEndpoi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateVpcEndpointWithContext(ctx aws.Context, input *CreateVpcEndpointInput, opts ...request.Option) (*CreateVpcEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateVpcEndpoint")
+	defer span.End()
+
 	req, out := c.CreateVpcEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5297,6 +5484,9 @@ func (c *EC2) CreateVpcEndpointConnectionNotification(input *CreateVpcEndpointCo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateVpcEndpointConnectionNotificationWithContext(ctx aws.Context, input *CreateVpcEndpointConnectionNotificationInput, opts ...request.Option) (*CreateVpcEndpointConnectionNotificationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateVpcEndpointConnectionNotification")
+	defer span.End()
+
 	req, out := c.CreateVpcEndpointConnectionNotificationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5378,6 +5568,9 @@ func (c *EC2) CreateVpcEndpointServiceConfiguration(input *CreateVpcEndpointServ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateVpcEndpointServiceConfigurationWithContext(ctx aws.Context, input *CreateVpcEndpointServiceConfigurationInput, opts ...request.Option) (*CreateVpcEndpointServiceConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateVpcEndpointServiceConfiguration")
+	defer span.End()
+
 	req, out := c.CreateVpcEndpointServiceConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5467,6 +5660,9 @@ func (c *EC2) CreateVpcPeeringConnection(input *CreateVpcPeeringConnectionInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateVpcPeeringConnectionWithContext(ctx aws.Context, input *CreateVpcPeeringConnectionInput, opts ...request.Option) (*CreateVpcPeeringConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateVpcPeeringConnection")
+	defer span.End()
+
 	req, out := c.CreateVpcPeeringConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5559,6 +5755,9 @@ func (c *EC2) CreateVpnConnection(input *CreateVpnConnectionInput) (*CreateVpnCo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateVpnConnectionWithContext(ctx aws.Context, input *CreateVpnConnectionInput, opts ...request.Option) (*CreateVpnConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateVpnConnection")
+	defer span.End()
+
 	req, out := c.CreateVpnConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5642,6 +5841,9 @@ func (c *EC2) CreateVpnConnectionRoute(input *CreateVpnConnectionRouteInput) (*C
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateVpnConnectionRouteWithContext(ctx aws.Context, input *CreateVpnConnectionRouteInput, opts ...request.Option) (*CreateVpnConnectionRouteOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateVpnConnectionRoute")
+	defer span.End()
+
 	req, out := c.CreateVpnConnectionRouteRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5722,6 +5924,9 @@ func (c *EC2) CreateVpnGateway(input *CreateVpnGatewayInput) (*CreateVpnGatewayO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) CreateVpnGatewayWithContext(ctx aws.Context, input *CreateVpnGatewayInput, opts ...request.Option) (*CreateVpnGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).CreateVpnGateway")
+	defer span.End()
+
 	req, out := c.CreateVpnGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5799,6 +6004,9 @@ func (c *EC2) DeleteCustomerGateway(input *DeleteCustomerGatewayInput) (*DeleteC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteCustomerGatewayWithContext(ctx aws.Context, input *DeleteCustomerGatewayInput, opts ...request.Option) (*DeleteCustomerGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteCustomerGateway")
+	defer span.End()
+
 	req, out := c.DeleteCustomerGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5878,6 +6086,9 @@ func (c *EC2) DeleteDhcpOptions(input *DeleteDhcpOptionsInput) (*DeleteDhcpOptio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteDhcpOptionsWithContext(ctx aws.Context, input *DeleteDhcpOptionsInput, opts ...request.Option) (*DeleteDhcpOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteDhcpOptions")
+	defer span.End()
+
 	req, out := c.DeleteDhcpOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5952,6 +6163,9 @@ func (c *EC2) DeleteEgressOnlyInternetGateway(input *DeleteEgressOnlyInternetGat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteEgressOnlyInternetGatewayWithContext(ctx aws.Context, input *DeleteEgressOnlyInternetGatewayInput, opts ...request.Option) (*DeleteEgressOnlyInternetGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteEgressOnlyInternetGateway")
+	defer span.End()
+
 	req, out := c.DeleteEgressOnlyInternetGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6026,6 +6240,9 @@ func (c *EC2) DeleteFlowLogs(input *DeleteFlowLogsInput) (*DeleteFlowLogsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteFlowLogsWithContext(ctx aws.Context, input *DeleteFlowLogsInput, opts ...request.Option) (*DeleteFlowLogsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteFlowLogs")
+	defer span.End()
+
 	req, out := c.DeleteFlowLogsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6100,6 +6317,9 @@ func (c *EC2) DeleteFpgaImage(input *DeleteFpgaImageInput) (*DeleteFpgaImageOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteFpgaImageWithContext(ctx aws.Context, input *DeleteFpgaImageInput, opts ...request.Option) (*DeleteFpgaImageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteFpgaImage")
+	defer span.End()
+
 	req, out := c.DeleteFpgaImageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6177,6 +6397,9 @@ func (c *EC2) DeleteInternetGateway(input *DeleteInternetGatewayInput) (*DeleteI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteInternetGatewayWithContext(ctx aws.Context, input *DeleteInternetGatewayInput, opts ...request.Option) (*DeleteInternetGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteInternetGateway")
+	defer span.End()
+
 	req, out := c.DeleteInternetGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6253,6 +6476,9 @@ func (c *EC2) DeleteKeyPair(input *DeleteKeyPairInput) (*DeleteKeyPairOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteKeyPairWithContext(ctx aws.Context, input *DeleteKeyPairInput, opts ...request.Option) (*DeleteKeyPairOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteKeyPair")
+	defer span.End()
+
 	req, out := c.DeleteKeyPairRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6328,6 +6554,9 @@ func (c *EC2) DeleteLaunchTemplate(input *DeleteLaunchTemplateInput) (*DeleteLau
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteLaunchTemplateWithContext(ctx aws.Context, input *DeleteLaunchTemplateInput, opts ...request.Option) (*DeleteLaunchTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteLaunchTemplate")
+	defer span.End()
+
 	req, out := c.DeleteLaunchTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6405,6 +6634,9 @@ func (c *EC2) DeleteLaunchTemplateVersions(input *DeleteLaunchTemplateVersionsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteLaunchTemplateVersionsWithContext(ctx aws.Context, input *DeleteLaunchTemplateVersionsInput, opts ...request.Option) (*DeleteLaunchTemplateVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteLaunchTemplateVersions")
+	defer span.End()
+
 	req, out := c.DeleteLaunchTemplateVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6481,6 +6713,9 @@ func (c *EC2) DeleteNatGateway(input *DeleteNatGatewayInput) (*DeleteNatGatewayO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteNatGatewayWithContext(ctx aws.Context, input *DeleteNatGatewayInput, opts ...request.Option) (*DeleteNatGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteNatGateway")
+	defer span.End()
+
 	req, out := c.DeleteNatGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6558,6 +6793,9 @@ func (c *EC2) DeleteNetworkAcl(input *DeleteNetworkAclInput) (*DeleteNetworkAclO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteNetworkAclWithContext(ctx aws.Context, input *DeleteNetworkAclInput, opts ...request.Option) (*DeleteNetworkAclOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteNetworkAcl")
+	defer span.End()
+
 	req, out := c.DeleteNetworkAclRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6635,6 +6873,9 @@ func (c *EC2) DeleteNetworkAclEntry(input *DeleteNetworkAclEntryInput) (*DeleteN
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteNetworkAclEntryWithContext(ctx aws.Context, input *DeleteNetworkAclEntryInput, opts ...request.Option) (*DeleteNetworkAclEntryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteNetworkAclEntry")
+	defer span.End()
+
 	req, out := c.DeleteNetworkAclEntryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6712,6 +6953,9 @@ func (c *EC2) DeleteNetworkInterface(input *DeleteNetworkInterfaceInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteNetworkInterfaceWithContext(ctx aws.Context, input *DeleteNetworkInterfaceInput, opts ...request.Option) (*DeleteNetworkInterfaceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteNetworkInterface")
+	defer span.End()
+
 	req, out := c.DeleteNetworkInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6789,6 +7033,9 @@ func (c *EC2) DeleteNetworkInterfacePermission(input *DeleteNetworkInterfacePerm
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteNetworkInterfacePermissionWithContext(ctx aws.Context, input *DeleteNetworkInterfacePermissionInput, opts ...request.Option) (*DeleteNetworkInterfacePermissionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteNetworkInterfacePermission")
+	defer span.End()
+
 	req, out := c.DeleteNetworkInterfacePermissionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6868,6 +7115,9 @@ func (c *EC2) DeletePlacementGroup(input *DeletePlacementGroupInput) (*DeletePla
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeletePlacementGroupWithContext(ctx aws.Context, input *DeletePlacementGroupInput, opts ...request.Option) (*DeletePlacementGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeletePlacementGroup")
+	defer span.End()
+
 	req, out := c.DeletePlacementGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6944,6 +7194,9 @@ func (c *EC2) DeleteRoute(input *DeleteRouteInput) (*DeleteRouteOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteRouteWithContext(ctx aws.Context, input *DeleteRouteInput, opts ...request.Option) (*DeleteRouteOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteRoute")
+	defer span.End()
+
 	req, out := c.DeleteRouteRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7022,6 +7275,9 @@ func (c *EC2) DeleteRouteTable(input *DeleteRouteTableInput) (*DeleteRouteTableO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteRouteTableWithContext(ctx aws.Context, input *DeleteRouteTableInput, opts ...request.Option) (*DeleteRouteTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteRouteTable")
+	defer span.End()
+
 	req, out := c.DeleteRouteTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7102,6 +7358,9 @@ func (c *EC2) DeleteSecurityGroup(input *DeleteSecurityGroupInput) (*DeleteSecur
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteSecurityGroupWithContext(ctx aws.Context, input *DeleteSecurityGroupInput, opts ...request.Option) (*DeleteSecurityGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteSecurityGroup")
+	defer span.End()
+
 	req, out := c.DeleteSecurityGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7192,6 +7451,9 @@ func (c *EC2) DeleteSnapshot(input *DeleteSnapshotInput) (*DeleteSnapshotOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteSnapshotWithContext(ctx aws.Context, input *DeleteSnapshotInput, opts ...request.Option) (*DeleteSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteSnapshot")
+	defer span.End()
+
 	req, out := c.DeleteSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7268,6 +7530,9 @@ func (c *EC2) DeleteSpotDatafeedSubscription(input *DeleteSpotDatafeedSubscripti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteSpotDatafeedSubscriptionWithContext(ctx aws.Context, input *DeleteSpotDatafeedSubscriptionInput, opts ...request.Option) (*DeleteSpotDatafeedSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteSpotDatafeedSubscription")
+	defer span.End()
+
 	req, out := c.DeleteSpotDatafeedSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7345,6 +7610,9 @@ func (c *EC2) DeleteSubnet(input *DeleteSubnetInput) (*DeleteSubnetOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteSubnetWithContext(ctx aws.Context, input *DeleteSubnetInput, opts ...request.Option) (*DeleteSubnetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteSubnet")
+	defer span.End()
+
 	req, out := c.DeleteSubnetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7425,6 +7693,9 @@ func (c *EC2) DeleteTags(input *DeleteTagsInput) (*DeleteTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteTagsWithContext(ctx aws.Context, input *DeleteTagsInput, opts ...request.Option) (*DeleteTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteTags")
+	defer span.End()
+
 	req, out := c.DeleteTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7507,6 +7778,9 @@ func (c *EC2) DeleteVolume(input *DeleteVolumeInput) (*DeleteVolumeOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteVolumeWithContext(ctx aws.Context, input *DeleteVolumeInput, opts ...request.Option) (*DeleteVolumeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteVolume")
+	defer span.End()
+
 	req, out := c.DeleteVolumeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7587,6 +7861,9 @@ func (c *EC2) DeleteVpc(input *DeleteVpcInput) (*DeleteVpcOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteVpcWithContext(ctx aws.Context, input *DeleteVpcInput, opts ...request.Option) (*DeleteVpcOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteVpc")
+	defer span.End()
+
 	req, out := c.DeleteVpcRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7661,6 +7938,9 @@ func (c *EC2) DeleteVpcEndpointConnectionNotifications(input *DeleteVpcEndpointC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteVpcEndpointConnectionNotificationsWithContext(ctx aws.Context, input *DeleteVpcEndpointConnectionNotificationsInput, opts ...request.Option) (*DeleteVpcEndpointConnectionNotificationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteVpcEndpointConnectionNotifications")
+	defer span.End()
+
 	req, out := c.DeleteVpcEndpointConnectionNotificationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7738,6 +8018,9 @@ func (c *EC2) DeleteVpcEndpointServiceConfigurations(input *DeleteVpcEndpointSer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteVpcEndpointServiceConfigurationsWithContext(ctx aws.Context, input *DeleteVpcEndpointServiceConfigurationsInput, opts ...request.Option) (*DeleteVpcEndpointServiceConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteVpcEndpointServiceConfigurations")
+	defer span.End()
+
 	req, out := c.DeleteVpcEndpointServiceConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7815,6 +8098,9 @@ func (c *EC2) DeleteVpcEndpoints(input *DeleteVpcEndpointsInput) (*DeleteVpcEndp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteVpcEndpointsWithContext(ctx aws.Context, input *DeleteVpcEndpointsInput, opts ...request.Option) (*DeleteVpcEndpointsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteVpcEndpoints")
+	defer span.End()
+
 	req, out := c.DeleteVpcEndpointsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7893,6 +8179,9 @@ func (c *EC2) DeleteVpcPeeringConnection(input *DeleteVpcPeeringConnectionInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteVpcPeeringConnectionWithContext(ctx aws.Context, input *DeleteVpcPeeringConnectionInput, opts ...request.Option) (*DeleteVpcPeeringConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteVpcPeeringConnection")
+	defer span.End()
+
 	req, out := c.DeleteVpcPeeringConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7978,6 +8267,9 @@ func (c *EC2) DeleteVpnConnection(input *DeleteVpnConnectionInput) (*DeleteVpnCo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteVpnConnectionWithContext(ctx aws.Context, input *DeleteVpnConnectionInput, opts ...request.Option) (*DeleteVpnConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteVpnConnection")
+	defer span.End()
+
 	req, out := c.DeleteVpnConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8057,6 +8349,9 @@ func (c *EC2) DeleteVpnConnectionRoute(input *DeleteVpnConnectionRouteInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteVpnConnectionRouteWithContext(ctx aws.Context, input *DeleteVpnConnectionRouteInput, opts ...request.Option) (*DeleteVpnConnectionRouteOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteVpnConnectionRoute")
+	defer span.End()
+
 	req, out := c.DeleteVpnConnectionRouteRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8137,6 +8432,9 @@ func (c *EC2) DeleteVpnGateway(input *DeleteVpnGatewayInput) (*DeleteVpnGatewayO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeleteVpnGatewayWithContext(ctx aws.Context, input *DeleteVpnGatewayInput, opts ...request.Option) (*DeleteVpnGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeleteVpnGateway")
+	defer span.End()
+
 	req, out := c.DeleteVpnGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8221,6 +8519,9 @@ func (c *EC2) DeregisterImage(input *DeregisterImageInput) (*DeregisterImageOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DeregisterImageWithContext(ctx aws.Context, input *DeregisterImageInput, opts ...request.Option) (*DeregisterImageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DeregisterImage")
+	defer span.End()
+
 	req, out := c.DeregisterImageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8313,6 +8614,9 @@ func (c *EC2) DescribeAccountAttributes(input *DescribeAccountAttributesInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeAccountAttributesWithContext(ctx aws.Context, input *DescribeAccountAttributesInput, opts ...request.Option) (*DescribeAccountAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeAccountAttributes")
+	defer span.End()
+
 	req, out := c.DescribeAccountAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8391,6 +8695,9 @@ func (c *EC2) DescribeAddresses(input *DescribeAddressesInput) (*DescribeAddress
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeAddressesWithContext(ctx aws.Context, input *DescribeAddressesInput, opts ...request.Option) (*DescribeAddressesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeAddresses")
+	defer span.End()
+
 	req, out := c.DescribeAddressesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8479,6 +8786,9 @@ func (c *EC2) DescribeAggregateIdFormat(input *DescribeAggregateIdFormatInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeAggregateIdFormatWithContext(ctx aws.Context, input *DescribeAggregateIdFormatInput, opts ...request.Option) (*DescribeAggregateIdFormatOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeAggregateIdFormat")
+	defer span.End()
+
 	req, out := c.DescribeAggregateIdFormatRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8559,6 +8869,9 @@ func (c *EC2) DescribeAvailabilityZones(input *DescribeAvailabilityZonesInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeAvailabilityZonesWithContext(ctx aws.Context, input *DescribeAvailabilityZonesInput, opts ...request.Option) (*DescribeAvailabilityZonesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeAvailabilityZones")
+	defer span.End()
+
 	req, out := c.DescribeAvailabilityZonesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8638,6 +8951,9 @@ func (c *EC2) DescribeBundleTasks(input *DescribeBundleTasksInput) (*DescribeBun
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeBundleTasksWithContext(ctx aws.Context, input *DescribeBundleTasksInput, opts ...request.Option) (*DescribeBundleTasksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeBundleTasks")
+	defer span.End()
+
 	req, out := c.DescribeBundleTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8715,6 +9031,9 @@ func (c *EC2) DescribeClassicLinkInstances(input *DescribeClassicLinkInstancesIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeClassicLinkInstancesWithContext(ctx aws.Context, input *DescribeClassicLinkInstancesInput, opts ...request.Option) (*DescribeClassicLinkInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeClassicLinkInstances")
+	defer span.End()
+
 	req, out := c.DescribeClassicLinkInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8793,6 +9112,9 @@ func (c *EC2) DescribeConversionTasks(input *DescribeConversionTasksInput) (*Des
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeConversionTasksWithContext(ctx aws.Context, input *DescribeConversionTasksInput, opts ...request.Option) (*DescribeConversionTasksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeConversionTasks")
+	defer span.End()
+
 	req, out := c.DescribeConversionTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8871,6 +9193,9 @@ func (c *EC2) DescribeCustomerGateways(input *DescribeCustomerGatewaysInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeCustomerGatewaysWithContext(ctx aws.Context, input *DescribeCustomerGatewaysInput, opts ...request.Option) (*DescribeCustomerGatewaysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeCustomerGateways")
+	defer span.End()
+
 	req, out := c.DescribeCustomerGatewaysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8948,6 +9273,9 @@ func (c *EC2) DescribeDhcpOptions(input *DescribeDhcpOptionsInput) (*DescribeDhc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeDhcpOptionsWithContext(ctx aws.Context, input *DescribeDhcpOptionsInput, opts ...request.Option) (*DescribeDhcpOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeDhcpOptions")
+	defer span.End()
+
 	req, out := c.DescribeDhcpOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9022,6 +9350,9 @@ func (c *EC2) DescribeEgressOnlyInternetGateways(input *DescribeEgressOnlyIntern
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeEgressOnlyInternetGatewaysWithContext(ctx aws.Context, input *DescribeEgressOnlyInternetGatewaysInput, opts ...request.Option) (*DescribeEgressOnlyInternetGatewaysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeEgressOnlyInternetGateways")
+	defer span.End()
+
 	req, out := c.DescribeEgressOnlyInternetGatewaysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9097,6 +9428,9 @@ func (c *EC2) DescribeElasticGpus(input *DescribeElasticGpusInput) (*DescribeEla
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeElasticGpusWithContext(ctx aws.Context, input *DescribeElasticGpusInput, opts ...request.Option) (*DescribeElasticGpusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeElasticGpus")
+	defer span.End()
+
 	req, out := c.DescribeElasticGpusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9171,6 +9505,9 @@ func (c *EC2) DescribeExportTasks(input *DescribeExportTasksInput) (*DescribeExp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeExportTasksWithContext(ctx aws.Context, input *DescribeExportTasksInput, opts ...request.Option) (*DescribeExportTasksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeExportTasks")
+	defer span.End()
+
 	req, out := c.DescribeExportTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9247,6 +9584,9 @@ func (c *EC2) DescribeFlowLogs(input *DescribeFlowLogsInput) (*DescribeFlowLogsO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeFlowLogsWithContext(ctx aws.Context, input *DescribeFlowLogsInput, opts ...request.Option) (*DescribeFlowLogsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeFlowLogs")
+	defer span.End()
+
 	req, out := c.DescribeFlowLogsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9321,6 +9661,9 @@ func (c *EC2) DescribeFpgaImageAttribute(input *DescribeFpgaImageAttributeInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeFpgaImageAttributeWithContext(ctx aws.Context, input *DescribeFpgaImageAttributeInput, opts ...request.Option) (*DescribeFpgaImageAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeFpgaImageAttribute")
+	defer span.End()
+
 	req, out := c.DescribeFpgaImageAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9397,6 +9740,9 @@ func (c *EC2) DescribeFpgaImages(input *DescribeFpgaImagesInput) (*DescribeFpgaI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeFpgaImagesWithContext(ctx aws.Context, input *DescribeFpgaImagesInput, opts ...request.Option) (*DescribeFpgaImagesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeFpgaImages")
+	defer span.End()
+
 	req, out := c.DescribeFpgaImagesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9479,6 +9825,9 @@ func (c *EC2) DescribeHostReservationOfferings(input *DescribeHostReservationOff
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeHostReservationOfferingsWithContext(ctx aws.Context, input *DescribeHostReservationOfferingsInput, opts ...request.Option) (*DescribeHostReservationOfferingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeHostReservationOfferings")
+	defer span.End()
+
 	req, out := c.DescribeHostReservationOfferingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9554,6 +9903,9 @@ func (c *EC2) DescribeHostReservations(input *DescribeHostReservationsInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeHostReservationsWithContext(ctx aws.Context, input *DescribeHostReservationsInput, opts ...request.Option) (*DescribeHostReservationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeHostReservations")
+	defer span.End()
+
 	req, out := c.DescribeHostReservationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9632,6 +9984,9 @@ func (c *EC2) DescribeHosts(input *DescribeHostsInput) (*DescribeHostsOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeHostsWithContext(ctx aws.Context, input *DescribeHostsInput, opts ...request.Option) (*DescribeHostsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeHosts")
+	defer span.End()
+
 	req, out := c.DescribeHostsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9706,6 +10061,9 @@ func (c *EC2) DescribeIamInstanceProfileAssociations(input *DescribeIamInstanceP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeIamInstanceProfileAssociationsWithContext(ctx aws.Context, input *DescribeIamInstanceProfileAssociationsInput, opts ...request.Option) (*DescribeIamInstanceProfileAssociationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeIamInstanceProfileAssociations")
+	defer span.End()
+
 	req, out := c.DescribeIamInstanceProfileAssociationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9798,6 +10156,9 @@ func (c *EC2) DescribeIdFormat(input *DescribeIdFormatInput) (*DescribeIdFormatO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeIdFormatWithContext(ctx aws.Context, input *DescribeIdFormatInput, opts ...request.Option) (*DescribeIdFormatOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeIdFormat")
+	defer span.End()
+
 	req, out := c.DescribeIdFormatRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9888,6 +10249,9 @@ func (c *EC2) DescribeIdentityIdFormat(input *DescribeIdentityIdFormatInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeIdentityIdFormatWithContext(ctx aws.Context, input *DescribeIdentityIdFormatInput, opts ...request.Option) (*DescribeIdentityIdFormatOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeIdentityIdFormat")
+	defer span.End()
+
 	req, out := c.DescribeIdentityIdFormatRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -9963,6 +10327,9 @@ func (c *EC2) DescribeImageAttribute(input *DescribeImageAttributeInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeImageAttributeWithContext(ctx aws.Context, input *DescribeImageAttributeInput, opts ...request.Option) (*DescribeImageAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeImageAttribute")
+	defer span.End()
+
 	req, out := c.DescribeImageAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10043,6 +10410,9 @@ func (c *EC2) DescribeImages(input *DescribeImagesInput) (*DescribeImagesOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeImagesWithContext(ctx aws.Context, input *DescribeImagesInput, opts ...request.Option) (*DescribeImagesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeImages")
+	defer span.End()
+
 	req, out := c.DescribeImagesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10118,6 +10488,9 @@ func (c *EC2) DescribeImportImageTasks(input *DescribeImportImageTasksInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeImportImageTasksWithContext(ctx aws.Context, input *DescribeImportImageTasksInput, opts ...request.Option) (*DescribeImportImageTasksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeImportImageTasks")
+	defer span.End()
+
 	req, out := c.DescribeImportImageTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10192,6 +10565,9 @@ func (c *EC2) DescribeImportSnapshotTasks(input *DescribeImportSnapshotTasksInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeImportSnapshotTasksWithContext(ctx aws.Context, input *DescribeImportSnapshotTasksInput, opts ...request.Option) (*DescribeImportSnapshotTasksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeImportSnapshotTasks")
+	defer span.End()
+
 	req, out := c.DescribeImportSnapshotTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10270,6 +10646,9 @@ func (c *EC2) DescribeInstanceAttribute(input *DescribeInstanceAttributeInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeInstanceAttributeWithContext(ctx aws.Context, input *DescribeInstanceAttributeInput, opts ...request.Option) (*DescribeInstanceAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeInstanceAttribute")
+	defer span.End()
+
 	req, out := c.DescribeInstanceAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10362,6 +10741,9 @@ func (c *EC2) DescribeInstanceCreditSpecifications(input *DescribeInstanceCredit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeInstanceCreditSpecificationsWithContext(ctx aws.Context, input *DescribeInstanceCreditSpecificationsInput, opts ...request.Option) (*DescribeInstanceCreditSpecificationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeInstanceCreditSpecifications")
+	defer span.End()
+
 	req, out := c.DescribeInstanceCreditSpecificationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10463,6 +10845,9 @@ func (c *EC2) DescribeInstanceStatus(input *DescribeInstanceStatusInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeInstanceStatusWithContext(ctx aws.Context, input *DescribeInstanceStatusInput, opts ...request.Option) (*DescribeInstanceStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeInstanceStatus")
+	defer span.End()
+
 	req, out := c.DescribeInstanceStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10608,6 +10993,9 @@ func (c *EC2) DescribeInstances(input *DescribeInstancesInput) (*DescribeInstanc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeInstancesWithContext(ctx aws.Context, input *DescribeInstancesInput, opts ...request.Option) (*DescribeInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeInstances")
+	defer span.End()
+
 	req, out := c.DescribeInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10732,6 +11120,9 @@ func (c *EC2) DescribeInternetGateways(input *DescribeInternetGatewaysInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeInternetGatewaysWithContext(ctx aws.Context, input *DescribeInternetGatewaysInput, opts ...request.Option) (*DescribeInternetGatewaysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeInternetGateways")
+	defer span.End()
+
 	req, out := c.DescribeInternetGatewaysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10809,6 +11200,9 @@ func (c *EC2) DescribeKeyPairs(input *DescribeKeyPairsInput) (*DescribeKeyPairsO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeKeyPairsWithContext(ctx aws.Context, input *DescribeKeyPairsInput, opts ...request.Option) (*DescribeKeyPairsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeKeyPairs")
+	defer span.End()
+
 	req, out := c.DescribeKeyPairsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10884,6 +11278,9 @@ func (c *EC2) DescribeLaunchTemplateVersions(input *DescribeLaunchTemplateVersio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeLaunchTemplateVersionsWithContext(ctx aws.Context, input *DescribeLaunchTemplateVersionsInput, opts ...request.Option) (*DescribeLaunchTemplateVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeLaunchTemplateVersions")
+	defer span.End()
+
 	req, out := c.DescribeLaunchTemplateVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -10958,6 +11355,9 @@ func (c *EC2) DescribeLaunchTemplates(input *DescribeLaunchTemplatesInput) (*Des
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeLaunchTemplatesWithContext(ctx aws.Context, input *DescribeLaunchTemplatesInput, opts ...request.Option) (*DescribeLaunchTemplatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeLaunchTemplates")
+	defer span.End()
+
 	req, out := c.DescribeLaunchTemplatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11034,6 +11434,9 @@ func (c *EC2) DescribeMovingAddresses(input *DescribeMovingAddressesInput) (*Des
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeMovingAddressesWithContext(ctx aws.Context, input *DescribeMovingAddressesInput, opts ...request.Option) (*DescribeMovingAddressesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeMovingAddresses")
+	defer span.End()
+
 	req, out := c.DescribeMovingAddressesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11114,6 +11517,9 @@ func (c *EC2) DescribeNatGateways(input *DescribeNatGatewaysInput) (*DescribeNat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeNatGatewaysWithContext(ctx aws.Context, input *DescribeNatGatewaysInput, opts ...request.Option) (*DescribeNatGatewaysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeNatGateways")
+	defer span.End()
+
 	req, out := c.DescribeNatGatewaysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11241,6 +11647,9 @@ func (c *EC2) DescribeNetworkAcls(input *DescribeNetworkAclsInput) (*DescribeNet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeNetworkAclsWithContext(ctx aws.Context, input *DescribeNetworkAclsInput, opts ...request.Option) (*DescribeNetworkAclsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeNetworkAcls")
+	defer span.End()
+
 	req, out := c.DescribeNetworkAclsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11316,6 +11725,9 @@ func (c *EC2) DescribeNetworkInterfaceAttribute(input *DescribeNetworkInterfaceA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeNetworkInterfaceAttributeWithContext(ctx aws.Context, input *DescribeNetworkInterfaceAttributeInput, opts ...request.Option) (*DescribeNetworkInterfaceAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeNetworkInterfaceAttribute")
+	defer span.End()
+
 	req, out := c.DescribeNetworkInterfaceAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11390,6 +11802,9 @@ func (c *EC2) DescribeNetworkInterfacePermissions(input *DescribeNetworkInterfac
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeNetworkInterfacePermissionsWithContext(ctx aws.Context, input *DescribeNetworkInterfacePermissionsInput, opts ...request.Option) (*DescribeNetworkInterfacePermissionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeNetworkInterfacePermissions")
+	defer span.End()
+
 	req, out := c.DescribeNetworkInterfacePermissionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11464,6 +11879,9 @@ func (c *EC2) DescribeNetworkInterfaces(input *DescribeNetworkInterfacesInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeNetworkInterfacesWithContext(ctx aws.Context, input *DescribeNetworkInterfacesInput, opts ...request.Option) (*DescribeNetworkInterfacesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeNetworkInterfaces")
+	defer span.End()
+
 	req, out := c.DescribeNetworkInterfacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11540,6 +11958,9 @@ func (c *EC2) DescribePlacementGroups(input *DescribePlacementGroupsInput) (*Des
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribePlacementGroupsWithContext(ctx aws.Context, input *DescribePlacementGroupsInput, opts ...request.Option) (*DescribePlacementGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribePlacementGroups")
+	defer span.End()
+
 	req, out := c.DescribePlacementGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11618,6 +12039,9 @@ func (c *EC2) DescribePrefixLists(input *DescribePrefixListsInput) (*DescribePre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribePrefixListsWithContext(ctx aws.Context, input *DescribePrefixListsInput, opts ...request.Option) (*DescribePrefixListsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribePrefixLists")
+	defer span.End()
+
 	req, out := c.DescribePrefixListsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11706,6 +12130,9 @@ func (c *EC2) DescribePrincipalIdFormat(input *DescribePrincipalIdFormatInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribePrincipalIdFormatWithContext(ctx aws.Context, input *DescribePrincipalIdFormatInput, opts ...request.Option) (*DescribePrincipalIdFormatOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribePrincipalIdFormat")
+	defer span.End()
+
 	req, out := c.DescribePrincipalIdFormatRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11783,6 +12210,9 @@ func (c *EC2) DescribeRegions(input *DescribeRegionsInput) (*DescribeRegionsOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeRegionsWithContext(ctx aws.Context, input *DescribeRegionsInput, opts ...request.Option) (*DescribeRegionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeRegions")
+	defer span.End()
+
 	req, out := c.DescribeRegionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11860,6 +12290,9 @@ func (c *EC2) DescribeReservedInstances(input *DescribeReservedInstancesInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeReservedInstancesWithContext(ctx aws.Context, input *DescribeReservedInstancesInput, opts ...request.Option) (*DescribeReservedInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeReservedInstances")
+	defer span.End()
+
 	req, out := c.DescribeReservedInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -11955,6 +12388,9 @@ func (c *EC2) DescribeReservedInstancesListings(input *DescribeReservedInstances
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeReservedInstancesListingsWithContext(ctx aws.Context, input *DescribeReservedInstancesListingsInput, opts ...request.Option) (*DescribeReservedInstancesListingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeReservedInstancesListings")
+	defer span.End()
+
 	req, out := c.DescribeReservedInstancesListingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12041,6 +12477,9 @@ func (c *EC2) DescribeReservedInstancesModifications(input *DescribeReservedInst
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeReservedInstancesModificationsWithContext(ctx aws.Context, input *DescribeReservedInstancesModificationsInput, opts ...request.Option) (*DescribeReservedInstancesModificationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeReservedInstancesModifications")
+	defer span.End()
+
 	req, out := c.DescribeReservedInstancesModificationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12182,6 +12621,9 @@ func (c *EC2) DescribeReservedInstancesOfferings(input *DescribeReservedInstance
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeReservedInstancesOfferingsWithContext(ctx aws.Context, input *DescribeReservedInstancesOfferingsInput, opts ...request.Option) (*DescribeReservedInstancesOfferingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeReservedInstancesOfferings")
+	defer span.End()
+
 	req, out := c.DescribeReservedInstancesOfferingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12314,6 +12756,9 @@ func (c *EC2) DescribeRouteTables(input *DescribeRouteTablesInput) (*DescribeRou
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeRouteTablesWithContext(ctx aws.Context, input *DescribeRouteTablesInput, opts ...request.Option) (*DescribeRouteTablesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeRouteTables")
+	defer span.End()
+
 	req, out := c.DescribeRouteTablesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12396,6 +12841,9 @@ func (c *EC2) DescribeScheduledInstanceAvailability(input *DescribeScheduledInst
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeScheduledInstanceAvailabilityWithContext(ctx aws.Context, input *DescribeScheduledInstanceAvailabilityInput, opts ...request.Option) (*DescribeScheduledInstanceAvailabilityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeScheduledInstanceAvailability")
+	defer span.End()
+
 	req, out := c.DescribeScheduledInstanceAvailabilityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12470,6 +12918,9 @@ func (c *EC2) DescribeScheduledInstances(input *DescribeScheduledInstancesInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeScheduledInstancesWithContext(ctx aws.Context, input *DescribeScheduledInstancesInput, opts ...request.Option) (*DescribeScheduledInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeScheduledInstances")
+	defer span.End()
+
 	req, out := c.DescribeScheduledInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12545,6 +12996,9 @@ func (c *EC2) DescribeSecurityGroupReferences(input *DescribeSecurityGroupRefere
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeSecurityGroupReferencesWithContext(ctx aws.Context, input *DescribeSecurityGroupReferencesInput, opts ...request.Option) (*DescribeSecurityGroupReferencesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeSecurityGroupReferences")
+	defer span.End()
+
 	req, out := c.DescribeSecurityGroupReferencesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12626,6 +13080,9 @@ func (c *EC2) DescribeSecurityGroups(input *DescribeSecurityGroupsInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeSecurityGroupsWithContext(ctx aws.Context, input *DescribeSecurityGroupsInput, opts ...request.Option) (*DescribeSecurityGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeSecurityGroups")
+	defer span.End()
+
 	req, out := c.DescribeSecurityGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12704,6 +13161,9 @@ func (c *EC2) DescribeSnapshotAttribute(input *DescribeSnapshotAttributeInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeSnapshotAttributeWithContext(ctx aws.Context, input *DescribeSnapshotAttributeInput, opts ...request.Option) (*DescribeSnapshotAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeSnapshotAttribute")
+	defer span.End()
+
 	req, out := c.DescribeSnapshotAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12829,6 +13289,9 @@ func (c *EC2) DescribeSnapshots(input *DescribeSnapshotsInput) (*DescribeSnapsho
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeSnapshotsWithContext(ctx aws.Context, input *DescribeSnapshotsInput, opts ...request.Option) (*DescribeSnapshotsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeSnapshots")
+	defer span.End()
+
 	req, out := c.DescribeSnapshotsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -12955,6 +13418,9 @@ func (c *EC2) DescribeSpotDatafeedSubscription(input *DescribeSpotDatafeedSubscr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeSpotDatafeedSubscriptionWithContext(ctx aws.Context, input *DescribeSpotDatafeedSubscriptionInput, opts ...request.Option) (*DescribeSpotDatafeedSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeSpotDatafeedSubscription")
+	defer span.End()
+
 	req, out := c.DescribeSpotDatafeedSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -13029,6 +13495,9 @@ func (c *EC2) DescribeSpotFleetInstances(input *DescribeSpotFleetInstancesInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeSpotFleetInstancesWithContext(ctx aws.Context, input *DescribeSpotFleetInstancesInput, opts ...request.Option) (*DescribeSpotFleetInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeSpotFleetInstances")
+	defer span.End()
+
 	req, out := c.DescribeSpotFleetInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -13108,6 +13577,9 @@ func (c *EC2) DescribeSpotFleetRequestHistory(input *DescribeSpotFleetRequestHis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeSpotFleetRequestHistoryWithContext(ctx aws.Context, input *DescribeSpotFleetRequestHistoryInput, opts ...request.Option) (*DescribeSpotFleetRequestHistoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeSpotFleetRequestHistory")
+	defer span.End()
+
 	req, out := c.DescribeSpotFleetRequestHistoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -13191,6 +13663,9 @@ func (c *EC2) DescribeSpotFleetRequests(input *DescribeSpotFleetRequestsInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeSpotFleetRequestsWithContext(ctx aws.Context, input *DescribeSpotFleetRequestsInput, opts ...request.Option) (*DescribeSpotFleetRequestsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeSpotFleetRequests")
+	defer span.End()
+
 	req, out := c.DescribeSpotFleetRequestsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -13328,6 +13803,9 @@ func (c *EC2) DescribeSpotInstanceRequests(input *DescribeSpotInstanceRequestsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeSpotInstanceRequestsWithContext(ctx aws.Context, input *DescribeSpotInstanceRequestsInput, opts ...request.Option) (*DescribeSpotInstanceRequestsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeSpotInstanceRequests")
+	defer span.End()
+
 	req, out := c.DescribeSpotInstanceRequestsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -13415,6 +13893,9 @@ func (c *EC2) DescribeSpotPriceHistory(input *DescribeSpotPriceHistoryInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeSpotPriceHistoryWithContext(ctx aws.Context, input *DescribeSpotPriceHistoryInput, opts ...request.Option) (*DescribeSpotPriceHistoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeSpotPriceHistory")
+	defer span.End()
+
 	req, out := c.DescribeSpotPriceHistoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -13542,6 +14023,9 @@ func (c *EC2) DescribeStaleSecurityGroups(input *DescribeStaleSecurityGroupsInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeStaleSecurityGroupsWithContext(ctx aws.Context, input *DescribeStaleSecurityGroupsInput, opts ...request.Option) (*DescribeStaleSecurityGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeStaleSecurityGroups")
+	defer span.End()
+
 	req, out := c.DescribeStaleSecurityGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -13619,6 +14103,9 @@ func (c *EC2) DescribeSubnets(input *DescribeSubnetsInput) (*DescribeSubnetsOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeSubnetsWithContext(ctx aws.Context, input *DescribeSubnetsInput, opts ...request.Option) (*DescribeSubnetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeSubnets")
+	defer span.End()
+
 	req, out := c.DescribeSubnetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -13702,6 +14189,9 @@ func (c *EC2) DescribeTags(input *DescribeTagsInput) (*DescribeTagsOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeTagsWithContext(ctx aws.Context, input *DescribeTagsInput, opts ...request.Option) (*DescribeTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeTags")
+	defer span.End()
+
 	req, out := c.DescribeTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -13830,6 +14320,9 @@ func (c *EC2) DescribeVolumeAttribute(input *DescribeVolumeAttributeInput) (*Des
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVolumeAttributeWithContext(ctx aws.Context, input *DescribeVolumeAttributeInput, opts ...request.Option) (*DescribeVolumeAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVolumeAttribute")
+	defer span.End()
+
 	req, out := c.DescribeVolumeAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -13944,6 +14437,9 @@ func (c *EC2) DescribeVolumeStatus(input *DescribeVolumeStatusInput) (*DescribeV
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVolumeStatusWithContext(ctx aws.Context, input *DescribeVolumeStatusInput, opts ...request.Option) (*DescribeVolumeStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVolumeStatus")
+	defer span.End()
+
 	req, out := c.DescribeVolumeStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -14084,6 +14580,9 @@ func (c *EC2) DescribeVolumes(input *DescribeVolumesInput) (*DescribeVolumesOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVolumesWithContext(ctx aws.Context, input *DescribeVolumesInput, opts ...request.Option) (*DescribeVolumesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVolumes")
+	defer span.End()
+
 	req, out := c.DescribeVolumesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -14220,6 +14719,9 @@ func (c *EC2) DescribeVolumesModifications(input *DescribeVolumesModificationsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVolumesModificationsWithContext(ctx aws.Context, input *DescribeVolumesModificationsInput, opts ...request.Option) (*DescribeVolumesModificationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVolumesModifications")
+	defer span.End()
+
 	req, out := c.DescribeVolumesModificationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -14295,6 +14797,9 @@ func (c *EC2) DescribeVpcAttribute(input *DescribeVpcAttributeInput) (*DescribeV
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVpcAttributeWithContext(ctx aws.Context, input *DescribeVpcAttributeInput, opts ...request.Option) (*DescribeVpcAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVpcAttribute")
+	defer span.End()
+
 	req, out := c.DescribeVpcAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -14369,6 +14874,9 @@ func (c *EC2) DescribeVpcClassicLink(input *DescribeVpcClassicLinkInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVpcClassicLinkWithContext(ctx aws.Context, input *DescribeVpcClassicLinkInput, opts ...request.Option) (*DescribeVpcClassicLinkOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVpcClassicLink")
+	defer span.End()
+
 	req, out := c.DescribeVpcClassicLinkRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -14449,6 +14957,9 @@ func (c *EC2) DescribeVpcClassicLinkDnsSupport(input *DescribeVpcClassicLinkDnsS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVpcClassicLinkDnsSupportWithContext(ctx aws.Context, input *DescribeVpcClassicLinkDnsSupportInput, opts ...request.Option) (*DescribeVpcClassicLinkDnsSupportOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVpcClassicLinkDnsSupport")
+	defer span.End()
+
 	req, out := c.DescribeVpcClassicLinkDnsSupportRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -14524,6 +15035,9 @@ func (c *EC2) DescribeVpcEndpointConnectionNotifications(input *DescribeVpcEndpo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVpcEndpointConnectionNotificationsWithContext(ctx aws.Context, input *DescribeVpcEndpointConnectionNotificationsInput, opts ...request.Option) (*DescribeVpcEndpointConnectionNotificationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVpcEndpointConnectionNotifications")
+	defer span.End()
+
 	req, out := c.DescribeVpcEndpointConnectionNotificationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -14599,6 +15113,9 @@ func (c *EC2) DescribeVpcEndpointConnections(input *DescribeVpcEndpointConnectio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVpcEndpointConnectionsWithContext(ctx aws.Context, input *DescribeVpcEndpointConnectionsInput, opts ...request.Option) (*DescribeVpcEndpointConnectionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVpcEndpointConnections")
+	defer span.End()
+
 	req, out := c.DescribeVpcEndpointConnectionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -14673,6 +15190,9 @@ func (c *EC2) DescribeVpcEndpointServiceConfigurations(input *DescribeVpcEndpoin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVpcEndpointServiceConfigurationsWithContext(ctx aws.Context, input *DescribeVpcEndpointServiceConfigurationsInput, opts ...request.Option) (*DescribeVpcEndpointServiceConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVpcEndpointServiceConfigurations")
+	defer span.End()
+
 	req, out := c.DescribeVpcEndpointServiceConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -14748,6 +15268,9 @@ func (c *EC2) DescribeVpcEndpointServicePermissions(input *DescribeVpcEndpointSe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVpcEndpointServicePermissionsWithContext(ctx aws.Context, input *DescribeVpcEndpointServicePermissionsInput, opts ...request.Option) (*DescribeVpcEndpointServicePermissionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVpcEndpointServicePermissions")
+	defer span.End()
+
 	req, out := c.DescribeVpcEndpointServicePermissionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -14822,6 +15345,9 @@ func (c *EC2) DescribeVpcEndpointServices(input *DescribeVpcEndpointServicesInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVpcEndpointServicesWithContext(ctx aws.Context, input *DescribeVpcEndpointServicesInput, opts ...request.Option) (*DescribeVpcEndpointServicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVpcEndpointServices")
+	defer span.End()
+
 	req, out := c.DescribeVpcEndpointServicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -14896,6 +15422,9 @@ func (c *EC2) DescribeVpcEndpoints(input *DescribeVpcEndpointsInput) (*DescribeV
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVpcEndpointsWithContext(ctx aws.Context, input *DescribeVpcEndpointsInput, opts ...request.Option) (*DescribeVpcEndpointsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVpcEndpoints")
+	defer span.End()
+
 	req, out := c.DescribeVpcEndpointsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -14970,6 +15499,9 @@ func (c *EC2) DescribeVpcPeeringConnections(input *DescribeVpcPeeringConnections
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVpcPeeringConnectionsWithContext(ctx aws.Context, input *DescribeVpcPeeringConnectionsInput, opts ...request.Option) (*DescribeVpcPeeringConnectionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVpcPeeringConnections")
+	defer span.End()
+
 	req, out := c.DescribeVpcPeeringConnectionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -15044,6 +15576,9 @@ func (c *EC2) DescribeVpcs(input *DescribeVpcsInput) (*DescribeVpcsOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVpcsWithContext(ctx aws.Context, input *DescribeVpcsInput, opts ...request.Option) (*DescribeVpcsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVpcs")
+	defer span.End()
+
 	req, out := c.DescribeVpcsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -15122,6 +15657,9 @@ func (c *EC2) DescribeVpnConnections(input *DescribeVpnConnectionsInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVpnConnectionsWithContext(ctx aws.Context, input *DescribeVpnConnectionsInput, opts ...request.Option) (*DescribeVpnConnectionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVpnConnections")
+	defer span.End()
+
 	req, out := c.DescribeVpnConnectionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -15200,6 +15738,9 @@ func (c *EC2) DescribeVpnGateways(input *DescribeVpnGatewaysInput) (*DescribeVpn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DescribeVpnGatewaysWithContext(ctx aws.Context, input *DescribeVpnGatewaysInput, opts ...request.Option) (*DescribeVpnGatewaysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DescribeVpnGateways")
+	defer span.End()
+
 	req, out := c.DescribeVpnGatewaysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -15276,6 +15817,9 @@ func (c *EC2) DetachClassicLinkVpc(input *DetachClassicLinkVpcInput) (*DetachCla
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DetachClassicLinkVpcWithContext(ctx aws.Context, input *DetachClassicLinkVpcInput, opts ...request.Option) (*DetachClassicLinkVpcOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DetachClassicLinkVpc")
+	defer span.End()
+
 	req, out := c.DetachClassicLinkVpcRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -15354,6 +15898,9 @@ func (c *EC2) DetachInternetGateway(input *DetachInternetGatewayInput) (*DetachI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DetachInternetGatewayWithContext(ctx aws.Context, input *DetachInternetGatewayInput, opts ...request.Option) (*DetachInternetGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DetachInternetGateway")
+	defer span.End()
+
 	req, out := c.DetachInternetGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -15430,6 +15977,9 @@ func (c *EC2) DetachNetworkInterface(input *DetachNetworkInterfaceInput) (*Detac
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DetachNetworkInterfaceWithContext(ctx aws.Context, input *DetachNetworkInterfaceInput, opts ...request.Option) (*DetachNetworkInterfaceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DetachNetworkInterface")
+	defer span.End()
+
 	req, out := c.DetachNetworkInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -15517,6 +16067,9 @@ func (c *EC2) DetachVolume(input *DetachVolumeInput) (*VolumeAttachment, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DetachVolumeWithContext(ctx aws.Context, input *DetachVolumeInput, opts ...request.Option) (*VolumeAttachment, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DetachVolume")
+	defer span.End()
+
 	req, out := c.DetachVolumeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -15600,6 +16153,9 @@ func (c *EC2) DetachVpnGateway(input *DetachVpnGatewayInput) (*DetachVpnGatewayO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DetachVpnGatewayWithContext(ctx aws.Context, input *DetachVpnGatewayInput, opts ...request.Option) (*DetachVpnGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DetachVpnGateway")
+	defer span.End()
+
 	req, out := c.DetachVpnGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -15677,6 +16233,9 @@ func (c *EC2) DisableVgwRoutePropagation(input *DisableVgwRoutePropagationInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DisableVgwRoutePropagationWithContext(ctx aws.Context, input *DisableVgwRoutePropagationInput, opts ...request.Option) (*DisableVgwRoutePropagationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DisableVgwRoutePropagation")
+	defer span.End()
+
 	req, out := c.DisableVgwRoutePropagationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -15752,6 +16311,9 @@ func (c *EC2) DisableVpcClassicLink(input *DisableVpcClassicLinkInput) (*Disable
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DisableVpcClassicLinkWithContext(ctx aws.Context, input *DisableVpcClassicLinkInput, opts ...request.Option) (*DisableVpcClassicLinkOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DisableVpcClassicLink")
+	defer span.End()
+
 	req, out := c.DisableVpcClassicLinkRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -15830,6 +16392,9 @@ func (c *EC2) DisableVpcClassicLinkDnsSupport(input *DisableVpcClassicLinkDnsSup
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DisableVpcClassicLinkDnsSupportWithContext(ctx aws.Context, input *DisableVpcClassicLinkDnsSupportInput, opts ...request.Option) (*DisableVpcClassicLinkDnsSupportOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DisableVpcClassicLinkDnsSupport")
+	defer span.End()
+
 	req, out := c.DisableVpcClassicLinkDnsSupportRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -15914,6 +16479,9 @@ func (c *EC2) DisassociateAddress(input *DisassociateAddressInput) (*Disassociat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DisassociateAddressWithContext(ctx aws.Context, input *DisassociateAddressInput, opts ...request.Option) (*DisassociateAddressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DisassociateAddress")
+	defer span.End()
+
 	req, out := c.DisassociateAddressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -15990,6 +16558,9 @@ func (c *EC2) DisassociateIamInstanceProfile(input *DisassociateIamInstanceProfi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DisassociateIamInstanceProfileWithContext(ctx aws.Context, input *DisassociateIamInstanceProfileInput, opts ...request.Option) (*DisassociateIamInstanceProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DisassociateIamInstanceProfile")
+	defer span.End()
+
 	req, out := c.DisassociateIamInstanceProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -16071,6 +16642,9 @@ func (c *EC2) DisassociateRouteTable(input *DisassociateRouteTableInput) (*Disas
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DisassociateRouteTableWithContext(ctx aws.Context, input *DisassociateRouteTableInput, opts ...request.Option) (*DisassociateRouteTableOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DisassociateRouteTable")
+	defer span.End()
+
 	req, out := c.DisassociateRouteTableRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -16147,6 +16721,9 @@ func (c *EC2) DisassociateSubnetCidrBlock(input *DisassociateSubnetCidrBlockInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DisassociateSubnetCidrBlockWithContext(ctx aws.Context, input *DisassociateSubnetCidrBlockInput, opts ...request.Option) (*DisassociateSubnetCidrBlockOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DisassociateSubnetCidrBlock")
+	defer span.End()
+
 	req, out := c.DisassociateSubnetCidrBlockRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -16227,6 +16804,9 @@ func (c *EC2) DisassociateVpcCidrBlock(input *DisassociateVpcCidrBlockInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) DisassociateVpcCidrBlockWithContext(ctx aws.Context, input *DisassociateVpcCidrBlockInput, opts ...request.Option) (*DisassociateVpcCidrBlockOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).DisassociateVpcCidrBlock")
+	defer span.End()
+
 	req, out := c.DisassociateVpcCidrBlockRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -16304,6 +16884,9 @@ func (c *EC2) EnableVgwRoutePropagation(input *EnableVgwRoutePropagationInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) EnableVgwRoutePropagationWithContext(ctx aws.Context, input *EnableVgwRoutePropagationInput, opts ...request.Option) (*EnableVgwRoutePropagationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).EnableVgwRoutePropagation")
+	defer span.End()
+
 	req, out := c.EnableVgwRoutePropagationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -16381,6 +16964,9 @@ func (c *EC2) EnableVolumeIO(input *EnableVolumeIOInput) (*EnableVolumeIOOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) EnableVolumeIOWithContext(ctx aws.Context, input *EnableVolumeIOInput, opts ...request.Option) (*EnableVolumeIOOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).EnableVolumeIO")
+	defer span.End()
+
 	req, out := c.EnableVolumeIORequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -16461,6 +17047,9 @@ func (c *EC2) EnableVpcClassicLink(input *EnableVpcClassicLinkInput) (*EnableVpc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) EnableVpcClassicLinkWithContext(ctx aws.Context, input *EnableVpcClassicLinkInput, opts ...request.Option) (*EnableVpcClassicLinkOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).EnableVpcClassicLink")
+	defer span.End()
+
 	req, out := c.EnableVpcClassicLinkRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -16541,6 +17130,9 @@ func (c *EC2) EnableVpcClassicLinkDnsSupport(input *EnableVpcClassicLinkDnsSuppo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) EnableVpcClassicLinkDnsSupportWithContext(ctx aws.Context, input *EnableVpcClassicLinkDnsSupportInput, opts ...request.Option) (*EnableVpcClassicLinkDnsSupportOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).EnableVpcClassicLinkDnsSupport")
+	defer span.End()
+
 	req, out := c.EnableVpcClassicLinkDnsSupportRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -16632,6 +17224,9 @@ func (c *EC2) GetConsoleOutput(input *GetConsoleOutputInput) (*GetConsoleOutputO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) GetConsoleOutputWithContext(ctx aws.Context, input *GetConsoleOutputInput, opts ...request.Option) (*GetConsoleOutputOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).GetConsoleOutput")
+	defer span.End()
+
 	req, out := c.GetConsoleOutputRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -16708,6 +17303,9 @@ func (c *EC2) GetConsoleScreenshot(input *GetConsoleScreenshotInput) (*GetConsol
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) GetConsoleScreenshotWithContext(ctx aws.Context, input *GetConsoleScreenshotInput, opts ...request.Option) (*GetConsoleScreenshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).GetConsoleScreenshot")
+	defer span.End()
+
 	req, out := c.GetConsoleScreenshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -16787,6 +17385,9 @@ func (c *EC2) GetHostReservationPurchasePreview(input *GetHostReservationPurchas
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) GetHostReservationPurchasePreviewWithContext(ctx aws.Context, input *GetHostReservationPurchasePreviewInput, opts ...request.Option) (*GetHostReservationPurchasePreviewOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).GetHostReservationPurchasePreview")
+	defer span.End()
+
 	req, out := c.GetHostReservationPurchasePreviewRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -16862,6 +17463,9 @@ func (c *EC2) GetLaunchTemplateData(input *GetLaunchTemplateDataInput) (*GetLaun
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) GetLaunchTemplateDataWithContext(ctx aws.Context, input *GetLaunchTemplateDataInput, opts ...request.Option) (*GetLaunchTemplateDataOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).GetLaunchTemplateData")
+	defer span.End()
+
 	req, out := c.GetLaunchTemplateDataRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -16953,6 +17557,9 @@ func (c *EC2) GetPasswordData(input *GetPasswordDataInput) (*GetPasswordDataOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) GetPasswordDataWithContext(ctx aws.Context, input *GetPasswordDataInput, opts ...request.Option) (*GetPasswordDataOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).GetPasswordData")
+	defer span.End()
+
 	req, out := c.GetPasswordDataRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -17030,6 +17637,9 @@ func (c *EC2) GetReservedInstancesExchangeQuote(input *GetReservedInstancesExcha
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) GetReservedInstancesExchangeQuoteWithContext(ctx aws.Context, input *GetReservedInstancesExchangeQuoteInput, opts ...request.Option) (*GetReservedInstancesExchangeQuoteOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).GetReservedInstancesExchangeQuote")
+	defer span.End()
+
 	req, out := c.GetReservedInstancesExchangeQuoteRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -17107,6 +17717,9 @@ func (c *EC2) ImportImage(input *ImportImageInput) (*ImportImageOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ImportImageWithContext(ctx aws.Context, input *ImportImageInput, opts ...request.Option) (*ImportImageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ImportImage")
+	defer span.End()
+
 	req, out := c.ImportImageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -17187,6 +17800,9 @@ func (c *EC2) ImportInstance(input *ImportInstanceInput) (*ImportInstanceOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ImportInstanceWithContext(ctx aws.Context, input *ImportInstanceInput, opts ...request.Option) (*ImportInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ImportInstance")
+	defer span.End()
+
 	req, out := c.ImportInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -17268,6 +17884,9 @@ func (c *EC2) ImportKeyPair(input *ImportKeyPairInput) (*ImportKeyPairOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ImportKeyPairWithContext(ctx aws.Context, input *ImportKeyPairInput, opts ...request.Option) (*ImportKeyPairOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ImportKeyPair")
+	defer span.End()
+
 	req, out := c.ImportKeyPairRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -17342,6 +17961,9 @@ func (c *EC2) ImportSnapshot(input *ImportSnapshotInput) (*ImportSnapshotOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ImportSnapshotWithContext(ctx aws.Context, input *ImportSnapshotInput, opts ...request.Option) (*ImportSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ImportSnapshot")
+	defer span.End()
+
 	req, out := c.ImportSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -17420,6 +18042,9 @@ func (c *EC2) ImportVolume(input *ImportVolumeInput) (*ImportVolumeOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ImportVolumeWithContext(ctx aws.Context, input *ImportVolumeInput, opts ...request.Option) (*ImportVolumeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ImportVolume")
+	defer span.End()
+
 	req, out := c.ImportVolumeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -17494,6 +18119,9 @@ func (c *EC2) ModifyFpgaImageAttribute(input *ModifyFpgaImageAttributeInput) (*M
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyFpgaImageAttributeWithContext(ctx aws.Context, input *ModifyFpgaImageAttributeInput, opts ...request.Option) (*ModifyFpgaImageAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyFpgaImageAttribute")
+	defer span.End()
+
 	req, out := c.ModifyFpgaImageAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -17574,6 +18202,9 @@ func (c *EC2) ModifyHosts(input *ModifyHostsInput) (*ModifyHostsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyHostsWithContext(ctx aws.Context, input *ModifyHostsInput, opts ...request.Option) (*ModifyHostsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyHosts")
+	defer span.End()
+
 	req, out := c.ModifyHostsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -17672,6 +18303,9 @@ func (c *EC2) ModifyIdFormat(input *ModifyIdFormatInput) (*ModifyIdFormatOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyIdFormatWithContext(ctx aws.Context, input *ModifyIdFormatInput, opts ...request.Option) (*ModifyIdFormatOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyIdFormat")
+	defer span.End()
+
 	req, out := c.ModifyIdFormatRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -17770,6 +18404,9 @@ func (c *EC2) ModifyIdentityIdFormat(input *ModifyIdentityIdFormatInput) (*Modif
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyIdentityIdFormatWithContext(ctx aws.Context, input *ModifyIdentityIdFormatInput, opts ...request.Option) (*ModifyIdentityIdFormatOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyIdentityIdFormat")
+	defer span.End()
+
 	req, out := c.ModifyIdentityIdFormatRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -17855,6 +18492,9 @@ func (c *EC2) ModifyImageAttribute(input *ModifyImageAttributeInput) (*ModifyIma
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyImageAttributeWithContext(ctx aws.Context, input *ModifyImageAttributeInput, opts ...request.Option) (*ModifyImageAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyImageAttribute")
+	defer span.End()
+
 	req, out := c.ModifyImageAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -17936,6 +18576,9 @@ func (c *EC2) ModifyInstanceAttribute(input *ModifyInstanceAttributeInput) (*Mod
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyInstanceAttributeWithContext(ctx aws.Context, input *ModifyInstanceAttributeInput, opts ...request.Option) (*ModifyInstanceAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyInstanceAttribute")
+	defer span.End()
+
 	req, out := c.ModifyInstanceAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -18014,6 +18657,9 @@ func (c *EC2) ModifyInstanceCreditSpecification(input *ModifyInstanceCreditSpeci
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyInstanceCreditSpecificationWithContext(ctx aws.Context, input *ModifyInstanceCreditSpecificationInput, opts ...request.Option) (*ModifyInstanceCreditSpecificationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyInstanceCreditSpecification")
+	defer span.End()
+
 	req, out := c.ModifyInstanceCreditSpecificationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -18109,6 +18755,9 @@ func (c *EC2) ModifyInstancePlacement(input *ModifyInstancePlacementInput) (*Mod
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyInstancePlacementWithContext(ctx aws.Context, input *ModifyInstancePlacementInput, opts ...request.Option) (*ModifyInstancePlacementOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyInstancePlacement")
+	defer span.End()
+
 	req, out := c.ModifyInstancePlacementRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -18185,6 +18834,9 @@ func (c *EC2) ModifyLaunchTemplate(input *ModifyLaunchTemplateInput) (*ModifyLau
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyLaunchTemplateWithContext(ctx aws.Context, input *ModifyLaunchTemplateInput, opts ...request.Option) (*ModifyLaunchTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyLaunchTemplate")
+	defer span.End()
+
 	req, out := c.ModifyLaunchTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -18262,6 +18914,9 @@ func (c *EC2) ModifyNetworkInterfaceAttribute(input *ModifyNetworkInterfaceAttri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyNetworkInterfaceAttributeWithContext(ctx aws.Context, input *ModifyNetworkInterfaceAttributeInput, opts ...request.Option) (*ModifyNetworkInterfaceAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyNetworkInterfaceAttribute")
+	defer span.End()
+
 	req, out := c.ModifyNetworkInterfaceAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -18342,6 +18997,9 @@ func (c *EC2) ModifyReservedInstances(input *ModifyReservedInstancesInput) (*Mod
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyReservedInstancesWithContext(ctx aws.Context, input *ModifyReservedInstancesInput, opts ...request.Option) (*ModifyReservedInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyReservedInstances")
+	defer span.End()
+
 	req, out := c.ModifyReservedInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -18430,6 +19088,9 @@ func (c *EC2) ModifySnapshotAttribute(input *ModifySnapshotAttributeInput) (*Mod
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifySnapshotAttributeWithContext(ctx aws.Context, input *ModifySnapshotAttributeInput, opts ...request.Option) (*ModifySnapshotAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifySnapshotAttribute")
+	defer span.End()
+
 	req, out := c.ModifySnapshotAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -18526,6 +19187,9 @@ func (c *EC2) ModifySpotFleetRequest(input *ModifySpotFleetRequestInput) (*Modif
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifySpotFleetRequestWithContext(ctx aws.Context, input *ModifySpotFleetRequestInput, opts ...request.Option) (*ModifySpotFleetRequestOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifySpotFleetRequest")
+	defer span.End()
+
 	req, out := c.ModifySpotFleetRequestRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -18602,6 +19266,9 @@ func (c *EC2) ModifySubnetAttribute(input *ModifySubnetAttributeInput) (*ModifyS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifySubnetAttributeWithContext(ctx aws.Context, input *ModifySubnetAttributeInput, opts ...request.Option) (*ModifySubnetAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifySubnetAttribute")
+	defer span.End()
+
 	req, out := c.ModifySubnetAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -18708,6 +19375,9 @@ func (c *EC2) ModifyVolume(input *ModifyVolumeInput) (*ModifyVolumeOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyVolumeWithContext(ctx aws.Context, input *ModifyVolumeInput, opts ...request.Option) (*ModifyVolumeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyVolume")
+	defer span.End()
+
 	req, out := c.ModifyVolumeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -18793,6 +19463,9 @@ func (c *EC2) ModifyVolumeAttribute(input *ModifyVolumeAttributeInput) (*ModifyV
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyVolumeAttributeWithContext(ctx aws.Context, input *ModifyVolumeAttributeInput, opts ...request.Option) (*ModifyVolumeAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyVolumeAttribute")
+	defer span.End()
+
 	req, out := c.ModifyVolumeAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -18869,6 +19542,9 @@ func (c *EC2) ModifyVpcAttribute(input *ModifyVpcAttributeInput) (*ModifyVpcAttr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyVpcAttributeWithContext(ctx aws.Context, input *ModifyVpcAttributeInput, opts ...request.Option) (*ModifyVpcAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyVpcAttribute")
+	defer span.End()
+
 	req, out := c.ModifyVpcAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -18946,6 +19622,9 @@ func (c *EC2) ModifyVpcEndpoint(input *ModifyVpcEndpointInput) (*ModifyVpcEndpoi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyVpcEndpointWithContext(ctx aws.Context, input *ModifyVpcEndpointInput, opts ...request.Option) (*ModifyVpcEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyVpcEndpoint")
+	defer span.End()
+
 	req, out := c.ModifyVpcEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -19022,6 +19701,9 @@ func (c *EC2) ModifyVpcEndpointConnectionNotification(input *ModifyVpcEndpointCo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyVpcEndpointConnectionNotificationWithContext(ctx aws.Context, input *ModifyVpcEndpointConnectionNotificationInput, opts ...request.Option) (*ModifyVpcEndpointConnectionNotificationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyVpcEndpointConnectionNotification")
+	defer span.End()
+
 	req, out := c.ModifyVpcEndpointConnectionNotificationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -19099,6 +19781,9 @@ func (c *EC2) ModifyVpcEndpointServiceConfiguration(input *ModifyVpcEndpointServ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyVpcEndpointServiceConfigurationWithContext(ctx aws.Context, input *ModifyVpcEndpointServiceConfigurationInput, opts ...request.Option) (*ModifyVpcEndpointServiceConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyVpcEndpointServiceConfiguration")
+	defer span.End()
+
 	req, out := c.ModifyVpcEndpointServiceConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -19175,6 +19860,9 @@ func (c *EC2) ModifyVpcEndpointServicePermissions(input *ModifyVpcEndpointServic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyVpcEndpointServicePermissionsWithContext(ctx aws.Context, input *ModifyVpcEndpointServicePermissionsInput, opts ...request.Option) (*ModifyVpcEndpointServicePermissionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyVpcEndpointServicePermissions")
+	defer span.End()
+
 	req, out := c.ModifyVpcEndpointServicePermissionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -19268,6 +19956,9 @@ func (c *EC2) ModifyVpcPeeringConnectionOptions(input *ModifyVpcPeeringConnectio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyVpcPeeringConnectionOptionsWithContext(ctx aws.Context, input *ModifyVpcPeeringConnectionOptionsInput, opts ...request.Option) (*ModifyVpcPeeringConnectionOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyVpcPeeringConnectionOptions")
+	defer span.End()
+
 	req, out := c.ModifyVpcPeeringConnectionOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -19351,6 +20042,9 @@ func (c *EC2) ModifyVpcTenancy(input *ModifyVpcTenancyInput) (*ModifyVpcTenancyO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ModifyVpcTenancyWithContext(ctx aws.Context, input *ModifyVpcTenancyInput, opts ...request.Option) (*ModifyVpcTenancyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ModifyVpcTenancy")
+	defer span.End()
+
 	req, out := c.ModifyVpcTenancyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -19430,6 +20124,9 @@ func (c *EC2) MonitorInstances(input *MonitorInstancesInput) (*MonitorInstancesO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) MonitorInstancesWithContext(ctx aws.Context, input *MonitorInstancesInput, opts ...request.Option) (*MonitorInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).MonitorInstances")
+	defer span.End()
+
 	req, out := c.MonitorInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -19510,6 +20207,9 @@ func (c *EC2) MoveAddressToVpc(input *MoveAddressToVpcInput) (*MoveAddressToVpcO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) MoveAddressToVpcWithContext(ctx aws.Context, input *MoveAddressToVpcInput, opts ...request.Option) (*MoveAddressToVpcOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).MoveAddressToVpc")
+	defer span.End()
+
 	req, out := c.MoveAddressToVpcRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -19587,6 +20287,9 @@ func (c *EC2) PurchaseHostReservation(input *PurchaseHostReservationInput) (*Pur
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) PurchaseHostReservationWithContext(ctx aws.Context, input *PurchaseHostReservationInput, opts ...request.Option) (*PurchaseHostReservationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).PurchaseHostReservation")
+	defer span.End()
+
 	req, out := c.PurchaseHostReservationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -19670,6 +20373,9 @@ func (c *EC2) PurchaseReservedInstancesOffering(input *PurchaseReservedInstances
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) PurchaseReservedInstancesOfferingWithContext(ctx aws.Context, input *PurchaseReservedInstancesOfferingInput, opts ...request.Option) (*PurchaseReservedInstancesOfferingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).PurchaseReservedInstancesOffering")
+	defer span.End()
+
 	req, out := c.PurchaseReservedInstancesOfferingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -19753,6 +20459,9 @@ func (c *EC2) PurchaseScheduledInstances(input *PurchaseScheduledInstancesInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) PurchaseScheduledInstancesWithContext(ctx aws.Context, input *PurchaseScheduledInstancesInput, opts ...request.Option) (*PurchaseScheduledInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).PurchaseScheduledInstances")
+	defer span.End()
+
 	req, out := c.PurchaseScheduledInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -19839,6 +20548,9 @@ func (c *EC2) RebootInstances(input *RebootInstancesInput) (*RebootInstancesOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) RebootInstancesWithContext(ctx aws.Context, input *RebootInstancesInput, opts ...request.Option) (*RebootInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).RebootInstances")
+	defer span.End()
+
 	req, out := c.RebootInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -19941,6 +20653,9 @@ func (c *EC2) RegisterImage(input *RegisterImageInput) (*RegisterImageOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) RegisterImageWithContext(ctx aws.Context, input *RegisterImageInput, opts ...request.Option) (*RegisterImageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).RegisterImage")
+	defer span.End()
+
 	req, out := c.RegisterImageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -20016,6 +20731,9 @@ func (c *EC2) RejectVpcEndpointConnections(input *RejectVpcEndpointConnectionsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) RejectVpcEndpointConnectionsWithContext(ctx aws.Context, input *RejectVpcEndpointConnectionsInput, opts ...request.Option) (*RejectVpcEndpointConnectionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).RejectVpcEndpointConnections")
+	defer span.End()
+
 	req, out := c.RejectVpcEndpointConnectionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -20094,6 +20812,9 @@ func (c *EC2) RejectVpcPeeringConnection(input *RejectVpcPeeringConnectionInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) RejectVpcPeeringConnectionWithContext(ctx aws.Context, input *RejectVpcPeeringConnectionInput, opts ...request.Option) (*RejectVpcPeeringConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).RejectVpcPeeringConnection")
+	defer span.End()
+
 	req, out := c.RejectVpcPeeringConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -20187,6 +20908,9 @@ func (c *EC2) ReleaseAddress(input *ReleaseAddressInput) (*ReleaseAddressOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ReleaseAddressWithContext(ctx aws.Context, input *ReleaseAddressInput, opts ...request.Option) (*ReleaseAddressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ReleaseAddress")
+	defer span.End()
+
 	req, out := c.ReleaseAddressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -20272,6 +20996,9 @@ func (c *EC2) ReleaseHosts(input *ReleaseHostsInput) (*ReleaseHostsOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ReleaseHostsWithContext(ctx aws.Context, input *ReleaseHostsInput, opts ...request.Option) (*ReleaseHostsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ReleaseHosts")
+	defer span.End()
+
 	req, out := c.ReleaseHostsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -20351,6 +21078,9 @@ func (c *EC2) ReplaceIamInstanceProfileAssociation(input *ReplaceIamInstanceProf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ReplaceIamInstanceProfileAssociationWithContext(ctx aws.Context, input *ReplaceIamInstanceProfileAssociationInput, opts ...request.Option) (*ReplaceIamInstanceProfileAssociationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ReplaceIamInstanceProfileAssociation")
+	defer span.End()
+
 	req, out := c.ReplaceIamInstanceProfileAssociationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -20430,6 +21160,9 @@ func (c *EC2) ReplaceNetworkAclAssociation(input *ReplaceNetworkAclAssociationIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ReplaceNetworkAclAssociationWithContext(ctx aws.Context, input *ReplaceNetworkAclAssociationInput, opts ...request.Option) (*ReplaceNetworkAclAssociationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ReplaceNetworkAclAssociation")
+	defer span.End()
+
 	req, out := c.ReplaceNetworkAclAssociationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -20508,6 +21241,9 @@ func (c *EC2) ReplaceNetworkAclEntry(input *ReplaceNetworkAclEntryInput) (*Repla
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ReplaceNetworkAclEntryWithContext(ctx aws.Context, input *ReplaceNetworkAclEntryInput, opts ...request.Option) (*ReplaceNetworkAclEntryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ReplaceNetworkAclEntry")
+	defer span.End()
+
 	req, out := c.ReplaceNetworkAclEntryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -20590,6 +21326,9 @@ func (c *EC2) ReplaceRoute(input *ReplaceRouteInput) (*ReplaceRouteOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ReplaceRouteWithContext(ctx aws.Context, input *ReplaceRouteInput, opts ...request.Option) (*ReplaceRouteOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ReplaceRoute")
+	defer span.End()
+
 	req, out := c.ReplaceRouteRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -20672,6 +21411,9 @@ func (c *EC2) ReplaceRouteTableAssociation(input *ReplaceRouteTableAssociationIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ReplaceRouteTableAssociationWithContext(ctx aws.Context, input *ReplaceRouteTableAssociationInput, opts ...request.Option) (*ReplaceRouteTableAssociationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ReplaceRouteTableAssociation")
+	defer span.End()
+
 	req, out := c.ReplaceRouteTableAssociationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -20754,6 +21496,9 @@ func (c *EC2) ReportInstanceStatus(input *ReportInstanceStatusInput) (*ReportIns
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ReportInstanceStatusWithContext(ctx aws.Context, input *ReportInstanceStatusInput, opts ...request.Option) (*ReportInstanceStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ReportInstanceStatus")
+	defer span.End()
+
 	req, out := c.ReportInstanceStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -20847,6 +21592,9 @@ func (c *EC2) RequestSpotFleet(input *RequestSpotFleetInput) (*RequestSpotFleetO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) RequestSpotFleetWithContext(ctx aws.Context, input *RequestSpotFleetInput, opts ...request.Option) (*RequestSpotFleetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).RequestSpotFleet")
+	defer span.End()
+
 	req, out := c.RequestSpotFleetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -20924,6 +21672,9 @@ func (c *EC2) RequestSpotInstances(input *RequestSpotInstancesInput) (*RequestSp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) RequestSpotInstancesWithContext(ctx aws.Context, input *RequestSpotInstancesInput, opts ...request.Option) (*RequestSpotInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).RequestSpotInstances")
+	defer span.End()
+
 	req, out := c.RequestSpotInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -20999,6 +21750,9 @@ func (c *EC2) ResetFpgaImageAttribute(input *ResetFpgaImageAttributeInput) (*Res
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ResetFpgaImageAttributeWithContext(ctx aws.Context, input *ResetFpgaImageAttributeInput, opts ...request.Option) (*ResetFpgaImageAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ResetFpgaImageAttribute")
+	defer span.End()
+
 	req, out := c.ResetFpgaImageAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -21077,6 +21831,9 @@ func (c *EC2) ResetImageAttribute(input *ResetImageAttributeInput) (*ResetImageA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ResetImageAttributeWithContext(ctx aws.Context, input *ResetImageAttributeInput, opts ...request.Option) (*ResetImageAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ResetImageAttribute")
+	defer span.End()
+
 	req, out := c.ResetImageAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -21161,6 +21918,9 @@ func (c *EC2) ResetInstanceAttribute(input *ResetInstanceAttributeInput) (*Reset
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ResetInstanceAttributeWithContext(ctx aws.Context, input *ResetInstanceAttributeInput, opts ...request.Option) (*ResetInstanceAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ResetInstanceAttribute")
+	defer span.End()
+
 	req, out := c.ResetInstanceAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -21238,6 +21998,9 @@ func (c *EC2) ResetNetworkInterfaceAttribute(input *ResetNetworkInterfaceAttribu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ResetNetworkInterfaceAttributeWithContext(ctx aws.Context, input *ResetNetworkInterfaceAttributeInput, opts ...request.Option) (*ResetNetworkInterfaceAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ResetNetworkInterfaceAttribute")
+	defer span.End()
+
 	req, out := c.ResetNetworkInterfaceAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -21318,6 +22081,9 @@ func (c *EC2) ResetSnapshotAttribute(input *ResetSnapshotAttributeInput) (*Reset
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) ResetSnapshotAttributeWithContext(ctx aws.Context, input *ResetSnapshotAttributeInput, opts ...request.Option) (*ResetSnapshotAttributeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).ResetSnapshotAttribute")
+	defer span.End()
+
 	req, out := c.ResetSnapshotAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -21395,6 +22161,9 @@ func (c *EC2) RestoreAddressToClassic(input *RestoreAddressToClassicInput) (*Res
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) RestoreAddressToClassicWithContext(ctx aws.Context, input *RestoreAddressToClassicInput, opts ...request.Option) (*RestoreAddressToClassicOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).RestoreAddressToClassic")
+	defer span.End()
+
 	req, out := c.RestoreAddressToClassicRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -21483,6 +22252,9 @@ func (c *EC2) RevokeSecurityGroupEgress(input *RevokeSecurityGroupEgressInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) RevokeSecurityGroupEgressWithContext(ctx aws.Context, input *RevokeSecurityGroupEgressInput, opts ...request.Option) (*RevokeSecurityGroupEgressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).RevokeSecurityGroupEgress")
+	defer span.End()
+
 	req, out := c.RevokeSecurityGroupEgressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -21574,6 +22346,9 @@ func (c *EC2) RevokeSecurityGroupIngress(input *RevokeSecurityGroupIngressInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) RevokeSecurityGroupIngressWithContext(ctx aws.Context, input *RevokeSecurityGroupIngressInput, opts ...request.Option) (*RevokeSecurityGroupIngressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).RevokeSecurityGroupIngress")
+	defer span.End()
+
 	req, out := c.RevokeSecurityGroupIngressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -21701,6 +22476,9 @@ func (c *EC2) RunInstances(input *RunInstancesInput) (*Reservation, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) RunInstancesWithContext(ctx aws.Context, input *RunInstancesInput, opts ...request.Option) (*Reservation, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).RunInstances")
+	defer span.End()
+
 	req, out := c.RunInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -21785,6 +22563,9 @@ func (c *EC2) RunScheduledInstances(input *RunScheduledInstancesInput) (*RunSche
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) RunScheduledInstancesWithContext(ctx aws.Context, input *RunScheduledInstancesInput, opts ...request.Option) (*RunScheduledInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).RunScheduledInstances")
+	defer span.End()
+
 	req, out := c.RunScheduledInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -21881,6 +22662,9 @@ func (c *EC2) StartInstances(input *StartInstancesInput) (*StartInstancesOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) StartInstancesWithContext(ctx aws.Context, input *StartInstancesInput, opts ...request.Option) (*StartInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).StartInstances")
+	defer span.End()
+
 	req, out := c.StartInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -21987,6 +22771,9 @@ func (c *EC2) StopInstances(input *StopInstancesInput) (*StopInstancesOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) StopInstancesWithContext(ctx aws.Context, input *StopInstancesInput, opts ...request.Option) (*StopInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).StopInstances")
+	defer span.End()
+
 	req, out := c.StopInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -22085,6 +22872,9 @@ func (c *EC2) TerminateInstances(input *TerminateInstancesInput) (*TerminateInst
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) TerminateInstancesWithContext(ctx aws.Context, input *TerminateInstancesInput, opts ...request.Option) (*TerminateInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).TerminateInstances")
+	defer span.End()
+
 	req, out := c.TerminateInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -22159,6 +22949,9 @@ func (c *EC2) UnassignIpv6Addresses(input *UnassignIpv6AddressesInput) (*Unassig
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) UnassignIpv6AddressesWithContext(ctx aws.Context, input *UnassignIpv6AddressesInput, opts ...request.Option) (*UnassignIpv6AddressesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).UnassignIpv6Addresses")
+	defer span.End()
+
 	req, out := c.UnassignIpv6AddressesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -22235,6 +23028,9 @@ func (c *EC2) UnassignPrivateIpAddresses(input *UnassignPrivateIpAddressesInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) UnassignPrivateIpAddressesWithContext(ctx aws.Context, input *UnassignPrivateIpAddressesInput, opts ...request.Option) (*UnassignPrivateIpAddressesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).UnassignPrivateIpAddresses")
+	defer span.End()
+
 	req, out := c.UnassignPrivateIpAddressesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -22311,6 +23107,9 @@ func (c *EC2) UnmonitorInstances(input *UnmonitorInstancesInput) (*UnmonitorInst
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) UnmonitorInstancesWithContext(ctx aws.Context, input *UnmonitorInstancesInput, opts ...request.Option) (*UnmonitorInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).UnmonitorInstances")
+	defer span.End()
+
 	req, out := c.UnmonitorInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -22391,6 +23190,9 @@ func (c *EC2) UpdateSecurityGroupRuleDescriptionsEgress(input *UpdateSecurityGro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) UpdateSecurityGroupRuleDescriptionsEgressWithContext(ctx aws.Context, input *UpdateSecurityGroupRuleDescriptionsEgressInput, opts ...request.Option) (*UpdateSecurityGroupRuleDescriptionsEgressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).UpdateSecurityGroupRuleDescriptionsEgress")
+	defer span.End()
+
 	req, out := c.UpdateSecurityGroupRuleDescriptionsEgressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -22471,6 +23273,9 @@ func (c *EC2) UpdateSecurityGroupRuleDescriptionsIngress(input *UpdateSecurityGr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EC2) UpdateSecurityGroupRuleDescriptionsIngressWithContext(ctx aws.Context, input *UpdateSecurityGroupRuleDescriptionsIngressInput, opts ...request.Option) (*UpdateSecurityGroupRuleDescriptionsIngressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ec2.(*EC2).UpdateSecurityGroupRuleDescriptionsIngress")
+	defer span.End()
+
 	req, out := c.UpdateSecurityGroupRuleDescriptionsIngressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

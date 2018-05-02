@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/query"
+	"go.opencensus.io/trace"
 )
 
 const opAddPermission = "AddPermission"
@@ -109,6 +110,9 @@ func (c *SQS) AddPermission(input *AddPermissionInput) (*AddPermissionOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) AddPermissionWithContext(ctx aws.Context, input *AddPermissionInput, opts ...request.Option) (*AddPermissionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).AddPermission")
+	defer span.End()
+
 	req, out := c.AddPermissionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -228,6 +232,9 @@ func (c *SQS) ChangeMessageVisibility(input *ChangeMessageVisibilityInput) (*Cha
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) ChangeMessageVisibilityWithContext(ctx aws.Context, input *ChangeMessageVisibilityInput, opts ...request.Option) (*ChangeMessageVisibilityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).ChangeMessageVisibility")
+	defer span.End()
+
 	req, out := c.ChangeMessageVisibilityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -331,6 +338,9 @@ func (c *SQS) ChangeMessageVisibilityBatch(input *ChangeMessageVisibilityBatchIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) ChangeMessageVisibilityBatchWithContext(ctx aws.Context, input *ChangeMessageVisibilityBatchInput, opts ...request.Option) (*ChangeMessageVisibilityBatchOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).ChangeMessageVisibilityBatch")
+	defer span.End()
+
 	req, out := c.ChangeMessageVisibilityBatchRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -455,6 +465,9 @@ func (c *SQS) CreateQueue(input *CreateQueueInput) (*CreateQueueOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) CreateQueueWithContext(ctx aws.Context, input *CreateQueueInput, opts ...request.Option) (*CreateQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).CreateQueue")
+	defer span.End()
+
 	req, out := c.CreateQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -558,6 +571,9 @@ func (c *SQS) DeleteMessage(input *DeleteMessageInput) (*DeleteMessageOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) DeleteMessageWithContext(ctx aws.Context, input *DeleteMessageInput, opts ...request.Option) (*DeleteMessageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).DeleteMessage")
+	defer span.End()
+
 	req, out := c.DeleteMessageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -660,6 +676,9 @@ func (c *SQS) DeleteMessageBatch(input *DeleteMessageBatchInput) (*DeleteMessage
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) DeleteMessageBatchWithContext(ctx aws.Context, input *DeleteMessageBatchInput, opts ...request.Option) (*DeleteMessageBatchOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).DeleteMessageBatch")
+	defer span.End()
+
 	req, out := c.DeleteMessageBatchRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -748,6 +767,9 @@ func (c *SQS) DeleteQueue(input *DeleteQueueInput) (*DeleteQueueOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) DeleteQueueWithContext(ctx aws.Context, input *DeleteQueueInput, opts ...request.Option) (*DeleteQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).DeleteQueue")
+	defer span.End()
+
 	req, out := c.DeleteQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -838,6 +860,9 @@ func (c *SQS) GetQueueAttributes(input *GetQueueAttributesInput) (*GetQueueAttri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) GetQueueAttributesWithContext(ctx aws.Context, input *GetQueueAttributesInput, opts ...request.Option) (*GetQueueAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).GetQueueAttributes")
+	defer span.End()
+
 	req, out := c.GetQueueAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -924,6 +949,9 @@ func (c *SQS) GetQueueUrl(input *GetQueueUrlInput) (*GetQueueUrlOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) GetQueueUrlWithContext(ctx aws.Context, input *GetQueueUrlInput, opts ...request.Option) (*GetQueueUrlOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).GetQueueUrl")
+	defer span.End()
+
 	req, out := c.GetQueueUrlRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1008,6 +1036,9 @@ func (c *SQS) ListDeadLetterSourceQueues(input *ListDeadLetterSourceQueuesInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) ListDeadLetterSourceQueuesWithContext(ctx aws.Context, input *ListDeadLetterSourceQueuesInput, opts ...request.Option) (*ListDeadLetterSourceQueuesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).ListDeadLetterSourceQueues")
+	defer span.End()
+
 	req, out := c.ListDeadLetterSourceQueuesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1102,6 +1133,9 @@ func (c *SQS) ListQueueTags(input *ListQueueTagsInput) (*ListQueueTagsOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) ListQueueTagsWithContext(ctx aws.Context, input *ListQueueTagsInput, opts ...request.Option) (*ListQueueTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).ListQueueTags")
+	defer span.End()
+
 	req, out := c.ListQueueTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1178,6 +1212,9 @@ func (c *SQS) ListQueues(input *ListQueuesInput) (*ListQueuesOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) ListQueuesWithContext(ctx aws.Context, input *ListQueuesInput, opts ...request.Option) (*ListQueuesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).ListQueues")
+	defer span.End()
+
 	req, out := c.ListQueuesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1273,6 +1310,9 @@ func (c *SQS) PurgeQueue(input *PurgeQueueInput) (*PurgeQueueOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) PurgeQueueWithContext(ctx aws.Context, input *PurgeQueueInput, opts ...request.Option) (*PurgeQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).PurgeQueue")
+	defer span.End()
+
 	req, out := c.PurgeQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1401,6 +1441,9 @@ func (c *SQS) ReceiveMessage(input *ReceiveMessageInput) (*ReceiveMessageOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) ReceiveMessageWithContext(ctx aws.Context, input *ReceiveMessageInput, opts ...request.Option) (*ReceiveMessageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).ReceiveMessage")
+	defer span.End()
+
 	req, out := c.ReceiveMessageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1478,6 +1521,9 @@ func (c *SQS) RemovePermission(input *RemovePermissionInput) (*RemovePermissionO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) RemovePermissionWithContext(ctx aws.Context, input *RemovePermissionInput, opts ...request.Option) (*RemovePermissionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).RemovePermission")
+	defer span.End()
+
 	req, out := c.RemovePermissionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1568,6 +1614,9 @@ func (c *SQS) SendMessage(input *SendMessageInput) (*SendMessageOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) SendMessageWithContext(ctx aws.Context, input *SendMessageInput, opts ...request.Option) (*SendMessageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).SendMessage")
+	defer span.End()
+
 	req, out := c.SendMessageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1692,6 +1741,9 @@ func (c *SQS) SendMessageBatch(input *SendMessageBatchInput) (*SendMessageBatchO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) SendMessageBatchWithContext(ctx aws.Context, input *SendMessageBatchInput, opts ...request.Option) (*SendMessageBatchOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).SendMessageBatch")
+	defer span.End()
+
 	req, out := c.SendMessageBatchRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1780,6 +1832,9 @@ func (c *SQS) SetQueueAttributes(input *SetQueueAttributesInput) (*SetQueueAttri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) SetQueueAttributesWithContext(ctx aws.Context, input *SetQueueAttributesInput, opts ...request.Option) (*SetQueueAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).SetQueueAttributes")
+	defer span.End()
+
 	req, out := c.SetQueueAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1876,6 +1931,9 @@ func (c *SQS) TagQueue(input *TagQueueInput) (*TagQueueOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) TagQueueWithContext(ctx aws.Context, input *TagQueueInput, opts ...request.Option) (*TagQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).TagQueue")
+	defer span.End()
+
 	req, out := c.TagQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1972,6 +2030,9 @@ func (c *SQS) UntagQueue(input *UntagQueueInput) (*UntagQueueOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SQS) UntagQueueWithContext(ctx aws.Context, input *UntagQueueInput, opts ...request.Option) (*UntagQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sqs.(*SQS).UntagQueue")
+	defer span.End()
+
 	req, out := c.UntagQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opBatchDetectDominantLanguage = "BatchDetectDominantLanguage"
@@ -95,6 +96,9 @@ func (c *Comprehend) BatchDetectDominantLanguage(input *BatchDetectDominantLangu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Comprehend) BatchDetectDominantLanguageWithContext(ctx aws.Context, input *BatchDetectDominantLanguageInput, opts ...request.Option) (*BatchDetectDominantLanguageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/comprehend.(*Comprehend).BatchDetectDominantLanguage")
+	defer span.End()
+
 	req, out := c.BatchDetectDominantLanguageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -191,6 +195,9 @@ func (c *Comprehend) BatchDetectEntities(input *BatchDetectEntitiesInput) (*Batc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Comprehend) BatchDetectEntitiesWithContext(ctx aws.Context, input *BatchDetectEntitiesInput, opts ...request.Option) (*BatchDetectEntitiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/comprehend.(*Comprehend).BatchDetectEntities")
+	defer span.End()
+
 	req, out := c.BatchDetectEntitiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -286,6 +293,9 @@ func (c *Comprehend) BatchDetectKeyPhrases(input *BatchDetectKeyPhrasesInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Comprehend) BatchDetectKeyPhrasesWithContext(ctx aws.Context, input *BatchDetectKeyPhrasesInput, opts ...request.Option) (*BatchDetectKeyPhrasesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/comprehend.(*Comprehend).BatchDetectKeyPhrases")
+	defer span.End()
+
 	req, out := c.BatchDetectKeyPhrasesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -382,6 +392,9 @@ func (c *Comprehend) BatchDetectSentiment(input *BatchDetectSentimentInput) (*Ba
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Comprehend) BatchDetectSentimentWithContext(ctx aws.Context, input *BatchDetectSentimentInput, opts ...request.Option) (*BatchDetectSentimentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/comprehend.(*Comprehend).BatchDetectSentiment")
+	defer span.End()
+
 	req, out := c.BatchDetectSentimentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -471,6 +484,9 @@ func (c *Comprehend) DescribeTopicsDetectionJob(input *DescribeTopicsDetectionJo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Comprehend) DescribeTopicsDetectionJobWithContext(ctx aws.Context, input *DescribeTopicsDetectionJobInput, opts ...request.Option) (*DescribeTopicsDetectionJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/comprehend.(*Comprehend).DescribeTopicsDetectionJob")
+	defer span.End()
+
 	req, out := c.DescribeTopicsDetectionJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -558,6 +574,9 @@ func (c *Comprehend) DetectDominantLanguage(input *DetectDominantLanguageInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Comprehend) DetectDominantLanguageWithContext(ctx aws.Context, input *DetectDominantLanguageInput, opts ...request.Option) (*DetectDominantLanguageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/comprehend.(*Comprehend).DetectDominantLanguage")
+	defer span.End()
+
 	req, out := c.DetectDominantLanguageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -650,6 +669,9 @@ func (c *Comprehend) DetectEntities(input *DetectEntitiesInput) (*DetectEntities
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Comprehend) DetectEntitiesWithContext(ctx aws.Context, input *DetectEntitiesInput, opts ...request.Option) (*DetectEntitiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/comprehend.(*Comprehend).DetectEntities")
+	defer span.End()
+
 	req, out := c.DetectEntitiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -741,6 +763,9 @@ func (c *Comprehend) DetectKeyPhrases(input *DetectKeyPhrasesInput) (*DetectKeyP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Comprehend) DetectKeyPhrasesWithContext(ctx aws.Context, input *DetectKeyPhrasesInput, opts ...request.Option) (*DetectKeyPhrasesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/comprehend.(*Comprehend).DetectKeyPhrases")
+	defer span.End()
+
 	req, out := c.DetectKeyPhrasesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -833,6 +858,9 @@ func (c *Comprehend) DetectSentiment(input *DetectSentimentInput) (*DetectSentim
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Comprehend) DetectSentimentWithContext(ctx aws.Context, input *DetectSentimentInput, opts ...request.Option) (*DetectSentimentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/comprehend.(*Comprehend).DetectSentiment")
+	defer span.End()
+
 	req, out := c.DetectSentimentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -928,6 +956,9 @@ func (c *Comprehend) ListTopicsDetectionJobs(input *ListTopicsDetectionJobsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Comprehend) ListTopicsDetectionJobsWithContext(ctx aws.Context, input *ListTopicsDetectionJobsInput, opts ...request.Option) (*ListTopicsDetectionJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/comprehend.(*Comprehend).ListTopicsDetectionJobs")
+	defer span.End()
+
 	req, out := c.ListTopicsDetectionJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1064,6 +1095,9 @@ func (c *Comprehend) StartTopicsDetectionJob(input *StartTopicsDetectionJobInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Comprehend) StartTopicsDetectionJobWithContext(ctx aws.Context, input *StartTopicsDetectionJobInput, opts ...request.Option) (*StartTopicsDetectionJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/comprehend.(*Comprehend).StartTopicsDetectionJob")
+	defer span.End()
+
 	req, out := c.StartTopicsDetectionJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

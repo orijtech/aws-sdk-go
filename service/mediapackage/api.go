@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateChannel = "CreateChannel"
@@ -92,6 +93,9 @@ func (c *MediaPackage) CreateChannel(input *CreateChannelInput) (*CreateChannelO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaPackage) CreateChannelWithContext(ctx aws.Context, input *CreateChannelInput, opts ...request.Option) (*CreateChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediapackage.(*MediaPackage).CreateChannel")
+	defer span.End()
+
 	req, out := c.CreateChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -180,6 +184,9 @@ func (c *MediaPackage) CreateOriginEndpoint(input *CreateOriginEndpointInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaPackage) CreateOriginEndpointWithContext(ctx aws.Context, input *CreateOriginEndpointInput, opts ...request.Option) (*CreateOriginEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediapackage.(*MediaPackage).CreateOriginEndpoint")
+	defer span.End()
+
 	req, out := c.CreateOriginEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -268,6 +275,9 @@ func (c *MediaPackage) DeleteChannel(input *DeleteChannelInput) (*DeleteChannelO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaPackage) DeleteChannelWithContext(ctx aws.Context, input *DeleteChannelInput, opts ...request.Option) (*DeleteChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediapackage.(*MediaPackage).DeleteChannel")
+	defer span.End()
+
 	req, out := c.DeleteChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -356,6 +366,9 @@ func (c *MediaPackage) DeleteOriginEndpoint(input *DeleteOriginEndpointInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaPackage) DeleteOriginEndpointWithContext(ctx aws.Context, input *DeleteOriginEndpointInput, opts ...request.Option) (*DeleteOriginEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediapackage.(*MediaPackage).DeleteOriginEndpoint")
+	defer span.End()
+
 	req, out := c.DeleteOriginEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -444,6 +457,9 @@ func (c *MediaPackage) DescribeChannel(input *DescribeChannelInput) (*DescribeCh
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaPackage) DescribeChannelWithContext(ctx aws.Context, input *DescribeChannelInput, opts ...request.Option) (*DescribeChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediapackage.(*MediaPackage).DescribeChannel")
+	defer span.End()
+
 	req, out := c.DescribeChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -532,6 +548,9 @@ func (c *MediaPackage) DescribeOriginEndpoint(input *DescribeOriginEndpointInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaPackage) DescribeOriginEndpointWithContext(ctx aws.Context, input *DescribeOriginEndpointInput, opts ...request.Option) (*DescribeOriginEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediapackage.(*MediaPackage).DescribeOriginEndpoint")
+	defer span.End()
+
 	req, out := c.DescribeOriginEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -626,6 +645,9 @@ func (c *MediaPackage) ListChannels(input *ListChannelsInput) (*ListChannelsOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaPackage) ListChannelsWithContext(ctx aws.Context, input *ListChannelsInput, opts ...request.Option) (*ListChannelsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediapackage.(*MediaPackage).ListChannels")
+	defer span.End()
+
 	req, out := c.ListChannelsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -770,6 +792,9 @@ func (c *MediaPackage) ListOriginEndpoints(input *ListOriginEndpointsInput) (*Li
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaPackage) ListOriginEndpointsWithContext(ctx aws.Context, input *ListOriginEndpointsInput, opts ...request.Option) (*ListOriginEndpointsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediapackage.(*MediaPackage).ListOriginEndpoints")
+	defer span.End()
+
 	req, out := c.ListOriginEndpointsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -908,6 +933,9 @@ func (c *MediaPackage) RotateChannelCredentials(input *RotateChannelCredentialsI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaPackage) RotateChannelCredentialsWithContext(ctx aws.Context, input *RotateChannelCredentialsInput, opts ...request.Option) (*RotateChannelCredentialsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediapackage.(*MediaPackage).RotateChannelCredentials")
+	defer span.End()
+
 	req, out := c.RotateChannelCredentialsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -996,6 +1024,9 @@ func (c *MediaPackage) UpdateChannel(input *UpdateChannelInput) (*UpdateChannelO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaPackage) UpdateChannelWithContext(ctx aws.Context, input *UpdateChannelInput, opts ...request.Option) (*UpdateChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediapackage.(*MediaPackage).UpdateChannel")
+	defer span.End()
+
 	req, out := c.UpdateChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1084,6 +1115,9 @@ func (c *MediaPackage) UpdateOriginEndpoint(input *UpdateOriginEndpointInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaPackage) UpdateOriginEndpointWithContext(ctx aws.Context, input *UpdateOriginEndpointInput, opts ...request.Option) (*UpdateOriginEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediapackage.(*MediaPackage).UpdateOriginEndpoint")
+	defer span.End()
+
 	req, out := c.UpdateOriginEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

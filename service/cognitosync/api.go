@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
+	"go.opencensus.io/trace"
 )
 
 const opBulkPublish = "BulkPublish"
@@ -109,6 +110,9 @@ func (c *CognitoSync) BulkPublish(input *BulkPublishInput) (*BulkPublishOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) BulkPublishWithContext(ctx aws.Context, input *BulkPublishInput, opts ...request.Option) (*BulkPublishOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).BulkPublish")
+	defer span.End()
+
 	req, out := c.BulkPublishRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -210,6 +214,9 @@ func (c *CognitoSync) DeleteDataset(input *DeleteDatasetInput) (*DeleteDatasetOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) DeleteDatasetWithContext(ctx aws.Context, input *DeleteDatasetInput, opts ...request.Option) (*DeleteDatasetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).DeleteDataset")
+	defer span.End()
+
 	req, out := c.DeleteDatasetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -307,6 +314,9 @@ func (c *CognitoSync) DescribeDataset(input *DescribeDatasetInput) (*DescribeDat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) DescribeDatasetWithContext(ctx aws.Context, input *DescribeDatasetInput, opts ...request.Option) (*DescribeDatasetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).DescribeDataset")
+	defer span.End()
+
 	req, out := c.DescribeDatasetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -402,6 +412,9 @@ func (c *CognitoSync) DescribeIdentityPoolUsage(input *DescribeIdentityPoolUsage
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) DescribeIdentityPoolUsageWithContext(ctx aws.Context, input *DescribeIdentityPoolUsageInput, opts ...request.Option) (*DescribeIdentityPoolUsageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).DescribeIdentityPoolUsage")
+	defer span.End()
+
 	req, out := c.DescribeIdentityPoolUsageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -497,6 +510,9 @@ func (c *CognitoSync) DescribeIdentityUsage(input *DescribeIdentityUsageInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) DescribeIdentityUsageWithContext(ctx aws.Context, input *DescribeIdentityUsageInput, opts ...request.Option) (*DescribeIdentityUsageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).DescribeIdentityUsage")
+	defer span.End()
+
 	req, out := c.DescribeIdentityUsageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -588,6 +604,9 @@ func (c *CognitoSync) GetBulkPublishDetails(input *GetBulkPublishDetailsInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) GetBulkPublishDetailsWithContext(ctx aws.Context, input *GetBulkPublishDetailsInput, opts ...request.Option) (*GetBulkPublishDetailsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).GetBulkPublishDetails")
+	defer span.End()
+
 	req, out := c.GetBulkPublishDetailsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -683,6 +702,9 @@ func (c *CognitoSync) GetCognitoEvents(input *GetCognitoEventsInput) (*GetCognit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) GetCognitoEventsWithContext(ctx aws.Context, input *GetCognitoEventsInput, opts ...request.Option) (*GetCognitoEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).GetCognitoEvents")
+	defer span.End()
+
 	req, out := c.GetCognitoEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -777,6 +799,9 @@ func (c *CognitoSync) GetIdentityPoolConfiguration(input *GetIdentityPoolConfigu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) GetIdentityPoolConfigurationWithContext(ctx aws.Context, input *GetIdentityPoolConfigurationInput, opts ...request.Option) (*GetIdentityPoolConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).GetIdentityPoolConfiguration")
+	defer span.End()
+
 	req, out := c.GetIdentityPoolConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -871,6 +896,9 @@ func (c *CognitoSync) ListDatasets(input *ListDatasetsInput) (*ListDatasetsOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) ListDatasetsWithContext(ctx aws.Context, input *ListDatasetsInput, opts ...request.Option) (*ListDatasetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).ListDatasets")
+	defer span.End()
+
 	req, out := c.ListDatasetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -963,6 +991,9 @@ func (c *CognitoSync) ListIdentityPoolUsage(input *ListIdentityPoolUsageInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) ListIdentityPoolUsageWithContext(ctx aws.Context, input *ListIdentityPoolUsageInput, opts ...request.Option) (*ListIdentityPoolUsageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).ListIdentityPoolUsage")
+	defer span.End()
+
 	req, out := c.ListIdentityPoolUsageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1058,6 +1089,9 @@ func (c *CognitoSync) ListRecords(input *ListRecordsInput) (*ListRecordsOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) ListRecordsWithContext(ctx aws.Context, input *ListRecordsInput, opts ...request.Option) (*ListRecordsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).ListRecords")
+	defer span.End()
+
 	req, out := c.ListRecordsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1154,6 +1188,9 @@ func (c *CognitoSync) RegisterDevice(input *RegisterDeviceInput) (*RegisterDevic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) RegisterDeviceWithContext(ctx aws.Context, input *RegisterDeviceInput, opts ...request.Option) (*RegisterDeviceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).RegisterDevice")
+	defer span.End()
+
 	req, out := c.RegisterDeviceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1253,6 +1290,9 @@ func (c *CognitoSync) SetCognitoEvents(input *SetCognitoEventsInput) (*SetCognit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) SetCognitoEventsWithContext(ctx aws.Context, input *SetCognitoEventsInput, opts ...request.Option) (*SetCognitoEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).SetCognitoEvents")
+	defer span.End()
+
 	req, out := c.SetCognitoEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1350,6 +1390,9 @@ func (c *CognitoSync) SetIdentityPoolConfiguration(input *SetIdentityPoolConfigu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) SetIdentityPoolConfigurationWithContext(ctx aws.Context, input *SetIdentityPoolConfigurationInput, opts ...request.Option) (*SetIdentityPoolConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).SetIdentityPoolConfiguration")
+	defer span.End()
+
 	req, out := c.SetIdentityPoolConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1447,6 +1490,9 @@ func (c *CognitoSync) SubscribeToDataset(input *SubscribeToDatasetInput) (*Subsc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) SubscribeToDatasetWithContext(ctx aws.Context, input *SubscribeToDatasetInput, opts ...request.Option) (*SubscribeToDatasetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).SubscribeToDataset")
+	defer span.End()
+
 	req, out := c.SubscribeToDatasetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1544,6 +1590,9 @@ func (c *CognitoSync) UnsubscribeFromDataset(input *UnsubscribeFromDatasetInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) UnsubscribeFromDatasetWithContext(ctx aws.Context, input *UnsubscribeFromDatasetInput, opts ...request.Option) (*UnsubscribeFromDatasetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).UnsubscribeFromDataset")
+	defer span.End()
+
 	req, out := c.UnsubscribeFromDatasetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1663,6 +1712,9 @@ func (c *CognitoSync) UpdateRecords(input *UpdateRecordsInput) (*UpdateRecordsOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CognitoSync) UpdateRecordsWithContext(ctx aws.Context, input *UpdateRecordsInput, opts ...request.Option) (*UpdateRecordsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cognitosync.(*CognitoSync).UpdateRecords")
+	defer span.End()
+
 	req, out := c.UpdateRecordsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

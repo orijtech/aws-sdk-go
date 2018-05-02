@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
+	"go.opencensus.io/trace"
 )
 
 const opPutEvents = "PutEvents"
@@ -86,6 +87,9 @@ func (c *MobileAnalytics) PutEvents(input *PutEventsInput) (*PutEventsOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MobileAnalytics) PutEventsWithContext(ctx aws.Context, input *PutEventsInput, opts ...request.Option) (*PutEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mobileanalytics.(*MobileAnalytics).PutEvents")
+	defer span.End()
+
 	req, out := c.PutEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
+	"go.opencensus.io/trace"
 )
 
 const opDescribeStream = "DescribeStream"
@@ -97,6 +98,9 @@ func (c *DynamoDBStreams) DescribeStream(input *DescribeStreamInput) (*DescribeS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDBStreams) DescribeStreamWithContext(ctx aws.Context, input *DescribeStreamInput, opts ...request.Option) (*DescribeStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodbstreams.(*DynamoDBStreams).DescribeStream")
+	defer span.End()
+
 	req, out := c.DescribeStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -216,6 +220,9 @@ func (c *DynamoDBStreams) GetRecords(input *GetRecordsInput) (*GetRecordsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDBStreams) GetRecordsWithContext(ctx aws.Context, input *GetRecordsInput, opts ...request.Option) (*GetRecordsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodbstreams.(*DynamoDBStreams).GetRecords")
+	defer span.End()
+
 	req, out := c.GetRecordsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -316,6 +323,9 @@ func (c *DynamoDBStreams) GetShardIterator(input *GetShardIteratorInput) (*GetSh
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDBStreams) GetShardIteratorWithContext(ctx aws.Context, input *GetShardIteratorInput, opts ...request.Option) (*GetShardIteratorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodbstreams.(*DynamoDBStreams).GetShardIterator")
+	defer span.End()
+
 	req, out := c.GetShardIteratorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -402,6 +412,9 @@ func (c *DynamoDBStreams) ListStreams(input *ListStreamsInput) (*ListStreamsOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DynamoDBStreams) ListStreamsWithContext(ctx aws.Context, input *ListStreamsInput, opts ...request.Option) (*ListStreamsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/dynamodbstreams.(*DynamoDBStreams).ListStreams")
+	defer span.End()
+
 	req, out := c.ListStreamsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

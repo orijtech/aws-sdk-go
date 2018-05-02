@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
+	"go.opencensus.io/trace"
 )
 
 const opAddPermission = "AddPermission"
@@ -122,6 +123,9 @@ func (c *Lambda) AddPermission(input *AddPermissionInput) (*AddPermissionOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) AddPermissionWithContext(ctx aws.Context, input *AddPermissionInput, opts ...request.Option) (*AddPermissionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).AddPermission")
+	defer span.End()
+
 	req, out := c.AddPermissionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -219,6 +223,9 @@ func (c *Lambda) CreateAlias(input *CreateAliasInput) (*AliasConfiguration, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) CreateAliasWithContext(ctx aws.Context, input *CreateAliasInput, opts ...request.Option) (*AliasConfiguration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).CreateAlias")
+	defer span.End()
+
 	req, out := c.CreateAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -331,6 +338,9 @@ func (c *Lambda) CreateEventSourceMapping(input *CreateEventSourceMappingInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) CreateEventSourceMappingWithContext(ctx aws.Context, input *CreateEventSourceMappingInput, opts ...request.Option) (*EventSourceMappingConfiguration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).CreateEventSourceMapping")
+	defer span.End()
+
 	req, out := c.CreateEventSourceMappingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -436,6 +446,9 @@ func (c *Lambda) CreateFunction(input *CreateFunctionInput) (*FunctionConfigurat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) CreateFunctionWithContext(ctx aws.Context, input *CreateFunctionInput, opts ...request.Option) (*FunctionConfiguration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).CreateFunction")
+	defer span.End()
+
 	req, out := c.CreateFunctionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -527,6 +540,9 @@ func (c *Lambda) DeleteAlias(input *DeleteAliasInput) (*DeleteAliasOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) DeleteAliasWithContext(ctx aws.Context, input *DeleteAliasInput, opts ...request.Option) (*DeleteAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).DeleteAlias")
+	defer span.End()
+
 	req, out := c.DeleteAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -621,6 +637,9 @@ func (c *Lambda) DeleteEventSourceMapping(input *DeleteEventSourceMappingInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) DeleteEventSourceMappingWithContext(ctx aws.Context, input *DeleteEventSourceMappingInput, opts ...request.Option) (*EventSourceMappingConfiguration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).DeleteEventSourceMapping")
+	defer span.End()
+
 	req, out := c.DeleteEventSourceMappingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -728,6 +747,9 @@ func (c *Lambda) DeleteFunction(input *DeleteFunctionInput) (*DeleteFunctionOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) DeleteFunctionWithContext(ctx aws.Context, input *DeleteFunctionInput, opts ...request.Option) (*DeleteFunctionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).DeleteFunction")
+	defer span.End()
+
 	req, out := c.DeleteFunctionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -821,6 +843,9 @@ func (c *Lambda) DeleteFunctionConcurrency(input *DeleteFunctionConcurrencyInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) DeleteFunctionConcurrencyWithContext(ctx aws.Context, input *DeleteFunctionConcurrencyInput, opts ...request.Option) (*DeleteFunctionConcurrencyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).DeleteFunctionConcurrency")
+	defer span.End()
+
 	req, out := c.DeleteFunctionConcurrencyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -908,6 +933,9 @@ func (c *Lambda) GetAccountSettings(input *GetAccountSettingsInput) (*GetAccount
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) GetAccountSettingsWithContext(ctx aws.Context, input *GetAccountSettingsInput, opts ...request.Option) (*GetAccountSettingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).GetAccountSettings")
+	defer span.End()
+
 	req, out := c.GetAccountSettingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1002,6 +1030,9 @@ func (c *Lambda) GetAlias(input *GetAliasInput) (*AliasConfiguration, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) GetAliasWithContext(ctx aws.Context, input *GetAliasInput, opts ...request.Option) (*AliasConfiguration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).GetAlias")
+	defer span.End()
+
 	req, out := c.GetAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1095,6 +1126,9 @@ func (c *Lambda) GetEventSourceMapping(input *GetEventSourceMappingInput) (*Even
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) GetEventSourceMappingWithContext(ctx aws.Context, input *GetEventSourceMappingInput, opts ...request.Option) (*EventSourceMappingConfiguration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).GetEventSourceMapping")
+	defer span.End()
+
 	req, out := c.GetEventSourceMappingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1197,6 +1231,9 @@ func (c *Lambda) GetFunction(input *GetFunctionInput) (*GetFunctionOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) GetFunctionWithContext(ctx aws.Context, input *GetFunctionInput, opts ...request.Option) (*GetFunctionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).GetFunction")
+	defer span.End()
+
 	req, out := c.GetFunctionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1299,6 +1336,9 @@ func (c *Lambda) GetFunctionConfiguration(input *GetFunctionConfigurationInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) GetFunctionConfigurationWithContext(ctx aws.Context, input *GetFunctionConfigurationInput, opts ...request.Option) (*FunctionConfiguration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).GetFunctionConfiguration")
+	defer span.End()
+
 	req, out := c.GetFunctionConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1396,6 +1436,9 @@ func (c *Lambda) GetPolicy(input *GetPolicyInput) (*GetPolicyOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) GetPolicyWithContext(ctx aws.Context, input *GetPolicyInput, opts ...request.Option) (*GetPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).GetPolicy")
+	defer span.End()
+
 	req, out := c.GetPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1562,6 +1605,9 @@ func (c *Lambda) Invoke(input *InvokeInput) (*InvokeOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) InvokeWithContext(ctx aws.Context, input *InvokeInput, opts ...request.Option) (*InvokeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).Invoke")
+	defer span.End()
+
 	req, out := c.InvokeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1660,6 +1706,9 @@ func (c *Lambda) InvokeAsync(input *InvokeAsyncInput) (*InvokeAsyncOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) InvokeAsyncWithContext(ctx aws.Context, input *InvokeAsyncInput, opts ...request.Option) (*InvokeAsyncOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).InvokeAsync")
+	defer span.End()
+
 	req, out := c.InvokeAsyncRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1755,6 +1804,9 @@ func (c *Lambda) ListAliases(input *ListAliasesInput) (*ListAliasesOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) ListAliasesWithContext(ctx aws.Context, input *ListAliasesInput, opts ...request.Option) (*ListAliasesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).ListAliases")
+	defer span.End()
+
 	req, out := c.ListAliasesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1863,6 +1915,9 @@ func (c *Lambda) ListEventSourceMappings(input *ListEventSourceMappingsInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) ListEventSourceMappingsWithContext(ctx aws.Context, input *ListEventSourceMappingsInput, opts ...request.Option) (*ListEventSourceMappingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).ListEventSourceMappings")
+	defer span.End()
+
 	req, out := c.ListEventSourceMappingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2013,6 +2068,9 @@ func (c *Lambda) ListFunctions(input *ListFunctionsInput) (*ListFunctionsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) ListFunctionsWithContext(ctx aws.Context, input *ListFunctionsInput, opts ...request.Option) (*ListFunctionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).ListFunctions")
+	defer span.End()
+
 	req, out := c.ListFunctionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2156,6 +2214,9 @@ func (c *Lambda) ListTags(input *ListTagsInput) (*ListTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) ListTagsWithContext(ctx aws.Context, input *ListTagsInput, opts ...request.Option) (*ListTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).ListTags")
+	defer span.End()
+
 	req, out := c.ListTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2247,6 +2308,9 @@ func (c *Lambda) ListVersionsByFunction(input *ListVersionsByFunctionInput) (*Li
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) ListVersionsByFunctionWithContext(ctx aws.Context, input *ListVersionsByFunctionInput, opts ...request.Option) (*ListVersionsByFunctionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).ListVersionsByFunction")
+	defer span.End()
+
 	req, out := c.ListVersionsByFunctionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2349,6 +2413,9 @@ func (c *Lambda) PublishVersion(input *PublishVersionInput) (*FunctionConfigurat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) PublishVersionWithContext(ctx aws.Context, input *PublishVersionInput, opts ...request.Option) (*FunctionConfiguration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).PublishVersion")
+	defer span.End()
+
 	req, out := c.PublishVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2444,6 +2511,9 @@ func (c *Lambda) PutFunctionConcurrency(input *PutFunctionConcurrencyInput) (*Pu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) PutFunctionConcurrencyWithContext(ctx aws.Context, input *PutFunctionConcurrencyInput, opts ...request.Option) (*PutFunctionConcurrencyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).PutFunctionConcurrency")
+	defer span.End()
+
 	req, out := c.PutFunctionConcurrencyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2553,6 +2623,9 @@ func (c *Lambda) RemovePermission(input *RemovePermissionInput) (*RemovePermissi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) RemovePermissionWithContext(ctx aws.Context, input *RemovePermissionInput, opts ...request.Option) (*RemovePermissionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).RemovePermission")
+	defer span.End()
+
 	req, out := c.RemovePermissionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2649,6 +2722,9 @@ func (c *Lambda) TagResource(input *TagResourceInput) (*TagResourceOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).TagResource")
+	defer span.End()
+
 	req, out := c.TagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2743,6 +2819,9 @@ func (c *Lambda) UntagResource(input *UntagResourceInput) (*UntagResourceOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).UntagResource")
+	defer span.End()
+
 	req, out := c.UntagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2842,6 +2921,9 @@ func (c *Lambda) UpdateAlias(input *UpdateAliasInput) (*AliasConfiguration, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) UpdateAliasWithContext(ctx aws.Context, input *UpdateAliasInput, opts ...request.Option) (*AliasConfiguration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).UpdateAlias")
+	defer span.End()
+
 	req, out := c.UpdateAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2951,6 +3033,9 @@ func (c *Lambda) UpdateEventSourceMapping(input *UpdateEventSourceMappingInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) UpdateEventSourceMappingWithContext(ctx aws.Context, input *UpdateEventSourceMappingInput, opts ...request.Option) (*EventSourceMappingConfiguration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).UpdateEventSourceMapping")
+	defer span.End()
+
 	req, out := c.UpdateEventSourceMappingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3057,6 +3142,9 @@ func (c *Lambda) UpdateFunctionCode(input *UpdateFunctionCodeInput) (*FunctionCo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) UpdateFunctionCodeWithContext(ctx aws.Context, input *UpdateFunctionCodeInput, opts ...request.Option) (*FunctionConfiguration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).UpdateFunctionCode")
+	defer span.End()
+
 	req, out := c.UpdateFunctionCodeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3165,6 +3253,9 @@ func (c *Lambda) UpdateFunctionConfiguration(input *UpdateFunctionConfigurationI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Lambda) UpdateFunctionConfigurationWithContext(ctx aws.Context, input *UpdateFunctionConfigurationInput, opts ...request.Option) (*FunctionConfiguration, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/lambda.(*Lambda).UpdateFunctionConfiguration")
+	defer span.End()
+
 	req, out := c.UpdateFunctionConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
+	"go.opencensus.io/trace"
 )
 
 const opCreateApplication = "CreateApplication"
@@ -99,6 +100,9 @@ func (c *ServerlessApplicationRepository) CreateApplication(input *CreateApplica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServerlessApplicationRepository) CreateApplicationWithContext(ctx aws.Context, input *CreateApplicationRequest, opts ...request.Option) (*CreateApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/serverlessapplicationrepository.(*ServerlessApplicationRepository).CreateApplication")
+	defer span.End()
+
 	req, out := c.CreateApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -191,6 +195,9 @@ func (c *ServerlessApplicationRepository) CreateApplicationVersion(input *Create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServerlessApplicationRepository) CreateApplicationVersionWithContext(ctx aws.Context, input *CreateApplicationVersionRequest, opts ...request.Option) (*CreateApplicationVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/serverlessapplicationrepository.(*ServerlessApplicationRepository).CreateApplicationVersion")
+	defer span.End()
+
 	req, out := c.CreateApplicationVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -280,6 +287,9 @@ func (c *ServerlessApplicationRepository) CreateCloudFormationChangeSet(input *C
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServerlessApplicationRepository) CreateCloudFormationChangeSetWithContext(ctx aws.Context, input *CreateCloudFormationChangeSetRequest, opts ...request.Option) (*CreateCloudFormationChangeSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/serverlessapplicationrepository.(*ServerlessApplicationRepository).CreateCloudFormationChangeSet")
+	defer span.End()
+
 	req, out := c.CreateCloudFormationChangeSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -378,6 +388,9 @@ func (c *ServerlessApplicationRepository) DeleteApplication(input *DeleteApplica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServerlessApplicationRepository) DeleteApplicationWithContext(ctx aws.Context, input *DeleteApplicationInput, opts ...request.Option) (*DeleteApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/serverlessapplicationrepository.(*ServerlessApplicationRepository).DeleteApplication")
+	defer span.End()
+
 	req, out := c.DeleteApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -471,6 +484,9 @@ func (c *ServerlessApplicationRepository) GetApplication(input *GetApplicationIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServerlessApplicationRepository) GetApplicationWithContext(ctx aws.Context, input *GetApplicationInput, opts ...request.Option) (*GetApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/serverlessapplicationrepository.(*ServerlessApplicationRepository).GetApplication")
+	defer span.End()
+
 	req, out := c.GetApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -564,6 +580,9 @@ func (c *ServerlessApplicationRepository) GetApplicationPolicy(input *GetApplica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServerlessApplicationRepository) GetApplicationPolicyWithContext(ctx aws.Context, input *GetApplicationPolicyInput, opts ...request.Option) (*GetApplicationPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/serverlessapplicationrepository.(*ServerlessApplicationRepository).GetApplicationPolicy")
+	defer span.End()
+
 	req, out := c.GetApplicationPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -663,6 +682,9 @@ func (c *ServerlessApplicationRepository) ListApplicationVersions(input *ListApp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServerlessApplicationRepository) ListApplicationVersionsWithContext(ctx aws.Context, input *ListApplicationVersionsInput, opts ...request.Option) (*ListApplicationVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/serverlessapplicationrepository.(*ServerlessApplicationRepository).ListApplicationVersions")
+	defer span.End()
+
 	req, out := c.ListApplicationVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -809,6 +831,9 @@ func (c *ServerlessApplicationRepository) ListApplications(input *ListApplicatio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServerlessApplicationRepository) ListApplicationsWithContext(ctx aws.Context, input *ListApplicationsInput, opts ...request.Option) (*ListApplicationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/serverlessapplicationrepository.(*ServerlessApplicationRepository).ListApplications")
+	defer span.End()
+
 	req, out := c.ListApplicationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -952,6 +977,9 @@ func (c *ServerlessApplicationRepository) PutApplicationPolicy(input *PutApplica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServerlessApplicationRepository) PutApplicationPolicyWithContext(ctx aws.Context, input *PutApplicationPolicyInput, opts ...request.Option) (*PutApplicationPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/serverlessapplicationrepository.(*ServerlessApplicationRepository).PutApplicationPolicy")
+	defer span.End()
+
 	req, out := c.PutApplicationPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1048,6 +1076,9 @@ func (c *ServerlessApplicationRepository) UpdateApplication(input *UpdateApplica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ServerlessApplicationRepository) UpdateApplicationWithContext(ctx aws.Context, input *UpdateApplicationRequest, opts ...request.Option) (*UpdateApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/serverlessapplicationrepository.(*ServerlessApplicationRepository).UpdateApplication")
+	defer span.End()
+
 	req, out := c.UpdateApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

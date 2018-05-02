@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opAddTagsToCertificate = "AddTagsToCertificate"
@@ -115,6 +116,9 @@ func (c *ACM) AddTagsToCertificate(input *AddTagsToCertificateInput) (*AddTagsTo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACM) AddTagsToCertificateWithContext(ctx aws.Context, input *AddTagsToCertificateInput, opts ...request.Option) (*AddTagsToCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acm.(*ACM).AddTagsToCertificate")
+	defer span.End()
+
 	req, out := c.AddTagsToCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -212,6 +216,9 @@ func (c *ACM) DeleteCertificate(input *DeleteCertificateInput) (*DeleteCertifica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACM) DeleteCertificateWithContext(ctx aws.Context, input *DeleteCertificateInput, opts ...request.Option) (*DeleteCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acm.(*ACM).DeleteCertificate")
+	defer span.End()
+
 	req, out := c.DeleteCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -295,6 +302,9 @@ func (c *ACM) DescribeCertificate(input *DescribeCertificateInput) (*DescribeCer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACM) DescribeCertificateWithContext(ctx aws.Context, input *DescribeCertificateInput, opts ...request.Option) (*DescribeCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acm.(*ACM).DescribeCertificate")
+	defer span.End()
+
 	req, out := c.DescribeCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -389,6 +399,9 @@ func (c *ACM) ExportCertificate(input *ExportCertificateInput) (*ExportCertifica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACM) ExportCertificateWithContext(ctx aws.Context, input *ExportCertificateInput, opts ...request.Option) (*ExportCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acm.(*ACM).ExportCertificate")
+	defer span.End()
+
 	req, out := c.ExportCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -481,6 +494,9 @@ func (c *ACM) GetCertificate(input *GetCertificateInput) (*GetCertificateOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACM) GetCertificateWithContext(ctx aws.Context, input *GetCertificateInput, opts ...request.Option) (*GetCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acm.(*ACM).GetCertificate")
+	defer span.End()
+
 	req, out := c.GetCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -610,6 +626,9 @@ func (c *ACM) ImportCertificate(input *ImportCertificateInput) (*ImportCertifica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACM) ImportCertificateWithContext(ctx aws.Context, input *ImportCertificateInput, opts ...request.Option) (*ImportCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acm.(*ACM).ImportCertificate")
+	defer span.End()
+
 	req, out := c.ImportCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -692,6 +711,9 @@ func (c *ACM) ListCertificates(input *ListCertificatesInput) (*ListCertificatesO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACM) ListCertificatesWithContext(ctx aws.Context, input *ListCertificatesInput, opts ...request.Option) (*ListCertificatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acm.(*ACM).ListCertificates")
+	defer span.End()
+
 	req, out := c.ListCertificatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -828,6 +850,9 @@ func (c *ACM) ListTagsForCertificate(input *ListTagsForCertificateInput) (*ListT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACM) ListTagsForCertificateWithContext(ctx aws.Context, input *ListTagsForCertificateInput, opts ...request.Option) (*ListTagsForCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acm.(*ACM).ListTagsForCertificate")
+	defer span.End()
+
 	req, out := c.ListTagsForCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -924,6 +949,9 @@ func (c *ACM) RemoveTagsFromCertificate(input *RemoveTagsFromCertificateInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACM) RemoveTagsFromCertificateWithContext(ctx aws.Context, input *RemoveTagsFromCertificateInput, opts ...request.Option) (*RemoveTagsFromCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acm.(*ACM).RemoveTagsFromCertificate")
+	defer span.End()
+
 	req, out := c.RemoveTagsFromCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1025,6 +1053,9 @@ func (c *ACM) RequestCertificate(input *RequestCertificateInput) (*RequestCertif
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACM) RequestCertificateWithContext(ctx aws.Context, input *RequestCertificateInput, opts ...request.Option) (*RequestCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acm.(*ACM).RequestCertificate")
+	defer span.End()
+
 	req, out := c.RequestCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1126,6 +1157,9 @@ func (c *ACM) ResendValidationEmail(input *ResendValidationEmailInput) (*ResendV
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACM) ResendValidationEmailWithContext(ctx aws.Context, input *ResendValidationEmailInput, opts ...request.Option) (*ResendValidationEmailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acm.(*ACM).ResendValidationEmail")
+	defer span.End()
+
 	req, out := c.ResendValidationEmailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1220,6 +1254,9 @@ func (c *ACM) UpdateCertificateOptions(input *UpdateCertificateOptionsInput) (*U
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACM) UpdateCertificateOptionsWithContext(ctx aws.Context, input *UpdateCertificateOptionsInput, opts ...request.Option) (*UpdateCertificateOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acm.(*ACM).UpdateCertificateOptions")
+	defer span.End()
+
 	req, out := c.UpdateCertificateOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

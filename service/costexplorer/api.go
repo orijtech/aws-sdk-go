@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opGetCostAndUsage = "GetCostAndUsage"
@@ -96,6 +97,9 @@ func (c *CostExplorer) GetCostAndUsage(input *GetCostAndUsageInput) (*GetCostAnd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CostExplorer) GetCostAndUsageWithContext(ctx aws.Context, input *GetCostAndUsageInput, opts ...request.Option) (*GetCostAndUsageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/costexplorer.(*CostExplorer).GetCostAndUsage")
+	defer span.End()
+
 	req, out := c.GetCostAndUsageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -182,6 +186,9 @@ func (c *CostExplorer) GetDimensionValues(input *GetDimensionValuesInput) (*GetD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CostExplorer) GetDimensionValuesWithContext(ctx aws.Context, input *GetDimensionValuesInput, opts ...request.Option) (*GetDimensionValuesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/costexplorer.(*CostExplorer).GetDimensionValues")
+	defer span.End()
+
 	req, out := c.GetDimensionValuesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -286,6 +293,9 @@ func (c *CostExplorer) GetReservationCoverage(input *GetReservationCoverageInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CostExplorer) GetReservationCoverageWithContext(ctx aws.Context, input *GetReservationCoverageInput, opts ...request.Option) (*GetReservationCoverageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/costexplorer.(*CostExplorer).GetReservationCoverage")
+	defer span.End()
+
 	req, out := c.GetReservationCoverageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -388,6 +398,9 @@ func (c *CostExplorer) GetReservationPurchaseRecommendation(input *GetReservatio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CostExplorer) GetReservationPurchaseRecommendationWithContext(ctx aws.Context, input *GetReservationPurchaseRecommendationInput, opts ...request.Option) (*GetReservationPurchaseRecommendationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/costexplorer.(*CostExplorer).GetReservationPurchaseRecommendation")
+	defer span.End()
+
 	req, out := c.GetReservationPurchaseRecommendationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -477,6 +490,9 @@ func (c *CostExplorer) GetReservationUtilization(input *GetReservationUtilizatio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CostExplorer) GetReservationUtilizationWithContext(ctx aws.Context, input *GetReservationUtilizationInput, opts ...request.Option) (*GetReservationUtilizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/costexplorer.(*CostExplorer).GetReservationUtilization")
+	defer span.End()
+
 	req, out := c.GetReservationUtilizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -563,6 +579,9 @@ func (c *CostExplorer) GetTags(input *GetTagsInput) (*GetTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CostExplorer) GetTagsWithContext(ctx aws.Context, input *GetTagsInput, opts ...request.Option) (*GetTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/costexplorer.(*CostExplorer).GetTags")
+	defer span.End()
+
 	req, out := c.GetTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

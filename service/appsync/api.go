@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateApiKey = "CreateApiKey"
@@ -105,6 +106,9 @@ func (c *AppSync) CreateApiKey(input *CreateApiKeyInput) (*CreateApiKeyOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) CreateApiKeyWithContext(ctx aws.Context, input *CreateApiKeyInput, opts ...request.Option) (*CreateApiKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).CreateApiKey")
+	defer span.End()
+
 	req, out := c.CreateApiKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -199,6 +203,9 @@ func (c *AppSync) CreateDataSource(input *CreateDataSourceInput) (*CreateDataSou
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) CreateDataSourceWithContext(ctx aws.Context, input *CreateDataSourceInput, opts ...request.Option) (*CreateDataSourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).CreateDataSource")
+	defer span.End()
+
 	req, out := c.CreateDataSourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -298,6 +305,9 @@ func (c *AppSync) CreateGraphqlApi(input *CreateGraphqlApiInput) (*CreateGraphql
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) CreateGraphqlApiWithContext(ctx aws.Context, input *CreateGraphqlApiInput, opts ...request.Option) (*CreateGraphqlApiOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).CreateGraphqlApi")
+	defer span.End()
+
 	req, out := c.CreateGraphqlApiRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -391,6 +401,9 @@ func (c *AppSync) CreateResolver(input *CreateResolverInput) (*CreateResolverOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) CreateResolverWithContext(ctx aws.Context, input *CreateResolverInput, opts ...request.Option) (*CreateResolverOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).CreateResolver")
+	defer span.End()
+
 	req, out := c.CreateResolverRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -485,6 +498,9 @@ func (c *AppSync) CreateType(input *CreateTypeInput) (*CreateTypeOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) CreateTypeWithContext(ctx aws.Context, input *CreateTypeInput, opts ...request.Option) (*CreateTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).CreateType")
+	defer span.End()
+
 	req, out := c.CreateTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -575,6 +591,9 @@ func (c *AppSync) DeleteApiKey(input *DeleteApiKeyInput) (*DeleteApiKeyOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) DeleteApiKeyWithContext(ctx aws.Context, input *DeleteApiKeyInput, opts ...request.Option) (*DeleteApiKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).DeleteApiKey")
+	defer span.End()
+
 	req, out := c.DeleteApiKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -669,6 +688,9 @@ func (c *AppSync) DeleteDataSource(input *DeleteDataSourceInput) (*DeleteDataSou
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) DeleteDataSourceWithContext(ctx aws.Context, input *DeleteDataSourceInput, opts ...request.Option) (*DeleteDataSourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).DeleteDataSource")
+	defer span.End()
+
 	req, out := c.DeleteDataSourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -763,6 +785,9 @@ func (c *AppSync) DeleteGraphqlApi(input *DeleteGraphqlApiInput) (*DeleteGraphql
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) DeleteGraphqlApiWithContext(ctx aws.Context, input *DeleteGraphqlApiInput, opts ...request.Option) (*DeleteGraphqlApiOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).DeleteGraphqlApi")
+	defer span.End()
+
 	req, out := c.DeleteGraphqlApiRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -853,6 +878,9 @@ func (c *AppSync) DeleteResolver(input *DeleteResolverInput) (*DeleteResolverOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) DeleteResolverWithContext(ctx aws.Context, input *DeleteResolverInput, opts ...request.Option) (*DeleteResolverOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).DeleteResolver")
+	defer span.End()
+
 	req, out := c.DeleteResolverRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -947,6 +975,9 @@ func (c *AppSync) DeleteType(input *DeleteTypeInput) (*DeleteTypeOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) DeleteTypeWithContext(ctx aws.Context, input *DeleteTypeInput, opts ...request.Option) (*DeleteTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).DeleteType")
+	defer span.End()
+
 	req, out := c.DeleteTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1041,6 +1072,9 @@ func (c *AppSync) GetDataSource(input *GetDataSourceInput) (*GetDataSourceOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) GetDataSourceWithContext(ctx aws.Context, input *GetDataSourceInput, opts ...request.Option) (*GetDataSourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).GetDataSource")
+	defer span.End()
+
 	req, out := c.GetDataSourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1131,6 +1165,9 @@ func (c *AppSync) GetGraphqlApi(input *GetGraphqlApiInput) (*GetGraphqlApiOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) GetGraphqlApiWithContext(ctx aws.Context, input *GetGraphqlApiInput, opts ...request.Option) (*GetGraphqlApiOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).GetGraphqlApi")
+	defer span.End()
+
 	req, out := c.GetGraphqlApiRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1220,6 +1257,9 @@ func (c *AppSync) GetIntrospectionSchema(input *GetIntrospectionSchemaInput) (*G
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) GetIntrospectionSchemaWithContext(ctx aws.Context, input *GetIntrospectionSchemaInput, opts ...request.Option) (*GetIntrospectionSchemaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).GetIntrospectionSchema")
+	defer span.End()
+
 	req, out := c.GetIntrospectionSchemaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1307,6 +1347,9 @@ func (c *AppSync) GetResolver(input *GetResolverInput) (*GetResolverOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) GetResolverWithContext(ctx aws.Context, input *GetResolverInput, opts ...request.Option) (*GetResolverOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).GetResolver")
+	defer span.End()
+
 	req, out := c.GetResolverRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1397,6 +1440,9 @@ func (c *AppSync) GetSchemaCreationStatus(input *GetSchemaCreationStatusInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) GetSchemaCreationStatusWithContext(ctx aws.Context, input *GetSchemaCreationStatusInput, opts ...request.Option) (*GetSchemaCreationStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).GetSchemaCreationStatus")
+	defer span.End()
+
 	req, out := c.GetSchemaCreationStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1491,6 +1537,9 @@ func (c *AppSync) GetType(input *GetTypeInput) (*GetTypeOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) GetTypeWithContext(ctx aws.Context, input *GetTypeInput, opts ...request.Option) (*GetTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).GetType")
+	defer span.End()
+
 	req, out := c.GetTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1581,6 +1630,9 @@ func (c *AppSync) ListApiKeys(input *ListApiKeysInput) (*ListApiKeysOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) ListApiKeysWithContext(ctx aws.Context, input *ListApiKeysInput, opts ...request.Option) (*ListApiKeysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).ListApiKeys")
+	defer span.End()
+
 	req, out := c.ListApiKeysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1671,6 +1723,9 @@ func (c *AppSync) ListDataSources(input *ListDataSourcesInput) (*ListDataSources
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) ListDataSourcesWithContext(ctx aws.Context, input *ListDataSourcesInput, opts ...request.Option) (*ListDataSourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).ListDataSources")
+	defer span.End()
+
 	req, out := c.ListDataSourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1757,6 +1812,9 @@ func (c *AppSync) ListGraphqlApis(input *ListGraphqlApisInput) (*ListGraphqlApis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) ListGraphqlApisWithContext(ctx aws.Context, input *ListGraphqlApisInput, opts ...request.Option) (*ListGraphqlApisOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).ListGraphqlApis")
+	defer span.End()
+
 	req, out := c.ListGraphqlApisRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1847,6 +1905,9 @@ func (c *AppSync) ListResolvers(input *ListResolversInput) (*ListResolversOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) ListResolversWithContext(ctx aws.Context, input *ListResolversInput, opts ...request.Option) (*ListResolversOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).ListResolvers")
+	defer span.End()
+
 	req, out := c.ListResolversRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1941,6 +2002,9 @@ func (c *AppSync) ListTypes(input *ListTypesInput) (*ListTypesOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) ListTypesWithContext(ctx aws.Context, input *ListTypesInput, opts ...request.Option) (*ListTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).ListTypes")
+	defer span.End()
+
 	req, out := c.ListTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2037,6 +2101,9 @@ func (c *AppSync) StartSchemaCreation(input *StartSchemaCreationInput) (*StartSc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) StartSchemaCreationWithContext(ctx aws.Context, input *StartSchemaCreationInput, opts ...request.Option) (*StartSchemaCreationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).StartSchemaCreation")
+	defer span.End()
+
 	req, out := c.StartSchemaCreationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2133,6 +2200,9 @@ func (c *AppSync) UpdateApiKey(input *UpdateApiKeyInput) (*UpdateApiKeyOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) UpdateApiKeyWithContext(ctx aws.Context, input *UpdateApiKeyInput, opts ...request.Option) (*UpdateApiKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).UpdateApiKey")
+	defer span.End()
+
 	req, out := c.UpdateApiKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2227,6 +2297,9 @@ func (c *AppSync) UpdateDataSource(input *UpdateDataSourceInput) (*UpdateDataSou
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) UpdateDataSourceWithContext(ctx aws.Context, input *UpdateDataSourceInput, opts ...request.Option) (*UpdateDataSourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).UpdateDataSource")
+	defer span.End()
+
 	req, out := c.UpdateDataSourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2321,6 +2394,9 @@ func (c *AppSync) UpdateGraphqlApi(input *UpdateGraphqlApiInput) (*UpdateGraphql
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) UpdateGraphqlApiWithContext(ctx aws.Context, input *UpdateGraphqlApiInput, opts ...request.Option) (*UpdateGraphqlApiOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).UpdateGraphqlApi")
+	defer span.End()
+
 	req, out := c.UpdateGraphqlApiRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2411,6 +2487,9 @@ func (c *AppSync) UpdateResolver(input *UpdateResolverInput) (*UpdateResolverOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) UpdateResolverWithContext(ctx aws.Context, input *UpdateResolverInput, opts ...request.Option) (*UpdateResolverOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).UpdateResolver")
+	defer span.End()
+
 	req, out := c.UpdateResolverRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2505,6 +2584,9 @@ func (c *AppSync) UpdateType(input *UpdateTypeInput) (*UpdateTypeOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AppSync) UpdateTypeWithContext(ctx aws.Context, input *UpdateTypeInput, opts ...request.Option) (*UpdateTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/appsync.(*AppSync).UpdateType")
+	defer span.End()
+
 	req, out := c.UpdateTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

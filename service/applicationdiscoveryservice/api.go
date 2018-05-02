@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAssociateConfigurationItemsToApplication = "AssociateConfigurationItemsToApplication"
@@ -95,6 +96,9 @@ func (c *ApplicationDiscoveryService) AssociateConfigurationItemsToApplication(i
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) AssociateConfigurationItemsToApplicationWithContext(ctx aws.Context, input *AssociateConfigurationItemsToApplicationInput, opts ...request.Option) (*AssociateConfigurationItemsToApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).AssociateConfigurationItemsToApplication")
+	defer span.End()
+
 	req, out := c.AssociateConfigurationItemsToApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -185,6 +189,9 @@ func (c *ApplicationDiscoveryService) CreateApplication(input *CreateApplication
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) CreateApplicationWithContext(ctx aws.Context, input *CreateApplicationInput, opts ...request.Option) (*CreateApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).CreateApplication")
+	defer span.End()
+
 	req, out := c.CreateApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -281,6 +288,9 @@ func (c *ApplicationDiscoveryService) CreateTags(input *CreateTagsInput) (*Creat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) CreateTagsWithContext(ctx aws.Context, input *CreateTagsInput, opts ...request.Option) (*CreateTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).CreateTags")
+	defer span.End()
+
 	req, out := c.CreateTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -372,6 +382,9 @@ func (c *ApplicationDiscoveryService) DeleteApplications(input *DeleteApplicatio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) DeleteApplicationsWithContext(ctx aws.Context, input *DeleteApplicationsInput, opts ...request.Option) (*DeleteApplicationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).DeleteApplications")
+	defer span.End()
+
 	req, out := c.DeleteApplicationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -467,6 +480,9 @@ func (c *ApplicationDiscoveryService) DeleteTags(input *DeleteTagsInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) DeleteTagsWithContext(ctx aws.Context, input *DeleteTagsInput, opts ...request.Option) (*DeleteTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).DeleteTags")
+	defer span.End()
+
 	req, out := c.DeleteTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -558,6 +574,9 @@ func (c *ApplicationDiscoveryService) DescribeAgents(input *DescribeAgentsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) DescribeAgentsWithContext(ctx aws.Context, input *DescribeAgentsInput, opts ...request.Option) (*DescribeAgentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).DescribeAgents")
+	defer span.End()
+
 	req, out := c.DescribeAgentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -655,6 +674,9 @@ func (c *ApplicationDiscoveryService) DescribeConfigurations(input *DescribeConf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) DescribeConfigurationsWithContext(ctx aws.Context, input *DescribeConfigurationsInput, opts ...request.Option) (*DescribeConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).DescribeConfigurations")
+	defer span.End()
+
 	req, out := c.DescribeConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -755,6 +777,9 @@ func (c *ApplicationDiscoveryService) DescribeExportConfigurations(input *Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) DescribeExportConfigurationsWithContext(ctx aws.Context, input *DescribeExportConfigurationsInput, opts ...request.Option) (*DescribeExportConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).DescribeExportConfigurations")
+	defer span.End()
+
 	req, out := c.DescribeExportConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -846,6 +871,9 @@ func (c *ApplicationDiscoveryService) DescribeExportTasks(input *DescribeExportT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) DescribeExportTasksWithContext(ctx aws.Context, input *DescribeExportTasksInput, opts ...request.Option) (*DescribeExportTasksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).DescribeExportTasks")
+	defer span.End()
+
 	req, out := c.DescribeExportTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -941,6 +969,9 @@ func (c *ApplicationDiscoveryService) DescribeTags(input *DescribeTagsInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) DescribeTagsWithContext(ctx aws.Context, input *DescribeTagsInput, opts ...request.Option) (*DescribeTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).DescribeTags")
+	defer span.End()
+
 	req, out := c.DescribeTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1031,6 +1062,9 @@ func (c *ApplicationDiscoveryService) DisassociateConfigurationItemsFromApplicat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) DisassociateConfigurationItemsFromApplicationWithContext(ctx aws.Context, input *DisassociateConfigurationItemsFromApplicationInput, opts ...request.Option) (*DisassociateConfigurationItemsFromApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).DisassociateConfigurationItemsFromApplication")
+	defer span.End()
+
 	req, out := c.DisassociateConfigurationItemsFromApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1133,6 +1167,9 @@ func (c *ApplicationDiscoveryService) ExportConfigurations(input *ExportConfigur
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) ExportConfigurationsWithContext(ctx aws.Context, input *ExportConfigurationsInput, opts ...request.Option) (*ExportConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).ExportConfigurations")
+	defer span.End()
+
 	req, out := c.ExportConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1223,6 +1260,9 @@ func (c *ApplicationDiscoveryService) GetDiscoverySummary(input *GetDiscoverySum
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) GetDiscoverySummaryWithContext(ctx aws.Context, input *GetDiscoverySummaryInput, opts ...request.Option) (*GetDiscoverySummaryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).GetDiscoverySummary")
+	defer span.End()
+
 	req, out := c.GetDiscoverySummaryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1318,6 +1358,9 @@ func (c *ApplicationDiscoveryService) ListConfigurations(input *ListConfiguratio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) ListConfigurationsWithContext(ctx aws.Context, input *ListConfigurationsInput, opts ...request.Option) (*ListConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).ListConfigurations")
+	defer span.End()
+
 	req, out := c.ListConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1409,6 +1452,9 @@ func (c *ApplicationDiscoveryService) ListServerNeighbors(input *ListServerNeigh
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) ListServerNeighborsWithContext(ctx aws.Context, input *ListServerNeighborsInput, opts ...request.Option) (*ListServerNeighborsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).ListServerNeighbors")
+	defer span.End()
+
 	req, out := c.ListServerNeighborsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1499,6 +1545,9 @@ func (c *ApplicationDiscoveryService) StartDataCollectionByAgentIds(input *Start
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) StartDataCollectionByAgentIdsWithContext(ctx aws.Context, input *StartDataCollectionByAgentIdsInput, opts ...request.Option) (*StartDataCollectionByAgentIdsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).StartDataCollectionByAgentIds")
+	defer span.End()
+
 	req, out := c.StartDataCollectionByAgentIdsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1602,6 +1651,9 @@ func (c *ApplicationDiscoveryService) StartExportTask(input *StartExportTaskInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) StartExportTaskWithContext(ctx aws.Context, input *StartExportTaskInput, opts ...request.Option) (*StartExportTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).StartExportTask")
+	defer span.End()
+
 	req, out := c.StartExportTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1692,6 +1744,9 @@ func (c *ApplicationDiscoveryService) StopDataCollectionByAgentIds(input *StopDa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) StopDataCollectionByAgentIdsWithContext(ctx aws.Context, input *StopDataCollectionByAgentIdsInput, opts ...request.Option) (*StopDataCollectionByAgentIdsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).StopDataCollectionByAgentIds")
+	defer span.End()
+
 	req, out := c.StopDataCollectionByAgentIdsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1782,6 +1837,9 @@ func (c *ApplicationDiscoveryService) UpdateApplication(input *UpdateApplication
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationDiscoveryService) UpdateApplicationWithContext(ctx aws.Context, input *UpdateApplicationInput, opts ...request.Option) (*UpdateApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationdiscoveryservice.(*ApplicationDiscoveryService).UpdateApplication")
+	defer span.End()
+
 	req, out := c.UpdateApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

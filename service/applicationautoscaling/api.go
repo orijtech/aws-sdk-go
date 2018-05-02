@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opDeleteScalingPolicy = "DeleteScalingPolicy"
@@ -105,6 +106,9 @@ func (c *ApplicationAutoScaling) DeleteScalingPolicy(input *DeleteScalingPolicyI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationAutoScaling) DeleteScalingPolicyWithContext(ctx aws.Context, input *DeleteScalingPolicyInput, opts ...request.Option) (*DeleteScalingPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationautoscaling.(*ApplicationAutoScaling).DeleteScalingPolicy")
+	defer span.End()
+
 	req, out := c.DeleteScalingPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -199,6 +203,9 @@ func (c *ApplicationAutoScaling) DeleteScheduledAction(input *DeleteScheduledAct
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationAutoScaling) DeleteScheduledActionWithContext(ctx aws.Context, input *DeleteScheduledActionInput, opts ...request.Option) (*DeleteScheduledActionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationautoscaling.(*ApplicationAutoScaling).DeleteScheduledAction")
+	defer span.End()
+
 	req, out := c.DeleteScheduledActionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -298,6 +305,9 @@ func (c *ApplicationAutoScaling) DeregisterScalableTarget(input *DeregisterScala
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationAutoScaling) DeregisterScalableTargetWithContext(ctx aws.Context, input *DeregisterScalableTargetInput, opts ...request.Option) (*DeregisterScalableTargetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationautoscaling.(*ApplicationAutoScaling).DeregisterScalableTarget")
+	defer span.End()
+
 	req, out := c.DeregisterScalableTargetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -400,6 +410,9 @@ func (c *ApplicationAutoScaling) DescribeScalableTargets(input *DescribeScalable
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationAutoScaling) DescribeScalableTargetsWithContext(ctx aws.Context, input *DescribeScalableTargetsInput, opts ...request.Option) (*DescribeScalableTargetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationautoscaling.(*ApplicationAutoScaling).DescribeScalableTargets")
+	defer span.End()
+
 	req, out := c.DescribeScalableTargetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -554,6 +567,9 @@ func (c *ApplicationAutoScaling) DescribeScalingActivities(input *DescribeScalin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationAutoScaling) DescribeScalingActivitiesWithContext(ctx aws.Context, input *DescribeScalingActivitiesInput, opts ...request.Option) (*DescribeScalingActivitiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationautoscaling.(*ApplicationAutoScaling).DescribeScalingActivities")
+	defer span.End()
+
 	req, out := c.DescribeScalingActivitiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -714,6 +730,9 @@ func (c *ApplicationAutoScaling) DescribeScalingPolicies(input *DescribeScalingP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationAutoScaling) DescribeScalingPoliciesWithContext(ctx aws.Context, input *DescribeScalingPoliciesInput, opts ...request.Option) (*DescribeScalingPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationautoscaling.(*ApplicationAutoScaling).DescribeScalingPolicies")
+	defer span.End()
+
 	req, out := c.DescribeScalingPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -860,6 +879,9 @@ func (c *ApplicationAutoScaling) DescribeScheduledActions(input *DescribeSchedul
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationAutoScaling) DescribeScheduledActionsWithContext(ctx aws.Context, input *DescribeScheduledActionsInput, opts ...request.Option) (*DescribeScheduledActionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationautoscaling.(*ApplicationAutoScaling).DescribeScheduledActions")
+	defer span.End()
+
 	req, out := c.DescribeScheduledActionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -978,6 +1000,9 @@ func (c *ApplicationAutoScaling) PutScalingPolicy(input *PutScalingPolicyInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationAutoScaling) PutScalingPolicyWithContext(ctx aws.Context, input *PutScalingPolicyInput, opts ...request.Option) (*PutScalingPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationautoscaling.(*ApplicationAutoScaling).PutScalingPolicy")
+	defer span.End()
+
 	req, out := c.PutScalingPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1090,6 +1115,9 @@ func (c *ApplicationAutoScaling) PutScheduledAction(input *PutScheduledActionInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationAutoScaling) PutScheduledActionWithContext(ctx aws.Context, input *PutScheduledActionInput, opts ...request.Option) (*PutScheduledActionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationautoscaling.(*ApplicationAutoScaling).PutScheduledAction")
+	defer span.End()
+
 	req, out := c.PutScheduledActionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1189,6 +1217,9 @@ func (c *ApplicationAutoScaling) RegisterScalableTarget(input *RegisterScalableT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ApplicationAutoScaling) RegisterScalableTargetWithContext(ctx aws.Context, input *RegisterScalableTargetInput, opts ...request.Option) (*RegisterScalableTargetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/applicationautoscaling.(*ApplicationAutoScaling).RegisterScalableTarget")
+	defer span.End()
+
 	req, out := c.RegisterScalableTargetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

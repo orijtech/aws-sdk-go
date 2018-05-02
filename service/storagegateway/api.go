@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opActivateGateway = "ActivateGateway"
@@ -96,6 +97,9 @@ func (c *StorageGateway) ActivateGateway(input *ActivateGatewayInput) (*Activate
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) ActivateGatewayWithContext(ctx aws.Context, input *ActivateGatewayInput, opts ...request.Option) (*ActivateGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).ActivateGateway")
+	defer span.End()
+
 	req, out := c.ActivateGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -186,6 +190,9 @@ func (c *StorageGateway) AddCache(input *AddCacheInput) (*AddCacheOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) AddCacheWithContext(ctx aws.Context, input *AddCacheInput, opts ...request.Option) (*AddCacheOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).AddCache")
+	defer span.End()
+
 	req, out := c.AddCacheRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -283,6 +290,9 @@ func (c *StorageGateway) AddTagsToResource(input *AddTagsToResourceInput) (*AddT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) AddTagsToResourceWithContext(ctx aws.Context, input *AddTagsToResourceInput, opts ...request.Option) (*AddTagsToResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).AddTagsToResource")
+	defer span.End()
+
 	req, out := c.AddTagsToResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -373,6 +383,9 @@ func (c *StorageGateway) AddUploadBuffer(input *AddUploadBufferInput) (*AddUploa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) AddUploadBufferWithContext(ctx aws.Context, input *AddUploadBufferInput, opts ...request.Option) (*AddUploadBufferOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).AddUploadBuffer")
+	defer span.End()
+
 	req, out := c.AddUploadBufferRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -467,6 +480,9 @@ func (c *StorageGateway) AddWorkingStorage(input *AddWorkingStorageInput) (*AddW
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) AddWorkingStorageWithContext(ctx aws.Context, input *AddWorkingStorageInput, opts ...request.Option) (*AddWorkingStorageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).AddWorkingStorage")
+	defer span.End()
+
 	req, out := c.AddWorkingStorageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -553,6 +569,9 @@ func (c *StorageGateway) CancelArchival(input *CancelArchivalInput) (*CancelArch
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) CancelArchivalWithContext(ctx aws.Context, input *CancelArchivalInput, opts ...request.Option) (*CancelArchivalOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).CancelArchival")
+	defer span.End()
+
 	req, out := c.CancelArchivalRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -639,6 +658,9 @@ func (c *StorageGateway) CancelRetrieval(input *CancelRetrievalInput) (*CancelRe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) CancelRetrievalWithContext(ctx aws.Context, input *CancelRetrievalInput, opts ...request.Option) (*CancelRetrievalOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).CancelRetrieval")
+	defer span.End()
+
 	req, out := c.CancelRetrievalRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -739,6 +761,9 @@ func (c *StorageGateway) CreateCachediSCSIVolume(input *CreateCachediSCSIVolumeI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) CreateCachediSCSIVolumeWithContext(ctx aws.Context, input *CreateCachediSCSIVolumeInput, opts ...request.Option) (*CreateCachediSCSIVolumeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).CreateCachediSCSIVolume")
+	defer span.End()
+
 	req, out := c.CreateCachediSCSIVolumeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -835,6 +860,9 @@ func (c *StorageGateway) CreateNFSFileShare(input *CreateNFSFileShareInput) (*Cr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) CreateNFSFileShareWithContext(ctx aws.Context, input *CreateNFSFileShareInput, opts ...request.Option) (*CreateNFSFileShareOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).CreateNFSFileShare")
+	defer span.End()
+
 	req, out := c.CreateNFSFileShareRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -946,6 +974,9 @@ func (c *StorageGateway) CreateSnapshot(input *CreateSnapshotInput) (*CreateSnap
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) CreateSnapshotWithContext(ctx aws.Context, input *CreateSnapshotInput, opts ...request.Option) (*CreateSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).CreateSnapshot")
+	defer span.End()
+
 	req, out := c.CreateSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1050,6 +1081,9 @@ func (c *StorageGateway) CreateSnapshotFromVolumeRecoveryPoint(input *CreateSnap
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) CreateSnapshotFromVolumeRecoveryPointWithContext(ctx aws.Context, input *CreateSnapshotFromVolumeRecoveryPointInput, opts ...request.Option) (*CreateSnapshotFromVolumeRecoveryPointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).CreateSnapshotFromVolumeRecoveryPoint")
+	defer span.End()
+
 	req, out := c.CreateSnapshotFromVolumeRecoveryPointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1146,6 +1180,9 @@ func (c *StorageGateway) CreateStorediSCSIVolume(input *CreateStorediSCSIVolumeI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) CreateStorediSCSIVolumeWithContext(ctx aws.Context, input *CreateStorediSCSIVolumeInput, opts ...request.Option) (*CreateStorediSCSIVolumeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).CreateStorediSCSIVolume")
+	defer span.End()
+
 	req, out := c.CreateStorediSCSIVolumeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1236,6 +1273,9 @@ func (c *StorageGateway) CreateTapeWithBarcode(input *CreateTapeWithBarcodeInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) CreateTapeWithBarcodeWithContext(ctx aws.Context, input *CreateTapeWithBarcodeInput, opts ...request.Option) (*CreateTapeWithBarcodeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).CreateTapeWithBarcode")
+	defer span.End()
+
 	req, out := c.CreateTapeWithBarcodeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1325,6 +1365,9 @@ func (c *StorageGateway) CreateTapes(input *CreateTapesInput) (*CreateTapesOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) CreateTapesWithContext(ctx aws.Context, input *CreateTapesInput, opts ...request.Option) (*CreateTapesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).CreateTapes")
+	defer span.End()
+
 	req, out := c.CreateTapesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1413,6 +1456,9 @@ func (c *StorageGateway) DeleteBandwidthRateLimit(input *DeleteBandwidthRateLimi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DeleteBandwidthRateLimitWithContext(ctx aws.Context, input *DeleteBandwidthRateLimitInput, opts ...request.Option) (*DeleteBandwidthRateLimitOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DeleteBandwidthRateLimit")
+	defer span.End()
+
 	req, out := c.DeleteBandwidthRateLimitRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1498,6 +1544,9 @@ func (c *StorageGateway) DeleteChapCredentials(input *DeleteChapCredentialsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DeleteChapCredentialsWithContext(ctx aws.Context, input *DeleteChapCredentialsInput, opts ...request.Option) (*DeleteChapCredentialsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DeleteChapCredentials")
+	defer span.End()
+
 	req, out := c.DeleteChapCredentialsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1583,6 +1632,9 @@ func (c *StorageGateway) DeleteFileShare(input *DeleteFileShareInput) (*DeleteFi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DeleteFileShareWithContext(ctx aws.Context, input *DeleteFileShareInput, opts ...request.Option) (*DeleteFileShareOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DeleteFileShare")
+	defer span.End()
+
 	req, out := c.DeleteFileShareRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1682,6 +1734,9 @@ func (c *StorageGateway) DeleteGateway(input *DeleteGatewayInput) (*DeleteGatewa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DeleteGatewayWithContext(ctx aws.Context, input *DeleteGatewayInput, opts ...request.Option) (*DeleteGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DeleteGateway")
+	defer span.End()
+
 	req, out := c.DeleteGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1776,6 +1831,9 @@ func (c *StorageGateway) DeleteSnapshotSchedule(input *DeleteSnapshotScheduleInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DeleteSnapshotScheduleWithContext(ctx aws.Context, input *DeleteSnapshotScheduleInput, opts ...request.Option) (*DeleteSnapshotScheduleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DeleteSnapshotSchedule")
+	defer span.End()
+
 	req, out := c.DeleteSnapshotScheduleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1861,6 +1919,9 @@ func (c *StorageGateway) DeleteTape(input *DeleteTapeInput) (*DeleteTapeOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DeleteTapeWithContext(ctx aws.Context, input *DeleteTapeInput, opts ...request.Option) (*DeleteTapeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DeleteTape")
+	defer span.End()
+
 	req, out := c.DeleteTapeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1946,6 +2007,9 @@ func (c *StorageGateway) DeleteTapeArchive(input *DeleteTapeArchiveInput) (*Dele
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DeleteTapeArchiveWithContext(ctx aws.Context, input *DeleteTapeArchiveInput, opts ...request.Option) (*DeleteTapeArchiveOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DeleteTapeArchive")
+	defer span.End()
+
 	req, out := c.DeleteTapeArchiveRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2044,6 +2108,9 @@ func (c *StorageGateway) DeleteVolume(input *DeleteVolumeInput) (*DeleteVolumeOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DeleteVolumeWithContext(ctx aws.Context, input *DeleteVolumeInput, opts ...request.Option) (*DeleteVolumeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DeleteVolume")
+	defer span.End()
+
 	req, out := c.DeleteVolumeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2134,6 +2201,9 @@ func (c *StorageGateway) DescribeBandwidthRateLimit(input *DescribeBandwidthRate
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeBandwidthRateLimitWithContext(ctx aws.Context, input *DescribeBandwidthRateLimitInput, opts ...request.Option) (*DescribeBandwidthRateLimitOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeBandwidthRateLimit")
+	defer span.End()
+
 	req, out := c.DescribeBandwidthRateLimitRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2222,6 +2292,9 @@ func (c *StorageGateway) DescribeCache(input *DescribeCacheInput) (*DescribeCach
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeCacheWithContext(ctx aws.Context, input *DescribeCacheInput, opts ...request.Option) (*DescribeCacheOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeCache")
+	defer span.End()
+
 	req, out := c.DescribeCacheRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2311,6 +2384,9 @@ func (c *StorageGateway) DescribeCachediSCSIVolumes(input *DescribeCachediSCSIVo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeCachediSCSIVolumesWithContext(ctx aws.Context, input *DescribeCachediSCSIVolumesInput, opts ...request.Option) (*DescribeCachediSCSIVolumesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeCachediSCSIVolumes")
+	defer span.End()
+
 	req, out := c.DescribeCachediSCSIVolumesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2396,6 +2472,9 @@ func (c *StorageGateway) DescribeChapCredentials(input *DescribeChapCredentialsI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeChapCredentialsWithContext(ctx aws.Context, input *DescribeChapCredentialsInput, opts ...request.Option) (*DescribeChapCredentialsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeChapCredentials")
+	defer span.End()
+
 	req, out := c.DescribeChapCredentialsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2483,6 +2562,9 @@ func (c *StorageGateway) DescribeGatewayInformation(input *DescribeGatewayInform
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeGatewayInformationWithContext(ctx aws.Context, input *DescribeGatewayInformationInput, opts ...request.Option) (*DescribeGatewayInformationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeGatewayInformation")
+	defer span.End()
+
 	req, out := c.DescribeGatewayInformationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2568,6 +2650,9 @@ func (c *StorageGateway) DescribeMaintenanceStartTime(input *DescribeMaintenance
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeMaintenanceStartTimeWithContext(ctx aws.Context, input *DescribeMaintenanceStartTimeInput, opts ...request.Option) (*DescribeMaintenanceStartTimeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeMaintenanceStartTime")
+	defer span.End()
+
 	req, out := c.DescribeMaintenanceStartTimeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2653,6 +2738,9 @@ func (c *StorageGateway) DescribeNFSFileShares(input *DescribeNFSFileSharesInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeNFSFileSharesWithContext(ctx aws.Context, input *DescribeNFSFileSharesInput, opts ...request.Option) (*DescribeNFSFileSharesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeNFSFileShares")
+	defer span.End()
+
 	req, out := c.DescribeNFSFileSharesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2740,6 +2828,9 @@ func (c *StorageGateway) DescribeSnapshotSchedule(input *DescribeSnapshotSchedul
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeSnapshotScheduleWithContext(ctx aws.Context, input *DescribeSnapshotScheduleInput, opts ...request.Option) (*DescribeSnapshotScheduleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeSnapshotSchedule")
+	defer span.End()
+
 	req, out := c.DescribeSnapshotScheduleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2827,6 +2918,9 @@ func (c *StorageGateway) DescribeStorediSCSIVolumes(input *DescribeStorediSCSIVo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeStorediSCSIVolumesWithContext(ctx aws.Context, input *DescribeStorediSCSIVolumesInput, opts ...request.Option) (*DescribeStorediSCSIVolumesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeStorediSCSIVolumes")
+	defer span.End()
+
 	req, out := c.DescribeStorediSCSIVolumesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2921,6 +3015,9 @@ func (c *StorageGateway) DescribeTapeArchives(input *DescribeTapeArchivesInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeTapeArchivesWithContext(ctx aws.Context, input *DescribeTapeArchivesInput, opts ...request.Option) (*DescribeTapeArchivesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeTapeArchives")
+	defer span.End()
+
 	req, out := c.DescribeTapeArchivesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3067,6 +3164,9 @@ func (c *StorageGateway) DescribeTapeRecoveryPoints(input *DescribeTapeRecoveryP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeTapeRecoveryPointsWithContext(ctx aws.Context, input *DescribeTapeRecoveryPointsInput, opts ...request.Option) (*DescribeTapeRecoveryPointsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeTapeRecoveryPoints")
+	defer span.End()
+
 	req, out := c.DescribeTapeRecoveryPointsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3210,6 +3310,9 @@ func (c *StorageGateway) DescribeTapes(input *DescribeTapesInput) (*DescribeTape
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeTapesWithContext(ctx aws.Context, input *DescribeTapesInput, opts ...request.Option) (*DescribeTapesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeTapes")
+	defer span.End()
+
 	req, out := c.DescribeTapesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3348,6 +3451,9 @@ func (c *StorageGateway) DescribeUploadBuffer(input *DescribeUploadBufferInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeUploadBufferWithContext(ctx aws.Context, input *DescribeUploadBufferInput, opts ...request.Option) (*DescribeUploadBufferOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeUploadBuffer")
+	defer span.End()
+
 	req, out := c.DescribeUploadBufferRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3441,6 +3547,9 @@ func (c *StorageGateway) DescribeVTLDevices(input *DescribeVTLDevicesInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeVTLDevicesWithContext(ctx aws.Context, input *DescribeVTLDevicesInput, opts ...request.Option) (*DescribeVTLDevicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeVTLDevices")
+	defer span.End()
+
 	req, out := c.DescribeVTLDevicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3583,6 +3692,9 @@ func (c *StorageGateway) DescribeWorkingStorage(input *DescribeWorkingStorageInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DescribeWorkingStorageWithContext(ctx aws.Context, input *DescribeWorkingStorageInput, opts ...request.Option) (*DescribeWorkingStorageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DescribeWorkingStorage")
+	defer span.End()
+
 	req, out := c.DescribeWorkingStorageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3674,6 +3786,9 @@ func (c *StorageGateway) DisableGateway(input *DisableGatewayInput) (*DisableGat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) DisableGatewayWithContext(ctx aws.Context, input *DisableGatewayInput, opts ...request.Option) (*DisableGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).DisableGateway")
+	defer span.End()
+
 	req, out := c.DisableGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3760,6 +3875,9 @@ func (c *StorageGateway) ListFileShares(input *ListFileSharesInput) (*ListFileSh
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) ListFileSharesWithContext(ctx aws.Context, input *ListFileSharesInput, opts ...request.Option) (*ListFileSharesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).ListFileShares")
+	defer span.End()
+
 	req, out := c.ListFileSharesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3860,6 +3978,9 @@ func (c *StorageGateway) ListGateways(input *ListGatewaysInput) (*ListGatewaysOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) ListGatewaysWithContext(ctx aws.Context, input *ListGatewaysInput, opts ...request.Option) (*ListGatewaysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).ListGateways")
+	defer span.End()
+
 	req, out := c.ListGatewaysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4003,6 +4124,9 @@ func (c *StorageGateway) ListLocalDisks(input *ListLocalDisksInput) (*ListLocalD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) ListLocalDisksWithContext(ctx aws.Context, input *ListLocalDisksInput, opts ...request.Option) (*ListLocalDisksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).ListLocalDisks")
+	defer span.End()
+
 	req, out := c.ListLocalDisksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4088,6 +4212,9 @@ func (c *StorageGateway) ListTagsForResource(input *ListTagsForResourceInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*ListTagsForResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).ListTagsForResource")
+	defer span.End()
+
 	req, out := c.ListTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4182,6 +4309,9 @@ func (c *StorageGateway) ListTapes(input *ListTapesInput) (*ListTapesOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) ListTapesWithContext(ctx aws.Context, input *ListTapesInput, opts ...request.Option) (*ListTapesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).ListTapes")
+	defer span.End()
+
 	req, out := c.ListTapesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4268,6 +4398,9 @@ func (c *StorageGateway) ListVolumeInitiators(input *ListVolumeInitiatorsInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) ListVolumeInitiatorsWithContext(ctx aws.Context, input *ListVolumeInitiatorsInput, opts ...request.Option) (*ListVolumeInitiatorsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).ListVolumeInitiators")
+	defer span.End()
+
 	req, out := c.ListVolumeInitiatorsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4359,6 +4492,9 @@ func (c *StorageGateway) ListVolumeRecoveryPoints(input *ListVolumeRecoveryPoint
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) ListVolumeRecoveryPointsWithContext(ctx aws.Context, input *ListVolumeRecoveryPointsInput, opts ...request.Option) (*ListVolumeRecoveryPointsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).ListVolumeRecoveryPoints")
+	defer span.End()
+
 	req, out := c.ListVolumeRecoveryPointsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4460,6 +4596,9 @@ func (c *StorageGateway) ListVolumes(input *ListVolumesInput) (*ListVolumesOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) ListVolumesWithContext(ctx aws.Context, input *ListVolumesInput, opts ...request.Option) (*ListVolumesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).ListVolumes")
+	defer span.End()
+
 	req, out := c.ListVolumesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4607,6 +4746,9 @@ func (c *StorageGateway) NotifyWhenUploaded(input *NotifyWhenUploadedInput) (*No
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) NotifyWhenUploadedWithContext(ctx aws.Context, input *NotifyWhenUploadedInput, opts ...request.Option) (*NotifyWhenUploadedOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).NotifyWhenUploaded")
+	defer span.End()
+
 	req, out := c.NotifyWhenUploadedRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4694,6 +4836,9 @@ func (c *StorageGateway) RefreshCache(input *RefreshCacheInput) (*RefreshCacheOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) RefreshCacheWithContext(ctx aws.Context, input *RefreshCacheInput, opts ...request.Option) (*RefreshCacheOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).RefreshCache")
+	defer span.End()
+
 	req, out := c.RefreshCacheRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4779,6 +4924,9 @@ func (c *StorageGateway) RemoveTagsFromResource(input *RemoveTagsFromResourceInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) RemoveTagsFromResourceWithContext(ctx aws.Context, input *RemoveTagsFromResourceInput, opts ...request.Option) (*RemoveTagsFromResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).RemoveTagsFromResource")
+	defer span.End()
+
 	req, out := c.RemoveTagsFromResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4874,6 +5022,9 @@ func (c *StorageGateway) ResetCache(input *ResetCacheInput) (*ResetCacheOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) ResetCacheWithContext(ctx aws.Context, input *ResetCacheInput, opts ...request.Option) (*ResetCacheOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).ResetCache")
+	defer span.End()
+
 	req, out := c.ResetCacheRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4967,6 +5118,9 @@ func (c *StorageGateway) RetrieveTapeArchive(input *RetrieveTapeArchiveInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) RetrieveTapeArchiveWithContext(ctx aws.Context, input *RetrieveTapeArchiveInput, opts ...request.Option) (*RetrieveTapeArchiveOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).RetrieveTapeArchive")
+	defer span.End()
+
 	req, out := c.RetrieveTapeArchiveRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5060,6 +5214,9 @@ func (c *StorageGateway) RetrieveTapeRecoveryPoint(input *RetrieveTapeRecoveryPo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) RetrieveTapeRecoveryPointWithContext(ctx aws.Context, input *RetrieveTapeRecoveryPointInput, opts ...request.Option) (*RetrieveTapeRecoveryPointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).RetrieveTapeRecoveryPoint")
+	defer span.End()
+
 	req, out := c.RetrieveTapeRecoveryPointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5147,6 +5304,9 @@ func (c *StorageGateway) SetLocalConsolePassword(input *SetLocalConsolePasswordI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) SetLocalConsolePasswordWithContext(ctx aws.Context, input *SetLocalConsolePasswordInput, opts ...request.Option) (*SetLocalConsolePasswordOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).SetLocalConsolePassword")
+	defer span.End()
+
 	req, out := c.SetLocalConsolePasswordRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5251,6 +5411,9 @@ func (c *StorageGateway) ShutdownGateway(input *ShutdownGatewayInput) (*Shutdown
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) ShutdownGatewayWithContext(ctx aws.Context, input *ShutdownGatewayInput, opts ...request.Option) (*ShutdownGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).ShutdownGateway")
+	defer span.End()
+
 	req, out := c.ShutdownGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5346,6 +5509,9 @@ func (c *StorageGateway) StartGateway(input *StartGatewayInput) (*StartGatewayOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) StartGatewayWithContext(ctx aws.Context, input *StartGatewayInput, opts ...request.Option) (*StartGatewayOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).StartGateway")
+	defer span.End()
+
 	req, out := c.StartGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5439,6 +5605,9 @@ func (c *StorageGateway) UpdateBandwidthRateLimit(input *UpdateBandwidthRateLimi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) UpdateBandwidthRateLimitWithContext(ctx aws.Context, input *UpdateBandwidthRateLimitInput, opts ...request.Option) (*UpdateBandwidthRateLimitOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).UpdateBandwidthRateLimit")
+	defer span.End()
+
 	req, out := c.UpdateBandwidthRateLimitRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5528,6 +5697,9 @@ func (c *StorageGateway) UpdateChapCredentials(input *UpdateChapCredentialsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) UpdateChapCredentialsWithContext(ctx aws.Context, input *UpdateChapCredentialsInput, opts ...request.Option) (*UpdateChapCredentialsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).UpdateChapCredentials")
+	defer span.End()
+
 	req, out := c.UpdateChapCredentialsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5618,6 +5790,9 @@ func (c *StorageGateway) UpdateGatewayInformation(input *UpdateGatewayInformatio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) UpdateGatewayInformationWithContext(ctx aws.Context, input *UpdateGatewayInformationInput, opts ...request.Option) (*UpdateGatewayInformationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).UpdateGatewayInformation")
+	defer span.End()
+
 	req, out := c.UpdateGatewayInformationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5716,6 +5891,9 @@ func (c *StorageGateway) UpdateGatewaySoftwareNow(input *UpdateGatewaySoftwareNo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) UpdateGatewaySoftwareNowWithContext(ctx aws.Context, input *UpdateGatewaySoftwareNowInput, opts ...request.Option) (*UpdateGatewaySoftwareNowOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).UpdateGatewaySoftwareNow")
+	defer span.End()
+
 	req, out := c.UpdateGatewaySoftwareNowRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5802,6 +5980,9 @@ func (c *StorageGateway) UpdateMaintenanceStartTime(input *UpdateMaintenanceStar
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) UpdateMaintenanceStartTimeWithContext(ctx aws.Context, input *UpdateMaintenanceStartTimeInput, opts ...request.Option) (*UpdateMaintenanceStartTimeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).UpdateMaintenanceStartTime")
+	defer span.End()
+
 	req, out := c.UpdateMaintenanceStartTimeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5905,6 +6086,9 @@ func (c *StorageGateway) UpdateNFSFileShare(input *UpdateNFSFileShareInput) (*Up
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) UpdateNFSFileShareWithContext(ctx aws.Context, input *UpdateNFSFileShareInput, opts ...request.Option) (*UpdateNFSFileShareOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).UpdateNFSFileShare")
+	defer span.End()
+
 	req, out := c.UpdateNFSFileShareRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5998,6 +6182,9 @@ func (c *StorageGateway) UpdateSnapshotSchedule(input *UpdateSnapshotScheduleInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) UpdateSnapshotScheduleWithContext(ctx aws.Context, input *UpdateSnapshotScheduleInput, opts ...request.Option) (*UpdateSnapshotScheduleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).UpdateSnapshotSchedule")
+	defer span.End()
+
 	req, out := c.UpdateSnapshotScheduleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6086,6 +6273,9 @@ func (c *StorageGateway) UpdateVTLDeviceType(input *UpdateVTLDeviceTypeInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *StorageGateway) UpdateVTLDeviceTypeWithContext(ctx aws.Context, input *UpdateVTLDeviceTypeInput, opts ...request.Option) (*UpdateVTLDeviceTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/storagegateway.(*StorageGateway).UpdateVTLDeviceType")
+	defer span.End()
+
 	req, out := c.UpdateVTLDeviceTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

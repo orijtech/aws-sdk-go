@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/aws/signer/v4"
+	"go.opencensus.io/trace"
 )
 
 const opDeleteObject = "DeleteObject"
@@ -91,6 +92,9 @@ func (c *MediaStoreData) DeleteObject(input *DeleteObjectInput) (*DeleteObjectOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStoreData) DeleteObjectWithContext(ctx aws.Context, input *DeleteObjectInput, opts ...request.Option) (*DeleteObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastoredata.(*MediaStoreData).DeleteObject")
+	defer span.End()
+
 	req, out := c.DeleteObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -176,6 +180,9 @@ func (c *MediaStoreData) DescribeObject(input *DescribeObjectInput) (*DescribeOb
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStoreData) DescribeObjectWithContext(ctx aws.Context, input *DescribeObjectInput, opts ...request.Option) (*DescribeObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastoredata.(*MediaStoreData).DescribeObject")
+	defer span.End()
+
 	req, out := c.DescribeObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -264,6 +271,9 @@ func (c *MediaStoreData) GetObject(input *GetObjectInput) (*GetObjectOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStoreData) GetObjectWithContext(ctx aws.Context, input *GetObjectInput, opts ...request.Option) (*GetObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastoredata.(*MediaStoreData).GetObject")
+	defer span.End()
+
 	req, out := c.GetObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -347,6 +357,9 @@ func (c *MediaStoreData) ListItems(input *ListItemsInput) (*ListItemsOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStoreData) ListItemsWithContext(ctx aws.Context, input *ListItemsInput, opts ...request.Option) (*ListItemsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastoredata.(*MediaStoreData).ListItems")
+	defer span.End()
+
 	req, out := c.ListItemsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -432,6 +445,9 @@ func (c *MediaStoreData) PutObject(input *PutObjectInput) (*PutObjectOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaStoreData) PutObjectWithContext(ctx aws.Context, input *PutObjectInput, opts ...request.Option) (*PutObjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mediastoredata.(*MediaStoreData).PutObject")
+	defer span.End()
+
 	req, out := c.PutObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

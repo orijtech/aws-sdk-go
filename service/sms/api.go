@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateReplicationJob = "CreateReplicationJob"
@@ -112,6 +113,9 @@ func (c *SMS) CreateReplicationJob(input *CreateReplicationJobInput) (*CreateRep
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SMS) CreateReplicationJobWithContext(ctx aws.Context, input *CreateReplicationJobInput, opts ...request.Option) (*CreateReplicationJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sms.(*SMS).CreateReplicationJob")
+	defer span.End()
+
 	req, out := c.CreateReplicationJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -210,6 +214,9 @@ func (c *SMS) DeleteReplicationJob(input *DeleteReplicationJobInput) (*DeleteRep
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SMS) DeleteReplicationJobWithContext(ctx aws.Context, input *DeleteReplicationJobInput, opts ...request.Option) (*DeleteReplicationJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sms.(*SMS).DeleteReplicationJob")
+	defer span.End()
+
 	req, out := c.DeleteReplicationJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -304,6 +311,9 @@ func (c *SMS) DeleteServerCatalog(input *DeleteServerCatalogInput) (*DeleteServe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SMS) DeleteServerCatalogWithContext(ctx aws.Context, input *DeleteServerCatalogInput, opts ...request.Option) (*DeleteServerCatalogOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sms.(*SMS).DeleteServerCatalog")
+	defer span.End()
+
 	req, out := c.DeleteServerCatalogRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -397,6 +407,9 @@ func (c *SMS) DisassociateConnector(input *DisassociateConnectorInput) (*Disasso
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SMS) DisassociateConnectorWithContext(ctx aws.Context, input *DisassociateConnectorInput, opts ...request.Option) (*DisassociateConnectorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sms.(*SMS).DisassociateConnector")
+	defer span.End()
+
 	req, out := c.DisassociateConnectorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -483,6 +496,9 @@ func (c *SMS) GetConnectors(input *GetConnectorsInput) (*GetConnectorsOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SMS) GetConnectorsWithContext(ctx aws.Context, input *GetConnectorsInput, opts ...request.Option) (*GetConnectorsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sms.(*SMS).GetConnectors")
+	defer span.End()
+
 	req, out := c.GetConnectorsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -628,6 +644,9 @@ func (c *SMS) GetReplicationJobs(input *GetReplicationJobsInput) (*GetReplicatio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SMS) GetReplicationJobsWithContext(ctx aws.Context, input *GetReplicationJobsInput, opts ...request.Option) (*GetReplicationJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sms.(*SMS).GetReplicationJobs")
+	defer span.End()
+
 	req, out := c.GetReplicationJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -773,6 +792,9 @@ func (c *SMS) GetReplicationRuns(input *GetReplicationRunsInput) (*GetReplicatio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SMS) GetReplicationRunsWithContext(ctx aws.Context, input *GetReplicationRunsInput, opts ...request.Option) (*GetReplicationRunsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sms.(*SMS).GetReplicationRuns")
+	defer span.End()
+
 	req, out := c.GetReplicationRunsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -909,6 +931,9 @@ func (c *SMS) GetServers(input *GetServersInput) (*GetServersOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SMS) GetServersWithContext(ctx aws.Context, input *GetServersInput, opts ...request.Option) (*GetServersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sms.(*SMS).GetServers")
+	defer span.End()
+
 	req, out := c.GetServersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1058,6 +1083,9 @@ func (c *SMS) ImportServerCatalog(input *ImportServerCatalogInput) (*ImportServe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SMS) ImportServerCatalogWithContext(ctx aws.Context, input *ImportServerCatalogInput, opts ...request.Option) (*ImportServerCatalogOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sms.(*SMS).ImportServerCatalog")
+	defer span.End()
+
 	req, out := c.ImportServerCatalogRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1157,6 +1185,9 @@ func (c *SMS) StartOnDemandReplicationRun(input *StartOnDemandReplicationRunInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SMS) StartOnDemandReplicationRunWithContext(ctx aws.Context, input *StartOnDemandReplicationRunInput, opts ...request.Option) (*StartOnDemandReplicationRunOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sms.(*SMS).StartOnDemandReplicationRun")
+	defer span.End()
+
 	req, out := c.StartOnDemandReplicationRunRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1260,6 +1291,9 @@ func (c *SMS) UpdateReplicationJob(input *UpdateReplicationJobInput) (*UpdateRep
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SMS) UpdateReplicationJobWithContext(ctx aws.Context, input *UpdateReplicationJobInput, opts ...request.Option) (*UpdateReplicationJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sms.(*SMS).UpdateReplicationJob")
+	defer span.End()
+
 	req, out := c.UpdateReplicationJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

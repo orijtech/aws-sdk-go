@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateDevicePool = "CreateDevicePool"
@@ -92,6 +93,9 @@ func (c *DeviceFarm) CreateDevicePool(input *CreateDevicePoolInput) (*CreateDevi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) CreateDevicePoolWithContext(ctx aws.Context, input *CreateDevicePoolInput, opts ...request.Option) (*CreateDevicePoolOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).CreateDevicePool")
+	defer span.End()
+
 	req, out := c.CreateDevicePoolRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -181,6 +185,9 @@ func (c *DeviceFarm) CreateInstanceProfile(input *CreateInstanceProfileInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) CreateInstanceProfileWithContext(ctx aws.Context, input *CreateInstanceProfileInput, opts ...request.Option) (*CreateInstanceProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).CreateInstanceProfile")
+	defer span.End()
+
 	req, out := c.CreateInstanceProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -269,6 +276,9 @@ func (c *DeviceFarm) CreateNetworkProfile(input *CreateNetworkProfileInput) (*Cr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) CreateNetworkProfileWithContext(ctx aws.Context, input *CreateNetworkProfileInput, opts ...request.Option) (*CreateNetworkProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).CreateNetworkProfile")
+	defer span.End()
+
 	req, out := c.CreateNetworkProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -357,6 +367,9 @@ func (c *DeviceFarm) CreateProject(input *CreateProjectInput) (*CreateProjectOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) CreateProjectWithContext(ctx aws.Context, input *CreateProjectInput, opts ...request.Option) (*CreateProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).CreateProject")
+	defer span.End()
+
 	req, out := c.CreateProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -445,6 +458,9 @@ func (c *DeviceFarm) CreateRemoteAccessSession(input *CreateRemoteAccessSessionI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) CreateRemoteAccessSessionWithContext(ctx aws.Context, input *CreateRemoteAccessSessionInput, opts ...request.Option) (*CreateRemoteAccessSessionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).CreateRemoteAccessSession")
+	defer span.End()
+
 	req, out := c.CreateRemoteAccessSessionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -533,6 +549,9 @@ func (c *DeviceFarm) CreateUpload(input *CreateUploadInput) (*CreateUploadOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) CreateUploadWithContext(ctx aws.Context, input *CreateUploadInput, opts ...request.Option) (*CreateUploadOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).CreateUpload")
+	defer span.End()
+
 	req, out := c.CreateUploadRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -622,6 +641,9 @@ func (c *DeviceFarm) DeleteDevicePool(input *DeleteDevicePoolInput) (*DeleteDevi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) DeleteDevicePoolWithContext(ctx aws.Context, input *DeleteDevicePoolInput, opts ...request.Option) (*DeleteDevicePoolOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).DeleteDevicePool")
+	defer span.End()
+
 	req, out := c.DeleteDevicePoolRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -710,6 +732,9 @@ func (c *DeviceFarm) DeleteInstanceProfile(input *DeleteInstanceProfileInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) DeleteInstanceProfileWithContext(ctx aws.Context, input *DeleteInstanceProfileInput, opts ...request.Option) (*DeleteInstanceProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).DeleteInstanceProfile")
+	defer span.End()
+
 	req, out := c.DeleteInstanceProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -798,6 +823,9 @@ func (c *DeviceFarm) DeleteNetworkProfile(input *DeleteNetworkProfileInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) DeleteNetworkProfileWithContext(ctx aws.Context, input *DeleteNetworkProfileInput, opts ...request.Option) (*DeleteNetworkProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).DeleteNetworkProfile")
+	defer span.End()
+
 	req, out := c.DeleteNetworkProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -888,6 +916,9 @@ func (c *DeviceFarm) DeleteProject(input *DeleteProjectInput) (*DeleteProjectOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) DeleteProjectWithContext(ctx aws.Context, input *DeleteProjectInput, opts ...request.Option) (*DeleteProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).DeleteProject")
+	defer span.End()
+
 	req, out := c.DeleteProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -976,6 +1007,9 @@ func (c *DeviceFarm) DeleteRemoteAccessSession(input *DeleteRemoteAccessSessionI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) DeleteRemoteAccessSessionWithContext(ctx aws.Context, input *DeleteRemoteAccessSessionInput, opts ...request.Option) (*DeleteRemoteAccessSessionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).DeleteRemoteAccessSession")
+	defer span.End()
+
 	req, out := c.DeleteRemoteAccessSessionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1066,6 +1100,9 @@ func (c *DeviceFarm) DeleteRun(input *DeleteRunInput) (*DeleteRunOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) DeleteRunWithContext(ctx aws.Context, input *DeleteRunInput, opts ...request.Option) (*DeleteRunOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).DeleteRun")
+	defer span.End()
+
 	req, out := c.DeleteRunRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1154,6 +1191,9 @@ func (c *DeviceFarm) DeleteUpload(input *DeleteUploadInput) (*DeleteUploadOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) DeleteUploadWithContext(ctx aws.Context, input *DeleteUploadInput, opts ...request.Option) (*DeleteUploadOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).DeleteUpload")
+	defer span.End()
+
 	req, out := c.DeleteUploadRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1243,6 +1283,9 @@ func (c *DeviceFarm) GetAccountSettings(input *GetAccountSettingsInput) (*GetAcc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetAccountSettingsWithContext(ctx aws.Context, input *GetAccountSettingsInput, opts ...request.Option) (*GetAccountSettingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetAccountSettings")
+	defer span.End()
+
 	req, out := c.GetAccountSettingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1331,6 +1374,9 @@ func (c *DeviceFarm) GetDevice(input *GetDeviceInput) (*GetDeviceOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetDeviceWithContext(ctx aws.Context, input *GetDeviceInput, opts ...request.Option) (*GetDeviceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetDevice")
+	defer span.End()
+
 	req, out := c.GetDeviceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1420,6 +1466,9 @@ func (c *DeviceFarm) GetDeviceInstance(input *GetDeviceInstanceInput) (*GetDevic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetDeviceInstanceWithContext(ctx aws.Context, input *GetDeviceInstanceInput, opts ...request.Option) (*GetDeviceInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetDeviceInstance")
+	defer span.End()
+
 	req, out := c.GetDeviceInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1508,6 +1557,9 @@ func (c *DeviceFarm) GetDevicePool(input *GetDevicePoolInput) (*GetDevicePoolOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetDevicePoolWithContext(ctx aws.Context, input *GetDevicePoolInput, opts ...request.Option) (*GetDevicePoolOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetDevicePool")
+	defer span.End()
+
 	req, out := c.GetDevicePoolRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1596,6 +1648,9 @@ func (c *DeviceFarm) GetDevicePoolCompatibility(input *GetDevicePoolCompatibilit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetDevicePoolCompatibilityWithContext(ctx aws.Context, input *GetDevicePoolCompatibilityInput, opts ...request.Option) (*GetDevicePoolCompatibilityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetDevicePoolCompatibility")
+	defer span.End()
+
 	req, out := c.GetDevicePoolCompatibilityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1684,6 +1739,9 @@ func (c *DeviceFarm) GetInstanceProfile(input *GetInstanceProfileInput) (*GetIns
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetInstanceProfileWithContext(ctx aws.Context, input *GetInstanceProfileInput, opts ...request.Option) (*GetInstanceProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetInstanceProfile")
+	defer span.End()
+
 	req, out := c.GetInstanceProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1772,6 +1830,9 @@ func (c *DeviceFarm) GetJob(input *GetJobInput) (*GetJobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetJobWithContext(ctx aws.Context, input *GetJobInput, opts ...request.Option) (*GetJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetJob")
+	defer span.End()
+
 	req, out := c.GetJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1860,6 +1921,9 @@ func (c *DeviceFarm) GetNetworkProfile(input *GetNetworkProfileInput) (*GetNetwo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetNetworkProfileWithContext(ctx aws.Context, input *GetNetworkProfileInput, opts ...request.Option) (*GetNetworkProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetNetworkProfile")
+	defer span.End()
+
 	req, out := c.GetNetworkProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1963,6 +2027,9 @@ func (c *DeviceFarm) GetOfferingStatus(input *GetOfferingStatusInput) (*GetOffer
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetOfferingStatusWithContext(ctx aws.Context, input *GetOfferingStatusInput, opts ...request.Option) (*GetOfferingStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetOfferingStatus")
+	defer span.End()
+
 	req, out := c.GetOfferingStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2101,6 +2168,9 @@ func (c *DeviceFarm) GetProject(input *GetProjectInput) (*GetProjectOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetProjectWithContext(ctx aws.Context, input *GetProjectInput, opts ...request.Option) (*GetProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetProject")
+	defer span.End()
+
 	req, out := c.GetProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2189,6 +2259,9 @@ func (c *DeviceFarm) GetRemoteAccessSession(input *GetRemoteAccessSessionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetRemoteAccessSessionWithContext(ctx aws.Context, input *GetRemoteAccessSessionInput, opts ...request.Option) (*GetRemoteAccessSessionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetRemoteAccessSession")
+	defer span.End()
+
 	req, out := c.GetRemoteAccessSessionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2277,6 +2350,9 @@ func (c *DeviceFarm) GetRun(input *GetRunInput) (*GetRunOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetRunWithContext(ctx aws.Context, input *GetRunInput, opts ...request.Option) (*GetRunOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetRun")
+	defer span.End()
+
 	req, out := c.GetRunRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2365,6 +2441,9 @@ func (c *DeviceFarm) GetSuite(input *GetSuiteInput) (*GetSuiteOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetSuiteWithContext(ctx aws.Context, input *GetSuiteInput, opts ...request.Option) (*GetSuiteOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetSuite")
+	defer span.End()
+
 	req, out := c.GetSuiteRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2453,6 +2532,9 @@ func (c *DeviceFarm) GetTest(input *GetTestInput) (*GetTestOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetTestWithContext(ctx aws.Context, input *GetTestInput, opts ...request.Option) (*GetTestOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetTest")
+	defer span.End()
+
 	req, out := c.GetTestRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2541,6 +2623,9 @@ func (c *DeviceFarm) GetUpload(input *GetUploadInput) (*GetUploadOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) GetUploadWithContext(ctx aws.Context, input *GetUploadInput, opts ...request.Option) (*GetUploadOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).GetUpload")
+	defer span.End()
+
 	req, out := c.GetUploadRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2631,6 +2716,9 @@ func (c *DeviceFarm) InstallToRemoteAccessSession(input *InstallToRemoteAccessSe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) InstallToRemoteAccessSessionWithContext(ctx aws.Context, input *InstallToRemoteAccessSessionInput, opts ...request.Option) (*InstallToRemoteAccessSessionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).InstallToRemoteAccessSession")
+	defer span.End()
+
 	req, out := c.InstallToRemoteAccessSessionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2725,6 +2813,9 @@ func (c *DeviceFarm) ListArtifacts(input *ListArtifactsInput) (*ListArtifactsOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListArtifactsWithContext(ctx aws.Context, input *ListArtifactsInput, opts ...request.Option) (*ListArtifactsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListArtifacts")
+	defer span.End()
+
 	req, out := c.ListArtifactsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2864,6 +2955,9 @@ func (c *DeviceFarm) ListDeviceInstances(input *ListDeviceInstancesInput) (*List
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListDeviceInstancesWithContext(ctx aws.Context, input *ListDeviceInstancesInput, opts ...request.Option) (*ListDeviceInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListDeviceInstances")
+	defer span.End()
+
 	req, out := c.ListDeviceInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2958,6 +3052,9 @@ func (c *DeviceFarm) ListDevicePools(input *ListDevicePoolsInput) (*ListDevicePo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListDevicePoolsWithContext(ctx aws.Context, input *ListDevicePoolsInput, opts ...request.Option) (*ListDevicePoolsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListDevicePools")
+	defer span.End()
+
 	req, out := c.ListDevicePoolsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3102,6 +3199,9 @@ func (c *DeviceFarm) ListDevices(input *ListDevicesInput) (*ListDevicesOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListDevicesWithContext(ctx aws.Context, input *ListDevicesInput, opts ...request.Option) (*ListDevicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListDevices")
+	defer span.End()
+
 	req, out := c.ListDevicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3240,6 +3340,9 @@ func (c *DeviceFarm) ListInstanceProfiles(input *ListInstanceProfilesInput) (*Li
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListInstanceProfilesWithContext(ctx aws.Context, input *ListInstanceProfilesInput, opts ...request.Option) (*ListInstanceProfilesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListInstanceProfiles")
+	defer span.End()
+
 	req, out := c.ListInstanceProfilesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3334,6 +3437,9 @@ func (c *DeviceFarm) ListJobs(input *ListJobsInput) (*ListJobsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListJobsWithContext(ctx aws.Context, input *ListJobsInput, opts ...request.Option) (*ListJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListJobs")
+	defer span.End()
+
 	req, out := c.ListJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3472,6 +3578,9 @@ func (c *DeviceFarm) ListNetworkProfiles(input *ListNetworkProfilesInput) (*List
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListNetworkProfilesWithContext(ctx aws.Context, input *ListNetworkProfilesInput, opts ...request.Option) (*ListNetworkProfilesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListNetworkProfiles")
+	defer span.End()
+
 	req, out := c.ListNetworkProfilesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3568,6 +3677,9 @@ func (c *DeviceFarm) ListOfferingPromotions(input *ListOfferingPromotionsInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListOfferingPromotionsWithContext(ctx aws.Context, input *ListOfferingPromotionsInput, opts ...request.Option) (*ListOfferingPromotionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListOfferingPromotions")
+	defer span.End()
+
 	req, out := c.ListOfferingPromotionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3671,6 +3783,9 @@ func (c *DeviceFarm) ListOfferingTransactions(input *ListOfferingTransactionsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListOfferingTransactionsWithContext(ctx aws.Context, input *ListOfferingTransactionsInput, opts ...request.Option) (*ListOfferingTransactionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListOfferingTransactions")
+	defer span.End()
+
 	req, out := c.ListOfferingTransactionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3824,6 +3939,9 @@ func (c *DeviceFarm) ListOfferings(input *ListOfferingsInput) (*ListOfferingsOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListOfferingsWithContext(ctx aws.Context, input *ListOfferingsInput, opts ...request.Option) (*ListOfferingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListOfferings")
+	defer span.End()
+
 	req, out := c.ListOfferingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3968,6 +4086,9 @@ func (c *DeviceFarm) ListProjects(input *ListProjectsInput) (*ListProjectsOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListProjectsWithContext(ctx aws.Context, input *ListProjectsInput, opts ...request.Option) (*ListProjectsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListProjects")
+	defer span.End()
+
 	req, out := c.ListProjectsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4106,6 +4227,9 @@ func (c *DeviceFarm) ListRemoteAccessSessions(input *ListRemoteAccessSessionsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListRemoteAccessSessionsWithContext(ctx aws.Context, input *ListRemoteAccessSessionsInput, opts ...request.Option) (*ListRemoteAccessSessionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListRemoteAccessSessions")
+	defer span.End()
+
 	req, out := c.ListRemoteAccessSessionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4200,6 +4324,9 @@ func (c *DeviceFarm) ListRuns(input *ListRunsInput) (*ListRunsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListRunsWithContext(ctx aws.Context, input *ListRunsInput, opts ...request.Option) (*ListRunsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListRuns")
+	defer span.End()
+
 	req, out := c.ListRunsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4344,6 +4471,9 @@ func (c *DeviceFarm) ListSamples(input *ListSamplesInput) (*ListSamplesOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListSamplesWithContext(ctx aws.Context, input *ListSamplesInput, opts ...request.Option) (*ListSamplesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListSamples")
+	defer span.End()
+
 	req, out := c.ListSamplesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4488,6 +4618,9 @@ func (c *DeviceFarm) ListSuites(input *ListSuitesInput) (*ListSuitesOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListSuitesWithContext(ctx aws.Context, input *ListSuitesInput, opts ...request.Option) (*ListSuitesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListSuites")
+	defer span.End()
+
 	req, out := c.ListSuitesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4632,6 +4765,9 @@ func (c *DeviceFarm) ListTests(input *ListTestsInput) (*ListTestsOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListTestsWithContext(ctx aws.Context, input *ListTestsInput, opts ...request.Option) (*ListTestsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListTests")
+	defer span.End()
+
 	req, out := c.ListTestsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4776,6 +4912,9 @@ func (c *DeviceFarm) ListUniqueProblems(input *ListUniqueProblemsInput) (*ListUn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListUniqueProblemsWithContext(ctx aws.Context, input *ListUniqueProblemsInput, opts ...request.Option) (*ListUniqueProblemsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListUniqueProblems")
+	defer span.End()
+
 	req, out := c.ListUniqueProblemsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4920,6 +5059,9 @@ func (c *DeviceFarm) ListUploads(input *ListUploadsInput) (*ListUploadsOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ListUploadsWithContext(ctx aws.Context, input *ListUploadsInput, opts ...request.Option) (*ListUploadsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ListUploads")
+	defer span.End()
+
 	req, out := c.ListUploadsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5067,6 +5209,9 @@ func (c *DeviceFarm) PurchaseOffering(input *PurchaseOfferingInput) (*PurchaseOf
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) PurchaseOfferingWithContext(ctx aws.Context, input *PurchaseOfferingInput, opts ...request.Option) (*PurchaseOfferingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).PurchaseOffering")
+	defer span.End()
+
 	req, out := c.PurchaseOfferingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5163,6 +5308,9 @@ func (c *DeviceFarm) RenewOffering(input *RenewOfferingInput) (*RenewOfferingOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) RenewOfferingWithContext(ctx aws.Context, input *RenewOfferingInput, opts ...request.Option) (*RenewOfferingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).RenewOffering")
+	defer span.End()
+
 	req, out := c.RenewOfferingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5254,6 +5402,9 @@ func (c *DeviceFarm) ScheduleRun(input *ScheduleRunInput) (*ScheduleRunOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) ScheduleRunWithContext(ctx aws.Context, input *ScheduleRunInput, opts ...request.Option) (*ScheduleRunOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).ScheduleRun")
+	defer span.End()
+
 	req, out := c.ScheduleRunRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5342,6 +5493,9 @@ func (c *DeviceFarm) StopRemoteAccessSession(input *StopRemoteAccessSessionInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) StopRemoteAccessSessionWithContext(ctx aws.Context, input *StopRemoteAccessSessionInput, opts ...request.Option) (*StopRemoteAccessSessionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).StopRemoteAccessSession")
+	defer span.End()
+
 	req, out := c.StopRemoteAccessSessionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5435,6 +5589,9 @@ func (c *DeviceFarm) StopRun(input *StopRunInput) (*StopRunOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) StopRunWithContext(ctx aws.Context, input *StopRunInput, opts ...request.Option) (*StopRunOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).StopRun")
+	defer span.End()
+
 	req, out := c.StopRunRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5523,6 +5680,9 @@ func (c *DeviceFarm) UpdateDeviceInstance(input *UpdateDeviceInstanceInput) (*Up
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) UpdateDeviceInstanceWithContext(ctx aws.Context, input *UpdateDeviceInstanceInput, opts ...request.Option) (*UpdateDeviceInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).UpdateDeviceInstance")
+	defer span.End()
+
 	req, out := c.UpdateDeviceInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5613,6 +5773,9 @@ func (c *DeviceFarm) UpdateDevicePool(input *UpdateDevicePoolInput) (*UpdateDevi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) UpdateDevicePoolWithContext(ctx aws.Context, input *UpdateDevicePoolInput, opts ...request.Option) (*UpdateDevicePoolOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).UpdateDevicePool")
+	defer span.End()
+
 	req, out := c.UpdateDevicePoolRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5701,6 +5864,9 @@ func (c *DeviceFarm) UpdateInstanceProfile(input *UpdateInstanceProfileInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) UpdateInstanceProfileWithContext(ctx aws.Context, input *UpdateInstanceProfileInput, opts ...request.Option) (*UpdateInstanceProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).UpdateInstanceProfile")
+	defer span.End()
+
 	req, out := c.UpdateInstanceProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5789,6 +5955,9 @@ func (c *DeviceFarm) UpdateNetworkProfile(input *UpdateNetworkProfileInput) (*Up
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) UpdateNetworkProfileWithContext(ctx aws.Context, input *UpdateNetworkProfileInput, opts ...request.Option) (*UpdateNetworkProfileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).UpdateNetworkProfile")
+	defer span.End()
+
 	req, out := c.UpdateNetworkProfileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5877,6 +6046,9 @@ func (c *DeviceFarm) UpdateProject(input *UpdateProjectInput) (*UpdateProjectOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *DeviceFarm) UpdateProjectWithContext(ctx aws.Context, input *UpdateProjectInput, opts ...request.Option) (*UpdateProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/devicefarm.(*DeviceFarm).UpdateProject")
+	defer span.End()
+
 	req, out := c.UpdateProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

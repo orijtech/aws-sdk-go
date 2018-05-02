@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opDeleteLexicon = "DeleteLexicon"
@@ -96,6 +97,9 @@ func (c *Polly) DeleteLexicon(input *DeleteLexiconInput) (*DeleteLexiconOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Polly) DeleteLexiconWithContext(ctx aws.Context, input *DeleteLexiconInput, opts ...request.Option) (*DeleteLexiconOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/polly.(*Polly).DeleteLexicon")
+	defer span.End()
+
 	req, out := c.DeleteLexiconRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -195,6 +199,9 @@ func (c *Polly) DescribeVoices(input *DescribeVoicesInput) (*DescribeVoicesOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Polly) DescribeVoicesWithContext(ctx aws.Context, input *DescribeVoicesInput, opts ...request.Option) (*DescribeVoicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/polly.(*Polly).DescribeVoices")
+	defer span.End()
+
 	req, out := c.DescribeVoicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -283,6 +290,9 @@ func (c *Polly) GetLexicon(input *GetLexiconInput) (*GetLexiconOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Polly) GetLexiconWithContext(ctx aws.Context, input *GetLexiconInput, opts ...request.Option) (*GetLexiconOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/polly.(*Polly).GetLexicon")
+	defer span.End()
+
 	req, out := c.GetLexiconRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -367,6 +377,9 @@ func (c *Polly) ListLexicons(input *ListLexiconsInput) (*ListLexiconsOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Polly) ListLexiconsWithContext(ctx aws.Context, input *ListLexiconsInput, opts ...request.Option) (*ListLexiconsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/polly.(*Polly).ListLexicons")
+	defer span.End()
+
 	req, out := c.ListLexiconsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -472,6 +485,9 @@ func (c *Polly) PutLexicon(input *PutLexiconInput) (*PutLexiconOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Polly) PutLexiconWithContext(ctx aws.Context, input *PutLexiconInput, opts ...request.Option) (*PutLexiconOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/polly.(*Polly).PutLexicon")
+	defer span.End()
+
 	req, out := c.PutLexiconRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -582,6 +598,9 @@ func (c *Polly) SynthesizeSpeech(input *SynthesizeSpeechInput) (*SynthesizeSpeec
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Polly) SynthesizeSpeechWithContext(ctx aws.Context, input *SynthesizeSpeechInput, opts ...request.Option) (*SynthesizeSpeechOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/polly.(*Polly).SynthesizeSpeech")
+	defer span.End()
+
 	req, out := c.SynthesizeSpeechRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateProject = "CreateProject"
@@ -108,6 +109,9 @@ func (c *Mobile) CreateProject(input *CreateProjectInput) (*CreateProjectOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Mobile) CreateProjectWithContext(ctx aws.Context, input *CreateProjectInput, opts ...request.Option) (*CreateProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mobile.(*Mobile).CreateProject")
+	defer span.End()
+
 	req, out := c.CreateProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -202,6 +206,9 @@ func (c *Mobile) DeleteProject(input *DeleteProjectInput) (*DeleteProjectOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Mobile) DeleteProjectWithContext(ctx aws.Context, input *DeleteProjectInput, opts ...request.Option) (*DeleteProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mobile.(*Mobile).DeleteProject")
+	defer span.End()
+
 	req, out := c.DeleteProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -300,6 +307,9 @@ func (c *Mobile) DescribeBundle(input *DescribeBundleInput) (*DescribeBundleOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Mobile) DescribeBundleWithContext(ctx aws.Context, input *DescribeBundleInput, opts ...request.Option) (*DescribeBundleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mobile.(*Mobile).DescribeBundle")
+	defer span.End()
+
 	req, out := c.DescribeBundleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -398,6 +408,9 @@ func (c *Mobile) DescribeProject(input *DescribeProjectInput) (*DescribeProjectO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Mobile) DescribeProjectWithContext(ctx aws.Context, input *DescribeProjectInput, opts ...request.Option) (*DescribeProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mobile.(*Mobile).DescribeProject")
+	defer span.End()
+
 	req, out := c.DescribeProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -497,6 +510,9 @@ func (c *Mobile) ExportBundle(input *ExportBundleInput) (*ExportBundleOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Mobile) ExportBundleWithContext(ctx aws.Context, input *ExportBundleInput, opts ...request.Option) (*ExportBundleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mobile.(*Mobile).ExportBundle")
+	defer span.End()
+
 	req, out := c.ExportBundleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -597,6 +613,9 @@ func (c *Mobile) ExportProject(input *ExportProjectInput) (*ExportProjectOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Mobile) ExportProjectWithContext(ctx aws.Context, input *ExportProjectInput, opts ...request.Option) (*ExportProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mobile.(*Mobile).ExportProject")
+	defer span.End()
+
 	req, out := c.ExportProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -698,6 +717,9 @@ func (c *Mobile) ListBundles(input *ListBundlesInput) (*ListBundlesOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Mobile) ListBundlesWithContext(ctx aws.Context, input *ListBundlesInput, opts ...request.Option) (*ListBundlesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mobile.(*Mobile).ListBundles")
+	defer span.End()
+
 	req, out := c.ListBundlesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -849,6 +871,9 @@ func (c *Mobile) ListProjects(input *ListProjectsInput) (*ListProjectsOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Mobile) ListProjectsWithContext(ctx aws.Context, input *ListProjectsInput, opts ...request.Option) (*ListProjectsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mobile.(*Mobile).ListProjects")
+	defer span.End()
+
 	req, out := c.ListProjectsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1006,6 +1031,9 @@ func (c *Mobile) UpdateProject(input *UpdateProjectInput) (*UpdateProjectOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Mobile) UpdateProjectWithContext(ctx aws.Context, input *UpdateProjectInput, opts ...request.Option) (*UpdateProjectOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/mobile.(*Mobile).UpdateProject")
+	defer span.End()
+
 	req, out := c.UpdateProjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

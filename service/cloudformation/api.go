@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/query"
+	"go.opencensus.io/trace"
 )
 
 const opCancelUpdateStack = "CancelUpdateStack"
@@ -91,6 +92,9 @@ func (c *CloudFormation) CancelUpdateStack(input *CancelUpdateStackInput) (*Canc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) CancelUpdateStackWithContext(ctx aws.Context, input *CancelUpdateStackInput, opts ...request.Option) (*CancelUpdateStackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).CancelUpdateStack")
+	defer span.End()
+
 	req, out := c.CancelUpdateStackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -182,6 +186,9 @@ func (c *CloudFormation) ContinueUpdateRollback(input *ContinueUpdateRollbackInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) ContinueUpdateRollbackWithContext(ctx aws.Context, input *ContinueUpdateRollbackInput, opts ...request.Option) (*ContinueUpdateRollbackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).ContinueUpdateRollback")
+	defer span.End()
+
 	req, out := c.ContinueUpdateRollbackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -290,6 +297,9 @@ func (c *CloudFormation) CreateChangeSet(input *CreateChangeSetInput) (*CreateCh
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) CreateChangeSetWithContext(ctx aws.Context, input *CreateChangeSetInput, opts ...request.Option) (*CreateChangeSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).CreateChangeSet")
+	defer span.End()
+
 	req, out := c.CreateChangeSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -383,6 +393,9 @@ func (c *CloudFormation) CreateStack(input *CreateStackInput) (*CreateStackOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) CreateStackWithContext(ctx aws.Context, input *CreateStackInput, opts ...request.Option) (*CreateStackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).CreateStack")
+	defer span.End()
+
 	req, out := c.CreateStackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -484,6 +497,9 @@ func (c *CloudFormation) CreateStackInstances(input *CreateStackInstancesInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) CreateStackInstancesWithContext(ctx aws.Context, input *CreateStackInstancesInput, opts ...request.Option) (*CreateStackInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).CreateStackInstances")
+	defer span.End()
+
 	req, out := c.CreateStackInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -571,6 +587,9 @@ func (c *CloudFormation) CreateStackSet(input *CreateStackSetInput) (*CreateStac
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) CreateStackSetWithContext(ctx aws.Context, input *CreateStackSetInput, opts ...request.Option) (*CreateStackSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).CreateStackSet")
+	defer span.End()
+
 	req, out := c.CreateStackSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -656,6 +675,9 @@ func (c *CloudFormation) DeleteChangeSet(input *DeleteChangeSetInput) (*DeleteCh
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) DeleteChangeSetWithContext(ctx aws.Context, input *DeleteChangeSetInput, opts ...request.Option) (*DeleteChangeSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).DeleteChangeSet")
+	defer span.End()
+
 	req, out := c.DeleteChangeSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -739,6 +761,9 @@ func (c *CloudFormation) DeleteStack(input *DeleteStackInput) (*DeleteStackOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) DeleteStackWithContext(ctx aws.Context, input *DeleteStackInput, opts ...request.Option) (*DeleteStackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).DeleteStack")
+	defer span.End()
+
 	req, out := c.DeleteStackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -832,6 +857,9 @@ func (c *CloudFormation) DeleteStackInstances(input *DeleteStackInstancesInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) DeleteStackInstancesWithContext(ctx aws.Context, input *DeleteStackInstancesInput, opts ...request.Option) (*DeleteStackInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).DeleteStackInstances")
+	defer span.End()
+
 	req, out := c.DeleteStackInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -919,6 +947,9 @@ func (c *CloudFormation) DeleteStackSet(input *DeleteStackSetInput) (*DeleteStac
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) DeleteStackSetWithContext(ctx aws.Context, input *DeleteStackSetInput, opts ...request.Option) (*DeleteStackSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).DeleteStackSet")
+	defer span.End()
+
 	req, out := c.DeleteStackSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -994,6 +1025,9 @@ func (c *CloudFormation) DescribeAccountLimits(input *DescribeAccountLimitsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) DescribeAccountLimitsWithContext(ctx aws.Context, input *DescribeAccountLimitsInput, opts ...request.Option) (*DescribeAccountLimitsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).DescribeAccountLimits")
+	defer span.End()
+
 	req, out := c.DescribeAccountLimitsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1077,6 +1111,9 @@ func (c *CloudFormation) DescribeChangeSet(input *DescribeChangeSetInput) (*Desc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) DescribeChangeSetWithContext(ctx aws.Context, input *DescribeChangeSetInput, opts ...request.Option) (*DescribeChangeSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).DescribeChangeSet")
+	defer span.End()
+
 	req, out := c.DescribeChangeSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1162,6 +1199,9 @@ func (c *CloudFormation) DescribeStackEvents(input *DescribeStackEventsInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) DescribeStackEventsWithContext(ctx aws.Context, input *DescribeStackEventsInput, opts ...request.Option) (*DescribeStackEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).DescribeStackEvents")
+	defer span.End()
+
 	req, out := c.DescribeStackEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1298,6 +1338,9 @@ func (c *CloudFormation) DescribeStackInstance(input *DescribeStackInstanceInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) DescribeStackInstanceWithContext(ctx aws.Context, input *DescribeStackInstanceInput, opts ...request.Option) (*DescribeStackInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).DescribeStackInstance")
+	defer span.End()
+
 	req, out := c.DescribeStackInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1375,6 +1418,9 @@ func (c *CloudFormation) DescribeStackResource(input *DescribeStackResourceInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) DescribeStackResourceWithContext(ctx aws.Context, input *DescribeStackResourceInput, opts ...request.Option) (*DescribeStackResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).DescribeStackResource")
+	defer span.End()
+
 	req, out := c.DescribeStackResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1466,6 +1512,9 @@ func (c *CloudFormation) DescribeStackResources(input *DescribeStackResourcesInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) DescribeStackResourcesWithContext(ctx aws.Context, input *DescribeStackResourcesInput, opts ...request.Option) (*DescribeStackResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).DescribeStackResources")
+	defer span.End()
+
 	req, out := c.DescribeStackResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1545,6 +1594,9 @@ func (c *CloudFormation) DescribeStackSet(input *DescribeStackSetInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) DescribeStackSetWithContext(ctx aws.Context, input *DescribeStackSetInput, opts ...request.Option) (*DescribeStackSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).DescribeStackSet")
+	defer span.End()
+
 	req, out := c.DescribeStackSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1627,6 +1679,9 @@ func (c *CloudFormation) DescribeStackSetOperation(input *DescribeStackSetOperat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) DescribeStackSetOperationWithContext(ctx aws.Context, input *DescribeStackSetOperationInput, opts ...request.Option) (*DescribeStackSetOperationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).DescribeStackSetOperation")
+	defer span.End()
+
 	req, out := c.DescribeStackSetOperationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1710,6 +1765,9 @@ func (c *CloudFormation) DescribeStacks(input *DescribeStacksInput) (*DescribeSt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) DescribeStacksWithContext(ctx aws.Context, input *DescribeStacksInput, opts ...request.Option) (*DescribeStacksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).DescribeStacks")
+	defer span.End()
+
 	req, out := c.DescribeStacksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1836,6 +1894,9 @@ func (c *CloudFormation) EstimateTemplateCost(input *EstimateTemplateCostInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) EstimateTemplateCostWithContext(ctx aws.Context, input *EstimateTemplateCostInput, opts ...request.Option) (*EstimateTemplateCostOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).EstimateTemplateCost")
+	defer span.End()
+
 	req, out := c.EstimateTemplateCostRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1939,6 +2000,9 @@ func (c *CloudFormation) ExecuteChangeSet(input *ExecuteChangeSetInput) (*Execut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) ExecuteChangeSetWithContext(ctx aws.Context, input *ExecuteChangeSetInput, opts ...request.Option) (*ExecuteChangeSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).ExecuteChangeSet")
+	defer span.End()
+
 	req, out := c.ExecuteChangeSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2014,6 +2078,9 @@ func (c *CloudFormation) GetStackPolicy(input *GetStackPolicyInput) (*GetStackPo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) GetStackPolicyWithContext(ctx aws.Context, input *GetStackPolicyInput, opts ...request.Option) (*GetStackPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).GetStackPolicy")
+	defer span.End()
+
 	req, out := c.GetStackPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2100,6 +2167,9 @@ func (c *CloudFormation) GetTemplate(input *GetTemplateInput) (*GetTemplateOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) GetTemplateWithContext(ctx aws.Context, input *GetTemplateInput, opts ...request.Option) (*GetTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).GetTemplate")
+	defer span.End()
+
 	req, out := c.GetTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2190,6 +2260,9 @@ func (c *CloudFormation) GetTemplateSummary(input *GetTemplateSummaryInput) (*Ge
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) GetTemplateSummaryWithContext(ctx aws.Context, input *GetTemplateSummaryInput, opts ...request.Option) (*GetTemplateSummaryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).GetTemplateSummary")
+	defer span.End()
+
 	req, out := c.GetTemplateSummaryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2266,6 +2339,9 @@ func (c *CloudFormation) ListChangeSets(input *ListChangeSetsInput) (*ListChange
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) ListChangeSetsWithContext(ctx aws.Context, input *ListChangeSetsInput, opts ...request.Option) (*ListChangeSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).ListChangeSets")
+	defer span.End()
+
 	req, out := c.ListChangeSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2352,6 +2428,9 @@ func (c *CloudFormation) ListExports(input *ListExportsInput) (*ListExportsOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) ListExportsWithContext(ctx aws.Context, input *ListExportsInput, opts ...request.Option) (*ListExportsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).ListExports")
+	defer span.End()
+
 	req, out := c.ListExportsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2488,6 +2567,9 @@ func (c *CloudFormation) ListImports(input *ListImportsInput) (*ListImportsOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) ListImportsWithContext(ctx aws.Context, input *ListImportsInput, opts ...request.Option) (*ListImportsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).ListImports")
+	defer span.End()
+
 	req, out := c.ListImportsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2619,6 +2701,9 @@ func (c *CloudFormation) ListStackInstances(input *ListStackInstancesInput) (*Li
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) ListStackInstancesWithContext(ctx aws.Context, input *ListStackInstancesInput, opts ...request.Option) (*ListStackInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).ListStackInstances")
+	defer span.End()
+
 	req, out := c.ListStackInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2702,6 +2787,9 @@ func (c *CloudFormation) ListStackResources(input *ListStackResourcesInput) (*Li
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) ListStackResourcesWithContext(ctx aws.Context, input *ListStackResourcesInput, opts ...request.Option) (*ListStackResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).ListStackResources")
+	defer span.End()
+
 	req, out := c.ListStackResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2834,6 +2922,9 @@ func (c *CloudFormation) ListStackSetOperationResults(input *ListStackSetOperati
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) ListStackSetOperationResultsWithContext(ctx aws.Context, input *ListStackSetOperationResultsInput, opts ...request.Option) (*ListStackSetOperationResultsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).ListStackSetOperationResults")
+	defer span.End()
+
 	req, out := c.ListStackSetOperationResultsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2913,6 +3004,9 @@ func (c *CloudFormation) ListStackSetOperations(input *ListStackSetOperationsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) ListStackSetOperationsWithContext(ctx aws.Context, input *ListStackSetOperationsInput, opts ...request.Option) (*ListStackSetOperationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).ListStackSetOperations")
+	defer span.End()
+
 	req, out := c.ListStackSetOperationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2988,6 +3082,9 @@ func (c *CloudFormation) ListStackSets(input *ListStackSetsInput) (*ListStackSet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) ListStackSetsWithContext(ctx aws.Context, input *ListStackSetsInput, opts ...request.Option) (*ListStackSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).ListStackSets")
+	defer span.End()
+
 	req, out := c.ListStackSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3072,6 +3169,9 @@ func (c *CloudFormation) ListStacks(input *ListStacksInput) (*ListStacksOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) ListStacksWithContext(ctx aws.Context, input *ListStacksInput, opts ...request.Option) (*ListStacksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).ListStacks")
+	defer span.End()
+
 	req, out := c.ListStacksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3198,6 +3298,9 @@ func (c *CloudFormation) SetStackPolicy(input *SetStackPolicyInput) (*SetStackPo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) SetStackPolicyWithContext(ctx aws.Context, input *SetStackPolicyInput, opts ...request.Option) (*SetStackPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).SetStackPolicy")
+	defer span.End()
+
 	req, out := c.SetStackPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3279,6 +3382,9 @@ func (c *CloudFormation) SignalResource(input *SignalResourceInput) (*SignalReso
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) SignalResourceWithContext(ctx aws.Context, input *SignalResourceInput, opts ...request.Option) (*SignalResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).SignalResource")
+	defer span.End()
+
 	req, out := c.SignalResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3364,6 +3470,9 @@ func (c *CloudFormation) StopStackSetOperation(input *StopStackSetOperationInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) StopStackSetOperationWithContext(ctx aws.Context, input *StopStackSetOperationInput, opts ...request.Option) (*StopStackSetOperationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).StopStackSetOperation")
+	defer span.End()
+
 	req, out := c.StopStackSetOperationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3455,6 +3564,9 @@ func (c *CloudFormation) UpdateStack(input *UpdateStackInput) (*UpdateStackOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) UpdateStackWithContext(ctx aws.Context, input *UpdateStackInput, opts ...request.Option) (*UpdateStackOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).UpdateStack")
+	defer span.End()
+
 	req, out := c.UpdateStackRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3568,6 +3680,9 @@ func (c *CloudFormation) UpdateStackInstances(input *UpdateStackInstancesInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) UpdateStackInstancesWithContext(ctx aws.Context, input *UpdateStackInstancesInput, opts ...request.Option) (*UpdateStackInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).UpdateStackInstances")
+	defer span.End()
+
 	req, out := c.UpdateStackInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3666,6 +3781,9 @@ func (c *CloudFormation) UpdateStackSet(input *UpdateStackSetInput) (*UpdateStac
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) UpdateStackSetWithContext(ctx aws.Context, input *UpdateStackSetInput, opts ...request.Option) (*UpdateStackSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).UpdateStackSet")
+	defer span.End()
+
 	req, out := c.UpdateStackSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3748,6 +3866,9 @@ func (c *CloudFormation) UpdateTerminationProtection(input *UpdateTerminationPro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) UpdateTerminationProtectionWithContext(ctx aws.Context, input *UpdateTerminationProtectionInput, opts ...request.Option) (*UpdateTerminationProtectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).UpdateTerminationProtection")
+	defer span.End()
+
 	req, out := c.UpdateTerminationProtectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3825,6 +3946,9 @@ func (c *CloudFormation) ValidateTemplate(input *ValidateTemplateInput) (*Valida
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudFormation) ValidateTemplateWithContext(ctx aws.Context, input *ValidateTemplateInput, opts ...request.Option) (*ValidateTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudformation.(*CloudFormation).ValidateTemplate")
+	defer span.End()
+
 	req, out := c.ValidateTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opAddInstanceFleet = "AddInstanceFleet"
@@ -92,6 +93,9 @@ func (c *EMR) AddInstanceFleet(input *AddInstanceFleetInput) (*AddInstanceFleetO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) AddInstanceFleetWithContext(ctx aws.Context, input *AddInstanceFleetInput, opts ...request.Option) (*AddInstanceFleetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).AddInstanceFleet")
+	defer span.End()
+
 	req, out := c.AddInstanceFleetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -172,6 +176,9 @@ func (c *EMR) AddInstanceGroups(input *AddInstanceGroupsInput) (*AddInstanceGrou
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) AddInstanceGroupsWithContext(ctx aws.Context, input *AddInstanceGroupsInput, opts ...request.Option) (*AddInstanceGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).AddInstanceGroups")
+	defer span.End()
+
 	req, out := c.AddInstanceGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -274,6 +281,9 @@ func (c *EMR) AddJobFlowSteps(input *AddJobFlowStepsInput) (*AddJobFlowStepsOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) AddJobFlowStepsWithContext(ctx aws.Context, input *AddJobFlowStepsInput, opts ...request.Option) (*AddJobFlowStepsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).AddJobFlowSteps")
+	defer span.End()
+
 	req, out := c.AddJobFlowStepsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -358,6 +368,9 @@ func (c *EMR) AddTags(input *AddTagsInput) (*AddTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) AddTagsWithContext(ctx aws.Context, input *AddTagsInput, opts ...request.Option) (*AddTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).AddTags")
+	defer span.End()
+
 	req, out := c.AddTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -445,6 +458,9 @@ func (c *EMR) CancelSteps(input *CancelStepsInput) (*CancelStepsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) CancelStepsWithContext(ctx aws.Context, input *CancelStepsInput, opts ...request.Option) (*CancelStepsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).CancelSteps")
+	defer span.End()
+
 	req, out := c.CancelStepsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -528,6 +544,9 @@ func (c *EMR) CreateSecurityConfiguration(input *CreateSecurityConfigurationInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) CreateSecurityConfigurationWithContext(ctx aws.Context, input *CreateSecurityConfigurationInput, opts ...request.Option) (*CreateSecurityConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).CreateSecurityConfiguration")
+	defer span.End()
+
 	req, out := c.CreateSecurityConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -610,6 +629,9 @@ func (c *EMR) DeleteSecurityConfiguration(input *DeleteSecurityConfigurationInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) DeleteSecurityConfigurationWithContext(ctx aws.Context, input *DeleteSecurityConfigurationInput, opts ...request.Option) (*DeleteSecurityConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).DeleteSecurityConfiguration")
+	defer span.End()
+
 	req, out := c.DeleteSecurityConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -693,6 +715,9 @@ func (c *EMR) DescribeCluster(input *DescribeClusterInput) (*DescribeClusterOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) DescribeClusterWithContext(ctx aws.Context, input *DescribeClusterInput, opts ...request.Option) (*DescribeClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).DescribeCluster")
+	defer span.End()
+
 	req, out := c.DescribeClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -795,6 +820,9 @@ func (c *EMR) DescribeJobFlows(input *DescribeJobFlowsInput) (*DescribeJobFlowsO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) DescribeJobFlowsWithContext(ctx aws.Context, input *DescribeJobFlowsInput, opts ...request.Option) (*DescribeJobFlowsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).DescribeJobFlows")
+	defer span.End()
+
 	req, out := c.DescribeJobFlowsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -878,6 +906,9 @@ func (c *EMR) DescribeSecurityConfiguration(input *DescribeSecurityConfiguration
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) DescribeSecurityConfigurationWithContext(ctx aws.Context, input *DescribeSecurityConfigurationInput, opts ...request.Option) (*DescribeSecurityConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).DescribeSecurityConfiguration")
+	defer span.End()
+
 	req, out := c.DescribeSecurityConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -960,6 +991,9 @@ func (c *EMR) DescribeStep(input *DescribeStepInput) (*DescribeStepOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) DescribeStepWithContext(ctx aws.Context, input *DescribeStepInput, opts ...request.Option) (*DescribeStepOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).DescribeStep")
+	defer span.End()
+
 	req, out := c.DescribeStepRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1048,6 +1082,9 @@ func (c *EMR) ListBootstrapActions(input *ListBootstrapActionsInput) (*ListBoots
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) ListBootstrapActionsWithContext(ctx aws.Context, input *ListBootstrapActionsInput, opts ...request.Option) (*ListBootstrapActionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).ListBootstrapActions")
+	defer span.End()
+
 	req, out := c.ListBootstrapActionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1190,6 +1227,9 @@ func (c *EMR) ListClusters(input *ListClustersInput) (*ListClustersOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) ListClustersWithContext(ctx aws.Context, input *ListClustersInput, opts ...request.Option) (*ListClustersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).ListClusters")
+	defer span.End()
+
 	req, out := c.ListClustersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1331,6 +1371,9 @@ func (c *EMR) ListInstanceFleets(input *ListInstanceFleetsInput) (*ListInstanceF
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) ListInstanceFleetsWithContext(ctx aws.Context, input *ListInstanceFleetsInput, opts ...request.Option) (*ListInstanceFleetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).ListInstanceFleets")
+	defer span.End()
+
 	req, out := c.ListInstanceFleetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1469,6 +1512,9 @@ func (c *EMR) ListInstanceGroups(input *ListInstanceGroupsInput) (*ListInstanceG
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) ListInstanceGroupsWithContext(ctx aws.Context, input *ListInstanceGroupsInput, opts ...request.Option) (*ListInstanceGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).ListInstanceGroups")
+	defer span.End()
+
 	req, out := c.ListInstanceGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1610,6 +1656,9 @@ func (c *EMR) ListInstances(input *ListInstancesInput) (*ListInstancesOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) ListInstancesWithContext(ctx aws.Context, input *ListInstancesInput, opts ...request.Option) (*ListInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).ListInstances")
+	defer span.End()
+
 	req, out := c.ListInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1745,6 +1794,9 @@ func (c *EMR) ListSecurityConfigurations(input *ListSecurityConfigurationsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) ListSecurityConfigurationsWithContext(ctx aws.Context, input *ListSecurityConfigurationsInput, opts ...request.Option) (*ListSecurityConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).ListSecurityConfigurations")
+	defer span.End()
+
 	req, out := c.ListSecurityConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1834,6 +1886,9 @@ func (c *EMR) ListSteps(input *ListStepsInput) (*ListStepsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) ListStepsWithContext(ctx aws.Context, input *ListStepsInput, opts ...request.Option) (*ListStepsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).ListSteps")
+	defer span.End()
+
 	req, out := c.ListStepsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1973,6 +2028,9 @@ func (c *EMR) ModifyInstanceFleet(input *ModifyInstanceFleetInput) (*ModifyInsta
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) ModifyInstanceFleetWithContext(ctx aws.Context, input *ModifyInstanceFleetInput, opts ...request.Option) (*ModifyInstanceFleetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).ModifyInstanceFleet")
+	defer span.End()
+
 	req, out := c.ModifyInstanceFleetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2058,6 +2116,9 @@ func (c *EMR) ModifyInstanceGroups(input *ModifyInstanceGroupsInput) (*ModifyIns
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) ModifyInstanceGroupsWithContext(ctx aws.Context, input *ModifyInstanceGroupsInput, opts ...request.Option) (*ModifyInstanceGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).ModifyInstanceGroups")
+	defer span.End()
+
 	req, out := c.ModifyInstanceGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2135,6 +2196,9 @@ func (c *EMR) PutAutoScalingPolicy(input *PutAutoScalingPolicyInput) (*PutAutoSc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) PutAutoScalingPolicyWithContext(ctx aws.Context, input *PutAutoScalingPolicyInput, opts ...request.Option) (*PutAutoScalingPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).PutAutoScalingPolicy")
+	defer span.End()
+
 	req, out := c.PutAutoScalingPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2210,6 +2274,9 @@ func (c *EMR) RemoveAutoScalingPolicy(input *RemoveAutoScalingPolicyInput) (*Rem
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) RemoveAutoScalingPolicyWithContext(ctx aws.Context, input *RemoveAutoScalingPolicyInput, opts ...request.Option) (*RemoveAutoScalingPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).RemoveAutoScalingPolicy")
+	defer span.End()
+
 	req, out := c.RemoveAutoScalingPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2296,6 +2363,9 @@ func (c *EMR) RemoveTags(input *RemoveTagsInput) (*RemoveTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) RemoveTagsWithContext(ctx aws.Context, input *RemoveTagsInput, opts ...request.Option) (*RemoveTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).RemoveTags")
+	defer span.End()
+
 	req, out := c.RemoveTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2402,6 +2472,9 @@ func (c *EMR) RunJobFlow(input *RunJobFlowInput) (*RunJobFlowOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) RunJobFlowWithContext(ctx aws.Context, input *RunJobFlowInput, opts ...request.Option) (*RunJobFlowOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).RunJobFlow")
+	defer span.End()
+
 	req, out := c.RunJobFlowRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2500,6 +2573,9 @@ func (c *EMR) SetTerminationProtection(input *SetTerminationProtectionInput) (*S
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) SetTerminationProtectionWithContext(ctx aws.Context, input *SetTerminationProtectionInput, opts ...request.Option) (*SetTerminationProtectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).SetTerminationProtection")
+	defer span.End()
+
 	req, out := c.SetTerminationProtectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2587,6 +2663,9 @@ func (c *EMR) SetVisibleToAllUsers(input *SetVisibleToAllUsersInput) (*SetVisibl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) SetVisibleToAllUsersWithContext(ctx aws.Context, input *SetVisibleToAllUsersInput, opts ...request.Option) (*SetVisibleToAllUsersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).SetVisibleToAllUsers")
+	defer span.End()
+
 	req, out := c.SetVisibleToAllUsersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2678,6 +2757,9 @@ func (c *EMR) TerminateJobFlows(input *TerminateJobFlowsInput) (*TerminateJobFlo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EMR) TerminateJobFlowsWithContext(ctx aws.Context, input *TerminateJobFlowsInput, opts ...request.Option) (*TerminateJobFlowsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/emr.(*EMR).TerminateJobFlows")
+	defer span.End()
+
 	req, out := c.TerminateJobFlowsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opGetEntitlements = "GetEntitlements"
@@ -91,6 +92,9 @@ func (c *MarketplaceEntitlementService) GetEntitlements(input *GetEntitlementsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MarketplaceEntitlementService) GetEntitlementsWithContext(ctx aws.Context, input *GetEntitlementsInput, opts ...request.Option) (*GetEntitlementsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/marketplaceentitlementservice.(*MarketplaceEntitlementService).GetEntitlements")
+	defer span.End()
+
 	req, out := c.GetEntitlementsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

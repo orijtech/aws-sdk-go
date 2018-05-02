@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAssumeRole = "AssumeRole"
@@ -198,6 +199,9 @@ func (c *STS) AssumeRole(input *AssumeRoleInput) (*AssumeRoleOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *STS) AssumeRoleWithContext(ctx aws.Context, input *AssumeRoleInput, opts ...request.Option) (*AssumeRoleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sts.(*STS).AssumeRole")
+	defer span.End()
+
 	req, out := c.AssumeRoleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -380,6 +384,9 @@ func (c *STS) AssumeRoleWithSAML(input *AssumeRoleWithSAMLInput) (*AssumeRoleWit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *STS) AssumeRoleWithSAMLWithContext(ctx aws.Context, input *AssumeRoleWithSAMLInput, opts ...request.Option) (*AssumeRoleWithSAMLOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sts.(*STS).AssumeRoleWithSAML")
+	defer span.End()
+
 	req, out := c.AssumeRoleWithSAMLRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -591,6 +598,9 @@ func (c *STS) AssumeRoleWithWebIdentity(input *AssumeRoleWithWebIdentityInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *STS) AssumeRoleWithWebIdentityWithContext(ctx aws.Context, input *AssumeRoleWithWebIdentityInput, opts ...request.Option) (*AssumeRoleWithWebIdentityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sts.(*STS).AssumeRoleWithWebIdentity")
+	defer span.End()
+
 	req, out := c.AssumeRoleWithWebIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -703,6 +713,9 @@ func (c *STS) DecodeAuthorizationMessage(input *DecodeAuthorizationMessageInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *STS) DecodeAuthorizationMessageWithContext(ctx aws.Context, input *DecodeAuthorizationMessageInput, opts ...request.Option) (*DecodeAuthorizationMessageOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sts.(*STS).DecodeAuthorizationMessage")
+	defer span.End()
+
 	req, out := c.DecodeAuthorizationMessageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -778,6 +791,9 @@ func (c *STS) GetCallerIdentity(input *GetCallerIdentityInput) (*GetCallerIdenti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *STS) GetCallerIdentityWithContext(ctx aws.Context, input *GetCallerIdentityInput, opts ...request.Option) (*GetCallerIdentityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sts.(*STS).GetCallerIdentity")
+	defer span.End()
+
 	req, out := c.GetCallerIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -947,6 +963,9 @@ func (c *STS) GetFederationToken(input *GetFederationTokenInput) (*GetFederation
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *STS) GetFederationTokenWithContext(ctx aws.Context, input *GetFederationTokenInput, opts ...request.Option) (*GetFederationTokenOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sts.(*STS).GetFederationToken")
+	defer span.End()
+
 	req, out := c.GetFederationTokenRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1075,6 +1094,9 @@ func (c *STS) GetSessionToken(input *GetSessionTokenInput) (*GetSessionTokenOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *STS) GetSessionTokenWithContext(ctx aws.Context, input *GetSessionTokenInput, opts ...request.Option) (*GetSessionTokenOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/sts.(*STS).GetSessionToken")
+	defer span.End()
+
 	req, out := c.GetSessionTokenRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

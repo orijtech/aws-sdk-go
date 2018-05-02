@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
+	"go.opencensus.io/trace"
 )
 
 const opAbortDocumentVersionUpload = "AbortDocumentVersionUpload"
@@ -107,6 +108,9 @@ func (c *WorkDocs) AbortDocumentVersionUpload(input *AbortDocumentVersionUploadI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) AbortDocumentVersionUploadWithContext(ctx aws.Context, input *AbortDocumentVersionUploadInput, opts ...request.Option) (*AbortDocumentVersionUploadOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).AbortDocumentVersionUpload")
+	defer span.End()
+
 	req, out := c.AbortDocumentVersionUploadRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -200,6 +204,9 @@ func (c *WorkDocs) ActivateUser(input *ActivateUserInput) (*ActivateUserOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) ActivateUserWithContext(ctx aws.Context, input *ActivateUserInput, opts ...request.Option) (*ActivateUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).ActivateUser")
+	defer span.End()
+
 	req, out := c.ActivateUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -291,6 +298,9 @@ func (c *WorkDocs) AddResourcePermissions(input *AddResourcePermissionsInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) AddResourcePermissionsWithContext(ctx aws.Context, input *AddResourcePermissionsInput, opts ...request.Option) (*AddResourcePermissionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).AddResourcePermissions")
+	defer span.End()
+
 	req, out := c.AddResourcePermissionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -391,6 +401,9 @@ func (c *WorkDocs) CreateComment(input *CreateCommentInput) (*CreateCommentOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) CreateCommentWithContext(ctx aws.Context, input *CreateCommentInput, opts ...request.Option) (*CreateCommentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).CreateComment")
+	defer span.End()
+
 	req, out := c.CreateCommentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -492,6 +505,9 @@ func (c *WorkDocs) CreateCustomMetadata(input *CreateCustomMetadataInput) (*Crea
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) CreateCustomMetadataWithContext(ctx aws.Context, input *CreateCustomMetadataInput, opts ...request.Option) (*CreateCustomMetadataOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).CreateCustomMetadata")
+	defer span.End()
+
 	req, out := c.CreateCustomMetadataRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -594,6 +610,9 @@ func (c *WorkDocs) CreateFolder(input *CreateFolderInput) (*CreateFolderOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) CreateFolderWithContext(ctx aws.Context, input *CreateFolderInput, opts ...request.Option) (*CreateFolderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).CreateFolder")
+	defer span.End()
+
 	req, out := c.CreateFolderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -690,6 +709,9 @@ func (c *WorkDocs) CreateLabels(input *CreateLabelsInput) (*CreateLabelsOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) CreateLabelsWithContext(ctx aws.Context, input *CreateLabelsInput, opts ...request.Option) (*CreateLabelsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).CreateLabels")
+	defer span.End()
+
 	req, out := c.CreateLabelsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -780,6 +802,9 @@ func (c *WorkDocs) CreateNotificationSubscription(input *CreateNotificationSubsc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) CreateNotificationSubscriptionWithContext(ctx aws.Context, input *CreateNotificationSubscriptionInput, opts ...request.Option) (*CreateNotificationSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).CreateNotificationSubscription")
+	defer span.End()
+
 	req, out := c.CreateNotificationSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -874,6 +899,9 @@ func (c *WorkDocs) CreateUser(input *CreateUserInput) (*CreateUserOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) CreateUserWithContext(ctx aws.Context, input *CreateUserInput, opts ...request.Option) (*CreateUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).CreateUser")
+	defer span.End()
+
 	req, out := c.CreateUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -970,6 +998,9 @@ func (c *WorkDocs) DeactivateUser(input *DeactivateUserInput) (*DeactivateUserOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DeactivateUserWithContext(ctx aws.Context, input *DeactivateUserInput, opts ...request.Option) (*DeactivateUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DeactivateUser")
+	defer span.End()
+
 	req, out := c.DeactivateUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1072,6 +1103,9 @@ func (c *WorkDocs) DeleteComment(input *DeleteCommentInput) (*DeleteCommentOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DeleteCommentWithContext(ctx aws.Context, input *DeleteCommentInput, opts ...request.Option) (*DeleteCommentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DeleteComment")
+	defer span.End()
+
 	req, out := c.DeleteCommentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1168,6 +1202,9 @@ func (c *WorkDocs) DeleteCustomMetadata(input *DeleteCustomMetadataInput) (*Dele
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DeleteCustomMetadataWithContext(ctx aws.Context, input *DeleteCustomMetadataInput, opts ...request.Option) (*DeleteCustomMetadataOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DeleteCustomMetadata")
+	defer span.End()
+
 	req, out := c.DeleteCustomMetadataRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1269,6 +1306,9 @@ func (c *WorkDocs) DeleteDocument(input *DeleteDocumentInput) (*DeleteDocumentOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DeleteDocumentWithContext(ctx aws.Context, input *DeleteDocumentInput, opts ...request.Option) (*DeleteDocumentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DeleteDocument")
+	defer span.End()
+
 	req, out := c.DeleteDocumentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1370,6 +1410,9 @@ func (c *WorkDocs) DeleteFolder(input *DeleteFolderInput) (*DeleteFolderOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DeleteFolderWithContext(ctx aws.Context, input *DeleteFolderInput, opts ...request.Option) (*DeleteFolderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DeleteFolder")
+	defer span.End()
+
 	req, out := c.DeleteFolderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1465,6 +1508,9 @@ func (c *WorkDocs) DeleteFolderContents(input *DeleteFolderContentsInput) (*Dele
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DeleteFolderContentsWithContext(ctx aws.Context, input *DeleteFolderContentsInput, opts ...request.Option) (*DeleteFolderContentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DeleteFolderContents")
+	defer span.End()
+
 	req, out := c.DeleteFolderContentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1558,6 +1604,9 @@ func (c *WorkDocs) DeleteLabels(input *DeleteLabelsInput) (*DeleteLabelsOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DeleteLabelsWithContext(ctx aws.Context, input *DeleteLabelsInput, opts ...request.Option) (*DeleteLabelsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DeleteLabels")
+	defer span.End()
+
 	req, out := c.DeleteLabelsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1648,6 +1697,9 @@ func (c *WorkDocs) DeleteNotificationSubscription(input *DeleteNotificationSubsc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DeleteNotificationSubscriptionWithContext(ctx aws.Context, input *DeleteNotificationSubscriptionInput, opts ...request.Option) (*DeleteNotificationSubscriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DeleteNotificationSubscription")
+	defer span.End()
+
 	req, out := c.DeleteNotificationSubscriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1743,6 +1795,9 @@ func (c *WorkDocs) DeleteUser(input *DeleteUserInput) (*DeleteUserOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DeleteUserWithContext(ctx aws.Context, input *DeleteUserInput, opts ...request.Option) (*DeleteUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DeleteUser")
+	defer span.End()
+
 	req, out := c.DeleteUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1836,6 +1891,9 @@ func (c *WorkDocs) DescribeActivities(input *DescribeActivitiesInput) (*Describe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DescribeActivitiesWithContext(ctx aws.Context, input *DescribeActivitiesInput, opts ...request.Option) (*DescribeActivitiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DescribeActivities")
+	defer span.End()
+
 	req, out := c.DescribeActivitiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1932,6 +1990,9 @@ func (c *WorkDocs) DescribeComments(input *DescribeCommentsInput) (*DescribeComm
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DescribeCommentsWithContext(ctx aws.Context, input *DescribeCommentsInput, opts ...request.Option) (*DescribeCommentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DescribeComments")
+	defer span.End()
+
 	req, out := c.DescribeCommentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2039,6 +2100,9 @@ func (c *WorkDocs) DescribeDocumentVersions(input *DescribeDocumentVersionsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DescribeDocumentVersionsWithContext(ctx aws.Context, input *DescribeDocumentVersionsInput, opts ...request.Option) (*DescribeDocumentVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DescribeDocumentVersions")
+	defer span.End()
+
 	req, out := c.DescribeDocumentVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2197,6 +2261,9 @@ func (c *WorkDocs) DescribeFolderContents(input *DescribeFolderContentsInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DescribeFolderContentsWithContext(ctx aws.Context, input *DescribeFolderContentsInput, opts ...request.Option) (*DescribeFolderContentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DescribeFolderContents")
+	defer span.End()
+
 	req, out := c.DescribeFolderContentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2337,6 +2404,9 @@ func (c *WorkDocs) DescribeGroups(input *DescribeGroupsInput) (*DescribeGroupsOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DescribeGroupsWithContext(ctx aws.Context, input *DescribeGroupsInput, opts ...request.Option) (*DescribeGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DescribeGroups")
+	defer span.End()
+
 	req, out := c.DescribeGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2422,6 +2492,9 @@ func (c *WorkDocs) DescribeNotificationSubscriptions(input *DescribeNotification
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DescribeNotificationSubscriptionsWithContext(ctx aws.Context, input *DescribeNotificationSubscriptionsInput, opts ...request.Option) (*DescribeNotificationSubscriptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DescribeNotificationSubscriptions")
+	defer span.End()
+
 	req, out := c.DescribeNotificationSubscriptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2512,6 +2585,9 @@ func (c *WorkDocs) DescribeResourcePermissions(input *DescribeResourcePermission
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DescribeResourcePermissionsWithContext(ctx aws.Context, input *DescribeResourcePermissionsInput, opts ...request.Option) (*DescribeResourcePermissionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DescribeResourcePermissions")
+	defer span.End()
+
 	req, out := c.DescribeResourcePermissionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2608,6 +2684,9 @@ func (c *WorkDocs) DescribeRootFolders(input *DescribeRootFoldersInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DescribeRootFoldersWithContext(ctx aws.Context, input *DescribeRootFoldersInput, opts ...request.Option) (*DescribeRootFoldersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DescribeRootFolders")
+	defer span.End()
+
 	req, out := c.DescribeRootFoldersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2712,6 +2791,9 @@ func (c *WorkDocs) DescribeUsers(input *DescribeUsersInput) (*DescribeUsersOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) DescribeUsersWithContext(ctx aws.Context, input *DescribeUsersInput, opts ...request.Option) (*DescribeUsersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).DescribeUsers")
+	defer span.End()
+
 	req, out := c.DescribeUsersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2856,6 +2938,9 @@ func (c *WorkDocs) GetCurrentUser(input *GetCurrentUserInput) (*GetCurrentUserOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) GetCurrentUserWithContext(ctx aws.Context, input *GetCurrentUserInput, opts ...request.Option) (*GetCurrentUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).GetCurrentUser")
+	defer span.End()
+
 	req, out := c.GetCurrentUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2955,6 +3040,9 @@ func (c *WorkDocs) GetDocument(input *GetDocumentInput) (*GetDocumentOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) GetDocumentWithContext(ctx aws.Context, input *GetDocumentInput, opts ...request.Option) (*GetDocumentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).GetDocument")
+	defer span.End()
+
 	req, out := c.GetDocumentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3054,6 +3142,9 @@ func (c *WorkDocs) GetDocumentPath(input *GetDocumentPathInput) (*GetDocumentPat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) GetDocumentPathWithContext(ctx aws.Context, input *GetDocumentPathInput, opts ...request.Option) (*GetDocumentPathOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).GetDocumentPath")
+	defer span.End()
+
 	req, out := c.GetDocumentPathRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3153,6 +3244,9 @@ func (c *WorkDocs) GetDocumentVersion(input *GetDocumentVersionInput) (*GetDocum
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) GetDocumentVersionWithContext(ctx aws.Context, input *GetDocumentVersionInput, opts ...request.Option) (*GetDocumentVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).GetDocumentVersion")
+	defer span.End()
+
 	req, out := c.GetDocumentVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3252,6 +3346,9 @@ func (c *WorkDocs) GetFolder(input *GetFolderInput) (*GetFolderOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) GetFolderWithContext(ctx aws.Context, input *GetFolderInput, opts ...request.Option) (*GetFolderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).GetFolder")
+	defer span.End()
+
 	req, out := c.GetFolderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3351,6 +3448,9 @@ func (c *WorkDocs) GetFolderPath(input *GetFolderPathInput) (*GetFolderPathOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) GetFolderPathWithContext(ctx aws.Context, input *GetFolderPathInput, opts ...request.Option) (*GetFolderPathOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).GetFolderPath")
+	defer span.End()
+
 	req, out := c.GetFolderPathRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3470,6 +3570,9 @@ func (c *WorkDocs) InitiateDocumentVersionUpload(input *InitiateDocumentVersionU
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) InitiateDocumentVersionUploadWithContext(ctx aws.Context, input *InitiateDocumentVersionUploadInput, opts ...request.Option) (*InitiateDocumentVersionUploadOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).InitiateDocumentVersionUpload")
+	defer span.End()
+
 	req, out := c.InitiateDocumentVersionUploadRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3562,6 +3665,9 @@ func (c *WorkDocs) RemoveAllResourcePermissions(input *RemoveAllResourcePermissi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) RemoveAllResourcePermissionsWithContext(ctx aws.Context, input *RemoveAllResourcePermissionsInput, opts ...request.Option) (*RemoveAllResourcePermissionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).RemoveAllResourcePermissions")
+	defer span.End()
+
 	req, out := c.RemoveAllResourcePermissionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3654,6 +3760,9 @@ func (c *WorkDocs) RemoveResourcePermission(input *RemoveResourcePermissionInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) RemoveResourcePermissionWithContext(ctx aws.Context, input *RemoveResourcePermissionInput, opts ...request.Option) (*RemoveResourcePermissionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).RemoveResourcePermission")
+	defer span.End()
+
 	req, out := c.RemoveResourcePermissionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3762,6 +3871,9 @@ func (c *WorkDocs) UpdateDocument(input *UpdateDocumentInput) (*UpdateDocumentOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) UpdateDocumentWithContext(ctx aws.Context, input *UpdateDocumentInput, opts ...request.Option) (*UpdateDocumentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).UpdateDocument")
+	defer span.End()
+
 	req, out := c.UpdateDocumentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3870,6 +3982,9 @@ func (c *WorkDocs) UpdateDocumentVersion(input *UpdateDocumentVersionInput) (*Up
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) UpdateDocumentVersionWithContext(ctx aws.Context, input *UpdateDocumentVersionInput, opts ...request.Option) (*UpdateDocumentVersionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).UpdateDocumentVersion")
+	defer span.End()
+
 	req, out := c.UpdateDocumentVersionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3978,6 +4093,9 @@ func (c *WorkDocs) UpdateFolder(input *UpdateFolderInput) (*UpdateFolderOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) UpdateFolderWithContext(ctx aws.Context, input *UpdateFolderInput, opts ...request.Option) (*UpdateFolderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).UpdateFolder")
+	defer span.End()
+
 	req, out := c.UpdateFolderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4081,6 +4199,9 @@ func (c *WorkDocs) UpdateUser(input *UpdateUserInput) (*UpdateUserOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WorkDocs) UpdateUserWithContext(ctx aws.Context, input *UpdateUserInput, opts ...request.Option) (*UpdateUserOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/workdocs.(*WorkDocs).UpdateUser")
+	defer span.End()
+
 	req, out := c.UpdateUserRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

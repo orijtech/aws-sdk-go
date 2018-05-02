@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCheckDomainAvailability = "CheckDomainAvailability"
@@ -91,6 +92,9 @@ func (c *Route53Domains) CheckDomainAvailability(input *CheckDomainAvailabilityI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) CheckDomainAvailabilityWithContext(ctx aws.Context, input *CheckDomainAvailabilityInput, opts ...request.Option) (*CheckDomainAvailabilityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).CheckDomainAvailability")
+	defer span.End()
+
 	req, out := c.CheckDomainAvailabilityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -175,6 +179,9 @@ func (c *Route53Domains) CheckDomainTransferability(input *CheckDomainTransferab
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) CheckDomainTransferabilityWithContext(ctx aws.Context, input *CheckDomainTransferabilityInput, opts ...request.Option) (*CheckDomainTransferabilityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).CheckDomainTransferability")
+	defer span.End()
+
 	req, out := c.CheckDomainTransferabilityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -266,6 +273,9 @@ func (c *Route53Domains) DeleteTagsForDomain(input *DeleteTagsForDomainInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) DeleteTagsForDomainWithContext(ctx aws.Context, input *DeleteTagsForDomainInput, opts ...request.Option) (*DeleteTagsForDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).DeleteTagsForDomain")
+	defer span.End()
+
 	req, out := c.DeleteTagsForDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -351,6 +361,9 @@ func (c *Route53Domains) DisableDomainAutoRenew(input *DisableDomainAutoRenewInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) DisableDomainAutoRenewWithContext(ctx aws.Context, input *DisableDomainAutoRenewInput, opts ...request.Option) (*DisableDomainAutoRenewOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).DisableDomainAutoRenew")
+	defer span.End()
+
 	req, out := c.DisableDomainAutoRenewRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -451,6 +464,9 @@ func (c *Route53Domains) DisableDomainTransferLock(input *DisableDomainTransferL
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) DisableDomainTransferLockWithContext(ctx aws.Context, input *DisableDomainTransferLockInput, opts ...request.Option) (*DisableDomainTransferLockOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).DisableDomainTransferLock")
+	defer span.End()
+
 	req, out := c.DisableDomainTransferLockRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -547,6 +563,9 @@ func (c *Route53Domains) EnableDomainAutoRenew(input *EnableDomainAutoRenewInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) EnableDomainAutoRenewWithContext(ctx aws.Context, input *EnableDomainAutoRenewInput, opts ...request.Option) (*EnableDomainAutoRenewOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).EnableDomainAutoRenew")
+	defer span.End()
+
 	req, out := c.EnableDomainAutoRenewRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -645,6 +664,9 @@ func (c *Route53Domains) EnableDomainTransferLock(input *EnableDomainTransferLoc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) EnableDomainTransferLockWithContext(ctx aws.Context, input *EnableDomainTransferLockInput, opts ...request.Option) (*EnableDomainTransferLockOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).EnableDomainTransferLock")
+	defer span.End()
+
 	req, out := c.EnableDomainTransferLockRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -738,6 +760,9 @@ func (c *Route53Domains) GetContactReachabilityStatus(input *GetContactReachabil
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) GetContactReachabilityStatusWithContext(ctx aws.Context, input *GetContactReachabilityStatusInput, opts ...request.Option) (*GetContactReachabilityStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).GetContactReachabilityStatus")
+	defer span.End()
+
 	req, out := c.GetContactReachabilityStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -824,6 +849,9 @@ func (c *Route53Domains) GetDomainDetail(input *GetDomainDetailInput) (*GetDomai
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) GetDomainDetailWithContext(ctx aws.Context, input *GetDomainDetailInput, opts ...request.Option) (*GetDomainDetailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).GetDomainDetail")
+	defer span.End()
+
 	req, out := c.GetDomainDetailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -910,6 +938,9 @@ func (c *Route53Domains) GetDomainSuggestions(input *GetDomainSuggestionsInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) GetDomainSuggestionsWithContext(ctx aws.Context, input *GetDomainSuggestionsInput, opts ...request.Option) (*GetDomainSuggestionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).GetDomainSuggestions")
+	defer span.End()
+
 	req, out := c.GetDomainSuggestionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -991,6 +1022,9 @@ func (c *Route53Domains) GetOperationDetail(input *GetOperationDetailInput) (*Ge
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) GetOperationDetailWithContext(ctx aws.Context, input *GetOperationDetailInput, opts ...request.Option) (*GetOperationDetailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).GetOperationDetail")
+	defer span.End()
+
 	req, out := c.GetOperationDetailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1079,6 +1113,9 @@ func (c *Route53Domains) ListDomains(input *ListDomainsInput) (*ListDomainsOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) ListDomainsWithContext(ctx aws.Context, input *ListDomainsInput, opts ...request.Option) (*ListDomainsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).ListDomains")
+	defer span.End()
+
 	req, out := c.ListDomainsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1216,6 +1253,9 @@ func (c *Route53Domains) ListOperations(input *ListOperationsInput) (*ListOperat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) ListOperationsWithContext(ctx aws.Context, input *ListOperationsInput, opts ...request.Option) (*ListOperationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).ListOperations")
+	defer span.End()
+
 	req, out := c.ListOperationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1358,6 +1398,9 @@ func (c *Route53Domains) ListTagsForDomain(input *ListTagsForDomainInput) (*List
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) ListTagsForDomainWithContext(ctx aws.Context, input *ListTagsForDomainInput, opts ...request.Option) (*ListTagsForDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).ListTagsForDomain")
+	defer span.End()
+
 	req, out := c.ListTagsForDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1479,6 +1522,9 @@ func (c *Route53Domains) RegisterDomain(input *RegisterDomainInput) (*RegisterDo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) RegisterDomainWithContext(ctx aws.Context, input *RegisterDomainInput, opts ...request.Option) (*RegisterDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).RegisterDomain")
+	defer span.End()
+
 	req, out := c.RegisterDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1580,6 +1626,9 @@ func (c *Route53Domains) RenewDomain(input *RenewDomainInput) (*RenewDomainOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) RenewDomainWithContext(ctx aws.Context, input *RenewDomainInput, opts ...request.Option) (*RenewDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).RenewDomain")
+	defer span.End()
+
 	req, out := c.RenewDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1670,6 +1719,9 @@ func (c *Route53Domains) ResendContactReachabilityEmail(input *ResendContactReac
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) ResendContactReachabilityEmailWithContext(ctx aws.Context, input *ResendContactReachabilityEmailInput, opts ...request.Option) (*ResendContactReachabilityEmailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).ResendContactReachabilityEmail")
+	defer span.End()
+
 	req, out := c.ResendContactReachabilityEmailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1755,6 +1807,9 @@ func (c *Route53Domains) RetrieveDomainAuthCode(input *RetrieveDomainAuthCodeInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) RetrieveDomainAuthCodeWithContext(ctx aws.Context, input *RetrieveDomainAuthCodeInput, opts ...request.Option) (*RetrieveDomainAuthCodeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).RetrieveDomainAuthCode")
+	defer span.End()
+
 	req, out := c.RetrieveDomainAuthCodeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1876,6 +1931,9 @@ func (c *Route53Domains) TransferDomain(input *TransferDomainInput) (*TransferDo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) TransferDomainWithContext(ctx aws.Context, input *TransferDomainInput, opts ...request.Option) (*TransferDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).TransferDomain")
+	defer span.End()
+
 	req, out := c.TransferDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1977,6 +2035,9 @@ func (c *Route53Domains) UpdateDomainContact(input *UpdateDomainContactInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) UpdateDomainContactWithContext(ctx aws.Context, input *UpdateDomainContactInput, opts ...request.Option) (*UpdateDomainContactOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).UpdateDomainContact")
+	defer span.End()
+
 	req, out := c.UpdateDomainContactRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2081,6 +2142,9 @@ func (c *Route53Domains) UpdateDomainContactPrivacy(input *UpdateDomainContactPr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) UpdateDomainContactPrivacyWithContext(ctx aws.Context, input *UpdateDomainContactPrivacyInput, opts ...request.Option) (*UpdateDomainContactPrivacyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).UpdateDomainContactPrivacy")
+	defer span.End()
+
 	req, out := c.UpdateDomainContactPrivacyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2182,6 +2246,9 @@ func (c *Route53Domains) UpdateDomainNameservers(input *UpdateDomainNameserversI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) UpdateDomainNameserversWithContext(ctx aws.Context, input *UpdateDomainNameserversInput, opts ...request.Option) (*UpdateDomainNameserversOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).UpdateDomainNameservers")
+	defer span.End()
+
 	req, out := c.UpdateDomainNameserversRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2273,6 +2340,9 @@ func (c *Route53Domains) UpdateTagsForDomain(input *UpdateTagsForDomainInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) UpdateTagsForDomainWithContext(ctx aws.Context, input *UpdateTagsForDomainInput, opts ...request.Option) (*UpdateTagsForDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).UpdateTagsForDomain")
+	defer span.End()
+
 	req, out := c.UpdateTagsForDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2355,6 +2425,9 @@ func (c *Route53Domains) ViewBilling(input *ViewBillingInput) (*ViewBillingOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Route53Domains) ViewBillingWithContext(ctx aws.Context, input *ViewBillingInput, opts ...request.Option) (*ViewBillingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/route53domains.(*Route53Domains).ViewBilling")
+	defer span.End()
+
 	req, out := c.ViewBillingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/query"
+	"go.opencensus.io/trace"
 )
 
 const opAttachInstances = "AttachInstances"
@@ -106,6 +107,9 @@ func (c *AutoScaling) AttachInstances(input *AttachInstancesInput) (*AttachInsta
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) AttachInstancesWithContext(ctx aws.Context, input *AttachInstancesInput, opts ...request.Option) (*AttachInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).AttachInstances")
+	defer span.End()
+
 	req, out := c.AttachInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -196,6 +200,9 @@ func (c *AutoScaling) AttachLoadBalancerTargetGroups(input *AttachLoadBalancerTa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) AttachLoadBalancerTargetGroupsWithContext(ctx aws.Context, input *AttachLoadBalancerTargetGroupsInput, opts ...request.Option) (*AttachLoadBalancerTargetGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).AttachLoadBalancerTargetGroups")
+	defer span.End()
+
 	req, out := c.AttachLoadBalancerTargetGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -289,6 +296,9 @@ func (c *AutoScaling) AttachLoadBalancers(input *AttachLoadBalancersInput) (*Att
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) AttachLoadBalancersWithContext(ctx aws.Context, input *AttachLoadBalancersInput, opts ...request.Option) (*AttachLoadBalancersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).AttachLoadBalancers")
+	defer span.End()
+
 	req, out := c.AttachLoadBalancersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -391,6 +401,9 @@ func (c *AutoScaling) CompleteLifecycleAction(input *CompleteLifecycleActionInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) CompleteLifecycleActionWithContext(ctx aws.Context, input *CompleteLifecycleActionInput, opts ...request.Option) (*CompleteLifecycleActionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).CompleteLifecycleAction")
+	defer span.End()
+
 	req, out := c.CompleteLifecycleActionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -493,6 +506,9 @@ func (c *AutoScaling) CreateAutoScalingGroup(input *CreateAutoScalingGroupInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) CreateAutoScalingGroupWithContext(ctx aws.Context, input *CreateAutoScalingGroupInput, opts ...request.Option) (*CreateAutoScalingGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).CreateAutoScalingGroup")
+	defer span.End()
+
 	req, out := c.CreateAutoScalingGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -592,6 +608,9 @@ func (c *AutoScaling) CreateLaunchConfiguration(input *CreateLaunchConfiguration
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) CreateLaunchConfigurationWithContext(ctx aws.Context, input *CreateLaunchConfigurationInput, opts ...request.Option) (*CreateLaunchConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).CreateLaunchConfiguration")
+	defer span.End()
+
 	req, out := c.CreateLaunchConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -692,6 +711,9 @@ func (c *AutoScaling) CreateOrUpdateTags(input *CreateOrUpdateTagsInput) (*Creat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) CreateOrUpdateTagsWithContext(ctx aws.Context, input *CreateOrUpdateTagsInput, opts ...request.Option) (*CreateOrUpdateTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).CreateOrUpdateTags")
+	defer span.End()
+
 	req, out := c.CreateOrUpdateTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -795,6 +817,9 @@ func (c *AutoScaling) DeleteAutoScalingGroup(input *DeleteAutoScalingGroupInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DeleteAutoScalingGroupWithContext(ctx aws.Context, input *DeleteAutoScalingGroupInput, opts ...request.Option) (*DeleteAutoScalingGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DeleteAutoScalingGroup")
+	defer span.End()
+
 	req, out := c.DeleteAutoScalingGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -884,6 +909,9 @@ func (c *AutoScaling) DeleteLaunchConfiguration(input *DeleteLaunchConfiguration
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DeleteLaunchConfigurationWithContext(ctx aws.Context, input *DeleteLaunchConfigurationInput, opts ...request.Option) (*DeleteLaunchConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DeleteLaunchConfiguration")
+	defer span.End()
+
 	req, out := c.DeleteLaunchConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -967,6 +995,9 @@ func (c *AutoScaling) DeleteLifecycleHook(input *DeleteLifecycleHookInput) (*Del
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DeleteLifecycleHookWithContext(ctx aws.Context, input *DeleteLifecycleHookInput, opts ...request.Option) (*DeleteLifecycleHookOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DeleteLifecycleHook")
+	defer span.End()
+
 	req, out := c.DeleteLifecycleHookRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1049,6 +1080,9 @@ func (c *AutoScaling) DeleteNotificationConfiguration(input *DeleteNotificationC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DeleteNotificationConfigurationWithContext(ctx aws.Context, input *DeleteNotificationConfigurationInput, opts ...request.Option) (*DeleteNotificationConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DeleteNotificationConfiguration")
+	defer span.End()
+
 	req, out := c.DeleteNotificationConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1137,6 +1171,9 @@ func (c *AutoScaling) DeletePolicy(input *DeletePolicyInput) (*DeletePolicyOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DeletePolicyWithContext(ctx aws.Context, input *DeletePolicyInput, opts ...request.Option) (*DeletePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DeletePolicy")
+	defer span.End()
+
 	req, out := c.DeletePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1219,6 +1256,9 @@ func (c *AutoScaling) DeleteScheduledAction(input *DeleteScheduledActionInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DeleteScheduledActionWithContext(ctx aws.Context, input *DeleteScheduledActionInput, opts ...request.Option) (*DeleteScheduledActionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DeleteScheduledAction")
+	defer span.End()
+
 	req, out := c.DeleteScheduledActionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1304,6 +1344,9 @@ func (c *AutoScaling) DeleteTags(input *DeleteTagsInput) (*DeleteTagsOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DeleteTagsWithContext(ctx aws.Context, input *DeleteTagsInput, opts ...request.Option) (*DeleteTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DeleteTags")
+	defer span.End()
+
 	req, out := c.DeleteTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1388,6 +1431,9 @@ func (c *AutoScaling) DescribeAccountLimits(input *DescribeAccountLimitsInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeAccountLimitsWithContext(ctx aws.Context, input *DescribeAccountLimitsInput, opts ...request.Option) (*DescribeAccountLimitsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeAccountLimits")
+	defer span.End()
+
 	req, out := c.DescribeAccountLimitsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1468,6 +1514,9 @@ func (c *AutoScaling) DescribeAdjustmentTypes(input *DescribeAdjustmentTypesInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeAdjustmentTypesWithContext(ctx aws.Context, input *DescribeAdjustmentTypesInput, opts ...request.Option) (*DescribeAdjustmentTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeAdjustmentTypes")
+	defer span.End()
+
 	req, out := c.DescribeAdjustmentTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1557,6 +1606,9 @@ func (c *AutoScaling) DescribeAutoScalingGroups(input *DescribeAutoScalingGroups
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeAutoScalingGroupsWithContext(ctx aws.Context, input *DescribeAutoScalingGroupsInput, opts ...request.Option) (*DescribeAutoScalingGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeAutoScalingGroups")
+	defer span.End()
+
 	req, out := c.DescribeAutoScalingGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1696,6 +1748,9 @@ func (c *AutoScaling) DescribeAutoScalingInstances(input *DescribeAutoScalingIns
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeAutoScalingInstancesWithContext(ctx aws.Context, input *DescribeAutoScalingInstancesInput, opts ...request.Option) (*DescribeAutoScalingInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeAutoScalingInstances")
+	defer span.End()
+
 	req, out := c.DescribeAutoScalingInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1826,6 +1881,9 @@ func (c *AutoScaling) DescribeAutoScalingNotificationTypes(input *DescribeAutoSc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeAutoScalingNotificationTypesWithContext(ctx aws.Context, input *DescribeAutoScalingNotificationTypesInput, opts ...request.Option) (*DescribeAutoScalingNotificationTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeAutoScalingNotificationTypes")
+	defer span.End()
+
 	req, out := c.DescribeAutoScalingNotificationTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1915,6 +1973,9 @@ func (c *AutoScaling) DescribeLaunchConfigurations(input *DescribeLaunchConfigur
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeLaunchConfigurationsWithContext(ctx aws.Context, input *DescribeLaunchConfigurationsInput, opts ...request.Option) (*DescribeLaunchConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeLaunchConfigurations")
+	defer span.End()
+
 	req, out := c.DescribeLaunchConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2045,6 +2106,9 @@ func (c *AutoScaling) DescribeLifecycleHookTypes(input *DescribeLifecycleHookTyp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeLifecycleHookTypesWithContext(ctx aws.Context, input *DescribeLifecycleHookTypesInput, opts ...request.Option) (*DescribeLifecycleHookTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeLifecycleHookTypes")
+	defer span.End()
+
 	req, out := c.DescribeLifecycleHookTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2125,6 +2189,9 @@ func (c *AutoScaling) DescribeLifecycleHooks(input *DescribeLifecycleHooksInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeLifecycleHooksWithContext(ctx aws.Context, input *DescribeLifecycleHooksInput, opts ...request.Option) (*DescribeLifecycleHooksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeLifecycleHooks")
+	defer span.End()
+
 	req, out := c.DescribeLifecycleHooksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2205,6 +2272,9 @@ func (c *AutoScaling) DescribeLoadBalancerTargetGroups(input *DescribeLoadBalanc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeLoadBalancerTargetGroupsWithContext(ctx aws.Context, input *DescribeLoadBalancerTargetGroupsInput, opts ...request.Option) (*DescribeLoadBalancerTargetGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeLoadBalancerTargetGroups")
+	defer span.End()
+
 	req, out := c.DescribeLoadBalancerTargetGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2288,6 +2358,9 @@ func (c *AutoScaling) DescribeLoadBalancers(input *DescribeLoadBalancersInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeLoadBalancersWithContext(ctx aws.Context, input *DescribeLoadBalancersInput, opts ...request.Option) (*DescribeLoadBalancersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeLoadBalancers")
+	defer span.End()
+
 	req, out := c.DescribeLoadBalancersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2371,6 +2444,9 @@ func (c *AutoScaling) DescribeMetricCollectionTypes(input *DescribeMetricCollect
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeMetricCollectionTypesWithContext(ctx aws.Context, input *DescribeMetricCollectionTypesInput, opts ...request.Option) (*DescribeMetricCollectionTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeMetricCollectionTypes")
+	defer span.End()
+
 	req, out := c.DescribeMetricCollectionTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2461,6 +2537,9 @@ func (c *AutoScaling) DescribeNotificationConfigurations(input *DescribeNotifica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeNotificationConfigurationsWithContext(ctx aws.Context, input *DescribeNotificationConfigurationsInput, opts ...request.Option) (*DescribeNotificationConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeNotificationConfigurations")
+	defer span.End()
+
 	req, out := c.DescribeNotificationConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2603,6 +2682,9 @@ func (c *AutoScaling) DescribePolicies(input *DescribePoliciesInput) (*DescribeP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribePoliciesWithContext(ctx aws.Context, input *DescribePoliciesInput, opts ...request.Option) (*DescribePoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribePolicies")
+	defer span.End()
+
 	req, out := c.DescribePoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2742,6 +2824,9 @@ func (c *AutoScaling) DescribeScalingActivities(input *DescribeScalingActivities
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeScalingActivitiesWithContext(ctx aws.Context, input *DescribeScalingActivitiesInput, opts ...request.Option) (*DescribeScalingActivitiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeScalingActivities")
+	defer span.End()
+
 	req, out := c.DescribeScalingActivitiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2872,6 +2957,9 @@ func (c *AutoScaling) DescribeScalingProcessTypes(input *DescribeScalingProcessT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeScalingProcessTypesWithContext(ctx aws.Context, input *DescribeScalingProcessTypesInput, opts ...request.Option) (*DescribeScalingProcessTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeScalingProcessTypes")
+	defer span.End()
+
 	req, out := c.DescribeScalingProcessTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2962,6 +3050,9 @@ func (c *AutoScaling) DescribeScheduledActions(input *DescribeScheduledActionsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeScheduledActionsWithContext(ctx aws.Context, input *DescribeScheduledActionsInput, opts ...request.Option) (*DescribeScheduledActionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeScheduledActions")
+	defer span.End()
+
 	req, out := c.DescribeScheduledActionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3110,6 +3201,9 @@ func (c *AutoScaling) DescribeTags(input *DescribeTagsInput) (*DescribeTagsOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeTagsWithContext(ctx aws.Context, input *DescribeTagsInput, opts ...request.Option) (*DescribeTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeTags")
+	defer span.End()
+
 	req, out := c.DescribeTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3240,6 +3334,9 @@ func (c *AutoScaling) DescribeTerminationPolicyTypes(input *DescribeTerminationP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DescribeTerminationPolicyTypesWithContext(ctx aws.Context, input *DescribeTerminationPolicyTypesInput, opts ...request.Option) (*DescribeTerminationPolicyTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DescribeTerminationPolicyTypes")
+	defer span.End()
+
 	req, out := c.DescribeTerminationPolicyTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3335,6 +3432,9 @@ func (c *AutoScaling) DetachInstances(input *DetachInstancesInput) (*DetachInsta
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DetachInstancesWithContext(ctx aws.Context, input *DetachInstancesInput, opts ...request.Option) (*DetachInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DetachInstances")
+	defer span.End()
+
 	req, out := c.DetachInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3415,6 +3515,9 @@ func (c *AutoScaling) DetachLoadBalancerTargetGroups(input *DetachLoadBalancerTa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DetachLoadBalancerTargetGroupsWithContext(ctx aws.Context, input *DetachLoadBalancerTargetGroupsInput, opts ...request.Option) (*DetachLoadBalancerTargetGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DetachLoadBalancerTargetGroups")
+	defer span.End()
+
 	req, out := c.DetachLoadBalancerTargetGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3504,6 +3607,9 @@ func (c *AutoScaling) DetachLoadBalancers(input *DetachLoadBalancersInput) (*Det
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DetachLoadBalancersWithContext(ctx aws.Context, input *DetachLoadBalancersInput, opts ...request.Option) (*DetachLoadBalancersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DetachLoadBalancers")
+	defer span.End()
+
 	req, out := c.DetachLoadBalancersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3586,6 +3692,9 @@ func (c *AutoScaling) DisableMetricsCollection(input *DisableMetricsCollectionIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) DisableMetricsCollectionWithContext(ctx aws.Context, input *DisableMetricsCollectionInput, opts ...request.Option) (*DisableMetricsCollectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).DisableMetricsCollection")
+	defer span.End()
+
 	req, out := c.DisableMetricsCollectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3670,6 +3779,9 @@ func (c *AutoScaling) EnableMetricsCollection(input *EnableMetricsCollectionInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) EnableMetricsCollectionWithContext(ctx aws.Context, input *EnableMetricsCollectionInput, opts ...request.Option) (*EnableMetricsCollectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).EnableMetricsCollection")
+	defer span.End()
+
 	req, out := c.EnableMetricsCollectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3754,6 +3866,9 @@ func (c *AutoScaling) EnterStandby(input *EnterStandbyInput) (*EnterStandbyOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) EnterStandbyWithContext(ctx aws.Context, input *EnterStandbyInput, opts ...request.Option) (*EnterStandbyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).EnterStandby")
+	defer span.End()
+
 	req, out := c.EnterStandbyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3840,6 +3955,9 @@ func (c *AutoScaling) ExecutePolicy(input *ExecutePolicyInput) (*ExecutePolicyOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) ExecutePolicyWithContext(ctx aws.Context, input *ExecutePolicyInput, opts ...request.Option) (*ExecutePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).ExecutePolicy")
+	defer span.End()
+
 	req, out := c.ExecutePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3924,6 +4042,9 @@ func (c *AutoScaling) ExitStandby(input *ExitStandbyInput) (*ExitStandbyOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) ExitStandbyWithContext(ctx aws.Context, input *ExitStandbyInput, opts ...request.Option) (*ExitStandbyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).ExitStandby")
+	defer span.End()
+
 	req, out := c.ExitStandbyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4039,6 +4160,9 @@ func (c *AutoScaling) PutLifecycleHook(input *PutLifecycleHookInput) (*PutLifecy
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) PutLifecycleHookWithContext(ctx aws.Context, input *PutLifecycleHookInput, opts ...request.Option) (*PutLifecycleHookOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).PutLifecycleHook")
+	defer span.End()
+
 	req, out := c.PutLifecycleHookRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4137,6 +4261,9 @@ func (c *AutoScaling) PutNotificationConfiguration(input *PutNotificationConfigu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) PutNotificationConfigurationWithContext(ctx aws.Context, input *PutNotificationConfigurationInput, opts ...request.Option) (*PutNotificationConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).PutNotificationConfiguration")
+	defer span.End()
+
 	req, out := c.PutNotificationConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4233,6 +4360,9 @@ func (c *AutoScaling) PutScalingPolicy(input *PutScalingPolicyInput) (*PutScalin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) PutScalingPolicyWithContext(ctx aws.Context, input *PutScalingPolicyInput, opts ...request.Option) (*PutScalingPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).PutScalingPolicy")
+	defer span.End()
+
 	req, out := c.PutScalingPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4329,6 +4459,9 @@ func (c *AutoScaling) PutScheduledUpdateGroupAction(input *PutScheduledUpdateGro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) PutScheduledUpdateGroupActionWithContext(ctx aws.Context, input *PutScheduledUpdateGroupActionInput, opts ...request.Option) (*PutScheduledUpdateGroupActionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).PutScheduledUpdateGroupAction")
+	defer span.End()
+
 	req, out := c.PutScheduledUpdateGroupActionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4432,6 +4565,9 @@ func (c *AutoScaling) RecordLifecycleActionHeartbeat(input *RecordLifecycleActio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) RecordLifecycleActionHeartbeatWithContext(ctx aws.Context, input *RecordLifecycleActionHeartbeatInput, opts ...request.Option) (*RecordLifecycleActionHeartbeatOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).RecordLifecycleActionHeartbeat")
+	defer span.End()
+
 	req, out := c.RecordLifecycleActionHeartbeatRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4522,6 +4658,9 @@ func (c *AutoScaling) ResumeProcesses(input *ScalingProcessQuery) (*ResumeProces
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) ResumeProcessesWithContext(ctx aws.Context, input *ScalingProcessQuery, opts ...request.Option) (*ResumeProcessesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).ResumeProcesses")
+	defer span.End()
+
 	req, out := c.ResumeProcessesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4611,6 +4750,9 @@ func (c *AutoScaling) SetDesiredCapacity(input *SetDesiredCapacityInput) (*SetDe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) SetDesiredCapacityWithContext(ctx aws.Context, input *SetDesiredCapacityInput, opts ...request.Option) (*SetDesiredCapacityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).SetDesiredCapacity")
+	defer span.End()
+
 	req, out := c.SetDesiredCapacityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4696,6 +4838,9 @@ func (c *AutoScaling) SetInstanceHealth(input *SetInstanceHealthInput) (*SetInst
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) SetInstanceHealthWithContext(ctx aws.Context, input *SetInstanceHealthInput, opts ...request.Option) (*SetInstanceHealthOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).SetInstanceHealth")
+	defer span.End()
+
 	req, out := c.SetInstanceHealthRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4784,6 +4929,9 @@ func (c *AutoScaling) SetInstanceProtection(input *SetInstanceProtectionInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) SetInstanceProtectionWithContext(ctx aws.Context, input *SetInstanceProtectionInput, opts ...request.Option) (*SetInstanceProtectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).SetInstanceProtection")
+	defer span.End()
+
 	req, out := c.SetInstanceProtectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4879,6 +5027,9 @@ func (c *AutoScaling) SuspendProcesses(input *ScalingProcessQuery) (*SuspendProc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) SuspendProcessesWithContext(ctx aws.Context, input *ScalingProcessQuery, opts ...request.Option) (*SuspendProcessesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).SuspendProcesses")
+	defer span.End()
+
 	req, out := c.SuspendProcessesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4967,6 +5118,9 @@ func (c *AutoScaling) TerminateInstanceInAutoScalingGroup(input *TerminateInstan
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) TerminateInstanceInAutoScalingGroupWithContext(ctx aws.Context, input *TerminateInstanceInAutoScalingGroupInput, opts ...request.Option) (*TerminateInstanceInAutoScalingGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).TerminateInstanceInAutoScalingGroup")
+	defer span.End()
+
 	req, out := c.TerminateInstanceInAutoScalingGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5078,6 +5232,9 @@ func (c *AutoScaling) UpdateAutoScalingGroup(input *UpdateAutoScalingGroupInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AutoScaling) UpdateAutoScalingGroupWithContext(ctx aws.Context, input *UpdateAutoScalingGroupInput, opts ...request.Option) (*UpdateAutoScalingGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/autoscaling.(*AutoScaling).UpdateAutoScalingGroup")
+	defer span.End()
+
 	req, out := c.UpdateAutoScalingGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

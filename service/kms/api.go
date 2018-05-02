@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opCancelKeyDeletion = "CancelKeyDeletion"
@@ -113,6 +114,9 @@ func (c *KMS) CancelKeyDeletion(input *CancelKeyDeletionInput) (*CancelKeyDeleti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) CancelKeyDeletionWithContext(ctx aws.Context, input *CancelKeyDeletionInput, opts ...request.Option) (*CancelKeyDeletionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).CancelKeyDeletion")
+	defer span.End()
+
 	req, out := c.CancelKeyDeletionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -245,6 +249,9 @@ func (c *KMS) CreateAlias(input *CreateAliasInput) (*CreateAliasOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) CreateAliasWithContext(ctx aws.Context, input *CreateAliasInput, opts ...request.Option) (*CreateAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).CreateAlias")
+	defer span.End()
+
 	req, out := c.CreateAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -362,6 +369,9 @@ func (c *KMS) CreateGrant(input *CreateGrantInput) (*CreateGrantOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) CreateGrantWithContext(ctx aws.Context, input *CreateGrantInput, opts ...request.Option) (*CreateGrantOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).CreateGrant")
+	defer span.End()
+
 	req, out := c.CreateGrantRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -477,6 +487,9 @@ func (c *KMS) CreateKey(input *CreateKeyInput) (*CreateKeyOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) CreateKeyWithContext(ctx aws.Context, input *CreateKeyInput, opts ...request.Option) (*CreateKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).CreateKey")
+	defer span.End()
+
 	req, out := c.CreateKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -604,6 +617,9 @@ func (c *KMS) Decrypt(input *DecryptInput) (*DecryptOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) DecryptWithContext(ctx aws.Context, input *DecryptInput, opts ...request.Option) (*DecryptOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).Decrypt")
+	defer span.End()
+
 	req, out := c.DecryptRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -712,6 +728,9 @@ func (c *KMS) DeleteAlias(input *DeleteAliasInput) (*DeleteAliasOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) DeleteAliasWithContext(ctx aws.Context, input *DeleteAliasInput, opts ...request.Option) (*DeleteAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).DeleteAlias")
+	defer span.End()
+
 	req, out := c.DeleteAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -827,6 +846,9 @@ func (c *KMS) DeleteImportedKeyMaterial(input *DeleteImportedKeyMaterialInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) DeleteImportedKeyMaterialWithContext(ctx aws.Context, input *DeleteImportedKeyMaterialInput, opts ...request.Option) (*DeleteImportedKeyMaterialOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).DeleteImportedKeyMaterial")
+	defer span.End()
+
 	req, out := c.DeleteImportedKeyMaterialRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -921,6 +943,9 @@ func (c *KMS) DescribeKey(input *DescribeKeyInput) (*DescribeKeyOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) DescribeKeyWithContext(ctx aws.Context, input *DescribeKeyInput, opts ...request.Option) (*DescribeKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).DescribeKey")
+	defer span.End()
+
 	req, out := c.DescribeKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1028,6 +1053,9 @@ func (c *KMS) DisableKey(input *DisableKeyInput) (*DisableKeyOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) DisableKeyWithContext(ctx aws.Context, input *DisableKeyInput, opts ...request.Option) (*DisableKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).DisableKey")
+	defer span.End()
+
 	req, out := c.DisableKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1138,6 +1166,9 @@ func (c *KMS) DisableKeyRotation(input *DisableKeyRotationInput) (*DisableKeyRot
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) DisableKeyRotationWithContext(ctx aws.Context, input *DisableKeyRotationInput, opts ...request.Option) (*DisableKeyRotationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).DisableKeyRotation")
+	defer span.End()
+
 	req, out := c.DisableKeyRotationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1246,6 +1277,9 @@ func (c *KMS) EnableKey(input *EnableKeyInput) (*EnableKeyOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) EnableKeyWithContext(ctx aws.Context, input *EnableKeyInput, opts ...request.Option) (*EnableKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).EnableKey")
+	defer span.End()
+
 	req, out := c.EnableKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1356,6 +1390,9 @@ func (c *KMS) EnableKeyRotation(input *EnableKeyRotationInput) (*EnableKeyRotati
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) EnableKeyRotationWithContext(ctx aws.Context, input *EnableKeyRotationInput, opts ...request.Option) (*EnableKeyRotationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).EnableKeyRotation")
+	defer span.End()
+
 	req, out := c.EnableKeyRotationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1487,6 +1524,9 @@ func (c *KMS) Encrypt(input *EncryptInput) (*EncryptOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) EncryptWithContext(ctx aws.Context, input *EncryptInput, opts ...request.Option) (*EncryptOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).Encrypt")
+	defer span.End()
+
 	req, out := c.EncryptRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1641,6 +1681,9 @@ func (c *KMS) GenerateDataKey(input *GenerateDataKeyInput) (*GenerateDataKeyOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) GenerateDataKeyWithContext(ctx aws.Context, input *GenerateDataKeyInput, opts ...request.Option) (*GenerateDataKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).GenerateDataKey")
+	defer span.End()
+
 	req, out := c.GenerateDataKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1767,6 +1810,9 @@ func (c *KMS) GenerateDataKeyWithoutPlaintext(input *GenerateDataKeyWithoutPlain
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) GenerateDataKeyWithoutPlaintextWithContext(ctx aws.Context, input *GenerateDataKeyWithoutPlaintextInput, opts ...request.Option) (*GenerateDataKeyWithoutPlaintextOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).GenerateDataKeyWithoutPlaintext")
+	defer span.End()
+
 	req, out := c.GenerateDataKeyWithoutPlaintextRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1855,6 +1901,9 @@ func (c *KMS) GenerateRandom(input *GenerateRandomInput) (*GenerateRandomOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) GenerateRandomWithContext(ctx aws.Context, input *GenerateRandomInput, opts ...request.Option) (*GenerateRandomOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).GenerateRandom")
+	defer span.End()
+
 	req, out := c.GenerateRandomRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1955,6 +2004,9 @@ func (c *KMS) GetKeyPolicy(input *GetKeyPolicyInput) (*GetKeyPolicyOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) GetKeyPolicyWithContext(ctx aws.Context, input *GetKeyPolicyInput, opts ...request.Option) (*GetKeyPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).GetKeyPolicy")
+	defer span.End()
+
 	req, out := c.GetKeyPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2062,6 +2114,9 @@ func (c *KMS) GetKeyRotationStatus(input *GetKeyRotationStatusInput) (*GetKeyRot
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) GetKeyRotationStatusWithContext(ctx aws.Context, input *GetKeyRotationStatusInput, opts ...request.Option) (*GetKeyRotationStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).GetKeyRotationStatus")
+	defer span.End()
+
 	req, out := c.GetKeyRotationStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2181,6 +2236,9 @@ func (c *KMS) GetParametersForImport(input *GetParametersForImportInput) (*GetPa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) GetParametersForImportWithContext(ctx aws.Context, input *GetParametersForImportInput, opts ...request.Option) (*GetParametersForImportOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).GetParametersForImport")
+	defer span.End()
+
 	req, out := c.GetParametersForImportRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2338,6 +2396,9 @@ func (c *KMS) ImportKeyMaterial(input *ImportKeyMaterialInput) (*ImportKeyMateri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) ImportKeyMaterialWithContext(ctx aws.Context, input *ImportKeyMaterialInput, opts ...request.Option) (*ImportKeyMaterialOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).ImportKeyMaterial")
+	defer span.End()
+
 	req, out := c.ImportKeyMaterialRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2439,6 +2500,9 @@ func (c *KMS) ListAliases(input *ListAliasesInput) (*ListAliasesOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) ListAliasesWithContext(ctx aws.Context, input *ListAliasesInput, opts ...request.Option) (*ListAliasesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).ListAliases")
+	defer span.End()
+
 	req, out := c.ListAliasesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2601,6 +2665,9 @@ func (c *KMS) ListGrants(input *ListGrantsInput) (*ListGrantsResponse, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) ListGrantsWithContext(ctx aws.Context, input *ListGrantsInput, opts ...request.Option) (*ListGrantsResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).ListGrants")
+	defer span.End()
+
 	req, out := c.ListGrantsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2759,6 +2826,9 @@ func (c *KMS) ListKeyPolicies(input *ListKeyPoliciesInput) (*ListKeyPoliciesOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) ListKeyPoliciesWithContext(ctx aws.Context, input *ListKeyPoliciesInput, opts ...request.Option) (*ListKeyPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).ListKeyPolicies")
+	defer span.End()
+
 	req, out := c.ListKeyPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2904,6 +2974,9 @@ func (c *KMS) ListKeys(input *ListKeysInput) (*ListKeysOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) ListKeysWithContext(ctx aws.Context, input *ListKeysInput, opts ...request.Option) (*ListKeysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).ListKeys")
+	defer span.End()
+
 	req, out := c.ListKeysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3047,6 +3120,9 @@ func (c *KMS) ListResourceTags(input *ListResourceTagsInput) (*ListResourceTagsO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) ListResourceTagsWithContext(ctx aws.Context, input *ListResourceTagsInput, opts ...request.Option) (*ListResourceTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).ListResourceTags")
+	defer span.End()
+
 	req, out := c.ListResourceTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3146,6 +3222,9 @@ func (c *KMS) ListRetirableGrants(input *ListRetirableGrantsInput) (*ListGrantsR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) ListRetirableGrantsWithContext(ctx aws.Context, input *ListRetirableGrantsInput, opts ...request.Option) (*ListGrantsResponse, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).ListRetirableGrants")
+	defer span.End()
+
 	req, out := c.ListRetirableGrantsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3264,6 +3343,9 @@ func (c *KMS) PutKeyPolicy(input *PutKeyPolicyInput) (*PutKeyPolicyOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) PutKeyPolicyWithContext(ctx aws.Context, input *PutKeyPolicyInput, opts ...request.Option) (*PutKeyPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).PutKeyPolicy")
+	defer span.End()
+
 	req, out := c.PutKeyPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3391,6 +3473,9 @@ func (c *KMS) ReEncrypt(input *ReEncryptInput) (*ReEncryptOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) ReEncryptWithContext(ctx aws.Context, input *ReEncryptInput, opts ...request.Option) (*ReEncryptOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).ReEncrypt")
+	defer span.End()
+
 	req, out := c.ReEncryptRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3513,6 +3598,9 @@ func (c *KMS) RetireGrant(input *RetireGrantInput) (*RetireGrantOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) RetireGrantWithContext(ctx aws.Context, input *RetireGrantInput, opts ...request.Option) (*RetireGrantOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).RetireGrant")
+	defer span.End()
+
 	req, out := c.RetireGrantRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3621,6 +3709,9 @@ func (c *KMS) RevokeGrant(input *RevokeGrantInput) (*RevokeGrantOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) RevokeGrantWithContext(ctx aws.Context, input *RevokeGrantInput, opts ...request.Option) (*RevokeGrantOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).RevokeGrant")
+	defer span.End()
+
 	req, out := c.RevokeGrantRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3737,6 +3828,9 @@ func (c *KMS) ScheduleKeyDeletion(input *ScheduleKeyDeletionInput) (*ScheduleKey
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) ScheduleKeyDeletionWithContext(ctx aws.Context, input *ScheduleKeyDeletionInput, opts ...request.Option) (*ScheduleKeyDeletionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).ScheduleKeyDeletion")
+	defer span.End()
+
 	req, out := c.ScheduleKeyDeletionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3856,6 +3950,9 @@ func (c *KMS) TagResource(input *TagResourceInput) (*TagResourceOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).TagResource")
+	defer span.End()
+
 	req, out := c.TagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3961,6 +4058,9 @@ func (c *KMS) UntagResource(input *UntagResourceInput) (*UntagResourceOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).UntagResource")
+	defer span.End()
+
 	req, out := c.UntagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4078,6 +4178,9 @@ func (c *KMS) UpdateAlias(input *UpdateAliasInput) (*UpdateAliasOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) UpdateAliasWithContext(ctx aws.Context, input *UpdateAliasInput, opts ...request.Option) (*UpdateAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).UpdateAlias")
+	defer span.End()
+
 	req, out := c.UpdateAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4182,6 +4285,9 @@ func (c *KMS) UpdateKeyDescription(input *UpdateKeyDescriptionInput) (*UpdateKey
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KMS) UpdateKeyDescriptionWithContext(ctx aws.Context, input *UpdateKeyDescriptionInput, opts ...request.Option) (*UpdateKeyDescriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kms.(*KMS).UpdateKeyDescription")
+	defer span.End()
+
 	req, out := c.UpdateKeyDescriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

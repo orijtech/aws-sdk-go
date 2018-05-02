@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateByteMatchSet = "CreateByteMatchSet"
@@ -152,6 +153,9 @@ func (c *WAF) CreateByteMatchSet(input *CreateByteMatchSetInput) (*CreateByteMat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) CreateByteMatchSetWithContext(ctx aws.Context, input *CreateByteMatchSetInput, opts ...request.Option) (*CreateByteMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).CreateByteMatchSet")
+	defer span.End()
+
 	req, out := c.CreateByteMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -298,6 +302,9 @@ func (c *WAF) CreateGeoMatchSet(input *CreateGeoMatchSetInput) (*CreateGeoMatchS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) CreateGeoMatchSetWithContext(ctx aws.Context, input *CreateGeoMatchSetInput, opts ...request.Option) (*CreateGeoMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).CreateGeoMatchSet")
+	defer span.End()
+
 	req, out := c.CreateGeoMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -445,6 +452,9 @@ func (c *WAF) CreateIPSet(input *CreateIPSetInput) (*CreateIPSetOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) CreateIPSetWithContext(ctx aws.Context, input *CreateIPSetInput, opts ...request.Option) (*CreateIPSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).CreateIPSet")
+	defer span.End()
+
 	req, out := c.CreateIPSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -627,6 +637,9 @@ func (c *WAF) CreateRateBasedRule(input *CreateRateBasedRuleInput) (*CreateRateB
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) CreateRateBasedRuleWithContext(ctx aws.Context, input *CreateRateBasedRuleInput, opts ...request.Option) (*CreateRateBasedRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).CreateRateBasedRule")
+	defer span.End()
+
 	req, out := c.CreateRateBasedRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -742,6 +755,9 @@ func (c *WAF) CreateRegexMatchSet(input *CreateRegexMatchSetInput) (*CreateRegex
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) CreateRegexMatchSetWithContext(ctx aws.Context, input *CreateRegexMatchSetInput, opts ...request.Option) (*CreateRegexMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).CreateRegexMatchSet")
+	defer span.End()
+
 	req, out := c.CreateRegexMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -853,6 +869,9 @@ func (c *WAF) CreateRegexPatternSet(input *CreateRegexPatternSetInput) (*CreateR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) CreateRegexPatternSetWithContext(ctx aws.Context, input *CreateRegexPatternSetInput, opts ...request.Option) (*CreateRegexPatternSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).CreateRegexPatternSet")
+	defer span.End()
+
 	req, out := c.CreateRegexPatternSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1010,6 +1029,9 @@ func (c *WAF) CreateRule(input *CreateRuleInput) (*CreateRuleOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) CreateRuleWithContext(ctx aws.Context, input *CreateRuleInput, opts ...request.Option) (*CreateRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).CreateRule")
+	defer span.End()
+
 	req, out := c.CreateRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1116,6 +1138,9 @@ func (c *WAF) CreateRuleGroup(input *CreateRuleGroupInput) (*CreateRuleGroupOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) CreateRuleGroupWithContext(ctx aws.Context, input *CreateRuleGroupInput, opts ...request.Option) (*CreateRuleGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).CreateRuleGroup")
+	defer span.End()
+
 	req, out := c.CreateRuleGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1264,6 +1289,9 @@ func (c *WAF) CreateSizeConstraintSet(input *CreateSizeConstraintSetInput) (*Cre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) CreateSizeConstraintSetWithContext(ctx aws.Context, input *CreateSizeConstraintSetInput, opts ...request.Option) (*CreateSizeConstraintSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).CreateSizeConstraintSet")
+	defer span.End()
+
 	req, out := c.CreateSizeConstraintSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1408,6 +1436,9 @@ func (c *WAF) CreateSqlInjectionMatchSet(input *CreateSqlInjectionMatchSetInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) CreateSqlInjectionMatchSetWithContext(ctx aws.Context, input *CreateSqlInjectionMatchSetInput, opts ...request.Option) (*CreateSqlInjectionMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).CreateSqlInjectionMatchSet")
+	defer span.End()
+
 	req, out := c.CreateSqlInjectionMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1564,6 +1595,9 @@ func (c *WAF) CreateWebACL(input *CreateWebACLInput) (*CreateWebACLOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) CreateWebACLWithContext(ctx aws.Context, input *CreateWebACLInput, opts ...request.Option) (*CreateWebACLOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).CreateWebACL")
+	defer span.End()
+
 	req, out := c.CreateWebACLRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1709,6 +1743,9 @@ func (c *WAF) CreateXssMatchSet(input *CreateXssMatchSetInput) (*CreateXssMatchS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) CreateXssMatchSetWithContext(ctx aws.Context, input *CreateXssMatchSetInput, opts ...request.Option) (*CreateXssMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).CreateXssMatchSet")
+	defer span.End()
+
 	req, out := c.CreateXssMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1836,6 +1873,9 @@ func (c *WAF) DeleteByteMatchSet(input *DeleteByteMatchSetInput) (*DeleteByteMat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) DeleteByteMatchSetWithContext(ctx aws.Context, input *DeleteByteMatchSetInput, opts ...request.Option) (*DeleteByteMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).DeleteByteMatchSet")
+	defer span.End()
+
 	req, out := c.DeleteByteMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1962,6 +2002,9 @@ func (c *WAF) DeleteGeoMatchSet(input *DeleteGeoMatchSetInput) (*DeleteGeoMatchS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) DeleteGeoMatchSetWithContext(ctx aws.Context, input *DeleteGeoMatchSetInput, opts ...request.Option) (*DeleteGeoMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).DeleteGeoMatchSet")
+	defer span.End()
+
 	req, out := c.DeleteGeoMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2088,6 +2131,9 @@ func (c *WAF) DeleteIPSet(input *DeleteIPSetInput) (*DeleteIPSetOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) DeleteIPSetWithContext(ctx aws.Context, input *DeleteIPSetInput, opts ...request.Option) (*DeleteIPSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).DeleteIPSet")
+	defer span.End()
+
 	req, out := c.DeleteIPSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2177,6 +2223,9 @@ func (c *WAF) DeletePermissionPolicy(input *DeletePermissionPolicyInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) DeletePermissionPolicyWithContext(ctx aws.Context, input *DeletePermissionPolicyInput, opts ...request.Option) (*DeletePermissionPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).DeletePermissionPolicy")
+	defer span.End()
+
 	req, out := c.DeletePermissionPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2305,6 +2354,9 @@ func (c *WAF) DeleteRateBasedRule(input *DeleteRateBasedRuleInput) (*DeleteRateB
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) DeleteRateBasedRuleWithContext(ctx aws.Context, input *DeleteRateBasedRuleInput, opts ...request.Option) (*DeleteRateBasedRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).DeleteRateBasedRule")
+	defer span.End()
+
 	req, out := c.DeleteRateBasedRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2432,6 +2484,9 @@ func (c *WAF) DeleteRegexMatchSet(input *DeleteRegexMatchSetInput) (*DeleteRegex
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) DeleteRegexMatchSetWithContext(ctx aws.Context, input *DeleteRegexMatchSetInput, opts ...request.Option) (*DeleteRegexMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).DeleteRegexMatchSet")
+	defer span.End()
+
 	req, out := c.DeleteRegexMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2547,6 +2602,9 @@ func (c *WAF) DeleteRegexPatternSet(input *DeleteRegexPatternSetInput) (*DeleteR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) DeleteRegexPatternSetWithContext(ctx aws.Context, input *DeleteRegexPatternSetInput, opts ...request.Option) (*DeleteRegexPatternSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).DeleteRegexPatternSet")
+	defer span.End()
+
 	req, out := c.DeleteRegexPatternSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2673,6 +2731,9 @@ func (c *WAF) DeleteRule(input *DeleteRuleInput) (*DeleteRuleOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) DeleteRuleWithContext(ctx aws.Context, input *DeleteRuleInput, opts ...request.Option) (*DeleteRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).DeleteRule")
+	defer span.End()
+
 	req, out := c.DeleteRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2794,6 +2855,9 @@ func (c *WAF) DeleteRuleGroup(input *DeleteRuleGroupInput) (*DeleteRuleGroupOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) DeleteRuleGroupWithContext(ctx aws.Context, input *DeleteRuleGroupInput, opts ...request.Option) (*DeleteRuleGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).DeleteRuleGroup")
+	defer span.End()
+
 	req, out := c.DeleteRuleGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2921,6 +2985,9 @@ func (c *WAF) DeleteSizeConstraintSet(input *DeleteSizeConstraintSetInput) (*Del
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) DeleteSizeConstraintSetWithContext(ctx aws.Context, input *DeleteSizeConstraintSetInput, opts ...request.Option) (*DeleteSizeConstraintSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).DeleteSizeConstraintSet")
+	defer span.End()
+
 	req, out := c.DeleteSizeConstraintSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3049,6 +3116,9 @@ func (c *WAF) DeleteSqlInjectionMatchSet(input *DeleteSqlInjectionMatchSetInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) DeleteSqlInjectionMatchSetWithContext(ctx aws.Context, input *DeleteSqlInjectionMatchSetInput, opts ...request.Option) (*DeleteSqlInjectionMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).DeleteSqlInjectionMatchSet")
+	defer span.End()
+
 	req, out := c.DeleteSqlInjectionMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3172,6 +3242,9 @@ func (c *WAF) DeleteWebACL(input *DeleteWebACLInput) (*DeleteWebACLOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) DeleteWebACLWithContext(ctx aws.Context, input *DeleteWebACLInput, opts ...request.Option) (*DeleteWebACLOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).DeleteWebACL")
+	defer span.End()
+
 	req, out := c.DeleteWebACLRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3299,6 +3372,9 @@ func (c *WAF) DeleteXssMatchSet(input *DeleteXssMatchSetInput) (*DeleteXssMatchS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) DeleteXssMatchSetWithContext(ctx aws.Context, input *DeleteXssMatchSetInput, opts ...request.Option) (*DeleteXssMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).DeleteXssMatchSet")
+	defer span.End()
+
 	req, out := c.DeleteXssMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3386,6 +3462,9 @@ func (c *WAF) GetByteMatchSet(input *GetByteMatchSetInput) (*GetByteMatchSetOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetByteMatchSetWithContext(ctx aws.Context, input *GetByteMatchSetInput, opts ...request.Option) (*GetByteMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetByteMatchSet")
+	defer span.End()
+
 	req, out := c.GetByteMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3480,6 +3559,9 @@ func (c *WAF) GetChangeToken(input *GetChangeTokenInput) (*GetChangeTokenOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetChangeTokenWithContext(ctx aws.Context, input *GetChangeTokenInput, opts ...request.Option) (*GetChangeTokenOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetChangeToken")
+	defer span.End()
+
 	req, out := c.GetChangeTokenRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3573,6 +3655,9 @@ func (c *WAF) GetChangeTokenStatus(input *GetChangeTokenStatusInput) (*GetChange
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetChangeTokenStatusWithContext(ctx aws.Context, input *GetChangeTokenStatusInput, opts ...request.Option) (*GetChangeTokenStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetChangeTokenStatus")
+	defer span.End()
+
 	req, out := c.GetChangeTokenStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3660,6 +3745,9 @@ func (c *WAF) GetGeoMatchSet(input *GetGeoMatchSetInput) (*GetGeoMatchSetOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetGeoMatchSetWithContext(ctx aws.Context, input *GetGeoMatchSetInput, opts ...request.Option) (*GetGeoMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetGeoMatchSet")
+	defer span.End()
+
 	req, out := c.GetGeoMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3747,6 +3835,9 @@ func (c *WAF) GetIPSet(input *GetIPSetInput) (*GetIPSetOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetIPSetWithContext(ctx aws.Context, input *GetIPSetInput, opts ...request.Option) (*GetIPSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetIPSet")
+	defer span.End()
+
 	req, out := c.GetIPSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3830,6 +3921,9 @@ func (c *WAF) GetPermissionPolicy(input *GetPermissionPolicyInput) (*GetPermissi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetPermissionPolicyWithContext(ctx aws.Context, input *GetPermissionPolicyInput, opts ...request.Option) (*GetPermissionPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetPermissionPolicy")
+	defer span.End()
+
 	req, out := c.GetPermissionPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3918,6 +4012,9 @@ func (c *WAF) GetRateBasedRule(input *GetRateBasedRuleInput) (*GetRateBasedRuleO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetRateBasedRuleWithContext(ctx aws.Context, input *GetRateBasedRuleInput, opts ...request.Option) (*GetRateBasedRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetRateBasedRule")
+	defer span.End()
+
 	req, out := c.GetRateBasedRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4037,6 +4134,9 @@ func (c *WAF) GetRateBasedRuleManagedKeys(input *GetRateBasedRuleManagedKeysInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetRateBasedRuleManagedKeysWithContext(ctx aws.Context, input *GetRateBasedRuleManagedKeysInput, opts ...request.Option) (*GetRateBasedRuleManagedKeysOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetRateBasedRuleManagedKeys")
+	defer span.End()
+
 	req, out := c.GetRateBasedRuleManagedKeysRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4124,6 +4224,9 @@ func (c *WAF) GetRegexMatchSet(input *GetRegexMatchSetInput) (*GetRegexMatchSetO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetRegexMatchSetWithContext(ctx aws.Context, input *GetRegexMatchSetInput, opts ...request.Option) (*GetRegexMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetRegexMatchSet")
+	defer span.End()
+
 	req, out := c.GetRegexMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4211,6 +4314,9 @@ func (c *WAF) GetRegexPatternSet(input *GetRegexPatternSetInput) (*GetRegexPatte
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetRegexPatternSetWithContext(ctx aws.Context, input *GetRegexPatternSetInput, opts ...request.Option) (*GetRegexPatternSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetRegexPatternSet")
+	defer span.End()
+
 	req, out := c.GetRegexPatternSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4299,6 +4405,9 @@ func (c *WAF) GetRule(input *GetRuleInput) (*GetRuleOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetRuleWithContext(ctx aws.Context, input *GetRuleInput, opts ...request.Option) (*GetRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetRule")
+	defer span.End()
+
 	req, out := c.GetRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4385,6 +4494,9 @@ func (c *WAF) GetRuleGroup(input *GetRuleGroupInput) (*GetRuleGroupOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetRuleGroupWithContext(ctx aws.Context, input *GetRuleGroupInput, opts ...request.Option) (*GetRuleGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetRuleGroup")
+	defer span.End()
+
 	req, out := c.GetRuleGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4478,6 +4590,9 @@ func (c *WAF) GetSampledRequests(input *GetSampledRequestsInput) (*GetSampledReq
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetSampledRequestsWithContext(ctx aws.Context, input *GetSampledRequestsInput, opts ...request.Option) (*GetSampledRequestsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetSampledRequests")
+	defer span.End()
+
 	req, out := c.GetSampledRequestsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4565,6 +4680,9 @@ func (c *WAF) GetSizeConstraintSet(input *GetSizeConstraintSetInput) (*GetSizeCo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetSizeConstraintSetWithContext(ctx aws.Context, input *GetSizeConstraintSetInput, opts ...request.Option) (*GetSizeConstraintSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetSizeConstraintSet")
+	defer span.End()
+
 	req, out := c.GetSizeConstraintSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4652,6 +4770,9 @@ func (c *WAF) GetSqlInjectionMatchSet(input *GetSqlInjectionMatchSetInput) (*Get
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetSqlInjectionMatchSetWithContext(ctx aws.Context, input *GetSqlInjectionMatchSetInput, opts ...request.Option) (*GetSqlInjectionMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetSqlInjectionMatchSet")
+	defer span.End()
+
 	req, out := c.GetSqlInjectionMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4739,6 +4860,9 @@ func (c *WAF) GetWebACL(input *GetWebACLInput) (*GetWebACLOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetWebACLWithContext(ctx aws.Context, input *GetWebACLInput, opts ...request.Option) (*GetWebACLOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetWebACL")
+	defer span.End()
+
 	req, out := c.GetWebACLRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4826,6 +4950,9 @@ func (c *WAF) GetXssMatchSet(input *GetXssMatchSetInput) (*GetXssMatchSetOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) GetXssMatchSetWithContext(ctx aws.Context, input *GetXssMatchSetInput, opts ...request.Option) (*GetXssMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).GetXssMatchSet")
+	defer span.End()
+
 	req, out := c.GetXssMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4938,6 +5065,9 @@ func (c *WAF) ListActivatedRulesInRuleGroup(input *ListActivatedRulesInRuleGroup
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) ListActivatedRulesInRuleGroupWithContext(ctx aws.Context, input *ListActivatedRulesInRuleGroupInput, opts ...request.Option) (*ListActivatedRulesInRuleGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).ListActivatedRulesInRuleGroup")
+	defer span.End()
+
 	req, out := c.ListActivatedRulesInRuleGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5022,6 +5152,9 @@ func (c *WAF) ListByteMatchSets(input *ListByteMatchSetsInput) (*ListByteMatchSe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) ListByteMatchSetsWithContext(ctx aws.Context, input *ListByteMatchSetsInput, opts ...request.Option) (*ListByteMatchSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).ListByteMatchSets")
+	defer span.End()
+
 	req, out := c.ListByteMatchSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5106,6 +5239,9 @@ func (c *WAF) ListGeoMatchSets(input *ListGeoMatchSetsInput) (*ListGeoMatchSetsO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) ListGeoMatchSetsWithContext(ctx aws.Context, input *ListGeoMatchSetsInput, opts ...request.Option) (*ListGeoMatchSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).ListGeoMatchSets")
+	defer span.End()
+
 	req, out := c.ListGeoMatchSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5190,6 +5326,9 @@ func (c *WAF) ListIPSets(input *ListIPSetsInput) (*ListIPSetsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) ListIPSetsWithContext(ctx aws.Context, input *ListIPSetsInput, opts ...request.Option) (*ListIPSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).ListIPSets")
+	defer span.End()
+
 	req, out := c.ListIPSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5274,6 +5413,9 @@ func (c *WAF) ListRateBasedRules(input *ListRateBasedRulesInput) (*ListRateBased
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) ListRateBasedRulesWithContext(ctx aws.Context, input *ListRateBasedRulesInput, opts ...request.Option) (*ListRateBasedRulesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).ListRateBasedRules")
+	defer span.End()
+
 	req, out := c.ListRateBasedRulesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5358,6 +5500,9 @@ func (c *WAF) ListRegexMatchSets(input *ListRegexMatchSetsInput) (*ListRegexMatc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) ListRegexMatchSetsWithContext(ctx aws.Context, input *ListRegexMatchSetsInput, opts ...request.Option) (*ListRegexMatchSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).ListRegexMatchSets")
+	defer span.End()
+
 	req, out := c.ListRegexMatchSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5442,6 +5587,9 @@ func (c *WAF) ListRegexPatternSets(input *ListRegexPatternSetsInput) (*ListRegex
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) ListRegexPatternSetsWithContext(ctx aws.Context, input *ListRegexPatternSetsInput, opts ...request.Option) (*ListRegexPatternSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).ListRegexPatternSets")
+	defer span.End()
+
 	req, out := c.ListRegexPatternSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5522,6 +5670,9 @@ func (c *WAF) ListRuleGroups(input *ListRuleGroupsInput) (*ListRuleGroupsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) ListRuleGroupsWithContext(ctx aws.Context, input *ListRuleGroupsInput, opts ...request.Option) (*ListRuleGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).ListRuleGroups")
+	defer span.End()
+
 	req, out := c.ListRuleGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5606,6 +5757,9 @@ func (c *WAF) ListRules(input *ListRulesInput) (*ListRulesOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) ListRulesWithContext(ctx aws.Context, input *ListRulesInput, opts ...request.Option) (*ListRulesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).ListRules")
+	defer span.End()
+
 	req, out := c.ListRulesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5690,6 +5844,9 @@ func (c *WAF) ListSizeConstraintSets(input *ListSizeConstraintSetsInput) (*ListS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) ListSizeConstraintSetsWithContext(ctx aws.Context, input *ListSizeConstraintSetsInput, opts ...request.Option) (*ListSizeConstraintSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).ListSizeConstraintSets")
+	defer span.End()
+
 	req, out := c.ListSizeConstraintSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5774,6 +5931,9 @@ func (c *WAF) ListSqlInjectionMatchSets(input *ListSqlInjectionMatchSetsInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) ListSqlInjectionMatchSetsWithContext(ctx aws.Context, input *ListSqlInjectionMatchSetsInput, opts ...request.Option) (*ListSqlInjectionMatchSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).ListSqlInjectionMatchSets")
+	defer span.End()
+
 	req, out := c.ListSqlInjectionMatchSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5857,6 +6017,9 @@ func (c *WAF) ListSubscribedRuleGroups(input *ListSubscribedRuleGroupsInput) (*L
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) ListSubscribedRuleGroupsWithContext(ctx aws.Context, input *ListSubscribedRuleGroupsInput, opts ...request.Option) (*ListSubscribedRuleGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).ListSubscribedRuleGroups")
+	defer span.End()
+
 	req, out := c.ListSubscribedRuleGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5941,6 +6104,9 @@ func (c *WAF) ListWebACLs(input *ListWebACLsInput) (*ListWebACLsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) ListWebACLsWithContext(ctx aws.Context, input *ListWebACLsInput, opts ...request.Option) (*ListWebACLsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).ListWebACLs")
+	defer span.End()
+
 	req, out := c.ListWebACLsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6025,6 +6191,9 @@ func (c *WAF) ListXssMatchSets(input *ListXssMatchSetsInput) (*ListXssMatchSetsO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) ListXssMatchSetsWithContext(ctx aws.Context, input *ListXssMatchSetsInput, opts ...request.Option) (*ListXssMatchSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).ListXssMatchSets")
+	defer span.End()
+
 	req, out := c.ListXssMatchSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6160,6 +6329,9 @@ func (c *WAF) PutPermissionPolicy(input *PutPermissionPolicyInput) (*PutPermissi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) PutPermissionPolicyWithContext(ctx aws.Context, input *PutPermissionPolicyInput, opts ...request.Option) (*PutPermissionPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).PutPermissionPolicy")
+	defer span.End()
+
 	req, out := c.PutPermissionPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6359,6 +6531,9 @@ func (c *WAF) UpdateByteMatchSet(input *UpdateByteMatchSetInput) (*UpdateByteMat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) UpdateByteMatchSetWithContext(ctx aws.Context, input *UpdateByteMatchSetInput, opts ...request.Option) (*UpdateByteMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).UpdateByteMatchSet")
+	defer span.End()
+
 	req, out := c.UpdateByteMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6557,6 +6732,9 @@ func (c *WAF) UpdateGeoMatchSet(input *UpdateGeoMatchSetInput) (*UpdateGeoMatchS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) UpdateGeoMatchSetWithContext(ctx aws.Context, input *UpdateGeoMatchSetInput, opts ...request.Option) (*UpdateGeoMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).UpdateGeoMatchSet")
+	defer span.End()
+
 	req, out := c.UpdateGeoMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6776,6 +6954,9 @@ func (c *WAF) UpdateIPSet(input *UpdateIPSetInput) (*UpdateIPSetOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) UpdateIPSetWithContext(ctx aws.Context, input *UpdateIPSetInput, opts ...request.Option) (*UpdateIPSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).UpdateIPSet")
+	defer span.End()
+
 	req, out := c.UpdateIPSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6984,6 +7165,9 @@ func (c *WAF) UpdateRateBasedRule(input *UpdateRateBasedRuleInput) (*UpdateRateB
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) UpdateRateBasedRuleWithContext(ctx aws.Context, input *UpdateRateBasedRuleInput, opts ...request.Option) (*UpdateRateBasedRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).UpdateRateBasedRule")
+	defer span.End()
+
 	req, out := c.UpdateRateBasedRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7154,6 +7338,9 @@ func (c *WAF) UpdateRegexMatchSet(input *UpdateRegexMatchSetInput) (*UpdateRegex
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) UpdateRegexMatchSetWithContext(ctx aws.Context, input *UpdateRegexMatchSetInput, opts ...request.Option) (*UpdateRegexMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).UpdateRegexMatchSet")
+	defer span.End()
+
 	req, out := c.UpdateRegexMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7321,6 +7508,9 @@ func (c *WAF) UpdateRegexPatternSet(input *UpdateRegexPatternSetInput) (*UpdateR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) UpdateRegexPatternSetWithContext(ctx aws.Context, input *UpdateRegexPatternSetInput, opts ...request.Option) (*UpdateRegexPatternSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).UpdateRegexPatternSet")
+	defer span.End()
+
 	req, out := c.UpdateRegexPatternSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7524,6 +7714,9 @@ func (c *WAF) UpdateRule(input *UpdateRuleInput) (*UpdateRuleOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) UpdateRuleWithContext(ctx aws.Context, input *UpdateRuleInput, opts ...request.Option) (*UpdateRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).UpdateRule")
+	defer span.End()
+
 	req, out := c.UpdateRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7705,6 +7898,9 @@ func (c *WAF) UpdateRuleGroup(input *UpdateRuleGroupInput) (*UpdateRuleGroupOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) UpdateRuleGroupWithContext(ctx aws.Context, input *UpdateRuleGroupInput, opts ...request.Option) (*UpdateRuleGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).UpdateRuleGroup")
+	defer span.End()
+
 	req, out := c.UpdateRuleGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7914,6 +8110,9 @@ func (c *WAF) UpdateSizeConstraintSet(input *UpdateSizeConstraintSetInput) (*Upd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) UpdateSizeConstraintSetWithContext(ctx aws.Context, input *UpdateSizeConstraintSetInput, opts ...request.Option) (*UpdateSizeConstraintSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).UpdateSizeConstraintSet")
+	defer span.End()
+
 	req, out := c.UpdateSizeConstraintSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8108,6 +8307,9 @@ func (c *WAF) UpdateSqlInjectionMatchSet(input *UpdateSqlInjectionMatchSetInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) UpdateSqlInjectionMatchSetWithContext(ctx aws.Context, input *UpdateSqlInjectionMatchSetInput, opts ...request.Option) (*UpdateSqlInjectionMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).UpdateSqlInjectionMatchSet")
+	defer span.End()
+
 	req, out := c.UpdateSqlInjectionMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8329,6 +8531,9 @@ func (c *WAF) UpdateWebACL(input *UpdateWebACLInput) (*UpdateWebACLOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) UpdateWebACLWithContext(ctx aws.Context, input *UpdateWebACLInput, opts ...request.Option) (*UpdateWebACLOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).UpdateWebACL")
+	defer span.End()
+
 	req, out := c.UpdateWebACLRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8523,6 +8728,9 @@ func (c *WAF) UpdateXssMatchSet(input *UpdateXssMatchSetInput) (*UpdateXssMatchS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *WAF) UpdateXssMatchSetWithContext(ctx aws.Context, input *UpdateXssMatchSetInput, opts ...request.Option) (*UpdateXssMatchSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/waf.(*WAF).UpdateXssMatchSet")
+	defer span.End()
+
 	req, out := c.UpdateXssMatchSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

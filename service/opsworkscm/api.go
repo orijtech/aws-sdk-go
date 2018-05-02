@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opAssociateNode = "AssociateNode"
@@ -110,6 +111,9 @@ func (c *OpsWorksCM) AssociateNode(input *AssociateNodeInput) (*AssociateNodeOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) AssociateNodeWithContext(ctx aws.Context, input *AssociateNodeInput, opts ...request.Option) (*AssociateNodeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).AssociateNode")
+	defer span.End()
+
 	req, out := c.AssociateNodeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -212,6 +216,9 @@ func (c *OpsWorksCM) CreateBackup(input *CreateBackupInput) (*CreateBackupOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) CreateBackupWithContext(ctx aws.Context, input *CreateBackupInput, opts ...request.Option) (*CreateBackupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).CreateBackup")
+	defer span.End()
+
 	req, out := c.CreateBackupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -326,6 +333,9 @@ func (c *OpsWorksCM) CreateServer(input *CreateServerInput) (*CreateServerOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) CreateServerWithContext(ctx aws.Context, input *CreateServerInput, opts ...request.Option) (*CreateServerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).CreateServer")
+	defer span.End()
+
 	req, out := c.CreateServerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -417,6 +427,9 @@ func (c *OpsWorksCM) DeleteBackup(input *DeleteBackupInput) (*DeleteBackupOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) DeleteBackupWithContext(ctx aws.Context, input *DeleteBackupInput, opts ...request.Option) (*DeleteBackupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).DeleteBackup")
+	defer span.End()
+
 	req, out := c.DeleteBackupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -513,6 +526,9 @@ func (c *OpsWorksCM) DeleteServer(input *DeleteServerInput) (*DeleteServerOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) DeleteServerWithContext(ctx aws.Context, input *DeleteServerInput, opts ...request.Option) (*DeleteServerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).DeleteServer")
+	defer span.End()
+
 	req, out := c.DeleteServerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -590,6 +606,9 @@ func (c *OpsWorksCM) DescribeAccountAttributes(input *DescribeAccountAttributesI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) DescribeAccountAttributesWithContext(ctx aws.Context, input *DescribeAccountAttributesInput, opts ...request.Option) (*DescribeAccountAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).DescribeAccountAttributes")
+	defer span.End()
+
 	req, out := c.DescribeAccountAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -681,6 +700,9 @@ func (c *OpsWorksCM) DescribeBackups(input *DescribeBackupsInput) (*DescribeBack
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) DescribeBackupsWithContext(ctx aws.Context, input *DescribeBackupsInput, opts ...request.Option) (*DescribeBackupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).DescribeBackups")
+	defer span.End()
+
 	req, out := c.DescribeBackupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -772,6 +794,9 @@ func (c *OpsWorksCM) DescribeEvents(input *DescribeEventsInput) (*DescribeEvents
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) DescribeEventsWithContext(ctx aws.Context, input *DescribeEventsInput, opts ...request.Option) (*DescribeEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).DescribeEvents")
+	defer span.End()
+
 	req, out := c.DescribeEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -858,6 +883,9 @@ func (c *OpsWorksCM) DescribeNodeAssociationStatus(input *DescribeNodeAssociatio
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) DescribeNodeAssociationStatusWithContext(ctx aws.Context, input *DescribeNodeAssociationStatusInput, opts ...request.Option) (*DescribeNodeAssociationStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).DescribeNodeAssociationStatus")
+	defer span.End()
+
 	req, out := c.DescribeNodeAssociationStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -950,6 +978,9 @@ func (c *OpsWorksCM) DescribeServers(input *DescribeServersInput) (*DescribeServ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) DescribeServersWithContext(ctx aws.Context, input *DescribeServersInput, opts ...request.Option) (*DescribeServersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).DescribeServers")
+	defer span.End()
+
 	req, out := c.DescribeServersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1044,6 +1075,9 @@ func (c *OpsWorksCM) DisassociateNode(input *DisassociateNodeInput) (*Disassocia
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) DisassociateNodeWithContext(ctx aws.Context, input *DisassociateNodeInput, opts ...request.Option) (*DisassociateNodeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).DisassociateNode")
+	defer span.End()
+
 	req, out := c.DisassociateNodeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1140,6 +1174,9 @@ func (c *OpsWorksCM) RestoreServer(input *RestoreServerInput) (*RestoreServerOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) RestoreServerWithContext(ctx aws.Context, input *RestoreServerInput, opts ...request.Option) (*RestoreServerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).RestoreServer")
+	defer span.End()
+
 	req, out := c.RestoreServerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1234,6 +1271,9 @@ func (c *OpsWorksCM) StartMaintenance(input *StartMaintenanceInput) (*StartMaint
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) StartMaintenanceWithContext(ctx aws.Context, input *StartMaintenanceInput, opts ...request.Option) (*StartMaintenanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).StartMaintenance")
+	defer span.End()
+
 	req, out := c.StartMaintenanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1322,6 +1362,9 @@ func (c *OpsWorksCM) UpdateServer(input *UpdateServerInput) (*UpdateServerOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) UpdateServerWithContext(ctx aws.Context, input *UpdateServerInput, opts ...request.Option) (*UpdateServerOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).UpdateServer")
+	defer span.End()
+
 	req, out := c.UpdateServerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1419,6 +1462,9 @@ func (c *OpsWorksCM) UpdateServerEngineAttributes(input *UpdateServerEngineAttri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *OpsWorksCM) UpdateServerEngineAttributesWithContext(ctx aws.Context, input *UpdateServerEngineAttributesInput, opts ...request.Option) (*UpdateServerEngineAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/opsworkscm.(*OpsWorksCM).UpdateServerEngineAttributes")
+	defer span.End()
+
 	req, out := c.UpdateServerEngineAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

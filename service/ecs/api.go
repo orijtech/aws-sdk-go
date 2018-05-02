@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateCluster = "CreateCluster"
@@ -103,6 +104,9 @@ func (c *ECS) CreateCluster(input *CreateClusterInput) (*CreateClusterOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) CreateClusterWithContext(ctx aws.Context, input *CreateClusterInput, opts ...request.Option) (*CreateClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).CreateCluster")
+	defer span.End()
+
 	req, out := c.CreateClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -266,6 +270,9 @@ func (c *ECS) CreateService(input *CreateServiceInput) (*CreateServiceOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) CreateServiceWithContext(ctx aws.Context, input *CreateServiceInput, opts ...request.Option) (*CreateServiceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).CreateService")
+	defer span.End()
+
 	req, out := c.CreateServiceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -355,6 +362,9 @@ func (c *ECS) DeleteAttributes(input *DeleteAttributesInput) (*DeleteAttributesO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteAttributesWithContext(ctx aws.Context, input *DeleteAttributesInput, opts ...request.Option) (*DeleteAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).DeleteAttributes")
+	defer span.End()
+
 	req, out := c.DeleteAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -462,6 +472,9 @@ func (c *ECS) DeleteCluster(input *DeleteClusterInput) (*DeleteClusterOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteClusterWithContext(ctx aws.Context, input *DeleteClusterInput, opts ...request.Option) (*DeleteClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).DeleteCluster")
+	defer span.End()
+
 	req, out := c.DeleteClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -571,6 +584,9 @@ func (c *ECS) DeleteService(input *DeleteServiceInput) (*DeleteServiceOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteServiceWithContext(ctx aws.Context, input *DeleteServiceInput, opts ...request.Option) (*DeleteServiceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).DeleteService")
+	defer span.End()
+
 	req, out := c.DeleteServiceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -677,6 +693,9 @@ func (c *ECS) DeregisterContainerInstance(input *DeregisterContainerInstanceInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeregisterContainerInstanceWithContext(ctx aws.Context, input *DeregisterContainerInstanceInput, opts ...request.Option) (*DeregisterContainerInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).DeregisterContainerInstance")
+	defer span.End()
+
 	req, out := c.DeregisterContainerInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -779,6 +798,9 @@ func (c *ECS) DeregisterTaskDefinition(input *DeregisterTaskDefinitionInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeregisterTaskDefinitionWithContext(ctx aws.Context, input *DeregisterTaskDefinitionInput, opts ...request.Option) (*DeregisterTaskDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).DeregisterTaskDefinition")
+	defer span.End()
+
 	req, out := c.DeregisterTaskDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -867,6 +889,9 @@ func (c *ECS) DescribeClusters(input *DescribeClustersInput) (*DescribeClustersO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeClustersWithContext(ctx aws.Context, input *DescribeClustersInput, opts ...request.Option) (*DescribeClustersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).DescribeClusters")
+	defer span.End()
+
 	req, out := c.DescribeClustersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -960,6 +985,9 @@ func (c *ECS) DescribeContainerInstances(input *DescribeContainerInstancesInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeContainerInstancesWithContext(ctx aws.Context, input *DescribeContainerInstancesInput, opts ...request.Option) (*DescribeContainerInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).DescribeContainerInstances")
+	defer span.End()
+
 	req, out := c.DescribeContainerInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1052,6 +1080,9 @@ func (c *ECS) DescribeServices(input *DescribeServicesInput) (*DescribeServicesO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeServicesWithContext(ctx aws.Context, input *DescribeServicesInput, opts ...request.Option) (*DescribeServicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).DescribeServices")
+	defer span.End()
+
 	req, out := c.DescribeServicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1145,6 +1176,9 @@ func (c *ECS) DescribeTaskDefinition(input *DescribeTaskDefinitionInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeTaskDefinitionWithContext(ctx aws.Context, input *DescribeTaskDefinitionInput, opts ...request.Option) (*DescribeTaskDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).DescribeTaskDefinition")
+	defer span.End()
+
 	req, out := c.DescribeTaskDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1237,6 +1271,9 @@ func (c *ECS) DescribeTasks(input *DescribeTasksInput) (*DescribeTasksOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeTasksWithContext(ctx aws.Context, input *DescribeTasksInput, opts ...request.Option) (*DescribeTasksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).DescribeTasks")
+	defer span.End()
+
 	req, out := c.DescribeTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1324,6 +1361,9 @@ func (c *ECS) DiscoverPollEndpoint(input *DiscoverPollEndpointInput) (*DiscoverP
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DiscoverPollEndpointWithContext(ctx aws.Context, input *DiscoverPollEndpointInput, opts ...request.Option) (*DiscoverPollEndpointOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).DiscoverPollEndpoint")
+	defer span.End()
+
 	req, out := c.DiscoverPollEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1414,6 +1454,9 @@ func (c *ECS) ListAttributes(input *ListAttributesInput) (*ListAttributesOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ListAttributesWithContext(ctx aws.Context, input *ListAttributesInput, opts ...request.Option) (*ListAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).ListAttributes")
+	defer span.End()
+
 	req, out := c.ListAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1508,6 +1551,9 @@ func (c *ECS) ListClusters(input *ListClustersInput) (*ListClustersOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ListClustersWithContext(ctx aws.Context, input *ListClustersInput, opts ...request.Option) (*ListClustersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).ListClusters")
+	defer span.End()
+
 	req, out := c.ListClustersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1660,6 +1706,9 @@ func (c *ECS) ListContainerInstances(input *ListContainerInstancesInput) (*ListC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ListContainerInstancesWithContext(ctx aws.Context, input *ListContainerInstancesInput, opts ...request.Option) (*ListContainerInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).ListContainerInstances")
+	defer span.End()
+
 	req, out := c.ListContainerInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1808,6 +1857,9 @@ func (c *ECS) ListServices(input *ListServicesInput) (*ListServicesOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ListServicesWithContext(ctx aws.Context, input *ListServicesInput, opts ...request.Option) (*ListServicesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).ListServices")
+	defer span.End()
+
 	req, out := c.ListServicesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1958,6 +2010,9 @@ func (c *ECS) ListTaskDefinitionFamilies(input *ListTaskDefinitionFamiliesInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ListTaskDefinitionFamiliesWithContext(ctx aws.Context, input *ListTaskDefinitionFamiliesInput, opts ...request.Option) (*ListTaskDefinitionFamiliesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).ListTaskDefinitionFamilies")
+	defer span.End()
+
 	req, out := c.ListTaskDefinitionFamiliesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2104,6 +2159,9 @@ func (c *ECS) ListTaskDefinitions(input *ListTaskDefinitionsInput) (*ListTaskDef
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ListTaskDefinitionsWithContext(ctx aws.Context, input *ListTaskDefinitionsInput, opts ...request.Option) (*ListTaskDefinitionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).ListTaskDefinitions")
+	defer span.End()
+
 	req, out := c.ListTaskDefinitionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2261,6 +2319,9 @@ func (c *ECS) ListTasks(input *ListTasksInput) (*ListTasksOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ListTasksWithContext(ctx aws.Context, input *ListTasksInput, opts ...request.Option) (*ListTasksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).ListTasks")
+	defer span.End()
+
 	req, out := c.ListTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2409,6 +2470,9 @@ func (c *ECS) PutAttributes(input *PutAttributesInput) (*PutAttributesOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) PutAttributesWithContext(ctx aws.Context, input *PutAttributesInput, opts ...request.Option) (*PutAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).PutAttributes")
+	defer span.End()
+
 	req, out := c.PutAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2501,6 +2565,9 @@ func (c *ECS) RegisterContainerInstance(input *RegisterContainerInstanceInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) RegisterContainerInstanceWithContext(ctx aws.Context, input *RegisterContainerInstanceInput, opts ...request.Option) (*RegisterContainerInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).RegisterContainerInstance")
+	defer span.End()
+
 	req, out := c.RegisterContainerInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2609,6 +2676,9 @@ func (c *ECS) RegisterTaskDefinition(input *RegisterTaskDefinitionInput) (*Regis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) RegisterTaskDefinitionWithContext(ctx aws.Context, input *RegisterTaskDefinitionInput, opts ...request.Option) (*RegisterTaskDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).RegisterTaskDefinition")
+	defer span.End()
+
 	req, out := c.RegisterTaskDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2747,6 +2817,9 @@ func (c *ECS) RunTask(input *RunTaskInput) (*RunTaskOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) RunTaskWithContext(ctx aws.Context, input *RunTaskInput, opts ...request.Option) (*RunTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).RunTask")
+	defer span.End()
+
 	req, out := c.RunTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2844,6 +2917,9 @@ func (c *ECS) StartTask(input *StartTaskInput) (*StartTaskOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) StartTaskWithContext(ctx aws.Context, input *StartTaskInput, opts ...request.Option) (*StartTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).StartTask")
+	defer span.End()
+
 	req, out := c.StartTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2947,6 +3023,9 @@ func (c *ECS) StopTask(input *StopTaskInput) (*StopTaskOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) StopTaskWithContext(ctx aws.Context, input *StopTaskInput, opts ...request.Option) (*StopTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).StopTask")
+	defer span.End()
+
 	req, out := c.StopTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3037,6 +3116,9 @@ func (c *ECS) SubmitContainerStateChange(input *SubmitContainerStateChangeInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) SubmitContainerStateChangeWithContext(ctx aws.Context, input *SubmitContainerStateChangeInput, opts ...request.Option) (*SubmitContainerStateChangeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).SubmitContainerStateChange")
+	defer span.End()
+
 	req, out := c.SubmitContainerStateChangeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3127,6 +3209,9 @@ func (c *ECS) SubmitTaskStateChange(input *SubmitTaskStateChangeInput) (*SubmitT
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) SubmitTaskStateChangeWithContext(ctx aws.Context, input *SubmitTaskStateChangeInput, opts ...request.Option) (*SubmitTaskStateChangeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).SubmitTaskStateChange")
+	defer span.End()
+
 	req, out := c.SubmitTaskStateChangeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3247,6 +3332,9 @@ func (c *ECS) UpdateContainerAgent(input *UpdateContainerAgentInput) (*UpdateCon
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) UpdateContainerAgentWithContext(ctx aws.Context, input *UpdateContainerAgentInput, opts ...request.Option) (*UpdateContainerAgentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).UpdateContainerAgent")
+	defer span.End()
+
 	req, out := c.UpdateContainerAgentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3382,6 +3470,9 @@ func (c *ECS) UpdateContainerInstancesState(input *UpdateContainerInstancesState
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) UpdateContainerInstancesStateWithContext(ctx aws.Context, input *UpdateContainerInstancesStateInput, opts ...request.Option) (*UpdateContainerInstancesStateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).UpdateContainerInstancesState")
+	defer span.End()
+
 	req, out := c.UpdateContainerInstancesStateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3567,6 +3658,9 @@ func (c *ECS) UpdateService(input *UpdateServiceInput) (*UpdateServiceOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) UpdateServiceWithContext(ctx aws.Context, input *UpdateServiceInput, opts ...request.Option) (*UpdateServiceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ecs.(*ECS).UpdateService")
+	defer span.End()
+
 	req, out := c.UpdateServiceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

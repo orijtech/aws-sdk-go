@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opDescribeAffectedEntities = "DescribeAffectedEntities"
@@ -100,6 +101,9 @@ func (c *Health) DescribeAffectedEntities(input *DescribeAffectedEntitiesInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Health) DescribeAffectedEntitiesWithContext(ctx aws.Context, input *DescribeAffectedEntitiesInput, opts ...request.Option) (*DescribeAffectedEntitiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/health.(*Health).DescribeAffectedEntities")
+	defer span.End()
+
 	req, out := c.DescribeAffectedEntitiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -226,6 +230,9 @@ func (c *Health) DescribeEntityAggregates(input *DescribeEntityAggregatesInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Health) DescribeEntityAggregatesWithContext(ctx aws.Context, input *DescribeEntityAggregatesInput, opts ...request.Option) (*DescribeEntityAggregatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/health.(*Health).DescribeEntityAggregates")
+	defer span.End()
+
 	req, out := c.DescribeEntityAggregatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -313,6 +320,9 @@ func (c *Health) DescribeEventAggregates(input *DescribeEventAggregatesInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Health) DescribeEventAggregatesWithContext(ctx aws.Context, input *DescribeEventAggregatesInput, opts ...request.Option) (*DescribeEventAggregatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/health.(*Health).DescribeEventAggregates")
+	defer span.End()
+
 	req, out := c.DescribeEventAggregatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -449,6 +459,9 @@ func (c *Health) DescribeEventDetails(input *DescribeEventDetailsInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Health) DescribeEventDetailsWithContext(ctx aws.Context, input *DescribeEventDetailsInput, opts ...request.Option) (*DescribeEventDetailsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/health.(*Health).DescribeEventDetails")
+	defer span.End()
+
 	req, out := c.DescribeEventDetailsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -538,6 +551,9 @@ func (c *Health) DescribeEventTypes(input *DescribeEventTypesInput) (*DescribeEv
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Health) DescribeEventTypesWithContext(ctx aws.Context, input *DescribeEventTypesInput, opts ...request.Option) (*DescribeEventTypesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/health.(*Health).DescribeEventTypes")
+	defer span.End()
+
 	req, out := c.DescribeEventTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -683,6 +699,9 @@ func (c *Health) DescribeEvents(input *DescribeEventsInput) (*DescribeEventsOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Health) DescribeEventsWithContext(ctx aws.Context, input *DescribeEventsInput, opts ...request.Option) (*DescribeEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/health.(*Health).DescribeEvents")
+	defer span.End()
+
 	req, out := c.DescribeEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

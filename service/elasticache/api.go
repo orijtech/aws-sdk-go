@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/query"
+	"go.opencensus.io/trace"
 )
 
 const opAddTagsToResource = "AddTagsToResource"
@@ -106,6 +107,9 @@ func (c *ElastiCache) AddTagsToResource(input *AddTagsToResourceInput) (*TagList
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) AddTagsToResourceWithContext(ctx aws.Context, input *AddTagsToResourceInput, opts ...request.Option) (*TagListMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).AddTagsToResource")
+	defer span.End()
+
 	req, out := c.AddTagsToResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -204,6 +208,9 @@ func (c *ElastiCache) AuthorizeCacheSecurityGroupIngress(input *AuthorizeCacheSe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) AuthorizeCacheSecurityGroupIngressWithContext(ctx aws.Context, input *AuthorizeCacheSecurityGroupIngressInput, opts ...request.Option) (*AuthorizeCacheSecurityGroupIngressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).AuthorizeCacheSecurityGroupIngress")
+	defer span.End()
+
 	req, out := c.AuthorizeCacheSecurityGroupIngressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -364,6 +371,9 @@ func (c *ElastiCache) CopySnapshot(input *CopySnapshotInput) (*CopySnapshotOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) CopySnapshotWithContext(ctx aws.Context, input *CopySnapshotInput, opts ...request.Option) (*CopySnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).CopySnapshot")
+	defer span.End()
+
 	req, out := c.CopySnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -496,6 +506,9 @@ func (c *ElastiCache) CreateCacheCluster(input *CreateCacheClusterInput) (*Creat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) CreateCacheClusterWithContext(ctx aws.Context, input *CreateCacheClusterInput, opts ...request.Option) (*CreateCacheClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).CreateCacheCluster")
+	defer span.End()
+
 	req, out := c.CreateCacheClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -602,6 +615,9 @@ func (c *ElastiCache) CreateCacheParameterGroup(input *CreateCacheParameterGroup
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) CreateCacheParameterGroupWithContext(ctx aws.Context, input *CreateCacheParameterGroupInput, opts ...request.Option) (*CreateCacheParameterGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).CreateCacheParameterGroup")
+	defer span.End()
+
 	req, out := c.CreateCacheParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -697,6 +713,9 @@ func (c *ElastiCache) CreateCacheSecurityGroup(input *CreateCacheSecurityGroupIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) CreateCacheSecurityGroupWithContext(ctx aws.Context, input *CreateCacheSecurityGroupInput, opts ...request.Option) (*CreateCacheSecurityGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).CreateCacheSecurityGroup")
+	defer span.End()
+
 	req, out := c.CreateCacheSecurityGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -791,6 +810,9 @@ func (c *ElastiCache) CreateCacheSubnetGroup(input *CreateCacheSubnetGroupInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) CreateCacheSubnetGroupWithContext(ctx aws.Context, input *CreateCacheSubnetGroupInput, opts ...request.Option) (*CreateCacheSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).CreateCacheSubnetGroup")
+	defer span.End()
+
 	req, out := c.CreateCacheSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -945,6 +967,9 @@ func (c *ElastiCache) CreateReplicationGroup(input *CreateReplicationGroupInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) CreateReplicationGroupWithContext(ctx aws.Context, input *CreateReplicationGroupInput, opts ...request.Option) (*CreateReplicationGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).CreateReplicationGroup")
+	defer span.End()
+
 	req, out := c.CreateReplicationGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1060,6 +1085,9 @@ func (c *ElastiCache) CreateSnapshot(input *CreateSnapshotInput) (*CreateSnapsho
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) CreateSnapshotWithContext(ctx aws.Context, input *CreateSnapshotInput, opts ...request.Option) (*CreateSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).CreateSnapshot")
+	defer span.End()
+
 	req, out := c.CreateSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1177,6 +1205,9 @@ func (c *ElastiCache) DeleteCacheCluster(input *DeleteCacheClusterInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DeleteCacheClusterWithContext(ctx aws.Context, input *DeleteCacheClusterInput, opts ...request.Option) (*DeleteCacheClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DeleteCacheCluster")
+	defer span.End()
+
 	req, out := c.DeleteCacheClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1270,6 +1301,9 @@ func (c *ElastiCache) DeleteCacheParameterGroup(input *DeleteCacheParameterGroup
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DeleteCacheParameterGroupWithContext(ctx aws.Context, input *DeleteCacheParameterGroupInput, opts ...request.Option) (*DeleteCacheParameterGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DeleteCacheParameterGroup")
+	defer span.End()
+
 	req, out := c.DeleteCacheParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1363,6 +1397,9 @@ func (c *ElastiCache) DeleteCacheSecurityGroup(input *DeleteCacheSecurityGroupIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DeleteCacheSecurityGroupWithContext(ctx aws.Context, input *DeleteCacheSecurityGroupInput, opts ...request.Option) (*DeleteCacheSecurityGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DeleteCacheSecurityGroup")
+	defer span.End()
+
 	req, out := c.DeleteCacheSecurityGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1450,6 +1487,9 @@ func (c *ElastiCache) DeleteCacheSubnetGroup(input *DeleteCacheSubnetGroupInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DeleteCacheSubnetGroupWithContext(ctx aws.Context, input *DeleteCacheSubnetGroupInput, opts ...request.Option) (*DeleteCacheSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DeleteCacheSubnetGroup")
+	defer span.End()
+
 	req, out := c.DeleteCacheSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1566,6 +1606,9 @@ func (c *ElastiCache) DeleteReplicationGroup(input *DeleteReplicationGroupInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DeleteReplicationGroupWithContext(ctx aws.Context, input *DeleteReplicationGroupInput, opts ...request.Option) (*DeleteReplicationGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DeleteReplicationGroup")
+	defer span.End()
+
 	req, out := c.DeleteReplicationGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1659,6 +1702,9 @@ func (c *ElastiCache) DeleteSnapshot(input *DeleteSnapshotInput) (*DeleteSnapsho
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DeleteSnapshotWithContext(ctx aws.Context, input *DeleteSnapshotInput, opts ...request.Option) (*DeleteSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DeleteSnapshot")
+	defer span.End()
+
 	req, out := c.DeleteSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1771,6 +1817,9 @@ func (c *ElastiCache) DescribeCacheClusters(input *DescribeCacheClustersInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DescribeCacheClustersWithContext(ctx aws.Context, input *DescribeCacheClustersInput, opts ...request.Option) (*DescribeCacheClustersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DescribeCacheClusters")
+	defer span.End()
+
 	req, out := c.DescribeCacheClustersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1901,6 +1950,9 @@ func (c *ElastiCache) DescribeCacheEngineVersions(input *DescribeCacheEngineVers
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DescribeCacheEngineVersionsWithContext(ctx aws.Context, input *DescribeCacheEngineVersionsInput, opts ...request.Option) (*DescribeCacheEngineVersionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DescribeCacheEngineVersions")
+	defer span.End()
+
 	req, out := c.DescribeCacheEngineVersionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2045,6 +2097,9 @@ func (c *ElastiCache) DescribeCacheParameterGroups(input *DescribeCacheParameter
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DescribeCacheParameterGroupsWithContext(ctx aws.Context, input *DescribeCacheParameterGroupsInput, opts ...request.Option) (*DescribeCacheParameterGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DescribeCacheParameterGroups")
+	defer span.End()
+
 	req, out := c.DescribeCacheParameterGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2187,6 +2242,9 @@ func (c *ElastiCache) DescribeCacheParameters(input *DescribeCacheParametersInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DescribeCacheParametersWithContext(ctx aws.Context, input *DescribeCacheParametersInput, opts ...request.Option) (*DescribeCacheParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DescribeCacheParameters")
+	defer span.End()
+
 	req, out := c.DescribeCacheParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2330,6 +2388,9 @@ func (c *ElastiCache) DescribeCacheSecurityGroups(input *DescribeCacheSecurityGr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DescribeCacheSecurityGroupsWithContext(ctx aws.Context, input *DescribeCacheSecurityGroupsInput, opts ...request.Option) (*DescribeCacheSecurityGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DescribeCacheSecurityGroups")
+	defer span.End()
+
 	req, out := c.DescribeCacheSecurityGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2467,6 +2528,9 @@ func (c *ElastiCache) DescribeCacheSubnetGroups(input *DescribeCacheSubnetGroups
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DescribeCacheSubnetGroupsWithContext(ctx aws.Context, input *DescribeCacheSubnetGroupsInput, opts ...request.Option) (*DescribeCacheSubnetGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DescribeCacheSubnetGroups")
+	defer span.End()
+
 	req, out := c.DescribeCacheSubnetGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2606,6 +2670,9 @@ func (c *ElastiCache) DescribeEngineDefaultParameters(input *DescribeEngineDefau
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DescribeEngineDefaultParametersWithContext(ctx aws.Context, input *DescribeEngineDefaultParametersInput, opts ...request.Option) (*DescribeEngineDefaultParametersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DescribeEngineDefaultParameters")
+	defer span.End()
+
 	req, out := c.DescribeEngineDefaultParametersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2749,6 +2816,9 @@ func (c *ElastiCache) DescribeEvents(input *DescribeEventsInput) (*DescribeEvent
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DescribeEventsWithContext(ctx aws.Context, input *DescribeEventsInput, opts ...request.Option) (*DescribeEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DescribeEvents")
+	defer span.End()
+
 	req, out := c.DescribeEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2894,6 +2964,9 @@ func (c *ElastiCache) DescribeReplicationGroups(input *DescribeReplicationGroups
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DescribeReplicationGroupsWithContext(ctx aws.Context, input *DescribeReplicationGroupsInput, opts ...request.Option) (*DescribeReplicationGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DescribeReplicationGroups")
+	defer span.End()
+
 	req, out := c.DescribeReplicationGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3036,6 +3109,9 @@ func (c *ElastiCache) DescribeReservedCacheNodes(input *DescribeReservedCacheNod
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DescribeReservedCacheNodesWithContext(ctx aws.Context, input *DescribeReservedCacheNodesInput, opts ...request.Option) (*DescribeReservedCacheNodesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DescribeReservedCacheNodes")
+	defer span.End()
+
 	req, out := c.DescribeReservedCacheNodesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3177,6 +3253,9 @@ func (c *ElastiCache) DescribeReservedCacheNodesOfferings(input *DescribeReserve
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DescribeReservedCacheNodesOfferingsWithContext(ctx aws.Context, input *DescribeReservedCacheNodesOfferingsInput, opts ...request.Option) (*DescribeReservedCacheNodesOfferingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DescribeReservedCacheNodesOfferings")
+	defer span.End()
+
 	req, out := c.DescribeReservedCacheNodesOfferingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3326,6 +3405,9 @@ func (c *ElastiCache) DescribeSnapshots(input *DescribeSnapshotsInput) (*Describ
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) DescribeSnapshotsWithContext(ctx aws.Context, input *DescribeSnapshotsInput, opts ...request.Option) (*DescribeSnapshotsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).DescribeSnapshots")
+	defer span.End()
+
 	req, out := c.DescribeSnapshotsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3469,6 +3551,9 @@ func (c *ElastiCache) ListAllowedNodeTypeModifications(input *ListAllowedNodeTyp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) ListAllowedNodeTypeModificationsWithContext(ctx aws.Context, input *ListAllowedNodeTypeModificationsInput, opts ...request.Option) (*ListAllowedNodeTypeModificationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).ListAllowedNodeTypeModifications")
+	defer span.End()
+
 	req, out := c.ListAllowedNodeTypeModificationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3561,6 +3646,9 @@ func (c *ElastiCache) ListTagsForResource(input *ListTagsForResourceInput) (*Tag
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*TagListMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).ListTagsForResource")
+	defer span.End()
+
 	req, out := c.ListTagsForResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3677,6 +3765,9 @@ func (c *ElastiCache) ModifyCacheCluster(input *ModifyCacheClusterInput) (*Modif
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) ModifyCacheClusterWithContext(ctx aws.Context, input *ModifyCacheClusterInput, opts ...request.Option) (*ModifyCacheClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).ModifyCacheCluster")
+	defer span.End()
+
 	req, out := c.ModifyCacheClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3769,6 +3860,9 @@ func (c *ElastiCache) ModifyCacheParameterGroup(input *ModifyCacheParameterGroup
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) ModifyCacheParameterGroupWithContext(ctx aws.Context, input *ModifyCacheParameterGroupInput, opts ...request.Option) (*CacheParameterGroupNameMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).ModifyCacheParameterGroup")
+	defer span.End()
+
 	req, out := c.ModifyCacheParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3859,6 +3953,9 @@ func (c *ElastiCache) ModifyCacheSubnetGroup(input *ModifyCacheSubnetGroupInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) ModifyCacheSubnetGroupWithContext(ctx aws.Context, input *ModifyCacheSubnetGroupInput, opts ...request.Option) (*ModifyCacheSubnetGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).ModifyCacheSubnetGroup")
+	defer span.End()
+
 	req, out := c.ModifyCacheSubnetGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3985,6 +4082,9 @@ func (c *ElastiCache) ModifyReplicationGroup(input *ModifyReplicationGroupInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) ModifyReplicationGroupWithContext(ctx aws.Context, input *ModifyReplicationGroupInput, opts ...request.Option) (*ModifyReplicationGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).ModifyReplicationGroup")
+	defer span.End()
+
 	req, out := c.ModifyReplicationGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4099,6 +4199,9 @@ func (c *ElastiCache) ModifyReplicationGroupShardConfiguration(input *ModifyRepl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) ModifyReplicationGroupShardConfigurationWithContext(ctx aws.Context, input *ModifyReplicationGroupShardConfigurationInput, opts ...request.Option) (*ModifyReplicationGroupShardConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).ModifyReplicationGroupShardConfiguration")
+	defer span.End()
+
 	req, out := c.ModifyReplicationGroupShardConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4191,6 +4294,9 @@ func (c *ElastiCache) PurchaseReservedCacheNodesOffering(input *PurchaseReserved
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) PurchaseReservedCacheNodesOfferingWithContext(ctx aws.Context, input *PurchaseReservedCacheNodesOfferingInput, opts ...request.Option) (*PurchaseReservedCacheNodesOfferingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).PurchaseReservedCacheNodesOffering")
+	defer span.End()
+
 	req, out := c.PurchaseReservedCacheNodesOfferingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4289,6 +4395,9 @@ func (c *ElastiCache) RebootCacheCluster(input *RebootCacheClusterInput) (*Reboo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) RebootCacheClusterWithContext(ctx aws.Context, input *RebootCacheClusterInput, opts ...request.Option) (*RebootCacheClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).RebootCacheCluster")
+	defer span.End()
+
 	req, out := c.RebootCacheClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4377,6 +4486,9 @@ func (c *ElastiCache) RemoveTagsFromResource(input *RemoveTagsFromResourceInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) RemoveTagsFromResourceWithContext(ctx aws.Context, input *RemoveTagsFromResourceInput, opts ...request.Option) (*TagListMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).RemoveTagsFromResource")
+	defer span.End()
+
 	req, out := c.RemoveTagsFromResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4470,6 +4582,9 @@ func (c *ElastiCache) ResetCacheParameterGroup(input *ResetCacheParameterGroupIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) ResetCacheParameterGroupWithContext(ctx aws.Context, input *ResetCacheParameterGroupInput, opts ...request.Option) (*CacheParameterGroupNameMessage, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).ResetCacheParameterGroup")
+	defer span.End()
+
 	req, out := c.ResetCacheParameterGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4564,6 +4679,9 @@ func (c *ElastiCache) RevokeCacheSecurityGroupIngress(input *RevokeCacheSecurity
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) RevokeCacheSecurityGroupIngressWithContext(ctx aws.Context, input *RevokeCacheSecurityGroupIngressInput, opts ...request.Option) (*RevokeCacheSecurityGroupIngressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).RevokeCacheSecurityGroupIngress")
+	defer span.End()
+
 	req, out := c.RevokeCacheSecurityGroupIngressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4708,6 +4826,9 @@ func (c *ElastiCache) TestFailover(input *TestFailoverInput) (*TestFailoverOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ElastiCache) TestFailoverWithContext(ctx aws.Context, input *TestFailoverInput, opts ...request.Option) (*TestFailoverOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/elasticache.(*ElastiCache).TestFailover")
+	defer span.End()
+
 	req, out := c.TestFailoverRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

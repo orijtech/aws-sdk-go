@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCancelJob = "CancelJob"
@@ -92,6 +93,9 @@ func (c *Batch) CancelJob(input *CancelJobInput) (*CancelJobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) CancelJobWithContext(ctx aws.Context, input *CancelJobInput, opts ...request.Option) (*CancelJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).CancelJob")
+	defer span.End()
+
 	req, out := c.CancelJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -197,6 +201,9 @@ func (c *Batch) CreateComputeEnvironment(input *CreateComputeEnvironmentInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) CreateComputeEnvironmentWithContext(ctx aws.Context, input *CreateComputeEnvironmentInput, opts ...request.Option) (*CreateComputeEnvironmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).CreateComputeEnvironment")
+	defer span.End()
+
 	req, out := c.CreateComputeEnvironmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -289,6 +296,9 @@ func (c *Batch) CreateJobQueue(input *CreateJobQueueInput) (*CreateJobQueueOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) CreateJobQueueWithContext(ctx aws.Context, input *CreateJobQueueInput, opts ...request.Option) (*CreateJobQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).CreateJobQueue")
+	defer span.End()
+
 	req, out := c.CreateJobQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -377,6 +387,9 @@ func (c *Batch) DeleteComputeEnvironment(input *DeleteComputeEnvironmentInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) DeleteComputeEnvironmentWithContext(ctx aws.Context, input *DeleteComputeEnvironmentInput, opts ...request.Option) (*DeleteComputeEnvironmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).DeleteComputeEnvironment")
+	defer span.End()
+
 	req, out := c.DeleteComputeEnvironmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -466,6 +479,9 @@ func (c *Batch) DeleteJobQueue(input *DeleteJobQueueInput) (*DeleteJobQueueOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) DeleteJobQueueWithContext(ctx aws.Context, input *DeleteJobQueueInput, opts ...request.Option) (*DeleteJobQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).DeleteJobQueue")
+	defer span.End()
+
 	req, out := c.DeleteJobQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -550,6 +566,9 @@ func (c *Batch) DeregisterJobDefinition(input *DeregisterJobDefinitionInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) DeregisterJobDefinitionWithContext(ctx aws.Context, input *DeregisterJobDefinitionInput, opts ...request.Option) (*DeregisterJobDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).DeregisterJobDefinition")
+	defer span.End()
+
 	req, out := c.DeregisterJobDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -638,6 +657,9 @@ func (c *Batch) DescribeComputeEnvironments(input *DescribeComputeEnvironmentsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) DescribeComputeEnvironmentsWithContext(ctx aws.Context, input *DescribeComputeEnvironmentsInput, opts ...request.Option) (*DescribeComputeEnvironmentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).DescribeComputeEnvironments")
+	defer span.End()
+
 	req, out := c.DescribeComputeEnvironmentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -723,6 +745,9 @@ func (c *Batch) DescribeJobDefinitions(input *DescribeJobDefinitionsInput) (*Des
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) DescribeJobDefinitionsWithContext(ctx aws.Context, input *DescribeJobDefinitionsInput, opts ...request.Option) (*DescribeJobDefinitionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).DescribeJobDefinitions")
+	defer span.End()
+
 	req, out := c.DescribeJobDefinitionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -807,6 +832,9 @@ func (c *Batch) DescribeJobQueues(input *DescribeJobQueuesInput) (*DescribeJobQu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) DescribeJobQueuesWithContext(ctx aws.Context, input *DescribeJobQueuesInput, opts ...request.Option) (*DescribeJobQueuesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).DescribeJobQueues")
+	defer span.End()
+
 	req, out := c.DescribeJobQueuesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -891,6 +919,9 @@ func (c *Batch) DescribeJobs(input *DescribeJobsInput) (*DescribeJobsOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) DescribeJobsWithContext(ctx aws.Context, input *DescribeJobsInput, opts ...request.Option) (*DescribeJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).DescribeJobs")
+	defer span.End()
+
 	req, out := c.DescribeJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -977,6 +1008,9 @@ func (c *Batch) ListJobs(input *ListJobsInput) (*ListJobsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) ListJobsWithContext(ctx aws.Context, input *ListJobsInput, opts ...request.Option) (*ListJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).ListJobs")
+	defer span.End()
+
 	req, out := c.ListJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1061,6 +1095,9 @@ func (c *Batch) RegisterJobDefinition(input *RegisterJobDefinitionInput) (*Regis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) RegisterJobDefinitionWithContext(ctx aws.Context, input *RegisterJobDefinitionInput, opts ...request.Option) (*RegisterJobDefinitionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).RegisterJobDefinition")
+	defer span.End()
+
 	req, out := c.RegisterJobDefinitionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1146,6 +1183,9 @@ func (c *Batch) SubmitJob(input *SubmitJobInput) (*SubmitJobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) SubmitJobWithContext(ctx aws.Context, input *SubmitJobInput, opts ...request.Option) (*SubmitJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).SubmitJob")
+	defer span.End()
+
 	req, out := c.SubmitJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1232,6 +1272,9 @@ func (c *Batch) TerminateJob(input *TerminateJobInput) (*TerminateJobOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) TerminateJobWithContext(ctx aws.Context, input *TerminateJobInput, opts ...request.Option) (*TerminateJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).TerminateJob")
+	defer span.End()
+
 	req, out := c.TerminateJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1316,6 +1359,9 @@ func (c *Batch) UpdateComputeEnvironment(input *UpdateComputeEnvironmentInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) UpdateComputeEnvironmentWithContext(ctx aws.Context, input *UpdateComputeEnvironmentInput, opts ...request.Option) (*UpdateComputeEnvironmentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).UpdateComputeEnvironment")
+	defer span.End()
+
 	req, out := c.UpdateComputeEnvironmentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1400,6 +1446,9 @@ func (c *Batch) UpdateJobQueue(input *UpdateJobQueueInput) (*UpdateJobQueueOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Batch) UpdateJobQueueWithContext(ctx aws.Context, input *UpdateJobQueueInput, opts ...request.Option) (*UpdateJobQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/batch.(*Batch).UpdateJobQueue")
+	defer span.End()
+
 	req, out := c.UpdateJobQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

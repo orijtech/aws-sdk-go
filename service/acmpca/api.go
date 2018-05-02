@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opCreateCertificateAuthority = "CreateCertificateAuthority"
@@ -103,6 +104,9 @@ func (c *ACMPCA) CreateCertificateAuthority(input *CreateCertificateAuthorityInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) CreateCertificateAuthorityWithContext(ctx aws.Context, input *CreateCertificateAuthorityInput, opts ...request.Option) (*CreateCertificateAuthorityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).CreateCertificateAuthority")
+	defer span.End()
+
 	req, out := c.CreateCertificateAuthorityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -201,6 +205,9 @@ func (c *ACMPCA) CreateCertificateAuthorityAuditReport(input *CreateCertificateA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) CreateCertificateAuthorityAuditReportWithContext(ctx aws.Context, input *CreateCertificateAuthorityAuditReportInput, opts ...request.Option) (*CreateCertificateAuthorityAuditReportOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).CreateCertificateAuthorityAuditReport")
+	defer span.End()
+
 	req, out := c.CreateCertificateAuthorityAuditReportRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -302,6 +309,9 @@ func (c *ACMPCA) DeleteCertificateAuthority(input *DeleteCertificateAuthorityInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) DeleteCertificateAuthorityWithContext(ctx aws.Context, input *DeleteCertificateAuthorityInput, opts ...request.Option) (*DeleteCertificateAuthorityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).DeleteCertificateAuthority")
+	defer span.End()
+
 	req, out := c.DeleteCertificateAuthorityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -403,6 +413,9 @@ func (c *ACMPCA) DescribeCertificateAuthority(input *DescribeCertificateAuthorit
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) DescribeCertificateAuthorityWithContext(ctx aws.Context, input *DescribeCertificateAuthorityInput, opts ...request.Option) (*DescribeCertificateAuthorityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).DescribeCertificateAuthority")
+	defer span.End()
+
 	req, out := c.DescribeCertificateAuthorityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -489,6 +502,9 @@ func (c *ACMPCA) DescribeCertificateAuthorityAuditReport(input *DescribeCertific
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) DescribeCertificateAuthorityAuditReportWithContext(ctx aws.Context, input *DescribeCertificateAuthorityAuditReportInput, opts ...request.Option) (*DescribeCertificateAuthorityAuditReportOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).DescribeCertificateAuthorityAuditReport")
+	defer span.End()
+
 	req, out := c.DescribeCertificateAuthorityAuditReportRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -587,6 +603,9 @@ func (c *ACMPCA) GetCertificate(input *GetCertificateInput) (*GetCertificateOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) GetCertificateWithContext(ctx aws.Context, input *GetCertificateInput, opts ...request.Option) (*GetCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).GetCertificate")
+	defer span.End()
+
 	req, out := c.GetCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -676,6 +695,9 @@ func (c *ACMPCA) GetCertificateAuthorityCertificate(input *GetCertificateAuthori
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) GetCertificateAuthorityCertificateWithContext(ctx aws.Context, input *GetCertificateAuthorityCertificateInput, opts ...request.Option) (*GetCertificateAuthorityCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).GetCertificateAuthorityCertificate")
+	defer span.End()
+
 	req, out := c.GetCertificateAuthorityCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -770,6 +792,9 @@ func (c *ACMPCA) GetCertificateAuthorityCsr(input *GetCertificateAuthorityCsrInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) GetCertificateAuthorityCsrWithContext(ctx aws.Context, input *GetCertificateAuthorityCsrInput, opts ...request.Option) (*GetCertificateAuthorityCsrOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).GetCertificateAuthorityCsr")
+	defer span.End()
+
 	req, out := c.GetCertificateAuthorityCsrRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -887,6 +912,9 @@ func (c *ACMPCA) ImportCertificateAuthorityCertificate(input *ImportCertificateA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) ImportCertificateAuthorityCertificateWithContext(ctx aws.Context, input *ImportCertificateAuthorityCertificateInput, opts ...request.Option) (*ImportCertificateAuthorityCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).ImportCertificateAuthorityCertificate")
+	defer span.End()
+
 	req, out := c.ImportCertificateAuthorityCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -989,6 +1017,9 @@ func (c *ACMPCA) IssueCertificate(input *IssueCertificateInput) (*IssueCertifica
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) IssueCertificateWithContext(ctx aws.Context, input *IssueCertificateInput, opts ...request.Option) (*IssueCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).IssueCertificate")
+	defer span.End()
+
 	req, out := c.IssueCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1070,6 +1101,9 @@ func (c *ACMPCA) ListCertificateAuthorities(input *ListCertificateAuthoritiesInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) ListCertificateAuthoritiesWithContext(ctx aws.Context, input *ListCertificateAuthoritiesInput, opts ...request.Option) (*ListCertificateAuthoritiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).ListCertificateAuthorities")
+	defer span.End()
+
 	req, out := c.ListCertificateAuthoritiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1157,6 +1191,9 @@ func (c *ACMPCA) ListTags(input *ListTagsInput) (*ListTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) ListTagsWithContext(ctx aws.Context, input *ListTagsInput, opts ...request.Option) (*ListTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).ListTags")
+	defer span.End()
+
 	req, out := c.ListTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1263,6 +1300,9 @@ func (c *ACMPCA) RevokeCertificate(input *RevokeCertificateInput) (*RevokeCertif
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) RevokeCertificateWithContext(ctx aws.Context, input *RevokeCertificateInput, opts ...request.Option) (*RevokeCertificateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).RevokeCertificate")
+	defer span.End()
+
 	req, out := c.RevokeCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1364,6 +1404,9 @@ func (c *ACMPCA) TagCertificateAuthority(input *TagCertificateAuthorityInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) TagCertificateAuthorityWithContext(ctx aws.Context, input *TagCertificateAuthorityInput, opts ...request.Option) (*TagCertificateAuthorityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).TagCertificateAuthority")
+	defer span.End()
+
 	req, out := c.TagCertificateAuthorityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1458,6 +1501,9 @@ func (c *ACMPCA) UntagCertificateAuthority(input *UntagCertificateAuthorityInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) UntagCertificateAuthorityWithContext(ctx aws.Context, input *UntagCertificateAuthorityInput, opts ...request.Option) (*UntagCertificateAuthorityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).UntagCertificateAuthority")
+	defer span.End()
+
 	req, out := c.UntagCertificateAuthorityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1559,6 +1605,9 @@ func (c *ACMPCA) UpdateCertificateAuthority(input *UpdateCertificateAuthorityInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ACMPCA) UpdateCertificateAuthorityWithContext(ctx aws.Context, input *UpdateCertificateAuthorityInput, opts ...request.Option) (*UpdateCertificateAuthorityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/acmpca.(*ACMPCA).UpdateCertificateAuthority")
+	defer span.End()
+
 	req, out := c.UpdateCertificateAuthorityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opAddTagsToOnPremisesInstances = "AddTagsToOnPremisesInstances"
@@ -106,6 +107,9 @@ func (c *CodeDeploy) AddTagsToOnPremisesInstances(input *AddTagsToOnPremisesInst
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) AddTagsToOnPremisesInstancesWithContext(ctx aws.Context, input *AddTagsToOnPremisesInstancesInput, opts ...request.Option) (*AddTagsToOnPremisesInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).AddTagsToOnPremisesInstances")
+	defer span.End()
+
 	req, out := c.AddTagsToOnPremisesInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -200,6 +204,9 @@ func (c *CodeDeploy) BatchGetApplicationRevisions(input *BatchGetApplicationRevi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) BatchGetApplicationRevisionsWithContext(ctx aws.Context, input *BatchGetApplicationRevisionsInput, opts ...request.Option) (*BatchGetApplicationRevisionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).BatchGetApplicationRevisions")
+	defer span.End()
+
 	req, out := c.BatchGetApplicationRevisionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -288,6 +295,9 @@ func (c *CodeDeploy) BatchGetApplications(input *BatchGetApplicationsInput) (*Ba
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) BatchGetApplicationsWithContext(ctx aws.Context, input *BatchGetApplicationsInput, opts ...request.Option) (*BatchGetApplicationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).BatchGetApplications")
+	defer span.End()
+
 	req, out := c.BatchGetApplicationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -382,6 +392,9 @@ func (c *CodeDeploy) BatchGetDeploymentGroups(input *BatchGetDeploymentGroupsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) BatchGetDeploymentGroupsWithContext(ctx aws.Context, input *BatchGetDeploymentGroupsInput, opts ...request.Option) (*BatchGetDeploymentGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).BatchGetDeploymentGroups")
+	defer span.End()
+
 	req, out := c.BatchGetDeploymentGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -477,6 +490,9 @@ func (c *CodeDeploy) BatchGetDeploymentInstances(input *BatchGetDeploymentInstan
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) BatchGetDeploymentInstancesWithContext(ctx aws.Context, input *BatchGetDeploymentInstancesInput, opts ...request.Option) (*BatchGetDeploymentInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).BatchGetDeploymentInstances")
+	defer span.End()
+
 	req, out := c.BatchGetDeploymentInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -562,6 +578,9 @@ func (c *CodeDeploy) BatchGetDeployments(input *BatchGetDeploymentsInput) (*Batc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) BatchGetDeploymentsWithContext(ctx aws.Context, input *BatchGetDeploymentsInput, opts ...request.Option) (*BatchGetDeploymentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).BatchGetDeployments")
+	defer span.End()
+
 	req, out := c.BatchGetDeploymentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -647,6 +666,9 @@ func (c *CodeDeploy) BatchGetOnPremisesInstances(input *BatchGetOnPremisesInstan
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) BatchGetOnPremisesInstancesWithContext(ctx aws.Context, input *BatchGetOnPremisesInstancesInput, opts ...request.Option) (*BatchGetOnPremisesInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).BatchGetOnPremisesInstances")
+	defer span.End()
+
 	req, out := c.BatchGetOnPremisesInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -748,6 +770,9 @@ func (c *CodeDeploy) ContinueDeployment(input *ContinueDeploymentInput) (*Contin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) ContinueDeploymentWithContext(ctx aws.Context, input *ContinueDeploymentInput, opts ...request.Option) (*ContinueDeploymentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).ContinueDeployment")
+	defer span.End()
+
 	req, out := c.ContinueDeploymentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -840,6 +865,9 @@ func (c *CodeDeploy) CreateApplication(input *CreateApplicationInput) (*CreateAp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) CreateApplicationWithContext(ctx aws.Context, input *CreateApplicationInput, opts ...request.Option) (*CreateApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).CreateApplication")
+	defer span.End()
+
 	req, out := c.CreateApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1002,6 +1030,9 @@ func (c *CodeDeploy) CreateDeployment(input *CreateDeploymentInput) (*CreateDepl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) CreateDeploymentWithContext(ctx aws.Context, input *CreateDeploymentInput, opts ...request.Option) (*CreateDeploymentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).CreateDeployment")
+	defer span.End()
+
 	req, out := c.CreateDeploymentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1101,6 +1132,9 @@ func (c *CodeDeploy) CreateDeploymentConfig(input *CreateDeploymentConfigInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) CreateDeploymentConfigWithContext(ctx aws.Context, input *CreateDeploymentConfigInput, opts ...request.Option) (*CreateDeploymentConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).CreateDeploymentConfig")
+	defer span.End()
+
 	req, out := c.CreateDeploymentConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1281,6 +1315,9 @@ func (c *CodeDeploy) CreateDeploymentGroup(input *CreateDeploymentGroupInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) CreateDeploymentGroupWithContext(ctx aws.Context, input *CreateDeploymentGroupInput, opts ...request.Option) (*CreateDeploymentGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).CreateDeploymentGroup")
+	defer span.End()
+
 	req, out := c.CreateDeploymentGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1365,6 +1402,9 @@ func (c *CodeDeploy) DeleteApplication(input *DeleteApplicationInput) (*DeleteAp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) DeleteApplicationWithContext(ctx aws.Context, input *DeleteApplicationInput, opts ...request.Option) (*DeleteApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).DeleteApplication")
+	defer span.End()
+
 	req, out := c.DeleteApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1458,6 +1498,9 @@ func (c *CodeDeploy) DeleteDeploymentConfig(input *DeleteDeploymentConfigInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) DeleteDeploymentConfigWithContext(ctx aws.Context, input *DeleteDeploymentConfigInput, opts ...request.Option) (*DeleteDeploymentConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).DeleteDeploymentConfig")
+	defer span.End()
+
 	req, out := c.DeleteDeploymentConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1551,6 +1594,9 @@ func (c *CodeDeploy) DeleteDeploymentGroup(input *DeleteDeploymentGroupInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) DeleteDeploymentGroupWithContext(ctx aws.Context, input *DeleteDeploymentGroupInput, opts ...request.Option) (*DeleteDeploymentGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).DeleteDeploymentGroup")
+	defer span.End()
+
 	req, out := c.DeleteDeploymentGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1642,6 +1688,9 @@ func (c *CodeDeploy) DeleteGitHubAccountToken(input *DeleteGitHubAccountTokenInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) DeleteGitHubAccountTokenWithContext(ctx aws.Context, input *DeleteGitHubAccountTokenInput, opts ...request.Option) (*DeleteGitHubAccountTokenOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).DeleteGitHubAccountToken")
+	defer span.End()
+
 	req, out := c.DeleteGitHubAccountTokenRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1726,6 +1775,9 @@ func (c *CodeDeploy) DeregisterOnPremisesInstance(input *DeregisterOnPremisesIns
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) DeregisterOnPremisesInstanceWithContext(ctx aws.Context, input *DeregisterOnPremisesInstanceInput, opts ...request.Option) (*DeregisterOnPremisesInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).DeregisterOnPremisesInstance")
+	defer span.End()
+
 	req, out := c.DeregisterOnPremisesInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1811,6 +1863,9 @@ func (c *CodeDeploy) GetApplication(input *GetApplicationInput) (*GetApplication
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) GetApplicationWithContext(ctx aws.Context, input *GetApplicationInput, opts ...request.Option) (*GetApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).GetApplication")
+	defer span.End()
+
 	req, out := c.GetApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1905,6 +1960,9 @@ func (c *CodeDeploy) GetApplicationRevision(input *GetApplicationRevisionInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) GetApplicationRevisionWithContext(ctx aws.Context, input *GetApplicationRevisionInput, opts ...request.Option) (*GetApplicationRevisionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).GetApplicationRevision")
+	defer span.End()
+
 	req, out := c.GetApplicationRevisionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1990,6 +2048,9 @@ func (c *CodeDeploy) GetDeployment(input *GetDeploymentInput) (*GetDeploymentOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) GetDeploymentWithContext(ctx aws.Context, input *GetDeploymentInput, opts ...request.Option) (*GetDeploymentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).GetDeployment")
+	defer span.End()
+
 	req, out := c.GetDeploymentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2076,6 +2137,9 @@ func (c *CodeDeploy) GetDeploymentConfig(input *GetDeploymentConfigInput) (*GetD
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) GetDeploymentConfigWithContext(ctx aws.Context, input *GetDeploymentConfigInput, opts ...request.Option) (*GetDeploymentConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).GetDeploymentConfig")
+	defer span.End()
+
 	req, out := c.GetDeploymentConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2171,6 +2235,9 @@ func (c *CodeDeploy) GetDeploymentGroup(input *GetDeploymentGroupInput) (*GetDep
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) GetDeploymentGroupWithContext(ctx aws.Context, input *GetDeploymentGroupInput, opts ...request.Option) (*GetDeploymentGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).GetDeploymentGroup")
+	defer span.End()
+
 	req, out := c.GetDeploymentGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2265,6 +2332,9 @@ func (c *CodeDeploy) GetDeploymentInstance(input *GetDeploymentInstanceInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) GetDeploymentInstanceWithContext(ctx aws.Context, input *GetDeploymentInstanceInput, opts ...request.Option) (*GetDeploymentInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).GetDeploymentInstance")
+	defer span.End()
+
 	req, out := c.GetDeploymentInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2350,6 +2420,9 @@ func (c *CodeDeploy) GetOnPremisesInstance(input *GetOnPremisesInstanceInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) GetOnPremisesInstanceWithContext(ctx aws.Context, input *GetOnPremisesInstanceInput, opts ...request.Option) (*GetOnPremisesInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).GetOnPremisesInstance")
+	defer span.End()
+
 	req, out := c.GetOnPremisesInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2463,6 +2536,9 @@ func (c *CodeDeploy) ListApplicationRevisions(input *ListApplicationRevisionsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) ListApplicationRevisionsWithContext(ctx aws.Context, input *ListApplicationRevisionsInput, opts ...request.Option) (*ListApplicationRevisionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).ListApplicationRevisions")
+	defer span.End()
+
 	req, out := c.ListApplicationRevisionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2598,6 +2674,9 @@ func (c *CodeDeploy) ListApplications(input *ListApplicationsInput) (*ListApplic
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) ListApplicationsWithContext(ctx aws.Context, input *ListApplicationsInput, opts ...request.Option) (*ListApplicationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).ListApplications")
+	defer span.End()
+
 	req, out := c.ListApplicationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2733,6 +2812,9 @@ func (c *CodeDeploy) ListDeploymentConfigs(input *ListDeploymentConfigsInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) ListDeploymentConfigsWithContext(ctx aws.Context, input *ListDeploymentConfigsInput, opts ...request.Option) (*ListDeploymentConfigsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).ListDeploymentConfigs")
+	defer span.End()
+
 	req, out := c.ListDeploymentConfigsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2878,6 +2960,9 @@ func (c *CodeDeploy) ListDeploymentGroups(input *ListDeploymentGroupsInput) (*Li
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) ListDeploymentGroupsWithContext(ctx aws.Context, input *ListDeploymentGroupsInput, opts ...request.Option) (*ListDeploymentGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).ListDeploymentGroups")
+	defer span.End()
+
 	req, out := c.ListDeploymentGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3038,6 +3123,9 @@ func (c *CodeDeploy) ListDeploymentInstances(input *ListDeploymentInstancesInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) ListDeploymentInstancesWithContext(ctx aws.Context, input *ListDeploymentInstancesInput, opts ...request.Option) (*ListDeploymentInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).ListDeploymentInstances")
+	defer span.End()
+
 	req, out := c.ListDeploymentInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3199,6 +3287,9 @@ func (c *CodeDeploy) ListDeployments(input *ListDeploymentsInput) (*ListDeployme
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) ListDeploymentsWithContext(ctx aws.Context, input *ListDeploymentsInput, opts ...request.Option) (*ListDeploymentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).ListDeployments")
+	defer span.End()
+
 	req, out := c.ListDeploymentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3334,6 +3425,9 @@ func (c *CodeDeploy) ListGitHubAccountTokenNames(input *ListGitHubAccountTokenNa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) ListGitHubAccountTokenNamesWithContext(ctx aws.Context, input *ListGitHubAccountTokenNamesInput, opts ...request.Option) (*ListGitHubAccountTokenNamesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).ListGitHubAccountTokenNames")
+	defer span.End()
+
 	req, out := c.ListGitHubAccountTokenNamesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3423,6 +3517,9 @@ func (c *CodeDeploy) ListOnPremisesInstances(input *ListOnPremisesInstancesInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) ListOnPremisesInstancesWithContext(ctx aws.Context, input *ListOnPremisesInstancesInput, opts ...request.Option) (*ListOnPremisesInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).ListOnPremisesInstances")
+	defer span.End()
+
 	req, out := c.ListOnPremisesInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3524,6 +3621,9 @@ func (c *CodeDeploy) PutLifecycleEventHookExecutionStatus(input *PutLifecycleEve
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) PutLifecycleEventHookExecutionStatusWithContext(ctx aws.Context, input *PutLifecycleEventHookExecutionStatusInput, opts ...request.Option) (*PutLifecycleEventHookExecutionStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).PutLifecycleEventHookExecutionStatus")
+	defer span.End()
+
 	req, out := c.PutLifecycleEventHookExecutionStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3620,6 +3720,9 @@ func (c *CodeDeploy) RegisterApplicationRevision(input *RegisterApplicationRevis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) RegisterApplicationRevisionWithContext(ctx aws.Context, input *RegisterApplicationRevisionInput, opts ...request.Option) (*RegisterApplicationRevisionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).RegisterApplicationRevision")
+	defer span.End()
+
 	req, out := c.RegisterApplicationRevisionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3734,6 +3837,9 @@ func (c *CodeDeploy) RegisterOnPremisesInstance(input *RegisterOnPremisesInstanc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) RegisterOnPremisesInstanceWithContext(ctx aws.Context, input *RegisterOnPremisesInstanceInput, opts ...request.Option) (*RegisterOnPremisesInstanceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).RegisterOnPremisesInstance")
+	defer span.End()
+
 	req, out := c.RegisterOnPremisesInstanceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3834,6 +3940,9 @@ func (c *CodeDeploy) RemoveTagsFromOnPremisesInstances(input *RemoveTagsFromOnPr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) RemoveTagsFromOnPremisesInstancesWithContext(ctx aws.Context, input *RemoveTagsFromOnPremisesInstancesInput, opts ...request.Option) (*RemoveTagsFromOnPremisesInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).RemoveTagsFromOnPremisesInstances")
+	defer span.End()
+
 	req, out := c.RemoveTagsFromOnPremisesInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3931,6 +4040,9 @@ func (c *CodeDeploy) SkipWaitTimeForInstanceTermination(input *SkipWaitTimeForIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) SkipWaitTimeForInstanceTerminationWithContext(ctx aws.Context, input *SkipWaitTimeForInstanceTerminationInput, opts ...request.Option) (*SkipWaitTimeForInstanceTerminationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).SkipWaitTimeForInstanceTermination")
+	defer span.End()
+
 	req, out := c.SkipWaitTimeForInstanceTerminationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4019,6 +4131,9 @@ func (c *CodeDeploy) StopDeployment(input *StopDeploymentInput) (*StopDeployment
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) StopDeploymentWithContext(ctx aws.Context, input *StopDeploymentInput, opts ...request.Option) (*StopDeploymentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).StopDeployment")
+	defer span.End()
+
 	req, out := c.StopDeploymentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4110,6 +4225,9 @@ func (c *CodeDeploy) UpdateApplication(input *UpdateApplicationInput) (*UpdateAp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) UpdateApplicationWithContext(ctx aws.Context, input *UpdateApplicationInput, opts ...request.Option) (*UpdateApplicationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).UpdateApplication")
+	defer span.End()
+
 	req, out := c.UpdateApplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4288,6 +4406,9 @@ func (c *CodeDeploy) UpdateDeploymentGroup(input *UpdateDeploymentGroupInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeDeploy) UpdateDeploymentGroupWithContext(ctx aws.Context, input *UpdateDeploymentGroupInput, opts ...request.Option) (*UpdateDeploymentGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codedeploy.(*CodeDeploy).UpdateDeploymentGroup")
+	defer span.End()
+
 	req, out := c.UpdateDeploymentGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

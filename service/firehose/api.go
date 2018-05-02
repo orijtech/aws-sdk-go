@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateDeliveryStream = "CreateDeliveryStream"
@@ -141,6 +142,9 @@ func (c *Firehose) CreateDeliveryStream(input *CreateDeliveryStreamInput) (*Crea
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Firehose) CreateDeliveryStreamWithContext(ctx aws.Context, input *CreateDeliveryStreamInput, opts ...request.Option) (*CreateDeliveryStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/firehose.(*Firehose).CreateDeliveryStream")
+	defer span.End()
+
 	req, out := c.CreateDeliveryStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -234,6 +238,9 @@ func (c *Firehose) DeleteDeliveryStream(input *DeleteDeliveryStreamInput) (*Dele
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Firehose) DeleteDeliveryStreamWithContext(ctx aws.Context, input *DeleteDeliveryStreamInput, opts ...request.Option) (*DeleteDeliveryStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/firehose.(*Firehose).DeleteDeliveryStream")
+	defer span.End()
+
 	req, out := c.DeleteDeliveryStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -316,6 +323,9 @@ func (c *Firehose) DescribeDeliveryStream(input *DescribeDeliveryStreamInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Firehose) DescribeDeliveryStreamWithContext(ctx aws.Context, input *DescribeDeliveryStreamInput, opts ...request.Option) (*DescribeDeliveryStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/firehose.(*Firehose).DescribeDeliveryStream")
+	defer span.End()
+
 	req, out := c.DescribeDeliveryStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -398,6 +408,9 @@ func (c *Firehose) ListDeliveryStreams(input *ListDeliveryStreamsInput) (*ListDe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Firehose) ListDeliveryStreamsWithContext(ctx aws.Context, input *ListDeliveryStreamsInput, opts ...request.Option) (*ListDeliveryStreamsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/firehose.(*Firehose).ListDeliveryStreams")
+	defer span.End()
+
 	req, out := c.ListDeliveryStreamsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -518,6 +531,9 @@ func (c *Firehose) PutRecord(input *PutRecordInput) (*PutRecordOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Firehose) PutRecordWithContext(ctx aws.Context, input *PutRecordInput, opts ...request.Option) (*PutRecordOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/firehose.(*Firehose).PutRecord")
+	defer span.End()
+
 	req, out := c.PutRecordRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -663,6 +679,9 @@ func (c *Firehose) PutRecordBatch(input *PutRecordBatchInput) (*PutRecordBatchOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Firehose) PutRecordBatchWithContext(ctx aws.Context, input *PutRecordBatchInput, opts ...request.Option) (*PutRecordBatchOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/firehose.(*Firehose).PutRecordBatch")
+	defer span.End()
+
 	req, out := c.PutRecordBatchRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -781,6 +800,9 @@ func (c *Firehose) UpdateDestination(input *UpdateDestinationInput) (*UpdateDest
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Firehose) UpdateDestinationWithContext(ctx aws.Context, input *UpdateDestinationInput, opts ...request.Option) (*UpdateDestinationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/firehose.(*Firehose).UpdateDestination")
+	defer span.End()
+
 	req, out := c.UpdateDestinationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

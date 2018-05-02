@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opGetMediaForFragmentList = "GetMediaForFragmentList"
@@ -109,6 +110,9 @@ func (c *KinesisVideoArchivedMedia) GetMediaForFragmentList(input *GetMediaForFr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisVideoArchivedMedia) GetMediaForFragmentListWithContext(ctx aws.Context, input *GetMediaForFragmentListInput, opts ...request.Option) (*GetMediaForFragmentListOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisvideoarchivedmedia.(*KinesisVideoArchivedMedia).GetMediaForFragmentList")
+	defer span.End()
+
 	req, out := c.GetMediaForFragmentListRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -201,6 +205,9 @@ func (c *KinesisVideoArchivedMedia) ListFragments(input *ListFragmentsInput) (*L
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *KinesisVideoArchivedMedia) ListFragmentsWithContext(ctx aws.Context, input *ListFragmentsInput, opts ...request.Option) (*ListFragmentsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/kinesisvideoarchivedmedia.(*KinesisVideoArchivedMedia).ListFragments")
+	defer span.End()
+
 	req, out := c.ListFragmentsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

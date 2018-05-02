@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opBatchGetRepositories = "BatchGetRepositories"
@@ -118,6 +119,9 @@ func (c *CodeCommit) BatchGetRepositories(input *BatchGetRepositoriesInput) (*Ba
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) BatchGetRepositoriesWithContext(ctx aws.Context, input *BatchGetRepositoriesInput, opts ...request.Option) (*BatchGetRepositoriesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).BatchGetRepositories")
+	defer span.End()
+
 	req, out := c.BatchGetRepositoriesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -246,6 +250,9 @@ func (c *CodeCommit) CreateBranch(input *CreateBranchInput) (*CreateBranchOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) CreateBranchWithContext(ctx aws.Context, input *CreateBranchInput, opts ...request.Option) (*CreateBranchOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).CreateBranch")
+	defer span.End()
+
 	req, out := c.CreateBranchRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -423,6 +430,9 @@ func (c *CodeCommit) CreatePullRequest(input *CreatePullRequestInput) (*CreatePu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) CreatePullRequestWithContext(ctx aws.Context, input *CreatePullRequestInput, opts ...request.Option) (*CreatePullRequestOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).CreatePullRequest")
+	defer span.End()
+
 	req, out := c.CreatePullRequestRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -533,6 +543,9 @@ func (c *CodeCommit) CreateRepository(input *CreateRepositoryInput) (*CreateRepo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) CreateRepositoryWithContext(ctx aws.Context, input *CreateRepositoryInput, opts ...request.Option) (*CreateRepositoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).CreateRepository")
+	defer span.End()
+
 	req, out := c.CreateRepositoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -649,6 +662,9 @@ func (c *CodeCommit) DeleteBranch(input *DeleteBranchInput) (*DeleteBranchOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) DeleteBranchWithContext(ctx aws.Context, input *DeleteBranchInput, opts ...request.Option) (*DeleteBranchOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).DeleteBranch")
+	defer span.End()
+
 	req, out := c.DeleteBranchRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -740,6 +756,9 @@ func (c *CodeCommit) DeleteCommentContent(input *DeleteCommentContentInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) DeleteCommentContentWithContext(ctx aws.Context, input *DeleteCommentContentInput, opts ...request.Option) (*DeleteCommentContentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).DeleteCommentContent")
+	defer span.End()
+
 	req, out := c.DeleteCommentContentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -846,6 +865,9 @@ func (c *CodeCommit) DeleteRepository(input *DeleteRepositoryInput) (*DeleteRepo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) DeleteRepositoryWithContext(ctx aws.Context, input *DeleteRepositoryInput, opts ...request.Option) (*DeleteRepositoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).DeleteRepository")
+	defer span.End()
+
 	req, out := c.DeleteRepositoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -972,6 +994,9 @@ func (c *CodeCommit) DescribePullRequestEvents(input *DescribePullRequestEventsI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) DescribePullRequestEventsWithContext(ctx aws.Context, input *DescribePullRequestEventsInput, opts ...request.Option) (*DescribePullRequestEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).DescribePullRequestEvents")
+	defer span.End()
+
 	req, out := c.DescribePullRequestEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1140,6 +1165,9 @@ func (c *CodeCommit) GetBlob(input *GetBlobInput) (*GetBlobOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) GetBlobWithContext(ctx aws.Context, input *GetBlobInput, opts ...request.Option) (*GetBlobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).GetBlob")
+	defer span.End()
+
 	req, out := c.GetBlobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1254,6 +1282,9 @@ func (c *CodeCommit) GetBranch(input *GetBranchInput) (*GetBranchOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) GetBranchWithContext(ctx aws.Context, input *GetBranchInput, opts ...request.Option) (*GetBranchOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).GetBranch")
+	defer span.End()
+
 	req, out := c.GetBranchRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1345,6 +1376,9 @@ func (c *CodeCommit) GetComment(input *GetCommentInput) (*GetCommentOutput, erro
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) GetCommentWithContext(ctx aws.Context, input *GetCommentInput, opts ...request.Option) (*GetCommentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).GetComment")
+	defer span.End()
+
 	req, out := c.GetCommentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1471,6 +1505,9 @@ func (c *CodeCommit) GetCommentsForComparedCommit(input *GetCommentsForComparedC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) GetCommentsForComparedCommitWithContext(ctx aws.Context, input *GetCommentsForComparedCommitInput, opts ...request.Option) (*GetCommentsForComparedCommitOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).GetCommentsForComparedCommit")
+	defer span.End()
+
 	req, out := c.GetCommentsForComparedCommitRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1664,6 +1701,9 @@ func (c *CodeCommit) GetCommentsForPullRequest(input *GetCommentsForPullRequestI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) GetCommentsForPullRequestWithContext(ctx aws.Context, input *GetCommentsForPullRequestInput, opts ...request.Option) (*GetCommentsForPullRequestOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).GetCommentsForPullRequest")
+	defer span.End()
+
 	req, out := c.GetCommentsForPullRequestRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1828,6 +1868,9 @@ func (c *CodeCommit) GetCommit(input *GetCommitInput) (*GetCommitOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) GetCommitWithContext(ctx aws.Context, input *GetCommitInput, opts ...request.Option) (*GetCommitOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).GetCommit")
+	defer span.End()
+
 	req, out := c.GetCommitRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1965,6 +2008,9 @@ func (c *CodeCommit) GetDifferences(input *GetDifferencesInput) (*GetDifferences
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) GetDifferencesWithContext(ctx aws.Context, input *GetDifferencesInput, opts ...request.Option) (*GetDifferencesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).GetDifferences")
+	defer span.End()
+
 	req, out := c.GetDifferencesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2149,6 +2195,9 @@ func (c *CodeCommit) GetMergeConflicts(input *GetMergeConflictsInput) (*GetMerge
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) GetMergeConflictsWithContext(ctx aws.Context, input *GetMergeConflictsInput, opts ...request.Option) (*GetMergeConflictsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).GetMergeConflicts")
+	defer span.End()
+
 	req, out := c.GetMergeConflictsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2252,6 +2301,9 @@ func (c *CodeCommit) GetPullRequest(input *GetPullRequestInput) (*GetPullRequest
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) GetPullRequestWithContext(ctx aws.Context, input *GetPullRequestInput, opts ...request.Option) (*GetPullRequestOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).GetPullRequest")
+	defer span.End()
+
 	req, out := c.GetPullRequestRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2362,6 +2414,9 @@ func (c *CodeCommit) GetRepository(input *GetRepositoryInput) (*GetRepositoryOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) GetRepositoryWithContext(ctx aws.Context, input *GetRepositoryInput, opts ...request.Option) (*GetRepositoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).GetRepository")
+	defer span.End()
+
 	req, out := c.GetRepositoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2466,6 +2521,9 @@ func (c *CodeCommit) GetRepositoryTriggers(input *GetRepositoryTriggersInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) GetRepositoryTriggersWithContext(ctx aws.Context, input *GetRepositoryTriggersInput, opts ...request.Option) (*GetRepositoryTriggersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).GetRepositoryTriggers")
+	defer span.End()
+
 	req, out := c.GetRepositoryTriggersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2579,6 +2637,9 @@ func (c *CodeCommit) ListBranches(input *ListBranchesInput) (*ListBranchesOutput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) ListBranchesWithContext(ctx aws.Context, input *ListBranchesInput, opts ...request.Option) (*ListBranchesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).ListBranches")
+	defer span.End()
+
 	req, out := c.ListBranchesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2757,6 +2818,9 @@ func (c *CodeCommit) ListPullRequests(input *ListPullRequestsInput) (*ListPullRe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) ListPullRequestsWithContext(ctx aws.Context, input *ListPullRequestsInput, opts ...request.Option) (*ListPullRequestsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).ListPullRequests")
+	defer span.End()
+
 	req, out := c.ListPullRequestsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2898,6 +2962,9 @@ func (c *CodeCommit) ListRepositories(input *ListRepositoriesInput) (*ListReposi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) ListRepositoriesWithContext(ctx aws.Context, input *ListRepositoriesInput, opts ...request.Option) (*ListRepositoriesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).ListRepositories")
+	defer span.End()
+
 	req, out := c.ListRepositoriesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3084,6 +3151,9 @@ func (c *CodeCommit) MergePullRequestByFastForward(input *MergePullRequestByFast
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) MergePullRequestByFastForwardWithContext(ctx aws.Context, input *MergePullRequestByFastForwardInput, opts ...request.Option) (*MergePullRequestByFastForwardOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).MergePullRequestByFastForward")
+	defer span.End()
+
 	req, out := c.MergePullRequestByFastForwardRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3244,6 +3314,9 @@ func (c *CodeCommit) PostCommentForComparedCommit(input *PostCommentForComparedC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) PostCommentForComparedCommitWithContext(ctx aws.Context, input *PostCommentForComparedCommitInput, opts ...request.Option) (*PostCommentForComparedCommitOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).PostCommentForComparedCommit")
+	defer span.End()
+
 	req, out := c.PostCommentForComparedCommitRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3424,6 +3497,9 @@ func (c *CodeCommit) PostCommentForPullRequest(input *PostCommentForPullRequestI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) PostCommentForPullRequestWithContext(ctx aws.Context, input *PostCommentForPullRequestInput, opts ...request.Option) (*PostCommentForPullRequestOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).PostCommentForPullRequest")
+	defer span.End()
+
 	req, out := c.PostCommentForPullRequestRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3533,6 +3609,9 @@ func (c *CodeCommit) PostCommentReply(input *PostCommentReplyInput) (*PostCommen
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) PostCommentReplyWithContext(ctx aws.Context, input *PostCommentReplyInput, opts ...request.Option) (*PostCommentReplyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).PostCommentReply")
+	defer span.End()
+
 	req, out := c.PostCommentReplyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3719,6 +3798,9 @@ func (c *CodeCommit) PutFile(input *PutFileInput) (*PutFileOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) PutFileWithContext(ctx aws.Context, input *PutFileInput, opts ...request.Option) (*PutFileOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).PutFile")
+	defer span.End()
+
 	req, out := c.PutFileRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3869,6 +3951,9 @@ func (c *CodeCommit) PutRepositoryTriggers(input *PutRepositoryTriggersInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) PutRepositoryTriggersWithContext(ctx aws.Context, input *PutRepositoryTriggersInput, opts ...request.Option) (*PutRepositoryTriggersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).PutRepositoryTriggers")
+	defer span.End()
+
 	req, out := c.PutRepositoryTriggersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4021,6 +4106,9 @@ func (c *CodeCommit) TestRepositoryTriggers(input *TestRepositoryTriggersInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) TestRepositoryTriggersWithContext(ctx aws.Context, input *TestRepositoryTriggersInput, opts ...request.Option) (*TestRepositoryTriggersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).TestRepositoryTriggers")
+	defer span.End()
+
 	req, out := c.TestRepositoryTriggersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4123,6 +4211,9 @@ func (c *CodeCommit) UpdateComment(input *UpdateCommentInput) (*UpdateCommentOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) UpdateCommentWithContext(ctx aws.Context, input *UpdateCommentInput, opts ...request.Option) (*UpdateCommentOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).UpdateComment")
+	defer span.End()
+
 	req, out := c.UpdateCommentRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4242,6 +4333,9 @@ func (c *CodeCommit) UpdateDefaultBranch(input *UpdateDefaultBranchInput) (*Upda
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) UpdateDefaultBranchWithContext(ctx aws.Context, input *UpdateDefaultBranchInput, opts ...request.Option) (*UpdateDefaultBranchOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).UpdateDefaultBranch")
+	defer span.End()
+
 	req, out := c.UpdateDefaultBranchRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4337,6 +4431,9 @@ func (c *CodeCommit) UpdatePullRequestDescription(input *UpdatePullRequestDescri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) UpdatePullRequestDescriptionWithContext(ctx aws.Context, input *UpdatePullRequestDescriptionInput, opts ...request.Option) (*UpdatePullRequestDescriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).UpdatePullRequestDescription")
+	defer span.End()
+
 	req, out := c.UpdatePullRequestDescriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4451,6 +4548,9 @@ func (c *CodeCommit) UpdatePullRequestStatus(input *UpdatePullRequestStatusInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) UpdatePullRequestStatusWithContext(ctx aws.Context, input *UpdatePullRequestStatusInput, opts ...request.Option) (*UpdatePullRequestStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).UpdatePullRequestStatus")
+	defer span.End()
+
 	req, out := c.UpdatePullRequestStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4549,6 +4649,9 @@ func (c *CodeCommit) UpdatePullRequestTitle(input *UpdatePullRequestTitleInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) UpdatePullRequestTitleWithContext(ctx aws.Context, input *UpdatePullRequestTitleInput, opts ...request.Option) (*UpdatePullRequestTitleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).UpdatePullRequestTitle")
+	defer span.End()
+
 	req, out := c.UpdatePullRequestTitleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4664,6 +4767,9 @@ func (c *CodeCommit) UpdateRepositoryDescription(input *UpdateRepositoryDescript
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) UpdateRepositoryDescriptionWithContext(ctx aws.Context, input *UpdateRepositoryDescriptionInput, opts ...request.Option) (*UpdateRepositoryDescriptionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).UpdateRepositoryDescription")
+	defer span.End()
+
 	req, out := c.UpdateRepositoryDescriptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4763,6 +4869,9 @@ func (c *CodeCommit) UpdateRepositoryName(input *UpdateRepositoryNameInput) (*Up
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CodeCommit) UpdateRepositoryNameWithContext(ctx aws.Context, input *UpdateRepositoryNameInput, opts ...request.Option) (*UpdateRepositoryNameOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/codecommit.(*CodeCommit).UpdateRepositoryName")
+	defer span.End()
+
 	req, out := c.UpdateRepositoryNameRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

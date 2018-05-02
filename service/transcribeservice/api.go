@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opCreateVocabulary = "CreateVocabulary"
@@ -101,6 +102,9 @@ func (c *TranscribeService) CreateVocabulary(input *CreateVocabularyInput) (*Cre
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *TranscribeService) CreateVocabularyWithContext(ctx aws.Context, input *CreateVocabularyInput, opts ...request.Option) (*CreateVocabularyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/transcribeservice.(*TranscribeService).CreateVocabulary")
+	defer span.End()
+
 	req, out := c.CreateVocabularyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -191,6 +195,9 @@ func (c *TranscribeService) DeleteVocabulary(input *DeleteVocabularyInput) (*Del
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *TranscribeService) DeleteVocabularyWithContext(ctx aws.Context, input *DeleteVocabularyInput, opts ...request.Option) (*DeleteVocabularyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/transcribeservice.(*TranscribeService).DeleteVocabulary")
+	defer span.End()
+
 	req, out := c.DeleteVocabularyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -288,6 +295,9 @@ func (c *TranscribeService) GetTranscriptionJob(input *GetTranscriptionJobInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *TranscribeService) GetTranscriptionJobWithContext(ctx aws.Context, input *GetTranscriptionJobInput, opts ...request.Option) (*GetTranscriptionJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/transcribeservice.(*TranscribeService).GetTranscriptionJob")
+	defer span.End()
+
 	req, out := c.GetTranscriptionJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -382,6 +392,9 @@ func (c *TranscribeService) GetVocabulary(input *GetVocabularyInput) (*GetVocabu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *TranscribeService) GetVocabularyWithContext(ctx aws.Context, input *GetVocabularyInput, opts ...request.Option) (*GetVocabularyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/transcribeservice.(*TranscribeService).GetVocabulary")
+	defer span.End()
+
 	req, out := c.GetVocabularyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -478,6 +491,9 @@ func (c *TranscribeService) ListTranscriptionJobs(input *ListTranscriptionJobsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *TranscribeService) ListTranscriptionJobsWithContext(ctx aws.Context, input *ListTranscriptionJobsInput, opts ...request.Option) (*ListTranscriptionJobsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/transcribeservice.(*TranscribeService).ListTranscriptionJobs")
+	defer span.End()
+
 	req, out := c.ListTranscriptionJobsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -625,6 +641,9 @@ func (c *TranscribeService) ListVocabularies(input *ListVocabulariesInput) (*Lis
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *TranscribeService) ListVocabulariesWithContext(ctx aws.Context, input *ListVocabulariesInput, opts ...request.Option) (*ListVocabulariesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/transcribeservice.(*TranscribeService).ListVocabularies")
+	defer span.End()
+
 	req, out := c.ListVocabulariesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -769,6 +788,9 @@ func (c *TranscribeService) StartTranscriptionJob(input *StartTranscriptionJobIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *TranscribeService) StartTranscriptionJobWithContext(ctx aws.Context, input *StartTranscriptionJobInput, opts ...request.Option) (*StartTranscriptionJobOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/transcribeservice.(*TranscribeService).StartTranscriptionJob")
+	defer span.End()
+
 	req, out := c.StartTranscriptionJobRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -863,6 +885,9 @@ func (c *TranscribeService) UpdateVocabulary(input *UpdateVocabularyInput) (*Upd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *TranscribeService) UpdateVocabularyWithContext(ctx aws.Context, input *UpdateVocabularyInput, opts ...request.Option) (*UpdateVocabularyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/transcribeservice.(*TranscribeService).UpdateVocabulary")
+	defer span.End()
+
 	req, out := c.UpdateVocabularyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

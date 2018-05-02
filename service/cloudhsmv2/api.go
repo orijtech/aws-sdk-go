@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateCluster = "CreateCluster"
@@ -98,6 +99,9 @@ func (c *CloudHSMV2) CreateCluster(input *CreateClusterInput) (*CreateClusterOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSMV2) CreateClusterWithContext(ctx aws.Context, input *CreateClusterInput, opts ...request.Option) (*CreateClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsmv2.(*CloudHSMV2).CreateCluster")
+	defer span.End()
+
 	req, out := c.CreateClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -192,6 +196,9 @@ func (c *CloudHSMV2) CreateHsm(input *CreateHsmInput) (*CreateHsmOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSMV2) CreateHsmWithContext(ctx aws.Context, input *CreateHsmInput, opts ...request.Option) (*CreateHsmOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsmv2.(*CloudHSMV2).CreateHsm")
+	defer span.End()
+
 	req, out := c.CreateHsmRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -287,6 +294,9 @@ func (c *CloudHSMV2) DeleteCluster(input *DeleteClusterInput) (*DeleteClusterOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSMV2) DeleteClusterWithContext(ctx aws.Context, input *DeleteClusterInput, opts ...request.Option) (*DeleteClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsmv2.(*CloudHSMV2).DeleteCluster")
+	defer span.End()
+
 	req, out := c.DeleteClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -383,6 +393,9 @@ func (c *CloudHSMV2) DeleteHsm(input *DeleteHsmInput) (*DeleteHsmOutput, error) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSMV2) DeleteHsmWithContext(ctx aws.Context, input *DeleteHsmInput, opts ...request.Option) (*DeleteHsmOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsmv2.(*CloudHSMV2).DeleteHsm")
+	defer span.End()
+
 	req, out := c.DeleteHsmRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -489,6 +502,9 @@ func (c *CloudHSMV2) DescribeBackups(input *DescribeBackupsInput) (*DescribeBack
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSMV2) DescribeBackupsWithContext(ctx aws.Context, input *DescribeBackupsInput, opts ...request.Option) (*DescribeBackupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsmv2.(*CloudHSMV2).DescribeBackups")
+	defer span.End()
+
 	req, out := c.DescribeBackupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -642,6 +658,9 @@ func (c *CloudHSMV2) DescribeClusters(input *DescribeClustersInput) (*DescribeCl
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSMV2) DescribeClustersWithContext(ctx aws.Context, input *DescribeClustersInput, opts ...request.Option) (*DescribeClustersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsmv2.(*CloudHSMV2).DescribeClusters")
+	defer span.End()
+
 	req, out := c.DescribeClustersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -788,6 +807,9 @@ func (c *CloudHSMV2) InitializeCluster(input *InitializeClusterInput) (*Initiali
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSMV2) InitializeClusterWithContext(ctx aws.Context, input *InitializeClusterInput, opts ...request.Option) (*InitializeClusterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsmv2.(*CloudHSMV2).InitializeCluster")
+	defer span.End()
+
 	req, out := c.InitializeClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -893,6 +915,9 @@ func (c *CloudHSMV2) ListTags(input *ListTagsInput) (*ListTagsOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSMV2) ListTagsWithContext(ctx aws.Context, input *ListTagsInput, opts ...request.Option) (*ListTagsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsmv2.(*CloudHSMV2).ListTags")
+	defer span.End()
+
 	req, out := c.ListTagsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1036,6 +1061,9 @@ func (c *CloudHSMV2) TagResource(input *TagResourceInput) (*TagResourceOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSMV2) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsmv2.(*CloudHSMV2).TagResource")
+	defer span.End()
+
 	req, out := c.TagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1129,6 +1157,9 @@ func (c *CloudHSMV2) UntagResource(input *UntagResourceInput) (*UntagResourceOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudHSMV2) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudhsmv2.(*CloudHSMV2).UntagResource")
+	defer span.End()
+
 	req, out := c.UntagResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

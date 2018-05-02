@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opBatchGetResourceConfig = "BatchGetResourceConfig"
@@ -98,6 +99,9 @@ func (c *ConfigService) BatchGetResourceConfig(input *BatchGetResourceConfigInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) BatchGetResourceConfigWithContext(ctx aws.Context, input *BatchGetResourceConfigInput, opts ...request.Option) (*BatchGetResourceConfigOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).BatchGetResourceConfig")
+	defer span.End()
+
 	req, out := c.BatchGetResourceConfigRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -181,6 +185,9 @@ func (c *ConfigService) DeleteAggregationAuthorization(input *DeleteAggregationA
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DeleteAggregationAuthorizationWithContext(ctx aws.Context, input *DeleteAggregationAuthorizationInput, opts ...request.Option) (*DeleteAggregationAuthorizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DeleteAggregationAuthorization")
+	defer span.End()
+
 	req, out := c.DeleteAggregationAuthorizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -273,6 +280,9 @@ func (c *ConfigService) DeleteConfigRule(input *DeleteConfigRuleInput) (*DeleteC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DeleteConfigRuleWithContext(ctx aws.Context, input *DeleteConfigRuleInput, opts ...request.Option) (*DeleteConfigRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DeleteConfigRule")
+	defer span.End()
+
 	req, out := c.DeleteConfigRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -355,6 +365,9 @@ func (c *ConfigService) DeleteConfigurationAggregator(input *DeleteConfiguration
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DeleteConfigurationAggregatorWithContext(ctx aws.Context, input *DeleteConfigurationAggregatorInput, opts ...request.Option) (*DeleteConfigurationAggregatorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DeleteConfigurationAggregator")
+	defer span.End()
+
 	req, out := c.DeleteConfigurationAggregatorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -445,6 +458,9 @@ func (c *ConfigService) DeleteConfigurationRecorder(input *DeleteConfigurationRe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DeleteConfigurationRecorderWithContext(ctx aws.Context, input *DeleteConfigurationRecorderInput, opts ...request.Option) (*DeleteConfigurationRecorderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DeleteConfigurationRecorder")
+	defer span.End()
+
 	req, out := c.DeleteConfigurationRecorderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -533,6 +549,9 @@ func (c *ConfigService) DeleteDeliveryChannel(input *DeleteDeliveryChannelInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DeleteDeliveryChannelWithContext(ctx aws.Context, input *DeleteDeliveryChannelInput, opts ...request.Option) (*DeleteDeliveryChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DeleteDeliveryChannel")
+	defer span.End()
+
 	req, out := c.DeleteDeliveryChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -620,6 +639,9 @@ func (c *ConfigService) DeleteEvaluationResults(input *DeleteEvaluationResultsIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DeleteEvaluationResultsWithContext(ctx aws.Context, input *DeleteEvaluationResultsInput, opts ...request.Option) (*DeleteEvaluationResultsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DeleteEvaluationResults")
+	defer span.End()
+
 	req, out := c.DeleteEvaluationResultsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -703,6 +725,9 @@ func (c *ConfigService) DeletePendingAggregationRequest(input *DeletePendingAggr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DeletePendingAggregationRequestWithContext(ctx aws.Context, input *DeletePendingAggregationRequestInput, opts ...request.Option) (*DeletePendingAggregationRequestOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DeletePendingAggregationRequest")
+	defer span.End()
+
 	req, out := c.DeletePendingAggregationRequestRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -799,6 +824,9 @@ func (c *ConfigService) DeliverConfigSnapshot(input *DeliverConfigSnapshotInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DeliverConfigSnapshotWithContext(ctx aws.Context, input *DeliverConfigSnapshotInput, opts ...request.Option) (*DeliverConfigSnapshotOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DeliverConfigSnapshot")
+	defer span.End()
+
 	req, out := c.DeliverConfigSnapshotRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -892,6 +920,9 @@ func (c *ConfigService) DescribeAggregateComplianceByConfigRules(input *Describe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DescribeAggregateComplianceByConfigRulesWithContext(ctx aws.Context, input *DescribeAggregateComplianceByConfigRulesInput, opts ...request.Option) (*DescribeAggregateComplianceByConfigRulesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DescribeAggregateComplianceByConfigRules")
+	defer span.End()
+
 	req, out := c.DescribeAggregateComplianceByConfigRulesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -980,6 +1011,9 @@ func (c *ConfigService) DescribeAggregationAuthorizations(input *DescribeAggrega
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DescribeAggregationAuthorizationsWithContext(ctx aws.Context, input *DescribeAggregationAuthorizationsInput, opts ...request.Option) (*DescribeAggregationAuthorizationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DescribeAggregationAuthorizations")
+	defer span.End()
+
 	req, out := c.DescribeAggregationAuthorizationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1090,6 +1124,9 @@ func (c *ConfigService) DescribeComplianceByConfigRule(input *DescribeCompliance
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DescribeComplianceByConfigRuleWithContext(ctx aws.Context, input *DescribeComplianceByConfigRuleInput, opts ...request.Option) (*DescribeComplianceByConfigRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DescribeComplianceByConfigRule")
+	defer span.End()
+
 	req, out := c.DescribeComplianceByConfigRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1198,6 +1235,9 @@ func (c *ConfigService) DescribeComplianceByResource(input *DescribeComplianceBy
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DescribeComplianceByResourceWithContext(ctx aws.Context, input *DescribeComplianceByResourceInput, opts ...request.Option) (*DescribeComplianceByResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DescribeComplianceByResource")
+	defer span.End()
+
 	req, out := c.DescribeComplianceByResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1289,6 +1329,9 @@ func (c *ConfigService) DescribeConfigRuleEvaluationStatus(input *DescribeConfig
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DescribeConfigRuleEvaluationStatusWithContext(ctx aws.Context, input *DescribeConfigRuleEvaluationStatusInput, opts ...request.Option) (*DescribeConfigRuleEvaluationStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DescribeConfigRuleEvaluationStatus")
+	defer span.End()
+
 	req, out := c.DescribeConfigRuleEvaluationStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1373,6 +1416,9 @@ func (c *ConfigService) DescribeConfigRules(input *DescribeConfigRulesInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DescribeConfigRulesWithContext(ctx aws.Context, input *DescribeConfigRulesInput, opts ...request.Option) (*DescribeConfigRulesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DescribeConfigRules")
+	defer span.End()
+
 	req, out := c.DescribeConfigRulesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1466,6 +1512,9 @@ func (c *ConfigService) DescribeConfigurationAggregatorSourcesStatus(input *Desc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DescribeConfigurationAggregatorSourcesStatusWithContext(ctx aws.Context, input *DescribeConfigurationAggregatorSourcesStatusInput, opts ...request.Option) (*DescribeConfigurationAggregatorSourcesStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DescribeConfigurationAggregatorSourcesStatus")
+	defer span.End()
+
 	req, out := c.DescribeConfigurationAggregatorSourcesStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1558,6 +1607,9 @@ func (c *ConfigService) DescribeConfigurationAggregators(input *DescribeConfigur
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DescribeConfigurationAggregatorsWithContext(ctx aws.Context, input *DescribeConfigurationAggregatorsInput, opts ...request.Option) (*DescribeConfigurationAggregatorsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DescribeConfigurationAggregators")
+	defer span.End()
+
 	req, out := c.DescribeConfigurationAggregatorsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1642,6 +1694,9 @@ func (c *ConfigService) DescribeConfigurationRecorderStatus(input *DescribeConfi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DescribeConfigurationRecorderStatusWithContext(ctx aws.Context, input *DescribeConfigurationRecorderStatusInput, opts ...request.Option) (*DescribeConfigurationRecorderStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DescribeConfigurationRecorderStatus")
+	defer span.End()
+
 	req, out := c.DescribeConfigurationRecorderStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1726,6 +1781,9 @@ func (c *ConfigService) DescribeConfigurationRecorders(input *DescribeConfigurat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DescribeConfigurationRecordersWithContext(ctx aws.Context, input *DescribeConfigurationRecordersInput, opts ...request.Option) (*DescribeConfigurationRecordersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DescribeConfigurationRecorders")
+	defer span.End()
+
 	req, out := c.DescribeConfigurationRecordersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1809,6 +1867,9 @@ func (c *ConfigService) DescribeDeliveryChannelStatus(input *DescribeDeliveryCha
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DescribeDeliveryChannelStatusWithContext(ctx aws.Context, input *DescribeDeliveryChannelStatusInput, opts ...request.Option) (*DescribeDeliveryChannelStatusOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DescribeDeliveryChannelStatus")
+	defer span.End()
+
 	req, out := c.DescribeDeliveryChannelStatusRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1892,6 +1953,9 @@ func (c *ConfigService) DescribeDeliveryChannels(input *DescribeDeliveryChannels
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DescribeDeliveryChannelsWithContext(ctx aws.Context, input *DescribeDeliveryChannelsInput, opts ...request.Option) (*DescribeDeliveryChannelsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DescribeDeliveryChannels")
+	defer span.End()
+
 	req, out := c.DescribeDeliveryChannelsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1979,6 +2043,9 @@ func (c *ConfigService) DescribePendingAggregationRequests(input *DescribePendin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) DescribePendingAggregationRequestsWithContext(ctx aws.Context, input *DescribePendingAggregationRequestsInput, opts ...request.Option) (*DescribePendingAggregationRequestsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).DescribePendingAggregationRequests")
+	defer span.End()
+
 	req, out := c.DescribePendingAggregationRequestsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2074,6 +2141,9 @@ func (c *ConfigService) GetAggregateComplianceDetailsByConfigRule(input *GetAggr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) GetAggregateComplianceDetailsByConfigRuleWithContext(ctx aws.Context, input *GetAggregateComplianceDetailsByConfigRuleInput, opts ...request.Option) (*GetAggregateComplianceDetailsByConfigRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).GetAggregateComplianceDetailsByConfigRule")
+	defer span.End()
+
 	req, out := c.GetAggregateComplianceDetailsByConfigRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2167,6 +2237,9 @@ func (c *ConfigService) GetAggregateConfigRuleComplianceSummary(input *GetAggreg
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) GetAggregateConfigRuleComplianceSummaryWithContext(ctx aws.Context, input *GetAggregateConfigRuleComplianceSummaryInput, opts ...request.Option) (*GetAggregateConfigRuleComplianceSummaryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).GetAggregateConfigRuleComplianceSummary")
+	defer span.End()
+
 	req, out := c.GetAggregateConfigRuleComplianceSummaryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2257,6 +2330,9 @@ func (c *ConfigService) GetComplianceDetailsByConfigRule(input *GetComplianceDet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) GetComplianceDetailsByConfigRuleWithContext(ctx aws.Context, input *GetComplianceDetailsByConfigRuleInput, opts ...request.Option) (*GetComplianceDetailsByConfigRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).GetComplianceDetailsByConfigRule")
+	defer span.End()
+
 	req, out := c.GetComplianceDetailsByConfigRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2339,6 +2415,9 @@ func (c *ConfigService) GetComplianceDetailsByResource(input *GetComplianceDetai
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) GetComplianceDetailsByResourceWithContext(ctx aws.Context, input *GetComplianceDetailsByResourceInput, opts ...request.Option) (*GetComplianceDetailsByResourceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).GetComplianceDetailsByResource")
+	defer span.End()
+
 	req, out := c.GetComplianceDetailsByResourceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2414,6 +2493,9 @@ func (c *ConfigService) GetComplianceSummaryByConfigRule(input *GetComplianceSum
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) GetComplianceSummaryByConfigRuleWithContext(ctx aws.Context, input *GetComplianceSummaryByConfigRuleInput, opts ...request.Option) (*GetComplianceSummaryByConfigRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).GetComplianceSummaryByConfigRule")
+	defer span.End()
+
 	req, out := c.GetComplianceSummaryByConfigRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2496,6 +2578,9 @@ func (c *ConfigService) GetComplianceSummaryByResourceType(input *GetComplianceS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) GetComplianceSummaryByResourceTypeWithContext(ctx aws.Context, input *GetComplianceSummaryByResourceTypeInput, opts ...request.Option) (*GetComplianceSummaryByResourceTypeOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).GetComplianceSummaryByResourceType")
+	defer span.End()
+
 	req, out := c.GetComplianceSummaryByResourceTypeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2615,6 +2700,9 @@ func (c *ConfigService) GetDiscoveredResourceCounts(input *GetDiscoveredResource
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) GetDiscoveredResourceCountsWithContext(ctx aws.Context, input *GetDiscoveredResourceCountsInput, opts ...request.Option) (*GetDiscoveredResourceCountsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).GetDiscoveredResourceCounts")
+	defer span.End()
+
 	req, out := c.GetDiscoveredResourceCountsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2729,6 +2817,9 @@ func (c *ConfigService) GetResourceConfigHistory(input *GetResourceConfigHistory
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) GetResourceConfigHistoryWithContext(ctx aws.Context, input *GetResourceConfigHistoryInput, opts ...request.Option) (*GetResourceConfigHistoryOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).GetResourceConfigHistory")
+	defer span.End()
+
 	req, out := c.GetResourceConfigHistoryRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2882,6 +2973,9 @@ func (c *ConfigService) ListDiscoveredResources(input *ListDiscoveredResourcesIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) ListDiscoveredResourcesWithContext(ctx aws.Context, input *ListDiscoveredResourcesInput, opts ...request.Option) (*ListDiscoveredResourcesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).ListDiscoveredResources")
+	defer span.End()
+
 	req, out := c.ListDiscoveredResourcesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2963,6 +3057,9 @@ func (c *ConfigService) PutAggregationAuthorization(input *PutAggregationAuthori
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) PutAggregationAuthorizationWithContext(ctx aws.Context, input *PutAggregationAuthorizationInput, opts ...request.Option) (*PutAggregationAuthorizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).PutAggregationAuthorization")
+	defer span.End()
+
 	req, out := c.PutAggregationAuthorizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3102,6 +3199,9 @@ func (c *ConfigService) PutConfigRule(input *PutConfigRuleInput) (*PutConfigRule
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) PutConfigRuleWithContext(ctx aws.Context, input *PutConfigRuleInput, opts ...request.Option) (*PutConfigRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).PutConfigRule")
+	defer span.End()
+
 	req, out := c.PutConfigRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3202,6 +3302,9 @@ func (c *ConfigService) PutConfigurationAggregator(input *PutConfigurationAggreg
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) PutConfigurationAggregatorWithContext(ctx aws.Context, input *PutConfigurationAggregatorInput, opts ...request.Option) (*PutConfigurationAggregatorOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).PutConfigurationAggregator")
+	defer span.End()
+
 	req, out := c.PutConfigurationAggregatorRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3303,6 +3406,9 @@ func (c *ConfigService) PutConfigurationRecorder(input *PutConfigurationRecorder
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) PutConfigurationRecorderWithContext(ctx aws.Context, input *PutConfigurationRecorderInput, opts ...request.Option) (*PutConfigurationRecorderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).PutConfigurationRecorder")
+	defer span.End()
+
 	req, out := c.PutConfigurationRecorderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3416,6 +3522,9 @@ func (c *ConfigService) PutDeliveryChannel(input *PutDeliveryChannelInput) (*Put
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) PutDeliveryChannelWithContext(ctx aws.Context, input *PutDeliveryChannelInput, opts ...request.Option) (*PutDeliveryChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).PutDeliveryChannel")
+	defer span.End()
+
 	req, out := c.PutDeliveryChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3505,6 +3614,9 @@ func (c *ConfigService) PutEvaluations(input *PutEvaluationsInput) (*PutEvaluati
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) PutEvaluationsWithContext(ctx aws.Context, input *PutEvaluationsInput, opts ...request.Option) (*PutEvaluationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).PutEvaluations")
+	defer span.End()
+
 	req, out := c.PutEvaluationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3626,6 +3738,9 @@ func (c *ConfigService) StartConfigRulesEvaluation(input *StartConfigRulesEvalua
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) StartConfigRulesEvaluationWithContext(ctx aws.Context, input *StartConfigRulesEvaluationInput, opts ...request.Option) (*StartConfigRulesEvaluationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).StartConfigRulesEvaluation")
+	defer span.End()
+
 	req, out := c.StartConfigRulesEvaluationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3714,6 +3829,9 @@ func (c *ConfigService) StartConfigurationRecorder(input *StartConfigurationReco
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) StartConfigurationRecorderWithContext(ctx aws.Context, input *StartConfigurationRecorderInput, opts ...request.Option) (*StartConfigurationRecorderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).StartConfigurationRecorder")
+	defer span.End()
+
 	req, out := c.StartConfigurationRecorderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3796,6 +3914,9 @@ func (c *ConfigService) StopConfigurationRecorder(input *StopConfigurationRecord
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ConfigService) StopConfigurationRecorderWithContext(ctx aws.Context, input *StopConfigurationRecorderInput, opts ...request.Option) (*StopConfigurationRecorderOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/configservice.(*ConfigService).StopConfigurationRecorder")
+	defer span.End()
+
 	req, out := c.StopConfigurationRecorderRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

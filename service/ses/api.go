@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/query"
+	"go.opencensus.io/trace"
 )
 
 const opCloneReceiptRuleSet = "CloneReceiptRuleSet"
@@ -100,6 +101,9 @@ func (c *SES) CloneReceiptRuleSet(input *CloneReceiptRuleSetInput) (*CloneReceip
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) CloneReceiptRuleSetWithContext(ctx aws.Context, input *CloneReceiptRuleSetInput, opts ...request.Option) (*CloneReceiptRuleSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).CloneReceiptRuleSet")
+	defer span.End()
+
 	req, out := c.CloneReceiptRuleSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -193,6 +197,9 @@ func (c *SES) CreateConfigurationSet(input *CreateConfigurationSetInput) (*Creat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) CreateConfigurationSetWithContext(ctx aws.Context, input *CreateConfigurationSetInput, opts ...request.Option) (*CreateConfigurationSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).CreateConfigurationSet")
+	defer span.End()
+
 	req, out := c.CreateConfigurationSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -302,6 +309,9 @@ func (c *SES) CreateConfigurationSetEventDestination(input *CreateConfigurationS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) CreateConfigurationSetEventDestinationWithContext(ctx aws.Context, input *CreateConfigurationSetEventDestinationInput, opts ...request.Option) (*CreateConfigurationSetEventDestinationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).CreateConfigurationSetEventDestination")
+	defer span.End()
+
 	req, out := c.CreateConfigurationSetEventDestinationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -400,6 +410,9 @@ func (c *SES) CreateConfigurationSetTrackingOptions(input *CreateConfigurationSe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) CreateConfigurationSetTrackingOptionsWithContext(ctx aws.Context, input *CreateConfigurationSetTrackingOptionsInput, opts ...request.Option) (*CreateConfigurationSetTrackingOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).CreateConfigurationSetTrackingOptions")
+	defer span.End()
+
 	req, out := c.CreateConfigurationSetTrackingOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -500,6 +513,9 @@ func (c *SES) CreateCustomVerificationEmailTemplate(input *CreateCustomVerificat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) CreateCustomVerificationEmailTemplateWithContext(ctx aws.Context, input *CreateCustomVerificationEmailTemplateInput, opts ...request.Option) (*CreateCustomVerificationEmailTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).CreateCustomVerificationEmailTemplate")
+	defer span.End()
+
 	req, out := c.CreateCustomVerificationEmailTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -588,6 +604,9 @@ func (c *SES) CreateReceiptFilter(input *CreateReceiptFilterInput) (*CreateRecei
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) CreateReceiptFilterWithContext(ctx aws.Context, input *CreateReceiptFilterInput, opts ...request.Option) (*CreateReceiptFilterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).CreateReceiptFilter")
+	defer span.End()
+
 	req, out := c.CreateReceiptFilterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -699,6 +718,9 @@ func (c *SES) CreateReceiptRule(input *CreateReceiptRuleInput) (*CreateReceiptRu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) CreateReceiptRuleWithContext(ctx aws.Context, input *CreateReceiptRuleInput, opts ...request.Option) (*CreateReceiptRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).CreateReceiptRule")
+	defer span.End()
+
 	req, out := c.CreateReceiptRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -787,6 +809,9 @@ func (c *SES) CreateReceiptRuleSet(input *CreateReceiptRuleSetInput) (*CreateRec
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) CreateReceiptRuleSetWithContext(ctx aws.Context, input *CreateReceiptRuleSetInput, opts ...request.Option) (*CreateReceiptRuleSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).CreateReceiptRuleSet")
+	defer span.End()
+
 	req, out := c.CreateReceiptRuleSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -878,6 +903,9 @@ func (c *SES) CreateTemplate(input *CreateTemplateInput) (*CreateTemplateOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) CreateTemplateWithContext(ctx aws.Context, input *CreateTemplateInput, opts ...request.Option) (*CreateTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).CreateTemplate")
+	defer span.End()
+
 	req, out := c.CreateTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -961,6 +989,9 @@ func (c *SES) DeleteConfigurationSet(input *DeleteConfigurationSetInput) (*Delet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DeleteConfigurationSetWithContext(ctx aws.Context, input *DeleteConfigurationSetInput, opts ...request.Option) (*DeleteConfigurationSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DeleteConfigurationSet")
+	defer span.End()
+
 	req, out := c.DeleteConfigurationSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1048,6 +1079,9 @@ func (c *SES) DeleteConfigurationSetEventDestination(input *DeleteConfigurationS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DeleteConfigurationSetEventDestinationWithContext(ctx aws.Context, input *DeleteConfigurationSetEventDestinationInput, opts ...request.Option) (*DeleteConfigurationSetEventDestinationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DeleteConfigurationSetEventDestination")
+	defer span.End()
+
 	req, out := c.DeleteConfigurationSetEventDestinationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1141,6 +1175,9 @@ func (c *SES) DeleteConfigurationSetTrackingOptions(input *DeleteConfigurationSe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DeleteConfigurationSetTrackingOptionsWithContext(ctx aws.Context, input *DeleteConfigurationSetTrackingOptionsInput, opts ...request.Option) (*DeleteConfigurationSetTrackingOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DeleteConfigurationSetTrackingOptions")
+	defer span.End()
+
 	req, out := c.DeleteConfigurationSetTrackingOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1223,6 +1260,9 @@ func (c *SES) DeleteCustomVerificationEmailTemplate(input *DeleteCustomVerificat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DeleteCustomVerificationEmailTemplateWithContext(ctx aws.Context, input *DeleteCustomVerificationEmailTemplateInput, opts ...request.Option) (*DeleteCustomVerificationEmailTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DeleteCustomVerificationEmailTemplate")
+	defer span.End()
+
 	req, out := c.DeleteCustomVerificationEmailTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1300,6 +1340,9 @@ func (c *SES) DeleteIdentity(input *DeleteIdentityInput) (*DeleteIdentityOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DeleteIdentityWithContext(ctx aws.Context, input *DeleteIdentityInput, opts ...request.Option) (*DeleteIdentityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DeleteIdentity")
+	defer span.End()
+
 	req, out := c.DeleteIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1385,6 +1428,9 @@ func (c *SES) DeleteIdentityPolicy(input *DeleteIdentityPolicyInput) (*DeleteIde
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DeleteIdentityPolicyWithContext(ctx aws.Context, input *DeleteIdentityPolicyInput, opts ...request.Option) (*DeleteIdentityPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DeleteIdentityPolicy")
+	defer span.End()
+
 	req, out := c.DeleteIdentityPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1464,6 +1510,9 @@ func (c *SES) DeleteReceiptFilter(input *DeleteReceiptFilterInput) (*DeleteRecei
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DeleteReceiptFilterWithContext(ctx aws.Context, input *DeleteReceiptFilterInput, opts ...request.Option) (*DeleteReceiptFilterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DeleteReceiptFilter")
+	defer span.End()
+
 	req, out := c.DeleteReceiptFilterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1548,6 +1597,9 @@ func (c *SES) DeleteReceiptRule(input *DeleteReceiptRuleInput) (*DeleteReceiptRu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DeleteReceiptRuleWithContext(ctx aws.Context, input *DeleteReceiptRuleInput, opts ...request.Option) (*DeleteReceiptRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DeleteReceiptRule")
+	defer span.End()
+
 	req, out := c.DeleteReceiptRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1634,6 +1686,9 @@ func (c *SES) DeleteReceiptRuleSet(input *DeleteReceiptRuleSetInput) (*DeleteRec
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DeleteReceiptRuleSetWithContext(ctx aws.Context, input *DeleteReceiptRuleSetInput, opts ...request.Option) (*DeleteReceiptRuleSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DeleteReceiptRuleSet")
+	defer span.End()
+
 	req, out := c.DeleteReceiptRuleSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1710,6 +1765,9 @@ func (c *SES) DeleteTemplate(input *DeleteTemplateInput) (*DeleteTemplateOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DeleteTemplateWithContext(ctx aws.Context, input *DeleteTemplateInput, opts ...request.Option) (*DeleteTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DeleteTemplate")
+	defer span.End()
+
 	req, out := c.DeleteTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1787,6 +1845,9 @@ func (c *SES) DeleteVerifiedEmailAddress(input *DeleteVerifiedEmailAddressInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DeleteVerifiedEmailAddressWithContext(ctx aws.Context, input *DeleteVerifiedEmailAddressInput, opts ...request.Option) (*DeleteVerifiedEmailAddressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DeleteVerifiedEmailAddress")
+	defer span.End()
+
 	req, out := c.DeleteVerifiedEmailAddressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1867,6 +1928,9 @@ func (c *SES) DescribeActiveReceiptRuleSet(input *DescribeActiveReceiptRuleSetIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DescribeActiveReceiptRuleSetWithContext(ctx aws.Context, input *DescribeActiveReceiptRuleSetInput, opts ...request.Option) (*DescribeActiveReceiptRuleSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DescribeActiveReceiptRuleSet")
+	defer span.End()
+
 	req, out := c.DescribeActiveReceiptRuleSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1949,6 +2013,9 @@ func (c *SES) DescribeConfigurationSet(input *DescribeConfigurationSetInput) (*D
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DescribeConfigurationSetWithContext(ctx aws.Context, input *DescribeConfigurationSetInput, opts ...request.Option) (*DescribeConfigurationSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DescribeConfigurationSet")
+	defer span.End()
+
 	req, out := c.DescribeConfigurationSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2036,6 +2103,9 @@ func (c *SES) DescribeReceiptRule(input *DescribeReceiptRuleInput) (*DescribeRec
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DescribeReceiptRuleWithContext(ctx aws.Context, input *DescribeReceiptRuleInput, opts ...request.Option) (*DescribeReceiptRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DescribeReceiptRule")
+	defer span.End()
+
 	req, out := c.DescribeReceiptRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2120,6 +2190,9 @@ func (c *SES) DescribeReceiptRuleSet(input *DescribeReceiptRuleSetInput) (*Descr
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) DescribeReceiptRuleSetWithContext(ctx aws.Context, input *DescribeReceiptRuleSetInput, opts ...request.Option) (*DescribeReceiptRuleSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).DescribeReceiptRuleSet")
+	defer span.End()
+
 	req, out := c.DescribeReceiptRuleSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2196,6 +2269,9 @@ func (c *SES) GetAccountSendingEnabled(input *GetAccountSendingEnabledInput) (*G
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) GetAccountSendingEnabledWithContext(ctx aws.Context, input *GetAccountSendingEnabledInput, opts ...request.Option) (*GetAccountSendingEnabledOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).GetAccountSendingEnabled")
+	defer span.End()
+
 	req, out := c.GetAccountSendingEnabledRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2283,6 +2359,9 @@ func (c *SES) GetCustomVerificationEmailTemplate(input *GetCustomVerificationEma
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) GetCustomVerificationEmailTemplateWithContext(ctx aws.Context, input *GetCustomVerificationEmailTemplateInput, opts ...request.Option) (*GetCustomVerificationEmailTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).GetCustomVerificationEmailTemplate")
+	defer span.End()
+
 	req, out := c.GetCustomVerificationEmailTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2378,6 +2457,9 @@ func (c *SES) GetIdentityDkimAttributes(input *GetIdentityDkimAttributesInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) GetIdentityDkimAttributesWithContext(ctx aws.Context, input *GetIdentityDkimAttributesInput, opts ...request.Option) (*GetIdentityDkimAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).GetIdentityDkimAttributes")
+	defer span.End()
+
 	req, out := c.GetIdentityDkimAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2456,6 +2538,9 @@ func (c *SES) GetIdentityMailFromDomainAttributes(input *GetIdentityMailFromDoma
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) GetIdentityMailFromDomainAttributesWithContext(ctx aws.Context, input *GetIdentityMailFromDomainAttributesInput, opts ...request.Option) (*GetIdentityMailFromDomainAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).GetIdentityMailFromDomainAttributes")
+	defer span.End()
+
 	req, out := c.GetIdentityMailFromDomainAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2537,6 +2622,9 @@ func (c *SES) GetIdentityNotificationAttributes(input *GetIdentityNotificationAt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) GetIdentityNotificationAttributesWithContext(ctx aws.Context, input *GetIdentityNotificationAttributesInput, opts ...request.Option) (*GetIdentityNotificationAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).GetIdentityNotificationAttributes")
+	defer span.End()
+
 	req, out := c.GetIdentityNotificationAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2623,6 +2711,9 @@ func (c *SES) GetIdentityPolicies(input *GetIdentityPoliciesInput) (*GetIdentity
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) GetIdentityPoliciesWithContext(ctx aws.Context, input *GetIdentityPoliciesInput, opts ...request.Option) (*GetIdentityPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).GetIdentityPolicies")
+	defer span.End()
+
 	req, out := c.GetIdentityPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2718,6 +2809,9 @@ func (c *SES) GetIdentityVerificationAttributes(input *GetIdentityVerificationAt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) GetIdentityVerificationAttributesWithContext(ctx aws.Context, input *GetIdentityVerificationAttributesInput, opts ...request.Option) (*GetIdentityVerificationAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).GetIdentityVerificationAttributes")
+	defer span.End()
+
 	req, out := c.GetIdentityVerificationAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2794,6 +2888,9 @@ func (c *SES) GetSendQuota(input *GetSendQuotaInput) (*GetSendQuotaOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) GetSendQuotaWithContext(ctx aws.Context, input *GetSendQuotaInput, opts ...request.Option) (*GetSendQuotaOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).GetSendQuota")
+	defer span.End()
+
 	req, out := c.GetSendQuotaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2872,6 +2969,9 @@ func (c *SES) GetSendStatistics(input *GetSendStatisticsInput) (*GetSendStatisti
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) GetSendStatisticsWithContext(ctx aws.Context, input *GetSendStatisticsInput, opts ...request.Option) (*GetSendStatisticsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).GetSendStatistics")
+	defer span.End()
+
 	req, out := c.GetSendStatisticsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2955,6 +3055,9 @@ func (c *SES) GetTemplate(input *GetTemplateInput) (*GetTemplateOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) GetTemplateWithContext(ctx aws.Context, input *GetTemplateInput, opts ...request.Option) (*GetTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).GetTemplate")
+	defer span.End()
+
 	req, out := c.GetTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3039,6 +3142,9 @@ func (c *SES) ListConfigurationSets(input *ListConfigurationSetsInput) (*ListCon
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) ListConfigurationSetsWithContext(ctx aws.Context, input *ListConfigurationSetsInput, opts ...request.Option) (*ListConfigurationSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).ListConfigurationSets")
+	defer span.End()
+
 	req, out := c.ListConfigurationSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3125,6 +3231,9 @@ func (c *SES) ListCustomVerificationEmailTemplates(input *ListCustomVerification
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) ListCustomVerificationEmailTemplatesWithContext(ctx aws.Context, input *ListCustomVerificationEmailTemplatesInput, opts ...request.Option) (*ListCustomVerificationEmailTemplatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).ListCustomVerificationEmailTemplates")
+	defer span.End()
+
 	req, out := c.ListCustomVerificationEmailTemplatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3258,6 +3367,9 @@ func (c *SES) ListIdentities(input *ListIdentitiesInput) (*ListIdentitiesOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) ListIdentitiesWithContext(ctx aws.Context, input *ListIdentitiesInput, opts ...request.Option) (*ListIdentitiesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).ListIdentities")
+	defer span.End()
+
 	req, out := c.ListIdentitiesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3393,6 +3505,9 @@ func (c *SES) ListIdentityPolicies(input *ListIdentityPoliciesInput) (*ListIdent
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) ListIdentityPoliciesWithContext(ctx aws.Context, input *ListIdentityPoliciesInput, opts ...request.Option) (*ListIdentityPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).ListIdentityPolicies")
+	defer span.End()
+
 	req, out := c.ListIdentityPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3472,6 +3587,9 @@ func (c *SES) ListReceiptFilters(input *ListReceiptFiltersInput) (*ListReceiptFi
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) ListReceiptFiltersWithContext(ctx aws.Context, input *ListReceiptFiltersInput, opts ...request.Option) (*ListReceiptFiltersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).ListReceiptFilters")
+	defer span.End()
+
 	req, out := c.ListReceiptFiltersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3554,6 +3672,9 @@ func (c *SES) ListReceiptRuleSets(input *ListReceiptRuleSetsInput) (*ListReceipt
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) ListReceiptRuleSetsWithContext(ctx aws.Context, input *ListReceiptRuleSetsInput, opts ...request.Option) (*ListReceiptRuleSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).ListReceiptRuleSets")
+	defer span.End()
+
 	req, out := c.ListReceiptRuleSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3630,6 +3751,9 @@ func (c *SES) ListTemplates(input *ListTemplatesInput) (*ListTemplatesOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) ListTemplatesWithContext(ctx aws.Context, input *ListTemplatesInput, opts ...request.Option) (*ListTemplatesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).ListTemplates")
+	defer span.End()
+
 	req, out := c.ListTemplatesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3705,6 +3829,9 @@ func (c *SES) ListVerifiedEmailAddresses(input *ListVerifiedEmailAddressesInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) ListVerifiedEmailAddressesWithContext(ctx aws.Context, input *ListVerifiedEmailAddressesInput, opts ...request.Option) (*ListVerifiedEmailAddressesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).ListVerifiedEmailAddresses")
+	defer span.End()
+
 	req, out := c.ListVerifiedEmailAddressesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3795,6 +3922,9 @@ func (c *SES) PutIdentityPolicy(input *PutIdentityPolicyInput) (*PutIdentityPoli
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) PutIdentityPolicyWithContext(ctx aws.Context, input *PutIdentityPolicyInput, opts ...request.Option) (*PutIdentityPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).PutIdentityPolicy")
+	defer span.End()
+
 	req, out := c.PutIdentityPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3886,6 +4016,9 @@ func (c *SES) ReorderReceiptRuleSet(input *ReorderReceiptRuleSetInput) (*Reorder
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) ReorderReceiptRuleSetWithContext(ctx aws.Context, input *ReorderReceiptRuleSetInput, opts ...request.Option) (*ReorderReceiptRuleSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).ReorderReceiptRuleSet")
+	defer span.End()
+
 	req, out := c.ReorderReceiptRuleSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3976,6 +4109,9 @@ func (c *SES) SendBounce(input *SendBounceInput) (*SendBounceOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) SendBounceWithContext(ctx aws.Context, input *SendBounceInput, opts ...request.Option) (*SendBounceOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).SendBounce")
+	defer span.End()
+
 	req, out := c.SendBounceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4105,6 +4241,9 @@ func (c *SES) SendBulkTemplatedEmail(input *SendBulkTemplatedEmailInput) (*SendB
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) SendBulkTemplatedEmailWithContext(ctx aws.Context, input *SendBulkTemplatedEmailInput, opts ...request.Option) (*SendBulkTemplatedEmailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).SendBulkTemplatedEmail")
+	defer span.End()
+
 	req, out := c.SendBulkTemplatedEmailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4209,6 +4348,9 @@ func (c *SES) SendCustomVerificationEmail(input *SendCustomVerificationEmailInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) SendCustomVerificationEmailWithContext(ctx aws.Context, input *SendCustomVerificationEmailInput, opts ...request.Option) (*SendCustomVerificationEmailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).SendCustomVerificationEmail")
+	defer span.End()
+
 	req, out := c.SendCustomVerificationEmailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4343,6 +4485,9 @@ func (c *SES) SendEmail(input *SendEmailInput) (*SendEmailOutput, error) {
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) SendEmailWithContext(ctx aws.Context, input *SendEmailInput, opts ...request.Option) (*SendEmailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).SendEmail")
+	defer span.End()
+
 	req, out := c.SendEmailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4513,6 +4658,9 @@ func (c *SES) SendRawEmail(input *SendRawEmailInput) (*SendRawEmailOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) SendRawEmailWithContext(ctx aws.Context, input *SendRawEmailInput, opts ...request.Option) (*SendRawEmailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).SendRawEmail")
+	defer span.End()
+
 	req, out := c.SendRawEmailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4647,6 +4795,9 @@ func (c *SES) SendTemplatedEmail(input *SendTemplatedEmailInput) (*SendTemplated
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) SendTemplatedEmailWithContext(ctx aws.Context, input *SendTemplatedEmailInput, opts ...request.Option) (*SendTemplatedEmailOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).SendTemplatedEmail")
+	defer span.End()
+
 	req, out := c.SendTemplatedEmailRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4734,6 +4885,9 @@ func (c *SES) SetActiveReceiptRuleSet(input *SetActiveReceiptRuleSetInput) (*Set
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) SetActiveReceiptRuleSetWithContext(ctx aws.Context, input *SetActiveReceiptRuleSetInput, opts ...request.Option) (*SetActiveReceiptRuleSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).SetActiveReceiptRuleSet")
+	defer span.End()
+
 	req, out := c.SetActiveReceiptRuleSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4825,6 +4979,9 @@ func (c *SES) SetIdentityDkimEnabled(input *SetIdentityDkimEnabledInput) (*SetId
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) SetIdentityDkimEnabledWithContext(ctx aws.Context, input *SetIdentityDkimEnabledInput, opts ...request.Option) (*SetIdentityDkimEnabledOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).SetIdentityDkimEnabled")
+	defer span.End()
+
 	req, out := c.SetIdentityDkimEnabledRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4910,6 +5067,9 @@ func (c *SES) SetIdentityFeedbackForwardingEnabled(input *SetIdentityFeedbackFor
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) SetIdentityFeedbackForwardingEnabledWithContext(ctx aws.Context, input *SetIdentityFeedbackForwardingEnabledInput, opts ...request.Option) (*SetIdentityFeedbackForwardingEnabledOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).SetIdentityFeedbackForwardingEnabled")
+	defer span.End()
+
 	req, out := c.SetIdentityFeedbackForwardingEnabledRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4991,6 +5151,9 @@ func (c *SES) SetIdentityHeadersInNotificationsEnabled(input *SetIdentityHeaders
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) SetIdentityHeadersInNotificationsEnabledWithContext(ctx aws.Context, input *SetIdentityHeadersInNotificationsEnabledInput, opts ...request.Option) (*SetIdentityHeadersInNotificationsEnabledOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).SetIdentityHeadersInNotificationsEnabled")
+	defer span.End()
+
 	req, out := c.SetIdentityHeadersInNotificationsEnabledRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5073,6 +5236,9 @@ func (c *SES) SetIdentityMailFromDomain(input *SetIdentityMailFromDomainInput) (
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) SetIdentityMailFromDomainWithContext(ctx aws.Context, input *SetIdentityMailFromDomainInput, opts ...request.Option) (*SetIdentityMailFromDomainOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).SetIdentityMailFromDomain")
+	defer span.End()
+
 	req, out := c.SetIdentityMailFromDomainRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5158,6 +5324,9 @@ func (c *SES) SetIdentityNotificationTopic(input *SetIdentityNotificationTopicIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) SetIdentityNotificationTopicWithContext(ctx aws.Context, input *SetIdentityNotificationTopicInput, opts ...request.Option) (*SetIdentityNotificationTopicOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).SetIdentityNotificationTopic")
+	defer span.End()
+
 	req, out := c.SetIdentityNotificationTopicRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5245,6 +5414,9 @@ func (c *SES) SetReceiptRulePosition(input *SetReceiptRulePositionInput) (*SetRe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) SetReceiptRulePositionWithContext(ctx aws.Context, input *SetReceiptRulePositionInput, opts ...request.Option) (*SetReceiptRulePositionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).SetReceiptRulePosition")
+	defer span.End()
+
 	req, out := c.SetReceiptRulePositionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5337,6 +5509,9 @@ func (c *SES) TestRenderTemplate(input *TestRenderTemplateInput) (*TestRenderTem
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) TestRenderTemplateWithContext(ctx aws.Context, input *TestRenderTemplateInput, opts ...request.Option) (*TestRenderTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).TestRenderTemplate")
+	defer span.End()
+
 	req, out := c.TestRenderTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5418,6 +5593,9 @@ func (c *SES) UpdateAccountSendingEnabled(input *UpdateAccountSendingEnabledInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) UpdateAccountSendingEnabledWithContext(ctx aws.Context, input *UpdateAccountSendingEnabledInput, opts ...request.Option) (*UpdateAccountSendingEnabledOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).UpdateAccountSendingEnabled")
+	defer span.End()
+
 	req, out := c.UpdateAccountSendingEnabledRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5523,6 +5701,9 @@ func (c *SES) UpdateConfigurationSetEventDestination(input *UpdateConfigurationS
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) UpdateConfigurationSetEventDestinationWithContext(ctx aws.Context, input *UpdateConfigurationSetEventDestinationInput, opts ...request.Option) (*UpdateConfigurationSetEventDestinationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).UpdateConfigurationSetEventDestination")
+	defer span.End()
+
 	req, out := c.UpdateConfigurationSetEventDestinationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5610,6 +5791,9 @@ func (c *SES) UpdateConfigurationSetReputationMetricsEnabled(input *UpdateConfig
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) UpdateConfigurationSetReputationMetricsEnabledWithContext(ctx aws.Context, input *UpdateConfigurationSetReputationMetricsEnabledInput, opts ...request.Option) (*UpdateConfigurationSetReputationMetricsEnabledOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).UpdateConfigurationSetReputationMetricsEnabled")
+	defer span.End()
+
 	req, out := c.UpdateConfigurationSetReputationMetricsEnabledRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5697,6 +5881,9 @@ func (c *SES) UpdateConfigurationSetSendingEnabled(input *UpdateConfigurationSet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) UpdateConfigurationSetSendingEnabledWithContext(ctx aws.Context, input *UpdateConfigurationSetSendingEnabledInput, opts ...request.Option) (*UpdateConfigurationSetSendingEnabledOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).UpdateConfigurationSetSendingEnabled")
+	defer span.End()
+
 	req, out := c.UpdateConfigurationSetSendingEnabledRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5794,6 +5981,9 @@ func (c *SES) UpdateConfigurationSetTrackingOptions(input *UpdateConfigurationSe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) UpdateConfigurationSetTrackingOptionsWithContext(ctx aws.Context, input *UpdateConfigurationSetTrackingOptionsInput, opts ...request.Option) (*UpdateConfigurationSetTrackingOptionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).UpdateConfigurationSetTrackingOptions")
+	defer span.End()
+
 	req, out := c.UpdateConfigurationSetTrackingOptionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5890,6 +6080,9 @@ func (c *SES) UpdateCustomVerificationEmailTemplate(input *UpdateCustomVerificat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) UpdateCustomVerificationEmailTemplateWithContext(ctx aws.Context, input *UpdateCustomVerificationEmailTemplateInput, opts ...request.Option) (*UpdateCustomVerificationEmailTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).UpdateCustomVerificationEmailTemplate")
+	defer span.End()
+
 	req, out := c.UpdateCustomVerificationEmailTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5998,6 +6191,9 @@ func (c *SES) UpdateReceiptRule(input *UpdateReceiptRuleInput) (*UpdateReceiptRu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) UpdateReceiptRuleWithContext(ctx aws.Context, input *UpdateReceiptRuleInput, opts ...request.Option) (*UpdateReceiptRuleOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).UpdateReceiptRule")
+	defer span.End()
+
 	req, out := c.UpdateReceiptRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6086,6 +6282,9 @@ func (c *SES) UpdateTemplate(input *UpdateTemplateInput) (*UpdateTemplateOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) UpdateTemplateWithContext(ctx aws.Context, input *UpdateTemplateInput, opts ...request.Option) (*UpdateTemplateOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).UpdateTemplate")
+	defer span.End()
+
 	req, out := c.UpdateTemplateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6174,6 +6373,9 @@ func (c *SES) VerifyDomainDkim(input *VerifyDomainDkimInput) (*VerifyDomainDkimO
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) VerifyDomainDkimWithContext(ctx aws.Context, input *VerifyDomainDkimInput, opts ...request.Option) (*VerifyDomainDkimOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).VerifyDomainDkim")
+	defer span.End()
+
 	req, out := c.VerifyDomainDkimRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6253,6 +6455,9 @@ func (c *SES) VerifyDomainIdentity(input *VerifyDomainIdentityInput) (*VerifyDom
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) VerifyDomainIdentityWithContext(ctx aws.Context, input *VerifyDomainIdentityInput, opts ...request.Option) (*VerifyDomainIdentityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).VerifyDomainIdentity")
+	defer span.End()
+
 	req, out := c.VerifyDomainIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6329,6 +6534,9 @@ func (c *SES) VerifyEmailAddress(input *VerifyEmailAddressInput) (*VerifyEmailAd
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) VerifyEmailAddressWithContext(ctx aws.Context, input *VerifyEmailAddressInput, opts ...request.Option) (*VerifyEmailAddressOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).VerifyEmailAddress")
+	defer span.End()
+
 	req, out := c.VerifyEmailAddressRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6407,6 +6615,9 @@ func (c *SES) VerifyEmailIdentity(input *VerifyEmailIdentityInput) (*VerifyEmail
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *SES) VerifyEmailIdentityWithContext(ctx aws.Context, input *VerifyEmailIdentityInput, opts ...request.Option) (*VerifyEmailIdentityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/ses.(*SES).VerifyEmailIdentity")
+	defer span.End()
+
 	req, out := c.VerifyEmailIdentityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

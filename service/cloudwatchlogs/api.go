@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opAssociateKmsKey = "AssociateKmsKey"
@@ -109,6 +110,9 @@ func (c *CloudWatchLogs) AssociateKmsKey(input *AssociateKmsKeyInput) (*Associat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) AssociateKmsKeyWithContext(ctx aws.Context, input *AssociateKmsKeyInput, opts ...request.Option) (*AssociateKmsKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).AssociateKmsKey")
+	defer span.End()
+
 	req, out := c.AssociateKmsKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -201,6 +205,9 @@ func (c *CloudWatchLogs) CancelExportTask(input *CancelExportTaskInput) (*Cancel
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) CancelExportTaskWithContext(ctx aws.Context, input *CancelExportTaskInput, opts ...request.Option) (*CancelExportTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).CancelExportTask")
+	defer span.End()
+
 	req, out := c.CancelExportTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -306,6 +313,9 @@ func (c *CloudWatchLogs) CreateExportTask(input *CreateExportTaskInput) (*Create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) CreateExportTaskWithContext(ctx aws.Context, input *CreateExportTaskInput, opts ...request.Option) (*CreateExportTaskOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).CreateExportTask")
+	defer span.End()
+
 	req, out := c.CreateExportTaskRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -420,6 +430,9 @@ func (c *CloudWatchLogs) CreateLogGroup(input *CreateLogGroupInput) (*CreateLogG
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) CreateLogGroupWithContext(ctx aws.Context, input *CreateLogGroupInput, opts ...request.Option) (*CreateLogGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).CreateLogGroup")
+	defer span.End()
+
 	req, out := c.CreateLogGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -521,6 +534,9 @@ func (c *CloudWatchLogs) CreateLogStream(input *CreateLogStreamInput) (*CreateLo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) CreateLogStreamWithContext(ctx aws.Context, input *CreateLogStreamInput, opts ...request.Option) (*CreateLogStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).CreateLogStream")
+	defer span.End()
+
 	req, out := c.CreateLogStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -613,6 +629,9 @@ func (c *CloudWatchLogs) DeleteDestination(input *DeleteDestinationInput) (*Dele
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DeleteDestinationWithContext(ctx aws.Context, input *DeleteDestinationInput, opts ...request.Option) (*DeleteDestinationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DeleteDestination")
+	defer span.End()
+
 	req, out := c.DeleteDestinationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -704,6 +723,9 @@ func (c *CloudWatchLogs) DeleteLogGroup(input *DeleteLogGroupInput) (*DeleteLogG
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DeleteLogGroupWithContext(ctx aws.Context, input *DeleteLogGroupInput, opts ...request.Option) (*DeleteLogGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DeleteLogGroup")
+	defer span.End()
+
 	req, out := c.DeleteLogGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -795,6 +817,9 @@ func (c *CloudWatchLogs) DeleteLogStream(input *DeleteLogStreamInput) (*DeleteLo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DeleteLogStreamWithContext(ctx aws.Context, input *DeleteLogStreamInput, opts ...request.Option) (*DeleteLogStreamOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DeleteLogStream")
+	defer span.End()
+
 	req, out := c.DeleteLogStreamRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -885,6 +910,9 @@ func (c *CloudWatchLogs) DeleteMetricFilter(input *DeleteMetricFilterInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DeleteMetricFilterWithContext(ctx aws.Context, input *DeleteMetricFilterInput, opts ...request.Option) (*DeleteMetricFilterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DeleteMetricFilter")
+	defer span.End()
+
 	req, out := c.DeleteMetricFilterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -973,6 +1001,9 @@ func (c *CloudWatchLogs) DeleteResourcePolicy(input *DeleteResourcePolicyInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DeleteResourcePolicyWithContext(ctx aws.Context, input *DeleteResourcePolicyInput, opts ...request.Option) (*DeleteResourcePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DeleteResourcePolicy")
+	defer span.End()
+
 	req, out := c.DeleteResourcePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1066,6 +1097,9 @@ func (c *CloudWatchLogs) DeleteRetentionPolicy(input *DeleteRetentionPolicyInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DeleteRetentionPolicyWithContext(ctx aws.Context, input *DeleteRetentionPolicyInput, opts ...request.Option) (*DeleteRetentionPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DeleteRetentionPolicy")
+	defer span.End()
+
 	req, out := c.DeleteRetentionPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1156,6 +1190,9 @@ func (c *CloudWatchLogs) DeleteSubscriptionFilter(input *DeleteSubscriptionFilte
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DeleteSubscriptionFilterWithContext(ctx aws.Context, input *DeleteSubscriptionFilterInput, opts ...request.Option) (*DeleteSubscriptionFilterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DeleteSubscriptionFilter")
+	defer span.End()
+
 	req, out := c.DeleteSubscriptionFilterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1245,6 +1282,9 @@ func (c *CloudWatchLogs) DescribeDestinations(input *DescribeDestinationsInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DescribeDestinationsWithContext(ctx aws.Context, input *DescribeDestinationsInput, opts ...request.Option) (*DescribeDestinationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DescribeDestinations")
+	defer span.End()
+
 	req, out := c.DescribeDestinationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1378,6 +1418,9 @@ func (c *CloudWatchLogs) DescribeExportTasks(input *DescribeExportTasksInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DescribeExportTasksWithContext(ctx aws.Context, input *DescribeExportTasksInput, opts ...request.Option) (*DescribeExportTasksOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DescribeExportTasks")
+	defer span.End()
+
 	req, out := c.DescribeExportTasksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1467,6 +1510,9 @@ func (c *CloudWatchLogs) DescribeLogGroups(input *DescribeLogGroupsInput) (*Desc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DescribeLogGroupsWithContext(ctx aws.Context, input *DescribeLogGroupsInput, opts ...request.Option) (*DescribeLogGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DescribeLogGroups")
+	defer span.End()
+
 	req, out := c.DescribeLogGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1613,6 +1659,9 @@ func (c *CloudWatchLogs) DescribeLogStreams(input *DescribeLogStreamsInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DescribeLogStreamsWithContext(ctx aws.Context, input *DescribeLogStreamsInput, opts ...request.Option) (*DescribeLogStreamsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DescribeLogStreams")
+	defer span.End()
+
 	req, out := c.DescribeLogStreamsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1756,6 +1805,9 @@ func (c *CloudWatchLogs) DescribeMetricFilters(input *DescribeMetricFiltersInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DescribeMetricFiltersWithContext(ctx aws.Context, input *DescribeMetricFiltersInput, opts ...request.Option) (*DescribeMetricFiltersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DescribeMetricFilters")
+	defer span.End()
+
 	req, out := c.DescribeMetricFiltersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1888,6 +1940,9 @@ func (c *CloudWatchLogs) DescribeResourcePolicies(input *DescribeResourcePolicie
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DescribeResourcePoliciesWithContext(ctx aws.Context, input *DescribeResourcePoliciesInput, opts ...request.Option) (*DescribeResourcePoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DescribeResourcePolicies")
+	defer span.End()
+
 	req, out := c.DescribeResourcePoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1981,6 +2036,9 @@ func (c *CloudWatchLogs) DescribeSubscriptionFilters(input *DescribeSubscription
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DescribeSubscriptionFiltersWithContext(ctx aws.Context, input *DescribeSubscriptionFiltersInput, opts ...request.Option) (*DescribeSubscriptionFiltersOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DescribeSubscriptionFilters")
+	defer span.End()
+
 	req, out := c.DescribeSubscriptionFiltersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2129,6 +2187,9 @@ func (c *CloudWatchLogs) DisassociateKmsKey(input *DisassociateKmsKeyInput) (*Di
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) DisassociateKmsKeyWithContext(ctx aws.Context, input *DisassociateKmsKeyInput, opts ...request.Option) (*DisassociateKmsKeyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).DisassociateKmsKey")
+	defer span.End()
+
 	req, out := c.DisassociateKmsKeyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2228,6 +2289,9 @@ func (c *CloudWatchLogs) FilterLogEvents(input *FilterLogEventsInput) (*FilterLo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) FilterLogEventsWithContext(ctx aws.Context, input *FilterLogEventsInput, opts ...request.Option) (*FilterLogEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).FilterLogEvents")
+	defer span.End()
+
 	req, out := c.FilterLogEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2374,6 +2438,9 @@ func (c *CloudWatchLogs) GetLogEvents(input *GetLogEventsInput) (*GetLogEventsOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) GetLogEventsWithContext(ctx aws.Context, input *GetLogEventsInput, opts ...request.Option) (*GetLogEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).GetLogEvents")
+	defer span.End()
+
 	req, out := c.GetLogEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2506,6 +2573,9 @@ func (c *CloudWatchLogs) ListTagsLogGroup(input *ListTagsLogGroupInput) (*ListTa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) ListTagsLogGroupWithContext(ctx aws.Context, input *ListTagsLogGroupInput, opts ...request.Option) (*ListTagsLogGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).ListTagsLogGroup")
+	defer span.End()
+
 	req, out := c.ListTagsLogGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2601,6 +2671,9 @@ func (c *CloudWatchLogs) PutDestination(input *PutDestinationInput) (*PutDestina
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) PutDestinationWithContext(ctx aws.Context, input *PutDestinationInput, opts ...request.Option) (*PutDestinationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).PutDestination")
+	defer span.End()
+
 	req, out := c.PutDestinationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2691,6 +2764,9 @@ func (c *CloudWatchLogs) PutDestinationPolicy(input *PutDestinationPolicyInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) PutDestinationPolicyWithContext(ctx aws.Context, input *PutDestinationPolicyInput, opts ...request.Option) (*PutDestinationPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).PutDestinationPolicy")
+	defer span.End()
+
 	req, out := c.PutDestinationPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2809,6 +2885,9 @@ func (c *CloudWatchLogs) PutLogEvents(input *PutLogEventsInput) (*PutLogEventsOu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) PutLogEventsWithContext(ctx aws.Context, input *PutLogEventsInput, opts ...request.Option) (*PutLogEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).PutLogEvents")
+	defer span.End()
+
 	req, out := c.PutLogEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2907,6 +2986,9 @@ func (c *CloudWatchLogs) PutMetricFilter(input *PutMetricFilterInput) (*PutMetri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) PutMetricFilterWithContext(ctx aws.Context, input *PutMetricFilterInput, opts ...request.Option) (*PutMetricFilterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).PutMetricFilter")
+	defer span.End()
+
 	req, out := c.PutMetricFilterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2994,6 +3076,9 @@ func (c *CloudWatchLogs) PutResourcePolicy(input *PutResourcePolicyInput) (*PutR
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) PutResourcePolicyWithContext(ctx aws.Context, input *PutResourcePolicyInput, opts ...request.Option) (*PutResourcePolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).PutResourcePolicy")
+	defer span.End()
+
 	req, out := c.PutResourcePolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3086,6 +3171,9 @@ func (c *CloudWatchLogs) PutRetentionPolicy(input *PutRetentionPolicyInput) (*Pu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) PutRetentionPolicyWithContext(ctx aws.Context, input *PutRetentionPolicyInput, opts ...request.Option) (*PutRetentionPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).PutRetentionPolicy")
+	defer span.End()
+
 	req, out := c.PutRetentionPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3199,6 +3287,9 @@ func (c *CloudWatchLogs) PutSubscriptionFilter(input *PutSubscriptionFilterInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) PutSubscriptionFilterWithContext(ctx aws.Context, input *PutSubscriptionFilterInput, opts ...request.Option) (*PutSubscriptionFilterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).PutSubscriptionFilter")
+	defer span.End()
+
 	req, out := c.PutSubscriptionFilterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3290,6 +3381,9 @@ func (c *CloudWatchLogs) TagLogGroup(input *TagLogGroupInput) (*TagLogGroupOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) TagLogGroupWithContext(ctx aws.Context, input *TagLogGroupInput, opts ...request.Option) (*TagLogGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).TagLogGroup")
+	defer span.End()
+
 	req, out := c.TagLogGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3374,6 +3468,9 @@ func (c *CloudWatchLogs) TestMetricFilter(input *TestMetricFilterInput) (*TestMe
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) TestMetricFilterWithContext(ctx aws.Context, input *TestMetricFilterInput, opts ...request.Option) (*TestMetricFilterOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).TestMetricFilter")
+	defer span.End()
+
 	req, out := c.TestMetricFilterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3458,6 +3555,9 @@ func (c *CloudWatchLogs) UntagLogGroup(input *UntagLogGroupInput) (*UntagLogGrou
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *CloudWatchLogs) UntagLogGroupWithContext(ctx aws.Context, input *UntagLogGroupInput, opts ...request.Option) (*UntagLogGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/cloudwatchlogs.(*CloudWatchLogs).UntagLogGroup")
+	defer span.End()
+
 	req, out := c.UntagLogGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

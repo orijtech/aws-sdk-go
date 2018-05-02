@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateChannel = "CreateChannel"
@@ -96,6 +97,9 @@ func (c *MediaLive) CreateChannel(input *CreateChannelInput) (*CreateChannelOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) CreateChannelWithContext(ctx aws.Context, input *CreateChannelInput, opts ...request.Option) (*CreateChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).CreateChannel")
+	defer span.End()
+
 	req, out := c.CreateChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -184,6 +188,9 @@ func (c *MediaLive) CreateInput(input *CreateInputInput) (*CreateInputOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) CreateInputWithContext(ctx aws.Context, input *CreateInputInput, opts ...request.Option) (*CreateInputOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).CreateInput")
+	defer span.End()
+
 	req, out := c.CreateInputRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -272,6 +279,9 @@ func (c *MediaLive) CreateInputSecurityGroup(input *CreateInputSecurityGroupInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) CreateInputSecurityGroupWithContext(ctx aws.Context, input *CreateInputSecurityGroupInput, opts ...request.Option) (*CreateInputSecurityGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).CreateInputSecurityGroup")
+	defer span.End()
+
 	req, out := c.CreateInputSecurityGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -364,6 +374,9 @@ func (c *MediaLive) DeleteChannel(input *DeleteChannelInput) (*DeleteChannelOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) DeleteChannelWithContext(ctx aws.Context, input *DeleteChannelInput, opts ...request.Option) (*DeleteChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).DeleteChannel")
+	defer span.End()
+
 	req, out := c.DeleteChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -456,6 +469,9 @@ func (c *MediaLive) DeleteInput(input *DeleteInputInput) (*DeleteInputOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) DeleteInputWithContext(ctx aws.Context, input *DeleteInputInput, opts ...request.Option) (*DeleteInputOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).DeleteInput")
+	defer span.End()
+
 	req, out := c.DeleteInputRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -546,6 +562,9 @@ func (c *MediaLive) DeleteInputSecurityGroup(input *DeleteInputSecurityGroupInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) DeleteInputSecurityGroupWithContext(ctx aws.Context, input *DeleteInputSecurityGroupInput, opts ...request.Option) (*DeleteInputSecurityGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).DeleteInputSecurityGroup")
+	defer span.End()
+
 	req, out := c.DeleteInputSecurityGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -636,6 +655,9 @@ func (c *MediaLive) DescribeChannel(input *DescribeChannelInput) (*DescribeChann
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) DescribeChannelWithContext(ctx aws.Context, input *DescribeChannelInput, opts ...request.Option) (*DescribeChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).DescribeChannel")
+	defer span.End()
+
 	req, out := c.DescribeChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -726,6 +748,9 @@ func (c *MediaLive) DescribeInput(input *DescribeInputInput) (*DescribeInputOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) DescribeInputWithContext(ctx aws.Context, input *DescribeInputInput, opts ...request.Option) (*DescribeInputOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).DescribeInput")
+	defer span.End()
+
 	req, out := c.DescribeInputRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -816,6 +841,9 @@ func (c *MediaLive) DescribeInputSecurityGroup(input *DescribeInputSecurityGroup
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) DescribeInputSecurityGroupWithContext(ctx aws.Context, input *DescribeInputSecurityGroupInput, opts ...request.Option) (*DescribeInputSecurityGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).DescribeInputSecurityGroup")
+	defer span.End()
+
 	req, out := c.DescribeInputSecurityGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -910,6 +938,9 @@ func (c *MediaLive) ListChannels(input *ListChannelsInput) (*ListChannelsOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) ListChannelsWithContext(ctx aws.Context, input *ListChannelsInput, opts ...request.Option) (*ListChannelsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).ListChannels")
+	defer span.End()
+
 	req, out := c.ListChannelsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1054,6 +1085,9 @@ func (c *MediaLive) ListInputSecurityGroups(input *ListInputSecurityGroupsInput)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) ListInputSecurityGroupsWithContext(ctx aws.Context, input *ListInputSecurityGroupsInput, opts ...request.Option) (*ListInputSecurityGroupsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).ListInputSecurityGroups")
+	defer span.End()
+
 	req, out := c.ListInputSecurityGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1198,6 +1232,9 @@ func (c *MediaLive) ListInputs(input *ListInputsInput) (*ListInputsOutput, error
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) ListInputsWithContext(ctx aws.Context, input *ListInputsInput, opts ...request.Option) (*ListInputsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).ListInputs")
+	defer span.End()
+
 	req, out := c.ListInputsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1340,6 +1377,9 @@ func (c *MediaLive) StartChannel(input *StartChannelInput) (*StartChannelOutput,
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) StartChannelWithContext(ctx aws.Context, input *StartChannelInput, opts ...request.Option) (*StartChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).StartChannel")
+	defer span.End()
+
 	req, out := c.StartChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1432,6 +1472,9 @@ func (c *MediaLive) StopChannel(input *StopChannelInput) (*StopChannelOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) StopChannelWithContext(ctx aws.Context, input *StopChannelInput, opts ...request.Option) (*StopChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).StopChannel")
+	defer span.End()
+
 	req, out := c.StopChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1522,6 +1565,9 @@ func (c *MediaLive) UpdateChannel(input *UpdateChannelInput) (*UpdateChannelOutp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) UpdateChannelWithContext(ctx aws.Context, input *UpdateChannelInput, opts ...request.Option) (*UpdateChannelOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).UpdateChannel")
+	defer span.End()
+
 	req, out := c.UpdateChannelRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1612,6 +1658,9 @@ func (c *MediaLive) UpdateInput(input *UpdateInputInput) (*UpdateInputOutput, er
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) UpdateInputWithContext(ctx aws.Context, input *UpdateInputInput, opts ...request.Option) (*UpdateInputOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).UpdateInput")
+	defer span.End()
+
 	req, out := c.UpdateInputRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1702,6 +1751,9 @@ func (c *MediaLive) UpdateInputSecurityGroup(input *UpdateInputSecurityGroupInpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *MediaLive) UpdateInputSecurityGroupWithContext(ctx aws.Context, input *UpdateInputSecurityGroupInput, opts ...request.Option) (*UpdateInputSecurityGroupOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/medialive.(*MediaLive).UpdateInputSecurityGroup")
+	defer span.End()
+
 	req, out := c.UpdateInputSecurityGroupRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

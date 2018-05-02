@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"go.opencensus.io/trace"
 )
 
 const opAcceptMatch = "AcceptMatch"
@@ -132,6 +133,9 @@ func (c *GameLift) AcceptMatch(input *AcceptMatchInput) (*AcceptMatchOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) AcceptMatchWithContext(ctx aws.Context, input *AcceptMatchInput, opts ...request.Option) (*AcceptMatchOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).AcceptMatch")
+	defer span.End()
+
 	req, out := c.AcceptMatchRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -261,6 +265,9 @@ func (c *GameLift) CreateAlias(input *CreateAliasInput) (*CreateAliasOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) CreateAliasWithContext(ctx aws.Context, input *CreateAliasInput, opts ...request.Option) (*CreateAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).CreateAlias")
+	defer span.End()
+
 	req, out := c.CreateAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -402,6 +409,9 @@ func (c *GameLift) CreateBuild(input *CreateBuildInput) (*CreateBuildOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) CreateBuildWithContext(ctx aws.Context, input *CreateBuildInput, opts ...request.Option) (*CreateBuildOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).CreateBuild")
+	defer span.End()
+
 	req, out := c.CreateBuildRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -596,6 +606,9 @@ func (c *GameLift) CreateFleet(input *CreateFleetInput) (*CreateFleetOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) CreateFleetWithContext(ctx aws.Context, input *CreateFleetInput, opts ...request.Option) (*CreateFleetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).CreateFleet")
+	defer span.End()
+
 	req, out := c.CreateFleetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -768,6 +781,9 @@ func (c *GameLift) CreateGameSession(input *CreateGameSessionInput) (*CreateGame
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) CreateGameSessionWithContext(ctx aws.Context, input *CreateGameSessionInput, opts ...request.Option) (*CreateGameSessionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).CreateGameSession")
+	defer span.End()
+
 	req, out := c.CreateGameSessionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -899,6 +915,9 @@ func (c *GameLift) CreateGameSessionQueue(input *CreateGameSessionQueueInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) CreateGameSessionQueueWithContext(ctx aws.Context, input *CreateGameSessionQueueInput, opts ...request.Option) (*CreateGameSessionQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).CreateGameSessionQueue")
+	defer span.End()
+
 	req, out := c.CreateGameSessionQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1038,6 +1057,9 @@ func (c *GameLift) CreateMatchmakingConfiguration(input *CreateMatchmakingConfig
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) CreateMatchmakingConfigurationWithContext(ctx aws.Context, input *CreateMatchmakingConfigurationInput, opts ...request.Option) (*CreateMatchmakingConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).CreateMatchmakingConfiguration")
+	defer span.End()
+
 	req, out := c.CreateMatchmakingConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1162,6 +1184,9 @@ func (c *GameLift) CreateMatchmakingRuleSet(input *CreateMatchmakingRuleSetInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) CreateMatchmakingRuleSetWithContext(ctx aws.Context, input *CreateMatchmakingRuleSetInput, opts ...request.Option) (*CreateMatchmakingRuleSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).CreateMatchmakingRuleSet")
+	defer span.End()
+
 	req, out := c.CreateMatchmakingRuleSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1295,6 +1320,9 @@ func (c *GameLift) CreatePlayerSession(input *CreatePlayerSessionInput) (*Create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) CreatePlayerSessionWithContext(ctx aws.Context, input *CreatePlayerSessionInput, opts ...request.Option) (*CreatePlayerSessionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).CreatePlayerSession")
+	defer span.End()
+
 	req, out := c.CreatePlayerSessionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1429,6 +1457,9 @@ func (c *GameLift) CreatePlayerSessions(input *CreatePlayerSessionsInput) (*Crea
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) CreatePlayerSessionsWithContext(ctx aws.Context, input *CreatePlayerSessionsInput, opts ...request.Option) (*CreatePlayerSessionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).CreatePlayerSessions")
+	defer span.End()
+
 	req, out := c.CreatePlayerSessionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1562,6 +1593,9 @@ func (c *GameLift) CreateVpcPeeringAuthorization(input *CreateVpcPeeringAuthoriz
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) CreateVpcPeeringAuthorizationWithContext(ctx aws.Context, input *CreateVpcPeeringAuthorizationInput, opts ...request.Option) (*CreateVpcPeeringAuthorizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).CreateVpcPeeringAuthorization")
+	defer span.End()
+
 	req, out := c.CreateVpcPeeringAuthorizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1690,6 +1724,9 @@ func (c *GameLift) CreateVpcPeeringConnection(input *CreateVpcPeeringConnectionI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) CreateVpcPeeringConnectionWithContext(ctx aws.Context, input *CreateVpcPeeringConnectionInput, opts ...request.Option) (*CreateVpcPeeringConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).CreateVpcPeeringConnection")
+	defer span.End()
+
 	req, out := c.CreateVpcPeeringConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1800,6 +1837,9 @@ func (c *GameLift) DeleteAlias(input *DeleteAliasInput) (*DeleteAliasOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DeleteAliasWithContext(ctx aws.Context, input *DeleteAliasInput, opts ...request.Option) (*DeleteAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DeleteAlias")
+	defer span.End()
+
 	req, out := c.DeleteAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1911,6 +1951,9 @@ func (c *GameLift) DeleteBuild(input *DeleteBuildInput) (*DeleteBuildOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DeleteBuildWithContext(ctx aws.Context, input *DeleteBuildInput, opts ...request.Option) (*DeleteBuildOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DeleteBuild")
+	defer span.End()
+
 	req, out := c.DeleteBuildRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2058,6 +2101,9 @@ func (c *GameLift) DeleteFleet(input *DeleteFleetInput) (*DeleteFleetOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DeleteFleetWithContext(ctx aws.Context, input *DeleteFleetInput, opts ...request.Option) (*DeleteFleetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DeleteFleet")
+	defer span.End()
+
 	req, out := c.DeleteFleetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2162,6 +2208,9 @@ func (c *GameLift) DeleteGameSessionQueue(input *DeleteGameSessionQueueInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DeleteGameSessionQueueWithContext(ctx aws.Context, input *DeleteGameSessionQueueInput, opts ...request.Option) (*DeleteGameSessionQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DeleteGameSessionQueue")
+	defer span.End()
+
 	req, out := c.DeleteGameSessionQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2272,6 +2321,9 @@ func (c *GameLift) DeleteMatchmakingConfiguration(input *DeleteMatchmakingConfig
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DeleteMatchmakingConfigurationWithContext(ctx aws.Context, input *DeleteMatchmakingConfigurationInput, opts ...request.Option) (*DeleteMatchmakingConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DeleteMatchmakingConfiguration")
+	defer span.End()
+
 	req, out := c.DeleteMatchmakingConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2412,6 +2464,9 @@ func (c *GameLift) DeleteScalingPolicy(input *DeleteScalingPolicyInput) (*Delete
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DeleteScalingPolicyWithContext(ctx aws.Context, input *DeleteScalingPolicyInput, opts ...request.Option) (*DeleteScalingPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DeleteScalingPolicy")
+	defer span.End()
+
 	req, out := c.DeleteScalingPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2520,6 +2575,9 @@ func (c *GameLift) DeleteVpcPeeringAuthorization(input *DeleteVpcPeeringAuthoriz
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DeleteVpcPeeringAuthorizationWithContext(ctx aws.Context, input *DeleteVpcPeeringAuthorizationInput, opts ...request.Option) (*DeleteVpcPeeringAuthorizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DeleteVpcPeeringAuthorization")
+	defer span.End()
+
 	req, out := c.DeleteVpcPeeringAuthorizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2634,6 +2692,9 @@ func (c *GameLift) DeleteVpcPeeringConnection(input *DeleteVpcPeeringConnectionI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DeleteVpcPeeringConnectionWithContext(ctx aws.Context, input *DeleteVpcPeeringConnectionInput, opts ...request.Option) (*DeleteVpcPeeringConnectionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DeleteVpcPeeringConnection")
+	defer span.End()
+
 	req, out := c.DeleteVpcPeeringConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2744,6 +2805,9 @@ func (c *GameLift) DescribeAlias(input *DescribeAliasInput) (*DescribeAliasOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeAliasWithContext(ctx aws.Context, input *DescribeAliasInput, opts ...request.Option) (*DescribeAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeAlias")
+	defer span.End()
+
 	req, out := c.DescribeAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2849,6 +2913,9 @@ func (c *GameLift) DescribeBuild(input *DescribeBuildInput) (*DescribeBuildOutpu
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeBuildWithContext(ctx aws.Context, input *DescribeBuildInput, opts ...request.Option) (*DescribeBuildOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeBuild")
+	defer span.End()
+
 	req, out := c.DescribeBuildRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -2989,6 +3056,9 @@ func (c *GameLift) DescribeEC2InstanceLimits(input *DescribeEC2InstanceLimitsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeEC2InstanceLimitsWithContext(ctx aws.Context, input *DescribeEC2InstanceLimitsInput, opts ...request.Option) (*DescribeEC2InstanceLimitsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeEC2InstanceLimits")
+	defer span.End()
+
 	req, out := c.DescribeEC2InstanceLimitsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3135,6 +3205,9 @@ func (c *GameLift) DescribeFleetAttributes(input *DescribeFleetAttributesInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeFleetAttributesWithContext(ctx aws.Context, input *DescribeFleetAttributesInput, opts ...request.Option) (*DescribeFleetAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeFleetAttributes")
+	defer span.End()
+
 	req, out := c.DescribeFleetAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3282,6 +3355,9 @@ func (c *GameLift) DescribeFleetCapacity(input *DescribeFleetCapacityInput) (*De
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeFleetCapacityWithContext(ctx aws.Context, input *DescribeFleetCapacityInput, opts ...request.Option) (*DescribeFleetCapacityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeFleetCapacity")
+	defer span.End()
+
 	req, out := c.DescribeFleetCapacityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3421,6 +3497,9 @@ func (c *GameLift) DescribeFleetEvents(input *DescribeFleetEventsInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeFleetEventsWithContext(ctx aws.Context, input *DescribeFleetEventsInput, opts ...request.Option) (*DescribeFleetEventsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeFleetEvents")
+	defer span.End()
+
 	req, out := c.DescribeFleetEventsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3562,6 +3641,9 @@ func (c *GameLift) DescribeFleetPortSettings(input *DescribeFleetPortSettingsInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeFleetPortSettingsWithContext(ctx aws.Context, input *DescribeFleetPortSettingsInput, opts ...request.Option) (*DescribeFleetPortSettingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeFleetPortSettings")
+	defer span.End()
+
 	req, out := c.DescribeFleetPortSettingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3707,6 +3789,9 @@ func (c *GameLift) DescribeFleetUtilization(input *DescribeFleetUtilizationInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeFleetUtilizationWithContext(ctx aws.Context, input *DescribeFleetUtilizationInput, opts ...request.Option) (*DescribeFleetUtilizationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeFleetUtilization")
+	defer span.End()
+
 	req, out := c.DescribeFleetUtilizationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3838,6 +3923,9 @@ func (c *GameLift) DescribeGameSessionDetails(input *DescribeGameSessionDetailsI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeGameSessionDetailsWithContext(ctx aws.Context, input *DescribeGameSessionDetailsInput, opts ...request.Option) (*DescribeGameSessionDetailsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeGameSessionDetails")
+	defer span.End()
+
 	req, out := c.DescribeGameSessionDetailsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -3954,6 +4042,9 @@ func (c *GameLift) DescribeGameSessionPlacement(input *DescribeGameSessionPlacem
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeGameSessionPlacementWithContext(ctx aws.Context, input *DescribeGameSessionPlacementInput, opts ...request.Option) (*DescribeGameSessionPlacementOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeGameSessionPlacement")
+	defer span.End()
+
 	req, out := c.DescribeGameSessionPlacementRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4060,6 +4151,9 @@ func (c *GameLift) DescribeGameSessionQueues(input *DescribeGameSessionQueuesInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeGameSessionQueuesWithContext(ctx aws.Context, input *DescribeGameSessionQueuesInput, opts ...request.Option) (*DescribeGameSessionQueuesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeGameSessionQueues")
+	defer span.End()
+
 	req, out := c.DescribeGameSessionQueuesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4192,6 +4286,9 @@ func (c *GameLift) DescribeGameSessions(input *DescribeGameSessionsInput) (*Desc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeGameSessionsWithContext(ctx aws.Context, input *DescribeGameSessionsInput, opts ...request.Option) (*DescribeGameSessionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeGameSessions")
+	defer span.End()
+
 	req, out := c.DescribeGameSessionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4291,6 +4388,9 @@ func (c *GameLift) DescribeInstances(input *DescribeInstancesInput) (*DescribeIn
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeInstancesWithContext(ctx aws.Context, input *DescribeInstancesInput, opts ...request.Option) (*DescribeInstancesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeInstances")
+	defer span.End()
+
 	req, out := c.DescribeInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4402,6 +4502,9 @@ func (c *GameLift) DescribeMatchmaking(input *DescribeMatchmakingInput) (*Descri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeMatchmakingWithContext(ctx aws.Context, input *DescribeMatchmakingInput, opts ...request.Option) (*DescribeMatchmakingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeMatchmaking")
+	defer span.End()
+
 	req, out := c.DescribeMatchmakingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4513,6 +4616,9 @@ func (c *GameLift) DescribeMatchmakingConfigurations(input *DescribeMatchmakingC
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeMatchmakingConfigurationsWithContext(ctx aws.Context, input *DescribeMatchmakingConfigurationsInput, opts ...request.Option) (*DescribeMatchmakingConfigurationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeMatchmakingConfigurations")
+	defer span.End()
+
 	req, out := c.DescribeMatchmakingConfigurationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4625,6 +4731,9 @@ func (c *GameLift) DescribeMatchmakingRuleSets(input *DescribeMatchmakingRuleSet
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeMatchmakingRuleSetsWithContext(ctx aws.Context, input *DescribeMatchmakingRuleSetsInput, opts ...request.Option) (*DescribeMatchmakingRuleSetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeMatchmakingRuleSets")
+	defer span.End()
+
 	req, out := c.DescribeMatchmakingRuleSetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4745,6 +4854,9 @@ func (c *GameLift) DescribePlayerSessions(input *DescribePlayerSessionsInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribePlayerSessionsWithContext(ctx aws.Context, input *DescribePlayerSessionsInput, opts ...request.Option) (*DescribePlayerSessionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribePlayerSessions")
+	defer span.End()
+
 	req, out := c.DescribePlayerSessionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -4883,6 +4995,9 @@ func (c *GameLift) DescribeRuntimeConfiguration(input *DescribeRuntimeConfigurat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeRuntimeConfigurationWithContext(ctx aws.Context, input *DescribeRuntimeConfigurationInput, opts ...request.Option) (*DescribeRuntimeConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeRuntimeConfiguration")
+	defer span.End()
+
 	req, out := c.DescribeRuntimeConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5024,6 +5139,9 @@ func (c *GameLift) DescribeScalingPolicies(input *DescribeScalingPoliciesInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeScalingPoliciesWithContext(ctx aws.Context, input *DescribeScalingPoliciesInput, opts ...request.Option) (*DescribeScalingPoliciesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeScalingPolicies")
+	defer span.End()
+
 	req, out := c.DescribeScalingPoliciesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5128,6 +5246,9 @@ func (c *GameLift) DescribeVpcPeeringAuthorizations(input *DescribeVpcPeeringAut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeVpcPeeringAuthorizationsWithContext(ctx aws.Context, input *DescribeVpcPeeringAuthorizationsInput, opts ...request.Option) (*DescribeVpcPeeringAuthorizationsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeVpcPeeringAuthorizations")
+	defer span.End()
+
 	req, out := c.DescribeVpcPeeringAuthorizationsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5241,6 +5362,9 @@ func (c *GameLift) DescribeVpcPeeringConnections(input *DescribeVpcPeeringConnec
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) DescribeVpcPeeringConnectionsWithContext(ctx aws.Context, input *DescribeVpcPeeringConnectionsInput, opts ...request.Option) (*DescribeVpcPeeringConnectionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).DescribeVpcPeeringConnections")
+	defer span.End()
+
 	req, out := c.DescribeVpcPeeringConnectionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5362,6 +5486,9 @@ func (c *GameLift) GetGameSessionLogUrl(input *GetGameSessionLogUrlInput) (*GetG
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) GetGameSessionLogUrlWithContext(ctx aws.Context, input *GetGameSessionLogUrlInput, opts ...request.Option) (*GetGameSessionLogUrlOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).GetGameSessionLogUrl")
+	defer span.End()
+
 	req, out := c.GetGameSessionLogUrlRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5469,6 +5596,9 @@ func (c *GameLift) GetInstanceAccess(input *GetInstanceAccessInput) (*GetInstanc
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) GetInstanceAccessWithContext(ctx aws.Context, input *GetInstanceAccessInput, opts ...request.Option) (*GetInstanceAccessOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).GetInstanceAccess")
+	defer span.End()
+
 	req, out := c.GetInstanceAccessRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5575,6 +5705,9 @@ func (c *GameLift) ListAliases(input *ListAliasesInput) (*ListAliasesOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) ListAliasesWithContext(ctx aws.Context, input *ListAliasesInput, opts ...request.Option) (*ListAliasesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).ListAliases")
+	defer span.End()
+
 	req, out := c.ListAliasesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5680,6 +5813,9 @@ func (c *GameLift) ListBuilds(input *ListBuildsInput) (*ListBuildsOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) ListBuildsWithContext(ctx aws.Context, input *ListBuildsInput, opts ...request.Option) (*ListBuildsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).ListBuilds")
+	defer span.End()
+
 	req, out := c.ListBuildsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5820,6 +5956,9 @@ func (c *GameLift) ListFleets(input *ListFleetsInput) (*ListFleetsOutput, error)
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) ListFleetsWithContext(ctx aws.Context, input *ListFleetsInput, opts ...request.Option) (*ListFleetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).ListFleets")
+	defer span.End()
+
 	req, out := c.ListFleetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -5977,6 +6116,9 @@ func (c *GameLift) PutScalingPolicy(input *PutScalingPolicyInput) (*PutScalingPo
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) PutScalingPolicyWithContext(ctx aws.Context, input *PutScalingPolicyInput, opts ...request.Option) (*PutScalingPolicyOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).PutScalingPolicy")
+	defer span.End()
+
 	req, out := c.PutScalingPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6075,6 +6217,9 @@ func (c *GameLift) RequestUploadCredentials(input *RequestUploadCredentialsInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) RequestUploadCredentialsWithContext(ctx aws.Context, input *RequestUploadCredentialsInput, opts ...request.Option) (*RequestUploadCredentialsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).RequestUploadCredentials")
+	defer span.End()
+
 	req, out := c.RequestUploadCredentialsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6188,6 +6333,9 @@ func (c *GameLift) ResolveAlias(input *ResolveAliasInput) (*ResolveAliasOutput, 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) ResolveAliasWithContext(ctx aws.Context, input *ResolveAliasInput, opts ...request.Option) (*ResolveAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).ResolveAlias")
+	defer span.End()
+
 	req, out := c.ResolveAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6357,6 +6505,9 @@ func (c *GameLift) SearchGameSessions(input *SearchGameSessionsInput) (*SearchGa
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) SearchGameSessionsWithContext(ctx aws.Context, input *SearchGameSessionsInput, opts ...request.Option) (*SearchGameSessionsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).SearchGameSessions")
+	defer span.End()
+
 	req, out := c.SearchGameSessionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6511,6 +6662,9 @@ func (c *GameLift) StartGameSessionPlacement(input *StartGameSessionPlacementInp
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) StartGameSessionPlacementWithContext(ctx aws.Context, input *StartGameSessionPlacementInput, opts ...request.Option) (*StartGameSessionPlacementOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).StartGameSessionPlacement")
+	defer span.End()
+
 	req, out := c.StartGameSessionPlacementRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6639,6 +6793,9 @@ func (c *GameLift) StartMatchBackfill(input *StartMatchBackfillInput) (*StartMat
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) StartMatchBackfillWithContext(ctx aws.Context, input *StartMatchBackfillInput, opts ...request.Option) (*StartMatchBackfillOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).StartMatchBackfill")
+	defer span.End()
+
 	req, out := c.StartMatchBackfillRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6803,6 +6960,9 @@ func (c *GameLift) StartMatchmaking(input *StartMatchmakingInput) (*StartMatchma
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) StartMatchmakingWithContext(ctx aws.Context, input *StartMatchmakingInput, opts ...request.Option) (*StartMatchmakingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).StartMatchmaking")
+	defer span.End()
+
 	req, out := c.StartMatchmakingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -6919,6 +7079,9 @@ func (c *GameLift) StopGameSessionPlacement(input *StopGameSessionPlacementInput
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) StopGameSessionPlacementWithContext(ctx aws.Context, input *StopGameSessionPlacementInput, opts ...request.Option) (*StopGameSessionPlacementOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).StopGameSessionPlacement")
+	defer span.End()
+
 	req, out := c.StopGameSessionPlacementRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7025,6 +7188,9 @@ func (c *GameLift) StopMatchmaking(input *StopMatchmakingInput) (*StopMatchmakin
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) StopMatchmakingWithContext(ctx aws.Context, input *StopMatchmakingInput, opts ...request.Option) (*StopMatchmakingOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).StopMatchmaking")
+	defer span.End()
+
 	req, out := c.StopMatchmakingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7134,6 +7300,9 @@ func (c *GameLift) UpdateAlias(input *UpdateAliasInput) (*UpdateAliasOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) UpdateAliasWithContext(ctx aws.Context, input *UpdateAliasInput, opts ...request.Option) (*UpdateAliasOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).UpdateAlias")
+	defer span.End()
+
 	req, out := c.UpdateAliasRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7241,6 +7410,9 @@ func (c *GameLift) UpdateBuild(input *UpdateBuildInput) (*UpdateBuildOutput, err
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) UpdateBuildWithContext(ctx aws.Context, input *UpdateBuildInput, opts ...request.Option) (*UpdateBuildOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).UpdateBuild")
+	defer span.End()
+
 	req, out := c.UpdateBuildRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7393,6 +7565,9 @@ func (c *GameLift) UpdateFleetAttributes(input *UpdateFleetAttributesInput) (*Up
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) UpdateFleetAttributesWithContext(ctx aws.Context, input *UpdateFleetAttributesInput, opts ...request.Option) (*UpdateFleetAttributesOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).UpdateFleetAttributes")
+	defer span.End()
+
 	req, out := c.UpdateFleetAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7557,6 +7732,9 @@ func (c *GameLift) UpdateFleetCapacity(input *UpdateFleetCapacityInput) (*Update
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) UpdateFleetCapacityWithContext(ctx aws.Context, input *UpdateFleetCapacityInput, opts ...request.Option) (*UpdateFleetCapacityOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).UpdateFleetCapacity")
+	defer span.End()
+
 	req, out := c.UpdateFleetCapacityRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7712,6 +7890,9 @@ func (c *GameLift) UpdateFleetPortSettings(input *UpdateFleetPortSettingsInput) 
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) UpdateFleetPortSettingsWithContext(ctx aws.Context, input *UpdateFleetPortSettingsInput, opts ...request.Option) (*UpdateFleetPortSettingsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).UpdateFleetPortSettings")
+	defer span.End()
+
 	req, out := c.UpdateFleetPortSettingsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7842,6 +8023,9 @@ func (c *GameLift) UpdateGameSession(input *UpdateGameSessionInput) (*UpdateGame
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) UpdateGameSessionWithContext(ctx aws.Context, input *UpdateGameSessionInput, opts ...request.Option) (*UpdateGameSessionOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).UpdateGameSession")
+	defer span.End()
+
 	req, out := c.UpdateGameSessionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -7947,6 +8131,9 @@ func (c *GameLift) UpdateGameSessionQueue(input *UpdateGameSessionQueueInput) (*
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) UpdateGameSessionQueueWithContext(ctx aws.Context, input *UpdateGameSessionQueueInput, opts ...request.Option) (*UpdateGameSessionQueueOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).UpdateGameSessionQueue")
+	defer span.End()
+
 	req, out := c.UpdateGameSessionQueueRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8056,6 +8243,9 @@ func (c *GameLift) UpdateMatchmakingConfiguration(input *UpdateMatchmakingConfig
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) UpdateMatchmakingConfigurationWithContext(ctx aws.Context, input *UpdateMatchmakingConfigurationInput, opts ...request.Option) (*UpdateMatchmakingConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).UpdateMatchmakingConfiguration")
+	defer span.End()
+
 	req, out := c.UpdateMatchmakingConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8212,6 +8402,9 @@ func (c *GameLift) UpdateRuntimeConfiguration(input *UpdateRuntimeConfigurationI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) UpdateRuntimeConfigurationWithContext(ctx aws.Context, input *UpdateRuntimeConfigurationInput, opts ...request.Option) (*UpdateRuntimeConfigurationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).UpdateRuntimeConfiguration")
+	defer span.End()
+
 	req, out := c.UpdateRuntimeConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -8318,6 +8511,9 @@ func (c *GameLift) ValidateMatchmakingRuleSet(input *ValidateMatchmakingRuleSetI
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *GameLift) ValidateMatchmakingRuleSetWithContext(ctx aws.Context, input *ValidateMatchmakingRuleSetInput, opts ...request.Option) (*ValidateMatchmakingRuleSetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/gamelift.(*GameLift).ValidateMatchmakingRuleSet")
+	defer span.End()
+
 	req, out := c.ValidateMatchmakingRuleSetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"go.opencensus.io/trace"
 )
 
 const opCreateBudget = "CreateBudget"
@@ -92,6 +93,9 @@ func (c *Budgets) CreateBudget(input *CreateBudgetInput) (*CreateBudgetOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Budgets) CreateBudgetWithContext(ctx aws.Context, input *CreateBudgetInput, opts ...request.Option) (*CreateBudgetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/budgets.(*Budgets).CreateBudget")
+	defer span.End()
+
 	req, out := c.CreateBudgetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -183,6 +187,9 @@ func (c *Budgets) CreateNotification(input *CreateNotificationInput) (*CreateNot
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Budgets) CreateNotificationWithContext(ctx aws.Context, input *CreateNotificationInput, opts ...request.Option) (*CreateNotificationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/budgets.(*Budgets).CreateNotification")
+	defer span.End()
+
 	req, out := c.CreateNotificationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -274,6 +281,9 @@ func (c *Budgets) CreateSubscriber(input *CreateSubscriberInput) (*CreateSubscri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Budgets) CreateSubscriberWithContext(ctx aws.Context, input *CreateSubscriberInput, opts ...request.Option) (*CreateSubscriberOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/budgets.(*Budgets).CreateSubscriber")
+	defer span.End()
+
 	req, out := c.CreateSubscriberRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -361,6 +371,9 @@ func (c *Budgets) DeleteBudget(input *DeleteBudgetInput) (*DeleteBudgetOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Budgets) DeleteBudgetWithContext(ctx aws.Context, input *DeleteBudgetInput, opts ...request.Option) (*DeleteBudgetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/budgets.(*Budgets).DeleteBudget")
+	defer span.End()
+
 	req, out := c.DeleteBudgetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -448,6 +461,9 @@ func (c *Budgets) DeleteNotification(input *DeleteNotificationInput) (*DeleteNot
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Budgets) DeleteNotificationWithContext(ctx aws.Context, input *DeleteNotificationInput, opts ...request.Option) (*DeleteNotificationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/budgets.(*Budgets).DeleteNotification")
+	defer span.End()
+
 	req, out := c.DeleteNotificationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -534,6 +550,9 @@ func (c *Budgets) DeleteSubscriber(input *DeleteSubscriberInput) (*DeleteSubscri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Budgets) DeleteSubscriberWithContext(ctx aws.Context, input *DeleteSubscriberInput, opts ...request.Option) (*DeleteSubscriberOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/budgets.(*Budgets).DeleteSubscriber")
+	defer span.End()
+
 	req, out := c.DeleteSubscriberRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -618,6 +637,9 @@ func (c *Budgets) DescribeBudget(input *DescribeBudgetInput) (*DescribeBudgetOut
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Budgets) DescribeBudgetWithContext(ctx aws.Context, input *DescribeBudgetInput, opts ...request.Option) (*DescribeBudgetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/budgets.(*Budgets).DescribeBudget")
+	defer span.End()
+
 	req, out := c.DescribeBudgetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -708,6 +730,9 @@ func (c *Budgets) DescribeBudgets(input *DescribeBudgetsInput) (*DescribeBudgets
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Budgets) DescribeBudgetsWithContext(ctx aws.Context, input *DescribeBudgetsInput, opts ...request.Option) (*DescribeBudgetsOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/budgets.(*Budgets).DescribeBudgets")
+	defer span.End()
+
 	req, out := c.DescribeBudgetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -798,6 +823,9 @@ func (c *Budgets) DescribeNotificationsForBudget(input *DescribeNotificationsFor
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Budgets) DescribeNotificationsForBudgetWithContext(ctx aws.Context, input *DescribeNotificationsForBudgetInput, opts ...request.Option) (*DescribeNotificationsForBudgetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/budgets.(*Budgets).DescribeNotificationsForBudget")
+	defer span.End()
+
 	req, out := c.DescribeNotificationsForBudgetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -888,6 +916,9 @@ func (c *Budgets) DescribeSubscribersForNotification(input *DescribeSubscribersF
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Budgets) DescribeSubscribersForNotificationWithContext(ctx aws.Context, input *DescribeSubscribersForNotificationInput, opts ...request.Option) (*DescribeSubscribersForNotificationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/budgets.(*Budgets).DescribeSubscribersForNotification")
+	defer span.End()
+
 	req, out := c.DescribeSubscribersForNotificationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -974,6 +1005,9 @@ func (c *Budgets) UpdateBudget(input *UpdateBudgetInput) (*UpdateBudgetOutput, e
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Budgets) UpdateBudgetWithContext(ctx aws.Context, input *UpdateBudgetInput, opts ...request.Option) (*UpdateBudgetOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/budgets.(*Budgets).UpdateBudget")
+	defer span.End()
+
 	req, out := c.UpdateBudgetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1061,6 +1095,9 @@ func (c *Budgets) UpdateNotification(input *UpdateNotificationInput) (*UpdateNot
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Budgets) UpdateNotificationWithContext(ctx aws.Context, input *UpdateNotificationInput, opts ...request.Option) (*UpdateNotificationOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/budgets.(*Budgets).UpdateNotification")
+	defer span.End()
+
 	req, out := c.UpdateNotificationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -1148,6 +1185,9 @@ func (c *Budgets) UpdateSubscriber(input *UpdateSubscriberInput) (*UpdateSubscri
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *Budgets) UpdateSubscriberWithContext(ctx aws.Context, input *UpdateSubscriberInput, opts ...request.Option) (*UpdateSubscriberOutput, error) {
+	ctx, span := trace.StartSpan(ctx, "aws/budgets.(*Budgets).UpdateSubscriber")
+	defer span.End()
+
 	req, out := c.UpdateSubscriberRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
